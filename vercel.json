@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "ai-agent-daily",
   "builds": [
     {
       "src": "*.html",
