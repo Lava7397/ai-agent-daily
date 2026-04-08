@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "name": "ai-agent-daily",
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "archives/*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/archives/(.*)", "dest": "/archives/$1" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}

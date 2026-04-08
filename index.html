@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="AI Agent 日报 2026-04-08 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
+<meta property="og:title" content="AI Agent 日报 — 2026-04-08">
+<meta property="og:description" content="今日 10 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<title>AI Agent 日报 — 2026-04-08</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Segoe UI', Roboto, sans-serif;
+  background: #0a0a1a;
+  color: #e0e0e0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 40%, #2a5298 100%);
+  padding: 48px 20px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at 30% 70%, rgba(99,179,237,0.08) 0%, transparent 50%);
+  animation: pulse 8s ease-in-out infinite;
+}
+@keyframes pulse { 50% { transform: scale(1.1); } }
+.hero h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+.hero .date {
+  color: #7eb8e8;
+  font-size: 14px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+.hero .stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+.hero .stat {
+  text-align: center;
+}
+.hero .stat-num {
+  font-size: 24px;
+  font-weight: 700;
+  color: #63b3ed;
+}
+.hero .stat-label {
+  font-size: 11px;
+  color: #7eb8e8;
+  margin-top: 2px;
+}
+
+/* Container */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Section */
+.section {
+  margin-top: 28px;
+}
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #a0c4ff;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(160,196,255,0.15);
+  margin-bottom: 16px;
+}
+
+/* Card */
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 14px;
+  transition: background 0.2s, transform 0.15s;
+}
+.card:active {
+  transform: scale(0.98);
+  background: rgba(255,255,255,0.07);
+}
+.card-title {
+  color: #e2e8f0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  display: block;
+}
+.card-title:hover {
+  color: #63b3ed;
+}
+.card-summary {
+  color: #a0aec0;
+  font-size: 13px;
+  line-height: 1.75;
+  margin-top: 8px;
+}
+.tag {
+  display: inline-block;
+  background: rgba(99,179,237,0.12);
+  color: #63b3ed;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+  margin-right: 6px;
+}
+
+/* Share Bar */
+.share-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(13,27,42,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 100;
+}
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #e0e0e0;
+  padding: 10px 18px;
+  border-radius: 24px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.share-btn:hover {
+  background: rgba(255,255,255,0.14);
+}
+.share-btn.primary {
+  background: linear-gradient(135deg, #07c160, #06ad56);
+  border-color: transparent;
+  color: #fff;
+  font-weight: 600;
+}
+.share-btn .icon { font-size: 16px; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 32px 20px 90px;
+  color: #4a5568;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.footer a {
+  color: #63b3ed;
+  text-decoration: none;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 14px;
+  z-index: 200;
+  opacity: 0;
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* WeChat Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 300;
+  justify-content: center;
+  align-items: center;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 300px;
+  width: 90%;
+}
+.modal h3 {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+.modal .qr-placeholder {
+  width: 180px;
+  height: 180px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 13px;
+}
+.modal .close-btn {
+  background: #f0f0f0;
+  border: none;
+  padding: 10px 32px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>AI Agent 日报</h1>
+  <p class="date">2026-04-08 · 每日精选</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">10</div>
+      <div class="stat-label">条资讯</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">个板块</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label">个来源</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="container">
+  
+    <section class="section">
+      <h2 class="section-title">🤖 AI Agent 研究</h2>
+      
+    <div class="card">
+      <a href="https://arxiv.org/abs/2604.05969" target="_blank" class="card-title">MCPSHIELD: MCP-based AI Agent 形式化安全框架</a>
+      <p class="card-summary">本文提出 MCPSHIELD，一个针对基于 MCP 协议的 AI Agent 的综合形式化安全框架。包含 7 类威胁、23 种攻击向量，覆盖 4 个攻击面，并对 12 种现有防御机制进行系统评估。研究发现现有单一防御最多仅覆盖 34% 的威胁，而 MCPSHIELD 集成架构理论覆盖率达 91%。</p>
+      <span class="tag">arXiv</span> <span class="tag">安全</span>
+    </div>
+
+    <div class="card">
+      <a href="https://arxiv.org/abs/2604.05854" target="_blank" class="card-title">Deep Researcher Agent: 自主 24/7 深度学习实验框架</a>
+      <p class="card-summary">开源框架 Deep Researcher Agent 能让 LLM Agent 全天候自主进行深度学习实验，覆盖假设形成、代码实现、训练执行、结果分析和迭代优化全流程。引入零成本监控、两级常量内存架构，在 30+ 天部署中完成 500+ 实验循环，平均成本仅 $0.08/天。</p>
+      <span class="tag">arXiv</span> <span class="tag">Agent</span>
+    </div>
+
+    <div class="card">
+      <a href="https://arxiv.org/abs/2604.06091" target="_blank" class="card-title">多 Agent 系统中的社会从众效应研究</a>
+      <p class="card-summary">该研究从社会心理学角度调查了 LLM Agent 在多 Agent 环境中作为人类代表时的可靠性问题。实验表明随着社会压力增加，代表 Agent 的准确率持续下降，揭示了多 Agent 系统中关键的社会动力学漏洞。</p>
+      <span class="tag">arXiv</span> <span class="tag">ACL 2026</span>
+    </div>
+
+    <div class="card">
+      <a href="https://arxiv.org/abs/2604.05987" target="_blank" class="card-title">Flowr: Agentic AI 驱动零售供应链自动化</a>
+      <p class="card-summary">论文介绍了 Flowr 框架，通过将供应链操作分解为专门的 AI Agent 并由中心推理 LLM 协调，实现端到端零售供应链自动化。采用基于 MCP 的人机协作编排模型，已在大型超市验证。</p>
+      <span class="tag">arXiv</span> <span class="tag">应用</span>
+    </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">⭐ GitHub 热门项目</h2>
+      
+    <div class="card">
+      <a href="https://github.com/NVIDIA/personaplex" target="_blank" class="card-title">NVIDIA/personaplex</a>
+      <p class="card-summary">NVIDIA 开源的 PersonaPlex 项目，专注于个性化 AI 交互。在 GitHub 日榜迅速攀升，展示了 NVIDIA 在 AI Agent 个性化和用户建模方面的前沿探索。</p>
+      <span class="tag">Python</span> <span class="tag">⭐ 8,215</span>
+    </div>
+
+    <div class="card">
+      <a href="https://github.com/virattt/ai-hedge-fund" target="_blank" class="card-title">virattt/ai-hedge-fund</a>
+      <p class="card-summary">AI 对冲基金团队项目，利用多 Agent 架构模拟金融投资决策。包含分析师 Agent、交易策略 Agent 等协作角色，是 AI Agent 在金融领域的热门开源参考实现，持续登上趋势榜。</p>
+      <span class="tag">Python</span> <span class="tag">⭐ 50,441</span>
+    </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">🚀 模型大厂动态</h2>
+      
+    <div class="card">
+      <a href="https://www.anthropic.com/glasswing" target="_blank" class="card-title">Anthropic 发布 Project Glasswing: 为 AI 时代保护关键软件</a>
+      <p class="card-summary">Anthropic 推出 Project Glasswing 项目，旨在为 AI 时代的关键软件提供安全保障。登上 Hacker News 热榜，引发技术社区关于 AI 系统安全边界的广泛讨论。</p>
+      <span class="tag">Anthropic</span> <span class="tag">2026-04-08</span>
+    </div>
+
+    <div class="card">
+      <a href="https://deepmind.google/blog/" target="_blank" class="card-title">Google DeepMind 发布 Gemma 4: 最强开源模型</a>
+      <p class="card-summary">Google DeepMind 宣布 Gemma 4，号称"字节对字节最强大的开源模型"。同时发布的还有 Gemini 3.1 Flash Live 和 Project Genie，展示了 Google 在开源模型和多模态 AI 上的持续发力。</p>
+      <span class="tag">Google</span> <span class="tag">开源</span>
+    </div>
+
+    <div class="card">
+      <a href="https://z.ai/blog/glm-5.1" target="_blank" class="card-title">智谱 AI 发布 GLM-5.1: 面向长周期任务</a>
+      <p class="card-summary">智谱 AI 发布 GLM-5.1 模型，重点优化长周期任务处理能力。在 Hacker News 获得关注，标志着国产大模型在复杂 Agent 任务和长时间推理能力上的重要进展。</p>
+      <span class="tag">智谱AI</span> <span class="tag">2026-04-08</span>
+    </div>
+
+    <div class="card">
+      <a href="https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/" target="_blank" class="card-title">Anthropic 与 Google 达成算力合作，采购 Broadcom TPU</a>
+      <p class="card-summary">据 TechCrunch 报道，Anthropic 与 Google 达成大规模算力合作协议，将通过 Broadcom 采购 TPU 芯片用于模型训练。反映了 AI 模型训练对算力的巨大需求及科技巨头的深度合作趋势。</p>
+      <span class="tag">TechCrunch</span> <span class="tag">2026-04-07</span>
+    </div>
+    </section>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  数据来源：arXiv, Hacker News, GitHub Trending, Anthropic, Google DeepMind, TechCrunch<br>
+  由 Hermes Agent 自动生成 · 每日 09:00 更新
+</div>
+
+<!-- Share Bar -->
+<div class="share-bar">
+  <button class="share-btn primary" onclick="shareWechat()">
+    <span class="icon">💬</span> 微信分享
+  </button>
+  <button class="share-btn" onclick="copyLink()">
+    <span class="icon">🔗</span> 复制链接
+  </button>
+  <button class="share-btn" onclick="nativeShare()">
+    <span class="icon">📤</span> 更多分享
+  </button>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- WeChat Modal -->
+<div class="modal-overlay" id="wechatModal" onclick="closeModal(event)">
+  <div class="modal">
+    <h3>📱 微信扫码分享</h3>
+    <div class="qr-placeholder" id="qrCode">
+      部署后自动生成二维码
+    </div>
+    <p style="color:#666;font-size:12px;margin-bottom:16px;">截图或长按保存，发送给朋友</p>
+    <button class="close-btn" onclick="document.getElementById('wechatModal').classList.remove('show')">关闭</button>
+  </div>
+</div>
+
+<script>
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+function copyLink() {
+  const url = window.location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showToast('✅ 链接已复制'));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('✅ 链接已复制');
+  }
+}
+
+function shareWechat() {
+  document.getElementById('wechatModal').classList.add('show');
+}
+
+function closeModal(e) {
+  if (e.target === e.currentTarget) {
+    e.currentTarget.classList.remove('show');
+  }
+}
+
+function nativeShare() {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      text: 'AI Agent 日报 — 今日 AI 资讯精选',
+      url: window.location.href
+    }).catch(() => {});
+  } else {
+    copyLink();
+  }
+}
+</script>
+
+</body>
+</html>

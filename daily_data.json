@@ -1,0 +1,70 @@
+{
+  "date": "2026-04-08",
+  "sources": "arXiv, Hacker News, GitHub Trending, Anthropic, Google DeepMind, TechCrunch",
+  "research": [
+    {
+      "title": "MCPSHIELD: MCP-based AI Agent 形式化安全框架",
+      "summary": "本文提出 MCPSHIELD，一个针对基于 MCP 协议的 AI Agent 的综合形式化安全框架。包含 7 类威胁、23 种攻击向量，覆盖 4 个攻击面，并对 12 种现有防御机制进行系统评估。研究发现现有单一防御最多仅覆盖 34% 的威胁，而 MCPSHIELD 集成架构理论覆盖率达 91%。",
+      "url": "https://arxiv.org/abs/2604.05969",
+      "tags": ["arXiv", "安全"]
+    },
+    {
+      "title": "Deep Researcher Agent: 自主 24/7 深度学习实验框架",
+      "summary": "开源框架 Deep Researcher Agent 能让 LLM Agent 全天候自主进行深度学习实验，覆盖假设形成、代码实现、训练执行、结果分析和迭代优化全流程。引入零成本监控、两级常量内存架构，在 30+ 天部署中完成 500+ 实验循环，平均成本仅 $0.08/天。",
+      "url": "https://arxiv.org/abs/2604.05854",
+      "tags": ["arXiv", "Agent"]
+    },
+    {
+      "title": "多 Agent 系统中的社会从众效应研究",
+      "summary": "该研究从社会心理学角度调查了 LLM Agent 在多 Agent 环境中作为人类代表时的可靠性问题。实验表明随着社会压力增加，代表 Agent 的准确率持续下降，揭示了多 Agent 系统中关键的社会动力学漏洞。",
+      "url": "https://arxiv.org/abs/2604.06091",
+      "tags": ["arXiv", "ACL 2026"]
+    },
+    {
+      "title": "Flowr: Agentic AI 驱动零售供应链自动化",
+      "summary": "论文介绍了 Flowr 框架，通过将供应链操作分解为专门的 AI Agent 并由中心推理 LLM 协调，实现端到端零售供应链自动化。采用基于 MCP 的人机协作编排模型，已在大型超市验证。",
+      "url": "https://arxiv.org/abs/2604.05987",
+      "tags": ["arXiv", "应用"]
+    }
+  ],
+  "github": [
+    {
+      "title": "NVIDIA/personaplex",
+      "summary": "NVIDIA 开源的 PersonaPlex 项目，专注于个性化 AI 交互。在 GitHub 日榜迅速攀升，展示了 NVIDIA 在 AI Agent 个性化和用户建模方面的前沿探索。",
+      "url": "https://github.com/NVIDIA/personaplex",
+      "tags": ["Python", "⭐ 8,215"]
+    },
+    {
+      "title": "virattt/ai-hedge-fund",
+      "summary": "AI 对冲基金团队项目，利用多 Agent 架构模拟金融投资决策。包含分析师 Agent、交易策略 Agent 等协作角色，是 AI Agent 在金融领域的热门开源参考实现，持续登上趋势榜。",
+      "url": "https://github.com/virattt/ai-hedge-fund",
+      "tags": ["Python", "⭐ 50,441"]
+    }
+  ],
+  "models": [
+    {
+      "title": "Anthropic 发布 Project Glasswing: 为 AI 时代保护关键软件",
+      "summary": "Anthropic 推出 Project Glasswing 项目，旨在为 AI 时代的关键软件提供安全保障。登上 Hacker News 热榜，引发技术社区关于 AI 系统安全边界的广泛讨论。",
+      "url": "https://www.anthropic.com/glasswing",
+      "tags": ["Anthropic", "2026-04-08"]
+    },
+    {
+      "title": "Google DeepMind 发布 Gemma 4: 最强开源模型",
+      "summary": "Google DeepMind 宣布 Gemma 4，号称\"字节对字节最强大的开源模型\"。同时发布的还有 Gemini 3.1 Flash Live 和 Project Genie，展示了 Google 在开源模型和多模态 AI 上的持续发力。",
+      "url": "https://deepmind.google/blog/",
+      "tags": ["Google", "开源"]
+    },
+    {
+      "title": "智谱 AI 发布 GLM-5.1: 面向长周期任务",
+      "summary": "智谱 AI 发布 GLM-5.1 模型，重点优化长周期任务处理能力。在 Hacker News 获得关注，标志着国产大模型在复杂 Agent 任务和长时间推理能力上的重要进展。",
+      "url": "https://z.ai/blog/glm-5.1",
+      "tags": ["智谱AI", "2026-04-08"]
+    },
+    {
+      "title": "Anthropic 与 Google 达成算力合作，采购 Broadcom TPU",
+      "summary": "据 TechCrunch 报道，Anthropic 与 Google 达成大规模算力合作协议，将通过 Broadcom 采购 TPU 芯片用于模型训练。反映了 AI 模型训练对算力的巨大需求及科技巨头的深度合作趋势。",
+      "url": "https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/",
+      "tags": ["TechCrunch", "2026-04-07"]
+    }
+  ]
+}
