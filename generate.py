@@ -433,7 +433,7 @@ body {{
 <!-- Footer -->
 <div class="footer">
   数据来源：{safe_sources}<br>
-  由 Hermes Agent 自动生成 · 每日 09:00 更新 · 生成时间 {safe_generated_at}
+  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 {safe_generated_at}
 </div>
 
 <!-- Share Bar -->

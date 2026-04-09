@@ -1,0 +1,8 @@
+{
+  "smtp_host": "smtp.163.com",
+  "smtp_port": 465,
+  "smtp_ssl": true,
+  "sender_email": "cflava@163.com",
+  "sender_password": "JGmkVbL2sZpZGvDM",
+  "receiver_email": "cflava@163.com"
+}

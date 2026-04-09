@@ -400,7 +400,7 @@ def generate():
               fill=COLORS["date_text"], font=fonts["date"])
     footer_y += 35
 
-    gen_text = "Hermes Agent 自动生成 · 每日 09:00 更新"
+    gen_text = "Hermes Agent 自动生成 · 每日北京时间 11:30 更新"
     bbox = draw.textbbox((0, 0), gen_text, font=fonts["date"])
     gw = bbox[2] - bbox[0]
     draw.text(((WIDTH - gw) // 2, footer_y), gen_text,
