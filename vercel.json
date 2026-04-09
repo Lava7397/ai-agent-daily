@@ -8,9 +8,14 @@
     {
       "src": "archives/*.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "images/*.png",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    { "src": "/images/(.*)", "dest": "/images/$1" },
     { "src": "/archives/(.*)", "dest": "/archives/$1" },
     { "src": "/(.*)", "dest": "/$1" }
   ]

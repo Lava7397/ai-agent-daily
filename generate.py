@@ -6,6 +6,7 @@ AI Agent 日报 H5 页面生成器
 import json
 import os
 import sys
+from html import escape
 from datetime import datetime
 from pathlib import Path
 
@@ -16,7 +17,8 @@ OUTPUT_DIR = BASE_DIR / "archives"
 SECTION_META = {
     "research": {"icon": "🤖", "title": "AI Agent 研究"},
     "github":   {"icon": "⭐", "title": "GitHub 热门项目"},
-    "models":   {"icon": "🚀", "title": "模型大厂动态"},
+    "models":   {"icon": "🚀", "title": "模型与行业动态"},
+    "community": {"icon": "🔥", "title": "社区热议"},
 }
 
 
@@ -26,25 +28,29 @@ def load_data():
 
 
 def build_item_html(item):
+    safe_title = escape(item.get("title", "Untitled"))
+    safe_summary = escape(item.get("summary", ""))
+    safe_link = escape(item.get("url", "#"), quote=True)
     tags = ""
     if item.get("tags"):
         tags = " ".join(
-            f'<span class="tag">{t}</span>' for t in item["tags"]
+            f'<span class="tag">{escape(str(t))}</span>' for t in item["tags"]
         )
-    link = item.get("url", "#")
     return f"""
     <div class="card">
-      <a href="{link}" target="_blank" class="card-title">{item['title']}</a>
-      <p class="card-summary">{item['summary']}</p>
+      <a href="{safe_link}" target="_blank" rel="noopener noreferrer" class="card-title">{safe_title}</a>
+      <p class="card-summary">{safe_summary}</p>
+      <a href="{safe_link}" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       {tags}
     </div>"""
 
 
 def build_section_html(key, items):
     meta = SECTION_META[key]
+    section_id = f"section-{key}"
     cards = "\n".join(build_item_html(i) for i in items)
     return f"""
-    <section class="section">
+    <section class="section" id="{section_id}">
       <h2 class="section-title">{meta['icon']} {meta['title']}</h2>
       {cards}
     </section>"""
@@ -52,28 +58,46 @@ def build_section_html(key, items):
 
 def build_html(data):
     date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
+    safe_date = escape(date_str)
     sections = []
-    for key in ("research", "github", "models"):
+    for key in ("research", "github", "models", "community"):
         items = data.get(key, [])
         if items:
             sections.append(build_section_html(key, items))
     sections_html = "\n".join(sections)
 
     # Count total items
-    total = sum(len(data.get(k, [])) for k in ("research", "github", "models"))
+    total = sum(len(data.get(k, [])) for k in ("research", "github", "models", "community"))
     sources = data.get("sources", "arXiv, GitHub, Anthropic, Google, TechCrunch")
+    source_list = [s.strip() for s in sources.split(",") if s.strip()]
+    safe_sources = escape(sources)
+    source_count = len(source_list)
+    section_count = sum(1 for k in ("research", "github", "models", "community") if data.get(k, []))
+    generated_at = datetime.now().strftime("%Y-%m-%d %H:%M")
+    safe_generated_at = escape(generated_at)
+    nav_items = [
+        ("research", "AI Agent 研究"),
+        ("github", "GitHub 热门"),
+        ("models", "模型动态"),
+        ("community", "社区热议"),
+    ]
+    quick_nav_html = "".join(
+        f'<a class="quick-link" href="#section-{k}">{escape(v)}</a>' for k, v in nav_items if data.get(k, [])
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="AI Agent 日报 {date_str} — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta property="og:title" content="AI Agent 日报 — {date_str}">
+<meta name="description" content="AI Agent 日报 {safe_date} — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
+<meta name="theme-color" content="#0d1b2a">
+<meta property="og:title" content="AI Agent 日报 — {safe_date}">
 <meta property="og:description" content="今日 {total} 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
+<meta property="og:url" content="https://lava-agent-daily.vercel.app">
 <meta name="twitter:card" content="summary">
-<title>AI Agent 日报 — {date_str}</title>
+<title>AI Agent 日报 — {safe_date}</title>
 <style>
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 body {{
@@ -137,6 +161,29 @@ body {{
   color: #7eb8e8;
   margin-top: 2px;
 }}
+.quick-nav {{
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 12px 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}}
+.quick-link {{
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #7eb8e8;
+  background: rgba(126,184,232,0.12);
+  border: 1px solid rgba(126,184,232,0.22);
+  font-size: 12px;
+  transition: all 0.2s;
+}}
+.quick-link:hover {{
+  color: #d8ecff;
+  background: rgba(126,184,232,0.2);
+}}
 
 /* Container */
 .container {{
@@ -187,6 +234,16 @@ body {{
   font-size: 13px;
   line-height: 1.75;
   margin-top: 8px;
+}}
+.read-more {{
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #7eb8e8;
+  text-decoration: none;
+}}
+.read-more:hover {{
+  color: #b8dbff;
 }}
 .tag {{
   display: inline-block;
@@ -239,6 +296,20 @@ body {{
   font-weight: 600;
 }}
 .share-btn .icon {{ font-size: 16px; }}
+.skip-link {{
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+}}
+.skip-link:focus {{
+  left: 12px;
+  top: 12px;
+  padding: 8px 12px;
+  color: #fff;
+  background: #1b3a5c;
+  border-radius: 8px;
+}}
 
 /* Footer */
 .footer {{
@@ -310,6 +381,12 @@ body {{
   color: #999;
   font-size: 13px;
 }}
+.modal .qr-placeholder img {{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  display: block;
+}}
 .modal .close-btn {{
   background: #f0f0f0;
   border: none;
@@ -322,48 +399,53 @@ body {{
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">跳到正文</a>
 
 <!-- Hero -->
 <div class="hero">
   <h1>AI Agent 日报</h1>
-  <p class="date">{date_str} · 每日精选</p>
+  <p class="date">{safe_date} · 每日精选</p>
   <div class="stats">
     <div class="stat">
       <div class="stat-num">{total}</div>
       <div class="stat-label">条资讯</div>
     </div>
     <div class="stat">
-      <div class="stat-num">3</div>
+      <div class="stat-num">{section_count}</div>
       <div class="stat-label">个板块</div>
     </div>
     <div class="stat">
-      <div class="stat-num">{len(sources.split(','))}</div>
+      <div class="stat-num">{source_count}</div>
       <div class="stat-label">个来源</div>
     </div>
   </div>
 </div>
 
+<nav class="quick-nav" aria-label="内容导航">
+  {quick_nav_html}
+</nav>
+
 <!-- Content -->
-<div class="container">
+<main class="container" id="main-content">
   {sections_html}
-</div>
+</main>
 
 <!-- Footer -->
 <div class="footer">
-  数据来源：{sources}<br>
-  由 Hermes Agent 自动生成 · 每日 09:00 更新
+  数据来源：{safe_sources}<br>
+  由 Hermes Agent 自动生成 · 每日 09:00 更新 · 生成时间 {safe_generated_at}
 </div>
 
 <!-- Share Bar -->
 <div class="share-bar">
-  <button class="share-btn primary" onclick="shareWechat()">
+  <a href="images/{safe_date}.png" download="AI-Agent日报-{safe_date}.png" class="share-btn primary" style="text-decoration:none;">
+    <span class="icon">📸</span> 保存图片
+  </a>
+  <button class="share-btn" onclick="shareWechat()">
     <span class="icon">💬</span> 微信分享
   </button>
   <button class="share-btn" onclick="copyLink()">
     <span class="icon">🔗</span> 复制链接
-  </button>
-  <button class="share-btn" onclick="nativeShare()">
-    <span class="icon">📤</span> 更多分享
   </button>
 </div>
 
@@ -383,6 +465,8 @@ body {{
 </div>
 
 <script>
+const SHARE_URL = 'https://lava-agent-daily.vercel.app';
+
 function showToast(msg) {{
   const t = document.getElementById('toast');
   t.textContent = msg;
@@ -391,7 +475,7 @@ function showToast(msg) {{
 }}
 
 function copyLink() {{
-  const url = window.location.href;
+  const url = SHARE_URL;
   if (navigator.clipboard) {{
     navigator.clipboard.writeText(url).then(() => showToast('✅ 链接已复制'));
   }} else {{
@@ -406,7 +490,19 @@ function copyLink() {{
 }}
 
 function shareWechat() {{
-  document.getElementById('wechatModal').classList.add('show');
+  const modal = document.getElementById('wechatModal');
+  const qrCode = document.getElementById('qrCode');
+  const qrApi = 'https://api.qrserver.com/v1/create-qr-code/?size=360x360&data=' + encodeURIComponent(SHARE_URL);
+
+  qrCode.innerHTML = '<img alt="微信分享二维码" src="' + qrApi + '" />';
+  const qrImg = qrCode.querySelector('img');
+  if (qrImg) {{
+    qrImg.onerror = () => {{
+      qrCode.textContent = '二维码加载失败，请使用“复制链接”分享';
+    }};
+  }}
+
+  modal.classList.add('show');
 }}
 
 function closeModal(e) {{
@@ -420,7 +516,7 @@ function nativeShare() {{
     navigator.share({{
       title: document.title,
       text: 'AI Agent 日报 — 今日 AI 资讯精选',
-      url: window.location.href
+      url: SHARE_URL
     }}).catch(() => {{}});
   }} else {{
     copyLink();
@@ -455,7 +551,7 @@ def main():
         f.write(html)
     print(f"Generated: {archive_path}")
 
-    print(f"\nTotal items: {sum(len(data.get(k, [])) for k in ('research','github','models'))}")
+    print(f"\nTotal items: {sum(len(data.get(k, [])) for k in ('research','github','models','community'))}")
     print("Done!")
 
 
