@@ -1,72 +1,78 @@
 {
-  "date": "2026-04-09",
-  "sources": "arXiv, Hacker News, GitHub Trending, TechCrunch, Anthropic, X/Twitter, Discord",
+  "date": "2026-04-11",
+  "sources": "arXiv, Hacker News, GitHub Trending, TechCrunch, Anthropic",
   "research": [
     {
-      "title": "MegaTrain: Full Precision Training of 100B+ Parameter LLMs on a Single GPU",
-      "summary": "arXiv最新论文MegaTrain提出全新训练框架，支持在单个GPU上进行100B+参数大模型的全精度训练，在Hacker News引发热烈讨论(261分)。",
-      "url": "https://arxiv.org/abs/2604.05091",
-      "tags": ["arXiv", "2026-04-08"]
+      "title": "Act Wisely: 元认知工具使用培养AI Agent自主决策能力",
+      "summary": "arXiv最新论文提出Act Wisely框架，通过培养多模态AI Agent的元认知能力，使其更明智地判断何时使用外部工具，而非盲目调用。",
+      "url": "https://arxiv.org/abs/2604.08545",
+      "tags": ["arXiv", "2026-04-09"]
     },
     {
-      "title": "Poke: 让AI Agent像发短信一样简单",
-      "summary": "Poke通过短信界面让普通用户轻松使用AI Agent，无需复杂设置、APP或技术知识，即可完成任务自动化。获TechCrunch独家报道。",
-      "url": "https://techcrunch.com/2026/04/08/poke-makes-ai-agents-as-easy-as-sending-a-text/",
-      "tags": ["TechCrunch", "2026-04-08"]
+      "title": "ClawBench: AI Agent能否完成日常在线任务？",
+      "summary": "新基准测试ClawBench评估AI Agent处理日常在线任务的能力，涵盖邮件管理、日程安排等真实场景，揭示当前Agent在复杂任务中的短板。",
+      "url": "https://arxiv.org/abs/2604.08523",
+      "tags": ["arXiv", "2026-04-09"]
+    },
+    {
+      "title": "Linux内核正式引入AI辅助编程指南",
+      "summary": "Linus Torvalds主导的Linux内核仓库新增AI辅助编程文档，为贡献者提供使用AI编码助手的规范和建议，在HN获得367分热议。",
+      "url": "https://github.com/torvalds/linux/blob/master/Documentation/process/coding-assistants.rst",
+      "tags": ["Hacker News", "2026-04-10"]
     }
   ],
   "github": [
     {
-      "title": "atilaahmettaner/tradingview-mcp",
-      "summary": "高级TradingView MCP服务器，为AI助手提供实时加密货币和股票筛选、技术指标分析、布林带智能判断和K线形态识别。支持Claude Desktop和多种交易所。",
-      "url": "https://github.com/atilaahmettaner/tradingview-mcp",
-      "tags": ["Python", "⭐ 1331"]
-    },
-    {
-      "title": "mem0ai/mem0",
-      "summary": "为AI Agent打造的通用记忆层，支持跨会话的持久化记忆管理。获得5.2万+星标，是AI Agent基础设施的热门项目。",
-      "url": "https://github.com/mem0ai/mem0",
-      "tags": ["Python", "⭐ 52344"]
+      "title": "openclaw/openclaw",
+      "summary": "超人气开源个人AI助手OpenClaw，支持全平台运行。近期因Anthropic调整Claude定价引发社区关注，35万+星标领跑GitHub。",
+      "url": "https://github.com/openclaw/openclaw",
+      "tags": ["Python", "⭐ 354,581"]
     },
     {
       "title": "NousResearch/hermes-agent",
-      "summary": "Nous Research发布的AI Agent框架——\"与你一起成长的Agent\"，获得3.8万+星标，今日Python趋势榜热门项目。",
+      "summary": "Nous Research发布\"与你一起成长的AI Agent\"框架Hermes Agent，5.5万+星标，AI Agent领域热门项目。",
       "url": "https://github.com/NousResearch/hermes-agent",
-      "tags": ["Python", "⭐ 38032"]
+      "tags": ["Python", "⭐ 55,808"]
     },
     {
-      "title": "HKUDS/AI-Trader",
-      "summary": "100%全自动Agent原生交易系统，来自香港大学数据科学实验室，1.2万+星标。整合多种AI Agent实现完全自主的金融交易。",
-      "url": "https://github.com/HKUDS/AI-Trader",
-      "tags": ["Python", "⭐ 12686"]
+      "title": "microsoft/playwright-mcp",
+      "summary": "微软官方Playwright MCP服务器，为AI Agent提供浏览器自动化能力，3万+星标，MCP生态最热门项目之一。",
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "tags": ["TypeScript", "⭐ 30,628"]
+    },
+    {
+      "title": "CopilotKit/CopilotKit",
+      "summary": "面向AI Agent的前端全栈解决方案，支持React和Angular，提出AG-UI协议，3万+星标。让Agent原生UI成为可能。",
+      "url": "https://github.com/CopilotKit/CopilotKit",
+      "tags": ["TypeScript", "⭐ 30,142"]
     }
   ],
   "models": [
     {
-      "title": "Meta发布Muse Spark：迈向个人超级智能",
-      "summary": "Meta AI发布Muse Spark(MSL)项目，目标是构建个人超级智能。该文章在Hacker News获得268分关注，展示了Meta在AI Agent和个人化AI方面的最新方向。",
-      "url": "https://ai.meta.com/blog/introducing-muse-spark-msl/",
-      "tags": ["Meta", "2026-04-08"]
+      "title": "Anthropic发布Claude Sonnet 4.6（Project Glasswing）",
+      "summary": "Anthropic推出Claude Sonnet 4.6全面升级，强化编码、Agent规划、长推理和计算机使用能力，被视为Agent时代的重要模型更新。",
+      "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
+      "tags": ["Anthropic", "2026-04-10"]
     },
     {
-      "title": "AWS同时投资Anthropic和OpenAI：Matt Garman解释这是'可以接受的冲突'",
-      "summary": "AWS CEO Matt Garman解释为何同时向Anthropic和OpenAI各投资数十亿美元。AWS的文化是善于处理竞争关系，因为云巨头本身也与合作伙伴竞争。",
-      "url": "https://techcrunch.com/2026/04/08/aws-boss-explains-why-investing-billions-in-both-anthropic-and-openai-is-an-ok-conflict/",
-      "tags": ["AWS", "2026-04-08"]
+      "title": "ChatGPT推出$100/月Pro计划",
+      "summary": "OpenAI填补$20到$200之间的空白，新增$100/月ChatGPT Pro计划，面向重度用户和Codex开发者，满足专业需求。",
+      "url": "https://techcrunch.com/2026/04/09/chatgpt-pro-plan-100-month-codex/",
+      "tags": ["OpenAI", "2026-04-09"]
     }
   ],
   "community": [
     {
-      "title": "MegaTrain登上Hacker News热榜：单GPU训练100B参数LLM",
-      "summary": "Hacker News上关于MegaTrain论文的讨论引发261分热度，社区对单GPU全精度训练超大模型的技术突破表现出浓厚兴趣。",
-      "url": "https://news.ycombinator.com/item?id=47689174",
-      "tags": ["Hacker News", "2026-04-08"]
+      "title": "Anthropic临时封禁OpenClaw创建者的Claude访问权限",
+      "summary": "Anthropic在调整Claude对OpenClaw用户的定价后，临时封禁了OpenClaw创建者访问Claude的权限，引发AI开源社区广泛讨论。",
+      "url": "https://techcrunch.com/2026/04/10/anthropic-temporarily-banned-openclaws-creator-from-accessing-claude/",
+      "tags": ["TechCrunch", "2026-04-10"]
     },
     {
-      "title": "Atlassian在Confluence中推出可视化AI工具和第三方Agent",
-      "summary": "Atlassian为Confluence新增可视化AI内容生成，并集成Lovable、Replit和Gamma的第三方Agent，进一步推动企业级AI Agent应用落地。",
-      "url": "https://techcrunch.com/2026/04/08/atlassian-confluence-visual-ai-tools-agents/",
-      "tags": ["TechCrunch", "2026-04-08"]
+      "title": "OpenClaw创建者被禁后社区热议AI Agent开源生态",
+      "summary": "Anthropic封禁OpenClaw创建者事件在社区持续发酵，围绕AI Agent开源生态、模型提供商权利和开发者权益的辩论升温。",
+      "url": "https://github.com/openclaw/openclaw",
+      "tags": ["GitHub", "2026-04-10"]
     }
   ]
 }
