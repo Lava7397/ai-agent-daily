@@ -44,13 +44,23 @@ def send_email(subject: str, body_html: str, body_text: str = ""):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        print("Usage: send_daily_email.py <subject> <body_file>")
-        print("  body_file: path to HTML content file")
+    if len(sys.argv) < 2:
+        print("Usage: send_daily_email.py <subject> [body_file]")
+        print("  body_file: path to HTML content file (default: email.html)")
         sys.exit(1)
 
     subject = sys.argv[1]
-    body_file = sys.argv[2]
+    
+    # 如果没有指定文件，自动使用 email.html
+    if len(sys.argv) >= 3:
+        body_file = sys.argv[2]
+    else:
+        # 自动查找 email.html
+        script_dir = Path(__file__).parent.parent
+        body_file = script_dir / "email.html"
+        if not body_file.exists():
+            body_file = script_dir / "index.html"
+    
     with open(body_file) as f:
         body_html = f.read()
     send_email(subject, body_html)

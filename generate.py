@@ -101,159 +101,209 @@ def build_html(data):
 <style>
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 body {{
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Segoe UI', Roboto, sans-serif;
-  background: #0a0a1a;
-  color: #e0e0e0;
-  min-height: 100vh;
+  font-family: 'Courier New', 'SF Mono', Monaco, monospace;
+  background: #0a0a0a;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+  color: #d4c5a9;
+  min-height: 10vh;
   -webkit-font-smoothing: antialiased;
 }}
 
-/* Hero */
+/* Hero - 废土风格 */
 .hero {{
-  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 40%, #2a5298 100%);
+  background: linear-gradient(180deg, #1a1510 0%, #0d0b08 50%, #0a0a0a 100%);
   padding: 48px 20px 36px;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-bottom: 3px solid #c9a227;
+  box-shadow: 0 4px 30px rgba(201, 162, 39, 0.3);
+}}
+.hero::before {{
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a227' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
+  opacity: 0.3;
 }}
 .hero::after {{
   content: '';
   position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle at 30% 70%, rgba(99,179,237,0.08) 0%, transparent 50%);
-  animation: pulse 8s ease-in-out infinite;
+  bottom: 0; left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(0deg, #0a0a0a 0%, transparent 100%);
 }}
-@keyframes pulse {{ 50% {{ transform: scale(1.1); }} }}
 .hero h1 {{
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 800;
-  color: #fff;
-  letter-spacing: 1px;
+  color: #c9a227;
+  letter-spacing: 4px;
+  text-transform: uppercase;
   position: relative;
   z-index: 1;
+  text-shadow: 0 0 20px rgba(201, 162, 39, 0.5), 0 0 40px rgba(201, 162, 39, 0.3);
 }}
 .hero .date {{
-  color: #7eb8e8;
-  font-size: 14px;
-  margin-top: 8px;
+  color: #8b7355;
+  font-size: 13px;
+  margin-top: 12px;
   position: relative;
   z-index: 1;
+  letter-spacing: 2px;
 }}
 .hero .stats {{
   display: flex;
   justify-content: center;
-  gap: 24px;
-  margin-top: 20px;
+  gap: 32px;
+  margin-top: 24px;
   position: relative;
   z-index: 1;
 }}
 .hero .stat {{
   text-align: center;
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.5);
 }}
 .hero .stat-num {{
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
-  color: #63b3ed;
+  color: #e8d5a3;
+  font-family: 'Courier New', monospace;
 }}
 .hero .stat-label {{
-  font-size: 11px;
-  color: #7eb8e8;
-  margin-top: 2px;
+  font-size: 10px;
+  color: #8b7355;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }}
+
 .quick-nav {{
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 12px 16px 0;
+  padding: 16px 16px 0;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }}
 .quick-link {{
   display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
+  padding: 8px 14px;
   text-decoration: none;
-  color: #7eb8e8;
-  background: rgba(126,184,232,0.12);
-  border: 1px solid rgba(126,184,232,0.22);
-  font-size: 12px;
-  transition: all 0.2s;
+  color: #c9a227;
+  background: transparent;
+  border: 1px solid #c9a227;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
 }}
 .quick-link:hover {{
-  color: #d8ecff;
-  background: rgba(126,184,232,0.2);
+  color: #0a0a0a;
+  background: #c9a227;
+  box-shadow: 0 0 15px rgba(201, 162, 39, 0.5);
 }}
 
 /* Container */
 .container {{
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 16px 100px;
 }}
 
 /* Section */
 .section {{
-  margin-top: 28px;
+  margin-top: 32px;
 }}
 .section-title {{
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 700;
-  color: #a0c4ff;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(160,196,255,0.15);
-  margin-bottom: 16px;
+  color: #c9a227;
+  padding: 12px 16px;
+  background: linear-gradient(90deg, rgba(201, 162, 39, 0.15) 0%, transparent 100%);
+  border-left: 4px solid #c9a227;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Courier New', monospace;
 }}
 
-/* Card */
+/* Card - 废土风格 */
 .card {{
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 12px;
-  padding: 18px;
-  margin-bottom: 14px;
-  transition: background 0.2s, transform 0.15s;
+  background: rgba(26, 21, 16, 0.8);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-left: 3px solid #8b7355;
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+  position: relative;
 }}
-.card:active {{
-  transform: scale(0.98);
-  background: rgba(255,255,255,0.07);
+.card::before {{
+  content: '▸';
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  color: #c9a227;
+  font-size: 12px;
+}}
+.card:hover {{
+  border-left-color: #c9a227;
+  background: rgba(201, 162, 39, 0.05);
+  transform: translateX(4px);
+  box-shadow: -4px 0 20px rgba(201, 162, 39, 0.2);
 }}
 .card-title {{
-  color: #e2e8f0;
+  color: #e8d5a3;
   font-size: 15px;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.6;
   text-decoration: none;
   display: block;
+  font-family: 'Courier New', monospace;
 }}
 .card-title:hover {{
-  color: #63b3ed;
+  color: #c9a227;
+  text-shadow: 0 0 10px rgba(201, 162, 39, 0.5);
 }}
 .card-summary {{
-  color: #a0aec0;
+  color: #9a8b70;
   font-size: 13px;
-  line-height: 1.75;
-  margin-top: 8px;
+  line-height: 1.8;
+  margin-top: 12px;
+  border-top: 1px dashed rgba(139, 115, 85, 0.3);
+  padding-top: 12px;
 }}
 .read-more {{
   display: inline-block;
-  margin-top: 8px;
-  font-size: 12px;
-  color: #7eb8e8;
+  margin-top: 12px;
+  font-size: 11px;
+  color: #c9a227;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #c9a227;
+  padding: 6px 12px;
+  transition: all 0.3s;
 }}
 .read-more:hover {{
-  color: #b8dbff;
+  background: #c9a227;
+  color: #0a0a0a;
 }}
 .tag {{
   display: inline-block;
-  background: rgba(99,179,237,0.12);
-  color: #63b3ed;
-  font-size: 11px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-top: 8px;
-  margin-right: 6px;
+  background: rgba(201, 162, 39, 0.1);
+  color: #c9a227;
+  font-size: 10px;
+  padding: 4px 10px;
+  margin-top: 12px;
+  margin-right: 8px;
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }}
 
 /* Share Bar */
@@ -262,139 +312,150 @@ body {{
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(13,27,42,0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 12px 20px;
+  background: rgba(10, 10, 10, 0.98);
+  border-top: 2px solid #c9a227;
+  padding: 14px 20px;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
   z-index: 100;
+  box-shadow: 0 -4px 30px rgba(201, 162, 39, 0.2);
 }}
 .share-btn {{
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: #e0e0e0;
-  padding: 10px 18px;
-  border-radius: 24px;
-  font-size: 13px;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid #8b7355;
+  color: #d4c5a9;
+  padding: 12px 20px;
+  font-size: 12px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s;
   -webkit-tap-highlight-color: transparent;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }}
 .share-btn:hover {{
-  background: rgba(255,255,255,0.14);
+  border-color: #c9a227;
+  color: #c9a227;
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
 }}
 .share-btn.primary {{
-  background: linear-gradient(135deg, #07c160, #06ad56);
-  border-color: transparent;
-  color: #fff;
-  font-weight: 600;
+  background: #c9a227;
+  border-color: #c9a227;
+  color: #0a0a0a;
+  font-weight: 700;
+}}
+.share-btn.primary:hover {{
+  background: #e8d5a3;
+  box-shadow: 0 0 30px rgba(201, 162, 39, 0.6);
 }}
 .share-btn .icon {{ font-size: 16px; }}
+
 .skip-link {{
   position: absolute;
-  left: -9999px;
-  top: 0;
+  top: -40px;
+  left: 0;
+  background: #c9a227;
+  color: #0a0a0a;
+  padding: 8px 16px;
   z-index: 1000;
+  font-family: 'Courier New', monospace;
 }}
-.skip-link:focus {{
-  left: 12px;
-  top: 12px;
-  padding: 8px 12px;
-  color: #fff;
-  background: #1b3a5c;
-  border-radius: 8px;
-}}
+.skip-link:focus {{ top: 0; }}
 
 /* Footer */
 .footer {{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
   text-align: center;
-  padding: 32px 20px 90px;
-  color: #4a5568;
-  font-size: 12px;
-  line-height: 1.8;
-}}
-.footer a {{
-  color: #63b3ed;
-  text-decoration: none;
+  color: #5a4d3a;
+  font-size: 11px;
+  border-top: 1px solid rgba(139, 115, 85, 0.2);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }}
 
 /* Toast */
 .toast {{
   position: fixed;
-  top: 50%;
+  bottom: 100px;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  background: rgba(0,0,0,0.85);
-  color: #fff;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-size: 14px;
-  z-index: 200;
+  transform: translateX(-50%) translateY(20px);
+  background: #c9a227;
+  color: #0a0a0a;
+  padding: 12px 24px;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 600;
   opacity: 0;
-  transition: all 0.25s ease;
-  pointer-events: none;
+  transition: all 0.3s;
+  z-index: 200;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 4px 20px rgba(201, 162, 39, 0.5);
 }}
 .toast.show {{
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translateX(-50%) translateY(0);
 }}
 
-/* WeChat Modal */
+/* Modal */
 .modal-overlay {{
-  display: none;
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  z-index: 300;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
   justify-content: center;
   align-items: center;
+  z-index: 300;
 }}
 .modal-overlay.show {{ display: flex; }}
 .modal {{
-  background: #fff;
-  border-radius: 16px;
-  padding: 32px 24px;
-  text-align: center;
-  max-width: 300px;
+  background: #1a1510;
+  border: 2px solid #c9a227;
+  padding: 32px;
+  max-width: 320px;
   width: 90%;
+  text-align: center;
 }}
 .modal h3 {{
-  color: #333;
-  font-size: 16px;
-  margin-bottom: 16px;
+  color: #c9a227;
+  margin-bottom: 20px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }}
-.modal .qr-placeholder {{
-  width: 180px;
-  height: 180px;
-  background: #f5f5f5;
-  border-radius: 8px;
-  margin: 0 auto 16px;
+.qr-placeholder {{
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  background: rgba(201, 162, 39, 0.1);
+  border: 1px dashed #c9a227;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
-  font-size: 13px;
+  color: #8b7355;
+  font-size: 12px;
 }}
-.modal .qr-placeholder img {{
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  display: block;
-}}
-.modal .close-btn {{
-  background: #f0f0f0;
-  border: none;
-  padding: 10px 32px;
-  border-radius: 20px;
-  font-size: 14px;
-  color: #333;
+.qr-placeholder img {{ max-width: 100%; }}
+.close-btn {{
+  background: transparent;
+  border: 1px solid #c9a227;
+  color: #c9a227;
+  padding: 10px 24px;
   cursor: pointer;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}}
+.close-btn:hover {{
+  background: #c9a227;
+  color: #0a0a0a;
 }}
 </style>
 </head>
@@ -518,6 +579,33 @@ function nativeShare() {{\n  if (navigator.share) {{\n    navigator.share({{\n  
 </html>"""
 
 
+
+def build_email_html(data):
+    """生成邮件专用 HTML，使用绝对 URL"""
+    html = build_html(data)
+    
+    # 将相对图片路径替换为绝对 URL
+    base_url = "https://ai-agent-daily-phi.vercel.app"
+    date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
+    
+    # 替换图片 URL
+    html = html.replace(f'images/{date_str}.png', f'{base_url}/images/{date_str}.png')
+    
+    # 添加邮件特定的样式修复
+    email_styles = """
+<style>
+  /* 邮件客户端兼容性修复 */
+  body { margin: 0 !important; padding: 0 !important; }
+  .share-bar { position: relative !important; margin-top: 30px; }
+  .card { page-break-inside: avoid; }
+  img { max-width: 100%; height: auto; }
+</style>
+"""
+    html = html.replace('</head>', email_styles + '</head>')
+    
+    return html
+
+
 def main():
     if not DATA_FILE.exists():
         print(f"ERROR: {DATA_FILE} not found. Please create daily_data.json first.")
@@ -527,6 +615,7 @@ def main():
     date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
 
     html = build_html(data)
+    email_html = build_email_html(data)
 
     # Write index.html (latest)
     index_path = BASE_DIR / "index.html"
@@ -540,6 +629,12 @@ def main():
     with open(archive_path, "w") as f:
         f.write(html)
     print(f"Generated: {archive_path}")
+
+    # Write email version
+    email_path = BASE_DIR / "email.html"
+    with open(email_path, "w") as f:
+        f.write(email_html)
+    print(f"Generated: {email_path}")
 
     print(f"\nTotal items: {sum(len(data.get(k, [])) for k in ('research','github','models','community'))}")
     print("Done!")

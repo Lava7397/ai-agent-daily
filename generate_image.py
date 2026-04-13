@@ -13,29 +13,29 @@ BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "daily_data.json"
 OUTPUT_DIR = BASE_DIR / "images"
 
-# --- 宫崎骏中性色调 (Ghibli-inspired neutral palette) ---
+# --- 莫比斯废土科幻色调 (Moebius Wasteland Palette) ---
 COLORS = {
-    "bg_top":       (248, 245, 235),   # 暖白（天空留白）
-    "bg_bottom":    (225, 232, 220),   # 淡草绿（吉卜力大地）
-    "card":         (255, 253, 248),   # 暖白卡片
-    "card_border":  (210, 205, 190),   # 温暖灰边框
-    "card_shadow":  (230, 225, 215),   # 柔和阴影
-    "header":       (75, 85, 70),      # 深草绿标题
-    "section_text": (90, 85, 75),      # 暗褐板块标题
-    "title":        (55, 50, 45),      # 正文标题
-    "summary":      (110, 105, 95),    # 摘要文字
-    "tag_bg":       (235, 240, 225),   # 标签背景（淡绿）
-    "tag_text":     (100, 120, 80),    # 标签文字（草绿）
-    "watermark":    (170, 165, 155),   # 水印
-    "date_text":    (140, 135, 125),   # 日期
-    "divider":      (225, 220, 210),   # 分隔线
-    "accent1":      (180, 150, 110),   # 暖棕（研究）
-    "accent2":      (100, 140, 120),   # 森林绿（GitHub）
-    "accent3":      (140, 130, 170),   # 薰衣草紫（模型）
-    "accent4":      (190, 140, 100),   # 琥珀色（社区）
-    "ghibli_cloud": (255, 252, 245),   # 云朵白
-    "ghibli_leaf":  (120, 155, 90),    # 叶子绿
-    "ghibli_tuft":  (200, 195, 180),   # 草丛色
+    "bg_top":       (10, 10, 10),         # 纯黑背景
+    "bg_bottom":    (15, 12, 8),          # 深棕黑
+    "card":         (26, 21, 16),         # 废土棕卡片
+    "card_border":  (139, 115, 85),       # 土黄边框
+    "card_shadow":  (201, 162, 39),       # 金色阴影
+    "header":       (201, 162, 39),       # 金色标题
+    "section_text": (201, 162, 39),       # 金色板块标题
+    "title":        (232, 213, 163),      # 暖金标题
+    "summary":      (154, 139, 112),      # 土黄摘要
+    "tag_bg":       (201, 162, 39),       # 金色标签背景
+    "tag_text":     (10, 10, 10),         # 黑色标签文字
+    "watermark":    (90, 75, 50),         # 暗金水印
+    "date_text":    (139, 115, 85),       # 土黄日期
+    "divider":      (201, 162, 39),       # 金线分隔
+    "accent1":      (201, 162, 39),       # 金色（研究）
+    "accent2":      (201, 162, 39),       # 金色（GitHub）
+    "accent3":      (201, 162, 39),       # 金色（模型）
+    "accent4":      (201, 162, 39),       # 金色（社区）
+    "moebius_line": (201, 162, 39),       # 莫比斯线条
+    "moebius_dark": (26, 21, 16),         # 深色区域
+    "moebius_glow": (232, 213, 163),      # 发光效果
 }
 
 SECTION_META = {
@@ -118,83 +118,68 @@ def draw_rounded_rect(draw, xy, radius, fill, outline=None, width=1):
 
 # ====== 宫崎骏风格装饰元素 ======
 
-def draw_ghibli_cloud(draw, cx, cy, size=40, color=None):
-    """绘制吉卜力风格的棉花糖云朵"""
+def draw_moebius_line(draw, x, y, size=20, angle=0, color=None):
+    """绘制莫比斯风格的线条"""
     if color is None:
-        color = COLORS["ghibli_cloud"]
-    # 主体椭圆
-    draw.ellipse([cx - size, cy - size * 0.5, cx + size, cy + size * 0.5], fill=color)
-    # 左侧小圆
-    draw.ellipse([cx - size * 0.7, cy - size * 0.8, cx - size * 0.1, cy - size * 0.1], fill=color)
-    # 右侧小圆
-    draw.ellipse([cx + size * 0.1, cy - size * 0.7, cx + size * 0.7, cy], fill=color)
-    # 顶部小圆
-    draw.ellipse([cx - size * 0.3, cy - size * 0.9, cx + size * 0.3, cy - size * 0.3], fill=color)
+        color = COLORS["moebius_line"]
+    import math
+    end_x = x + size * math.cos(math.radians(angle))
+    end_y = y + size * math.sin(math.radians(angle))
+    draw.line([(x, y), (end_x, end_y)], fill=color, width=2)
+    draw.ellipse([end_x-3, end_y-3, end_x+3, end_y+3], fill=color)
 
 
-def draw_ghibli_leaf(draw, x, y, size=15, angle=0, color=None):
-    """绘制吉卜力风格的小叶子"""
+def draw_moebius_pattern(draw, cx, cy, size=40, color=None):
+    """绘制莫比斯风格的几何图案"""
     if color is None:
-        color = COLORS["ghibli_leaf"]
-    # 简化的叶子形状（两个椭圆拼接）
-    rad = math.radians(angle)
-    for i in range(3):
-        lx = x + int(i * size * 0.5 * math.cos(rad))
-        ly = y + int(i * size * 0.5 * math.sin(rad))
-        s = size - i * 2
-        if s > 2:
-            draw.ellipse([lx - s, ly - s // 2, lx + s, ly + s // 2], fill=color)
+        color = COLORS["moebius_line"]
+    # 绘制菱形图案
+    points = [(cx, cy-size), (cx+size, cy), (cx, cy+size), (cx-size, cy)]
+    draw.polygon(points, outline=color, width=2)
+    # 内部菱形
+    inner_size = size * 0.5
+    inner_points = [(cx, cy-inner_size), (cx+inner_size, cy), (cx, cy+inner_size), (cx-inner_size, cy)]
+    draw.polygon(inner_points, outline=color, width=1)
 
 
-def draw_ghibli_grass_tuft(draw, x, y, width=60, color=None):
-    """绘制吉卜力风格的小草丛"""
+def draw_moebius_dots(draw, x, y, count=3, color=None):
+    """绘制莫比斯风格的点阵"""
     if color is None:
-        color = COLORS["ghibli_tuft"]
-    for i in range(5):
-        gx = x + i * (width // 5)
-        gh = 8 + (i % 3) * 5
-        draw.line([(gx, y), (gx - 2, y - gh)], fill=color, width=2)
-        draw.line([(gx + 3, y), (gx + 5, y - gh + 2)], fill=COLORS["ghibli_leaf"], width=2)
+        color = COLORS["moebius_line"]
+    for i in range(count):
+        dot_x = x + i * 15
+        dot_y = y
+        draw.ellipse([dot_x-4, dot_y-4, dot_x+4, dot_y+4], fill=color)
 
 
-def draw_ghibli_corner_decoration(draw, img_w, img_h, position="top-left"):
-    """在边角绘制宫崎骏风格装饰（云朵 + 叶子 + 草丛）"""
-    if position == "top-left":
-        # 左上角：云朵 + 叶子
-        draw_ghibli_cloud(draw, 120, 50, size=50)
-        draw_ghibli_cloud(draw, 280, 35, size=30)
-        draw_ghibli_leaf(draw, 60, 80, size=12, angle=-30)
-        draw_ghibli_leaf(draw, 80, 95, size=10, angle=-15)
-        draw_ghibli_leaf(draw, 45, 100, size=8, angle=10)
-    elif position == "top-right":
-        # 右上角：云朵 + 草丛
-        draw_ghibli_cloud(draw, img_w - 150, 45, size=45)
-        draw_ghibli_cloud(draw, img_w - 300, 30, size=25)
-        draw_ghibli_leaf(draw, img_w - 50, 85, size=12, angle=210)
-        draw_ghibli_leaf(draw, img_w - 70, 90, size=10, angle=195)
-    elif position == "bottom-left":
-        # 左下角：草丛 + 小叶子
-        draw_ghibli_grass_tuft(draw, 30, img_h - 25, width=80)
-        draw_ghibli_leaf(draw, 100, img_h - 40, size=10, angle=-45)
-        draw_ghibli_cloud(draw, 180, img_h - 50, size=25, color=(245, 242, 235))
-    elif position == "bottom-right":
-        # 右下角：草丛 + 云朵
-        draw_ghibli_grass_tuft(draw, img_w - 110, img_h - 25, width=80)
-        draw_ghibli_leaf(draw, img_w - 120, img_h - 45, size=10, angle=225)
-        draw_ghibli_cloud(draw, img_w - 200, img_h - 55, size=28, color=(245, 242, 235))
+def draw_moebius_corner_decoration(draw, width, height, corner):
+    """绘制莫比斯风格的角落装饰"""
+    if corner == "top-left":
+        draw_moebius_line(draw, 30, 30, size=80, angle=45)
+        draw_moebius_line(draw, 50, 20, size=60, angle=0)
+        draw_moebius_dots(draw, 20, 60, count=3)
+    elif corner == "top-right":
+        draw_moebius_line(draw, width-30, 30, size=80, angle=135)
+        draw_moebius_line(draw, width-50, 20, size=60, angle=180)
+        draw_moebius_dots(draw, width-80, 60, count=3)
+    elif corner == "bottom-left":
+        draw_moebius_line(draw, 30, height-30, size=80, angle=-45)
+        draw_moebius_pattern(draw, 60, height-60, size=30)
+    elif corner == "bottom-right":
+        draw_moebius_line(draw, width-30, height-30, size=80, angle=-135)
+        draw_moebius_pattern(draw, width-60, height-60, size=30)
 
 
-def draw_ghibli_header_decorations(draw, y_center):
-    """在标题周围绘制宫崎骏风格小装饰"""
-    # 左侧小星星（像吉卜力动画里的闪烁星光）
-    star_positions = [(100, y_center - 10), (980, y_center + 5), (160, y_center + 20)]
-    for sx, sy in star_positions:
-        size = 4
-        # 十字星光
-        draw.line([(sx - size * 2, sy), (sx + size * 2, sy)], fill=COLORS["accent1"], width=1)
-        draw.line([(sx, sy - size * 2), (sx, sy + size * 2)], fill=COLORS["accent1"], width=1)
-        # 中心点
-        draw.ellipse([sx - 2, sy - 2, sx + 2, sy + 2], fill=COLORS["accent1"])
+def draw_moebius_header_decorations(draw, y_center):
+    """绘制莫比斯风格的标题装饰"""
+    color = COLORS["moebius_line"]
+    # 绘制水平装饰线
+    draw.line([(100, y_center), (WIDTH-100, y_center)], fill=color, width=1)
+    # 绘制端点装饰
+    draw_moebius_pattern(draw, 80, y_center, size=15, color=color)
+    draw_moebius_pattern(draw, WIDTH-80, y_center, size=15, color=color)
+
+
 
 
 def draw_gradient_bg(img, color_top, color_bottom):
@@ -253,8 +238,8 @@ def generate():
     draw = ImageDraw.Draw(img)
 
     # ====== 四角宫崎骏装饰 ======
-    draw_ghibli_corner_decoration(draw, WIDTH, total_height, "top-left")
-    draw_ghibli_corner_decoration(draw, WIDTH, total_height, "top-right")
+    draw_moebius_corner_decoration(draw, WIDTH, total_height, "top-left")
+    draw_moebius_corner_decoration(draw, WIDTH, total_height, "top-right")
 
     y = 0
 
@@ -273,7 +258,7 @@ def generate():
     y += 45
 
     # 标题装饰
-    draw_ghibli_header_decorations(draw, y - 30)
+    draw_moebius_header_decorations(draw, y - 30)
     y += 20
 
     # ====== Stats bar ======
@@ -327,8 +312,8 @@ def generate():
         # 板块右上角小装饰（像吉卜力动画里的小点缀）
         decor_x = card_x2 - 50
         decor_y = card_y1 + 20
-        draw_ghibli_leaf(draw, decor_x, decor_y, size=8, angle=45, color=accent_color)
-        draw_ghibli_leaf(draw, decor_x + 15, decor_y + 5, size=6, angle=60, color=accent_color)
+        draw_moebius_line(draw, decor_x, decor_y, size=8, angle=45, color=accent_color)
+        draw_moebius_line(draw, decor_x + 15, decor_y + 5, size=6, angle=60, color=accent_color)
 
         cy = card_y1 + 24
         # Section title
@@ -387,8 +372,8 @@ def generate():
         y = card_y2 + SECTION_GAP
 
     # ====== 底部角落装饰 ======
-    draw_ghibli_corner_decoration(draw, WIDTH, total_height, "bottom-left")
-    draw_ghibli_corner_decoration(draw, WIDTH, total_height, "bottom-right")
+    draw_moebius_corner_decoration(draw, WIDTH, total_height, "bottom-left")
+    draw_moebius_corner_decoration(draw, WIDTH, total_height, "bottom-right")
 
     # ====== Footer ======
     footer_y = y + 15
