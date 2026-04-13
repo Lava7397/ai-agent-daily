@@ -1,78 +1,96 @@
 {
-  "date": "2026-04-11",
-  "sources": "arXiv, Hacker News, GitHub Trending, TechCrunch, Anthropic",
+  "date": "2026-04-13",
+  "sources": "arXiv, Hacker News, GitHub Trending, TechCrunch",
   "research": [
     {
-      "title": "Act Wisely: 元认知工具使用培养AI Agent自主决策能力",
-      "summary": "arXiv最新论文提出Act Wisely框架，通过培养多模态AI Agent的元认知能力，使其更明智地判断何时使用外部工具，而非盲目调用。",
-      "url": "https://arxiv.org/abs/2604.08545",
-      "tags": ["arXiv", "2026-04-09"]
+      "title": "Strategic Algorithmic Monoculture: AI Agent 多智能体协调行为实验",
+      "summary": "arXiv 最新论文研究 AI agents 在多智能体环境中的协调行为，区分了基础算法单一性和策略性算法单一性，发现 LLM 在协调方面表现优异但在维持多样性方面落后于人类。",
+      "url": "https://arxiv.org/abs/2604.09502",
+      "tags": ["arXiv", "2026-04-10"]
     },
     {
-      "title": "ClawBench: AI Agent能否完成日常在线任务？",
-      "summary": "新基准测试ClawBench评估AI Agent处理日常在线任务的能力，涵盖邮件管理、日程安排等真实场景，揭示当前Agent在复杂任务中的短板。",
-      "url": "https://arxiv.org/abs/2604.08523",
-      "tags": ["arXiv", "2026-04-09"]
+      "title": "生成式 AI 需要更细致的 Opt-in 同意机制",
+      "summary": "论文指出一刀切的同意方式不足以应对生成式 AI 对创意作品的使用，提出基于推理时验证的细粒度同意架构，可在训练、推理和传播各环节实现权利平衡。",
+      "url": "https://arxiv.org/abs/2604.09413",
+      "tags": ["arXiv", "2026-04-10"]
     },
     {
-      "title": "Linux内核正式引入AI辅助编程指南",
-      "summary": "Linus Torvalds主导的Linux内核仓库新增AI辅助编程文档，为贡献者提供使用AI编码助手的规范和建议，在HN获得367分热议。",
-      "url": "https://github.com/torvalds/linux/blob/master/Documentation/process/coding-assistants.rst",
-      "tags": ["Hacker News", "2026-04-10"]
+      "title": "Revdiff: 专为 AI Agent 设计的终端 Diff 审查工具",
+      "summary": "开源 TUI 工具，可在终端中直接审查 AI 生成的代码变更，支持行级标注并将反馈直接返回给 Agent，支持 Claude Code、Codex 等主流编码助手。",
+      "url": "https://github.com/umputun/revdiff",
+      "tags": ["Hacker News", "2026-04-13"]
     }
   ],
   "github": [
     {
-      "title": "openclaw/openclaw",
-      "summary": "超人气开源个人AI助手OpenClaw，支持全平台运行。近期因Anthropic调整Claude定价引发社区关注，35万+星标领跑GitHub。",
-      "url": "https://github.com/openclaw/openclaw",
-      "tags": ["Python", "⭐ 354,581"]
-    },
-    {
       "title": "NousResearch/hermes-agent",
-      "summary": "Nous Research发布\"与你一起成长的AI Agent\"框架Hermes Agent，5.5万+星标，AI Agent领域热门项目。",
+      "summary": "「与你一起成长的 AI Agent」框架持续火爆，今日新增 7,454 星标，累计 72,941 星标，稳居 GitHub Trending 榜首。",
       "url": "https://github.com/NousResearch/hermes-agent",
-      "tags": ["Python", "⭐ 55,808"]
+      "tags": ["Python", "⭐ 72,941", "+7,454 today"]
     },
     {
-      "title": "microsoft/playwright-mcp",
-      "summary": "微软官方Playwright MCP服务器，为AI Agent提供浏览器自动化能力，3万+星标，MCP生态最热门项目之一。",
-      "url": "https://github.com/microsoft/playwright-mcp",
-      "tags": ["TypeScript", "⭐ 30,628"]
+      "title": "microsoft/markitdown",
+      "summary": "微软出品的文件转 Markdown 工具，支持 Office 文档转换，累计 10 万+ 星标，今日新增 2,513 星标。",
+      "url": "https://github.com/microsoft/markitdown",
+      "tags": ["Python", "⭐ 105,981", "+2,513 today"]
     },
     {
-      "title": "CopilotKit/CopilotKit",
-      "summary": "面向AI Agent的前端全栈解决方案，支持React和Angular，提出AG-UI协议，3万+星标。让Agent原生UI成为可能。",
-      "url": "https://github.com/CopilotKit/CopilotKit",
-      "tags": ["TypeScript", "⭐ 30,142"]
+      "title": "coleam00/Archon",
+      "summary": "首个开源 AI 编码 Harness Builder，让 AI 编码变得确定性和可重复，今日新增 2,739 星标。",
+      "url": "https://github.com/coleam00/Archon",
+      "tags": ["TypeScript", "⭐ 17,333", "+2,739 today"]
+    },
+    {
+      "title": "forrestchang/andrej-karpathy-skills",
+      "summary": "基于 Andrej Karpathy 对 LLM 编码陷阱观察提炼的 CLAUDE.md 文件，帮助改善 Claude Code 行为，今日新增 2,369 星标。",
+      "url": "https://github.com/forrestchang/andrej-karpathy-skills",
+      "tags": ["Markdown", "⭐ 19,305", "+2,369 today"]
+    },
+    {
+      "title": "shiyu-coder/Kronos",
+      "summary": "金融市场语言基础模型，专为金融时间序列数据设计，今日新增 1,985 星标。",
+      "url": "https://github.com/shiyu-coder/Kronos",
+      "tags": ["Python", "⭐ 16,437", "+1,985 today"]
     }
   ],
   "models": [
     {
-      "title": "Anthropic发布Claude Sonnet 4.6（Project Glasswing）",
-      "summary": "Anthropic推出Claude Sonnet 4.6全面升级，强化编码、Agent规划、长推理和计算机使用能力，被视为Agent时代的重要模型更新。",
-      "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
-      "tags": ["Anthropic", "2026-04-10"]
+      "title": "全球最大轨道计算集群正式开放运营",
+      "summary": "太空计算基础设施取得突破，最大的轨道计算集群开始接受商业订单，为太空 AI 应用提供新可能。",
+      "url": "https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/",
+      "tags": ["TechCrunch", "2026-04-13"]
     },
     {
-      "title": "ChatGPT推出$100/月Pro计划",
-      "summary": "OpenAI填补$20到$200之间的空白，新增$100/月ChatGPT Pro计划，面向重度用户和Codex开发者，满足专业需求。",
-      "url": "https://techcrunch.com/2026/04/09/chatgpt-pro-plan-100-month-codex/",
-      "tags": ["OpenAI", "2026-04-09"]
+      "title": "特朗普政府鼓励银行测试 Anthropic Mythos 模型",
+      "summary": "美国政府官员可能正在推动金融机构试用 Anthropic 的 Mythos 模型，显示 AI 在金融监管领域的应用正在加速。",
+      "url": "https://techcrunch.com/2026/04/12/trump-officials-may-be-encouraging-banks-to-test-anthropics-mythos-model/",
+      "tags": ["TechCrunch", "2026-04-12"]
+    },
+    {
+      "title": "HumanX 大会焦点：人人都在谈论 Claude",
+      "summary": "在 HumanX 会议上，Anthropic 的 Claude 成为最受关注的 AI 模型，展现了其在 Agent 和编码领域的强势地位。",
+      "url": "https://techcrunch.com/2026/04/12/at-the-humanx-conference-everyone-was-talking-about-claude/",
+      "tags": ["TechCrunch", "2026-04-12"]
     }
   ],
   "community": [
     {
-      "title": "Anthropic临时封禁OpenClaw创建者的Claude访问权限",
-      "summary": "Anthropic在调整Claude对OpenClaw用户的定价后，临时封禁了OpenClaw创建者访问Claude的权限，引发AI开源社区广泛讨论。",
-      "url": "https://techcrunch.com/2026/04/10/anthropic-temporarily-banned-openclaws-creator-from-accessing-claude/",
-      "tags": ["TechCrunch", "2026-04-10"]
+      "title": "Show HN: AI Agent 自我改进机器人引发讨论",
+      "summary": "开发者展示了一个能够自我改进的 AI Agent，引发社区对 AI 自主进化能力的热议。",
+      "url": "https://github.com/Grimm67123/GrimmBot",
+      "tags": ["Hacker News", "2026-04-13"]
     },
     {
-      "title": "OpenClaw创建者被禁后社区热议AI Agent开源生态",
-      "summary": "Anthropic封禁OpenClaw创建者事件在社区持续发酵，围绕AI Agent开源生态、模型提供商权利和开发者权益的辩论升温。",
-      "url": "https://github.com/openclaw/openclaw",
-      "tags": ["GitHub", "2026-04-10"]
+      "title": "Show HN: 项目看板让 AI 成为真正的团队成员",
+      "summary": "新工具让 AI Agent 以真实队友身份加入项目看板，可分配任务、追踪进度，重新定义人机协作模式。",
+      "url": "https://is.team",
+      "tags": ["Hacker News", "2026-04-13"]
+    },
+    {
+      "title": "Show HN: 本地沙盒运行 AI 编码 Agent 的新方案",
+      "summary": "SuperHQ 让编码 Agent 在本地微虚拟机中运行，支持并行多 Agent 工作，API 密钥通过本地代理注入，保护系统安全。",
+      "url": "https://superhq.ai/",
+      "tags": ["Hacker News", "2026-04-13"]
     }
   ]
 }
