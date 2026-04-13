@@ -459,14 +459,14 @@ body {
 <!-- Footer -->
 <div class="footer">
   数据来源：arXiv, Hacker News, GitHub Trending, TechCrunch<br>
-  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-13 17:43
+  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-13 18:33
 </div>
 
 <!-- Share Bar -->
 <div class="share-bar">
-  <a href="images/2026-04-13.png" download="AI-Agent日报-2026-04-13.png" class="share-btn primary" style="text-decoration:none;">
+  <button class="share-btn primary" onclick="downloadImage()">
     <span class="icon">📸</span> 保存图片
-  </a>
+  </button>
   <button class="share-btn" onclick="shareWechat()">
     <span class="icon">💬</span> 微信分享
   </button>
@@ -547,6 +547,32 @@ function nativeShare() {
   } else {
     copyLink();
   }
+}
+
+function downloadImage() {
+  const date = '2026-04-13';
+  const imageUrl = `images/${date}.png`;
+  const fileName = `AI-Agent日报-${date}.png`;
+  
+  // 尝试使用 fetch 下载（解决跨域问题）
+  fetch(imageUrl)
+    .then(response => response.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+      showToast('📸 图片开始下载');
+    })
+    .catch(() => {
+      // 如果 fetch 失败，直接打开图片
+      window.open(imageUrl, '_blank');
+      showToast('已在新窗口打开图片，长按保存');
+    });
 }
 </script>
 

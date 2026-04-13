@@ -438,9 +438,9 @@ body {{
 
 <!-- Share Bar -->
 <div class="share-bar">
-  <a href="images/{safe_date}.png" download="AI-Agent日报-{safe_date}.png" class="share-btn primary" style="text-decoration:none;">
+  <button class="share-btn primary" onclick="downloadImage()">
     <span class="icon">📸</span> 保存图片
-  </a>
+  </button>
   <button class="share-btn" onclick="shareWechat()">
     <span class="icon">💬</span> 微信分享
   </button>
@@ -511,17 +511,7 @@ function closeModal(e) {{
   }}
 }}
 
-function nativeShare() {{
-  if (navigator.share) {{
-    navigator.share({{
-      title: document.title,
-      text: 'AI Agent 日报 — 今日 AI 资讯精选',
-      url: SHARE_URL
-    }}).catch(() => {{}});
-  }} else {{
-    copyLink();
-  }}
-}}
+function nativeShare() {{\n  if (navigator.share) {{\n    navigator.share({{\n      title: document.title,\n      text: 'AI Agent 日报 — 今日 AI 资讯精选',\n      url: SHARE_URL\n    }}).catch(() => {{}});\n  }} else {{\n    copyLink();\n  }}\n}}\n\nfunction downloadImage() {{\n  const date = '{safe_date}';\n  const imageUrl = `images/${{date}}.png`;\n  const fileName = `AI-Agent日报-${{date}}.png`;\n  \n  // 尝试使用 fetch 下载（解决跨域问题）\n  fetch(imageUrl)\n    .then(response => response.blob())\n    .then(blob => {{\n      const url = window.URL.createObjectURL(blob);\n      const a = document.createElement('a');\n      a.href = url;\n      a.download = fileName;\n      document.body.appendChild(a);\n      a.click();\n      document.body.removeChild(a);\n      window.URL.revokeObjectURL(url);\n      showToast('📸 图片开始下载');\n    }})\n    .catch(() => {{\n      // 如果 fetch 失败，直接打开图片\n      window.open(imageUrl, '_blank');\n      showToast('已在新窗口打开图片，长按保存');\n    }});\n}}
 </script>
 
 </body>
