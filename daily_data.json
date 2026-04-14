@@ -1,115 +1,143 @@
 {
   "date": "2026-04-14",
-  "sources": "https://huggingface.co/papers/date/2026-04-14, https://news.ycombinator.com/, https://github.com/search",
+  "sources": "The Verge, VentureBeat, Ars Technica, Ben's Bites, Hacker News, HuggingFace, GitHub",
   "research": [
     {
-      "title": "SATO: Strips as Tokens — 艺术家级网格生成新框架",
-      "summary": "DEEMOS Technology 发布 SATO，基于三角带序列的自回归 Transformer 框架，统一支持三角形/四边形网格生成，原生 UV 分割，今日 HuggingFace #1 论文。",
+      "title": "SATO: Strips as Tokens — 艺术家级 3D 网格生成",
+      "summary": "DEEMOS Technology 发布自回归 Transformer 框架，统一三角形/四边形网格生成，原生 UV 分割。HuggingFace 今日 #1 论文，GitHub 37 stars。",
       "url": "https://huggingface.co/papers/2604.09132",
-      "tags": ["3D生成", "网格", "Transformer", "UV分割"]
+      "tags": ["3D生成", "网格", "Transformer"]
     },
     {
       "title": "OmniShow: 字节跳动多模态人-物交互视频生成",
-      "summary": "字节跳动提出 OmniShow 端到端框架，统一文本/图像/音频/姿态多模态条件，实现高质量人-物交互视频生成，建立 HOIVG-Bench 基准。",
+      "summary": "统一文本/图像/音频/姿态条件，实现高质量人-物交互视频生成，建立 HOIVG-Bench 基准。#2 论文。",
       "url": "https://huggingface.co/papers/2604.11804",
-      "tags": ["视频生成", "多模态", "字节跳动", "人机交互"]
+      "tags": ["视频生成", "多模态", "字节跳动"]
     },
     {
       "title": "Pseudo-Unification: 多模态模型的「伪统一」问题",
-      "summary": "港科大 MMLab 提出信息论探测框架，发现统一多模态模型存在模态编码不对称和响应模式分裂，真正的多模态协同需要信息流一致性。",
+      "summary": "港科大发现统一多模态模型存在模态编码不对称，真正协同需要信息流一致性，而非仅共享参数。",
       "url": "https://huggingface.co/papers/2604.10949",
-      "tags": ["多模态", "LLM", "信息论", "模型分析"]
+      "tags": ["多模态", "LLM", "信息论"]
     },
     {
-      "title": "ADD: 多比特图像水印新方法",
-      "summary": "提出 ADD 框架实现多比特图像水印，在保持图像质量的同时实现高鲁棒性水印嵌入和提取。",
-      "url": "https://huggingface.co/papers/2604.11491",
-      "tags": ["水印", "图像安全", "深度学习"]
+      "title": "新框架让 AI Agent 自我修复技能",
+      "summary": "多大学团队构建框架，让 Agent 学习修复自己的失败模式，无需人工干预或重新训练模型。",
+      "url": "https://venturebeat.com/orchestration/new-framework-lets-ai-agents-rewrite-their-own-skills-without-retraining-the",
+      "tags": ["Agent", "自适应", "框架"]
     }
   ],
   "github": [
     {
-      "title": "Hermes Agent 橙皮书系列",
-      "summary": "Hermes Agent 从入门到精通实战指南，Nous Research 开源 AI Agent 框架完整教程。",
+      "title": "Hermes Agent 橙皮书 — 入门到精通",
+      "summary": "Nous Research 开源 AI Agent 框架完整教程，2.3k stars，Agent 生态爆发代表。",
       "url": "https://github.com/alchaincyf/hermes-agent-orange-book",
       "stars": "2.3k",
-      "tags": ["Hermes", "AI Agent", "教程"]
+      "tags": ["Hermes", "教程"]
     },
     {
-      "title": "Fireworks Tech Graph — Claude Code 技术图表生成",
-      "summary": "Claude Code skill，可生成高质量 SVG+PNG 技术架构图、流程图、时序图。",
+      "title": "Fireworks Tech Graph — Claude Code 图表生成",
+      "summary": "Claude Code skill，生成高质量 SVG+PNG 技术架构图、流程图。2.1k stars。",
       "url": "https://github.com/yizhiyanhua-ai/fireworks-tech-graph",
       "stars": "2.1k",
-      "tags": ["Claude Code", "图表", "SVG"]
+      "tags": ["Claude Code", "图表"]
     },
     {
-      "title": "Hermes Hudui — Web UI 意识监控",
-      "summary": "Hermes AI Agent 的 Web UI 意识监控器，实时查看 Agent 状态和思考过程。",
+      "title": "Hermes Hudui — Agent 意识监控 Web UI",
+      "summary": "实时查看 Hermes Agent 状态和思考过程的 Web 监控器，840 stars。",
       "url": "https://github.com/joeynyc/hermes-hudui",
       "stars": "840",
-      "tags": ["Hermes", "监控", "Web UI"]
-    },
-    {
-      "title": "Auto Deep Researcher 24x7",
-      "summary": "自主运行的 AI Agent，可 24/7 不间断执行深度学习实验，自动管理训练流程。",
-      "url": "https://github.com/Xiangyue-Zhang/auto-deep-researcher-24x7",
-      "stars": "396",
-      "tags": ["深度学习", "自动化", "实验管理"]
+      "tags": ["Hermes", "监控"]
     },
     {
       "title": "Obscura — AI Agent 专用无头浏览器",
-      "summary": "专为 AI Agent 和网页爬取设计的无头浏览器，优化自动化场景。",
+      "summary": "专为 AI Agent 和网页爬取设计的浏览器，优化自动化场景。",
       "url": "https://github.com/h4ckf0r0day/obscura",
       "stars": "109",
-      "tags": ["浏览器", "爬虫", "AI Agent"]
+      "tags": ["浏览器", "Agent"]
     },
     {
       "title": "EcoAlign Forge — 多智能体 DPO 数据合成",
-      "summary": "多智能体偏好训练数据自动合成框架，支持红队攻击 → 多 persona 审核流程。",
+      "summary": "红队攻击 → 多 persona 审核，自动生成偏好训练数据。",
       "url": "https://github.com/dengxianghua888-ops/ecoalign-forge",
       "stars": "104",
-      "tags": ["RLHF", "DPO", "多智能体", "数据合成"]
-    },
-    {
-      "title": "ParseBench — AI Agent 文档解析基准",
-      "summary": "LlamaIndex 团队推出文档解析基准测试，评估 AI Agent 的文档理解能力。",
-      "url": "https://github.com/run-llama/ParseBench",
-      "stars": "56",
-      "tags": ["基准测试", "文档解析", "LlamaIndex"]
+      "tags": ["RLHF", "多智能体"]
     }
   ],
   "models": [
     {
-      "title": "GitHub Stacked PRs 功能正式发布",
-      "summary": "GitHub 推出 Stacked PRs 功能，支持分支堆叠式 PR 管理，改善大型项目的代码审查流程。",
-      "url": "https://github.github.com/gh-stack/",
-      "tags": ["GitHub", "开发工具", "PR"]
+      "title": "Meta 发布新专有模型 Muse Spark",
+      "summary": "Superintelligence Labs 成立后首个模型，推理能力比 Llama 4 Maverick 少用 10 倍算力。告别 Llama 时代？",
+      "url": "https://venturebeat.com/technology/goodbye-llama-meta-launches-new-proprietary-ai-model-muse-spark-first-since",
+      "tags": ["Meta", "模型发布", "Muse"]
     },
     {
-      "title": "统一多模态模型仍面临「伪统一」挑战",
-      "summary": "研究显示现有统一多模态模型（UMMs）在视觉-语言协同方面存在本质缺陷，信息流不一致导致真正的多模态推理能力无法实现。",
-      "url": "https://huggingface.co/papers/2604.10949",
-      "tags": ["多模态", "模型架构", "研究"]
+      "title": "OpenAI 推出 ChatGPT Pro $100 层级",
+      "summary": "Codex 用量提升 5 倍，瞄准专业开发者市场，与 OpenClaw 竞争。",
+      "url": "https://venturebeat.com/orchestration/openai-introduces-chatgpt-pro-usd100-tier-with-5x-usage-limits-for-codex",
+      "tags": ["OpenAI", "ChatGPT", "定价"]
+    },
+    {
+      "title": "Anthropic Claude 性能下降争议",
+      "summary": "用户报告 Claude 性能退化，Anthropic 承认因需求激增调整了繁忙时段用量分配。",
+      "url": "https://venturebeat.com/technology/is-anthropic-nerfing-claude-users-increasingly-report-performance",
+      "tags": ["Anthropic", "Claude", "性能"]
+    },
+    {
+      "title": "GitHub Stacked PRs 正式发布",
+      "summary": "支持分支堆叠式 PR 管理，455 points HN 热帖，改善大型项目代码审查流程。",
+      "url": "https://github.github.com/gh-stack/",
+      "tags": ["GitHub", "开发工具"]
     }
   ],
   "community": [
     {
-      "title": "WordPress 30 个插件被植入后门",
-      "summary": "有人收购 30 个 WordPress 插件后植入后门代码，717 points 热帖引发开源安全讨论。",
+      "title": "🚨 Sam Altman 遭遇第二次袭击",
+      "summary": "嫌犯 Daniel Moreno-Gama 被联邦指控攻击 Altman 住宅和 OpenAI 总部，警方发现标题为「最后警告」的文件。",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/911423/openai-sam-altman-attack",
+      "tags": ["OpenAI", "安全", "重大事件"]
+    },
+    {
+      "title": "扎克伯格构建 AI 克隆参加会议",
+      "summary": "Meta CEO 亲自训练和测试自己的动画 AI 版本，用于与员工互动。Ars Technica 175 评论热议。",
+      "url": "https://arstechnica.com/ai/2026/04/meta-spins-up-ai-version-of-mark-zuckerberg-to-engage-with-employees",
+      "tags": ["Meta", "AI克隆", "未来工作"]
+    },
+    {
+      "title": "SoftBank 创建 Physical AI 公司",
+      "summary": "联合索尼、本田、新日铁，目标 2030 年开发自主控制机器人的 AI 模型，日本主权 AI 战略。",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/910879/softbank-creates-new-company-building-physical-ai",
+      "tags": ["SoftBank", "机器人", "Physical AI"]
+    },
+    {
+      "title": "AI 代码战争白热化",
+      "summary": "OpenAI、Google、Anthropic 正在吞噬软件世界。The Verge 深度分析 AI 编程工具竞争格局。",
+      "url": "https://www.theverge.com/column/910019/ai-coding-wars-openai-google-anthropic",
+      "tags": ["AI编程", "竞争", "行业"]
+    },
+    {
+      "title": "AI 模型在足球博彩中全军覆没",
+      "summary": "FT 调查显示 Google、OpenAI、Anthropic、xAI 模型在英超预测中表现糟糕，Grok 最差。",
+      "url": "https://arstechnica.com/ai/2026/04/ai-models-are-terrible-at-betting-on-soccer-especially-xai-grok",
+      "tags": ["xAI", "Grok", "基准测试"]
+    },
+    {
+      "title": "SteamGPT 泄露：Valve 的 AI 安全审查系统",
+      "summary": "泄露文件指向 Steam 平台 AI 驱动的安全审查工具，帮助版主筛选大量可疑事件。",
+      "url": "https://arstechnica.com/gaming/2026/04/what-is-steamgpt-leaked-files-point-to-ai-powered-valve-security-review-system",
+      "tags": ["Steam", "游戏", "AI审查"]
+    },
+    {
+      "title": "LLM 引荐流量转化率 30-40%",
+      "summary": "AI agent 不对内容排名而是引用内容，大多数企业内容在 agent 查询中已不可见，先行者优势明显。",
+      "url": "https://venturebeat.com/technology/llm-referred-traffic-converts-at-30-40-and-most-enterprises-arent-optimizing",
+      "tags": ["SEO", "AI搜索", "企业"]
+    },
+    {
+      "title": "WordPress 30 插件被植入后门",
+      "summary": "有人收购插件后植入恶意代码，717 points HN 热帖，引发开源供应链安全讨论。",
       "url": "https://anchor.host/someone-bought-30-wordpress-plugins-and-planted-a-backdoor-in-all-of-them/",
-      "tags": ["安全", "开源", "WordPress"]
-    },
-    {
-      "title": "Polymarket 机器人「Nothing Ever Happens」",
-      "summary": "一个自动在非体育市场持续买入「No」的 Polymarket 机器人引发讨论，364 points 热议预测市场策略。",
-      "url": "https://github.com/sterlingcrispin/nothing-ever-happens",
-      "tags": ["预测市场", "Polymarket", "自动化"]
-    },
-    {
-      "title": "Hermes Agent 生态爆发",
-      "summary": "GitHub 上涌现大量 Hermes Agent 相关项目——教程、监控 UI、Wiki、Control Interface，Agent 框架生态正在形成。",
-      "url": "https://github.com/search?q=hermes+agent&type=repositories&s=stars",
-      "tags": ["Hermes", "AI Agent", "开源生态"]
+      "tags": ["安全", "开源", "供应链"]
     }
   ]
 }
