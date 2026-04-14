@@ -216,16 +216,16 @@ body {{
 
 /* Section */
 .section {{
-  margin-top: 32px;
+  margin-top: 40px;
 }}
 .section-title {{
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #c9a227;
-  padding: 12px 16px;
-  background: linear-gradient(90deg, rgba(201, 162, 39, 0.15) 0%, transparent 100%);
+  padding: 14px 20px;
+  background: linear-gradient(90deg, rgba(201, 162, 39, 0.18) 0%, transparent 100%);
   border-left: 4px solid #c9a227;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-family: 'Courier New', monospace;
@@ -236,8 +236,8 @@ body {{
   background: rgba(26, 21, 16, 0.8);
   border: 1px solid rgba(201, 162, 39, 0.2);
   border-left: 3px solid #8b7355;
-  padding: 20px;
-  margin-bottom: 16px;
+  padding: 26px;
+  margin-bottom: 24px;
   transition: all 0.3s;
   position: relative;
 }}
@@ -257,7 +257,7 @@ body {{
 }}
 .card-title {{
   color: #e8d5a3;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   line-height: 1.6;
   text-decoration: none;
@@ -270,22 +270,22 @@ body {{
 }}
 .card-summary {{
   color: #9a8b70;
-  font-size: 13px;
-  line-height: 1.8;
-  margin-top: 12px;
+  font-size: 14px;
+  line-height: 2.0;
+  margin-top: 14px;
   border-top: 1px dashed rgba(139, 115, 85, 0.3);
-  padding-top: 12px;
+  padding-top: 14px;
 }}
 .read-more {{
   display: inline-block;
-  margin-top: 12px;
-  font-size: 11px;
+  margin-top: 14px;
+  font-size: 12px;
   color: #c9a227;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 1px solid #c9a227;
-  padding: 6px 12px;
+  padding: 7px 14px;
   transition: all 0.3s;
 }}
 .read-more:hover {{
@@ -294,13 +294,13 @@ body {{
 }}
 .tag {{
   display: inline-block;
-  background: rgba(201, 162, 39, 0.1);
+  background: rgba(201, 162, 39, 0.12);
   color: #c9a227;
-  font-size: 10px;
-  padding: 4px 10px;
-  margin-top: 12px;
+  font-size: 12px;
+  padding: 5px 12px;
+  margin-top: 14px;
   margin-right: 8px;
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  border: 1px solid rgba(201, 162, 39, 0.35);
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
