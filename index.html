@@ -392,28 +392,28 @@ body {
       
     <div class="card">
       <a href="https://huggingface.co/papers/2604.09132" target="_blank" rel="noopener noreferrer" class="card-title">SATO: Strips as Tokens — 艺术家级 3D 网格生成</a>
-      <p class="card-summary">DEEMOS Technology 发布自回归 Transformer 框架，统一三角形/四边形网格生成，原生 UV 分割。HuggingFace 今日 #1 论文，GitHub 37 stars。</p>
+      <p class="card-summary">DEEMOS Technology 提出 SATO 框架，用三角带序列替代传统坐标排序，解决自回归 Transformer 生成网格时序列过长、边流断裂的问题。关键创新是同一 token 序列可解码为三角形或四边形网格，支持联合训练。在几何质量、结构连贯性和 UV 分割上全面超越前代方法。今日 HuggingFace #1 论文，GitHub 已获 37 stars。</p>
       <a href="https://huggingface.co/papers/2604.09132" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">3D生成</span> <span class="tag">网格</span> <span class="tag">Transformer</span>
     </div>
 
     <div class="card">
       <a href="https://huggingface.co/papers/2604.11804" target="_blank" rel="noopener noreferrer" class="card-title">OmniShow: 字节跳动多模态人-物交互视频生成</a>
-      <p class="card-summary">统一文本/图像/音频/姿态条件，实现高质量人-物交互视频生成，建立 HOIVG-Bench 基准。#2 论文。</p>
+      <p class="card-summary">字节跳动提出 OmniShow 端到端框架，首次统一文本、参考图像、音频和姿态四种模态条件来生成人-物交互视频。核心设计包括用于高效图像/姿态注入的统一通道条件机制，以及确保音画同步的门控局部上下文注意力。团队还建立了 HOIVG-Bench 基准填补该领域评估空白。#2 论文。</p>
       <a href="https://huggingface.co/papers/2604.11804" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">视频生成</span> <span class="tag">多模态</span> <span class="tag">字节跳动</span>
     </div>
 
     <div class="card">
       <a href="https://huggingface.co/papers/2604.10949" target="_blank" rel="noopener noreferrer" class="card-title">Pseudo-Unification: 多模态模型的「伪统一」问题</a>
-      <p class="card-summary">港科大发现统一多模态模型存在模态编码不对称，真正协同需要信息流一致性，而非仅共享参数。</p>
+      <p class="card-summary">港科大 MMLab 用信息论探测框架分析 10 个主流统一多模态模型（UMMs），发现它们并未真正实现视觉-语言协同：视觉和语言遵循不同的编码熵轨迹，文本生成展现高熵创造力而图像合成强制低熵保真度。只有通过上下文预测统一两侧的模型才能实现真正的多模态推理，且参数更少效果更好。</p>
       <a href="https://huggingface.co/papers/2604.10949" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">多模态</span> <span class="tag">LLM</span> <span class="tag">信息论</span>
     </div>
 
     <div class="card">
       <a href="https://venturebeat.com/orchestration/new-framework-lets-ai-agents-rewrite-their-own-skills-without-retraining-the" target="_blank" rel="noopener noreferrer" class="card-title">新框架让 AI Agent 自我修复技能</a>
-      <p class="card-summary">多大学团队构建框架，让 Agent 学习修复自己的失败模式，无需人工干预或重新训练模型。</p>
+      <p class="card-summary">多所大学联合构建了一个让 AI Agent 学习自我修复的框架：Agent 能自动识别自己的失败模式，并通过技能重写来纠正，无需人工干预或重新训练底层模型。这项研究意味着 Agent 可以在部署后持续自我进化，对生产环境中的 Agent 可靠性有重大意义。VentureBeat 详细报道。</p>
       <a href="https://venturebeat.com/orchestration/new-framework-lets-ai-agents-rewrite-their-own-skills-without-retraining-the" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Agent</span> <span class="tag">自适应</span> <span class="tag">框架</span>
     </div>
@@ -424,35 +424,35 @@ body {
       
     <div class="card">
       <a href="https://github.com/alchaincyf/hermes-agent-orange-book" target="_blank" rel="noopener noreferrer" class="card-title">Hermes Agent 橙皮书 — 入门到精通</a>
-      <p class="card-summary">Nous Research 开源 AI Agent 框架完整教程，2.3k stars，Agent 生态爆发代表。</p>
+      <p class="card-summary">这是一份 Nous Research 开源 Hermes Agent 框架的中文实战指南，从基础配置到高级技能编写，覆盖记忆管理、工具调用、多 Agent 协作等核心场景。2.3k stars 反映了社区对 Agent 框架系统化教程的强烈需求，标志着 Hermes 生态正在从工具走向体系。</p>
       <a href="https://github.com/alchaincyf/hermes-agent-orange-book" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Hermes</span> <span class="tag">教程</span>
     </div>
 
     <div class="card">
       <a href="https://github.com/yizhiyanhua-ai/fireworks-tech-graph" target="_blank" rel="noopener noreferrer" class="card-title">Fireworks Tech Graph — Claude Code 图表生成</a>
-      <p class="card-summary">Claude Code skill，生成高质量 SVG+PNG 技术架构图、流程图。2.1k stars。</p>
+      <p class="card-summary">一个 Claude Code skill，输入自然语言描述即可生成高质量 SVG/PNG 技术架构图、流程图、时序图和网络拓扑图。支持 54 种生产级设计系统风格，生成的图表可直接用于技术文档和演示。2.1k stars 说明开发者对 AI 辅助图表生成的旺盛需求。</p>
       <a href="https://github.com/yizhiyanhua-ai/fireworks-tech-graph" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Claude Code</span> <span class="tag">图表</span>
     </div>
 
     <div class="card">
       <a href="https://github.com/joeynyc/hermes-hudui" target="_blank" rel="noopener noreferrer" class="card-title">Hermes Hudui — Agent 意识监控 Web UI</a>
-      <p class="card-summary">实时查看 Hermes Agent 状态和思考过程的 Web 监控器，840 stars。</p>
+      <p class="card-summary">为 Hermes Agent 打造的实时 Web 监控界面，可以可视化 Agent 的内部状态、思考链路、记忆读写和工具调用过程。类似「Agent 的任务管理器」，让用户直观了解 Agent 正在做什么、为什么这么做。840 stars，Agent 可观测性赛道的代表项目。</p>
       <a href="https://github.com/joeynyc/hermes-hudui" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Hermes</span> <span class="tag">监控</span>
     </div>
 
     <div class="card">
       <a href="https://github.com/h4ckf0r0day/obscura" target="_blank" rel="noopener noreferrer" class="card-title">Obscura — AI Agent 专用无头浏览器</a>
-      <p class="card-summary">专为 AI Agent 和网页爬取设计的浏览器，优化自动化场景。</p>
+      <p class="card-summary">针对 AI Agent 场景优化的无头浏览器，内置反检测、自动等待、结构化数据提取等功能，比通用 headless browser 更适合 Agent 的网页交互场景。解决了 Agent 爬取时频繁被反 bot 系统拦截的痛点。</p>
       <a href="https://github.com/h4ckf0r0day/obscura" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">浏览器</span> <span class="tag">Agent</span>
     </div>
 
     <div class="card">
       <a href="https://github.com/dengxianghua888-ops/ecoalign-forge" target="_blank" rel="noopener noreferrer" class="card-title">EcoAlign Forge — 多智能体 DPO 数据合成</a>
-      <p class="card-summary">红队攻击 → 多 persona 审核，自动生成偏好训练数据。</p>
+      <p class="card-summary">一个多智能体协作的偏好训练数据自动合成框架：先用红队 Agent 生成对抗性 prompt，再由多个不同 persona 的审核 Agent 进行偏好标注，最终产出高质量 DPO 训练数据。解决了 RLHF 数据标注成本高、一致性差的问题。</p>
       <a href="https://github.com/dengxianghua888-ops/ecoalign-forge" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">RLHF</span> <span class="tag">多智能体</span>
     </div>
@@ -463,28 +463,28 @@ body {
       
     <div class="card">
       <a href="https://venturebeat.com/technology/goodbye-llama-meta-launches-new-proprietary-ai-model-muse-spark-first-since" target="_blank" rel="noopener noreferrer" class="card-title">Meta 发布新专有模型 Muse Spark</a>
-      <p class="card-summary">Superintelligence Labs 成立后首个模型，推理能力比 Llama 4 Maverick 少用 10 倍算力。告别 Llama 时代？</p>
+      <p class="card-summary">Meta Superintelligence Labs 成立后的首个模型 Muse Spark 正式发布，与以往开源路线不同，这是一个专有模型。官方称其推理能力比 Llama 4 Maverick 少用超过一个数量级的算力，标志着 Meta 在模型策略上从「开源 Llama」转向「专有高效」的重大转变。VentureBeat 评论这可能是 Llama 时代的终结信号。</p>
       <a href="https://venturebeat.com/technology/goodbye-llama-meta-launches-new-proprietary-ai-model-muse-spark-first-since" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Meta</span> <span class="tag">模型发布</span> <span class="tag">Muse</span>
     </div>
 
     <div class="card">
       <a href="https://venturebeat.com/orchestration/openai-introduces-chatgpt-pro-usd100-tier-with-5x-usage-limits-for-codex" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI 推出 ChatGPT Pro $100 层级</a>
-      <p class="card-summary">Codex 用量提升 5 倍，瞄准专业开发者市场，与 OpenClaw 竞争。</p>
+      <p class="card-summary">OpenAI 新增每月 $100 的 ChatGPT Pro 订阅层，Codex 编程工具的用量比 Plus 用户提升 5 倍。此举被视为 OpenAI 在 OpenClaw 等开源竞争者崛起后，重新争夺专业开发者的战略布局。VentureBeat 分析认为 OpenAI 正在「系统性收编」被 OpenClaw 分流的高端用户。</p>
       <a href="https://venturebeat.com/orchestration/openai-introduces-chatgpt-pro-usd100-tier-with-5x-usage-limits-for-codex" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">OpenAI</span> <span class="tag">ChatGPT</span> <span class="tag">定价</span>
     </div>
 
     <div class="card">
       <a href="https://venturebeat.com/technology/is-anthropic-nerfing-claude-users-increasingly-report-performance" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic Claude 性能下降争议</a>
-      <p class="card-summary">用户报告 Claude 性能退化，Anthropic 承认因需求激增调整了繁忙时段用量分配。</p>
+      <p class="card-summary">大量用户在社交平台报告 Claude 回复质量明显下降，质疑 Anthropic 是否暗中降低了模型能力。Anthropic 回应称因需求激增，在繁忙时段调整了资源分配策略，但否认「nerfing」了模型。VentureBeat 指出 Anthropic 近 3 个月 ARR 增长 60 亿美元，算力压力确实巨大。</p>
       <a href="https://venturebeat.com/technology/is-anthropic-nerfing-claude-users-increasingly-report-performance" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Anthropic</span> <span class="tag">Claude</span> <span class="tag">性能</span>
     </div>
 
     <div class="card">
       <a href="https://github.github.com/gh-stack/" target="_blank" rel="noopener noreferrer" class="card-title">GitHub Stacked PRs 正式发布</a>
-      <p class="card-summary">支持分支堆叠式 PR 管理，455 points HN 热帖，改善大型项目代码审查流程。</p>
+      <p class="card-summary">GitHub 官方推出 Stacked PRs 功能，允许开发者将多个分支按依赖关系堆叠管理，每个 PR 自动跟踪上游变更。解决了大型项目中「一个大 PR 拆成多个小 PR 但互相依赖」的痛点。455 points 登顶 Hacker News，评论区讨论热烈。</p>
       <a href="https://github.github.com/gh-stack/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">GitHub</span> <span class="tag">开发工具</span>
     </div>
@@ -495,56 +495,56 @@ body {
       
     <div class="card">
       <a href="https://www.theverge.com/ai-artificial-intelligence/911423/openai-sam-altman-attack" target="_blank" rel="noopener noreferrer" class="card-title">🚨 Sam Altman 遭遇第二次袭击</a>
-      <p class="card-summary">嫌犯 Daniel Moreno-Gama 被联邦指控攻击 Altman 住宅和 OpenAI 总部，警方发现标题为「最后警告」的文件。</p>
+      <p class="card-summary">嫌犯 Daniel Moreno-Gama 被联邦指控攻击 OpenAI CEO Sam Altman 的住宅和公司总部。警方在其住所发现标题为「Your Last Warning」的文件，嫌犯承认曾试图杀害 Altman。这是继此前枪击事件后的第二次针对 OpenAI 高管的暴力事件，引发 AI 行业安全讨论。The Verge 两小时前报道。</p>
       <a href="https://www.theverge.com/ai-artificial-intelligence/911423/openai-sam-altman-attack" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">OpenAI</span> <span class="tag">安全</span> <span class="tag">重大事件</span>
     </div>
 
     <div class="card">
       <a href="https://arstechnica.com/ai/2026/04/meta-spins-up-ai-version-of-mark-zuckerberg-to-engage-with-employees" target="_blank" rel="noopener noreferrer" class="card-title">扎克伯格构建 AI 克隆参加会议</a>
-      <p class="card-summary">Meta CEO 亲自训练和测试自己的动画 AI 版本，用于与员工互动。Ars Technica 175 评论热议。</p>
+      <p class="card-summary">据 Financial Times 报道，Meta CEO Mark Zuckerberg 正在亲自训练和测试一个自己的动画 AI 版本，用于代替本人参加内部会议和与员工互动。Ars Technica 175 条评论热议，焦点集中在：这是否意味着 CEO 角色本身也可以被 AI 化？对企业管理和信任关系的影响值得关注。</p>
       <a href="https://arstechnica.com/ai/2026/04/meta-spins-up-ai-version-of-mark-zuckerberg-to-engage-with-employees" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Meta</span> <span class="tag">AI克隆</span> <span class="tag">未来工作</span>
     </div>
 
     <div class="card">
       <a href="https://www.theverge.com/ai-artificial-intelligence/910879/softbank-creates-new-company-building-physical-ai" target="_blank" rel="noopener noreferrer" class="card-title">SoftBank 创建 Physical AI 公司</a>
-      <p class="card-summary">联合索尼、本田、新日铁，目标 2030 年开发自主控制机器人的 AI 模型，日本主权 AI 战略。</p>
+      <p class="card-summary">SoftBank 宣布成立新公司专注 Physical AI，联合索尼、本田、新日铁等日本巨头，目标 2030 年开发出能自主控制机器人的 AI 模型。这是日本「主权 AI」战略的重要组成部分，旨在与中国和美国的 AI 公司竞争。Nikkei 报道该项目已获得日本政府支持。</p>
       <a href="https://www.theverge.com/ai-artificial-intelligence/910879/softbank-creates-new-company-building-physical-ai" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">SoftBank</span> <span class="tag">机器人</span> <span class="tag">Physical AI</span>
     </div>
 
     <div class="card">
       <a href="https://www.theverge.com/column/910019/ai-coding-wars-openai-google-anthropic" target="_blank" rel="noopener noreferrer" class="card-title">AI 代码战争白热化</a>
-      <p class="card-summary">OpenAI、Google、Anthropic 正在吞噬软件世界。The Verge 深度分析 AI 编程工具竞争格局。</p>
+      <p class="card-summary">The Verge 深度分析文章指出，OpenAI（Codex）、Google（Gemini Code Assist）和 Anthropic（Claude Code）正在「吞噬整个软件世界」。三家公司的 AI 编程工具从代码补全扩展到全栈开发、代码审查、自动测试，传统 IDE 和开发工具厂商面临生存危机。文章认为我们正处在软件开发方式的根本性变革中。</p>
       <a href="https://www.theverge.com/column/910019/ai-coding-wars-openai-google-anthropic" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">AI编程</span> <span class="tag">竞争</span> <span class="tag">行业</span>
     </div>
 
     <div class="card">
       <a href="https://arstechnica.com/ai/2026/04/ai-models-are-terrible-at-betting-on-soccer-especially-xai-grok" target="_blank" rel="noopener noreferrer" class="card-title">AI 模型在足球博彩中全军覆没</a>
-      <p class="card-summary">FT 调查显示 Google、OpenAI、Anthropic、xAI 模型在英超预测中表现糟糕，Grok 最差。</p>
+      <p class="card-summary">Financial Times 测试了 Google、OpenAI、Anthropic 和 xAI 的模型在英超联赛预测中的表现，结果显示所有模型的准确率都不如简单的统计基线，其中 xAI 的 Grok 表现最差。这暴露了当前 LLM 在概率推理和时序预测上的根本性局限——它们擅长语言但不擅长算概率。</p>
       <a href="https://arstechnica.com/ai/2026/04/ai-models-are-terrible-at-betting-on-soccer-especially-xai-grok" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">xAI</span> <span class="tag">Grok</span> <span class="tag">基准测试</span>
     </div>
 
     <div class="card">
       <a href="https://arstechnica.com/gaming/2026/04/what-is-steamgpt-leaked-files-point-to-ai-powered-valve-security-review-system" target="_blank" rel="noopener noreferrer" class="card-title">SteamGPT 泄露：Valve 的 AI 安全审查系统</a>
-      <p class="card-summary">泄露文件指向 Steam 平台 AI 驱动的安全审查工具，帮助版主筛选大量可疑事件。</p>
+      <p class="card-summary">泄露的内部文件显示 Valve 正在开发代号「SteamGPT」的 AI 驱动安全审查系统，用于自动筛查平台上数以万计的可疑事件报告、违规内容和欺诈行为。这说明即使是游戏行业巨头也在将 AI Agent 应用于内部运营自动化，版主工作正被 AI 系统性替代。</p>
       <a href="https://arstechnica.com/gaming/2026/04/what-is-steamgpt-leaked-files-point-to-ai-powered-valve-security-review-system" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Steam</span> <span class="tag">游戏</span> <span class="tag">AI审查</span>
     </div>
 
     <div class="card">
       <a href="https://venturebeat.com/technology/llm-referred-traffic-converts-at-30-40-and-most-enterprises-arent-optimizing" target="_blank" rel="noopener noreferrer" class="card-title">LLM 引荐流量转化率 30-40%</a>
-      <p class="card-summary">AI agent 不对内容排名而是引用内容，大多数企业内容在 agent 查询中已不可见，先行者优势明显。</p>
+      <p class="card-summary">VentureBeat 报道一个关键发现：通过 AI agent（如 ChatGPT、Perplexity）引荐的网站流量转化率高达 30-40%，远超传统搜索引擎的 2-5%。原因在于 AI agent 不对内容排名而是直接引用——被引用的内容即被推荐。大多数企业的内容在 agent 查询中已不可见，先行优化者将获得巨大优势。</p>
       <a href="https://venturebeat.com/technology/llm-referred-traffic-converts-at-30-40-and-most-enterprises-arent-optimizing" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">SEO</span> <span class="tag">AI搜索</span> <span class="tag">企业</span>
     </div>
 
     <div class="card">
       <a href="https://anchor.host/someone-bought-30-wordpress-plugins-and-planted-a-backdoor-in-all-of-them/" target="_blank" rel="noopener noreferrer" class="card-title">WordPress 30 插件被植入后门</a>
-      <p class="card-summary">有人收购插件后植入恶意代码，717 points HN 热帖，引发开源供应链安全讨论。</p>
+      <p class="card-summary">安全研究员发现有人批量收购了 30 个 WordPress 插件后，在更新中植入隐蔽的后门代码，影响数百万网站。717 points 的 Hacker News 帖子引发开源社区对供应链安全的深度讨论：当维护者账号可以被收购，开源软件的信任基础何在？多位安全专家呼吁建立插件维护者身份验证机制。</p>
       <a href="https://anchor.host/someone-bought-30-wordpress-plugins-and-planted-a-backdoor-in-all-of-them/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">安全</span> <span class="tag">开源</span> <span class="tag">供应链</span>
     </div>
@@ -554,7 +554,7 @@ body {
 <!-- Footer -->
 <div class="footer">
   数据来源：The Verge, VentureBeat, Ars Technica, Ben&#x27;s Bites, Hacker News, HuggingFace, GitHub<br>
-  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-14 11:38
+  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-14 11:42
 </div>
 
 <!-- Share Bar -->
