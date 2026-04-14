@@ -1,96 +1,115 @@
 {
-  "date": "2026-04-13",
-  "sources": "arXiv, Hacker News, GitHub Trending, TechCrunch",
+  "date": "2026-04-14",
+  "sources": "https://huggingface.co/papers/date/2026-04-14, https://news.ycombinator.com/, https://github.com/search",
   "research": [
     {
-      "title": "Strategic Algorithmic Monoculture: AI Agent 多智能体协调行为实验",
-      "summary": "arXiv 最新论文研究 AI agents 在多智能体环境中的协调行为，区分了基础算法单一性和策略性算法单一性，发现 LLM 在协调方面表现优异但在维持多样性方面落后于人类。",
-      "url": "https://arxiv.org/abs/2604.09502",
-      "tags": ["arXiv", "2026-04-10"]
+      "title": "SATO: Strips as Tokens — 艺术家级网格生成新框架",
+      "summary": "DEEMOS Technology 发布 SATO，基于三角带序列的自回归 Transformer 框架，统一支持三角形/四边形网格生成，原生 UV 分割，今日 HuggingFace #1 论文。",
+      "url": "https://huggingface.co/papers/2604.09132",
+      "tags": ["3D生成", "网格", "Transformer", "UV分割"]
     },
     {
-      "title": "生成式 AI 需要更细致的 Opt-in 同意机制",
-      "summary": "论文指出一刀切的同意方式不足以应对生成式 AI 对创意作品的使用，提出基于推理时验证的细粒度同意架构，可在训练、推理和传播各环节实现权利平衡。",
-      "url": "https://arxiv.org/abs/2604.09413",
-      "tags": ["arXiv", "2026-04-10"]
+      "title": "OmniShow: 字节跳动多模态人-物交互视频生成",
+      "summary": "字节跳动提出 OmniShow 端到端框架，统一文本/图像/音频/姿态多模态条件，实现高质量人-物交互视频生成，建立 HOIVG-Bench 基准。",
+      "url": "https://huggingface.co/papers/2604.11804",
+      "tags": ["视频生成", "多模态", "字节跳动", "人机交互"]
     },
     {
-      "title": "Revdiff: 专为 AI Agent 设计的终端 Diff 审查工具",
-      "summary": "开源 TUI 工具，可在终端中直接审查 AI 生成的代码变更，支持行级标注并将反馈直接返回给 Agent，支持 Claude Code、Codex 等主流编码助手。",
-      "url": "https://github.com/umputun/revdiff",
-      "tags": ["Hacker News", "2026-04-13"]
+      "title": "Pseudo-Unification: 多模态模型的「伪统一」问题",
+      "summary": "港科大 MMLab 提出信息论探测框架，发现统一多模态模型存在模态编码不对称和响应模式分裂，真正的多模态协同需要信息流一致性。",
+      "url": "https://huggingface.co/papers/2604.10949",
+      "tags": ["多模态", "LLM", "信息论", "模型分析"]
+    },
+    {
+      "title": "ADD: 多比特图像水印新方法",
+      "summary": "提出 ADD 框架实现多比特图像水印，在保持图像质量的同时实现高鲁棒性水印嵌入和提取。",
+      "url": "https://huggingface.co/papers/2604.11491",
+      "tags": ["水印", "图像安全", "深度学习"]
     }
   ],
   "github": [
     {
-      "title": "NousResearch/hermes-agent",
-      "summary": "「与你一起成长的 AI Agent」框架持续火爆，今日新增 7,454 星标，累计 72,941 星标，稳居 GitHub Trending 榜首。",
-      "url": "https://github.com/NousResearch/hermes-agent",
-      "tags": ["Python", "⭐ 72,941", "+7,454 today"]
+      "title": "Hermes Agent 橙皮书系列",
+      "summary": "Hermes Agent 从入门到精通实战指南，Nous Research 开源 AI Agent 框架完整教程。",
+      "url": "https://github.com/alchaincyf/hermes-agent-orange-book",
+      "stars": "2.3k",
+      "tags": ["Hermes", "AI Agent", "教程"]
     },
     {
-      "title": "microsoft/markitdown",
-      "summary": "微软出品的文件转 Markdown 工具，支持 Office 文档转换，累计 10 万+ 星标，今日新增 2,513 星标。",
-      "url": "https://github.com/microsoft/markitdown",
-      "tags": ["Python", "⭐ 105,981", "+2,513 today"]
+      "title": "Fireworks Tech Graph — Claude Code 技术图表生成",
+      "summary": "Claude Code skill，可生成高质量 SVG+PNG 技术架构图、流程图、时序图。",
+      "url": "https://github.com/yizhiyanhua-ai/fireworks-tech-graph",
+      "stars": "2.1k",
+      "tags": ["Claude Code", "图表", "SVG"]
     },
     {
-      "title": "coleam00/Archon",
-      "summary": "首个开源 AI 编码 Harness Builder，让 AI 编码变得确定性和可重复，今日新增 2,739 星标。",
-      "url": "https://github.com/coleam00/Archon",
-      "tags": ["TypeScript", "⭐ 17,333", "+2,739 today"]
+      "title": "Hermes Hudui — Web UI 意识监控",
+      "summary": "Hermes AI Agent 的 Web UI 意识监控器，实时查看 Agent 状态和思考过程。",
+      "url": "https://github.com/joeynyc/hermes-hudui",
+      "stars": "840",
+      "tags": ["Hermes", "监控", "Web UI"]
     },
     {
-      "title": "forrestchang/andrej-karpathy-skills",
-      "summary": "基于 Andrej Karpathy 对 LLM 编码陷阱观察提炼的 CLAUDE.md 文件，帮助改善 Claude Code 行为，今日新增 2,369 星标。",
-      "url": "https://github.com/forrestchang/andrej-karpathy-skills",
-      "tags": ["Markdown", "⭐ 19,305", "+2,369 today"]
+      "title": "Auto Deep Researcher 24x7",
+      "summary": "自主运行的 AI Agent，可 24/7 不间断执行深度学习实验，自动管理训练流程。",
+      "url": "https://github.com/Xiangyue-Zhang/auto-deep-researcher-24x7",
+      "stars": "396",
+      "tags": ["深度学习", "自动化", "实验管理"]
     },
     {
-      "title": "shiyu-coder/Kronos",
-      "summary": "金融市场语言基础模型，专为金融时间序列数据设计，今日新增 1,985 星标。",
-      "url": "https://github.com/shiyu-coder/Kronos",
-      "tags": ["Python", "⭐ 16,437", "+1,985 today"]
+      "title": "Obscura — AI Agent 专用无头浏览器",
+      "summary": "专为 AI Agent 和网页爬取设计的无头浏览器，优化自动化场景。",
+      "url": "https://github.com/h4ckf0r0day/obscura",
+      "stars": "109",
+      "tags": ["浏览器", "爬虫", "AI Agent"]
+    },
+    {
+      "title": "EcoAlign Forge — 多智能体 DPO 数据合成",
+      "summary": "多智能体偏好训练数据自动合成框架，支持红队攻击 → 多 persona 审核流程。",
+      "url": "https://github.com/dengxianghua888-ops/ecoalign-forge",
+      "stars": "104",
+      "tags": ["RLHF", "DPO", "多智能体", "数据合成"]
+    },
+    {
+      "title": "ParseBench — AI Agent 文档解析基准",
+      "summary": "LlamaIndex 团队推出文档解析基准测试，评估 AI Agent 的文档理解能力。",
+      "url": "https://github.com/run-llama/ParseBench",
+      "stars": "56",
+      "tags": ["基准测试", "文档解析", "LlamaIndex"]
     }
   ],
   "models": [
     {
-      "title": "全球最大轨道计算集群正式开放运营",
-      "summary": "太空计算基础设施取得突破，最大的轨道计算集群开始接受商业订单，为太空 AI 应用提供新可能。",
-      "url": "https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/",
-      "tags": ["TechCrunch", "2026-04-13"]
+      "title": "GitHub Stacked PRs 功能正式发布",
+      "summary": "GitHub 推出 Stacked PRs 功能，支持分支堆叠式 PR 管理，改善大型项目的代码审查流程。",
+      "url": "https://github.github.com/gh-stack/",
+      "tags": ["GitHub", "开发工具", "PR"]
     },
     {
-      "title": "特朗普政府鼓励银行测试 Anthropic Mythos 模型",
-      "summary": "美国政府官员可能正在推动金融机构试用 Anthropic 的 Mythos 模型，显示 AI 在金融监管领域的应用正在加速。",
-      "url": "https://techcrunch.com/2026/04/12/trump-officials-may-be-encouraging-banks-to-test-anthropics-mythos-model/",
-      "tags": ["TechCrunch", "2026-04-12"]
-    },
-    {
-      "title": "HumanX 大会焦点：人人都在谈论 Claude",
-      "summary": "在 HumanX 会议上，Anthropic 的 Claude 成为最受关注的 AI 模型，展现了其在 Agent 和编码领域的强势地位。",
-      "url": "https://techcrunch.com/2026/04/12/at-the-humanx-conference-everyone-was-talking-about-claude/",
-      "tags": ["TechCrunch", "2026-04-12"]
+      "title": "统一多模态模型仍面临「伪统一」挑战",
+      "summary": "研究显示现有统一多模态模型（UMMs）在视觉-语言协同方面存在本质缺陷，信息流不一致导致真正的多模态推理能力无法实现。",
+      "url": "https://huggingface.co/papers/2604.10949",
+      "tags": ["多模态", "模型架构", "研究"]
     }
   ],
   "community": [
     {
-      "title": "Show HN: AI Agent 自我改进机器人引发讨论",
-      "summary": "开发者展示了一个能够自我改进的 AI Agent，引发社区对 AI 自主进化能力的热议。",
-      "url": "https://github.com/Grimm67123/GrimmBot",
-      "tags": ["Hacker News", "2026-04-13"]
+      "title": "WordPress 30 个插件被植入后门",
+      "summary": "有人收购 30 个 WordPress 插件后植入后门代码，717 points 热帖引发开源安全讨论。",
+      "url": "https://anchor.host/someone-bought-30-wordpress-plugins-and-planted-a-backdoor-in-all-of-them/",
+      "tags": ["安全", "开源", "WordPress"]
     },
     {
-      "title": "Show HN: 项目看板让 AI 成为真正的团队成员",
-      "summary": "新工具让 AI Agent 以真实队友身份加入项目看板，可分配任务、追踪进度，重新定义人机协作模式。",
-      "url": "https://is.team",
-      "tags": ["Hacker News", "2026-04-13"]
+      "title": "Polymarket 机器人「Nothing Ever Happens」",
+      "summary": "一个自动在非体育市场持续买入「No」的 Polymarket 机器人引发讨论，364 points 热议预测市场策略。",
+      "url": "https://github.com/sterlingcrispin/nothing-ever-happens",
+      "tags": ["预测市场", "Polymarket", "自动化"]
     },
     {
-      "title": "Show HN: 本地沙盒运行 AI 编码 Agent 的新方案",
-      "summary": "SuperHQ 让编码 Agent 在本地微虚拟机中运行，支持并行多 Agent 工作，API 密钥通过本地代理注入，保护系统安全。",
-      "url": "https://superhq.ai/",
-      "tags": ["Hacker News", "2026-04-13"]
+      "title": "Hermes Agent 生态爆发",
+      "summary": "GitHub 上涌现大量 Hermes Agent 相关项目——教程、监控 UI、Wiki、Control Interface，Agent 框架生态正在形成。",
+      "url": "https://github.com/search?q=hermes+agent&type=repositories&s=stars",
+      "tags": ["Hermes", "AI Agent", "开源生态"]
     }
   ]
 }
