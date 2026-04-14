@@ -27,17 +27,20 @@ def load_data():
         return json.load(f)
 
 
-def build_item_html(item):
+def build_item_html(item, is_top=False):
     safe_title = escape(item.get("title", "Untitled"))
     safe_summary = escape(item.get("summary", ""))
     safe_link = escape(item.get("url", "#"), quote=True)
+    top_class = " top" if is_top else ""
+    top_badge = '<span class="top-badge">TOP</span>' if is_top else ""
     tags = ""
     if item.get("tags"):
         tags = " ".join(
             f'<span class="tag">{escape(str(t))}</span>' for t in item["tags"]
         )
     return f"""
-    <div class="card">
+    <div class="card{top_class}">
+      {top_badge}
       <a href="{safe_link}" target="_blank" rel="noopener noreferrer" class="card-title">{safe_title}</a>
       <p class="card-summary">{safe_summary}</p>
       <a href="{safe_link}" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -48,7 +51,10 @@ def build_item_html(item):
 def build_section_html(key, items):
     meta = SECTION_META[key]
     section_id = f"section-{key}"
-    cards = "\n".join(build_item_html(i) for i in items)
+    cards_list = []
+    for i, item in enumerate(items):
+        cards_list.append(build_item_html(item, is_top=(i == 0)))
+    cards = "\n".join(cards_list)
     return f"""
     <section class="section" id="{section_id}">
       <h2 class="section-title">{meta['icon']} {meta['title']}</h2>
@@ -257,6 +263,32 @@ body {{
 }}
 .card:hover::before {{
   opacity: 1;
+}}
+
+/* ---- TOP card 高标 ---- */
+.card.top {{
+  background: rgba(255,255,255,0.85);
+  border-left: 3px solid #4a6080;
+  border-color: rgba(74,96,128,0.25);
+  padding: 28px 26px 26px;
+}}
+.card.top .card-title {{
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}}
+.card.top .card-summary {{
+  color: #3a3a3a;
+}}
+.top-badge {{
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+  background: #4a6080;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
 }}
 .card-title {{
   font-family: 'Cormorant Garamond', serif;

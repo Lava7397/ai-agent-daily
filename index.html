@@ -171,6 +171,32 @@ body {
 .card:hover::before {
   opacity: 1;
 }
+
+/* ---- TOP card 高标 ---- */
+.card.top {
+  background: rgba(255,255,255,0.85);
+  border-left: 3px solid #4a6080;
+  border-color: rgba(74,96,128,0.25);
+  padding: 28px 26px 26px;
+}
+.card.top .card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.card.top .card-summary {
+  color: #3a3a3a;
+}
+.top-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+  background: #4a6080;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+}
 .card-title {
   font-family: 'Cormorant Garamond', serif;
   color: #1a1a1a;
@@ -390,7 +416,8 @@ body {
     <section class="section" id="section-research">
       <h2 class="section-title">🤖 AI Agent 研究</h2>
       
-    <div class="card">
+    <div class="card top">
+      <span class="top-badge">TOP</span>
       <a href="https://huggingface.co/papers/2604.09132" target="_blank" rel="noopener noreferrer" class="card-title">SATO: Strips as Tokens — 艺术家级 3D 网格生成</a>
       <p class="card-summary">DEEMOS Technology 提出 SATO 框架，用三角带序列替代传统坐标排序，解决自回归 Transformer 生成网格时序列过长、边流断裂的问题。关键创新是同一 token 序列可解码为三角形或四边形网格，支持联合训练。在几何质量、结构连贯性和 UV 分割上全面超越前代方法。今日 HuggingFace #1 论文，GitHub 已获 37 stars。</p>
       <a href="https://huggingface.co/papers/2604.09132" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -398,6 +425,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://huggingface.co/papers/2604.11804" target="_blank" rel="noopener noreferrer" class="card-title">OmniShow: 字节跳动多模态人-物交互视频生成</a>
       <p class="card-summary">字节跳动提出 OmniShow 端到端框架，首次统一文本、参考图像、音频和姿态四种模态条件来生成人-物交互视频。核心设计包括用于高效图像/姿态注入的统一通道条件机制，以及确保音画同步的门控局部上下文注意力。团队还建立了 HOIVG-Bench 基准填补该领域评估空白。#2 论文。</p>
       <a href="https://huggingface.co/papers/2604.11804" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -405,6 +433,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://huggingface.co/papers/2604.10949" target="_blank" rel="noopener noreferrer" class="card-title">Pseudo-Unification: 多模态模型的「伪统一」问题</a>
       <p class="card-summary">港科大 MMLab 用信息论探测框架分析 10 个主流统一多模态模型（UMMs），发现它们并未真正实现视觉-语言协同：视觉和语言遵循不同的编码熵轨迹，文本生成展现高熵创造力而图像合成强制低熵保真度。只有通过上下文预测统一两侧的模型才能实现真正的多模态推理，且参数更少效果更好。</p>
       <a href="https://huggingface.co/papers/2604.10949" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -412,6 +441,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://venturebeat.com/orchestration/new-framework-lets-ai-agents-rewrite-their-own-skills-without-retraining-the" target="_blank" rel="noopener noreferrer" class="card-title">新框架让 AI Agent 自我修复技能</a>
       <p class="card-summary">多所大学联合构建了一个让 AI Agent 学习自我修复的框架：Agent 能自动识别自己的失败模式，并通过技能重写来纠正，无需人工干预或重新训练底层模型。这项研究意味着 Agent 可以在部署后持续自我进化，对生产环境中的 Agent 可靠性有重大意义。</p>
       <a href="https://venturebeat.com/orchestration/new-framework-lets-ai-agents-rewrite-their-own-skills-without-retraining-the" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -422,7 +452,8 @@ body {
     <section class="section" id="section-github">
       <h2 class="section-title">⭐ GitHub 热门项目</h2>
       
-    <div class="card">
+    <div class="card top">
+      <span class="top-badge">TOP</span>
       <a href="https://github.com/alchaincyf/hermes-agent-orange-book" target="_blank" rel="noopener noreferrer" class="card-title">Hermes Agent 橙皮书 — 入门到精通</a>
       <p class="card-summary">这是一份 Nous Research 开源 Hermes Agent 框架的中文实战指南，从基础配置到高级技能编写，覆盖记忆管理、工具调用、多 Agent 协作等核心场景。2.3k stars 反映了社区对 Agent 框架系统化教程的强烈需求，标志着 Hermes 生态正在从工具走向体系。</p>
       <a href="https://github.com/alchaincyf/hermes-agent-orange-book" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -430,6 +461,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://github.com/yizhiyanhua-ai/fireworks-tech-graph" target="_blank" rel="noopener noreferrer" class="card-title">Fireworks Tech Graph — Claude Code 图表生成</a>
       <p class="card-summary">一个 Claude Code skill，输入自然语言描述即可生成高质量 SVG/PNG 技术架构图、流程图、时序图和网络拓扑图。支持 54 种生产级设计系统风格，生成的图表可直接用于技术文档和演示。2.1k stars 说明开发者对 AI 辅助图表生成的旺盛需求。</p>
       <a href="https://github.com/yizhiyanhua-ai/fireworks-tech-graph" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -437,6 +469,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://github.com/reurinkkeano/serpent" target="_blank" rel="noopener noreferrer" class="card-title">Serpent — MCP/AI Agent 元搜索引擎</a>
       <p class="card-summary">新开源的元搜索后端，专为 MCP 协议、AI Agent 和 LLM 工作流设计。Agent 可以通过统一接口调用多个搜索引擎，自动聚合和去重结果。解决了一个 Agent 开发中的常见痛点：不同搜索 API 格式不统一，接入成本高。</p>
       <a href="https://github.com/reurinkkeano/serpent" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -444,6 +477,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://github.com/arlington-labs/agentchat" target="_blank" rel="noopener noreferrer" class="card-title">AgentChat — AI Agent 之间的私密群聊</a>
       <p class="card-summary">一个让不同用户的 AI Agent 之间进行私密群聊的开源项目，基于 S2 流协议。想象一下：你的 Agent 和朋友的 Agent 自动协调聚餐时间、分摊费用、安排日程——而不需要人类来回发消息。Agent-to-Agent 通信的早期探索。</p>
       <a href="https://github.com/arlington-labs/agentchat" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -451,6 +485,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://github.com/FareedKhan-dev/claude-code-staff-engineer" target="_blank" rel="noopener noreferrer" class="card-title">Claude Code Staff Engineer — 子 Agent 团队</a>
       <p class="card-summary">用 Claude Code 构建一个「高级 Staff Engineer」，内部管理多个子 Agent 团队分别负责不同技术领域。体现了 Agent 架构从单体走向分层协作的趋势，类似于人类组织中的「技术总监 + 专家团队」模式。</p>
       <a href="https://github.com/FareedKhan-dev/claude-code-staff-engineer" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -461,7 +496,8 @@ body {
     <section class="section" id="section-models">
       <h2 class="section-title">🚀 模型与行业动态</h2>
       
-    <div class="card">
+    <div class="card top">
+      <span class="top-badge">TOP</span>
       <a href="https://venturebeat.com/technology/is-anthropic-nerfing-claude-users-increasingly-report-performance" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic Claude 性能下降争议</a>
       <p class="card-summary">大量用户在社交平台报告 Claude 回复质量明显下降，质疑 Anthropic 是否暗中降低了模型能力。Anthropic 回应称因需求激增，在繁忙时段调整了资源分配策略，但否认「nerfing」了模型。VentureBeat 指出 Anthropic 近 3 个月 ARR 增长 60 亿美元，算力压力确实巨大。</p>
       <a href="https://venturebeat.com/technology/is-anthropic-nerfing-claude-users-increasingly-report-performance" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -469,6 +505,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://github.github.com/gh-stack/" target="_blank" rel="noopener noreferrer" class="card-title">GitHub Stacked PRs 正式发布</a>
       <p class="card-summary">GitHub 官方推出 Stacked PRs 功能，允许开发者将多个分支按依赖关系堆叠管理，每个 PR 自动跟踪上游变更。解决了大型项目中「一个大 PR 拆成多个小 PR 但互相依赖」的痛点。455 points 登顶 Hacker News，评论区讨论热烈。</p>
       <a href="https://github.github.com/gh-stack/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -476,6 +513,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://www.theverge.com/tech/911080/microsoft-ai-openclaw-365-businesses" target="_blank" rel="noopener noreferrer" class="card-title">微软正在为 Copilot 测试类 OpenClaw AI 机器人</a>
       <p class="card-summary">据 The Verge 4月13日报道，微软正在为 Microsoft 365 企业版测试类似 OpenClaw 的自主 AI 机器人，可以主动执行任务而非被动回答问题。这标志着微软从「Copilot 助手」向「自主 Agent」的战略转变，将直接影响 Office 全家桶的使用方式。</p>
       <a href="https://www.theverge.com/tech/911080/microsoft-ai-openclaw-365-businesses" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -483,6 +521,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://www.theverge.com/ai-artificial-intelligence/911118/openai-memo-cro-ai-competition-anthropic" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI 内部备忘录曝光：如何击败 Anthropic</a>
       <p class="card-summary">The Verge 获得 OpenAI 首席营收官 Denise Dresser 的内部备忘录，她写道「市场竞争是我见过最激烈的」，详细阐述了如何在企业客户争夺中击败 Anthropic 和 Google。备忘录显示 OpenAI 将加大直销团队投入，并推出更多企业级定制功能。15 条评论热议。</p>
       <a href="https://www.theverge.com/ai-artificial-intelligence/911118/openai-memo-cro-ai-competition-anthropic" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -493,7 +532,8 @@ body {
     <section class="section" id="section-community">
       <h2 class="section-title">🔥 社区热议</h2>
       
-    <div class="card">
+    <div class="card top">
+      <span class="top-badge">TOP</span>
       <a href="https://www.theverge.com/ai-artificial-intelligence/911423/openai-sam-altman-attack" target="_blank" rel="noopener noreferrer" class="card-title">🚨 Sam Altman 遭遇第二次袭击</a>
       <p class="card-summary">嫌犯 Daniel Moreno-Gama 被联邦指控攻击 OpenAI CEO Sam Altman 的住宅和公司总部。警方在其住所发现标题为「Your Last Warning」的文件，嫌犯承认曾试图杀害 Altman。这是继此前枪击事件后的第二次针对 OpenAI 高管的暴力事件，引发 AI 行业安全讨论。The Verge 今晨报道。</p>
       <a href="https://www.theverge.com/ai-artificial-intelligence/911423/openai-sam-altman-attack" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -501,6 +541,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://arstechnica.com/ai/2026/04/meta-spins-up-ai-version-of-mark-zuckerberg-to-engage-with-employees" target="_blank" rel="noopener noreferrer" class="card-title">扎克伯格构建 AI 克隆参加会议</a>
       <p class="card-summary">据 Financial Times 报道，Meta CEO Mark Zuckerberg 正在亲自训练和测试一个自己的动画 AI 版本，用于代替本人参加内部会议和与员工互动。Ars Technica 175 条评论热议，焦点集中在：这是否意味着 CEO 角色本身也可以被 AI 化？对企业管理和信任关系的影响值得关注。</p>
       <a href="https://arstechnica.com/ai/2026/04/meta-spins-up-ai-version-of-mark-zuckerberg-to-engage-with-employees" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -508,6 +549,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://www.theverge.com/ai-artificial-intelligence/910879/softbank-creates-new-company-building-physical-ai" target="_blank" rel="noopener noreferrer" class="card-title">SoftBank 创建 Physical AI 公司</a>
       <p class="card-summary">SoftBank 宣布成立新公司专注 Physical AI，联合索尼、本田、新日铁等日本巨头，目标 2030 年开发出能自主控制机器人的 AI 模型。这是日本「主权 AI」战略的重要组成部分，旨在与中国和美国的 AI 公司竞争。Nikkei 报道该项目已获得日本政府支持。</p>
       <a href="https://www.theverge.com/ai-artificial-intelligence/910879/softbank-creates-new-company-building-physical-ai" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -515,6 +557,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://www.theverge.com/ai-artificial-intelligence/911267/ai-influencers-coachella" target="_blank" rel="noopener noreferrer" class="card-title">AI 网红占领 Coachella 音乐节</a>
       <p class="card-summary">The Verge 今晨报道，今年 Coachella 音乐节上涌现大量 AI 虚拟网红——它们不是真人，但拥有完整的社交媒体账号、品牌合作和粉丝互动。文章追问：当内容创作者本身都不是活人时，「通过创作者活出精彩人生」这句话还成立吗？虚拟偶像经济正在从亚洲向欧美扩散。</p>
       <a href="https://www.theverge.com/ai-artificial-intelligence/911267/ai-influencers-coachella" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -522,6 +565,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://www.theverge.com/ai-artificial-intelligence/910933/peak-deepfake-america" target="_blank" rel="noopener noreferrer" class="card-title">Peak Deepfake America：特朗普发布 AI 生成的耶稣形象</a>
       <p class="card-summary">美国总统特朗普在 Truth Social 上发布了一张 AI 生成的图片，将自己描绘成类似耶稣的形象正在治愈 Ethan Hawke。The Verge 将此称为「Peak deepfake America」——当国家元首主动使用 deepfake 进行政治传播，这标志着 AI 生成内容在政治领域的新阶段。</p>
       <a href="https://www.theverge.com/ai-artificial-intelligence/910933/peak-deepfake-america" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -529,6 +573,7 @@ body {
     </div>
 
     <div class="card">
+      
       <a href="https://www.theverge.com/ai-artificial-intelligence/910707/openai-responds-to-axios-http-hack-by-updating-security-certificates" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI 回应 Axios HTTP 黑客事件并更新安全证书</a>
       <p class="card-summary">在黑客通过 Axios HTTP 协议漏洞获取 OpenAI 内部账号后，OpenAI 已紧急更新安全证书并加强认证流程。The Verge 4月12日报道，这起事件暴露了 AI 公司在 API 安全和内部通信加密上的薄弱环节。随着 AI Agent 频繁调用各类 API，安全防护正成为关键基础设施。</p>
       <a href="https://www.theverge.com/ai-artificial-intelligence/910707/openai-responds-to-axios-http-hack-by-updating-security-certificates" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
@@ -540,7 +585,7 @@ body {
 <!-- Footer -->
 <div class="footer">
   数据来源：The Verge, VentureBeat, Ars Technica, Hacker News, HuggingFace, GitHub<br>
-  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-14 11:48
+  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-14 11:52
 </div>
 
 <!-- Share Bar -->
