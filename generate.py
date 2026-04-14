@@ -594,17 +594,26 @@ function downloadImage() {{
   const date = '{safe_date}';
   const fileName = `AI-Agent日报-${{date}}.png`;
   const shareBar = document.querySelector('.share-bar');
+  const toast = document.getElementById('toast');
 
   showToast('📸 正在生成图片…');
   if (shareBar) shareBar.style.display = 'none';
+  if (toast) toast.style.display = 'none';
 
-  html2canvas(document.body, {{
+  const body = document.body;
+  const origWidth = body.style.width;
+  body.style.width = '720px';
+
+  html2canvas(body, {{
     scale: 2,
     useCORS: true,
     backgroundColor: '#f5f0e8',
+    width: 720,
     windowWidth: 720
   }}).then(canvas => {{
+    body.style.width = origWidth;
     if (shareBar) shareBar.style.display = '';
+    if (toast) toast.style.display = '';
     canvas.toBlob(blob => {{
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -617,7 +626,9 @@ function downloadImage() {{
       showToast('✅ 图片已保存');
     }}, 'image/png');
   }}).catch(err => {{
+    body.style.width = origWidth;
     if (shareBar) shareBar.style.display = '';
+    if (toast) toast.style.display = '';
     showToast('❌ 截图失败: ' + err.message);
   }});
 }}
