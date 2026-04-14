@@ -104,6 +104,7 @@ def build_html(data):
 <meta property="og:url" content="https://lava-agent-daily.vercel.app">
 <meta name="twitter:card" content="summary">
 <title>AI Agent 日报 — {safe_date}</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
@@ -589,7 +590,37 @@ function closeModal(e) {{
   }}
 }}
 
-function nativeShare() {{\n  if (navigator.share) {{\n    navigator.share({{\n      title: document.title,\n      text: 'AI Agent 日报 — 今日 AI 资讯精选',\n      url: SHARE_URL\n    }}).catch(() => {{}});\n  }} else {{\n    copyLink();\n  }}\n}}\n\nfunction downloadImage() {{\n  const date = '{safe_date}';\n  const imageUrl = `images/${{date}}.png`;\n  const fileName = `AI-Agent日报-${{date}}.png`;\n  \n  // 尝试使用 fetch 下载（解决跨域问题）\n  fetch(imageUrl)\n    .then(response => response.blob())\n    .then(blob => {{\n      const url = window.URL.createObjectURL(blob);\n      const a = document.createElement('a');\n      a.href = url;\n      a.download = fileName;\n      document.body.appendChild(a);\n      a.click();\n      document.body.removeChild(a);\n      window.URL.revokeObjectURL(url);\n      showToast('📸 图片开始下载');\n    }})\n    .catch(() => {{\n      // 如果 fetch 失败，直接打开图片\n      window.open(imageUrl, '_blank');\n      showToast('已在新窗口打开图片，长按保存');\n    }});\n}}
+function downloadImage() {{
+  const date = '{safe_date}';
+  const fileName = `AI-Agent日报-${{date}}.png`;
+  const shareBar = document.querySelector('.share-bar');
+
+  showToast('📸 正在生成图片…');
+  if (shareBar) shareBar.style.display = 'none';
+
+  html2canvas(document.body, {{
+    scale: 2,
+    useCORS: true,
+    backgroundColor: '#f5f0e8',
+    windowWidth: 720
+  }}).then(canvas => {{
+    if (shareBar) shareBar.style.display = '';
+    canvas.toBlob(blob => {{
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('✅ 图片已保存');
+    }}, 'image/png');
+  }}).catch(err => {{
+    if (shareBar) shareBar.style.display = '';
+    showToast('❌ 截图失败: ' + err.message);
+  }});
+}}
 </script>
 
 </body>
