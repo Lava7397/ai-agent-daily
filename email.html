@@ -409,7 +409,7 @@ body {
       <div class="stat-label">个板块</div>
     </div>
     <div class="stat">
-      <div class="stat-num">6</div>
+      <div class="stat-num">7</div>
       <div class="stat-label">个来源</div>
     </div>
   </div>
@@ -427,34 +427,26 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://huggingface.co/papers/2604.12374" target="_blank" rel="noopener noreferrer" class="card-title">Nemotron 3 Super: 120B MoE Hybrid Mamba-Transformer for Agentic Reasoning</a>
-      <p class="card-summary">NVIDIA发布Nemotron 3 Super，一个1200亿参数（激活120亿）的混合Mamba-Attention MoE模型，专为智能体推理设计。该模型结合了Mamba的长序列高效性和Transformer的注意力机制，在保持低推理成本的同时实现了强大的推理能力。模型已开源权重并支持量化部署，为企业级智能体应用提供了新的开源选择。</p>
-      <a href="https://huggingface.co/papers/2604.12374" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">MoE</span> <span class="tag">Mamba</span> <span class="tag">agentic</span> <span class="tag">NVIDIA</span> <span class="tag">open-source</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://huggingface.co/papers/2604.11784" target="_blank" rel="noopener noreferrer" class="card-title">ClawGUI: 统一框架训练、评估和部署GUI智能体</a>
-      <p class="card-summary">ClawGUI提出统一框架，让AI智能体通过视觉界面（点击、滑动、键入）操作任意软件，而非依赖API。该框架解决了GUI智能体在训练数据、评估基准和部署管道上的碎片化问题，支持跨应用的长尾场景自动化，为RPA+AI融合提供了标准化工具链。</p>
+      <a href="https://huggingface.co/papers/2604.11784" target="_blank" rel="noopener noreferrer" class="card-title">ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架</a>
+      <p class="card-summary">浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。</p>
       <a href="https://huggingface.co/papers/2604.11784" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">GUI agent</span> <span class="tag">automation</span> <span class="tag">RPA</span> <span class="tag">benchmark</span>
+      <span class="tag">gui-agent</span> <span class="tag">reinforcement-learning</span> <span class="tag">open-source</span>
     </div>
 
     <div class="card">
       
-      <a href="https://huggingface.co/papers/2604.13018" target="_blank" rel="noopener noreferrer" class="card-title">Toward Autonomous Long-Horizon Engineering for ML Research</a>
-      <p class="card-summary">论文探索让AI智能体自主完成长周期ML研究工程任务，需跨越任务理解、环境搭建、实现、调试和结果分析等多个阶段维持连贯进展。研究表明当前agent在长期任务中容易丢失上下文，提出了新的评估框架和改进策略，对AI自主科研有重要参考价值。</p>
-      <a href="https://huggingface.co/papers/2604.13018" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">autonomous research</span> <span class="tag">long-horizon</span> <span class="tag">ML engineering</span>
+      <a href="https://huggingface.co/papers/2604.12627" target="_blank" rel="noopener noreferrer" class="card-title">KnowRL: 知识引导的最小充分 RL 推理框架</a>
+      <p class="card-summary">天津大学提出 KnowRL，将 hint 设计建模为最小充分引导问题，通过原子知识点分解和约束子集搜索构建紧凑的交互感知知识子集。研究发现剪枝交互悖论：移除单个知识点可能有益但移除多个反而有害。KnowRL-Nemotron-1.5B 在 8 个推理基准上平均准确率达 74.16%，超越基线 +9.63 分，刷新 1.5B 规模 SOTA。</p>
+      <a href="https://huggingface.co/papers/2604.12627" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">reasoning</span> <span class="tag">reinforcement-learning</span> <span class="tag">knowledge-guidance</span>
     </div>
 
     <div class="card">
       
-      <a href="https://huggingface.co/papers/2604.13010" target="_blank" rel="noopener noreferrer" class="card-title">Lightning OPD: 大推理模型高效后训练方案</a>
-      <p class="card-summary">提出Offline On-Policy Distillation (OPD)方法，解决标准在线策略蒸馏需要持续运行教师模型服务器的高成本问题。通过离线方式实现高效后训练，在大推理模型上显著降低训练成本同时保持性能，为开源模型追赶闭源模型提供了更经济的训练路径。</p>
-      <a href="https://huggingface.co/papers/2604.13010" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">distillation</span> <span class="tag">reasoning</span> <span class="tag">training</span> <span class="tag">efficiency</span>
+      <a href="https://huggingface.co/papers/2604.08865" target="_blank" rel="noopener noreferrer" class="card-title">SPPO: 序列级 PPO 突破长链推理训练瓶颈</a>
+      <p class="card-summary">南方科技大学 NLP 组提出 SPPO，将长链推理重新建模为序列级上下文赌博机问题，使用解耦标量价值函数导出低方差优势信号，无需多采样。SPPO 解决标准 token 级 PPO 在长 CoT 上的不稳定问题，训练速度提升 5.9 倍。已入选 ACL 2026 Main，在 AIME24/25、AMC23、MATH500 上以单样本更新匹配 GRPO(N=8) 性能。</p>
+      <a href="https://huggingface.co/papers/2604.08865" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">rl-training</span> <span class="tag">reasoning</span> <span class="tag">ppo</span> <span class="tag">acl-2026</span>
     </div>
     </section>
 
@@ -463,42 +455,42 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://github.com/h4ckf0r0day/obscura" target="_blank" rel="noopener noreferrer" class="card-title">h4ckf0r0day/obscura</a>
-      <p class="card-summary">专为AI智能体和网页抓取设计的无头浏览器。提供高性能的自动化网页交互能力，支持复杂的页面渲染和JavaScript执行，可作为AI agent的web browsing后端，替代传统Selenium/Puppetier方案。</p>
-      <a href="https://github.com/h4ckf0r0day/obscura" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">headless-browser</span> <span class="tag">web-scraping</span> <span class="tag">AI-agent</span>
+      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="card-title">NousResearch/hermes-agent</a>
+      <p class="card-summary">Nous Research 官方 Agent 框架，主打与用户共同成长理念，提供持久记忆、技能系统、子代理编排等能力。星标近 9 万，是当前最热门的开源 AI Agent 项目之一。</p>
+      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">ai-agent</span> <span class="tag">framework</span> <span class="tag">persistent-memory</span>
     </div>
 
     <div class="card">
       
-      <a href="https://github.com/arlington-labs/agentchat" target="_blank" rel="noopener noreferrer" class="card-title">arlington-labs/agentchat</a>
-      <p class="card-summary">基于S2 streams实现的朋友间AI智能体私密群聊。允许多个用户的AI agent之间直接通信和协作，无需人类中间环节，探索agent-to-agent通信协议的新范式。</p>
-      <a href="https://github.com/arlington-labs/agentchat" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">agent-communication</span> <span class="tag">privacy</span> <span class="tag">multi-agent</span>
+      <a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer" class="card-title">thedotmack/claude-mem</a>
+      <p class="card-summary">Claude Code 插件，自动捕获编码会话中 Claude 的所有操作，用 AI 压缩后注入未来会话的上下文。解决 Claude Code 跨会话遗忘问题，星标 5.8 万。</p>
+      <a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">claude-code</span> <span class="tag">context-memory</span> <span class="tag">developer-tools</span>
     </div>
 
     <div class="card">
       
-      <a href="https://github.com/asynkor/asynkor" target="_blank" rel="noopener noreferrer" class="card-title">asynkor/asynkor</a>
-      <p class="card-summary">面向AI智能体团队的文件租赁系统。一个MCP服务器兼容任何IDE，通过文件锁定机制解决多agent并行编辑同一代码库时的合并冲突问题，为多智能体开发工作流提供基础设施。</p>
-      <a href="https://github.com/asynkor/asynkor" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">MCP</span> <span class="tag">multi-agent</span> <span class="tag">IDE</span> <span class="tag">collaboration</span>
+      <a href="https://github.com/virattt/ai-hedge-fund" target="_blank" rel="noopener noreferrer" class="card-title">virattt/ai-hedge-fund</a>
+      <p class="card-summary">AI 对冲基金团队模拟系统，由多个 AI Agent 分别扮演不同投资角色（分析师、交易员、风控），协作完成投资决策。星标 5.5 万，是 AI+金融交叉领域的标杆项目。</p>
+      <a href="https://github.com/virattt/ai-hedge-fund" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">ai-agent</span> <span class="tag">finance</span> <span class="tag">multi-agent</span>
     </div>
 
     <div class="card">
       
-      <a href="https://github.com/poseljacob/agentic-video-editor" target="_blank" rel="noopener noreferrer" class="card-title">poseljacob/agentic-video-editor</a>
-      <p class="card-summary">AI驱动的视频编辑器，将原始素材和创意简报通过多个AI智能体协作（Google Gemini + FFmpeg）转化为成品广告。展示了multi-agent pipeline在创意内容生产中的实际应用。</p>
-      <a href="https://github.com/poseljacob/agentic-video-editor" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">video-editing</span> <span class="tag">multi-agent</span> <span class="tag">Gemini</span> <span class="tag">creative</span>
+      <a href="https://github.com/forrestchang/andrej-karpathy-skills" target="_blank" rel="noopener noreferrer" class="card-title">forrestchang/andrej-karpathy-skills</a>
+      <p class="card-summary">基于 Karpathy 对 LLM 编码陷阱观察提炼的 CLAUDE.md 技巧文件，一个文件即可提升 Claude Code 行为质量。星标 4.3 万，说明社区对 LLM 编码最佳实践的强需求。</p>
+      <a href="https://github.com/forrestchang/andrej-karpathy-skills" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">claude-code</span> <span class="tag">best-practices</span> <span class="tag">prompting</span>
     </div>
 
     <div class="card">
       
-      <a href="https://github.com/MaxKmet/idea-validation-agents" target="_blank" rel="noopener noreferrer" class="card-title">MaxKmet/idea-validation-agents</a>
-      <p class="card-summary">AI智能体充当个人风投分析师，从创业点子头脑风暴到完整验证和上市策略。为独立开发者打造，一个周末完成验证而非后悔半年。集成Claude Code、OpenAI Codex和Cursor。</p>
-      <a href="https://github.com/MaxKmet/idea-validation-agents" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">startup</span> <span class="tag">validation</span> <span class="tag">Claude Code</span> <span class="tag">Cursor</span>
+      <a href="https://github.com/HKUDS/DeepTutor" target="_blank" rel="noopener noreferrer" class="card-title">HKUDS/DeepTutor</a>
+      <p class="card-summary">港大数据科学团队推出的 Agent 原生个性化学习助手，基于深度研究能力为每个学生生成定制化学习路径。星标 1.8 万，代表 AI+教育方向的最新探索。</p>
+      <a href="https://github.com/HKUDS/DeepTutor" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">education</span> <span class="tag">agent-native</span> <span class="tag">personalization</span>
     </div>
     </section>
 
@@ -507,26 +499,34 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://www.theverge.com/ai-artificial-intelligence/911975/claude-code-redesign-focuses-on-managing-multiple-ai-agents" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic发布Claude Managed Agents企业级一站式平台</a>
-      <p class="card-summary">Anthropic推出Claude Managed Agents平台，为企业提供开箱即用的AI智能体部署方案，屏蔽底层编排复杂性。同时Claude Code桌面端全面重设计，新增侧边栏管理多会话、拖拽布局、内置终端和文件编辑器。但VentureBeat警告此举可能增加企业对Anthropic的vendor lock-in风险。</p>
-      <a href="https://www.theverge.com/ai-artificial-intelligence/911975/claude-code-redesign-focuses-on-managing-multiple-ai-agents" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Anthropic</span> <span class="tag">Claude</span> <span class="tag">enterprise</span> <span class="tag">agent-platform</span>
+      <a href="https://www.theverge.com/tech/912287/adobe-firefly-ai-assistant-announcement-editing" target="_blank" rel="noopener noreferrer" class="card-title">Adobe Firefly AI Assistant: 跨应用一句话创作</a>
+      <p class="card-summary">Adobe 发布 Firefly AI Assistant，用户通过自然语言对话即可跨 Photoshop、Premiere、Illustrator 执行复杂多步工作流。助手自动学习用户偏好，支持 Kling 3.0 视频模型集成和 Frame.io Drive 云存储。Adobe 称这是创意工作的范式转变，明确将 Agentic AI 定位为 Creative Cloud 的核心架构。</p>
+      <a href="https://www.theverge.com/tech/912287/adobe-firefly-ai-assistant-announcement-editing" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">adobe</span> <span class="tag">firefly</span> <span class="tag">creative-ai</span> <span class="tag">agentic</span>
     </div>
 
     <div class="card">
       
-      <a href="https://www.theverge.com/tech/911532/microsoft-mai-image-2-efficient-model-release" target="_blank" rel="noopener noreferrer" class="card-title">微软MAI-Image-2-Efficient：更便宜更快的AI图像模型</a>
-      <p class="card-summary">微软发布MAI-Image-2-Efficient，作为MAI-Image-2的高效版本，图像输出成本降低41%，推理速度提升22%，GPU吞吐效率提升4倍（NVIDIA H100 1024×1024）。定价为输入$5/百万token、输出$19.50/百万token，平均延迟比Google Gemini 3.1 Flash快40%。已上线Microsoft Foundry和MAI Playground。</p>
-      <a href="https://www.theverge.com/tech/911532/microsoft-mai-image-2-efficient-model-release" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Microsoft</span> <span class="tag">image generation</span> <span class="tag">cost reduction</span> <span class="tag">efficiency</span>
+      <a href="https://www.theverge.com/tech/912638/google-gemini-mac-app" target="_blank" rel="noopener noreferrer" class="card-title">Google Gemini 登陆 Mac: Option+Space 一键唤起</a>
+      <p class="card-summary">Google 推出 macOS 原生 Gemini 应用，Option+Space 唤起浮动聊天窗口，支持上传文件、生成图片/视频/音乐、回顾历史对话。桌面端 AI 助手竞争白热化，Google 以原生应用切入对抗 ChatGPT 桌面版。</p>
+      <a href="https://www.theverge.com/tech/912638/google-gemini-mac-app" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">google</span> <span class="tag">gemini</span> <span class="tag">macos</span> <span class="tag">desktop-ai</span>
     </div>
 
     <div class="card">
       
-      <a href="https://www.theverge.com/tech/911740/gemini-with-personal-intelligence-is-rolling-out-in-more-regions" target="_blank" rel="noopener noreferrer" class="card-title">Google Gemini Personal Intelligence全球扩展</a>
-      <p class="card-summary">Google Gemini的Personal Intelligence功能向更多地区开放，允许Gemini从用户的Gmail、Google Photos、搜索历史和YouTube观看记录中提取个人上下文信息。AI Plus/Pro/Ultra订阅用户优先获得，之后向免费用户开放。目前UK、瑞士和EEA地区除外。标志着个性化AI助手进入实质落地阶段。</p>
-      <a href="https://www.theverge.com/tech/911740/gemini-with-personal-intelligence-is-rolling-out-in-more-regions" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Google</span> <span class="tag">Gemini</span> <span class="tag">personalization</span> <span class="tag">privacy</span>
+      <a href="https://www.bensbites.com/p/big-lab-leaks" target="_blank" rel="noopener noreferrer" class="card-title">Claude Cowork 正式上线 + Claude for Word 进入 Beta</a>
+      <p class="card-summary">Anthropic 宣布 Claude Cowork 结束 12 周研究预览正式 GA，已有数百万用户。同时推出 Claude for Word Beta，支持在 Word 侧边栏直接起草、编辑、修订文档，编辑以跟踪更改形式显示。面向 Team 和 Enterprise 计划用户，标志着 Anthropic 全面进军企业办公场景。</p>
+      <a href="https://www.bensbites.com/p/big-lab-leaks" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">anthropic</span> <span class="tag">claude</span> <span class="tag">enterprise</span> <span class="tag">productivity</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://venturebeat.com/orchestration/anthropics-claude-managed-agents-gives-enterprises-a-new-one-stop-shop-but" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic Claude Managed Agents: 企业一站式 Agent 部署</a>
+      <p class="card-summary">Anthropic 推出 Claude Managed Agents 平台，简化企业 AI Agent 部署流程，砍掉复杂编排步骤。但分析指出这可能带来供应商锁定风险。信号明确：Anthropic 正从模型提供商转型为全栈企业 AI 解决方案供应商。</p>
+      <a href="https://venturebeat.com/orchestration/anthropics-claude-managed-agents-gives-enterprises-a-new-one-stop-shop-but" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">anthropic</span> <span class="tag">enterprise</span> <span class="tag">agent-platform</span>
     </div>
     </section>
 
@@ -535,58 +535,58 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://news.ycombinator.com/item?id=47768133" target="_blank" rel="noopener noreferrer" class="card-title">Claude Code Routines登顶HN热榜，457分276评论</a>
-      <p class="card-summary">Anthropic发布Claude Code Routines功能，允许用户保存和复用常用编程指令序列。HN社区爆发热烈讨论（276条评论），焦点集中在：Routines与传统宏/脚本的本质区别、对开发者工作流的颠覆性影响、以及是否会降低编程门槛导致代码质量下降。社区普遍认为这是AI辅助编程从单次交互走向可复用工作流的关键一步。</p>
-      <a href="https://news.ycombinator.com/item?id=47768133" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Claude Code</span> <span class="tag">Routines</span> <span class="tag">developer tools</span> <span class="tag">HN热议</span>
+      <a href="https://www.bensbites.com/p/big-lab-leaks" target="_blank" rel="noopener noreferrer" class="card-title">Claude Code 三大新功能: /ultraplan、Monitor、Advisor 策略</a>
+      <p class="card-summary">Claude Code 新增 /ultraplan 命令，允许用户在 Web 端构建和编辑计划后在终端执行；Monitor 工具可监听后台事件替代轮询，节省 token；Advisor 策略将 Opus 和 Sonnet 配对，以更低或相近成本获得更优性能。三个功能分别解决规划、监控、成本三大痛点。</p>
+      <a href="https://www.bensbites.com/p/big-lab-leaks" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">claude-code</span> <span class="tag">developer-tools</span> <span class="tag">productivity</span>
     </div>
 
     <div class="card">
       
-      <a href="https://venturebeat.com/technology/43-of-ai-generated-code-changes-need-debugging-in-production-survey-finds" target="_blank" rel="noopener noreferrer" class="card-title">43%的AI生成代码需要生产环境调试</a>
-      <p class="card-summary">最新行业调查显示43%由AI生成的代码变更在部署到生产环境后需要额外调试。软件行业正疯狂拥抱AI编程，但在代码质量保障方面严重滞后。这一数据为&quot;AI会取代程序员&quot;的叙事泼了冷水，暗示AI编程的真正瓶颈不在生成而在验证。</p>
-      <a href="https://venturebeat.com/technology/43-of-ai-generated-code-changes-need-debugging-in-production-survey-finds" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">AI coding</span> <span class="tag">quality</span> <span class="tag">survey</span> <span class="tag">production</span>
+      <a href="https://www.bensbites.com/p/big-lab-leaks" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI 推出 $100/月新 Pro 层级</a>
+      <p class="card-summary">OpenAI 新增 $100/月计划，提供 5 倍于 $20 基础版的算力。$200/月计划提供 10 倍算力。5 月 31 日前两个高级版各有 2x 加成，实际分别达 10 倍和 20 倍。AI 工具正在形成明显的分层定价体系，重度用户月费已接近 SaaS 级别。</p>
+      <a href="https://www.bensbites.com/p/big-lab-leaks" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">openai</span> <span class="tag">pricing</span> <span class="tag">subscription</span>
     </div>
 
     <div class="card">
       
-      <a href="https://www.theverge.com/tech/911658/google-chrome-gemini-ai-skills-availability-launch" target="_blank" rel="noopener noreferrer" class="card-title">Google Chrome推出AI Skills：一键复用Gemini提示词</a>
-      <p class="card-summary">Google Chrome新增Skills功能，用户可将常用AI提示词保存为可复用模板，一键触发。也可从Google预置库中获取现成Skill。该功能将Gemini深度集成到浏览器使用场景中，降低AI使用门槛的同时锁定Chrome生态。与Cursor Rules/Hermes Skills理念异曲同工。</p>
-      <a href="https://www.theverge.com/tech/911658/google-chrome-gemini-ai-skills-availability-launch" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Google</span> <span class="tag">Chrome</span> <span class="tag">Skills</span> <span class="tag">prompt reuse</span>
+      <a href="https://www.theverge.com/ai-artificial-intelligence/912297/apple-app-store-ban-grok-x-deepfakes" target="_blank" rel="noopener noreferrer" class="card-title">Grok 深度伪造问题差点被苹果 App Store 下架</a>
+      <p class="card-summary">苹果 1 月曾悄悄威胁将 Elon Musk 的 Grok AI 应用从 App Store 移除，原因是该应用未能遏制 X 平台上泛滥的非自愿色情深度伪造内容。苹果要求开发者制定内容审核改进计划。这一事件暴露了 AI 生成内容的监管真空和平台责任边界之争。</p>
+      <a href="https://www.theverge.com/ai-artificial-intelligence/912297/apple-app-store-ban-grok-x-deepfakes" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">grok</span> <span class="tag">deepfake</span> <span class="tag">content-moderation</span> <span class="tag">apple</span>
     </div>
 
     <div class="card">
       
-      <a href="https://news.ycombinator.com/item?id=47773640" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI $8520亿估值面临投资者质疑</a>
-      <p class="card-summary">据FT/Reuters报道，OpenAI的8520亿美元估值正受到投资者日益增长的审视，主要因公司战略方向频繁调整。投资者对从非营利到营利的转型、与微软的关系、以及AGI时间表的不确定性表示担忧。这一高估值在当前AI商业化落地尚不清晰的背景下显得尤为脆弱。</p>
-      <a href="https://news.ycombinator.com/item?id=47773640" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">OpenAI</span> <span class="tag">valuation</span> <span class="tag">investment</span> <span class="tag">strategy</span>
+      <a href="https://www.theverge.com/ai-artificial-intelligence/912337/a-data-center-should-not-be-a-potential-death-sentence-for-a-communitys-health" target="_blank" rel="noopener noreferrer" class="card-title">NAACP 起诉 xAI: 孟菲斯数据中心污染黑人社区</a>
+      <p class="card-summary">NAACP 起诉阻止 Musk 的 Colossus 2 数据中心项目，指控项目在没有空气许可证的情况下运行 27 台燃气轮机，违反清洁空气法。诉状称黑人和前线社区被迫承受 AI 创新的有毒代价。案件凸显 AI 基础设施快速扩张背后的环境正义问题。</p>
+      <a href="https://www.theverge.com/ai-artificial-intelligence/912337/a-data-center-should-not-be-a-potential-death-sentence-for-a-communitys-health" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">ai-infrastructure</span> <span class="tag">environmental-justice</span> <span class="tag">data-center</span>
     </div>
 
     <div class="card">
       
-      <a href="https://venturebeat.com/technology/is-anthropic-nerfing-claude-users-increasingly-report-performance" target="_blank" rel="noopener noreferrer" class="card-title">用户报告Claude性能下降，Anthropic面临&quot;nerfing&quot;质疑</a>
-      <p class="card-summary">越来越多用户反映Claude模型响应质量下降，怀疑Anthropic在高负载期间降低了服务质量。VentureBeat分析指出Anthropic面临需求激增压力，已调整繁忙时段的使用配额分配方式。Anthropic官方否认有意降低质量，但社区信任度受到考验。</p>
-      <a href="https://venturebeat.com/technology/is-anthropic-nerfing-claude-users-increasingly-report-performance" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Anthropic</span> <span class="tag">Claude</span> <span class="tag">performance</span> <span class="tag">trust</span>
+      <a href="https://venturebeat.com/orchestration/meta-researchers-introduce-hyperagents-to-unlock-self-improving-ai-for-non-coding-tasks" target="_blank" rel="noopener noreferrer" class="card-title">Meta 提出 Hyperagents: 非编码任务的自进化 AI</a>
+      <p class="card-summary">Meta 研究团队提出 Hyperagents 概念，目标是在动态环境中部署自进化 AI 系统，尤其面向企业生产环境中任务不可预测或不一致的场景。这项工作代表了从编码 Agent 向通用 Agent 扩展的重要方向。</p>
+      <a href="https://venturebeat.com/orchestration/meta-researchers-introduce-hyperagents-to-unlock-self-improving-ai-for-non-coding-tasks" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">meta</span> <span class="tag">hyperagents</span> <span class="tag">self-improving</span> <span class="tag">enterprise</span>
     </div>
 
     <div class="card">
       
-      <a href="https://arstechnica.com/science/2026/04/to-teach-in-the-time-of-chatgpt-is-to-know-pain" target="_blank" rel="noopener noreferrer" class="card-title">AI时代教书：一位大学教师的挣扎</a>
-      <p class="card-summary">Ars Technica深度报道一位大学教师在ChatGPT时代的教学困境——LLM作弊已成为&quot;从教以来最令人沮丧的问题&quot;。文章引发413条评论热议，触及教育评估体系如何适应AI时代的核心命题，是AI对社会深层影响的缩影。</p>
-      <a href="https://arstechnica.com/science/2026/04/to-teach-in-the-time-of-chatgpt-is-to-know-pain" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">education</span> <span class="tag">ChatGPT</span> <span class="tag">academic integrity</span> <span class="tag">社会影响</span>
+      <a href="https://arstechnica.com/ai/2026/04/bubble-watch-fashion-brand-allbirds-pivots-hard-to-become-ai-services-company/" target="_blank" rel="noopener noreferrer" class="card-title">Allbirds 卖鞋改卖算力: 转型 AI 基础设施公司</a>
+      <p class="card-summary">困境中的鞋履品牌 Allbirds 宣布从鞋类业务全面转向 AI 算力基础设施服务，被 Ars Technica 戏称为 2017 年 Long Island Blockchain 炒作的翻版。这一案例折射出 AI 概念的狂热程度——任何公司只要贴上 AI 标签股价就能飞涨（Allbirds 暴涨 600%）。</p>
+      <a href="https://arstechnica.com/ai/2026/04/bubble-watch-fashion-brand-allbirds-pivots-hard-to-become-ai-services-company/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">ai-bubble</span> <span class="tag">pivot</span> <span class="tag">speculation</span>
     </div>
     </section>
 </main>
 
 <!-- Footer -->
 <div class="footer">
-  数据来源：The Verge, VentureBeat, Ars Technica, Hacker News, HuggingFace, GitHub<br>
-  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-15 11:02
+  数据来源：The Verge, VentureBeat, Ars Technica, Ben&#x27;s Bites, Hacker News, HuggingFace, GitHub<br>
+  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-16 09:54
 </div>
 
 <!-- Share Bar -->
