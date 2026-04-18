@@ -6,7 +6,7 @@
 <meta name="description" content="AI Agent 日报 2026-04-18 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
 <meta name="theme-color" content="#0d1b2a">
 <meta property="og:title" content="AI Agent 日报 — 2026-04-18">
-<meta property="og:description" content="今日 16 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
+<meta property="og:description" content="今日 15 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://lava-agent-daily.vercel.app">
 <meta name="twitter:card" content="summary">
@@ -393,7 +393,7 @@ body {
   <p class="date">2026-04-18 · 每日精选</p>
   <div class="stats">
     <div class="stat">
-      <div class="stat-num">16</div>
+      <div class="stat-num">15</div>
       <div class="stat-label">条资讯</div>
     </div>
     <div class="stat">
@@ -420,23 +420,23 @@ body {
     <div class="card top">
       <span class="top-badge">TOP</span>
       <a href="https://huggingface.co/papers/2604.14268" target="_blank" rel="noopener noreferrer" class="card-title">HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界</a>
-      <p class="card-summary">腾讯混元团队发布HY-World 2.0，一个支持文本、单视角图像、多视角图像和视频输入的多模态世界模型框架。通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens高性能渲染平台，支持交互式3D探索。在多个基准测试中达到开源方法SOTA，接近闭源模型Marble的效果。GitHub已获1.02k stars。</p>
+      <p class="card-summary">腾讯混元团队发布HY-World 2.0，支持文本、单视角/多视角图像和视频输入，通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens渲染平台支持交互式探索，多基准测试达开源SOTA，接近闭源Marble模型效果。GitHub 1.02k stars。</p>
       <a href="https://huggingface.co/papers/2604.14268" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">3D生成</span> <span class="tag">世界模型</span> <span class="tag">多模态</span> <span class="tag">腾讯</span>
     </div>
 
     <div class="card">
       
-      <a href="https://huggingface.co/papers/2604.15308" target="_blank" rel="noopener noreferrer" class="card-title">RAD-2: 生成器-判别器框架下的强化学习扩展，自动驾驶碰撞率降低56%</a>
-      <p class="card-summary">华中科技大学提出RAD-2，一个用于自动驾驶运动规划的统一生成器-判别器框架。扩散模型生成器产生多样化轨迹候选，RL优化判别器根据长期驾驶质量重排序。引入时间一致性组相对策略优化（TC-GRPO）和在线策略生成器优化（OGO），在BEV-Warp高吞吐仿真环境中训练。相比强扩散规划器，碰撞率降低56%，实测显示城市复杂交通中的安全性和流畅度显著提升。</p>
+      <a href="https://huggingface.co/papers/2604.15308" target="_blank" rel="noopener noreferrer" class="card-title">RAD-2: 生成器-判别器框架下强化学习扩展，自动驾驶碰撞率降低56%</a>
+      <p class="card-summary">华中科技大学提出RAD-2统一框架，扩散模型生成器产生多样化轨迹候选，RL优化判别器根据长期驾驶质量重排序。引入时间一致性组相对策略优化（TC-GRPO）和在线策略生成器优化（OGO），在BEV-Warp高吞吐仿真环境训练。相比强扩散规划器碰撞率降低56%，城市复杂交通中安全性和流畅度显著提升。</p>
       <a href="https://huggingface.co/papers/2604.15308" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">自动驾驶</span> <span class="tag">强化学习</span> <span class="tag">运动规划</span>
     </div>
 
     <div class="card">
       
-      <a href="https://huggingface.co/papers/2604.14164" target="_blank" rel="noopener noreferrer" class="card-title">TESSY: 师生合作数据合成框架，解决推理模型微调中的风格分歧</a>
-      <p class="card-summary">南京大学提出TESSY框架，解决用强教师模型生成数据微调推理模型（如Qwen3-8B）时的性能下降问题。核心发现：教师生成数据与学生分布存在显著风格分歧，导致灾难性遗忘。TESSY让教师和学生交替生成能力token和风格token，合成既保留教师推理质量又符合学生分布的on-policy数据。以GPT-OSS-120B为教师，在LiveCodeBench-Pro上提升11.25%，OJBench上提升6.68%。</p>
+      <a href="https://huggingface.co/papers/2604.14164" target="_blank" rel="noopener noreferrer" class="card-title">TESSY: 师生合作数据合成框架，解决推理模型微调风格分歧</a>
+      <p class="card-summary">南京大学提出TESSY框架，解决用强教师模型生成数据微调推理模型（如Qwen3-8B）时的性能下降。核心发现：教师生成数据与学生分布存在显著风格分歧导致灾难性遗忘。TESSY让师生交替生成能力token和风格token，合成既保留教师推理质量又符合学生分布的on-policy数据。以GPT-OSS-120B为教师，LiveCodeBench-Pro提升11.25%。</p>
       <a href="https://huggingface.co/papers/2604.14164" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">推理模型</span> <span class="tag">微调</span> <span class="tag">数据合成</span>
     </div>
@@ -447,8 +447,16 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
+      <a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer" class="card-title">Tencent-Hunyuan/HY-World-2.0</a>
+      <p class="card-summary">腾讯混元世界模型2.0官方代码库，包含全景生成、轨迹规划、世界扩展、世界合成四大模块及WorldLens渲染平台。全部模型权重、代码和技术细节开源，支持交互式3D世界探索。</p>
+      <a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">3D世界模型</span> <span class="tag">开源</span> <span class="tag">腾讯</span>
+    </div>
+
+    <div class="card">
+      
       <a href="https://github.com/zhuqn1021/Agent-template" target="_blank" rel="noopener noreferrer" class="card-title">zhuqn1021/Agent-template</a>
-      <p class="card-summary">一个现代化AI Agent项目模板，支持多模型切换、工具调用、RAG检索增强、对话记忆等核心能力。基于Python实现，为开发者提供开箱即用的Agent开发脚手架。</p>
+      <p class="card-summary">现代化AI Agent项目模板，支持多模型切换、工具调用、RAG检索增强、对话记忆等核心能力。基于Python实现，为开发者提供开箱即用的Agent开发脚手架。</p>
       <a href="https://github.com/zhuqn1021/Agent-template" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">AI Agent</span> <span class="tag">模板</span> <span class="tag">Python</span>
     </div>
@@ -456,25 +464,9 @@ body {
     <div class="card">
       
       <a href="https://github.com/sly-codechum/chum-mem" target="_blank" rel="noopener noreferrer" class="card-title">sly-codechum/chum-mem</a>
-      <p class="card-summary">用Rust实现的AI Agent记忆增强系统，融合Karpathy的LLM Wiki思想、Graphify图谱和PCKC（Parameter-Continual Knowledge Consolidation）技术。为AI agent提供更持久、结构化的长期记忆能力。</p>
+      <p class="card-summary">Rust实现的AI Agent记忆增强系统，融合Karpathy的LLM Wiki思想、Graphify图谱和PCKC技术，为AI agent提供更持久、结构化的长期记忆能力。</p>
       <a href="https://github.com/sly-codechum/chum-mem" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Agent记忆</span> <span class="tag">Rust</span> <span class="tag">知识图谱</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/robustagile/six-sigma-in-r-skill" target="_blank" rel="noopener noreferrer" class="card-title">robustagile/six-sigma-in-r-skill</a>
-      <p class="card-summary">为Claude Code和Codex设计的AI skill，帮助AI agent编写正确的R语言代码用于六西格玛和SPC（统计过程控制）工作，包括控制图、能力分析等质量管理场景。</p>
-      <a href="https://github.com/robustagile/six-sigma-in-r-skill" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">AI Skill</span> <span class="tag">Claude Code</span> <span class="tag">质量管理</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer" class="card-title">Tencent-Hunyuan/HY-World-2.0</a>
-      <p class="card-summary">腾讯混元世界模型2.0官方代码库，包含全景生成、轨迹规划、世界扩展、世界合成四大模块及WorldLens渲染平台。全部模型权重、代码和技术细节开源。</p>
-      <a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">3D世界模型</span> <span class="tag">开源</span> <span class="tag">腾讯</span>
     </div>
     </section>
 
@@ -483,8 +475,8 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic推出Claude Design：Opus 4.7驱动的AI设计工具，挑战Figma</a>
-      <p class="card-summary">Anthropic正式发布Claude Design，由最新模型Opus 4.7驱动，允许用户通过提示词创建设计、原型、Pitch Deck和营销材料。该产品标志着Anthropic从基础模型提供商向全栈产品公司的战略转型。Anthropic年化收入已达200亿美元（2026年3月），4月初突破300亿美元，正与高盛、摩根大通和摩根士丹利洽谈IPO，可能于2026年10月上市。</p>
+      <a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic推出Claude Design：Opus 4.7驱动AI设计工具，挑战Figma</a>
+      <p class="card-summary">Anthropic发布Claude Design，由Opus 4.7驱动，允许用户通过提示词创建设计、原型、Pitch Deck和营销材料。标志Anthropic从基础模型提供商向全栈产品公司转型。年化收入达200亿美元（3月），4月初突破300亿美元，正与高盛/摩根大通/摩根士丹利洽谈IPO，可能10月上市。</p>
       <a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Anthropic</span> <span class="tag">设计工具</span> <span class="tag">Opus 4.7</span>
     </div>
@@ -492,7 +484,7 @@ body {
     <div class="card">
       
       <a href="https://venturebeat.com/technology/openai-debuts-gpt-rosalind-a-new-limited-access-model-for-life-sciences-and-broader-codex-plugin-on-github" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI发布GPT-Rosalind：生命科学专用大模型</a>
-      <p class="card-summary">OpenAI推出GPT-Rosalind，一个针对生命科学工作流专门训练的LLM。从实验室假设到药房货架通常需要10-15年和数十亿美元投入，GPT-Rosalind旨在加速药物研发流程。该模型采用封闭访问模式，面向研究人员和制药企业。同时OpenAI扩展了Codex插件在GitHub上的可用性。</p>
+      <p class="card-summary">OpenAI推出GPT-Rosalind，针对生命科学工作流专门训练的LLM。从实验室假设到药房货架通常需10-15年和数十亿美元，该模型旨在加速药物研发。采用封闭访问模式，面向研究人员和制药企业。同时扩展Codex插件在GitHub的可用性。</p>
       <a href="https://venturebeat.com/technology/openai-debuts-gpt-rosalind-a-new-limited-access-model-for-life-sciences-and-broader-codex-plugin-on-github" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">OpenAI</span> <span class="tag">生命科学</span> <span class="tag">垂直模型</span>
     </div>
@@ -500,7 +492,7 @@ body {
     <div class="card">
       
       <a href="https://twitter.com/elonmusk/status/2045292855854260710" target="_blank" rel="noopener noreferrer" class="card-title">Grok 4.3升级：xAI新增幻灯片创建能力</a>
-      <p class="card-summary">Elon Musk宣布Grok 4.3版本升级，新增创建幻灯片（slides）功能。这是xAI在多模态生产力工具方向的又一步扩展，使Grok从对话式AI向内容创作助手演进。</p>
+      <p class="card-summary">Elon Musk宣布Grok 4.3版本升级，新增创建幻灯片功能。xAI在多模态生产力工具方向又进一步，使Grok从对话式AI向内容创作助手演进。</p>
       <a href="https://twitter.com/elonmusk/status/2045292855854260710" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">xAI</span> <span class="tag">Grok</span> <span class="tag">生产力工具</span>
     </div>
@@ -511,16 +503,16 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://news.ycombinator.com/item?id=47806725" target="_blank" rel="noopener noreferrer" class="card-title">Claude Design发布引爆HN热榜，793 points</a>
-      <p class="card-summary">Anthropic发布的Claude Design在Hacker News上获得793 points和531条评论，成为当日最热AI话题。社区讨论焦点包括：Opus 4.7的能力边界、与Figma的竞争态势、Anthropic从API公司向产品公司的转型、以及IPO预期对产品策略的影响。多位开发者分享了早期使用体验，普遍认为设计质量超出预期但在复杂布局上仍有局限。</p>
+      <a href="https://news.ycombinator.com/item?id=47806725" target="_blank" rel="noopener noreferrer" class="card-title">Claude Design引爆HN热榜：823 points，550条评论</a>
+      <p class="card-summary">Anthropic发布的Claude Design在Hacker News上获823 points和550条评论，成为当日最热AI话题。社区讨论焦点：Opus 4.7能力边界、与Figma竞争态势、Anthropic从API公司向产品公司转型、IPO预期对产品策略影响。多位开发者分享早期体验，设计质量超出预期但复杂布局仍有局限。</p>
       <a href="https://news.ycombinator.com/item?id=47806725" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">HN热议</span> <span class="tag">Anthropic</span> <span class="tag">设计工具</span>
     </div>
 
     <div class="card">
       
-      <a href="https://news.ycombinator.com/item?id=47807006" target="_blank" rel="noopener noreferrer" class="card-title">Claude 4.7 tokenizer成本实测：519 points深度分析</a>
-      <p class="card-summary">claudecodecamp.com发布Claude 4.7新tokenizer的成本实测文章，在HN获得519 points和354条评论。文章详细测量了新tokenizer在不同任务类型下的token消耗变化，发现代码生成场景token效率提升约15%，但长文本推理场景略有增加。社区热议tokenizer优化对实际API成本的影响，以及与其他模型（GPT-4o、Gemini）的成本对比。</p>
+      <a href="https://news.ycombinator.com/item?id=47807006" target="_blank" rel="noopener noreferrer" class="card-title">Claude 4.7 tokenizer成本实测：535 points深度分析</a>
+      <p class="card-summary">claudecodecamp.com发布Claude 4.7新tokenizer成本实测，HN获535 points和366条评论。详细测量新tokenizer在不同任务下的token消耗变化，代码生成场景效率提升约15%，长文本推理略有增加。社区热议tokenizer优化对API成本的实际影响及与其他模型（GPT-4o、Gemini）成本对比。</p>
       <a href="https://news.ycombinator.com/item?id=47807006" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">HN热议</span> <span class="tag">tokenizer</span> <span class="tag">成本优化</span>
     </div>
@@ -528,31 +520,31 @@ body {
     <div class="card">
       
       <a href="https://www.theverge.com/ai-artificial-intelligence/914463/openai-sora-bill-peebles-kevin-weil-leaving-departing" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI Sora负责人Bill Peebles离职</a>
-      <p class="card-summary">The Verge报道OpenAI视频生成模型Sora负责人Bill Peebles即将离职，同时离开的还有公司AI for Science副总裁。这被视为OpenAI近期高管和核心研究人员流失的延续。Sora自发布以来面临来自Runway、Pika等竞争对手的激烈挑战，此次人事变动可能影响Sora的产品路线图。</p>
+      <p class="card-summary">The Verge报道OpenAI视频生成模型Sora负责人Bill Peebles和AI for Science副总裁即将离职，延续OpenAI近期高管和核心研究人员流失趋势。Sora面临Runway、Pika等激烈竞争，人事变动可能影响产品路线图。</p>
       <a href="https://www.theverge.com/ai-artificial-intelligence/914463/openai-sora-bill-peebles-kevin-weil-leaving-departing" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">OpenAI</span> <span class="tag">人事变动</span> <span class="tag">Sora</span>
     </div>
 
     <div class="card">
       
+      <a href="https://www.theverge.com/ai-artificial-intelligence/914229/tides-turning-anthropic-trump-administration-cybersecurity-mythos-preview" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic网络安全模型Mythos：赢回政府信任</a>
+      <p class="card-summary">The Verge报道Anthropic推出新网络安全模型Mythos，旨在改善与美国政府的关系。在特朗普政府加强AI监管审查的背景下，Anthropic通过专注网络安全能力展示其技术实力和合规意愿。此举被视为Anthropic在AI安全叙事中的差异化策略。</p>
+      <a href="https://www.theverge.com/ai-artificial-intelligence/914229/tides-turning-anthropic-trump-administration-cybersecurity-mythos-preview" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Anthropic</span> <span class="tag">网络安全</span> <span class="tag">政策</span>
+    </div>
+
+    <div class="card">
+      
       <a href="https://arstechnica.com/ai/2026/04/mozilla-launches-thunderbolt-ai-client-with-focus-on-self-hosted-infrastructure" target="_blank" rel="noopener noreferrer" class="card-title">Mozilla推出Thunderbolt AI客户端：聚焦自托管基础设施</a>
-      <p class="card-summary">Mozilla发布Thunderbolt AI客户端，基于deepset的Haystack框架构建，致力于打造去中心化开源AI生态系统。Thunderbolt允许用户在本地或自托管基础设施上运行AI工作负载，不依赖云端API。这是Mozilla在隐私优先AI方向的重要布局，回应了企业和开发者对数据主权的诉求。</p>
+      <p class="card-summary">Mozilla发布Thunderbolt AI客户端，基于deepset的Haystack框架构建，致力于去中心化开源AI生态系统。允许用户在本地或自托管基础设施上运行AI工作负载，不依赖云端API。Mozilla在隐私优先AI方向的重要布局，回应企业和开发者对数据主权的诉求。</p>
       <a href="https://arstechnica.com/ai/2026/04/mozilla-launches-thunderbolt-ai-client-with-focus-on-self-hosted-infrastructure" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">Mozilla</span> <span class="tag">自托管</span> <span class="tag">开源AI</span>
     </div>
 
     <div class="card">
       
-      <a href="https://venturebeat.com/technology/salesforce-launches-headless-360-to-turn-its-entire-platform-into-infrastructure-for-ai-agents" target="_blank" rel="noopener noreferrer" class="card-title">Salesforce发布Headless 360：将整个平台变为AI Agent基础设施</a>
-      <p class="card-summary">Salesforce在年度TDX开发者大会上发布Headless 360，包含100多个新工具和技能，立即可供开发者使用。核心理念：在AI Agent能推理、规划和执行的世界里，CRM是否还需要图形界面？Headless 360将Salesforce平台转变为AI Agent的后端基础设施，标志着企业软件从GUI驱动向Agent驱动的范式转变。</p>
-      <a href="https://venturebeat.com/technology/salesforce-launches-headless-360-to-turn-its-entire-platform-into-infrastructure-for-ai-agents" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Salesforce</span> <span class="tag">AI Agent</span> <span class="tag">企业软件</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/ai/2026/04/construction-delays-hit-40-of-us-data-centers-planned-for-2026" target="_blank" rel="noopener noreferrer" class="card-title">卫星和无人机图像揭示：美国40%数据中心建设计划遭遇延期</a>
-      <p class="card-summary">Ars Technica报道，通过卫星和无人机热成像分析发现，2026年美国计划建设的数据中心中约40%遭遇严重延期。主要原因包括：建筑施工延迟和能源供应瓶颈，以及当地社区对数据中心耗水耗电的日益增长的抵制。这对AI基础设施扩张预期构成挑战，可能影响大模型训练和推理服务的供给。</p>
+      <a href="https://arstechnica.com/ai/2026/04/construction-delays-hit-40-of-us-data-centers-planned-for-2026" target="_blank" rel="noopener noreferrer" class="card-title">美国40%数据中心建设延期：卫星和无人机图像揭示</a>
+      <p class="card-summary">Ars Technica报道，通过卫星和无人机热成像分析发现2026年美国计划建设的数据中心约40%遭遇严重延期。主因：施工延迟、能源供应瓶颈、社区对耗水耗电的抵制。对AI基础设施扩张预期构成挑战，可能影响大模型训练和推理服务供给。</p>
       <a href="https://arstechnica.com/ai/2026/04/construction-delays-hit-40-of-us-data-centers-planned-for-2026" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
       <span class="tag">数据中心</span> <span class="tag">基础设施</span> <span class="tag">延期</span>
     </div>
@@ -562,7 +554,7 @@ body {
 <!-- Footer -->
 <div class="footer">
   数据来源：The Verge, VentureBeat, Ars Technica, Hacker News, HuggingFace, GitHub<br>
-  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-18 08:12
+  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-18 09:10
 </div>
 
 <!-- Share Bar -->

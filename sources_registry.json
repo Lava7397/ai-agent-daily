@@ -1,0 +1,151 @@
+{
+  "sources": [
+    {
+      "id": "the-verge-ai",
+      "name": "The Verge /ai",
+      "url": "https://www.theverge.com/ai-artificial-intelligence",
+      "type": "news",
+      "category": "industry",
+      "quality_score": 51.6,
+      "last_evaluated": "2026-04-18",
+      "metrics": {
+        "relevance": 0.4,
+        "timeliness": 0.6666666666666666,
+        "depth": 0.25,
+        "uniqueness": 0.5
+      },
+      "status": "active",
+      "today_contributions": 2
+    },
+    {
+      "id": "venturebeat-ai",
+      "name": "VentureBeat /ai",
+      "url": "https://venturebeat.com/category/ai/",
+      "type": "news",
+      "category": "enterprise",
+      "quality_score": 52.0,
+      "last_evaluated": "2026-04-18",
+      "metrics": {
+        "relevance": 0.85,
+        "timeliness": 0.8,
+        "depth": 0.75,
+        "uniqueness": 0.6
+      },
+      "status": "active",
+      "today_contributions": 1
+    },
+    {
+      "id": "arstechnica-ai",
+      "name": "Ars Technica /ai",
+      "url": "https://arstechnica.com/ai/",
+      "type": "news",
+      "category": "tech",
+      "quality_score": 54.2,
+      "last_evaluated": "2026-04-18",
+      "metrics": {
+        "relevance": 0.4,
+        "timeliness": 0.0,
+        "depth": 0.25,
+        "uniqueness": 0.5
+      },
+      "status": "active",
+      "today_contributions": 2
+    },
+    {
+      "id": "hacker-news",
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com/",
+      "type": "aggregator",
+      "category": "community",
+      "quality_score": 55.7,
+      "last_evaluated": "2026-04-18",
+      "metrics": {
+        "relevance": 0.3,
+        "timeliness": 0.0,
+        "depth": 0.125,
+        "uniqueness": 0.5
+      },
+      "status": "active",
+      "today_contributions": 2
+    },
+    {
+      "id": "huggingface-papers",
+      "name": "HuggingFace Daily Papers",
+      "url": "https://huggingface.co/papers",
+      "type": "research",
+      "category": "academic",
+      "quality_score": 69.4,
+      "last_evaluated": "2026-04-18",
+      "metrics": {
+        "relevance": 0.9,
+        "timeliness": 0.3333333333333333,
+        "depth": 0.875,
+        "uniqueness": 0.5
+      },
+      "status": "active",
+      "today_contributions": 3
+    },
+    {
+      "id": "github-trending",
+      "name": "GitHub Trending",
+      "url": "https://github.com/trending",
+      "type": "code",
+      "category": "developer",
+      "quality_score": 62.4,
+      "last_evaluated": "2026-04-18",
+      "metrics": {
+        "relevance": 0.2,
+        "timeliness": 0.0,
+        "depth": 0.125,
+        "uniqueness": 0.5
+      },
+      "status": "active",
+      "today_contributions": 3
+    },
+    {
+      "id": "bens-bites",
+      "name": "Ben's Bites",
+      "url": "https://bensbites.beehiiv.com/",
+      "type": "newsletter",
+      "category": "curation",
+      "quality_score": 60.0,
+      "last_evaluated": "2026-04-18",
+      "metrics": {
+        "relevance": 0.8,
+        "timeliness": 0.6,
+        "depth": 0.6,
+        "uniqueness": 0.7
+      },
+      "status": "unreliable",
+      "notes": "有付费墙，经常无法采集",
+      "today_contributions": 0
+    }
+  ],
+  "discovery_history": [
+    {
+      "domain": "www.anthropic.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-18T08:43:36.253444+08:00"
+    },
+    {
+      "domain": "www.anthropic.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-18T08:44:18.381391+08:00"
+    },
+    {
+      "domain": "www.anthropic.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-18T08:45:26.929459+08:00"
+    },
+    {
+      "domain": "www.anthropic.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-18T09:10:51.314371+08:00"
+    }
+  ],
+  "evaluation_log": []
+}

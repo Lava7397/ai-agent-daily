@@ -698,6 +698,21 @@ def main():
     print(f"\nTotal items: {sum(len(data.get(k, [])) for k in ('research','github','models','community'))}")
     print("Done!")
 
+    # ── 数据源自我迭代 ──────────────────────────────
+    print("\n🧬 Running source evolution...")
+    try:
+        import subprocess
+        evo_result = subprocess.run(
+            ["python3", str(BASE_DIR / "scripts" / "source_evolution.py")],
+            capture_output=True, text=True, timeout=60
+        )
+        if evo_result.returncode == 0:
+            print(evo_result.stdout[-1500:] if len(evo_result.stdout) > 1500 else evo_result.stdout)
+        else:
+            print(f"⚠️  Evolution script returned {evo_result.returncode}")
+    except Exception as e:
+        print(f"⚠️  Evolution skipped: {e}")
+
 
 if __name__ == "__main__":
     main()
