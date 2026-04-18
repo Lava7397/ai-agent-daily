@@ -31,10 +31,11 @@ def send_email(subject: str, body_html: str, body_text: str = ""):
         msg.attach(MIMEText(body_text, "plain", "utf-8"))
     msg.attach(MIMEText(body_html, "html", "utf-8"))
 
+    timeout = cfg.get("smtp_timeout", 30)
     if cfg.get("smtp_ssl", True):
-        server = smtplib.SMTP_SSL(cfg["smtp_host"], cfg["smtp_port"])
+        server = smtplib.SMTP_SSL(cfg["smtp_host"], cfg["smtp_port"], timeout=timeout)
     else:
-        server = smtplib.SMTP(cfg["smtp_host"], cfg["smtp_port"])
+        server = smtplib.SMTP(cfg["smtp_host"], cfg["smtp_port"], timeout=timeout)
         server.starttls()
 
     server.login(cfg["sender_email"], cfg["sender_password"])
