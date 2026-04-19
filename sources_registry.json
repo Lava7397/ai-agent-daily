@@ -6,8 +6,8 @@
       "url": "https://www.theverge.com/ai-artificial-intelligence",
       "type": "news",
       "category": "industry",
-      "quality_score": 51.6,
-      "last_evaluated": "2026-04-18",
+      "quality_score": 53.8,
+      "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.4,
         "timeliness": 0.6666666666666666,
@@ -23,8 +23,8 @@
       "url": "https://venturebeat.com/category/ai/",
       "type": "news",
       "category": "enterprise",
-      "quality_score": 52.0,
-      "last_evaluated": "2026-04-18",
+      "quality_score": 46.6,
+      "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.85,
         "timeliness": 0.8,
@@ -40,8 +40,8 @@
       "url": "https://arstechnica.com/ai/",
       "type": "news",
       "category": "tech",
-      "quality_score": 54.2,
-      "last_evaluated": "2026-04-18",
+      "quality_score": 54.9,
+      "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.4,
         "timeliness": 0.0,
@@ -57,8 +57,8 @@
       "url": "https://news.ycombinator.com/",
       "type": "aggregator",
       "category": "community",
-      "quality_score": 55.7,
-      "last_evaluated": "2026-04-18",
+      "quality_score": 57.3,
+      "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.3,
         "timeliness": 0.0,
@@ -74,8 +74,8 @@
       "url": "https://huggingface.co/papers",
       "type": "research",
       "category": "academic",
-      "quality_score": 69.4,
-      "last_evaluated": "2026-04-18",
+      "quality_score": 69.8,
+      "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.9,
         "timeliness": 0.3333333333333333,
@@ -91,8 +91,8 @@
       "url": "https://github.com/trending",
       "type": "code",
       "category": "developer",
-      "quality_score": 62.4,
-      "last_evaluated": "2026-04-18",
+      "quality_score": 61.7,
+      "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.2,
         "timeliness": 0.0,
@@ -108,7 +108,7 @@
       "url": "https://bensbites.beehiiv.com/",
       "type": "newsletter",
       "category": "curation",
-      "quality_score": 60.0,
+      "quality_score": 57.0,
       "last_evaluated": "2026-04-18",
       "metrics": {
         "relevance": 0.8,
@@ -145,6 +145,12 @@
       "source": "reference_analysis",
       "confidence": 0.6,
       "discovered_at": "2026-04-18T09:10:51.314371+08:00"
+    },
+    {
+      "domain": "www.anthropic.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-19T07:36:05.011222+08:00"
     }
   ],
   "evaluation_log": []
