@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="AI Agent 日报 2026-04-18 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
+<meta name="description" content="AI Agent 日报 2026-04-19 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
 <meta name="theme-color" content="#0d1b2a">
-<meta property="og:title" content="AI Agent 日报 — 2026-04-18">
-<meta property="og:description" content="今日 15 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
+<meta property="og:title" content="AI Agent 日报 — 2026-04-19">
+<meta property="og:description" content="今日 18 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://lava-agent-daily.vercel.app">
 <meta name="twitter:card" content="summary">
-<title>AI Agent 日报 — 2026-04-18</title>
+<title>AI Agent 日报 — 2026-04-19</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
@@ -398,10 +398,10 @@ body {
 <!-- Hero -->
 <div class="hero">
   <h1>AI Agent 日报</h1>
-  <p class="date">2026-04-18 · 每日精选</p>
+  <p class="date">2026-04-19 · 每日精选</p>
   <div class="stats">
     <div class="stat">
-      <div class="stat-num">15</div>
+      <div class="stat-num">18</div>
       <div class="stat-label">条资讯</div>
     </div>
     <div class="stat">
@@ -427,26 +427,34 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://huggingface.co/papers/2604.14268" target="_blank" rel="noopener noreferrer" class="card-title">HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界</a>
-      <p class="card-summary">腾讯混元团队发布HY-World 2.0，支持文本、单视角/多视角图像和视频输入，通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens渲染平台支持交互式探索，多基准测试达开源SOTA，接近闭源Marble模型效果。GitHub 1.02k stars。</p>
+      <a href="https://arxiv.org/abs/2604.14228" target="_blank" rel="noopener noreferrer" class="card-title">Dive into Claude Code: The Design Space of AI Agent Systems</a>
+      <p class="card-summary">一篇深入分析 Claude Code 架构的学术论文（arXiv:2604.14228），通过解析其 TypeScript 源码，识别出五大核心设计价值和十三项设计原则。核心架构为一个简单的 while 循环调用模型并运行工具，外围包含七级权限系统、五层上下文压缩管道、四种扩展机制（MCP/插件/技能/Hooks）以及子代理委派机制，并与开源项目 OpenClaw 进行了对比分析。</p>
+      <a href="https://arxiv.org/abs/2604.14228" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Claude Code</span> <span class="tag">AI Agent</span> <span class="tag">Architecture</span> <span class="tag">arXiv</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://huggingface.co/papers/2604.14683" target="_blank" rel="noopener noreferrer" class="card-title">DR3-Eval: 深度研究智能体评估基准</a>
+      <p class="card-summary">DR3-Eval 是一个面向深度研究智能体的基准测试框架，专注于评估多模态、多文件报告生成任务。构建了基于真实用户材料的任务沙箱语料库，模拟开放网络环境的复杂性。引入五维评估框架：信息召回率、事实准确性、引用覆盖度、指令遵循度和深度质量，有效揭示了检索鲁棒性和幻觉控制等关键失败模式。</p>
+      <a href="https://huggingface.co/papers/2604.14683" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">deep research agent</span> <span class="tag">evaluation benchmark</span> <span class="tag">LLM evaluation</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://huggingface.co/papers/2604.14268" target="_blank" rel="noopener noreferrer" class="card-title">HY-World 2.0: 多模态世界模型重建与生成3D场景</a>
+      <p class="card-summary">HY-World 2.0 是一个多模态世界模型框架，支持从文本、单视角图像、多视角图像和视频等多种输入生成高保真 3D 高斯溅射场景。包含全景图生成、轨迹规划、世界扩展和世界合成四大模块，并引入 WorldLens 高性能 3DGS 渲染平台。在多个基准测试中达到开源方案 SOTA 水平，可与闭源模型 Marble 相媲美。</p>
       <a href="https://huggingface.co/papers/2604.14268" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">3D生成</span> <span class="tag">世界模型</span> <span class="tag">多模态</span> <span class="tag">腾讯</span>
+      <span class="tag">world model</span> <span class="tag">3D generation</span> <span class="tag">Gaussian Splatting</span> <span class="tag">multi-modal</span>
     </div>
 
     <div class="card">
       
-      <a href="https://huggingface.co/papers/2604.15308" target="_blank" rel="noopener noreferrer" class="card-title">RAD-2: 生成器-判别器框架下强化学习扩展，自动驾驶碰撞率降低56%</a>
-      <p class="card-summary">华中科技大学提出RAD-2统一框架，扩散模型生成器产生多样化轨迹候选，RL优化判别器根据长期驾驶质量重排序。引入时间一致性组相对策略优化（TC-GRPO）和在线策略生成器优化（OGO），在BEV-Warp高吞吐仿真环境训练。相比强扩散规划器碰撞率降低56%，城市复杂交通中安全性和流畅度显著提升。</p>
-      <a href="https://huggingface.co/papers/2604.15308" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">自动驾驶</span> <span class="tag">强化学习</span> <span class="tag">运动规划</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://huggingface.co/papers/2604.14164" target="_blank" rel="noopener noreferrer" class="card-title">TESSY: 师生合作数据合成框架，解决推理模型微调风格分歧</a>
-      <p class="card-summary">南京大学提出TESSY框架，解决用强教师模型生成数据微调推理模型（如Qwen3-8B）时的性能下降。核心发现：教师生成数据与学生分布存在显著风格分歧导致灾难性遗忘。TESSY让师生交替生成能力token和风格token，合成既保留教师推理质量又符合学生分布的on-policy数据。以GPT-OSS-120B为教师，LiveCodeBench-Pro提升11.25%。</p>
+      <a href="https://huggingface.co/papers/2604.14164" target="_blank" rel="noopener noreferrer" class="card-title">TESSY: 教师-学生协作框架解决推理模型微调的分布偏移</a>
+      <p class="card-summary">研究发现使用强模型生成的合成数据对推理模型微调会导致严重的灾难性遗忘。TESSY 框架通过教师-学生协作交替生成能力 token 和风格 token，使合成数据既继承教师的高级推理能力，又保持与学生模型分布的风格一致性。以 GPT-OSS-120B 为教师微调 Qwen3-8B，在 LiveCodeBench-Pro 和 OJBench 上分别提升 11.25% 和 6.68%。</p>
       <a href="https://huggingface.co/papers/2604.14164" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">推理模型</span> <span class="tag">微调</span> <span class="tag">数据合成</span>
+      <span class="tag">reasoning model</span> <span class="tag">fine-tuning</span> <span class="tag">synthetic data</span> <span class="tag">teacher-student</span>
     </div>
     </section>
 
@@ -455,26 +463,42 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer" class="card-title">Tencent-Hunyuan/HY-World-2.0</a>
-      <p class="card-summary">腾讯混元世界模型2.0官方代码库，包含全景生成、轨迹规划、世界扩展、世界合成四大模块及WorldLens渲染平台。全部模型权重、代码和技术细节开源，支持交互式3D世界探索。</p>
-      <a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">3D世界模型</span> <span class="tag">开源</span> <span class="tag">腾讯</span>
+      <a href="https://github.com/michalzubkowicz/nixos-management-skill" target="_blank" rel="noopener noreferrer" class="card-title">nixos-management-skill</a>
+      <p class="card-summary">基于 NixOS 官方文档和社区最佳实践生成的 AI Agent 技能包。自动从文档中提取最佳实践，生成可执行的 Agent Skill，帮助用户自动化管理 NixOS 系统配置和部署，降低 NixOS 使用门槛。</p>
+      <a href="https://github.com/michalzubkowicz/nixos-management-skill" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">NixOS</span> <span class="tag">AI Agent</span> <span class="tag">system management</span> <span class="tag">automation</span>
     </div>
 
     <div class="card">
       
-      <a href="https://github.com/zhuqn1021/Agent-template" target="_blank" rel="noopener noreferrer" class="card-title">zhuqn1021/Agent-template</a>
-      <p class="card-summary">现代化AI Agent项目模板，支持多模型切换、工具调用、RAG检索增强、对话记忆等核心能力。基于Python实现，为开发者提供开箱即用的Agent开发脚手架。</p>
-      <a href="https://github.com/zhuqn1021/Agent-template" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">AI Agent</span> <span class="tag">模板</span> <span class="tag">Python</span>
+      <a href="https://github.com/mkanasani/agent-hq" target="_blank" rel="noopener noreferrer" class="card-title">agent-hq</a>
+      <p class="card-summary">AI Agent 任务控制中心，提供一键 Netlify 部署、零配置、零成本的解决方案。作为 AI 智能体的统一管理界面，支持快速部署和监控 Agent 任务，无需复杂配置即可上线使用，适合开发者快速搭建 AI Agent 服务。</p>
+      <a href="https://github.com/mkanasani/agent-hq" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">AI Agent</span> <span class="tag">deployment</span> <span class="tag">Netlify</span> <span class="tag">task management</span>
     </div>
 
     <div class="card">
       
-      <a href="https://github.com/sly-codechum/chum-mem" target="_blank" rel="noopener noreferrer" class="card-title">sly-codechum/chum-mem</a>
-      <p class="card-summary">Rust实现的AI Agent记忆增强系统，融合Karpathy的LLM Wiki思想、Graphify图谱和PCKC技术，为AI agent提供更持久、结构化的长期记忆能力。</p>
-      <a href="https://github.com/sly-codechum/chum-mem" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Agent记忆</span> <span class="tag">Rust</span> <span class="tag">知识图谱</span>
+      <a href="https://github.com/marcus-teng96z9/CodeReview_Ai-Agent" target="_blank" rel="noopener noreferrer" class="card-title">CodeReview_Ai-Agent</a>
+      <p class="card-summary">专注于代码审查的 AI Agent 项目，利用大语言模型自动化代码审查流程。Agent 能够理解代码上下文、识别潜在问题并提供改进建议，帮助开发团队提高代码质量和审查效率，支持集成到 CI/CD 工作流中。</p>
+      <a href="https://github.com/marcus-teng96z9/CodeReview_Ai-Agent" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">code review</span> <span class="tag">AI Agent</span> <span class="tag">CI/CD</span> <span class="tag">code quality</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://github.com/camel-ai/halo" target="_blank" rel="noopener noreferrer" class="card-title">HALO - camel-ai</a>
+      <p class="card-summary">Camel-AI 推出的开源项目，旨在成为任意 AI 智能体与智能眼镜之间的开放桥梁。允许用户将 AI Agent 能力带到可穿戴设备上，支持语音交互和实时场景理解，为 AI Agent 在 AR/智能硬件领域的落地提供基础框架。</p>
+      <a href="https://github.com/camel-ai/halo" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">smart glasses</span> <span class="tag">wearable AI</span> <span class="tag">AR</span> <span class="tag">open bridge</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://github.com/Danielsuxxx/GitHubNavigator" target="_blank" rel="noopener noreferrer" class="card-title">GitHubNavigator</a>
+      <p class="card-summary">AI 驱动的 GitHub 研究 Agent，支持用自然语言直接查询 GitHub 仓库并自动调用 API 返回结构化结果。具备复杂意图解析、多轮对话上下文保持、并行请求和限流退避等功能，以表格或 Markdown 展示结果，帮助用户快速比较和决策。</p>
+      <a href="https://github.com/Danielsuxxx/GitHubNavigator" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">GitHub</span> <span class="tag">AI Agent</span> <span class="tag">natural language</span> <span class="tag">repository search</span>
     </div>
     </section>
 
@@ -483,26 +507,26 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic推出Claude Design：Opus 4.7驱动AI设计工具，挑战Figma</a>
-      <p class="card-summary">Anthropic发布Claude Design，由Opus 4.7驱动，允许用户通过提示词创建设计、原型、Pitch Deck和营销材料。标志Anthropic从基础模型提供商向全栈产品公司转型。年化收入达200亿美元（3月），4月初突破300亿美元，正与高盛/摩根大通/摩根士丹利洽谈IPO，可能10月上市。</p>
-      <a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Anthropic</span> <span class="tag">设计工具</span> <span class="tag">Opus 4.7</span>
+      <a href="https://venturebeat.com/ai/salesforce-launches-headless-360-to-turn-its-entire-platform-into-infrastructure-for-ai-agents" target="_blank" rel="noopener noreferrer" class="card-title">Salesforce 推出 Headless 360 平台</a>
+      <p class="card-summary">Salesforce 在 TDX 大会上发布 Headless 360，是其 27 年来最大架构变革。将平台所有功能暴露为 API、MCP 工具或 CLI 命令，使 AI Agent 无需浏览器即可操作系统。首批发布 100+ 新工具含 60+ MCP 工具，支持 Claude Code、Cursor、Codex 等外部 Agent 直接访问 Salesforce 组织。标志着企业 SaaS 从 GUI 驱动向 Agent 原生基础设施的根本转型。</p>
+      <a href="https://venturebeat.com/ai/salesforce-launches-headless-360-to-turn-its-entire-platform-into-infrastructure-for-ai-agents" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Salesforce</span> <span class="tag">MCP</span> <span class="tag">AI Agent</span> <span class="tag">Enterprise</span> <span class="tag">API</span>
     </div>
 
     <div class="card">
       
-      <a href="https://venturebeat.com/technology/openai-debuts-gpt-rosalind-a-new-limited-access-model-for-life-sciences-and-broader-codex-plugin-on-github" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI发布GPT-Rosalind：生命科学专用大模型</a>
-      <p class="card-summary">OpenAI推出GPT-Rosalind，针对生命科学工作流专门训练的LLM。从实验室假设到药房货架通常需10-15年和数十亿美元，该模型旨在加速药物研发。采用封闭访问模式，面向研究人员和制药企业。同时扩展Codex插件在GitHub的可用性。</p>
-      <a href="https://venturebeat.com/technology/openai-debuts-gpt-rosalind-a-new-limited-access-model-for-life-sciences-and-broader-codex-plugin-on-github" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">OpenAI</span> <span class="tag">生命科学</span> <span class="tag">垂直模型</span>
+      <a href="https://openai.com/index/codex-updates/" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI 重大更新 Codex 桌面应用</a>
+      <p class="card-summary">OpenAI 发布 Codex 桌面应用重大更新，新增后台控制计算机功能。Codex 现在可以在后台操作 macOS 应用程序，包括文件管理、浏览器控制和系统操作。这一功能使 Codex 从代码助手进化为通用计算机操控 Agent，直接与 Claude Code 的桌面控制能力展开竞争。</p>
+      <a href="https://openai.com/index/codex-updates/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">OpenAI</span> <span class="tag">Codex</span> <span class="tag">desktop agent</span> <span class="tag">computer control</span>
     </div>
 
     <div class="card">
       
-      <a href="https://twitter.com/elonmusk/status/2045292855854260710" target="_blank" rel="noopener noreferrer" class="card-title">Grok 4.3升级：xAI新增幻灯片创建能力</a>
-      <p class="card-summary">Elon Musk宣布Grok 4.3版本升级，新增创建幻灯片功能。xAI在多模态生产力工具方向又进一步，使Grok从对话式AI向内容创作助手演进。</p>
-      <a href="https://twitter.com/elonmusk/status/2045292855854260710" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">xAI</span> <span class="tag">Grok</span> <span class="tag">生产力工具</span>
+      <a href="https://arstechnica.com/science/2026/04/openai-launches-bio-tuned-llm-gpt-rosalind/" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI 推出生物学调优 LLM GPT-Rosalind</a>
+      <p class="card-summary">OpenAI 发布专为生物学研究优化的大语言模型 GPT-Rosalind。该模型针对生物学文献理解、实验设计辅助和数据分析等场景进行了专门训练和对齐，在生物信息学基准测试中表现出色，标志着 AI 在垂直科学领域应用的进一步深化。</p>
+      <a href="https://arstechnica.com/science/2026/04/openai-launches-bio-tuned-llm-gpt-rosalind/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">OpenAI</span> <span class="tag">GPT-Rosalind</span> <span class="tag">biology</span> <span class="tag">scientific AI</span>
     </div>
     </section>
 
@@ -511,50 +535,50 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://news.ycombinator.com/item?id=47806725" target="_blank" rel="noopener noreferrer" class="card-title">Claude Design引爆HN热榜：823 points，550条评论</a>
-      <p class="card-summary">Anthropic发布的Claude Design在Hacker News上获823 points和550条评论，成为当日最热AI话题。社区讨论焦点：Opus 4.7能力边界、与Figma竞争态势、Anthropic从API公司向产品公司转型、IPO预期对产品策略影响。多位开发者分享早期体验，设计质量超出预期但复杂布局仍有局限。</p>
-      <a href="https://news.ycombinator.com/item?id=47806725" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">HN热议</span> <span class="tag">Anthropic</span> <span class="tag">设计工具</span>
+      <a href="https://news.ycombinator.com/item?id=47814832" target="_blank" rel="noopener noreferrer" class="card-title">Claude Code Opus 4.7 过度安全审查引发用户不满</a>
+      <p class="card-summary">Claude Code Opus 4.7 用户反映模型过度安全审查问题。在开发过程中，模型反复检查代码是否涉及恶意软件，甚至拒绝处理合法的网页抓取和 Cookie 自动化任务。用户每月支付 200 美元订阅费，却在工作中频繁遭遇无故拒绝，引发关于 AI 安全边界与用户自主权的激烈讨论。该帖是过去 24 小时 HN 上最热门的 AI Agent 相关帖子。</p>
+      <a href="https://news.ycombinator.com/item?id=47814832" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Claude Code</span> <span class="tag">AI Safety</span> <span class="tag">Opus 4.7</span> <span class="tag">Hacker News</span>
     </div>
 
     <div class="card">
       
-      <a href="https://news.ycombinator.com/item?id=47807006" target="_blank" rel="noopener noreferrer" class="card-title">Claude 4.7 tokenizer成本实测：535 points深度分析</a>
-      <p class="card-summary">claudecodecamp.com发布Claude 4.7新tokenizer成本实测，HN获535 points和366条评论。详细测量新tokenizer在不同任务下的token消耗变化，代码生成场景效率提升约15%，长文本推理略有增加。社区热议tokenizer优化对API成本的实际影响及与其他模型（GPT-4o、Gemini）成本对比。</p>
-      <a href="https://news.ycombinator.com/item?id=47807006" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">HN热议</span> <span class="tag">tokenizer</span> <span class="tag">成本优化</span>
+      <a href="https://sunglasses.dev/blog/auto-mode-validates-runtime-security" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic Auto Mode 运行时安全分析：假阴性率 17%</a>
+      <p class="card-summary">安全公司 Sunglasses 对 Anthropic Auto Mode 的深度分析。Auto Mode 使用基于 Sonnet 4.6 的分类器在工具调用前审查危险操作，但自报假阴性率高达 17%。文章指出该分类器采用推理盲设计——不读取 Agent 自我解释，仅审查用户消息和工具调用。同时强调需要跨供应商的纵深防御层。</p>
+      <a href="https://sunglasses.dev/blog/auto-mode-validates-runtime-security" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">AI Security</span> <span class="tag">Claude Code</span> <span class="tag">Auto Mode</span> <span class="tag">Agent Safety</span>
     </div>
 
     <div class="card">
       
-      <a href="https://www.theverge.com/ai-artificial-intelligence/914463/openai-sora-bill-peebles-kevin-weil-leaving-departing" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI Sora负责人Bill Peebles离职</a>
-      <p class="card-summary">The Verge报道OpenAI视频生成模型Sora负责人Bill Peebles和AI for Science副总裁即将离职，延续OpenAI近期高管和核心研究人员流失趋势。Sora面临Runway、Pika等激烈竞争，人事变动可能影响产品路线图。</p>
-      <a href="https://www.theverge.com/ai-artificial-intelligence/914463/openai-sora-bill-peebles-kevin-weil-leaving-departing" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">OpenAI</span> <span class="tag">人事变动</span> <span class="tag">Sora</span>
+      <a href="https://mikemcquaid.com/sandboxed-agent-worktrees-my-coding-and-ai-setup-in-2026/" target="_blank" rel="noopener noreferrer" class="card-title">Homebrew 维护者分享 AI Agent 安全开发环境搭建</a>
+      <p class="card-summary">Homebrew 维护者 Mike McQuaid 分享 AI Agent 安全开发环境搭建经验。使用 sandvault（macOS 沙盒）将 Agent 运行在隔离的非管理员账户中，防止 rm -rf 和令牌泄露；结合 Git worktrees 实现并行开发。对比了 OpenAI Codex 和 Claude Code 的使用体验，建议 AGENTS.md 保持极简。</p>
+      <a href="https://mikemcquaid.com/sandboxed-agent-worktrees-my-coding-and-ai-setup-in-2026/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">AI Agent</span> <span class="tag">Security</span> <span class="tag">Sandbox</span> <span class="tag">Git Worktrees</span> <span class="tag">Claude Code</span>
     </div>
 
     <div class="card">
       
-      <a href="https://www.theverge.com/ai-artificial-intelligence/914229/tides-turning-anthropic-trump-administration-cybersecurity-mythos-preview" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic网络安全模型Mythos：赢回政府信任</a>
-      <p class="card-summary">The Verge报道Anthropic推出新网络安全模型Mythos，旨在改善与美国政府的关系。在特朗普政府加强AI监管审查的背景下，Anthropic通过专注网络安全能力展示其技术实力和合规意愿。此举被视为Anthropic在AI安全叙事中的差异化策略。</p>
-      <a href="https://www.theverge.com/ai-artificial-intelligence/914229/tides-turning-anthropic-trump-administration-cybersecurity-mythos-preview" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Anthropic</span> <span class="tag">网络安全</span> <span class="tag">政策</span>
+      <a href="https://www.theverge.com/news/642821/dairy-queen-ai-drive-thru-chatbot" target="_blank" rel="noopener noreferrer" class="card-title">Dairy Queen 在得来速餐厅部署 AI 聊天机器人</a>
+      <p class="card-summary">美国快餐连锁 Dairy Queen 开始在得来速餐厅部署 AI 聊天机器人处理点餐。该系统使用语音 AI 技术自动接收顾客订单，旨在提高点餐效率和减少人工成本。这一部署标志着 AI 在实体零售和服务行业的大规模商用正在加速，从科技公司扩展到传统快餐行业。</p>
+      <a href="https://www.theverge.com/news/642821/dairy-queen-ai-drive-thru-chatbot" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">AI deployment</span> <span class="tag">retail</span> <span class="tag">voice AI</span> <span class="tag">fast food</span>
     </div>
 
     <div class="card">
       
-      <a href="https://arstechnica.com/ai/2026/04/mozilla-launches-thunderbolt-ai-client-with-focus-on-self-hosted-infrastructure" target="_blank" rel="noopener noreferrer" class="card-title">Mozilla推出Thunderbolt AI客户端：聚焦自托管基础设施</a>
-      <p class="card-summary">Mozilla发布Thunderbolt AI客户端，基于deepset的Haystack框架构建，致力于去中心化开源AI生态系统。允许用户在本地或自托管基础设施上运行AI工作负载，不依赖云端API。Mozilla在隐私优先AI方向的重要布局，回应企业和开发者对数据主权的诉求。</p>
-      <a href="https://arstechnica.com/ai/2026/04/mozilla-launches-thunderbolt-ai-client-with-focus-on-self-hosted-infrastructure" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Mozilla</span> <span class="tag">自托管</span> <span class="tag">开源AI</span>
+      <a href="https://arstechnica.com/ai/2026/04/mozilla-launches-thunderbolt-ai-client/" target="_blank" rel="noopener noreferrer" class="card-title">Mozilla 推出 Thunderbolt AI 客户端</a>
+      <p class="card-summary">Mozilla 发布 Thunderbolt AI 客户端，专注于自托管基础设施。该客户端允许用户在本地或自有服务器上运行 AI 模型，无需依赖第三方云服务。Mozilla 借此进入 AI Agent 领域，强调隐私保护和用户数据主权，与 Chrome 等浏览器的 AI 集成路线形成差异化竞争。</p>
+      <a href="https://arstechnica.com/ai/2026/04/mozilla-launches-thunderbolt-ai-client/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Mozilla</span> <span class="tag">self-hosted</span> <span class="tag">AI client</span> <span class="tag">privacy</span>
     </div>
 
     <div class="card">
       
-      <a href="https://arstechnica.com/ai/2026/04/construction-delays-hit-40-of-us-data-centers-planned-for-2026" target="_blank" rel="noopener noreferrer" class="card-title">美国40%数据中心建设延期：卫星和无人机图像揭示</a>
-      <p class="card-summary">Ars Technica报道，通过卫星和无人机热成像分析发现2026年美国计划建设的数据中心约40%遭遇严重延期。主因：施工延迟、能源供应瓶颈、社区对耗水耗电的抵制。对AI基础设施扩张预期构成挑战，可能影响大模型训练和推理服务供给。</p>
-      <a href="https://arstechnica.com/ai/2026/04/construction-delays-hit-40-of-us-data-centers-planned-for-2026" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">数据中心</span> <span class="tag">基础设施</span> <span class="tag">延期</span>
+      <a href="https://www.theverge.com/news/643012/character-ai-books-interactive-roleplay" target="_blank" rel="noopener noreferrer" class="card-title">Character.AI 推出 Books 模式</a>
+      <p class="card-summary">Character.AI 推出创新功能 Books，将文学作品转化为互动角色扮演体验。用户可以选择经典或现代小说，AI 会将书中的角色和情节转化为可交互的对话场景。该功能探索了 AI 在娱乐和文学领域的新型应用场景，模糊了阅读与角色扮演之间的界限。</p>
+      <a href="https://www.theverge.com/news/643012/character-ai-books-interactive-roleplay" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Character.AI</span> <span class="tag">interactive fiction</span> <span class="tag">entertainment</span> <span class="tag">AI</span>
     </div>
     </section>
 </main>
@@ -562,7 +586,7 @@ body {
 <!-- Footer -->
 <div class="footer">
   数据来源：The Verge, VentureBeat, Ars Technica, Hacker News, HuggingFace, GitHub<br>
-  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-19 07:36
+  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-19 10:03
 </div>
 
 <!-- Share Bar -->
@@ -641,7 +665,7 @@ function closeModal(e) {
 }
 
 function downloadImage() {
-  const date = '2026-04-18';
+  const date = '2026-04-19';
   const fileName = `AI-Agent日报-${date}.png`;
   const shareBar = document.querySelector('.share-bar');
   const toast = document.getElementById('toast');

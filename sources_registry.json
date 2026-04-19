@@ -6,7 +6,7 @@
       "url": "https://www.theverge.com/ai-artificial-intelligence",
       "type": "news",
       "category": "industry",
-      "quality_score": 53.8,
+      "quality_score": 53.3,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.4,
@@ -23,7 +23,7 @@
       "url": "https://venturebeat.com/category/ai/",
       "type": "news",
       "category": "enterprise",
-      "quality_score": 46.6,
+      "quality_score": 46.0,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.85,
@@ -40,7 +40,7 @@
       "url": "https://arstechnica.com/ai/",
       "type": "news",
       "category": "tech",
-      "quality_score": 54.9,
+      "quality_score": 57.1,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.4,
@@ -57,7 +57,7 @@
       "url": "https://news.ycombinator.com/",
       "type": "aggregator",
       "category": "community",
-      "quality_score": 57.3,
+      "quality_score": 50.3,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.3,
@@ -66,7 +66,7 @@
         "uniqueness": 0.5
       },
       "status": "active",
-      "today_contributions": 2
+      "today_contributions": 1
     },
     {
       "id": "huggingface-papers",
@@ -74,7 +74,7 @@
       "url": "https://huggingface.co/papers",
       "type": "research",
       "category": "academic",
-      "quality_score": 69.8,
+      "quality_score": 67.9,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.9,
@@ -91,7 +91,7 @@
       "url": "https://github.com/trending",
       "type": "code",
       "category": "developer",
-      "quality_score": 61.7,
+      "quality_score": 71.4,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.2,
@@ -100,7 +100,7 @@
         "uniqueness": 0.5
       },
       "status": "active",
-      "today_contributions": 3
+      "today_contributions": 5
     },
     {
       "id": "bens-bites",
@@ -108,7 +108,7 @@
       "url": "https://bensbites.beehiiv.com/",
       "type": "newsletter",
       "category": "curation",
-      "quality_score": 57.0,
+      "quality_score": 54.1,
       "last_evaluated": "2026-04-18",
       "metrics": {
         "relevance": 0.8,
@@ -151,6 +151,42 @@
       "source": "reference_analysis",
       "confidence": 0.6,
       "discovered_at": "2026-04-19T07:36:05.011222+08:00"
+    },
+    {
+      "domain": "openai.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-19T10:03:16.505097+08:00"
+    },
+    {
+      "domain": "sunglasses.dev",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-19T10:03:16.505105+08:00"
+    },
+    {
+      "domain": "mikemcquaid.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-19T10:03:16.505107+08:00"
+    },
+    {
+      "domain": "arxiv.org",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-19T10:03:16.505825+08:00"
+    },
+    {
+      "domain": "sunglasses.dev",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-19T10:03:16.505828+08:00"
+    },
+    {
+      "domain": "mikemcquaid.com",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-19T10:03:16.505830+08:00"
     }
   ],
   "evaluation_log": []
