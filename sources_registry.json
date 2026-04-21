@@ -6,8 +6,8 @@
       "url": "https://www.theverge.com/ai-artificial-intelligence",
       "type": "news",
       "category": "industry",
-      "quality_score": 53.3,
-      "last_evaluated": "2026-04-19",
+      "quality_score": 48.7,
+      "last_evaluated": "2026-04-21",
       "metrics": {
         "relevance": 0.4,
         "timeliness": 0.6666666666666666,
@@ -15,7 +15,7 @@
         "uniqueness": 0.5
       },
       "status": "active",
-      "today_contributions": 2
+      "today_contributions": 1
     },
     {
       "id": "venturebeat-ai",
@@ -23,8 +23,8 @@
       "url": "https://venturebeat.com/category/ai/",
       "type": "news",
       "category": "enterprise",
-      "quality_score": 46.0,
-      "last_evaluated": "2026-04-19",
+      "quality_score": 61.4,
+      "last_evaluated": "2026-04-21",
       "metrics": {
         "relevance": 0.85,
         "timeliness": 0.8,
@@ -32,7 +32,7 @@
         "uniqueness": 0.6
       },
       "status": "active",
-      "today_contributions": 1
+      "today_contributions": 3
     },
     {
       "id": "arstechnica-ai",
@@ -40,8 +40,8 @@
       "url": "https://arstechnica.com/ai/",
       "type": "news",
       "category": "tech",
-      "quality_score": 57.1,
-      "last_evaluated": "2026-04-19",
+      "quality_score": 56.5,
+      "last_evaluated": "2026-04-21",
       "metrics": {
         "relevance": 0.4,
         "timeliness": 0.0,
@@ -57,7 +57,7 @@
       "url": "https://news.ycombinator.com/",
       "type": "aggregator",
       "category": "community",
-      "quality_score": 50.3,
+      "quality_score": 47.8,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.3,
@@ -66,7 +66,7 @@
         "uniqueness": 0.5
       },
       "status": "active",
-      "today_contributions": 1
+      "today_contributions": 0
     },
     {
       "id": "huggingface-papers",
@@ -74,8 +74,8 @@
       "url": "https://huggingface.co/papers",
       "type": "research",
       "category": "academic",
-      "quality_score": 67.9,
-      "last_evaluated": "2026-04-19",
+      "quality_score": 73.4,
+      "last_evaluated": "2026-04-21",
       "metrics": {
         "relevance": 0.9,
         "timeliness": 0.3333333333333333,
@@ -83,7 +83,7 @@
         "uniqueness": 0.5
       },
       "status": "active",
-      "today_contributions": 3
+      "today_contributions": 4
     },
     {
       "id": "github-trending",
@@ -91,8 +91,8 @@
       "url": "https://github.com/trending",
       "type": "code",
       "category": "developer",
-      "quality_score": 71.4,
-      "last_evaluated": "2026-04-19",
+      "quality_score": 78.2,
+      "last_evaluated": "2026-04-21",
       "metrics": {
         "relevance": 0.2,
         "timeliness": 0.0,
@@ -108,7 +108,7 @@
       "url": "https://bensbites.beehiiv.com/",
       "type": "newsletter",
       "category": "curation",
-      "quality_score": 54.1,
+      "quality_score": 51.4,
       "last_evaluated": "2026-04-18",
       "metrics": {
         "relevance": 0.8,
@@ -187,6 +187,42 @@
       "source": "usage_analysis",
       "contributions": 1,
       "discovered_at": "2026-04-19T10:03:16.505830+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-21T09:59:56.209350+08:00"
+    },
+    {
+      "domain": "www.kimi.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-21T09:59:56.209360+08:00"
+    },
+    {
+      "domain": "awesomeagents.ai",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-21T09:59:56.209362+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-21T09:59:56.210272+08:00"
+    },
+    {
+      "domain": "www.kimi.com",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-21T09:59:56.210274+08:00"
+    },
+    {
+      "domain": "awesomeagents.ai",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-21T09:59:56.210276+08:00"
     }
   ],
   "evaluation_log": []
