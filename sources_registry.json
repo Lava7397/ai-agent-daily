@@ -6,8 +6,8 @@
       "url": "https://www.theverge.com/ai-artificial-intelligence",
       "type": "news",
       "category": "industry",
-      "quality_score": 48.7,
-      "last_evaluated": "2026-04-21",
+      "quality_score": 46.8,
+      "last_evaluated": "2026-04-22",
       "metrics": {
         "relevance": 0.4,
         "timeliness": 0.6666666666666666,
@@ -23,8 +23,8 @@
       "url": "https://venturebeat.com/category/ai/",
       "type": "news",
       "category": "enterprise",
-      "quality_score": 61.4,
-      "last_evaluated": "2026-04-21",
+      "quality_score": 67.6,
+      "last_evaluated": "2026-04-22",
       "metrics": {
         "relevance": 0.85,
         "timeliness": 0.8,
@@ -40,8 +40,8 @@
       "url": "https://arstechnica.com/ai/",
       "type": "news",
       "category": "tech",
-      "quality_score": 56.5,
-      "last_evaluated": "2026-04-21",
+      "quality_score": 56.3,
+      "last_evaluated": "2026-04-22",
       "metrics": {
         "relevance": 0.4,
         "timeliness": 0.0,
@@ -57,7 +57,7 @@
       "url": "https://news.ycombinator.com/",
       "type": "aggregator",
       "category": "community",
-      "quality_score": 47.8,
+      "quality_score": 45.4,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.3,
@@ -74,8 +74,8 @@
       "url": "https://huggingface.co/papers",
       "type": "research",
       "category": "academic",
-      "quality_score": 73.4,
-      "last_evaluated": "2026-04-21",
+      "quality_score": 75.6,
+      "last_evaluated": "2026-04-22",
       "metrics": {
         "relevance": 0.9,
         "timeliness": 0.3333333333333333,
@@ -91,8 +91,8 @@
       "url": "https://github.com/trending",
       "type": "code",
       "category": "developer",
-      "quality_score": 78.2,
-      "last_evaluated": "2026-04-21",
+      "quality_score": 80.9,
+      "last_evaluated": "2026-04-22",
       "metrics": {
         "relevance": 0.2,
         "timeliness": 0.0,
@@ -108,7 +108,7 @@
       "url": "https://bensbites.beehiiv.com/",
       "type": "newsletter",
       "category": "curation",
-      "quality_score": 51.4,
+      "quality_score": 48.8,
       "last_evaluated": "2026-04-18",
       "metrics": {
         "relevance": 0.8,
@@ -223,6 +223,42 @@
       "source": "usage_analysis",
       "contributions": 1,
       "discovered_at": "2026-04-21T09:59:56.210276+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-22T10:05:38.959556+08:00"
+    },
+    {
+      "domain": "www.kimi.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-22T10:05:38.959571+08:00"
+    },
+    {
+      "domain": "awesomeagents.ai",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-22T10:05:38.959573+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-22T10:05:38.961114+08:00"
+    },
+    {
+      "domain": "www.kimi.com",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-22T10:05:38.961118+08:00"
+    },
+    {
+      "domain": "awesomeagents.ai",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-22T10:05:38.961120+08:00"
     }
   ],
   "evaluation_log": []
