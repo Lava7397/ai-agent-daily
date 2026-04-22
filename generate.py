@@ -7,8 +7,10 @@ import json
 import os
 import sys
 from html import escape
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+BEIJING_TZ = timezone(timedelta(hours=8))
 
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "daily_data.json"
@@ -63,7 +65,7 @@ def build_section_html(key, items):
 
 
 def build_html(data):
-    date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
+    date_str = datetime.now(BEIJING_TZ).strftime("%Y-%m-%d")
     safe_date = escape(date_str)
     sections = []
     for key in ("research", "github", "models", "community"):
