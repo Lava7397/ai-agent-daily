@@ -6,7 +6,7 @@
       "url": "https://www.theverge.com/ai-artificial-intelligence",
       "type": "news",
       "category": "industry",
-      "quality_score": 60.1,
+      "quality_score": 61.1,
       "last_evaluated": "2026-04-23",
       "metrics": {
         "relevance": 0.4,
@@ -23,7 +23,7 @@
       "url": "https://venturebeat.com/category/ai/",
       "type": "news",
       "category": "enterprise",
-      "quality_score": 91.2,
+      "quality_score": 94.9,
       "last_evaluated": "2026-04-23",
       "metrics": {
         "relevance": 0.85,
@@ -40,7 +40,7 @@
       "url": "https://arstechnica.com/ai/",
       "type": "news",
       "category": "tech",
-      "quality_score": 88.8,
+      "quality_score": 92.7,
       "last_evaluated": "2026-04-23",
       "metrics": {
         "relevance": 0.4,
@@ -57,7 +57,7 @@
       "url": "https://news.ycombinator.com/",
       "type": "aggregator",
       "category": "community",
-      "quality_score": 35.1,
+      "quality_score": 28.5,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.3,
@@ -91,7 +91,7 @@
       "url": "https://github.com/trending",
       "type": "code",
       "category": "developer",
-      "quality_score": 71.4,
+      "quality_score": 58.1,
       "last_evaluated": "2026-04-22",
       "metrics": {
         "relevance": 0.2,
@@ -108,7 +108,7 @@
       "url": "https://bensbites.beehiiv.com/",
       "type": "newsletter",
       "category": "curation",
-      "quality_score": 37.8,
+      "quality_score": 30.8,
       "last_evaluated": "2026-04-18",
       "metrics": {
         "relevance": 0.8,
@@ -355,6 +355,54 @@
       "source": "usage_analysis",
       "contributions": 1,
       "discovered_at": "2026-04-23T14:43:54.504299+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-23T14:50:09.286758+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-23T14:50:09.287627+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-23T14:52:23.258503+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-23T14:52:23.259286+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-23T14:57:37.442014+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-23T14:57:37.442909+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-23T14:57:42.800404+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-23T14:57:42.801118+08:00"
     }
   ],
   "evaluation_log": []

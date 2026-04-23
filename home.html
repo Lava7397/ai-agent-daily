@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="AI Agent 日报 · 历史存档 — 共 13 期">
+<meta name="description" content="Lava · LavaAgent — 个人项目入口与 AI Daily 历史存档">
 <meta name="theme-color" content="#0d1b2a">
-<title>AI Agent 日报 · 历史存档</title>
+<title>LavaAgent · Lava 的个人项目入口</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
@@ -17,6 +17,209 @@ body {
   color: #2c2c2c;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Atlas Summary (new top section) ---- */
+.atlas-shell {
+  border-bottom: 1px solid rgba(100,80,60,0.18);
+  background: #f2ede3;
+}
+.atlas-nav {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px solid rgba(100,80,60,0.12);
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.atlas-brand {
+  color: #2f2c27;
+  font-weight: 600;
+}
+.atlas-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.atlas-lang {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.atlas-lang button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #6f6559;
+  padding: 4px 6px;
+  border-radius: 2px;
+}
+.atlas-lang button:hover {
+  color: #2f2c27;
+}
+.atlas-lang button.active {
+  color: #2f2c27;
+  font-weight: 700;
+  background: rgba(100,80,60,0.08);
+}
+.atlas-lang-sep {
+  color: #b0a89a;
+  font-size: 11px;
+  user-select: none;
+}
+.atlas-links {
+  display: flex;
+  gap: 16px;
+}
+.atlas-links a {
+  color: #6f6559;
+  text-decoration: none;
+}
+.atlas-links a:hover {
+  color: #2f2c27;
+}
+.atlas-hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 44px 24px 18px;
+}
+.atlas-byline {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #98703f;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.atlas-title {
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: #171615;
+}
+.atlas-title em {
+  font-style: normal;
+  color: #98703f;
+}
+.atlas-project-strip {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px 24px 30px;
+}
+.atlas-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+.atlas-project-card {
+  border: 1px solid rgba(100,80,60,0.2);
+  background: rgba(255,255,255,0.45);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.atlas-project-card--placeholder {
+  border-style: dashed;
+  background: rgba(255,255,255,0.25);
+}
+.atlas-placeholder-body {
+  padding: 20px 16px 24px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  color: #8a7e6e;
+  letter-spacing: 1px;
+}
+.atlas-project-title {
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid rgba(100,80,60,0.14);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.atlas-project-title h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: #23201b;
+}
+.atlas-project-title .version {
+  font-size: 12px;
+  color: #796f61;
+  letter-spacing: 1px;
+  text-align: right;
+}
+.atlas-project-meta {
+  font-size: 11px;
+  color: #9a8f82;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+.atlas-project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 16px 16px;
+  border-top: 1px solid rgba(100,80,60,0.12);
+  margin-top: auto;
+}
+.atlas-project-body {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(130px, 1fr));
+}
+.atlas-project-stat {
+  padding: 14px 16px 16px;
+  border-right: 1px solid rgba(100,80,60,0.14);
+}
+.atlas-project-stat:last-child {
+  border-right: 0;
+}
+.atlas-project-stat .num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  color: #2a241d;
+}
+.atlas-project-stat--date {
+  font-size: clamp(20px, 3.2vw, 26px);
+  line-height: 1.15;
+  word-break: break-all;
+}
+.atlas-project-stat .txt {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #867b6f;
+}
+.atlas-btn {
+  border: 1px solid rgba(100,80,60,0.18);
+  color: #4d4338;
+  background: #f8f4eb;
+  text-decoration: none;
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+.atlas-btn.primary {
+  background: #9a6f35;
+  color: #fff;
+  border-color: #9a6f35;
 }
 
 /* ---- Hero ---- */
@@ -118,7 +321,8 @@ body {
 .date-card {
   display: flex;
   align-items: center;
-  padding: 18px 22px;
+  gap: 10px 12px;
+  padding: 14px 18px;
   background: rgba(255,255,255,0.65);
   border: 1px solid rgba(100,80,60,0.1);
   border-left: 4px solid #5a6e8a;
@@ -126,7 +330,6 @@ body {
   color: #2c2c2c;
   border-radius: 2px;
   transition: all 0.18s ease;
-  position: relative;
 }
 .date-card:nth-child(5n+2) { border-left-color: #7a6e9a; }
 .date-card:nth-child(5n+3) { border-left-color: #6a8a7a; }
@@ -137,26 +340,55 @@ body {
   border-left-color: #4a6080;
   transform: translateX(4px);
 }
+.date-meta-wrap {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
 .date-main {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   color: #3a3a3a;
-  flex: 1;
+  white-space: nowrap;
 }
 .date-day {
-  font-size: 12px;
+  font-size: 11px;
   color: #8a7e6e;
-  margin-right: 16px;
   letter-spacing: 1px;
 }
+.date-headline {
+  flex: 1;
+  font-size: 13px;
+  color: #5a5040;
+  line-height: 1.5;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-width: 0;
+}
+.date-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.date-count {
+  font-size: 11px;
+  color: #8a7e6e;
+  white-space: nowrap;
+}
 .date-arrow {
-  font-size: 18px;
+  font-size: 16px;
   color: #b0a89a;
   transition: transform 0.18s, color 0.18s;
 }
 .date-card:hover .date-arrow {
-  transform: translateX(4px);
+  transform: translateX(3px);
   color: #5a6e8a;
 }
 
@@ -214,30 +446,106 @@ body {
 }
 .footer a { color: #8a7e6e; text-decoration: none; }
 .footer a:hover { color: #5a6e8a; }
+
+@media (max-width: 900px) {
+  .atlas-project-body {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+  .atlas-project-stat:nth-child(2n) {
+    border-right: 0;
+  }
+  .atlas-project-stat:nth-child(n+3) {
+    border-top: 1px solid rgba(100,80,60,0.14);
+  }
+}
 </style>
 </head>
 <body>
 
-<!-- Hero -->
-<div class="hero">
-  <h1>AI Agent 日报</h1>
-  <p class="subtitle">历史存档 · 共 13 期</p>
-  <a class="today-link" href="index.html">查看当天日报 →</a>
+<section class="atlas-shell">
+  <div class="atlas-nav">
+    <div class="atlas-brand">Lava · LavaAgent</div>
+    <div class="atlas-nav-right">
+      <div class="atlas-lang" role="group" aria-label="Language">
+        <button type="button" id="lang-zh" data-set-lang="zh">中</button>
+        <span class="atlas-lang-sep">/</span>
+        <button type="button" id="lang-en" data-set-lang="en">EN</button>
+      </div>
+      <div class="atlas-links">
+        <a href="#legacy-home" data-i18n="nav_archive">AI Daily 存档</a>
+        <a href="index.html" data-i18n="nav_today">今日刊</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="atlas-hero">
+    <p class="atlas-byline">Lava</p>
+    <h1 class="atlas-title" data-i18n-html="hero_title">the project map<br>of <em>LavaAgent.</em></h1>
+  </div>
+
+  <div class="atlas-project-strip">
+    <div class="atlas-projects-grid">
+      <article class="atlas-project-card">
+        <div class="atlas-project-title">
+          <div>
+            <h2>AI Daily</h2>
+            <p class="atlas-project-meta">11:30 BJT</p>
+          </div>
+          <span class="version" data-i18n="card_digest">LavaAgent · curated digest</span>
+        </div>
+        <div class="atlas-project-body">
+          <div class="atlas-project-stat">
+            <div class="num" id="proj-m-issues">—</div>
+            <div class="txt" data-i18n="stat_issues">Issues</div>
+          </div>
+          <div class="atlas-project-stat">
+            <div class="num" id="proj-m-items">—</div>
+            <div class="txt" data-i18n="stat_items">Items total</div>
+          </div>
+          <div class="atlas-project-stat">
+            <div class="num atlas-project-stat--date" id="proj-m-latest">—</div>
+            <div class="txt" data-i18n="stat_latest">Latest issue</div>
+          </div>
+          <div class="atlas-project-stat">
+            <div class="num" id="proj-m-max">—</div>
+            <div class="txt" data-i18n="stat_max">Max items / issue</div>
+          </div>
+        </div>
+        <div class="atlas-project-actions">
+          <a class="atlas-btn primary" href="#legacy-home" data-i18n="btn_archive">Archive</a>
+          <a class="atlas-btn" href="index.html" data-i18n="btn_today">Today</a>
+        </div>
+      </article>
+      <article class="atlas-project-card atlas-project-card--placeholder">
+        <div class="atlas-project-title">
+          <h2 data-i18n="next_title">Next</h2>
+          <span class="version">—</span>
+        </div>
+        <div class="atlas-placeholder-body" data-i18n="placeholder_body">预留</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="hero" id="legacy-home">
+  <h1 data-i18n="legacy_h1">AI Daily · LavaAgent</h1>
+  <p class="subtitle">LavaAgent · 历史存档 · 共 8 期</p>
+  <a class="today-link" href="index.html" data-i18n="legacy_today_link">查看当天日报 →</a>
 </div>
 
 <!-- Stats -->
 <div class="stats-bar">
   <div class="stat">
-    <div class="stat-num">13</div>
-    <div class="stat-label">Total Issues</div>
+    <div class="stat-num">8</div>
+    <div class="stat-label" data-i18n="bar_total_issues">Total Issues</div>
   </div>
   <div class="stat">
-    <div class="stat-num">2</div>
-    <div class="stat-label">Pages</div>
+    <div class="stat-num">1</div>
+    <div class="stat-label" data-i18n="bar_pages">Pages</div>
   </div>
   <div class="stat">
     <div class="stat-num">10</div>
-    <div class="stat-label">Per Page</div>
+    <div class="stat-label" data-i18n="bar_per_page">Per Page</div>
   </div>
 </div>
 
@@ -246,97 +554,303 @@ body {
   <div class="archive-list" id="archiveList">
     
         <a class="date-card" href="archives/2026-04-23.html">
-          <span class="date-main">2026-04-23</span>
-          <span class="date-day">周四</span>
-          <span class="date-arrow">→</span>
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-23</span>
+            <span class="date-day">周四</span>
+          </div>
+          <p class="date-headline">Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线</p>
+          <div class="date-right">
+            <span class="date-count">18 条内容</span>
+            <span class="date-arrow">→</span>
+          </div>
         </a>
         <a class="date-card" href="archives/2026-04-22.html">
-          <span class="date-main">2026-04-22</span>
-          <span class="date-day">周三</span>
-          <span class="date-arrow">→</span>
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-22</span>
+            <span class="date-day">周三</span>
+          </div>
+          <p class="date-headline">AgentSPEX: An Agent SPecification and EXecution Language</p>
+          <div class="date-right">
+            <span class="date-count">18 条内容</span>
+            <span class="date-arrow">→</span>
+          </div>
         </a>
         <a class="date-card" href="archives/2026-04-21.html">
-          <span class="date-main">2026-04-21</span>
-          <span class="date-day">周二</span>
-          <span class="date-arrow">→</span>
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-21</span>
+            <span class="date-day">周二</span>
+          </div>
+          <p class="date-headline">Mind DeepResearch Technical Report</p>
+          <div class="date-right">
+            <span class="date-count">18 条内容</span>
+            <span class="date-arrow">→</span>
+          </div>
         </a>
         <a class="date-card" href="archives/2026-04-19.html">
-          <span class="date-main">2026-04-19</span>
-          <span class="date-day">周日</span>
-          <span class="date-arrow">→</span>
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-19</span>
+            <span class="date-day">周日</span>
+          </div>
+          <p class="date-headline">Dive into Claude Code: The Design Space of AI Agent Systems</p>
+          <div class="date-right">
+            <span class="date-count">18 条内容</span>
+            <span class="date-arrow">→</span>
+          </div>
         </a>
         <a class="date-card" href="archives/2026-04-18.html">
-          <span class="date-main">2026-04-18</span>
-          <span class="date-day">周六</span>
-          <span class="date-arrow">→</span>
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-18</span>
+            <span class="date-day">周六</span>
+          </div>
+          <p class="date-headline">HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界</p>
+          <div class="date-right">
+            <span class="date-count">15 条内容</span>
+            <span class="date-arrow">→</span>
+          </div>
         </a>
         <a class="date-card" href="archives/2026-04-17.html">
-          <span class="date-main">2026-04-17</span>
-          <span class="date-day">周五</span>
-          <span class="date-arrow">→</span>
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-17</span>
+            <span class="date-day">周五</span>
+          </div>
+          <p class="date-headline">OpenAI 发布 GPT-Rosalind：面向生命科学的专属大模型</p>
+          <div class="date-right">
+            <span class="date-count">18 条内容</span>
+            <span class="date-arrow">→</span>
+          </div>
         </a>
         <a class="date-card" href="archives/2026-04-16.html">
-          <span class="date-main">2026-04-16</span>
-          <span class="date-day">周四</span>
-          <span class="date-arrow">→</span>
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-16</span>
+            <span class="date-day">周四</span>
+          </div>
+          <p class="date-headline">ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架</p>
+          <div class="date-right">
+            <span class="date-count">18 条内容</span>
+            <span class="date-arrow">→</span>
+          </div>
         </a>
         <a class="date-card" href="archives/2026-04-15.html">
-          <span class="date-main">2026-04-15</span>
-          <span class="date-day">周三</span>
-          <span class="date-arrow">→</span>
-        </a>
-        <a class="date-card" href="archives/2026-04-14.html">
-          <span class="date-main">2026-04-14</span>
-          <span class="date-day">周二</span>
-          <span class="date-arrow">→</span>
-        </a>
-        <a class="date-card" href="archives/2026-04-13.html">
-          <span class="date-main">2026-04-13</span>
-          <span class="date-day">周一</span>
-          <span class="date-arrow">→</span>
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-15</span>
+            <span class="date-day">周三</span>
+          </div>
+          <p class="date-headline">ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架</p>
+          <div class="date-right">
+            <span class="date-count">18 条内容</span>
+            <span class="date-arrow">→</span>
+          </div>
         </a>
   </div>
 
   <!-- Pagination -->
   <div class="pagination" id="pagination">
-    <button class="page-btn nav-btn" disabled>‹ 上一页</button>
-    <button class="page-btn active" data-page="1">1</button><button class="page-btn" data-page="2">2</button>
-    <button class="page-btn nav-btn" data-page="2" >下一页 ›</button>
-    <span class="page-info">第 1 / 2 页</span>
+    <button type="button" class="page-btn nav-btn" disabled data-i18n="page_prev">‹ 上一页</button>
+    <button type="button" class="page-btn active" data-page="1">1</button>
+    <button type="button" class="page-btn nav-btn" disabled data-i18n="page_next">下一页 ›</button>
+    <span class="page-info">第 1 / 1 页</span>
   </div>
 </div>
 
 <!-- Footer -->
 <div class="footer">
-  <p>Generated at 2026-04-23 14:43 · Powered by Lava Agent</p>
-  <p style="margin-top:6px;"><a href="index.html">当天日报</a> · <a href="home.html">历史存档</a></p>
+  <p><span data-i18n="footer_generated_prefix">生成于</span> 2026-04-23 14:57 · Lava · LavaAgent</p>
+  <p style="margin-top:6px;"><a href="index.html" data-i18n="footer_today">当天日报</a> · <a href="home.html" data-i18n="footer_archive">历史存档</a></p>
 </div>
 
 <script>
-// 所有日期数据（按日期降序）
-const ALL_DATES = ['2026-04-23', '2026-04-22', '2026-04-21', '2026-04-19', '2026-04-18', '2026-04-17', '2026-04-16', '2026-04-15', '2026-04-14', '2026-04-13', '2026-04-11', '2026-04-09', '2026-04-08'];
+const ALL_ARCHIVES = [["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "18"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "18"], ["2026-04-21", "Mind DeepResearch Technical Report", "18"], ["2026-04-19", "Dive into Claude Code: The Design Space of AI Agent Systems", "18"], ["2026-04-18", "HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界", "15"], ["2026-04-17", "OpenAI 发布 GPT-Rosalind：面向生命科学的专属大模型", "18"], ["2026-04-16", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18"], ["2026-04-15", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18"]];
+
+const LANG_STORAGE = 'lavaagent_home_lang';
+const I18N = {
+  zh: {
+    nav_archive: 'AI Daily 存档',
+    nav_today: '今日刊',
+    hero_title: '项目地图<br><em>LavaAgent</em>',
+    card_digest: 'LavaAgent · 精选文摘',
+    stat_issues: '期数',
+    stat_items: '条目合计',
+    stat_latest: '最新一期',
+    stat_max: '单期最多',
+    btn_archive: '存档',
+    btn_today: '今日刊',
+    next_title: '下一项',
+    placeholder_body: '预留',
+    legacy_h1: 'AI Daily · LavaAgent',
+    legacy_today_link: '查看当天日报 →',
+    bar_total_issues: '总期数',
+    bar_pages: '页数',
+    bar_per_page: '每页条数',
+    page_prev: '‹ 上一页',
+    page_next: '下一页 ›',
+    footer_generated_prefix: '生成于',
+    footer_today: '当天日报',
+    footer_archive: '历史存档',
+    lang_group_label: '界面语言',
+  },
+  en: {
+    nav_archive: 'AI Daily archive',
+    nav_today: 'Today',
+    hero_title: 'the project map<br>of <em>LavaAgent.</em>',
+    card_digest: 'LavaAgent · curated digest',
+    stat_issues: 'Issues',
+    stat_items: 'Items total',
+    stat_latest: 'Latest issue',
+    stat_max: 'Max items / issue',
+    btn_archive: 'Archive',
+    btn_today: 'Today',
+    next_title: 'Next',
+    placeholder_body: 'Reserved',
+    legacy_h1: 'AI Daily · LavaAgent',
+    legacy_today_link: "Today's issue →",
+    bar_total_issues: 'Total issues',
+    bar_pages: 'Pages',
+    bar_per_page: 'Per page',
+    page_prev: '‹ Prev',
+    page_next: 'Next ›',
+    footer_generated_prefix: 'Generated at',
+    footer_today: "Today's issue",
+    footer_archive: 'Archive',
+    lang_group_label: 'Language',
+  },
+};
+
+const DAY_NAMES = {
+  zh: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+  en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+};
+
+function getLang() {
+  const s = localStorage.getItem(LANG_STORAGE);
+  if (s === 'en' || s === 'zh') return s;
+  return 'zh';
+}
+
+function formatSubtitle(lang, n) {
+  return lang === 'zh'
+    ? `LavaAgent · 历史存档 · 共 ${n} 期`
+    : `LavaAgent · archive · ${n} issues`;
+}
+
+function formatPageInfo(lang, p, total) {
+  return lang === 'zh' ? `第 ${p} / ${total} 页` : `Page ${p} / ${total}`;
+}
+
+function formatItemsLabel(lang, n) {
+  return lang === 'zh' ? `${n} 条内容` : `${n} items`;
+}
+
+function noSummary(lang) {
+  return lang === 'zh' ? '暂无摘要' : 'No summary';
+}
+
+function applyStaticI18n() {
+  const lang = getLang();
+  const pack = I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (pack[k] !== undefined) el.textContent = pack[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (pack[k] !== undefined) el.innerHTML = pack[k];
+  });
+  const lg = document.querySelector('.atlas-lang');
+  if (lg) lg.setAttribute('aria-label', pack.lang_group_label);
+}
+
+function updateLangButtons() {
+  const lang = getLang();
+  const bZh = document.getElementById('lang-zh');
+  const bEn = document.getElementById('lang-en');
+  if (bZh) bZh.classList.toggle('active', lang === 'zh');
+  if (bEn) bEn.classList.toggle('active', lang === 'en');
+}
+
+function applyDocumentLang(lang) {
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.title = lang === 'zh'
+    ? 'LavaAgent · Lava 的个人项目入口'
+    : 'LavaAgent · Lava — projects';
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.content = lang === 'zh'
+      ? 'Lava · LavaAgent — 个人项目入口与 AI Daily 历史存档'
+      : 'Lava · LavaAgent — project hub and AI Daily archive';
+  }
+}
+
+function setLang(lang) {
+  if (lang !== 'en' && lang !== 'zh') return;
+  localStorage.setItem(LANG_STORAGE, lang);
+  applyDocumentLang(lang);
+  updateLangButtons();
+  applyStaticI18n();
+  syncAtlasMetrics();
+  renderPage(currentPage);
+}
+
+let currentPage = 1;
+
+function syncAtlasMetrics() {
+  const rows = ALL_ARCHIVES;
+  const n = rows.length;
+  let totalItems = 0;
+  let maxItems = 0;
+  for (const r of rows) {
+    const c = parseInt(r[2], 10) || 0;
+    totalItems += c;
+    if (c > maxItems) maxItems = c;
+  }
+  const latest = n ? rows[0][0] : '—';
+
+  const set = (id, v) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = v;
+  };
+
+  set('proj-m-issues', n ? String(n) : '—');
+  set('proj-m-items', n ? String(totalItems) : '—');
+  set('proj-m-latest', latest);
+  set('proj-m-max', n ? String(maxItems) : '—');
+
+  const sub = document.querySelector('.hero .subtitle');
+  if (sub) sub.textContent = formatSubtitle(getLang(), n);
+  const firstStat = document.querySelector('.stats-bar .stat:first-child .stat-num');
+  if (firstStat) firstStat.textContent = n ? String(n) : '—';
+}
 
 const PER_PAGE = 10;
-const totalPages = Math.max(1, Math.ceil(ALL_DATES.length / PER_PAGE));
+const totalPages = Math.max(1, Math.ceil(ALL_ARCHIVES.length / PER_PAGE));
 
 function renderPage(p) {
   p = Math.max(1, Math.min(p, totalPages));
+  currentPage = p;
   const start = (p - 1) * PER_PAGE;
   const end = start + PER_PAGE;
-  const pageDates = ALL_DATES.slice(start, end);
+  const pageItems = ALL_ARCHIVES.slice(start, end);
 
-  const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
+  const lang = getLang();
+  const dayNames = DAY_NAMES[lang];
   const listEl = document.getElementById('archiveList');
-  listEl.innerHTML = pageDates.map(d => {
+  listEl.innerHTML = pageItems.map(([d, headline, total]) => {
     const dn = dayNames[new Date(d + 'T00:00:00').getDay()];
+    const nItems = parseInt(total, 10) || 0;
+    const label = total ? formatItemsLabel(lang, nItems) : '';
+    const countHtml = label ? `<span class="date-count">${label}</span>` : '';
     return `<a class="date-card" href="archives/${d}.html">
-      <span class="date-main">${d}</span>
-      <span class="date-day">${dn}</span>
-      <span class="date-arrow">→</span>
+      <div class="date-meta-wrap">
+        <span class="date-main">${d}</span>
+        <span class="date-day">${dn}</span>
+      </div>
+      <p class="date-headline">${headline || noSummary(lang)}</p>
+      <div class="date-right">
+        ${countHtml}
+        <span class="date-arrow">→</span>
+      </div>
     </a>`;
   }).join('');
 
-  // 更新分页按钮
   const pager = document.getElementById('pagination');
   const btns = pager.querySelectorAll('.page-btn[data-page]');
   btns.forEach(b => {
@@ -344,25 +858,33 @@ function renderPage(p) {
     b.disabled = parseInt(b.dataset.page) < 1 || parseInt(b.dataset.page) > totalPages;
   });
 
-  // 更新 page info
   let info = pager.querySelector('.page-info');
-  if (info) info.textContent = `第 ${p} / ${totalPages} 页`;
+  if (info) info.textContent = formatPageInfo(lang, p, totalPages);
 
-  // 更新 URL hash
   history.replaceState(null, '', p > 1 ? `#page=${p}` : window.location.pathname);
 }
 
-// 绑定分页按钮点击
+document.getElementById('lang-zh').addEventListener('click', () => setLang('zh'));
+document.getElementById('lang-en').addEventListener('click', () => setLang('en'));
+
 document.getElementById('pagination').addEventListener('click', e => {
   const btn = e.target.closest('.page-btn');
   if (!btn || btn.disabled) return;
   renderPage(parseInt(btn.dataset.page));
 });
 
-// 初始化：读取 hash 或默认第1页
 const hash = window.location.hash;
 const initPage = hash ? parseInt(hash.replace('#page=', '')) || 1 : 1;
-renderPage(initPage);
+currentPage = initPage;
+
+(function initLangFromStorage() {
+  applyDocumentLang(getLang());
+  updateLangButtons();
+  applyStaticI18n();
+})();
+
+syncAtlasMetrics();
+renderPage(currentPage);
 </script>
 </body>
 </html>

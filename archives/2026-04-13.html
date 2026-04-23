@@ -93,6 +93,17 @@ body {
   letter-spacing: 1px;
 }
 
+
+
+
+/* ---- Detail top bar（与 quick-nav 同宽） ---- */
+.detail-topbar--legacy {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 12px 16px 0;
+}
+
+
 .quick-nav {
   max-width: 720px;
   margin: 0 auto;
@@ -374,6 +385,11 @@ body {
 </head>
 <body>
 <a href="#main-content" class="skip-link">跳到正文</a>
+<div class="detail-topbar detail-topbar--legacy">
+  <div class="detail-topbar-inner">
+    <a href="home.html" class="quick-link" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> 返回</a>
+  </div>
+</div>
 
 <!-- Hero -->
 <div class="hero">
@@ -552,6 +568,8 @@ body {
 </div>
 
 <script>
+(function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
+
 const SHARE_URL = 'https://lava-agent-daily.vercel.app';
 
 function showToast(msg) {

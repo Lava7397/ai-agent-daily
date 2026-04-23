@@ -5,6 +5,7 @@ AI Agent 日报 H5 页面生成器
 """
 import json
 import os
+import re
 import sys
 from html import escape
 from datetime import datetime, timezone, timedelta
@@ -15,6 +16,27 @@ BEIJING_TZ = timezone(timedelta(hours=8))
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "daily_data.json"
 OUTPUT_DIR = BASE_DIR / "archives"
+
+
+def extract_archive_meta(archive_path):
+    """从归档 HTML 中提取头条标题和总条目数"""
+    try:
+        html = archive_path.read_text(encoding="utf-8")
+        # 提取第一个 .card-title 的文本（头条标题）
+        m = re.search(r'<a[^>]+class="card-title"[^>]*>([^<]+)</a>', html)
+        headline = m.group(1).strip() if m else ""
+        # 提取总条目数（hero stats 里）
+        n = re.findall(r'class="stat-num"[^>]*>([\d]+)</div>', html)
+        total = n[0] if n else ""   # 第一个 stat-num 是 total items
+        return headline, total
+    except Exception:
+        return "", ""
+
+
+def build_home_html(archive_infos, page=1, per_page=10):
+    """生成首页 home.html：展示所有历史归档，支持分页
+    archive_infos: list of (date_str, headline, total_items)
+    """
 
 SECTION_META = {
     "research": {"icon": "🤖", "title": "AI Agent 研究"},
@@ -64,7 +86,7 @@ def build_section_html(key, items):
     </section>"""
 
 
-def build_html(data):
+def build_html(data, include_nav_back=True):
     date_str = datetime.now(BEIJING_TZ).strftime("%Y-%m-%d")
     safe_date = escape(date_str)
     sections = []
@@ -91,6 +113,22 @@ def build_html(data):
     ]
     quick_nav_html = "".join(
         f'<a class="quick-link" href="#section-{k}">{escape(v)}</a>' for k, v in nav_items if data.get(k, [])
+    )
+
+    detail_topbar_block = ""
+    if include_nav_back:
+        detail_topbar_block = """<div class="detail-topbar">
+  <div class="detail-topbar-inner">
+    <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> 返回</a>
+  </div>
+</div>
+"""
+    back_home_js = (
+        "(function(){var el=document.getElementById('back-home');if(!el)return;"
+        "var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)"
+        "el.setAttribute('href','../home.html');})();\n\n"
+        if include_nav_back
+        else ""
     )
 
     return f"""<!DOCTYPE html>
@@ -120,6 +158,32 @@ body {{
   -webkit-font-smoothing: antialiased;
 }}
 
+/* ---- Detail top bar（与 quick-nav / 正文同宽，按钮同首页 atlas-btn） ---- */
+.detail-topbar {{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 16px 0;
+}}
+.detail-topbar-inner {{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}}
+.atlas-btn {{
+  border: 1px solid rgba(100,80,60,0.18);
+  color: #4d4338;
+  background: #f8f4eb;
+  text-decoration: none;
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  -webkit-tap-highlight-color: transparent;
+}}
+
 /* ---- Hero / 莫比斯封面 ---- */
 .hero {{
   background:
@@ -127,7 +191,7 @@ body {{
     radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
     #f5f0e8;
-  padding: 56px 24px 44px;
+  padding: 48px 24px 44px;
   text-align: center;
   position: relative;
   border-bottom: 2px solid rgba(100,80,60,0.15);
@@ -481,7 +545,7 @@ body {{
 </head>
 <body>
 <a href="#main-content" class="skip-link">跳到正文</a>
-
+{detail_topbar_block}
 <!-- Hero -->
 <div class="hero">
   <h1>AI Agent 日报</h1>
@@ -546,7 +610,7 @@ body {{
 </div>
 
 <script>
-const SHARE_URL = 'https://lava-agent-daily.vercel.app';
+{back_home_js}const SHARE_URL = 'https://lava-agent-daily.vercel.app';
 
 function showToast(msg) {{
   const t = document.getElementById('toast');
@@ -643,7 +707,7 @@ function downloadImage() {{
 
 def build_email_html(data):
     """生成邮件专用 HTML，使用绝对 URL"""
-    html = build_html(data)
+    html = build_html(data, include_nav_back=False)
     
     # 将相对图片路径替换为绝对 URL
     base_url = "https://ai-agent-daily-phi.vercel.app"
@@ -665,28 +729,36 @@ def build_email_html(data):
     html = html.replace('</head>', email_styles + '</head>')
     
     return html
-
-
-def build_home_html(all_dates, page=1, per_page=10):
-    """生成首页 home.html：展示所有历史归档，支持分页"""
-    total = len(all_dates)
+def build_home_html(archive_infos, page=1, per_page=10):
+    """生成首页 home.html：展示所有历史归档，支持分页
+    archive_infos: list of (date_str, headline, total_items)
+    """
+    total = len(archive_infos)
     total_pages = max(1, (total + per_page - 1) // per_page)
     page = max(1, min(page, total_pages))
     start = (page - 1) * per_page
     end = start + per_page
-    page_dates = all_dates[start:end]
+    page_infos = archive_infos[start:end]
 
-    # 生成日期卡片
+    # 生成日期卡片（含头条摘要）
     cards_html = ""
-    for d in page_dates:
+    for date_str, headline, items_total in page_infos:
         day_name = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"][
-            datetime.strptime(d, "%Y-%m-%d").weekday()
+            datetime.strptime(date_str, "%Y-%m-%d").weekday()
         ]
+        safe_headline = escape(headline) if headline else "暂无摘要"
+        items_label = f"{items_total} 条内容" if items_total else ""
         cards_html += f"""
-        <a class="date-card" href="archives/{d}.html">
-          <span class="date-main">{d}</span>
-          <span class="date-day">{day_name}</span>
-          <span class="date-arrow">→</span>
+        <a class="date-card" href="archives/{date_str}.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">{date_str}</span>
+            <span class="date-day">{day_name}</span>
+          </div>
+          <p class="date-headline">{safe_headline}</p>
+          <div class="date-right">
+            {f'<span class="date-count">{items_label}</span>' if items_label else ''}
+            <span class="date-arrow">→</span>
+          </div>
         </a>"""
 
     # 生成分页导航
@@ -699,6 +771,8 @@ def build_home_html(all_dates, page=1, per_page=10):
     next_btn = f'<button class="page-btn nav-btn" data-page="{page+1}" {"disabled" if page >= total_pages else ""}>下一页 ›</button>' if page < total_pages else '<button class="page-btn nav-btn" disabled>下一页 ›</button>'
 
     generated_at = datetime.now().strftime("%Y-%m-%d %H:%M")
+    # JSON 序列化，供 JS 端分页使用
+    all_archives_json = json.dumps(archive_infos, ensure_ascii=False)
 
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -820,7 +894,8 @@ body {{
 .date-card {{
   display: flex;
   align-items: center;
-  padding: 18px 22px;
+  gap: 10px 12px;
+  padding: 14px 18px;
   background: rgba(255,255,255,0.65);
   border: 1px solid rgba(100,80,60,0.1);
   border-left: 4px solid #5a6e8a;
@@ -828,7 +903,6 @@ body {{
   color: #2c2c2c;
   border-radius: 2px;
   transition: all 0.18s ease;
-  position: relative;
 }}
 .date-card:nth-child(5n+2) {{ border-left-color: #7a6e9a; }}
 .date-card:nth-child(5n+3) {{ border-left-color: #6a8a7a; }}
@@ -839,26 +913,54 @@ body {{
   border-left-color: #4a6080;
   transform: translateX(4px);
 }}
+.date-meta-wrap {{
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}}
 .date-main {{
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   color: #3a3a3a;
-  flex: 1;
+  white-space: nowrap;
 }}
 .date-day {{
-  font-size: 12px;
+  font-size: 11px;
   color: #8a7e6e;
-  margin-right: 16px;
   letter-spacing: 1px;
 }}
+.date-headline {{
+  flex: 1;
+  font-size: 13px;
+  color: #5a5040;
+  line-height: 1.5;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-width: 0;
+}}
+.date-right {{
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}}
+.date-count {{
+  font-size: 11px;
+  color: #8a7e6e;
+  white-space: nowrap;
+}}
 .date-arrow {{
-  font-size: 18px;
+  font-size: 16px;
   color: #b0a89a;
   transition: transform 0.18s, color 0.18s;
 }}
 .date-card:hover .date-arrow {{
-  transform: translateX(4px);
+  transform: translateX(3px);
   color: #5a6e8a;
 }}
 
@@ -965,26 +1067,34 @@ body {{
 </div>
 
 <script>
-// 所有日期数据（按日期降序）
-const ALL_DATES = {all_dates};
+// 所有归档数据（按日期降序）: [date_str, headline, total_items]
+const ALL_ARCHIVES = {all_archives_json};
 
 const PER_PAGE = {per_page};
-const totalPages = Math.max(1, Math.ceil(ALL_DATES.length / PER_PAGE));
+const totalPages = Math.max(1, Math.ceil(ALL_ARCHIVES.length / PER_PAGE));
 
 function renderPage(p) {{
   p = Math.max(1, Math.min(p, totalPages));
   const start = (p - 1) * PER_PAGE;
   const end = start + PER_PAGE;
-  const pageDates = ALL_DATES.slice(start, end);
+  const pageItems = ALL_ARCHIVES.slice(start, end);
 
   const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
   const listEl = document.getElementById('archiveList');
-  listEl.innerHTML = pageDates.map(d => {{
+  listEl.innerHTML = pageItems.map(([d, headline, total]) => {{
     const dn = dayNames[new Date(d + 'T00:00:00').getDay()];
+    const label = total ? total + ' 条内容' : '';
+    const countHtml = label ? `<span class="date-count">${{label}}</span>` : '';
     return `<a class="date-card" href="archives/${{d}}.html">
-      <span class="date-main">${{d}}</span>
-      <span class="date-day">${{dn}}</span>
-      <span class="date-arrow">→</span>
+      <div class="date-meta-wrap">
+        <span class="date-main">${{d}}</span>
+        <span class="date-day">${{dn}}</span>
+      </div>
+      <p class="date-headline">${{headline || '暂无摘要'}}</p>
+      <div class="date-right">
+        ${{countHtml}}
+        <span class="date-arrow">→</span>
+      </div>
     </a>`;
   }}).join('');
 
@@ -1056,17 +1166,30 @@ def main():
     # ── 生成首页 home.html ─────────────────────────────
     print("\n🏠 Generating home page...")
     try:
-        # 扫描所有归档日期（YYYY-MM-DD.html）
-        archive_dates = sorted(
-            [p.stem for p in OUTPUT_DIR.glob("????-??-??.html")],
+        # 扫描所有归档日期（YYYY-MM-DD.html）并提取头条信息
+        # 只保留 2026-04-15 及之后的归档
+        MIN_DATE = "2026-04-15"
+        archive_files = sorted(
+            OUTPUT_DIR.glob("????-??-??.html"),
+            key=lambda p: p.stem,
             reverse=True   # 最新日期排前面
         )
-        if archive_dates:
-            home_html = build_home_html(archive_dates)
+        archive_infos = []
+        for p in archive_files:
+            if p.stem < MIN_DATE:
+                continue
+            headline, total = extract_archive_meta(p)
+            archive_infos.append((p.stem, headline, total))
+
+        if archive_infos:
+            home_html = build_home_html(archive_infos)
             home_path = BASE_DIR / "home.html"
             with open(home_path, "w") as f:
                 f.write(home_html)
-            print(f"Generated: {home_path} ({len(archive_dates)} issues)")
+            print(f"Generated: {home_path} ({len(archive_infos)} issues)")
+            # 打印头条预览
+            for date_str, headline, total in archive_infos[:3]:
+                print(f"  {date_str}: {headline[:50]}...")
         else:
             print("⚠️  No archives found, skipping home.html")
     except Exception as e:

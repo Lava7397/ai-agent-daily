@@ -32,7 +32,7 @@ body {
     radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
     #f5f0e8;
-  padding: 56px 24px 44px;
+  padding: 48px 24px 44px;
   text-align: center;
   position: relative;
   border-bottom: 2px solid rgba(100,80,60,0.15);
@@ -92,6 +92,35 @@ body {
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
+
+
+
+/* ---- Detail top bar（与 quick-nav / 正文同宽，按钮同首页 atlas-btn） ---- */
+.detail-topbar {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 16px 0;
+}
+.detail-topbar-inner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.atlas-btn {
+  border: 1px solid rgba(100,80,60,0.18);
+  color: #4d4338;
+  background: #f8f4eb;
+  text-decoration: none;
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  -webkit-tap-highlight-color: transparent;
+}
+
 
 /* ---- Quick Nav ---- */
 .quick-nav {
@@ -386,6 +415,11 @@ body {
 </head>
 <body>
 <a href="#main-content" class="skip-link">跳到正文</a>
+<div class="detail-topbar">
+  <div class="detail-topbar-inner">
+    <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> 返回</a>
+  </div>
+</div>
 
 <!-- Hero -->
 <div class="hero">
@@ -586,6 +620,8 @@ body {
 </div>
 
 <script>
+(function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
+
 const SHARE_URL = 'https://lava-agent-daily.vercel.app';
 
 function showToast(msg) {
