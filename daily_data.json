@@ -1,125 +1,125 @@
 {
-  "date": "2026-04-22",
-  "sources": "The Verge, VentureBeat, Ars Technica, HuggingFace, GitHub",
+  "date": "2026-04-23",
+  "sources": "The Verge, VentureBeat, Ars Technica, Hacker News, HuggingFace, GitHub",
   "research": [
     {
-      "title": "AgentSPEX: An Agent SPecification and EXecution Language",
-      "summary": "AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。",
-      "url": "https://huggingface.co/papers",
-      "tags": ["Agent", "DSL", "工作流"]
+      "title": "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线",
+      "summary": "阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。",
+      "url": "https://huggingface.co/papers/2604.19748",
+      "tags": ["虚拟试穿", "图像生成", "阿里巴巴"]
     },
     {
-      "title": "Agent-World: Scaling Real-World Environment Synthesis for Evolving General Agent Intelligence",
-      "summary": "Agent-World 是一个用于推进通用智能体智能的自我演进训练竞技场。通过可扩展的环境合成，结合多环境强化学习和自我演进智能体竞技场，自动识别能力差距并驱动定向学习。包含智能体环境-任务发现和持续自我演进的智能体训练两个核心组件。在23个具有挑战性的智能体基准测试中，Agent-World-8B和14B模型一致优于强大的专有模型。",
-      "url": "https://huggingface.co/papers",
-      "tags": ["Agent", "强化学习", "环境合成"]
+      "title": "CoInteract: 人-物交互视频扩散合成框架",
+      "summary": "阿里巴巴提出 CoInteract 端到端框架，基于 Diffusion Transformer 解决人-物交互视频合成中手部/面部结构稳定性和物理接触合理性问题。核心设计包括人类感知 MoE 专家路由和空域结构协同生成双流训练范式，在保持交互几何先验的同时生成逼真交互视频，已在 HOIVG-Bench 基准上验证。",
+      "url": "https://huggingface.co/papers/2604.19636",
+      "tags": ["视频生成", "Diffusion", "人机交互"]
     },
     {
-      "title": "OpenGame: Open Agentic Coding for Games",
-      "summary": "OpenGame 是首个专为端到端网页游戏创建而设计的开源智能体框架。核心是游戏技能——一种可重用、可演进的能力，由模板技能和调试技能组成。由 GameCoder-27B 驱动，这是一个专门用于游戏引擎掌握的代码LLM。OpenGame-Bench 评估管道通过构建健康度、视觉可用性和意图对齐来评估智能体游戏生成，在150个多样化游戏提示上建立了新的最先进水平。",
-      "url": "https://huggingface.co/papers",
-      "tags": ["Agent", "游戏生成", "代码LLM"]
+      "title": "AgentSPEX: 智能体工作流规范与执行语言",
+      "summary": "UIUC 研究团队推出 AgentSPEX——用于构建结构化、可解释 LLM 智能体工作流的领域特定语言。核心特性：YAML 声明式工作流（支持 task/for_each/while/if/parallel/call）、沙箱执行环境、带检查点/恢复/追踪回放的可验证执行机制，以及图与 YAML 双向同步的可视化编辑器。在 7 个基准测试上验证，Deep Research 智能体 ~15 分钟 <$1 即可完成深度研究。",
+      "url": "https://huggingface.co/papers/2604.13346",
+      "tags": ["Agent", "工作流", "DSL", "可解释AI"]
     },
     {
-      "title": "When Can LLMs Learn to Reason with Weak Supervision?",
-      "summary": "这项研究探讨了在三种弱监督设置（数据稀缺、噪声奖励、自监督代理奖励）下，强化学习与可验证奖励（RLVR）的泛化能力。研究发现泛化能力受训练奖励饱和动态支配，推理忠实度是预测模型能否泛化的关键属性。在显式推理轨迹上的监督微调（SFT）对于弱监督下的泛化是必要的，持续预训练可以放大这一效应。",
-      "url": "https://huggingface.co/papers",
-      "tags": ["LLM", "推理", "弱监督"]
+      "title": "AnyRecon: 任意视角稀疏输入 3D 重建",
+      "summary": "研究团队提出 AnyRecon 框架，实现从任意数量无序稀疏输入的可扩展 3D 重建。核心创新包括持久全局场景记忆、去除时间压缩以保持大视角变化下的帧级对应、以及结合扩散蒸馏和块稀疏注意力的高效架构设计。在不规则输入、大视角间隔和长轨迹场景下均表现出色，GitHub 已有 80 星。",
+      "url": "https://huggingface.co/papers/2604.19747",
+      "tags": ["3D重建", "Diffusion", "视频扩散"]
     }
   ],
   "github": [
     {
-      "title": "OpenClaw - Personal AI assistant (361K ⭐)",
-      "summary": "OpenClaw 是一个个人AI助手项目，近期获得大量关注。支持多模态交互、工具调用和长期记忆，可作为个人AI伴侣运行。项目活跃度极高，社区贡献者众多，是开源AI助手领域的标杆项目。",
-      "url": "https://github.com/openclaw/openclaw",
-      "stars": "361.9K",
-      "tags": ["AI助手", "开源", "多模态"]
+      "title": "Qwen3.6-27B: 旗舰级编程能力的 27B 稠密模型",
+      "summary": "阿里通义千问发布 Qwen3.6-27B 稠密模型，在 27B 参数规模下达旗舰级编程能力。已在 Hacker News 引发热议（682 点），引发关于小模型能否匹敌超大模型的社区讨论。该模型支持多语言编程、复杂代码生成和调试能力，代表开源模型在代码智能领域的重要突破。",
+      "url": "https://qwen.ai/blog?id=qwen3.6-27b",
+      "stars": "682 HN",
+      "tags": ["Qwen", "代码模型", "开源LLM"]
     },
     {
-      "title": "n8n - Workflow automation with AI (185K ⭐)",
-      "summary": "n8n 是一个开源工作流自动化平台，近期集成了大量AI能力。支持AI Agent节点、LangChain集成和自定义AI工作流构建。近48小时发布了新的AI节点更新，增强了与各种LLM的集成能力，是no-code AI自动化领域的热门选择。",
-      "url": "https://github.com/n8n-io/n8n",
-      "stars": "185K",
-      "tags": ["自动化", "工作流", "AI集成"]
+      "title": "Google 第八代 Trillium TPU: 专为 Agent 时代设计",
+      "summary": "Google 发布两款第八代 TPU——一款专用于训练，一款专用于推理，首次将前沿训练和 Agent 推理作为独立问题处理。Trillium TPU 采用第三代 SparseCore，支持更深度和更宽的矩阵乘法单元，内存带宽提升 1.1 倍。Google 明确表示不依赖 NVIDIA 生态，自研芯片战略持续深化。",
+      "url": "https://arstechnica.com/ai/2026/04/google-unveils-two-new-tpus-designed-for-the-agentic-era/",
+      "stars": "50 评论",
+      "tags": ["Google", "TPU", "硬件", "Agent"]
     },
     {
-      "title": "Langflow - Visual AI builder (147K ⭐)",
-      "summary": "Langflow 是一个可视化的AI应用构建器，通过拖拽方式创建复杂的AI工作流。近期更新增强了对多种LLM的支持，改进了Agent构建体验。新增MCP（模型上下文协议）支持，可无缝连接外部工具和数据源。",
-      "url": "https://github.com/langflow-ai/langflow",
-      "stars": "147.2K",
-      "tags": ["可视化", "AI构建器", "低代码"]
+      "title": "Anthropic 获亚马逊 50 亿美元追加投资",
+      "summary": "亚马逊向 Anthropic 追加 50 亿美元投资，使总投资达 130 亿美元。Anthropic 将获得亚马逊 5 吉瓦自定义硅芯片算力用于训练 Claude 模型。该交易包含 Anthropic 承诺未来十年在 AWS 技术上投入超 1000 亿美元，是 AI 热潮中规模最大的循环融资案例，用于应对 Claude 订阅激增带来的基础设施压力。",
+      "url": "https://arstechnica.com/ai/2026/04/anthropic-gets-5b-investment-from-amazon-will-use-it-to-buy-amazon-chips/",
+      "stars": "91 评论",
+      "tags": ["Anthropic", "亚马逊", "融资", "Claude"]
     },
     {
-      "title": "Dify - LLM app development platform (138K ⭐)",
-      "summary": "Dify 是一个开源的LLM应用开发平台，支持RAG引擎、Agent框架和工作流编排。近期发布了新的Agent模式，支持多步骤推理和工具调用。新增了对Claude和GPT-4o的优化支持，改进了知识库检索性能。",
-      "url": "https://github.com/langgenius/dify",
-      "stars": "138.7K",
-      "tags": ["LLM平台", "RAG", "Agent"]
+      "title": "OpenAI 发布 Workspace Agents: 企业版自定义 GPT 继任者",
+      "summary": "OpenAI 推出 Workspace Agents，可直接嵌入 Slack、Salesforce 等第三方应用，为企业用户提供多渠道 AI 工作流自动化。用户可在 ChatGPT 内创建和访问 Agent，也可在第三方应用中与其通信、跨渠道使用工具并调用企业数据。这是 OpenAI 挑战 Anthropic Claude Code 企业市场份额的关键产品。",
+      "url": "https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more",
+      "stars": "Featured",
+      "tags": ["OpenAI", "Agent", "企业", "工作流"]
     },
     {
-      "title": "Firecrawl - Web scraping for AI (111K ⭐)",
-      "summary": "Firecrawl 是一个专为AI应用设计的网页抓取工具，可将网页转换为LLM友好的markdown格式。近期更新增强了JavaScript渲染能力和反爬虫绕过功能。新增了批量抓取API和智能内容提取，是构建AI知识库的重要工具。",
-      "url": "https://github.com/firecrawl/firecrawl",
-      "stars": "111.4K",
-      "tags": ["爬虫", "数据采集", "AI工具"]
+      "title": "Google Deep Research Max: 融合网络与企业私有数据的深度研究代理",
+      "summary": "Google 基于 Gemini 3.1 Pro 发布 Deep Research 和 Deep Research Max 自主研究代理，首次支持通过单一 API 调用融合网络数据与企业私有数据，可生成原生图表和信息图。Max 版本采用扩展测试时计算，专为金融、生命科学和市场情报领域的深度研究设计，标志着 Google 在企业 AI 研究工作流基础设施上的最清晰布局。",
+      "url": "https://venturebeat.com/technology/googles-new-deep-research-and-deep-research-max-agents-can-search-the-web-and-your-private-data",
+      "stars": "News",
+      "tags": ["Google", "研究代理", "Gemini", "企业AI"]
     }
   ],
   "models": [
     {
-      "title": "OpenAI 发布 ChatGPT Images 2.0",
-      "summary": "OpenAI 推出 ChatGPT Images 2.0，集成O系列推理能力，采用代理式图像生成方法。支持从单个提示生成8张不同图像，可创建漫画页面、社交媒体图形。新增思考模型可进行网络研究并将结果融入图像，支持2K分辨率和多语言文本渲染，在日文、中文等多语言文本生成方面显著改善。",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/916166/openai-chatgpt-images-2",
-      "tags": ["OpenAI", "图像生成", "多模态"]
+      "title": "Google 内部代码 75% 由 AI 生成，去年秋天才 50%",
+      "summary": "Google CEO Sundar Pichai 透露，Google 内部新增代码中 75% 由 AI 生成（去年秋天为 50%）。Google 近期成立「strike team」以提升 AI 编程能力，追赶 Anthropic——后者截至今年 2 月已有 70-90% 的代码由 Claude Code 编写。这表明 AI 编程代理已进入科技巨头核心工程流程，代码生成正在从辅助工具转向主要生产力。",
+      "url": "https://www.theverge.com/tech/917163/google-says-75-percent-of-all-its-new-code-is-ai-generated",
+      "tags": ["Google", "AI编程", "Claude Code", "行业趋势"]
     },
     {
-      "title": "Google 推出 Deep Research 与 Deep Research Max 代理",
-      "summary": "Google 发布两个新型自主研究代理，基于 Gemini 3.1 Pro 模型。首次支持通过单一API调用融合网络数据与企业私有数据，生成原生图表和信息图。支持模型上下文协议（MCP）连接第三方数据源。Deep Research Max 采用扩展测试时计算，专为耗时数小时的深度研究任务设计。",
-      "url": "https://venturebeat.com/technology/googles-new-deep-research-and-deep-research-max-agents-can-search-the-web-and-your-private-data",
-      "tags": ["Google", "研究代理", "Gemini"]
+      "title": "Google Gemini 登陆气隙服务器: 断网运行的机密计算方案",
+      "summary": "Google 发布可运行于单机气隙服务器的 Gemini 方案，配备 8 块 NVIDIA GPU 和机密计算保护，由 Dell 制造。企业和政府机构可部署在 Cirrascale 数据中心或自有设施中，完全断开互联网和 Google 云基础设施连接。Google Cloud CEO Thomas Kurian 在 Next 2026 主题演讲中强调该产品为 Gemini 的最大新客户。",
+      "url": "https://venturebeat.com/technology/googles-gemini-can-now-run-on-a-single-air-gapped-server-and-vanish-when-you-pull-the-plug",
+      "tags": ["Google", "Gemini", "机密计算", "气隙部署"]
     },
     {
-      "title": "Kimi K2.6：可连续运行数天的AI代理模型",
-      "summary": "Moonshot AI 的 Kimi K2.6 模型专为长时间运行的AI代理设计，支持连续执行数小时甚至数天。可管理多达300个子代理，同时执行4000个协调步骤。在测试中用10小时从头构建了完整的SysY编译器，通过所有140项功能测试。暴露了现有企业编排框架在长时间运行场景下的局限性。",
-      "url": "https://venturebeat.com/orchestration/kimi-k2-6-runs-agents-for-days-and-exposes-the-limits-of-enterprise-orchestration",
-      "tags": ["Moonshot", "长时间运行", "Agent"]
+      "title": "Anthropic 测试将 Claude Code 从 Pro 计划中移除",
+      "summary": "Anthropic 正在测试将 Claude Code 从 Pro 订阅计划中移除，以应对 Claude Code 带来的不可持续需求。作为替代方案，Anthropic 正在探索新的 Claude Code 访问模式。该测试反映了 AI 编程工具的爆炸性需求与模型推理成本之间的矛盾，Claude Code 已成为 Anthropic 最受欢迎的功能之一。",
+      "url": "https://arstechnica.com/ai/2026/04/anthropic-tested-removing-claude-code-from-the-pro-plan/",
+      "tags": ["Anthropic", "Claude Code", "Pro计划", "产品策略"]
+    },
+    {
+      "title": "Google vs AWS: AI Agent 技术栈控制权与执行权的分化",
+      "summary": "Google 和 AWS 展示了对 AI Agent 管理的不同思路，代表 AI 技术栈控制权与执行权正在分化。Google 强调模型的云端控制和多 Agent 协调能力，AWS 则侧重于本地化推理和边缘部署。两家公司的路线差异反映了企业 AI 基础设施竞争的核心分歧：平台依赖 vs 自主可控。",
+      "url": "https://venturebeat.com/orchestration/google-and-aws-split-the-ai-agent-stack-between-control-and-execution",
+      "tags": ["Google", "AWS", "Agent", "基础设施"]
     }
   ],
   "community": [
     {
-      "title": "SpaceX 拟以600亿美元收购 AI 编程平台 Cursor",
-      "summary": "SpaceX 宣布可能以600亿美元收购AI编程平台Cursor，或支付100亿美元的合作费用。此举旨在帮助 xAI 与市场领导者 Anthropic 竞争，同时应对 Google 和 OpenAI 在AI编码领域的竞争。随着 SpaceX 即将IPO，这笔交易将加强其在AI领域的布局，引发行业对AI编程工具估值的新一轮讨论。",
-      "url": "https://www.theverge.com/science/916427/spacex-cursor-potential-deal-acquisition",
-      "tags": ["收购", "Cursor", "SpaceX"]
+      "title": "Spotify 推出 AI 生成音乐标签: 自愿机制能否遏制虚假内容",
+      "summary": "Spotify 与行业组织 DDEX 合作推出 AI 音乐标签标准，DistroKid 为首个合作伙伴。自愿标签面临严峻挑战——AI 音乐上传量已威胁到真人艺术家生存空间，Spotify 数据显示 AI 上传正在超过真人上传速度。即使整个行业参与，自愿机制仍难以根本解决问题，监管介入的呼声日益增高。",
+      "url": "https://www.theverge.com/entertainment/917109/spotify-starts-rolling-out-its-voluntary-ai-labels",
+      "tags": ["Spotify", "AI音乐", "内容标签", "版权"]
     },
     {
-      "title": "Anthropic 获亚马逊50亿美元追加投资",
-      "summary": "亚马逊向 Anthropic 追加50亿美元投资，使总投资达130亿美元。Anthropic 将获得亚马逊5吉瓦的AI芯片算力用于训练 Claude AI 模型。该交易包含 Anthropic 承诺未来十年在AWS技术上投入超1000亿美元，是AI热潮中循环融资的最新案例。此举旨在应对 Claude 付费订阅激增带来的基础设施压力。",
-      "url": "https://arstechnica.com/ai/2026/04/anthropic-gets-5b-investment-from-amazon-will-use-it-to-buy-amazon-chips/",
-      "tags": ["融资", "Anthropic", "亚马逊"]
-    },
-    {
-      "title": "Meta 将追踪员工操作数据训练AI代理",
-      "summary": "Meta 将开始跟踪美国员工的鼠标移动、点击和击键，为AI代理生成高质量训练数据。该软件运行在特定工作应用和网站上，使用定期截图提供上下文。旨在解决AI代理在处理鼠标移动、点击按钮等日常计算机任务时的训练数据不足问题，但可能在欧洲面临法律限制。",
-      "url": "https://arstechnica.com/ai/2026/04/meta-will-use-employee-tracking-software-to-help-train-ai-agents-report/",
-      "tags": ["Meta", "训练数据", "员工监控"]
-    },
-    {
-      "title": "Anthropic Mythos 发现 Firefox 150 中271个零日漏洞",
-      "summary": "Anthropic 的 Mythos AI 模型在 Mozilla Firefox 150 中发现271个零日漏洞，CTO 称其安全研究能力与世界顶级安全研究人员相当。展示了AI在网络安全领域的突破性进展，能够自主发现复杂软件漏洞。但也引发对AI可能被用于恶意黑客攻击的担忧，防御部署速度可能跟不上AI攻击速度。",
+      "title": "Mozilla + Anthropic Mythos 在 Firefox 150 中发现 271 个零日漏洞",
+      "summary": "Anthropic 的 Mythos AI 模型与 Mozilla 合作，在 Firefox 150 中发现 271 个零日漏洞，CTO 称其安全研究能力与世界顶级安全研究人员相当。Mythos 能够系统性发现复杂软件中的未知漏洞，代表 AI 网络安全应用的重大突破，但也引发对 AI 驱动攻击的担忧——防御性 AI 部署速度可能跟不上攻击性 AI 的进化。",
       "url": "https://arstechnica.com/ai/2026/04/mozilla-anthropics-mythos-found-271-zero-day-vulnerabilities-in-firefox-150/",
-      "tags": ["安全", "Anthropic", "零日漏洞"]
+      "tags": ["安全", "Anthropic", "零日漏洞", "Mozilla"]
     },
     {
-      "title": "人形机器人半马击败人类选手创纪录",
-      "summary": "中国人形机器人在半程马拉松比赛中轻松击败人类选手，创下新纪录。展示了中国在机器人领域的快速发展，特别是在运动能力和自主导航方面的突破。机器人能够以超过人类平均速度完成21.1公里比赛，标志着机器人技术在实际应用中的重大进步。",
-      "url": "https://arstechnica.com/ai/2026/04/robot-runner-handily-beats-humans-in-half-marathon-setting-new-record/",
-      "tags": ["机器人", "中国", "运动能力"]
+      "title": "Meta 计划用员工追踪数据训练 AI 代理: 隐私与数据获取的博弈",
+      "summary": "Meta 将追踪美国员工的鼠标移动、点击和击键以生成 AI 代理训练数据，软件运行在特定工作应用和网站上并辅以定期截图。该项目旨在解决 AI 代理处理日常计算机任务（鼠标移动、点击按钮等）时训练数据不足的问题，但面临欧洲监管限制的风险，突显了高质量交互训练数据的获取困境与隐私法规之间的深层矛盾。",
+      "url": "https://arstechnica.com/ai/2026/04/meta-will-use-employee-tracking-software-to-help-train-ai-agents-report/",
+      "tags": ["Meta", "训练数据", "员工监控", "隐私"]
     },
     {
-      "title": "72% 企业AI安全治理存在盲区",
-      "summary": "VentureBeat 调查显示72%的企业拥有两个或更多主要AI平台，形成安全攻击面扩展。Mass General Brigham 医院案例显示，企业被迫围绕微软Copilot等工具构建安全外壳以防止健康信息泄露。56%受访者自信能检测AI异常，但近三分之一缺乏系统化检测机制，暴露了AI治理的深层问题。",
+      "title": "AI 治理幻象: 72% 企业对自身 AI 安全控制存在盲区",
+      "summary": "VentureBeat 调查显示 72% 企业拥有两个或更多主要 AI 平台，导致安全攻击面持续扩展。Mass General Brigham 医院案例显示企业被迫围绕 Microsoft Copilot 等工具构建安全外壳以防健康信息泄露。56% 受访者自信能检测 AI 异常，但近三分之一缺乏系统化检测机制——AI 治理的 Reality Gap 正在扩大。",
       "url": "https://venturebeat.com/orchestration/the-ai-governance-mirage-why-72-of-enterprises-dont-have-the-control-and-security-they-think-they-do",
-      "tags": ["安全治理", "企业AI", "合规"]
+      "tags": ["AI治理", "企业AI", "安全", "合规"]
+    },
+    {
+      "title": "单 Agent 为何常胜多 Agent 集群: 斯坦福研究挑战 Agent 数量至上假设",
+      "summary": "斯坦福新研究挑战「Agent 越多 AI 越强」的假设，提出计算预算修复方案可改变这一竞争格局。Agent 集群虽然并行度高，但协调开销（swarm tax）往往抵消并行收益，单一 Agent 在固定预算下反而更高效。该研究对企业 Agent 系统设计具有重要启示：不是堆数量，而是合理分配计算资源。",
+      "url": "https://venturebeat.com/orchestration/are-you-paying-an-ai-swarm-tax-why-single-agents-often-beat-complex-systems",
+      "tags": ["Agent", "研究", "斯坦福", "效率"]
     }
   ]
 }
