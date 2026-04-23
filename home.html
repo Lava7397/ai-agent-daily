@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="AI Agent 日报 · 历史存档 — 共 13 期">
+<meta name="theme-color" content="#0d1b2a">
+<title>AI Agent 日报 · 历史存档</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f0e8;
+  color: #2c2c2c;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Hero ---- */
+.hero {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(178,200,218,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
+    #f5f0e8;
+  padding: 52px 24px 40px;
+  text-align: center;
+  position: relative;
+  border-bottom: 2px solid rgba(100,80,60,0.15);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(100,80,60,0.02) 3px, rgba(100,80,60,0.02) 4px
+  );
+  pointer-events: none;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #3a3a3a;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 1;
+}
+.hero .subtitle {
+  color: #8a7e6e;
+  font-size: 13px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 1.5px;
+}
+.hero .today-link {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 10px 22px;
+  background: #5a6e8a;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s;
+}
+.hero .today-link:hover { background: #4a6080; }
+
+/* ---- Stats bar ---- */
+.stats-bar {
+  max-width: 720px;
+  margin: 28px auto 0;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+.stats-bar .stat {
+  text-align: center;
+  border: 1px solid rgba(100,80,60,0.12);
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.5);
+}
+.stats-bar .stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #5a6e8a;
+}
+.stats-bar .stat-label {
+  font-size: 10px;
+  color: #8a7e6e;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* ---- Archive list ---- */
+.archive-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+.archive-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.date-card {
+  display: flex;
+  align-items: center;
+  padding: 18px 22px;
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(100,80,60,0.1);
+  border-left: 4px solid #5a6e8a;
+  text-decoration: none;
+  color: #2c2c2c;
+  border-radius: 2px;
+  transition: all 0.18s ease;
+  position: relative;
+}
+.date-card:nth-child(5n+2) { border-left-color: #7a6e9a; }
+.date-card:nth-child(5n+3) { border-left-color: #6a8a7a; }
+.date-card:nth-child(5n+4) { border-left-color: #8a7a6a; }
+.date-card:nth-child(5n+5) { border-left-color: #6a7a8a; }
+.date-card:hover {
+  background: rgba(255,255,255,0.9);
+  border-left-color: #4a6080;
+  transform: translateX(4px);
+}
+.date-main {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #3a3a3a;
+  flex: 1;
+}
+.date-day {
+  font-size: 12px;
+  color: #8a7e6e;
+  margin-right: 16px;
+  letter-spacing: 1px;
+}
+.date-arrow {
+  font-size: 18px;
+  color: #b0a89a;
+  transition: transform 0.18s, color 0.18s;
+}
+.date-card:hover .date-arrow {
+  transform: translateX(4px);
+  color: #5a6e8a;
+}
+
+/* ---- Pagination ---- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.page-btn {
+  padding: 8px 14px;
+  border: 1px solid rgba(100,80,60,0.15);
+  background: rgba(255,255,255,0.6);
+  color: #5a6e8a;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s;
+  min-width: 40px;
+}
+.page-btn:hover:not(:disabled) {
+  background: #5a6e8a;
+  color: #fff;
+  border-color: #5a6e8a;
+}
+.page-btn.active {
+  background: #4a6080;
+  color: #fff;
+  border-color: #4a6080;
+  font-weight: 600;
+}
+.page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.page-info {
+  font-size: 12px;
+  color: #8a7e6e;
+  margin: 0 8px;
+  letter-spacing: 1px;
+}
+
+/* ---- Footer ---- */
+.footer {
+  text-align: center;
+  padding: 32px 20px;
+  border-top: 1px solid rgba(100,80,60,0.1);
+  color: #a09080;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.footer a { color: #8a7e6e; text-decoration: none; }
+.footer a:hover { color: #5a6e8a; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>AI Agent 日报</h1>
+  <p class="subtitle">历史存档 · 共 13 期</p>
+  <a class="today-link" href="index.html">查看当天日报 →</a>
+</div>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">13</div>
+    <div class="stat-label">Total Issues</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2</div>
+    <div class="stat-label">Pages</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">10</div>
+    <div class="stat-label">Per Page</div>
+  </div>
+</div>
+
+<!-- Archive list -->
+<div class="archive-wrap">
+  <div class="archive-list" id="archiveList">
+    
+        <a class="date-card" href="archives/2026-04-23.html">
+          <span class="date-main">2026-04-23</span>
+          <span class="date-day">周四</span>
+          <span class="date-arrow">→</span>
+        </a>
+        <a class="date-card" href="archives/2026-04-22.html">
+          <span class="date-main">2026-04-22</span>
+          <span class="date-day">周三</span>
+          <span class="date-arrow">→</span>
+        </a>
+        <a class="date-card" href="archives/2026-04-21.html">
+          <span class="date-main">2026-04-21</span>
+          <span class="date-day">周二</span>
+          <span class="date-arrow">→</span>
+        </a>
+        <a class="date-card" href="archives/2026-04-19.html">
+          <span class="date-main">2026-04-19</span>
+          <span class="date-day">周日</span>
+          <span class="date-arrow">→</span>
+        </a>
+        <a class="date-card" href="archives/2026-04-18.html">
+          <span class="date-main">2026-04-18</span>
+          <span class="date-day">周六</span>
+          <span class="date-arrow">→</span>
+        </a>
+        <a class="date-card" href="archives/2026-04-17.html">
+          <span class="date-main">2026-04-17</span>
+          <span class="date-day">周五</span>
+          <span class="date-arrow">→</span>
+        </a>
+        <a class="date-card" href="archives/2026-04-16.html">
+          <span class="date-main">2026-04-16</span>
+          <span class="date-day">周四</span>
+          <span class="date-arrow">→</span>
+        </a>
+        <a class="date-card" href="archives/2026-04-15.html">
+          <span class="date-main">2026-04-15</span>
+          <span class="date-day">周三</span>
+          <span class="date-arrow">→</span>
+        </a>
+        <a class="date-card" href="archives/2026-04-14.html">
+          <span class="date-main">2026-04-14</span>
+          <span class="date-day">周二</span>
+          <span class="date-arrow">→</span>
+        </a>
+        <a class="date-card" href="archives/2026-04-13.html">
+          <span class="date-main">2026-04-13</span>
+          <span class="date-day">周一</span>
+          <span class="date-arrow">→</span>
+        </a>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination" id="pagination">
+    <button class="page-btn nav-btn" disabled>‹ 上一页</button>
+    <button class="page-btn active" data-page="1">1</button><button class="page-btn" data-page="2">2</button>
+    <button class="page-btn nav-btn" data-page="2" >下一页 ›</button>
+    <span class="page-info">第 1 / 2 页</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>Generated at 2026-04-23 14:43 · Powered by Lava Agent</p>
+  <p style="margin-top:6px;"><a href="index.html">当天日报</a> · <a href="home.html">历史存档</a></p>
+</div>
+
+<script>
+// 所有日期数据（按日期降序）
+const ALL_DATES = ['2026-04-23', '2026-04-22', '2026-04-21', '2026-04-19', '2026-04-18', '2026-04-17', '2026-04-16', '2026-04-15', '2026-04-14', '2026-04-13', '2026-04-11', '2026-04-09', '2026-04-08'];
+
+const PER_PAGE = 10;
+const totalPages = Math.max(1, Math.ceil(ALL_DATES.length / PER_PAGE));
+
+function renderPage(p) {
+  p = Math.max(1, Math.min(p, totalPages));
+  const start = (p - 1) * PER_PAGE;
+  const end = start + PER_PAGE;
+  const pageDates = ALL_DATES.slice(start, end);
+
+  const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
+  const listEl = document.getElementById('archiveList');
+  listEl.innerHTML = pageDates.map(d => {
+    const dn = dayNames[new Date(d + 'T00:00:00').getDay()];
+    return `<a class="date-card" href="archives/${d}.html">
+      <span class="date-main">${d}</span>
+      <span class="date-day">${dn}</span>
+      <span class="date-arrow">→</span>
+    </a>`;
+  }).join('');
+
+  // 更新分页按钮
+  const pager = document.getElementById('pagination');
+  const btns = pager.querySelectorAll('.page-btn[data-page]');
+  btns.forEach(b => {
+    b.classList.toggle('active', parseInt(b.dataset.page) === p);
+    b.disabled = parseInt(b.dataset.page) < 1 || parseInt(b.dataset.page) > totalPages;
+  });
+
+  // 更新 page info
+  let info = pager.querySelector('.page-info');
+  if (info) info.textContent = `第 ${p} / ${totalPages} 页`;
+
+  // 更新 URL hash
+  history.replaceState(null, '', p > 1 ? `#page=${p}` : window.location.pathname);
+}
+
+// 绑定分页按钮点击
+document.getElementById('pagination').addEventListener('click', e => {
+  const btn = e.target.closest('.page-btn');
+  if (!btn || btn.disabled) return;
+  renderPage(parseInt(btn.dataset.page));
+});
+
+// 初始化：读取 hash 或默认第1页
+const hash = window.location.hash;
+const initPage = hash ? parseInt(hash.replace('#page=', '')) || 1 : 1;
+renderPage(initPage);
+</script>
+</body>
+</html>

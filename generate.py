@@ -667,6 +667,359 @@ def build_email_html(data):
     return html
 
 
+def build_home_html(all_dates, page=1, per_page=10):
+    """生成首页 home.html：展示所有历史归档，支持分页"""
+    total = len(all_dates)
+    total_pages = max(1, (total + per_page - 1) // per_page)
+    page = max(1, min(page, total_pages))
+    start = (page - 1) * per_page
+    end = start + per_page
+    page_dates = all_dates[start:end]
+
+    # 生成日期卡片
+    cards_html = ""
+    for d in page_dates:
+        day_name = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"][
+            datetime.strptime(d, "%Y-%m-%d").weekday()
+        ]
+        cards_html += f"""
+        <a class="date-card" href="archives/{d}.html">
+          <span class="date-main">{d}</span>
+          <span class="date-day">{day_name}</span>
+          <span class="date-arrow">→</span>
+        </a>"""
+
+    # 生成分页导航
+    page_btns = ""
+    for p in range(1, total_pages + 1):
+        active = " active" if p == page else ""
+        page_btns += f'<button class="page-btn{active}" data-page="{p}">{p}</button>'
+
+    prev_btn = f'<button class="page-btn nav-btn" data-page="{page-1}" {"disabled" if page <= 1 else ""}>‹ 上一页</button>' if page > 1 else '<button class="page-btn nav-btn" disabled>‹ 上一页</button>'
+    next_btn = f'<button class="page-btn nav-btn" data-page="{page+1}" {"disabled" if page >= total_pages else ""}>下一页 ›</button>' if page < total_pages else '<button class="page-btn nav-btn" disabled>下一页 ›</button>'
+
+    generated_at = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="AI Agent 日报 · 历史存档 — 共 {total} 期">
+<meta name="theme-color" content="#0d1b2a">
+<title>AI Agent 日报 · 历史存档</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+
+body {{
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f0e8;
+  color: #2c2c2c;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}}
+
+/* ---- Hero ---- */
+.hero {{
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(178,200,218,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
+    #f5f0e8;
+  padding: 52px 24px 40px;
+  text-align: center;
+  position: relative;
+  border-bottom: 2px solid rgba(100,80,60,0.15);
+}}
+.hero::before {{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(100,80,60,0.02) 3px, rgba(100,80,60,0.02) 4px
+  );
+  pointer-events: none;
+}}
+.hero h1 {{
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #3a3a3a;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 1;
+}}
+.hero .subtitle {{
+  color: #8a7e6e;
+  font-size: 13px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 1.5px;
+}}
+.hero .today-link {{
+  display: inline-block;
+  margin-top: 24px;
+  padding: 10px 22px;
+  background: #5a6e8a;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s;
+}}
+.hero .today-link:hover {{ background: #4a6080; }}
+
+/* ---- Stats bar ---- */
+.stats-bar {{
+  max-width: 720px;
+  margin: 28px auto 0;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}}
+.stats-bar .stat {{
+  text-align: center;
+  border: 1px solid rgba(100,80,60,0.12);
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.5);
+}}
+.stats-bar .stat-num {{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #5a6e8a;
+}}
+.stats-bar .stat-label {{
+  font-size: 10px;
+  color: #8a7e6e;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}}
+
+/* ---- Archive list ---- */
+.archive-wrap {{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}}
+.archive-list {{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}}
+.date-card {{
+  display: flex;
+  align-items: center;
+  padding: 18px 22px;
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(100,80,60,0.1);
+  border-left: 4px solid #5a6e8a;
+  text-decoration: none;
+  color: #2c2c2c;
+  border-radius: 2px;
+  transition: all 0.18s ease;
+  position: relative;
+}}
+.date-card:nth-child(5n+2) {{ border-left-color: #7a6e9a; }}
+.date-card:nth-child(5n+3) {{ border-left-color: #6a8a7a; }}
+.date-card:nth-child(5n+4) {{ border-left-color: #8a7a6a; }}
+.date-card:nth-child(5n+5) {{ border-left-color: #6a7a8a; }}
+.date-card:hover {{
+  background: rgba(255,255,255,0.9);
+  border-left-color: #4a6080;
+  transform: translateX(4px);
+}}
+.date-main {{
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #3a3a3a;
+  flex: 1;
+}}
+.date-day {{
+  font-size: 12px;
+  color: #8a7e6e;
+  margin-right: 16px;
+  letter-spacing: 1px;
+}}
+.date-arrow {{
+  font-size: 18px;
+  color: #b0a89a;
+  transition: transform 0.18s, color 0.18s;
+}}
+.date-card:hover .date-arrow {{
+  transform: translateX(4px);
+  color: #5a6e8a;
+}}
+
+/* ---- Pagination ---- */
+.pagination {{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}}
+.page-btn {{
+  padding: 8px 14px;
+  border: 1px solid rgba(100,80,60,0.15);
+  background: rgba(255,255,255,0.6);
+  color: #5a6e8a;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s;
+  min-width: 40px;
+}}
+.page-btn:hover:not(:disabled) {{
+  background: #5a6e8a;
+  color: #fff;
+  border-color: #5a6e8a;
+}}
+.page-btn.active {{
+  background: #4a6080;
+  color: #fff;
+  border-color: #4a6080;
+  font-weight: 600;
+}}
+.page-btn:disabled {{
+  opacity: 0.35;
+  cursor: not-allowed;
+}}
+.page-info {{
+  font-size: 12px;
+  color: #8a7e6e;
+  margin: 0 8px;
+  letter-spacing: 1px;
+}}
+
+/* ---- Footer ---- */
+.footer {{
+  text-align: center;
+  padding: 32px 20px;
+  border-top: 1px solid rgba(100,80,60,0.1);
+  color: #a09080;
+  font-size: 11px;
+  letter-spacing: 1px;
+}}
+.footer a {{ color: #8a7e6e; text-decoration: none; }}
+.footer a:hover {{ color: #5a6e8a; }}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>AI Agent 日报</h1>
+  <p class="subtitle">历史存档 · 共 {total} 期</p>
+  <a class="today-link" href="index.html">查看当天日报 →</a>
+</div>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">{total}</div>
+    <div class="stat-label">Total Issues</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">{total_pages}</div>
+    <div class="stat-label">Pages</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">{per_page}</div>
+    <div class="stat-label">Per Page</div>
+  </div>
+</div>
+
+<!-- Archive list -->
+<div class="archive-wrap">
+  <div class="archive-list" id="archiveList">
+    {cards_html}
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination" id="pagination">
+    {prev_btn}
+    {page_btns}
+    {next_btn}
+    <span class="page-info">第 {page} / {total_pages} 页</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>Generated at {generated_at} · Powered by Lava Agent</p>
+  <p style="margin-top:6px;"><a href="index.html">当天日报</a> · <a href="home.html">历史存档</a></p>
+</div>
+
+<script>
+// 所有日期数据（按日期降序）
+const ALL_DATES = {all_dates};
+
+const PER_PAGE = {per_page};
+const totalPages = Math.max(1, Math.ceil(ALL_DATES.length / PER_PAGE));
+
+function renderPage(p) {{
+  p = Math.max(1, Math.min(p, totalPages));
+  const start = (p - 1) * PER_PAGE;
+  const end = start + PER_PAGE;
+  const pageDates = ALL_DATES.slice(start, end);
+
+  const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
+  const listEl = document.getElementById('archiveList');
+  listEl.innerHTML = pageDates.map(d => {{
+    const dn = dayNames[new Date(d + 'T00:00:00').getDay()];
+    return `<a class="date-card" href="archives/${{d}}.html">
+      <span class="date-main">${{d}}</span>
+      <span class="date-day">${{dn}}</span>
+      <span class="date-arrow">→</span>
+    </a>`;
+  }}).join('');
+
+  // 更新分页按钮
+  const pager = document.getElementById('pagination');
+  const btns = pager.querySelectorAll('.page-btn[data-page]');
+  btns.forEach(b => {{
+    b.classList.toggle('active', parseInt(b.dataset.page) === p);
+    b.disabled = parseInt(b.dataset.page) < 1 || parseInt(b.dataset.page) > totalPages;
+  }});
+
+  // 更新 page info
+  let info = pager.querySelector('.page-info');
+  if (info) info.textContent = `第 ${{p}} / ${{totalPages}} 页`;
+
+  // 更新 URL hash
+  history.replaceState(null, '', p > 1 ? `#page=${{p}}` : window.location.pathname);
+}}
+
+// 绑定分页按钮点击
+document.getElementById('pagination').addEventListener('click', e => {{
+  const btn = e.target.closest('.page-btn');
+  if (!btn || btn.disabled) return;
+  renderPage(parseInt(btn.dataset.page));
+}});
+
+// 初始化：读取 hash 或默认第1页
+const hash = window.location.hash;
+const initPage = hash ? parseInt(hash.replace('#page=', '')) || 1 : 1;
+renderPage(initPage);
+</script>
+</body>
+</html>"""
+
+
 def main():
     if not DATA_FILE.exists():
         print(f"ERROR: {DATA_FILE} not found. Please create daily_data.json first.")
@@ -699,6 +1052,25 @@ def main():
 
     print(f"\nTotal items: {sum(len(data.get(k, [])) for k in ('research','github','models','community'))}")
     print("Done!")
+
+    # ── 生成首页 home.html ─────────────────────────────
+    print("\n🏠 Generating home page...")
+    try:
+        # 扫描所有归档日期（YYYY-MM-DD.html）
+        archive_dates = sorted(
+            [p.stem for p in OUTPUT_DIR.glob("????-??-??.html")],
+            reverse=True   # 最新日期排前面
+        )
+        if archive_dates:
+            home_html = build_home_html(archive_dates)
+            home_path = BASE_DIR / "home.html"
+            with open(home_path, "w") as f:
+                f.write(home_html)
+            print(f"Generated: {home_path} ({len(archive_dates)} issues)")
+        else:
+            print("⚠️  No archives found, skipping home.html")
+    except Exception as e:
+        print(f"⚠️  Home page generation failed: {e}")
 
     # ── 数据源自我迭代 ──────────────────────────────
     print("\n🧬 Running source evolution...")
