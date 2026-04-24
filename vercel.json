@@ -1,23 +1,7 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "archives/*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "images/*.png",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    { "src": "/images/(.*)", "dest": "/images/$1" },
-    { "src": "/archives/(.*)", "dest": "/archives/$1" },
-    { "src": "/", "dest": "/home.html" },
-    { "src": "/(.*)", "dest": "/$1" }
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/home.html" }
   ]
 }
