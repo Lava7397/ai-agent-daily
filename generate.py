@@ -3,6 +3,7 @@
 AI Agent 日报 H5 页面生成器
 读取 daily_data.json → 生成 index.html + 归档页面
 """
+import argparse
 import json
 import os
 import re
@@ -20,6 +21,35 @@ OUTPUT_DIR = BASE_DIR / "archives"
 # Canonical public URL for the site. Override with SITE_URL env var if needed.
 # Keep in sync with CNAME file and Vercel custom domain settings.
 SITE_URL = os.environ.get("SITE_URL", "https://lava7397.com")
+
+
+def current_beijing_date_str():
+    return datetime.now(BEIJING_TZ).strftime("%Y-%m-%d")
+
+
+def get_issue_date(data):
+    return str(data.get("date") or current_beijing_date_str())
+
+
+def replace_between(text, start_marker, end_marker, replacement):
+    start = text.find(start_marker)
+    if start == -1:
+        raise ValueError(f"start marker not found: {start_marker}")
+    end = text.find(end_marker, start + len(start_marker))
+    if end == -1:
+        raise ValueError(f"end marker not found: {end_marker}")
+    return text[: start + len(start_marker)] + replacement + text[end:]
+
+
+def extract_between(text, start_marker, end_marker):
+    start = text.find(start_marker)
+    if start == -1:
+        raise ValueError(f"start marker not found: {start_marker}")
+    start += len(start_marker)
+    end = text.find(end_marker, start)
+    if end == -1:
+        raise ValueError(f"end marker not found: {end_marker}")
+    return text[start:end]
 
 
 def extract_archive_meta(archive_path):
@@ -91,7 +121,7 @@ def build_section_html(key, items):
 
 
 def build_html(data, include_nav_back=True):
-    date_str = datetime.now(BEIJING_TZ).strftime("%Y-%m-%d")
+    date_str = get_issue_date(data)
     safe_date = escape(date_str)
     sections = []
     for key in ("research", "github", "models", "community"):
@@ -107,7 +137,7 @@ def build_html(data, include_nav_back=True):
     safe_sources = escape(sources)
     source_count = len(source_list)
     section_count = sum(1 for k in ("research", "github", "models", "community") if data.get(k, []))
-    generated_at = datetime.now().strftime("%Y-%m-%d %H:%M")
+    generated_at = datetime.now(BEIJING_TZ).strftime("%Y-%m-%d %H:%M")
     safe_generated_at = escape(generated_at)
     nav_items = [
         ("research", "AI Agent 研究"),
@@ -719,6 +749,7 @@ def build_home_html(archive_infos, page=1, per_page=10):
     start = (page - 1) * per_page
     end = start + per_page
     page_infos = archive_infos[start:end]
+    latest_issue_href = f"archives/{archive_infos[0][0]}.html" if archive_infos else "index.html"
 
     # 生成日期卡片（含头条摘要）
     cards_html = ""
@@ -750,7 +781,7 @@ def build_home_html(archive_infos, page=1, per_page=10):
     prev_btn = f'<button class="page-btn nav-btn" data-page="{page-1}" {"disabled" if page <= 1 else ""}>‹ 上一页</button>' if page > 1 else '<button class="page-btn nav-btn" disabled>‹ 上一页</button>'
     next_btn = f'<button class="page-btn nav-btn" data-page="{page+1}" {"disabled" if page >= total_pages else ""}>下一页 ›</button>' if page < total_pages else '<button class="page-btn nav-btn" disabled>下一页 ›</button>'
 
-    generated_at = datetime.now().strftime("%Y-%m-%d %H:%M")
+    generated_at = datetime.now(BEIJING_TZ).strftime("%Y-%m-%d %H:%M")
     # JSON 序列化，供 JS 端分页使用
     all_archives_json = json.dumps(archive_infos, ensure_ascii=False)
 
@@ -1006,7 +1037,7 @@ body {{
 <div class="hero">
   <h1>AI Agent 日报</h1>
   <p class="subtitle">历史存档 · 共 {total} 期</p>
-  <a class="today-link" href="index.html">查看当天日报 →</a>
+  <a class="today-link" href="{latest_issue_href}">查看当天日报 →</a>
 </div>
 
 <!-- Stats -->
@@ -1043,7 +1074,7 @@ body {{
 <!-- Footer -->
 <div class="footer">
   <p>Generated at {generated_at} · Powered by Lava Agent</p>
-  <p style="margin-top:6px;"><a href="index.html">当天日报</a> · <a href="home.html">历史存档</a></p>
+  <p style="margin-top:6px;"><a href="{latest_issue_href}">当天日报</a> · <a href="home.html">历史存档</a></p>
 </div>
 
 <script>
@@ -1110,33 +1141,96 @@ renderPage(initPage);
 </html>"""
 
 
-def main():
+def run_source_evolution():
+    print("\n🧬 Running source evolution...")
+    try:
+        import subprocess
+        evo_result = subprocess.run(
+            ["python3", str(BASE_DIR / "scripts" / "source_evolution.py")],
+            capture_output=True, text=True, timeout=60
+        )
+        if evo_result.returncode == 0:
+            print(evo_result.stdout[-1500:] if len(evo_result.stdout) > 1500 else evo_result.stdout)
+        else:
+            print(f"⚠️  Evolution script returned {evo_result.returncode}")
+    except Exception as e:
+        print(f"⚠️  Evolution skipped: {e}")
+
+
+def update_polished_home_html(existing_html, generated_html, archive_infos):
+    archive_block = extract_between(
+        generated_html,
+        "<!-- Archive list -->",
+        "<!-- Footer -->",
+    )
+    archive_data_block = json.dumps(archive_infos, ensure_ascii=False)
+
+    updated = replace_between(
+        existing_html,
+        "<!-- Archive list -->",
+        "<!-- Footer -->",
+        archive_block,
+    )
+    updated = replace_between(
+        updated,
+        "const ALL_ARCHIVES = ",
+        "\n\nconst LANG_STORAGE =",
+        archive_data_block,
+    )
+    print(f"Updated: home.html ({len(archive_infos)} issues, polished preserved)")
+    return updated
+
+
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(
+        description="Generate the AI Daily site from daily_data.json."
+    )
+    parser.add_argument(
+        "--run-source-evolution",
+        action="store_true",
+        help="also run scripts/source_evolution.py after generating site files",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv=None):
+    args = parse_args(argv)
+
     if not DATA_FILE.exists():
         print(f"ERROR: {DATA_FILE} not found. Please create daily_data.json first.")
         sys.exit(1)
 
     data = load_data()
-    date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
+    date_str = get_issue_date(data)
+    today_str = current_beijing_date_str()
 
     html = build_html(data)
 
     # Write index.html (latest)
     index_path = BASE_DIR / "index.html"
-    if index_path.exists():
-        print(f"Skipped: {index_path} (already exists, preserving)")
-    else:
-        with open(index_path, "w") as f:
-            f.write(html)
+    previous_index = index_path.read_text(encoding="utf-8") if index_path.exists() else None
+    index_path.write_text(html, encoding="utf-8")
+    if previous_index is None:
         print(f"Generated: {index_path}")
+    elif previous_index == html:
+        print(f"Up-to-date: {index_path}")
+    else:
+        print(f"Updated: {index_path}")
 
     # Write archive page
     OUTPUT_DIR.mkdir(exist_ok=True)
     archive_path = OUTPUT_DIR / f"{date_str}.html"
     if archive_path.exists():
-        print(f"Skipped: {archive_path} (already exists, preserving)")
+        previous_archive = archive_path.read_text(encoding="utf-8")
+        if previous_archive == html:
+            print(f"Up-to-date: {archive_path}")
+        elif date_str == today_str:
+            archive_path.write_text(html, encoding="utf-8")
+            print(f"Updated: {archive_path} (today's issue refreshed)")
+        else:
+            print(f"Skipped: {archive_path} (historical archive preserved)")
     else:
-        with open(archive_path, "w") as f:
-            f.write(html)
+        archive_path.write_text(html, encoding="utf-8")
         print(f"Generated: {archive_path}")
 
     print(f"\nTotal items: {sum(len(data.get(k, [])) for k in ('research','github','models','community'))}")
@@ -1165,30 +1259,17 @@ def main():
             # 生成完整新页面（用于提取新存档列表）
             new_home_html = build_home_html(archive_infos)
 
-            if home_path.exists() and ("项目地图" in home_path.read_text()):
-                # 精修版：只替换存档列表和 JS 数据，保留顶部/样式/i18n
-                polished = home_path.read_text()
-                # 1) 替换 archive list（static HTML cards）
-                #    找到 <div class="archive-list" id="archiveList">...</div> 整段
-                old_al_start = polished.find('<div class="archive-list" id="archiveList">')
-                old_al_end = polished.find('</div>', old_al_start) + 6
-                new_al_start = new_home_html.find('<div class="archive-list" id="archiveList">')
-                new_al_end = new_home_html.find('</div>', new_al_start) + 6
-                if old_al_start != -1 and new_al_start != -1:
-                    polished = polished[:old_al_start] + new_home_html[new_al_start:new_al_end] + polished[old_al_end:]
-                # 2) 替换 ALL_ARCHIVES JS 常量
-                old_aa_start = polished.find("const ALL_ARCHIVES = ")
-                new_aa_start = new_home_html.find("const ALL_ARCHIVES = ")
-                old_aa_end = polished.find(";", old_aa_start) + 1
-                new_aa_end = new_home_html.find(";", new_aa_start) + 1
-                if old_aa_start != -1 and new_aa_start != -1:
-                    polished = polished[:old_aa_start] + new_home_html[new_aa_start:new_aa_end] + polished[old_aa_end:]
-                home_path.write_text(polished)
-                print(f"Updated: home.html ({len(archive_infos)} issues, polished preserved)")
+            existing_home_html = home_path.read_text(encoding="utf-8") if home_path.exists() else ""
+            if home_path.exists() and ("项目地图" in existing_home_html):
+                # 精修版：只替换归档区和归档数据，保留顶部/样式/i18n
+                polished = update_polished_home_html(
+                    existing_home_html,
+                    new_home_html,
+                    archive_infos,
+                )
+                home_path.write_text(polished, encoding="utf-8")
             else:
-                home_html = new_home_html
-                with open(home_path, "w") as f:
-                    f.write(home_html)
+                home_path.write_text(new_home_html, encoding="utf-8")
                 print(f"Generated: {home_path} ({len(archive_infos)} issues)")
             # 打印头条预览
             for date_str, headline, total in archive_infos[:3]:
@@ -1198,20 +1279,10 @@ def main():
     except Exception as e:
         print(f"⚠️  Home page generation failed: {e}")
 
-    # ── 数据源自我迭代 ──────────────────────────────
-    print("\n🧬 Running source evolution...")
-    try:
-        import subprocess
-        evo_result = subprocess.run(
-            ["python3", str(BASE_DIR / "scripts" / "source_evolution.py")],
-            capture_output=True, text=True, timeout=60
-        )
-        if evo_result.returncode == 0:
-            print(evo_result.stdout[-1500:] if len(evo_result.stdout) > 1500 else evo_result.stdout)
-        else:
-            print(f"⚠️  Evolution script returned {evo_result.returncode}")
-    except Exception as e:
-        print(f"⚠️  Evolution skipped: {e}")
+    if args.run_source_evolution:
+        run_source_evolution()
+    else:
+        print("\nℹ️  Skipping source evolution (pass --run-source-evolution to enable)")
 
 
 if __name__ == "__main__":

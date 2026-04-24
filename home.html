@@ -473,7 +473,7 @@ body {
       </div>
       <div class="atlas-links">
         <a href="#legacy-home" data-i18n="nav_archive">AI Daily 存档</a>
-        <a href="index.html" data-i18n="nav_today">今日刊</a>
+        <a href="index.html" data-role="today-issue-link" data-i18n="nav_today">今日刊</a>
       </div>
     </div>
   </div>
@@ -504,7 +504,7 @@ body {
           </div>
           <div class="atlas-project-stat">
             <div class="num atlas-project-stat--date" id="proj-m-latest">—</div>
-            <div class="txt" data-i18n="stat_latest">Latest issue</div>
+            <div class="txt" data-i18n="stat_latest">Latest archive</div>
           </div>
           <div class="atlas-project-stat">
             <div class="num" id="proj-m-max">—</div>
@@ -513,7 +513,7 @@ body {
         </div>
         <div class="atlas-project-actions">
           <a class="atlas-btn primary" href="#legacy-home" data-i18n="btn_archive">Archive</a>
-          <a class="atlas-btn" href="index.html" data-i18n="btn_today">Today</a>
+          <a class="atlas-btn" href="index.html" data-role="today-issue-link" data-i18n="btn_today">Today</a>
         </div>
       </article>
       <article class="atlas-project-card atlas-project-card--placeholder">
@@ -530,7 +530,7 @@ body {
 <div class="hero" id="legacy-home">
   <h1 data-i18n="legacy_h1">AI Daily · LavaAgent</h1>
   <p class="subtitle">LavaAgent · 历史存档 · 共 10 期</p>
-  <a class="today-link" href="index.html" data-i18n="legacy_today_link">查看当天日报 →</a>
+  <a class="today-link" href="index.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看当天日报 →</a>
 </div>
 
 <!-- Stats -->
@@ -551,7 +551,7 @@ body {
 
 <!-- Archive list -->
 <div class="archive-wrap">
-    <div class="archive-list" id="archiveList">
+  <div class="archive-list" id="archiveList">
     
         <a class="date-card" href="archives/2026-04-24.html">
           <div class="date-meta-wrap">
@@ -656,9 +656,9 @@ body {
 
   <!-- Pagination -->
   <div class="pagination" id="pagination">
-    <button type="button" class="page-btn nav-btn" disabled data-i18n="page_prev">‹ 上一页</button>
-    <button type="button" class="page-btn active" data-page="1">1</button>
-    <button type="button" class="page-btn nav-btn" disabled data-i18n="page_next">下一页 ›</button>
+    <button class="page-btn nav-btn" disabled>‹ 上一页</button>
+    <button class="page-btn active" data-page="1">1</button>
+    <button class="page-btn nav-btn" disabled>下一页 ›</button>
     <span class="page-info">第 1 / 1 页</span>
   </div>
 </div>
@@ -666,11 +666,11 @@ body {
 <!-- Footer -->
 <div class="footer">
   <p><span data-i18n="footer_generated_prefix">生成于</span> 2026-04-24 · Lava · LavaAgent</p>
-  <p style="margin-top:6px;"><a href="index.html" data-i18n="footer_today">当天日报</a> · <a href="home.html" data-i18n="footer_archive">历史存档</a></p>
+  <p style="margin-top:6px;"><a href="index.html" data-role="today-issue-link" data-i18n="footer_today">当天日报</a> · <a href="home.html" data-i18n="footer_archive">历史存档</a></p>
 </div>
 
 <script>
-const ALL_ARCHIVES = [["2026-04-24", "VLAA-GUI: 模块化 GUI 自动化框架，懂得何时停止、恢复与搜索", "17"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "18"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "18"], ["2026-04-21", "Mind DeepResearch Technical Report", "18"], ["2026-04-19", "Dive into Claude Code: The Design Space of AI Agent Systems", "18"], ["2026-04-18", "HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界", "15"], ["2026-04-17", "OpenAI 发布 GPT-Rosalind：面向生命科学的专属大模型", "18"], ["2026-04-16", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18"], ["2026-04-15", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18"]];
+const ALL_ARCHIVES = [["2026-04-24", "VLAA-GUI: 模块化 GUI 自动化框架，懂得何时停止、恢复与搜索", "17"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "18"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "18"], ["2026-04-21", "Mind DeepResearch Technical Report", "18"], ["2026-04-19", "Dive into Claude Code: The Design Space of AI Agent Systems", "18"], ["2026-04-18", "HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界", "15"], ["2026-04-17", "OpenAI 发布 GPT-Rosalind：面向生命科学的专属大模型", "18"], ["2026-04-16", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18"], ["2026-04-15", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18"]]
 
 const LANG_STORAGE = 'lavaagent_home_lang';
 const I18N = {
@@ -681,7 +681,7 @@ const I18N = {
     card_digest: 'LavaAgent · 精选文摘',
     stat_issues: '期数',
     stat_items: '条目合计',
-    stat_latest: '最新一期',
+    stat_latest: '最新归档',
     stat_max: '单期最多',
     btn_archive: '存档',
     btn_today: '今日刊',
@@ -706,7 +706,7 @@ const I18N = {
     card_digest: 'LavaAgent · curated digest',
     stat_issues: 'Issues',
     stat_items: 'Items total',
-    stat_latest: 'Latest issue',
+    stat_latest: 'Latest archive',
     stat_max: 'Max items / issue',
     btn_archive: 'Archive',
     btn_today: 'Today',
@@ -753,6 +753,17 @@ function formatItemsLabel(lang, n) {
 
 function noSummary(lang) {
   return lang === 'zh' ? '暂无摘要' : 'No summary';
+}
+
+function getLatestIssueHref() {
+  return ALL_ARCHIVES.length ? `archives/${ALL_ARCHIVES[0][0]}.html` : 'index.html';
+}
+
+function syncTodayLinks() {
+  const href = getLatestIssueHref();
+  document.querySelectorAll('[data-role="today-issue-link"]').forEach(el => {
+    el.setAttribute('href', href);
+  });
 }
 
 function applyStaticI18n() {
@@ -829,6 +840,7 @@ function syncAtlasMetrics() {
   if (sub) sub.textContent = formatSubtitle(getLang(), n);
   const firstStat = document.querySelector('.stats-bar .stat:first-child .stat-num');
   if (firstStat) firstStat.textContent = n ? String(n) : '—';
+  syncTodayLinks();
 }
 
 const PER_PAGE = 10;
