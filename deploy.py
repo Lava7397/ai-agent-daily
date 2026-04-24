@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
-"""
-Deploy ai-daily-h5 to Vercel via CLI.
-Includes HTML pages + generated images.
+"""Deploy ai-daily-h5 to Vercel via CLI.
+
+Thin wrapper over `vercel --prod --yes` so the deploy command is the same
+locally and in automation. Intentionally does NOT make git commits —
+commits must be created explicitly by whoever changes the code or data.
+
+Custom domain (lava7397.com) is configured in the Vercel dashboard and
+does not require any alias command here.
+
 Usage: python3 deploy.py
 """
 import subprocess
@@ -11,47 +17,28 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 
 
-def deploy():
+def deploy() -> bool:
     print("Deploying to Vercel...")
-
-    # Git commit (ensure all changes are tracked)
-    subprocess.run(
-        ["git", "add", "-A"],
-        cwd=str(BASE_DIR), capture_output=True, timeout=10,
-    )
-    subprocess.run(
-        ["git", "commit", "-m", f"update", "--allow-empty"],
-        cwd=str(BASE_DIR), capture_output=True, timeout=10,
-    )
-
     result = subprocess.run(
         ["vercel", "--prod", "--yes"],
         cwd=str(BASE_DIR),
         capture_output=True,
         text=True,
-        timeout=120,
+        timeout=180,
     )
 
     for line in result.stdout.splitlines():
         line = line.strip()
-        if "Production:" in line or "Aliased:" in line or "Error" in line:
+        if "Production:" in line or "Preview:" in line or "Error" in line:
             print(f"  {line}")
 
     if result.returncode != 0:
-        print(f"  ERROR: {result.stderr.strip()}")
+        print(f"  ERROR: {result.stderr.strip()}", file=sys.stderr)
         return False
 
-    # Ensure correct alias
-    alias_result = subprocess.run(
-        ["vercel", "alias", "set", "ai-agent-daily-phi.vercel.app", "lava-agent-daily.vercel.app"],
-        cwd=str(BASE_DIR), capture_output=True, text=True, timeout=30,
-    )
-    if alias_result.returncode == 0:
-        print("  https://lava-agent-daily.vercel.app ✅")
-
+    print("  Deploy OK ✅")
     return True
 
 
 if __name__ == "__main__":
-    ok = deploy()
-    sys.exit(0 if ok else 1)
+    sys.exit(0 if deploy() else 1)

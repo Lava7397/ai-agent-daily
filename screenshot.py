@@ -5,6 +5,7 @@ AI Agent 日报 — 截取部署页面生成分享图片
 """
 import asyncio
 import json
+import os
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -12,7 +13,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "daily_data.json"
 OUTPUT_DIR = BASE_DIR / "images"
-LIVE_URL = "https://lava-agent-daily.vercel.app"
+LIVE_URL = os.environ.get("SITE_URL", "https://lava7397.com")
 
 
 def get_date_str():

@@ -49,14 +49,16 @@ Hermes Cron (每天 11:30 BJT)
  git commit + push → GitHub
       │
       ▼
- Vercel 自动重新部署 → lava-agent-daily.vercel.app
+ Vercel 自动重新部署 → lava7397.com
 ```
 
 ## Vercel 配置
 
 - 项目名:ai-agent-daily
 - 部署命令:`cd ~/Hermes/ai-daily-h5 && vercel --prod --yes`
-- 站点地址:<https://lava-agent-daily.vercel.app>
+- 站点地址:<https://lava7397.com>(自定义域名,配置在 Vercel dashboard)
+- Vercel 默认域名:<https://ai-agent-daily-phi.vercel.app>(备用访问)
+- 站点地址在代码里是单一常量:`generate.py` 的 `SITE_URL`(可用同名环境变量覆盖)
 
 ## 定时任务
 

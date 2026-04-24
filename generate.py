@@ -17,6 +17,10 @@ BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "daily_data.json"
 OUTPUT_DIR = BASE_DIR / "archives"
 
+# Canonical public URL for the site. Override with SITE_URL env var if needed.
+# Keep in sync with CNAME file and Vercel custom domain settings.
+SITE_URL = os.environ.get("SITE_URL", "https://lava7397.com")
+
 
 def extract_archive_meta(archive_path):
     """从归档 HTML 中提取头条标题和总条目数"""
@@ -141,7 +145,7 @@ def build_html(data, include_nav_back=True):
 <meta property="og:title" content="AI Agent 日报 — {safe_date}">
 <meta property="og:description" content="今日 {total} 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://lava-agent-daily.vercel.app">
+<meta property="og:url" content="{SITE_URL}">
 <meta name="twitter:card" content="summary">
 <title>AI Agent 日报 — {safe_date}</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -610,7 +614,7 @@ body {{
 </div>
 
 <script>
-{back_home_js}const SHARE_URL = 'https://lava-agent-daily.vercel.app';
+{back_home_js}const SHARE_URL = '{SITE_URL}';
 
 function showToast(msg) {{
   const t = document.getElementById('toast');
