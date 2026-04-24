@@ -57,7 +57,7 @@
       "url": "https://news.ycombinator.com/",
       "type": "aggregator",
       "category": "community",
-      "quality_score": 22.0,
+      "quality_score": 20.9,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.3,
@@ -91,7 +91,7 @@
       "url": "https://github.com/trending",
       "type": "code",
       "category": "developer",
-      "quality_score": 44.9,
+      "quality_score": 42.7,
       "last_evaluated": "2026-04-22",
       "metrics": {
         "relevance": 0.2,
@@ -108,7 +108,7 @@
       "url": "https://bensbites.beehiiv.com/",
       "type": "newsletter",
       "category": "curation",
-      "quality_score": 23.8,
+      "quality_score": 22.6,
       "last_evaluated": "2026-04-18",
       "metrics": {
         "relevance": 0.8,
@@ -463,6 +463,18 @@
       "source": "usage_analysis",
       "contributions": 1,
       "discovered_at": "2026-04-24T14:06:42.873542+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-24T14:10:37.540582+08:00"
+    },
+    {
+      "domain": "qwen.ai",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-24T14:10:37.541412+08:00"
     }
   ],
   "evaluation_log": []

@@ -1,21 +1,23 @@
 # AI Daily - Cursor 规则
 
 ## 项目概述
-每日 AI Agent 新闻摘要系统，Python + Vercel 静态部署。
+每日 AI Agent 新闻聚合站,Python + Vercel 静态部署。
+聚焦:自动化内容采集 + 静态网站建设。
 
 ## 开发约定
-- Python 3.11，使用标准库优先
+- Python 3.11,使用标准库优先,尽量零第三方依赖
 - 路径使用 ~/Hermes/ai-daily-h5/ 为根目录
-- 邮件密码不要硬编码，从 scripts/ai-daily-email.json 读取
+- 敏感信息走环境变量,绝不进 git;配置文件不要内嵌密钥
 - 部署前先看 AGENTS.md 了解 Vercel 配置
 
 ## 文件说明
-- generate.py: 主入口，采集新闻并生成 H5
-- generate_image.py: 生成封面图
+- generate.py: 主入口,读取 daily_data.json 并生成 H5
+- generate_image.py: 生成每日封面图
 - deploy.py: 部署到 Vercel
-- scripts/: 邮件相关
+- screenshot.py: 页面截图
+- scripts/source_*.py: 数据源发现 / 评估 / 迭代
 
 ## 注意事项
-- 改完代码需要手动部署: `cd ~/Hermes/ai-daily-h5 && vercel --prod --yes`
-- archives/ 下是历史归档，不要删除
-- 定时任务在 Hermes 的 cron 系统中，不是 crontab
+- 改完代码手动部署: `cd ~/Hermes/ai-daily-h5 && vercel --prod --yes`
+- archives/ 下是历史归档,不要删除
+- 定时任务在 Hermes 的 cron 系统中,不是 crontab

@@ -2,53 +2,69 @@
 
 ## 项目概述
 
-每日 AI Agent 新闻摘要系统。自动采集、生成 H5 页面、部署到 Vercel、邮件推送。
+每日 AI Agent 新闻聚合站。由定时任务自动采集 → 生成静态 H5 页面 → 部署到 Vercel。
+聚焦两件事:**自动化内容生产** + **静态网站建设**。
 
 ## 项目结构
 
 ```
 ai-daily-h5/
-├── generate.py          # 主脚本：采集新闻 → 生成 H5 页面
-├── generate_image.py    # 生成每日动漫风格封面图
-├── deploy.py            # Vercel 部署脚本
-├── index.html           # 生成的 H5 页面
-├── daily_data.json      # 当日采集的新闻数据
-├── archives/            # 历史归档 (YYYY-MM-DD.html)
-├── images/              # 每日封面图 (YYYY-MM-DD.png)
+├── generate.py              # 主脚本:读取 daily_data.json → 生成 H5
+├── generate_image.py        # 生成每日封面图
+├── deploy.py                # Vercel 部署脚本
+├── screenshot.py            # 页面截图工具
+├── index.html               # 当天日报页面
+├── home.html                # 首页(历史归档列表)
+├── daily_data.json          # 当日采集的新闻数据
+├── sources_registry.json    # 数据源注册表(带质量评分)
+├── archives/                # 历史归档 (YYYY-MM-DD.html)
+├── images/                  # 每日封面图 (YYYY-MM-DD.png)
 ├── scripts/
-│   ├── send_daily_email.py    # 邮件发送
-│   └── ai-daily-email.json    # 邮件配置
-└── vercel.json          # Vercel 部署配置
+│   ├── source_explorer.py    # 发现新数据源
+│   ├── source_evaluator.py   # 评估数据源质量
+│   └── source_evolution.py   # 数据源自我迭代编排
+├── vercel.json              # Vercel 部署配置
+└── CNAME                    # 自定义域名
 ```
 
 ## 技术栈
 
-- Python 3.11
-- Vercel (静态托管)
-- SMTP (163邮箱推送)
+- Python 3.11(标准库优先,零第三方依赖)
+- Vercel(静态托管)
+- GitHub(代码 + 数据同存,push 即部署)
+- Hermes Cron(定时触发)
+
+## 数据流
+
+```
+Hermes Cron (每天 11:30 BJT)
+      │
+      ▼
+ Hermes Agent 拉取各数据源 → 写入 daily_data.json
+      │
+      ▼
+ generate.py → 生成 archives/YYYY-MM-DD.html + 更新 home.html
+      │
+      ▼
+ git commit + push → GitHub
+      │
+      ▼
+ Vercel 自动重新部署 → lava-agent-daily.vercel.app
+```
 
 ## Vercel 配置
 
-- 项目名: ai-agent-daily
-- Project ID: prj_9SDG4DvUaz3vM4vAnYVIqRKH4qBl
-- Team ID: team_E50GFnf2zER9xjKfwsvxAGbO
-- 部署: `cd ~/Hermes/ai-daily-h5 && vercel --prod --yes`
-- SSO 必须关闭才能公开访问
+- 项目名:ai-agent-daily
+- 部署命令:`cd ~/Hermes/ai-daily-h5 && vercel --prod --yes`
+- 站点地址:<https://lava-agent-daily.vercel.app>
 
 ## 定时任务
 
-- Cron Job ID: 05d76b94779e
-- 每天北京时间 11:30 执行
-- 内容：采集 AI Agent 领域最新研究 + GitHub 热门项目
-
-## 邮件配置
-
-- 发件: [cflava@163.com](mailto:cflava@163.com) (SMTP)
-- 配置文件: scripts/ai-daily-email.json
+- Hermes Cron 每天北京时间 11:30 触发
+- 内容:采集 AI Agent 领域最新研究 + GitHub 热门项目 + 模型动态 + 社区热议
 
 ## 约定
 
-- 所有命令和路径使用 ~/Hermes/ai-daily-h5/ 为根目录
-- 修改代码后需要重新部署到 Vercel
-- 邮件密码在 ai-daily-email.json 中，不要提交到 git
-
+- 所有命令和路径使用 `~/Hermes/ai-daily-h5/` 为根目录
+- 敏感文件(如 `.env`、以 `.json` 结尾的运行时状态)一律不进 git,见 `.gitignore`
+- archives/ 下是不可变历史归档,不要删除或改写

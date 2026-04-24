@@ -705,30 +705,6 @@ function downloadImage() {{
 
 
 
-def build_email_html(data):
-    """生成邮件专用 HTML，使用绝对 URL"""
-    html = build_html(data, include_nav_back=False)
-    
-    # 将相对图片路径替换为绝对 URL
-    base_url = "https://ai-agent-daily-phi.vercel.app"
-    date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
-    
-    # 替换图片 URL
-    html = html.replace(f'images/{date_str}.png', f'{base_url}/images/{date_str}.png')
-    
-    # 添加邮件特定的样式修复
-    email_styles = """
-<style>
-  /* 邮件客户端兼容性修复 */
-  body { margin: 0 !important; padding: 0 !important; }
-  .share-bar { position: relative !important; margin-top: 30px; }
-  .card { page-break-inside: avoid; }
-  img { max-width: 100%; height: auto; }
-</style>
-"""
-    html = html.replace('</head>', email_styles + '</head>')
-    
-    return html
 def build_home_html(archive_infos, page=1, per_page=10):
     """生成首页 home.html：展示所有历史归档，支持分页
     archive_infos: list of (date_str, headline, total_items)
@@ -1139,7 +1115,6 @@ def main():
     date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
 
     html = build_html(data)
-    email_html = build_email_html(data)
 
     # Write index.html (latest)
     index_path = BASE_DIR / "index.html"
@@ -1159,15 +1134,6 @@ def main():
         with open(archive_path, "w") as f:
             f.write(html)
         print(f"Generated: {archive_path}")
-
-    # Write email version
-    email_path = BASE_DIR / "email.html"
-    if email_path.exists():
-        print(f"Skipped: {email_path} (already exists, preserving)")
-    else:
-        with open(email_path, "w") as f:
-            f.write(email_html)
-        print(f"Generated: {email_path}")
 
     print(f"\nTotal items: {sum(len(data.get(k, [])) for k in ('research','github','models','community'))}")
     print("Done!")
