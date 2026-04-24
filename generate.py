@@ -1182,11 +1182,20 @@ def main():
             archive_infos.append((p.stem, headline, total))
 
         if archive_infos:
-            home_html = build_home_html(archive_infos)
             home_path = BASE_DIR / "home.html"
-            with open(home_path, "w") as f:
-                f.write(home_html)
-            print(f"Generated: {home_path} ({len(archive_infos)} issues)")
+            # 如果现有 home.html 是用户精修版（包含"项目地图"标识），跳过覆盖
+            skip_polished = False
+            if home_path.exists():
+                content = home_path.read_text()
+                if "项目地图" in content or "atlas-btn" in content:
+                    skip_polished = True
+            if skip_polished:
+                print(f"Skipped: home.html (preserving polished version)")
+            else:
+                home_html = build_home_html(archive_infos)
+                with open(home_path, "w") as f:
+                    f.write(home_html)
+                print(f"Generated: {home_path} ({len(archive_infos)} issues)")
             # 打印头条预览
             for date_str, headline, total in archive_infos[:3]:
                 print(f"  {date_str}: {headline[:50]}...")
