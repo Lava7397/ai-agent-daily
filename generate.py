@@ -191,6 +191,8 @@ def build_html(data, include_nav_back=True):
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="description" content="AI Agent 日报 {safe_date} — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
 <meta name="theme-color" content="#0d1b2a">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:title" content="AI Agent 日报 — {safe_date}">
 <meta property="og:description" content="今日 {total} 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
@@ -813,6 +815,8 @@ def build_home_html(archive_infos, page=1, per_page=10):
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="description" content="AI Agent 日报 · 历史存档 — 共 {total} 期">
 <meta name="theme-color" content="#0d1b2a">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>AI Agent 日报 · 历史存档</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
