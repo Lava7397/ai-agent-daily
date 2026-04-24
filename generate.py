@@ -1143,22 +1143,31 @@ def main():
 
     # Write index.html (latest)
     index_path = BASE_DIR / "index.html"
-    with open(index_path, "w") as f:
-        f.write(html)
-    print(f"Generated: {index_path}")
+    if index_path.exists():
+        print(f"Skipped: {index_path} (already exists, preserving)")
+    else:
+        with open(index_path, "w") as f:
+            f.write(html)
+        print(f"Generated: {index_path}")
 
     # Write archive page
     OUTPUT_DIR.mkdir(exist_ok=True)
     archive_path = OUTPUT_DIR / f"{date_str}.html"
-    with open(archive_path, "w") as f:
-        f.write(html)
-    print(f"Generated: {archive_path}")
+    if archive_path.exists():
+        print(f"Skipped: {archive_path} (already exists, preserving)")
+    else:
+        with open(archive_path, "w") as f:
+            f.write(html)
+        print(f"Generated: {archive_path}")
 
     # Write email version
     email_path = BASE_DIR / "email.html"
-    with open(email_path, "w") as f:
-        f.write(email_html)
-    print(f"Generated: {email_path}")
+    if email_path.exists():
+        print(f"Skipped: {email_path} (already exists, preserving)")
+    else:
+        with open(email_path, "w") as f:
+            f.write(email_html)
+        print(f"Generated: {email_path}")
 
     print(f"\nTotal items: {sum(len(data.get(k, [])) for k in ('research','github','models','community'))}")
     print("Done!")
