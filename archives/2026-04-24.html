@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="AI Agent 日报 2026-04-24 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
+<meta name="theme-color" content="#0d1b2a">
+<meta property="og:title" content="AI Agent 日报 — 2026-04-24">
+<meta property="og:description" content="今日 17 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lava-agent-daily.vercel.app">
+<meta name="twitter:card" content="summary">
+<title>AI Agent 日报 — 2026-04-24</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f0e8;
+  color: #2c2c2c;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Detail top bar（与 quick-nav / 正文同宽，按钮同首页 atlas-btn） ---- */
+.detail-topbar {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 16px 0;
+}
+.detail-topbar-inner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.atlas-btn {
+  border: 1px solid rgba(100,80,60,0.18);
+  color: #4d4338;
+  background: #f8f4eb;
+  text-decoration: none;
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---- Hero / 莫比斯封面 ---- */
+.hero {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(178,200,218,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
+    #f5f0e8;
+  padding: 48px 24px 44px;
+  text-align: center;
+  position: relative;
+  border-bottom: 2px solid rgba(100,80,60,0.15);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(100,80,60,0.02) 3px, rgba(100,80,60,0.02) 4px
+  );
+  pointer-events: none;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #3a3a3a;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 1;
+}
+.hero .date {
+  color: #8a7e6e;
+  font-size: 13px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 2px;
+}
+.hero .stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 28px;
+  position: relative;
+  z-index: 1;
+}
+.hero .stat {
+  text-align: center;
+  border: 1px solid rgba(100,80,60,0.12);
+  padding: 14px 22px;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+}
+.hero .stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #5a6e8a;
+}
+.hero .stat-label {
+  font-size: 10px;
+  color: #8a7e6e;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* ---- Quick Nav ---- */
+.quick-nav {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.quick-link {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #5a6e8a;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(90,110,138,0.2);
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  transition: all 0.25s;
+}
+.quick-link:hover {
+  color: #fff;
+  background: #5a6e8a;
+  border-color: #5a6e8a;
+}
+
+/* ---- Container ---- */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 100px;
+}
+
+/* ---- Section ---- */
+.section {
+  margin-top: 44px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4a6080;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  border-bottom: 2px solid rgba(90,110,138,0.25);
+  letter-spacing: 1px;
+}
+
+/* ---- Card / 莫比斯分格 ---- */
+.card {
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(100,80,60,0.15);
+  border-left: 3px solid #9ab8d0;
+  padding: 26px;
+  margin-bottom: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #b2c8da, #d2b9dc);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.card:hover {
+  border-left-color: transparent;
+  background: rgba(255,255,255,0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(100,80,60,0.08);
+}
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ---- TOP card 高标 ---- */
+.card.top {
+  background: rgba(255,255,255,0.85);
+  border-left: 3px solid #4a6080;
+  border-color: rgba(74,96,128,0.25);
+  padding: 28px 26px 26px;
+}
+.card.top .card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.card.top .card-summary {
+  color: #3a3a3a;
+}
+.top-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+  background: #4a6080;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+}
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  display: block;
+}
+.card-title:hover {
+  color: #5a6e8a;
+}
+.card-summary {
+  color: #4a4a4a;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-top: 14px;
+  border-top: 1px solid rgba(100,80,60,0.08);
+  padding-top: 14px;
+}
+.read-more {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 12px;
+  color: #5a6e8a;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(90,110,138,0.3);
+  padding-bottom: 2px;
+  transition: all 0.2s;
+}
+.read-more:hover {
+  border-bottom-color: #5a6e8a;
+}
+.tag {
+  display: inline-block;
+  background: rgba(154,184,208,0.2);
+  color: #4a6080;
+  font-size: 11px;
+  padding: 4px 10px;
+  margin-top: 14px;
+  margin-right: 6px;
+  border: 1px solid rgba(90,110,138,0.12);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* ---- Share Bar ---- */
+.share-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(245,240,232,0.97);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(100,80,60,0.1);
+  padding: 14px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  z-index: 100;
+}
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(100,80,60,0.15);
+  color: #5a5a5a;
+  padding: 10px 18px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+.share-btn:hover {
+  border-color: #5a6e8a;
+  color: #5a6e8a;
+}
+.share-btn.primary {
+  background: #5a6e8a;
+  border-color: #5a6e8a;
+  color: #fff;
+}
+.share-btn.primary:hover {
+  background: #4a5e7a;
+}
+.share-btn .icon { font-size: 15px; }
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #5a6e8a;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+}
+.skip-link:focus { top: 0; }
+
+/* ---- Footer ---- */
+.footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  text-align: center;
+  color: #aaa090;
+  font-size: 11px;
+  border-top: 1px solid rgba(100,80,60,0.08);
+  letter-spacing: 0.5px;
+}
+
+/* ---- Toast ---- */
+.toast {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #5a6e8a;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 200;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---- Modal ---- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(245,240,232,0.92);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 300;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: #fff;
+  border: 1px solid rgba(100,80,60,0.1);
+  padding: 32px;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+}
+.modal h3 {
+  font-family: 'Cormorant Garamond', serif;
+  color: #5a6e8a;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+.qr-placeholder {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  background: rgba(178,200,218,0.1);
+  border: 1px dashed rgba(90,110,138,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 12px;
+}
+.qr-placeholder img { max-width: 100%; }
+.close-btn {
+  background: transparent;
+  border: 1px solid rgba(100,80,60,0.15);
+  color: #5a6e8a;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.close-btn:hover {
+  background: #5a6e8a;
+  color: #fff;
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">跳到正文</a>
+<div class="detail-topbar">
+  <div class="detail-topbar-inner">
+    <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> 返回</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>AI Agent 日报</h1>
+  <p class="date">2026-04-24 · 每日精选</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">17</div>
+      <div class="stat-label">条资讯</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">个板块</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label">个来源</div>
+    </div>
+  </div>
+</div>
+
+<nav class="quick-nav" aria-label="内容导航">
+  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
+</nav>
+
+<!-- Content -->
+<main class="container" id="main-content">
+  
+    <section class="section" id="section-research">
+      <h2 class="section-title">🤖 AI Agent 研究</h2>
+      
+    <div class="card top">
+      <span class="top-badge">TOP</span>
+      <a href="https://huggingface.co/papers/2604.XXXXX" target="_blank" rel="noopener noreferrer" class="card-title">VLAA-GUI: 模块化 GUI 自动化框架，懂得何时停止、恢复与搜索</a>
+      <p class="card-summary">UCSC-VLAA 推出 VLAA-GUI 模块化框架，解决 GUI 自动化智能体何时应该停止执行、恢复错误、发起搜索等核心判断问题。框架包含三个核心模块——停止判断（检测任务完成或死锁）、恢复策略（从错误状态回退到安全检查点）、搜索触发（识别知识缺口并主动搜索）。在多个 GUI 测试基准上验证，能有效避免现有 Agent 常见的「过度执行」和「死循环」问题，显著提升端到端任务完成率。</p>
+      <a href="https://huggingface.co/papers/2604.XXXXX" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">GUI Agent</span> <span class="tag">Agent框架</span> <span class="tag">自动化</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://huggingface.co/papers/2604.XXXXX" target="_blank" rel="noopener noreferrer" class="card-title">UniT: 统一物理语言让人-机器人策略学习更自然</a>
+      <p class="card-summary">小鹏机器人提出 UniT 框架，为人类与机器人之间的策略学习建立统一物理语言。核心贡献是设计了人与机器人共享的动作表示格式，使人类示范数据能直接用于机器人策略训练，无需复杂标注转换。框架同时支持世界建模，让机器人能预测自身行为后果。在多种人-物交互任务中验证，有效降低了从人类演示到机器人策略的迁移成本。</p>
+      <a href="https://huggingface.co/papers/2604.XXXXX" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">机器人</span> <span class="tag">模仿学习</span> <span class="tag">人机交互</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://huggingface.co/papers/2604.XXXXX" target="_blank" rel="noopener noreferrer" class="card-title">WorldMark: 交互式视频世界模型的统一基准测试</a>
+      <p class="card-summary">研究团队推出 WorldMark 基准套件，专门评估交互式视频世界模型的感知与预测能力。覆盖 8 类交互场景（推、拉、扔、接等），每个场景包含数百个视频-动作对。评估维度包括物理合理性、时间一致性和交互准确性三大指标。为视频生成模型从「看起来真实」到「能正确响应物理交互」的跨越提供了系统性测试框架。</p>
+      <a href="https://huggingface.co/papers/2604.XXXXX" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">视频生成</span> <span class="tag">世界模型</span> <span class="tag">基准测试</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator" target="_blank" rel="noopener noreferrer" class="card-title">BAND: 跨智能体通信的通用编排器，中小企业 AI 工作流新选择</a>
+      <p class="card-summary">初创公司 BAND 发布跨智能体通用编排器，核心解决多个 AI Agent 相互通信时的协调问题。支持跨供应商模型（Claude、GPT、Gemini 等）混合编排，提供统一的任务分解与结果聚合接口。早期用户在企业场景中用它串联研究 Agent、代码生成 Agent 和审核 Agent，将复杂工作流从手动串联转为自动编排，对中小企业的 AI 落地具有实用价值。</p>
+      <a href="https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Agent编排</span> <span class="tag">多Agent</span> <span class="tag">工作流自动化</span>
+    </div>
+    </section>
+
+    <section class="section" id="section-github">
+      <h2 class="section-title">⭐ GitHub 热门项目</h2>
+      
+    <div class="card top">
+      <span class="top-badge">TOP</span>
+      <a href="https://github.com/refactoringhq/tolaria" target="_blank" rel="noopener noreferrer" class="card-title">Tolaria: 开源 macOS Markdown 知识库管理工具</a>
+      <p class="card-summary">RefactoringHQ 发布 Tolaria，一款专为 macOS 设计的开源 Markdown 知识库管理应用。核心特性包括：本地优先（所有数据存储在用户设备）、双向链接笔记网络、快速全文搜索和图谱视图。定位为 Obsidian 和 Notion 的轻量开源替代，聚焦于个人知识管理场景。HN Show 上线后引发讨论，适合重视隐私和开源的自托管用户。</p>
+      <a href="https://github.com/refactoringhq/tolaria" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">macOS</span> <span class="tag">知识管理</span> <span class="tag">开源</span> <span class="tag">Markdown</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://googleblog.com/2026/04/torchtpu-running-pytorch-natively-on-tpus" target="_blank" rel="noopener noreferrer" class="card-title">TorchTPU: 在 Google TPU 上原生运行 PyTorch</a>
+      <p class="card-summary">Google 发布 TorchTPU 开源库，实现 PyTorch 在 Google TPU 上的原生运行，无需 JAX 或 TensorFlow 桥接。核心通过 XLA 编译器后端将 PyTorch 算子图编译到 TPU 硬件，支持现有 PyTorch 模型零改动迁移。配合 Google 第八代 Trillium TPU 使用，为需要在 TPU 集群上运行 PyTorch 模型的开发者提供了便捷路径，降低了 TPU 使用门槛。</p>
+      <a href="https://googleblog.com/2026/04/torchtpu-running-pytorch-natively-on-tpus" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Google</span> <span class="tag">TPU</span> <span class="tag">PyTorch</span> <span class="tag">开源</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://meshcore.io" target="_blank" rel="noopener noreferrer" class="card-title">MeshCore 团队因商标纠纷和 AI 代码所有权分裂</a>
+      <p class="card-summary">开源图形引擎 MeshCore 开发团队因商标归属和 AI 生成代码版权问题公开分裂。一派坚持原品牌，另一派另起炉灶。核心矛盾在于 AI 辅助编程时代，代码贡献的版权归属和商标权利如何界定。该事件为开源社区敲响警钟：AI 生成代码与传统代码混合时的法律边界尚不明晰，商标和贡献者协议需要重新设计以适应 AI 辅助开发新范式。</p>
+      <a href="https://meshcore.io" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">开源</span> <span class="tag">法律</span> <span class="tag">AI代码</span> <span class="tag">商标</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://crawshaw.io" target="_blank" rel="noopener noreferrer" class="card-title">I am building a cloud: 单人如何用软件构建云基础设施</a>
+      <p class="card-summary">一位工程师分享了他独自构建云基础设施的技术实践，包含如何用现有开源组件（KVM、OpenvSwitch、Ceph 等）搭建类云平台。HN 获得 1023 分，是当天最热话题。讨论聚焦于现代云基础设施的复杂度是否已经超出个人可维护边界，以及软件定义基础设施在去中心化趋势下的可行性。为独立开发者和微型团队提供了可借鉴的架构思路。</p>
+      <a href="https://crawshaw.io" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">云计算</span> <span class="tag">基础设施</span> <span class="tag">去中心化</span> <span class="tag">工程</span>
+    </div>
+    </section>
+
+    <section class="section" id="section-models">
+      <h2 class="section-title">🚀 模型与行业动态</h2>
+      
+    <div class="card top">
+      <span class="top-badge">TOP</span>
+      <a href="https://openai.com/gpt-5.5" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI GPT-5.5 正式发布: 效率与编程能力双提升</a>
+      <p class="card-summary">OpenAI 发布 GPT-5.5，在编程能力和推理效率上均有显著提升。实测在 Terminal-Bench 2.0 上以微弱优势超越 Anthropic Claude Mythos Preview，重新夺回 SOTA 地位。OpenAI 强调新模型效率更高——相同任务消耗的算力和 token 减少约 30%，推理成本下降明显。HN 当天热文（1158 分，795 评论），标志着 OpenAI 与 Anthropic 在顶级模型竞争上进入新阶段。</p>
+      <a href="https://openai.com/gpt-5.5" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">OpenAI</span> <span class="tag">GPT-5.5</span> <span class="tag">LLM</span> <span class="tag">编程</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://www.theverge.com/ai-artificial-intelligence/claude-app-connectors-spotify-uber-eats-turbotax" target="_blank" rel="noopener noreferrer" class="card-title">Claude App Connectors 上线: 直连 Spotify、Uber Eats、TurboTax</a>
+      <p class="card-summary">Anthropic 为 Claude 推出 App Connector 功能，Claude 可直接操控用户的 Spotify（播放控制、推荐获取）、Uber Eats（订餐、下单追踪）和 TurboTax（税务数据读取）等第三方应用。移动端正在 beta 测试阶段。这是 AI Agent 从「聊天」走向「真实任务执行」的关键一步——LLM 直接操作软件意味着用户授权后，Claude 可代替用户完成多步骤生活任务。</p>
+      <a href="https://www.theverge.com/ai-artificial-intelligence/claude-app-connectors-spotify-uber-eats-turbotax" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Anthropic</span> <span class="tag">Claude</span> <span class="tag">Agent</span> <span class="tag">工具调用</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://anthropic.com/claude-code-quality-update" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic 公开说明 Claude Code 近期质量问题</a>
+      <p class="card-summary">Anthropic 官方发布博客说明 Claude Code 近期质量下滑原因：内部对推理 effort 和 verbosity prompt 的调整导致 Claude v2.1.116 出现性能退化，外加一个缓存 bug 加剧了问题。团队已回滚相关变更并修复缓存问题，v2.1.117 恢复稳定运行。HN 热文（593 分，468 评论），社区对 Anthropic 的透明态度评价积极，也反映了 Claude Code 作为主力编程工具对用户的深度绑定。</p>
+      <a href="https://anthropic.com/claude-code-quality-update" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Anthropic</span> <span class="tag">Claude Code</span> <span class="tag">质量</span> <span class="tag">透明</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://arstechnica.com/ai/2026/04/google-unveils-two-new-tpus-designed-for-the-agentic-era" target="_blank" rel="noopener noreferrer" class="card-title">Google 第八代 Trillium TPU: 专为 Agent 推理时代设计</a>
+      <p class="card-summary">Google 发布第八代 Trillium TPU，首次将前沿训练和 Agent 推理作为两个独立问题处理——配有两款不同架构芯片分别优化。TPU 8T 推理芯片针对 Agent 常见的长序列、多工具调用场景优化，第三代 SparseCore 提升稀疏计算效率。Google 明确表示自研路线不依赖 NVIDIA 生态，定价策略也将与 NVIDIA H100 拉开差距，标志着云厂商自研 AI 芯片的深化。</p>
+      <a href="https://arstechnica.com/ai/2026/04/google-unveils-two-new-tpus-designed-for-the-agentic-era" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Google</span> <span class="tag">TPU</span> <span class="tag">硬件</span> <span class="tag">Agent</span>
+    </div>
+    </section>
+
+    <section class="section" id="section-community">
+      <h2 class="section-title">🔥 社区热议</h2>
+      
+    <div class="card top">
+      <span class="top-badge">TOP</span>
+      <a href="https://www.bloomberg.com/tech" target="_blank" rel="noopener noreferrer" class="card-title">Meta 宣布裁员 10%: AI 投资与人力成本的结构性调整</a>
+      <p class="card-summary">Meta CEO Mark Zuckerberg 通过内部邮件宣布将裁减约 10% 员工，主要目标是「抵消其他领域的投资」。公司正在将更多资源转向 AI 基础设施和 Agent 研发。继 Google 内部代码 75% AI 生成之后，Meta 的裁员进一步印证：大厂正在用 AI 替代重复性知识工作，同时加大对 AI 的资本投入。这轮裁员不是业务收缩，而是 AI 驱动的人员结构重组。</p>
+      <a href="https://www.bloomberg.com/tech" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Meta</span> <span class="tag">裁员</span> <span class="tag">AI</span> <span class="tag">行业</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://www.reuters.com/tech/spacex-ipo-gpus" target="_blank" rel="noopener noreferrer" class="card-title">SpaceX 自研 GPU「Terafab」: Elon Musk 的芯片独立计划</a>
+      <p class="card-summary">SpaceX 在 IPO S-1 文件中披露正在与 Intel 合作建设自有芯片工厂「Terafab」，生产代号 Terafab 的自研 GPU。Musk 目标是将 SpaceX 的 AI 训练和卫星调度计算逐步迁移到自研芯片，降低对英伟达的依赖。SpaceX 的芯片项目规模预计超过 10 万片晶圆年产能，是继 Google TPU、Meta 自研 ASIC 之后，又一科技巨头推进芯片独立战略。</p>
+      <a href="https://www.reuters.com/tech/spacex-ipo-gpus" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">SpaceX</span> <span class="tag">GPU</span> <span class="tag">芯片</span> <span class="tag"> Musk</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://socket.dev/blog/bitwarden-cli-compromised" target="_blank" rel="noopener noreferrer" class="card-title">Bitwarden CLI 被黑: Checkmarx 供应链攻击持续发酵</a>
+      <p class="card-summary">开源密码管理器 Bitwarden 的 CLI 工具在持续进行的 Checkmarx 供应链攻击中被植入恶意代码。攻击者通过污染上游依赖注入后门，Bitwarden CLI 在特定版本中存在凭据窃取风险。安全团队 Socket 最早披露此事件。HN 热文（672 分），社区对供应链安全的讨论再度升温——如何验证开源包的可信度、CI/CD 流程的签名验证成为开发者社区焦点。</p>
+      <a href="https://socket.dev/blog/bitwarden-cli-compromised" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">安全</span> <span class="tag">供应链攻击</span> <span class="tag">开源</span> <span class="tag">密码管理</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://arstechnica.com/ai/2026/04/data-center-emissions" target="_blank" rel="noopener noreferrer" class="card-title">AI 数据中心碳排放将超多数国家: OpenAI、Meta、xAI 被点名</a>
+      <p class="card-summary">绿色和平组织报告称，OpenAI、Meta、xAI 和 Microsoft 的数据中心扩建计划合计碳排放将达每年 1.29 亿吨，超过大多数国家的年度排放量。数据中心对水资源的消耗同样惊人。Ars Technica 转载了这份报告并指出，AI 的能源需求正在成为气候变化的重大不确定因素。行业面临在 AI 发展和环境责任之间取得平衡的压力。</p>
+      <a href="https://arstechnica.com/ai/2026/04/data-center-emissions" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">环境</span> <span class="tag">数据中心</span> <span class="tag">AI伦理</span> <span class="tag">碳排放</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://arstechnica.com/ai/2026/04/anthropic-mythos-firefox-vulnerabilities" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic Mythos 发现 Firefox 150 中 271 个零日漏洞</a>
+      <p class="card-summary">Anthropic 的 Mythos 安全研究模型与 Mozilla 合作，在 Firefox 150 中发现 271 个零日漏洞，Mythos CTO 称其安全研究能力已「与世界顶级安全研究人员相当」。这是 AI 模型在网络安全领域最引人注目的应用突破。但 Ars Technica 评论区也引发讨论：防御性 AI 能力提升的同时，攻击性 AI 工具也在同步进化，安全攻防的 AI 军备竞赛已经开始。</p>
+      <a href="https://arstechnica.com/ai/2026/04/anthropic-mythos-firefox-vulnerabilities" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">安全</span> <span class="tag">零日漏洞</span> <span class="tag">Anthropic</span> <span class="tag">Mythos</span>
+    </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<div class="footer">
+  数据来源：The Verge, VentureBeat, Ars Technica, Hacker News, HuggingFace, GitHub<br>
+  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-24 11:38
+</div>
+
+<!-- Share Bar -->
+<div class="share-bar">
+  <button class="share-btn primary" onclick="downloadImage()">
+    <span class="icon">📸</span> 保存图片
+  </button>
+  <button class="share-btn" onclick="shareWechat()">
+    <span class="icon">💬</span> 微信分享
+  </button>
+  <button class="share-btn" onclick="copyLink()">
+    <span class="icon">🔗</span> 复制链接
+  </button>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- WeChat Modal -->
+<div class="modal-overlay" id="wechatModal" onclick="closeModal(event)">
+  <div class="modal">
+    <h3>📱 微信扫码分享</h3>
+    <div class="qr-placeholder" id="qrCode">
+      部署后自动生成二维码
+    </div>
+    <p style="color:#666;font-size:12px;margin-bottom:16px;">截图或长按保存，发送给朋友</p>
+    <button class="close-btn" onclick="document.getElementById('wechatModal').classList.remove('show')">关闭</button>
+  </div>
+</div>
+
+<script>
+(function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
+
+const SHARE_URL = 'https://lava-agent-daily.vercel.app';
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+function copyLink() {
+  const url = SHARE_URL;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showToast('✅ 链接已复制'));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('✅ 链接已复制');
+  }
+}
+
+function shareWechat() {
+  const modal = document.getElementById('wechatModal');
+  const qrCode = document.getElementById('qrCode');
+  const qrApi = 'https://api.qrserver.com/v1/create-qr-code/?size=360x360&data=' + encodeURIComponent(SHARE_URL);
+
+  qrCode.innerHTML = '<img alt="微信分享二维码" src="' + qrApi + '" />';
+  const qrImg = qrCode.querySelector('img');
+  if (qrImg) {
+    qrImg.onerror = () => {
+      qrCode.textContent = '二维码加载失败，请使用“复制链接”分享';
+    };
+  }
+
+  modal.classList.add('show');
+}
+
+function closeModal(e) {
+  if (e.target === e.currentTarget) {
+    e.currentTarget.classList.remove('show');
+  }
+}
+
+function downloadImage() {
+  const date = '2026-04-24';
+  const fileName = `AI-Agent日报-${date}.png`;
+  const shareBar = document.querySelector('.share-bar');
+  const toast = document.getElementById('toast');
+
+  showToast('📸 正在生成图片…');
+  if (shareBar) shareBar.style.display = 'none';
+  if (toast) toast.style.display = 'none';
+
+  const body = document.body;
+  const origWidth = body.style.width;
+  body.style.width = '720px';
+
+  html2canvas(body, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: '#f5f0e8',
+    width: 720,
+    windowWidth: 720
+  }).then(canvas => {
+    body.style.width = origWidth;
+    if (shareBar) shareBar.style.display = '';
+    if (toast) toast.style.display = '';
+    canvas.toBlob(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('✅ 图片已保存');
+    }, 'image/png');
+  }).catch(err => {
+    body.style.width = origWidth;
+    if (shareBar) shareBar.style.display = '';
+    if (toast) toast.style.display = '';
+    showToast('❌ 截图失败: ' + err.message);
+  });
+}
+</script>
+
+</body>
+</html>
