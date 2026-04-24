@@ -1183,16 +1183,31 @@ def main():
 
         if archive_infos:
             home_path = BASE_DIR / "home.html"
-            # 如果现有 home.html 是用户精修版（包含"项目地图"标识），跳过覆盖
-            skip_polished = False
-            if home_path.exists():
-                content = home_path.read_text()
-                if "项目地图" in content or "atlas-btn" in content:
-                    skip_polished = True
-            if skip_polished:
-                print(f"Skipped: home.html (preserving polished version)")
+            # 生成完整新页面（用于提取新存档列表）
+            new_home_html = build_home_html(archive_infos)
+
+            if home_path.exists() and ("项目地图" in home_path.read_text()):
+                # 精修版：只替换存档列表和 JS 数据，保留顶部/样式/i18n
+                polished = home_path.read_text()
+                # 1) 替换 archive list（static HTML cards）
+                #    找到 <div class="archive-list" id="archiveList">...</div> 整段
+                old_al_start = polished.find('<div class="archive-list" id="archiveList">')
+                old_al_end = polished.find('</div>', old_al_start) + 6
+                new_al_start = new_home_html.find('<div class="archive-list" id="archiveList">')
+                new_al_end = new_home_html.find('</div>', new_al_start) + 6
+                if old_al_start != -1 and new_al_start != -1:
+                    polished = polished[:old_al_start] + new_home_html[new_al_start:new_al_end] + polished[old_al_end:]
+                # 2) 替换 ALL_ARCHIVES JS 常量
+                old_aa_start = polished.find("const ALL_ARCHIVES = ")
+                new_aa_start = new_home_html.find("const ALL_ARCHIVES = ")
+                old_aa_end = polished.find(";", old_aa_start) + 1
+                new_aa_end = new_home_html.find(";", new_aa_start) + 1
+                if old_aa_start != -1 and new_aa_start != -1:
+                    polished = polished[:old_aa_start] + new_home_html[new_aa_start:new_aa_end] + polished[old_aa_end:]
+                home_path.write_text(polished)
+                print(f"Updated: home.html ({len(archive_infos)} issues, polished preserved)")
             else:
-                home_html = build_home_html(archive_infos)
+                home_html = new_home_html
                 with open(home_path, "w") as f:
                     f.write(home_html)
                 print(f"Generated: {home_path} ({len(archive_infos)} issues)")
