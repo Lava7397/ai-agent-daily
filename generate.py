@@ -35,6 +35,21 @@ def get_issue_date(data):
     return str(data.get("date") or current_beijing_date_str())
 
 
+def sync_today_html_from_newest_archive():
+    """将 today.html 写成「archives/ 下日期 YYYY-MM-DD 最大」的那一期。
+
+    与 home 页把「今日刊」指向「列表第一条（最新期）」的语义一致；也修复
+    daily_data 里 date 未跟上时，/today.html 内容落后于 archives 的问题。
+    """
+    paths = sorted(OUTPUT_DIR.glob("????-??-??.html"), key=lambda p: p.stem)
+    if not paths:
+        return
+    latest = paths[-1]
+    today_path = BASE_DIR / TODAY_FILENAME
+    today_path.write_text(latest.read_text(encoding="utf-8"), encoding="utf-8")
+    print(f"Synced {TODAY_FILENAME} ← {latest.name} (newest archive)")
+
+
 def replace_between(text, start_marker, end_marker, replacement):
     start = text.find(start_marker)
     if start == -1:
@@ -1238,6 +1253,10 @@ def main(argv=None):
     else:
         archive_path.write_text(html, encoding="utf-8")
         print(f"Generated: {archive_path}")
+
+    # 用日期最新的一期覆盖 today.html，与首页列表第一条、/today 直链 三者一致
+    # （Hermes 若只更新了较新的 archive、daily_data 仍滞后，否则会 4/24 vs 4/23 打架）
+    sync_today_html_from_newest_archive()
 
     print(f"\nTotal items: {sum(len(data.get(k, [])) for k in ('research','github','models','community'))}")
     print("Done!")

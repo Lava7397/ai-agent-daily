@@ -756,7 +756,9 @@ function noSummary(lang) {
 }
 
 function getLatestIssueHref() {
-  return ALL_ARCHIVES.length ? `archives/${ALL_ARCHIVES[0][0]}.html` : 'today.html';
+  // 与 /today.html 统一：由 generate 将「最新一期归档」同步到 today.html，避免
+  // daily_data 日期滞后时，直链 /today.html 与「今日刊」分别指向 4/23 与 4/24。
+  return 'today.html';
 }
 
 function syncTodayLinks() {
