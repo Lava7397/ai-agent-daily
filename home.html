@@ -473,7 +473,7 @@ body {
       </div>
       <div class="atlas-links">
         <a href="#legacy-home" data-i18n="nav_archive">AI Daily 存档</a>
-        <a href="index.html" data-role="today-issue-link" data-i18n="nav_today">今日刊</a>
+        <a href="today.html" data-role="today-issue-link" data-i18n="nav_today">今日刊</a>
       </div>
     </div>
   </div>
@@ -513,7 +513,7 @@ body {
         </div>
         <div class="atlas-project-actions">
           <a class="atlas-btn primary" href="#legacy-home" data-i18n="btn_archive">Archive</a>
-          <a class="atlas-btn" href="index.html" data-role="today-issue-link" data-i18n="btn_today">Today</a>
+          <a class="atlas-btn" href="today.html" data-role="today-issue-link" data-i18n="btn_today">Today</a>
         </div>
       </article>
       <article class="atlas-project-card atlas-project-card--placeholder">
@@ -530,7 +530,7 @@ body {
 <div class="hero" id="legacy-home">
   <h1 data-i18n="legacy_h1">AI Daily · LavaAgent</h1>
   <p class="subtitle">LavaAgent · 历史存档 · 共 10 期</p>
-  <a class="today-link" href="index.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看当天日报 →</a>
+  <a class="today-link" href="today.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看当天日报 →</a>
 </div>
 
 <!-- Stats -->
@@ -666,7 +666,7 @@ body {
 <!-- Footer -->
 <div class="footer">
   <p><span data-i18n="footer_generated_prefix">生成于</span> 2026-04-24 · Lava · LavaAgent</p>
-  <p style="margin-top:6px;"><a href="index.html" data-role="today-issue-link" data-i18n="footer_today">当天日报</a> · <a href="home.html" data-i18n="footer_archive">历史存档</a></p>
+  <p style="margin-top:6px;"><a href="today.html" data-role="today-issue-link" data-i18n="footer_today">当天日报</a> · <a href="home.html" data-i18n="footer_archive">历史存档</a></p>
 </div>
 
 <script>
@@ -756,7 +756,7 @@ function noSummary(lang) {
 }
 
 function getLatestIssueHref() {
-  return ALL_ARCHIVES.length ? `archives/${ALL_ARCHIVES[0][0]}.html` : 'index.html';
+  return ALL_ARCHIVES.length ? `archives/${ALL_ARCHIVES[0][0]}.html` : 'today.html';
 }
 
 function syncTodayLinks() {

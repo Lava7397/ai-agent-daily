@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 AI Agent 日报 H5 页面生成器
-读取 daily_data.json → 生成 index.html + 归档页面
+读取 daily_data.json → 生成 today.html(当天刊) + 归档页面
 """
 import argparse
 import json
@@ -17,6 +17,10 @@ BEIJING_TZ = timezone(timedelta(hours=8))
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "daily_data.json"
 OUTPUT_DIR = BASE_DIR / "archives"
+
+# 当天刊文件名。不能用 index.html: 静态托管会把 URL `/` 映射到根目录的
+# index.html,优先于 vercel.json 里把 `/` 重写到 home.html,导致首页变成「当天刊」。
+TODAY_FILENAME = "today.html"
 
 # Canonical public URL for the site. Override with SITE_URL env var if needed.
 # Keep in sync with CNAME file and Vercel custom domain settings.
@@ -749,7 +753,9 @@ def build_home_html(archive_infos, page=1, per_page=10):
     start = (page - 1) * per_page
     end = start + per_page
     page_infos = archive_infos[start:end]
-    latest_issue_href = f"archives/{archive_infos[0][0]}.html" if archive_infos else "index.html"
+    latest_issue_href = (
+        f"archives/{archive_infos[0][0]}.html" if archive_infos else TODAY_FILENAME
+    )
 
     # 生成日期卡片（含头条摘要）
     cards_html = ""
@@ -1206,16 +1212,16 @@ def main(argv=None):
 
     html = build_html(data)
 
-    # Write index.html (latest)
-    index_path = BASE_DIR / "index.html"
-    previous_index = index_path.read_text(encoding="utf-8") if index_path.exists() else None
-    index_path.write_text(html, encoding="utf-8")
-    if previous_index is None:
-        print(f"Generated: {index_path}")
-    elif previous_index == html:
-        print(f"Up-to-date: {index_path}")
+    # Write today.html (当天刊; 不是 index.html,见模块顶注释)
+    today_path = BASE_DIR / TODAY_FILENAME
+    previous_today = today_path.read_text(encoding="utf-8") if today_path.exists() else None
+    today_path.write_text(html, encoding="utf-8")
+    if previous_today is None:
+        print(f"Generated: {today_path}")
+    elif previous_today == html:
+        print(f"Up-to-date: {today_path}")
     else:
-        print(f"Updated: {index_path}")
+        print(f"Updated: {today_path}")
 
     # Write archive page
     OUTPUT_DIR.mkdir(exist_ok=True)

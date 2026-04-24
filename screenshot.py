@@ -28,13 +28,14 @@ async def main():
     output_path = OUTPUT_DIR / f"{date_str}.png"
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    print(f"📸 截取页面: {LIVE_URL}")
+    print(f"📸 截取页面: {LIVE_URL.rstrip('/')}/today.html")
     print(f"📁 保存到: {output_path}")
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page(viewport={"width": 720, "height": 800})
-        await page.goto(LIVE_URL, wait_until="networkidle", timeout=30000)
+        page_url = f"{LIVE_URL.rstrip('/')}/today.html"
+        await page.goto(page_url, wait_until="networkidle", timeout=30000)
         await page.wait_for_timeout(3000)
 
         # 隐藏 share-bar
