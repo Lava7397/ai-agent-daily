@@ -1,15 +1,66 @@
 {
   "date": "2026-04-25",
-  "sources": "arXiv, GitHub Trending, HuggingFace Papers, Hacker News, LangChain/CrewAI/Dify Blogs, AI Tools",
-  "description": "AI Agent 领域最新情报 - 研究论文 | 开源项目 | 模型发布 | 社区实践",
-  "research": [],
+  "sources": "arXiv, GitHub, HN, HuggingFace",
+  "description": "AI Agent 领域最新情报",
+  "research": [
+    {
+      "title": "Nemobot Games: Crafting Strategic AI Gaming 智能体s for Interactive Learning with Large Language Mode",
+      "summary": "This paper introduces a new paradigm for AI game programming, leveraging large language models (LLMs) to extend and operationalize Claude Shannon's ta",
+      "url": "https://arxiv.org/abs/2604.21896v1",
+      "tags": [
+        "arXiv",
+        "研究"
+      ],
+      "score": 3
+    },
+    {
+      "title": "Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/",
+      "summary": "The 模型 Context Protocol (MCP) has become a common interface for connecting large language model (LLM) 智能体s to external tools, but its reliance on",
+      "url": "https://arxiv.org/abs/2604.21816v1",
+      "tags": [
+        "arXiv",
+        "研究"
+      ],
+      "score": 3
+    },
+    {
+      "title": "From 研究 Question to Scientific 工作流: Leveraging 智能体ic AI for Science Automation",
+      "summary": "Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes i",
+      "url": "https://arxiv.org/abs/2604.21910v1",
+      "tags": [
+        "arXiv",
+        "研究"
+      ],
+      "score": 2
+    },
+    {
+      "title": "Learning to Communicate: Toward End-to-End Optimization of Multi-智能体 Language Systems",
+      "summary": "Multi-智能体 systems built on large language models have shown strong performance on complex reasoning tasks, yet most work focuses on 智能体 roles and ",
+      "url": "https://arxiv.org/abs/2604.21794v1",
+      "tags": [
+        "arXiv",
+        "研究"
+      ],
+      "score": 2
+    },
+    {
+      "title": "智能体ic AI-Enabled 框架 for Thermal Comfort and Building Energy Assessment in Tropical Urban Ne",
+      "summary": "In response to the urban heat island effects and building energy demands in Singapore, this study proposes an 智能体ic AI-enabled reasoning framework t",
+      "url": "https://arxiv.org/abs/2604.21787v1",
+      "tags": [
+        "arXiv",
+        "研究"
+      ],
+      "score": 2
+    }
+  ],
   "github": [],
   "models": [],
   "community": [],
   "stats": {
-    "total": 0,
+    "total": 5,
     "by_module": {
-      "research": 0,
+      "research": 5,
       "github": 0,
       "models": 0,
       "community": 0
