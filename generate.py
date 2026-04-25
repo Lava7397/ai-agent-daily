@@ -1349,8 +1349,13 @@ def main(argv=None):
             new_home_html = build_home_html(archive_infos)
 
             existing_home_html = home_path.read_text(encoding="utf-8") if home_path.exists() else ""
-            if home_path.exists() and ("项目地图" in existing_home_html):
-                # 精修版：只替换归档区和归档数据，保留顶部/样式/i18n
+            # 精修版含顶栏/项目卡/多语言等；原用「项目地图」检测，UI 迭代后已去掉，改用布局类名避免误全量覆盖
+            is_polished = home_path.exists() and (
+                "项目地图" in existing_home_html
+                or "atlas-nav-sticky" in existing_home_html
+            )
+            if is_polished:
+                # 精修版：只替换归档区与 ALL_ARCHIVES，保留顶部/样式/i18n
                 polished = update_polished_home_html(
                     existing_home_html,
                     new_home_html,
