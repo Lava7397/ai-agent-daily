@@ -1,111 +1,18 @@
 {
   "date": "2026-04-25",
-  "sources": "arXiv, GitHub Trending, HuggingFace Papers, Hacker News, VentureBeat, The Verge, AI News",
-  "research": [
-    {
-      "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation",
-      "summary": "Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes it. Scientists still manually convert research questions into workflow specifications, a task requiring both domain knowledge and infrastructure expert",
-      "url": "http://arxiv.org/abs/2604.21910v1",
-      "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "_impact": 4
-    },
-    {
-      "title": "Nemobot Games: Crafting Strategic AI Gaming Agents for Interactive Learning with Large Language Models",
-      "summary": "This paper introduces a new paradigm for AI game programming, leveraging large language models (LLMs) to extend and operationalize Claude Shannon's taxonomy of game-playing machines. Central to this paradigm is Nemobot, an interactive agentic engineering environment that enables users to create, cus",
-      "url": "http://arxiv.org/abs/2604.21896v1",
-      "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "_impact": 3
-    },
-    {
-      "title": "First measurement of wind line formation regions in an early O-type star",
-      "summary": "Massive stars with their strong ionizing radiation and strong stellar winds are the key feedback agents of the universe. Stellar winds of massive stars are often measured by fitting resonance lines in the UV using non-LTE stellar atmosphere models. So far, the line formation regions of these lines h",
-      "url": "http://arxiv.org/abs/2604.21920v1",
-      "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "_impact": 2
-    },
-    {
-      "title": "Task-Driven Co-Design of Heterogeneous Multi-Robot Systems",
-      "summary": "Designing multi-agent robotic systems requires reasoning across tightly coupled decisions spanning heterogeneous domains, including robot design, fleet composition, and planning. Much effort has been devoted to isolated improvements in these domains, whereas system-level co-design considering trade-",
-      "url": "http://arxiv.org/abs/2604.21894v1",
-      "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "_impact": 2
-    },
-    {
-      "title": "Wave physics as a choreographic notation for partner dance",
-      "summary": "The wave is considered a paradigm in dance and connects bodily expression with nature. Although wave concepts such as propagation and phase have proven to be powerful tools for dance analysis, many aspects of bodily expression, including partner dance, have been investigated using numerical approach",
-      "url": "http://arxiv.org/abs/2604.21918v1",
-      "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "_impact": 1
-    },
-    {
-      "title": "CrossCommitVuln-Bench: A Dataset of Multi-Commit Python Vulnerabilities Invisible to Per-Commit Static Analysis",
-      "summary": "We present CrossCommitVuln-Bench, a curated benchmark of 15 real-world Python vulnerabilities (CVEs) in which the exploitable condition was introduced across multiple commits - each individually benign to per-commit static analysis - but collectively critical. We manually annotate each CVE with its ",
-      "url": "http://arxiv.org/abs/2604.21917v1",
-      "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "_impact": 1
-    },
-    {
-      "title": "Machine Behavior in Relational Moral Dilemmas: Moral Rightness, Predicted Human Behavior, and Model Decisions",
-      "summary": "Human moral judgment is context-dependent and modulated by interpersonal relationships. As large language models (LLMs) increasingly function as decision-support systems, determining whether they encode these social nuances is critical. We characterize machine behavior using the Whistleblower's Dile",
-      "url": "http://arxiv.org/abs/2604.21871v1",
-      "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "_impact": 0.5
-    }
-  ],
+  "sources": "arXiv, GitHub Trending, HuggingFace Papers, Hacker News, LangChain/CrewAI/Dify Blogs, AI Tools",
+  "description": "AI Agent 领域最新情报 - 研究论文 | 开源项目 | 模型发布 | 社区实践",
+  "research": [],
   "github": [],
-  "models": [
-    {
-      "title": "Google plans to invest up to $40B in Anthropic",
-      "summary": "HN Score: 307, by elffjs",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-24/google-plans-to-invest-up-to-40-billion-in-anthropic",
-      "tags": [
-        "Hacker News",
-        "社区"
-      ],
-      "_impact": 10
+  "models": [],
+  "community": [],
+  "stats": {
+    "total": 0,
+    "by_module": {
+      "research": 0,
+      "github": 0,
+      "models": 0,
+      "community": 0
     }
-  ],
-  "community": [
-    {
-      "title": "Sabotaging projects by overthinking, scope creep, and structural diffing",
-      "summary": "HN Score: 351, by alcazar",
-      "url": "https://kevinlynagh.com/newsletter/2026_04_overthinking/",
-      "tags": [
-        "Hacker News",
-        "社区"
-      ],
-      "_impact": 0.5
-    },
-    {
-      "title": "How to be anti-social – a guide to incoherent and isolating social experiences",
-      "summary": "HN Score: 300, by calcifer",
-      "url": "https://nate.leaflet.pub/3mk4xkaxobc2p",
-      "tags": [
-        "Hacker News",
-        "社区"
-      ],
-      "_impact": 0.5
-    }
-  ]
+  }
 }
