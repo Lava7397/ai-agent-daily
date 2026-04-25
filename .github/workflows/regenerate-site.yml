@@ -1,0 +1,43 @@
+# 线上站点是 generate.py 生成的「静态 HTML」，浏览器不会读 daily_data.json。
+# 只改 daily_data.json 并推送时，若未在本地跑 generate 并提交 home/today/archives，
+# 网站内容不会变。本工作流在推送后补跑 generate，有差异则自动提交，避免漏步骤。
+name: Regenerate site from daily_data
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "daily_data.json"
+      - "generate.py"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Regenerate static HTML
+        run: python3 generate.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No file changes from generate.py; nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore: regenerate site from daily_data.json"
+          git push
