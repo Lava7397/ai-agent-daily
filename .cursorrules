@@ -16,6 +16,7 @@
 - deploy.py: 部署到 Vercel
 - screenshot.py: 页面截图
 - scripts/source_*.py: 数据源发现 / 评估 / 迭代
+- scripts/export_mascot_from_raw.py: 从原图生成站标 site-mascot / favicon（裁边、漫画化减色+线感、锐化）
 
 ## 注意事项
 - 改完代码手动部署: `cd ~/Hermes/ai-daily-h5 && vercel --prod --yes`

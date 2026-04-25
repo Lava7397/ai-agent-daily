@@ -67,14 +67,15 @@ body {
   color: #2f2c27;
   font-weight: 600;
 }
-/* 与复制按钮多留一截空隙；文案 + 比心 + 分享成组 */
+/* 与复制按钮多留一截空隙；小字 + 比心 + 分享说明（左）+ 分享按钮 */
 .atlas-fav-encourage-wrap {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   margin-left: 12px;
 }
-.atlas-fav-encourage {
+.atlas-fav-encourage,
+.atlas-share-hint {
   font-size: 10px;
   font-weight: 500;
   color: #8a7f72;
@@ -82,6 +83,10 @@ body {
   line-height: 1.2;
   white-space: nowrap;
   user-select: none;
+}
+/* 英文整句可能较长，窄屏允许换行 */
+@media (max-width: 420px) {
+  .atlas-share-hint { white-space: normal; max-width: 7.5em; }
 }
 .atlas-copy-btn,
 .atlas-share-btn {
@@ -379,8 +384,9 @@ body {
   display: none;
 }
 .atlas-hero-favicon {
-  width: 1em;
-  height: 1em;
+  height: 1.15em;
+  width: auto;
+  max-width: 1.5em;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -829,7 +835,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
       </button>
       <span class="atlas-fav-encourage-wrap">
-        <span class="atlas-fav-encourage" data-i18n="fav_encourage">给个鼓励</span>
+        <span class="atlas-fav-encourage" data-i18n="fav_encourage">看着不错</span>
         <button type="button" class="atlas-fav-btn" id="fav-site-url" aria-label="喜欢本网站" title="点一颗爱心" aria-pressed="false">
           <span class="atlas-fav-btn-inner" aria-hidden="true">
             <span class="atlas-fav-img-crop">
@@ -837,6 +843,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
             </span>
           </span>
         </button>
+        <span class="atlas-share-hint" data-i18n="share_hint">给朋友看看</span>
         <button type="button" class="atlas-share-btn" id="share-page-btn" aria-label="分享介绍页" title="分享介绍页，打开可进入主站">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
         </button>
@@ -862,7 +869,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
     <h1 class="atlas-title">
       <span class="atlas-title-line1" data-i18n="hero_line1">the project map</span><br>
       <span class="atlas-title-line2">
-        <span class="atlas-hero-of" data-i18n="hero_of">of </span><img class="atlas-hero-favicon" src="favicon.ico" alt="" decoding="async" />
+        <span class="atlas-hero-of" data-i18n="hero_of">of </span><img class="atlas-hero-favicon" src="images/site-mascot.png" alt="" decoding="async" />
         <em class="atlas-title-brand" data-i18n="hero_brand">LavaAgent.</em>
       </span>
     </h1>
@@ -1040,12 +1047,14 @@ const I18N = {
     fav_aria_on: '已喜欢，点击取消',
     fav_title_add: '点一颗爱心',
     fav_title_remove: '取消爱心',
-    fav_encourage: '给个鼓励',
+    fav_encourage: '看着不错',
     share_aria: '分享介绍页',
     share_title: '分享可展示标题与摘要的链接，打开后进入主站',
     share_card_title: 'LavaAgent Daily News',
     share_text: '每日 AI Agent 资讯 — LavaAgent Daily News',
     share_toast: '已复制介绍页链接，对方打开可进入主站',
+    share_toast_block_hint: '（若未弹出新窗口，请检查浏览器是否拦截弹窗）',
+    share_hint: '给朋友看看',
   },
   en: {
     nav_archive: 'AI Daily archive',
@@ -1078,12 +1087,14 @@ const I18N = {
     fav_aria_on: 'Liked, click to remove',
     fav_title_add: 'Add a heart',
     fav_title_remove: 'Remove heart',
-    fav_encourage: 'Show some love',
+    fav_encourage: 'Not bad',
     share_aria: 'Share intro link',
     share_title: 'Link includes title and summary; opens the main site',
     share_card_title: 'LavaAgent Daily News',
     share_text: 'Daily AI Agent news — LavaAgent Daily News',
     share_toast: 'Intro page link copied — open to visit the site',
+    share_toast_block_hint: ' (If the new tab did not open, check whether your browser is blocking pop-ups.)',
+    share_hint: 'To share with a friend.',
   },
 };
 
@@ -1459,26 +1470,22 @@ function copyStringToClipboard(str) {
     const url = getIntroShareUrl();
     const title = (pack.share_card_title !== undefined) ? pack.share_card_title : 'LavaAgent Daily News';
     const text = (pack.share_text !== undefined) ? pack.share_text : title;
-    const isLocal =
-      /^(127\.0\.0\.1|localhost)$/.test(String(location.hostname)) ||
-      (location.port !== '' && location.port !== '80' && location.port !== '443');
+    /* 必须同步调 window.open；若在 await 之后调，浏览器会当成非用户手势而拦截新窗口 */
+    var sharePreview = window.open(url, '_blank', 'noopener,noreferrer');
     if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
       const full = { title, text, url };
       try {
         if (typeof navigator.canShare === 'function') {
           if (navigator.canShare(full)) {
             await navigator.share(full);
-            if (isLocal) window.open(url, '_blank', 'noopener,noreferrer');
             return;
           }
           if (navigator.canShare({ url })) {
             await navigator.share({ url });
-            if (isLocal) window.open(url, '_blank', 'noopener,noreferrer');
             return;
           }
         } else {
           await navigator.share(full);
-          if (isLocal) window.open(url, '_blank', 'noopener,noreferrer');
           return;
         }
       } catch (e) {
@@ -1487,8 +1494,11 @@ function copyStringToClipboard(str) {
     }
     try {
       await copyStringToClipboard(url);
-      showNavUrlToast(pack.share_toast);
-      if (isLocal) window.open(url, '_blank', 'noopener,noreferrer');
+      if (!sharePreview) {
+        showNavUrlToast(pack.share_toast + (pack.share_toast_block_hint || ''));
+      } else {
+        showNavUrlToast(pack.share_toast);
+      }
     } catch (e) {
       /* ignore */
     }

@@ -3,23 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="每日 AI Agent 资讯 — LavaAgent Daily News。进入 LavaAgent 主站。">
+<meta name="description" content="每日 AI Agent 资讯。LavaAgent Daily News — 进入主站继续阅读与存档。">
 <meta name="theme-color" content="#f5f0e8">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>LavaAgent Daily News · 每日 AI Agent 资讯</title>
+<title>每日 AI Agent 资讯 — LavaAgent</title>
 <link rel="canonical" href="https://lava7397.com/intro.html">
-<!-- 社交预览：标题/摘要；og:image 使用较大 PNG 便于微信等抓取，与页内 favicon 展示无冲突 -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LavaAgent">
 <meta property="og:url" content="https://lava7397.com/intro.html">
-<meta property="og:title" content="LavaAgent Daily News">
-<meta property="og:description" content="每日 AI Agent 资讯 — LavaAgent Daily News">
+<meta property="og:title" content="每日 AI Agent 资讯 — LavaAgent">
+<meta property="og:description" content="每天精选 AI 智能体相关研究、项目与行业动态。由 LavaAgent 汇总。">
 <meta property="og:image" content="https://lava7397.com/apple-touch-icon.png">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LavaAgent Daily News">
-<meta name="twitter:description" content="每日 AI Agent 资讯 — LavaAgent Daily News">
+<meta name="twitter:title" content="每日 AI Agent 资讯 — LavaAgent">
+<meta name="twitter:description" content="每天精选 AI 智能体相关研究、项目与行业动态。由 LavaAgent 汇总。">
 <meta name="twitter:image" content="https://lava7397.com/apple-touch-icon.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
@@ -32,45 +31,59 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 16px;
+  padding: 24px 16px 32px;
   -webkit-font-smoothing: antialiased;
 }
 .intro-card {
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
   text-align: center;
   background: rgba(255, 255, 255, 0.45);
   border: 1px solid rgba(100, 80, 60, 0.15);
   border-radius: 16px;
-  padding: 36px 28px 32px;
+  padding: 32px 24px 28px;
   box-shadow: 0 8px 32px rgba(60, 50, 40, 0.08);
 }
-.intro-icon {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 20px;
-  display: block;
-  image-rendering: auto;
-}
 .intro-card h1 {
-  font-size: 1.35rem;
+  font-size: clamp(1.15rem, 4vw, 1.45rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #1a1815;
-  margin-bottom: 10px;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+.intro-card .intro-daily-zh {
+  font-size: 0.9rem;
+  color: #5a5248;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.intro-card hr.intro-divider {
+  border: none;
+  height: 1px;
+  background: rgba(100, 80, 60, 0.14);
+  margin: 0 0 20px;
+}
+.intro-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  display: block;
+  image-rendering: auto;
+}
+.intro-card h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #1a1815;
+  margin-bottom: 6px;
   line-height: 1.3;
 }
-.intro-tagline {
-  font-size: 0.95rem;
-  color: #5a5248;
-  line-height: 1.55;
-  margin-bottom: 8px;
-}
-.intro-sub {
+.intro-card .intro-lava-line {
   font-size: 0.8rem;
   color: #8a7f72;
-  margin-bottom: 28px;
-  line-height: 1.5;
+  margin-bottom: 20px;
+  line-height: 1.45;
 }
 .intro-cta {
   display: inline-flex;
@@ -96,21 +109,24 @@ body {
 }
 .intro-cta:active { transform: translateY(0); }
 .intro-hint {
-  margin-top: 20px;
-  font-size: 0.7rem;
+  margin-top: 16px;
+  font-size: 0.68rem;
   color: #9a8f82;
   letter-spacing: 0.04em;
+  line-height: 1.4;
 }
 </style>
 </head>
 <body>
-  <main class="intro-card" role="main">
-    <img class="intro-icon" src="favicon.ico" width="72" height="72" alt="" decoding="async" />
-    <h1>LavaAgent Daily News</h1>
-    <p class="intro-tagline" lang="zh-CN">每日 AI Agent 资讯</p>
-    <p class="intro-sub" lang="en">Curated AI Agent news and notes — LavaAgent</p>
+  <main class="intro-card" role="main" aria-label="LavaAgent Daily — intro">
+    <h1>每日 AI Agent 资讯</h1>
+    <p class="intro-daily-zh" lang="zh-CN">LavaAgent Daily — 每天精选 <strong>AI 智能体</strong> 相关研究、产品、开源项目与行业动态。北京时间每日更新。</p>
+    <hr class="intro-divider" />
+    <img class="intro-icon" src="favicon.ico" width="64" height="64" alt="" decoding="async" />
+    <h2>LavaAgent</h2>
+    <p class="intro-lava-line">LavaAgent Daily News — 主站提供历史归档与项目入口。点击下方进入。</p>
     <a class="intro-cta" href="https://www.lava7397.com/">进入 www.lava7397.com</a>
-    <p class="intro-hint">点击按钮打开主站 · LavaAgent 个人项目与 AI Daily</p>
+    <p class="intro-hint">本卡片为可分享的落地页。点击上方按钮即进入 LavaAgent 主站；社交预览将展示本页标题与摘要。</p>
   </main>
 </body>
 </html>

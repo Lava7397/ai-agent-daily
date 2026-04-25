@@ -20,9 +20,10 @@ ai-daily-h5/
 ├── archives/                # 历史归档 (YYYY-MM-DD.html)
 ├── images/                  # 每日封面图 (YYYY-MM-DD.png)
 ├── scripts/
-│   ├── source_explorer.py    # 发现新数据源
-│   ├── source_evaluator.py   # 评估数据源质量
-│   └── source_evolution.py   # 数据源自我迭代编排
+│   ├── source_explorer.py     # 发现新数据源
+│   ├── source_evaluator.py    # 评估数据源质量
+│   ├── source_evolution.py    # 数据源自我迭代编排
+│   └── export_mascot_from_raw.py  # 从原图导出站标 / favicon（漫画化等）
 ├── vercel.json              # Vercel 部署配置
 └── CNAME                    # 自定义域名
 ```
