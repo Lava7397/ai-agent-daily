@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="description" content="Lava · LavaAgent — 个人项目入口与 AI Daily 历史存档">
 <meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>LavaAgent · Lava 的个人项目入口</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
@@ -19,6 +19,17 @@ body {
   color: #2c2c2c;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ---- 顶栏 Lava 行：整页滚动时吸顶 ---- */
+.atlas-nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(242, 237, 227, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(100, 80, 60, 0.12);
 }
 
 /* ---- Atlas Summary (new top section) ---- */
@@ -35,7 +46,6 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  border-bottom: 1px solid rgba(100,80,60,0.12);
   font-size: 11px;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -95,14 +105,6 @@ body {
   margin: 0 auto;
   padding: 44px 24px 18px;
 }
-.atlas-byline {
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #98703f;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
 .atlas-title {
   font-size: clamp(36px, 6vw, 72px);
   line-height: 1.03;
@@ -110,19 +112,42 @@ body {
   font-weight: 600;
   color: #171615;
 }
-.atlas-title em {
+.atlas-title-line2 {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.2em 0.28em;
+}
+.atlas-hero-of:empty {
+  display: none;
+}
+.atlas-hero-favicon {
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 0.1em;
+  border-radius: 0.2em;
+  border: 1px solid rgba(100, 80, 60, 0.2);
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 1px 2px rgba(45, 36, 28, 0.06);
+}
+.atlas-title em,
+.atlas-title-brand {
   font-style: normal;
   color: #98703f;
 }
 .atlas-project-strip {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 22px 24px 30px;
+  padding: 10px 20px 14px;
 }
 .atlas-projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 12px;
   align-items: stretch;
 }
 .atlas-project-card {
@@ -137,56 +162,63 @@ body {
   background: rgba(255,255,255,0.25);
 }
 .atlas-placeholder-body {
-  padding: 20px 16px 24px;
+  padding: 6px 12px 8px;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
   color: #8a7e6e;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  min-height: 0;
 }
 .atlas-project-title {
-  padding: 14px 16px 10px;
+  padding: 7px 12px 5px;
   border-bottom: 1px solid rgba(100,80,60,0.14);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 10px;
+  gap: 8px;
 }
 .atlas-project-title h2 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 34px;
+  font-size: 22px;
   font-weight: 600;
+  line-height: 1.1;
   color: #23201b;
 }
 .atlas-project-title .version {
-  font-size: 12px;
+  font-size: 11px;
   color: #796f61;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-align: right;
 }
 .atlas-project-meta {
-  font-size: 11px;
+  font-size: 10px;
   color: #9a8f82;
-  letter-spacing: 0.5px;
-  margin-top: 4px;
+  letter-spacing: 0.4px;
+  margin-top: 1px;
 }
 .atlas-project-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 14px 16px 16px;
+  gap: 6px;
+  padding: 7px 12px 8px;
   border-top: 1px solid rgba(100,80,60,0.12);
   margin-top: auto;
 }
+.atlas-project-actions .atlas-btn {
+  padding: 5px 11px;
+  font-size: 10px;
+  letter-spacing: 0.9px;
+}
 .atlas-project-body {
   display: grid;
-  grid-template-columns: repeat(4, minmax(130px, 1fr));
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
 }
 .atlas-project-stat {
-  padding: 14px 16px 16px;
+  padding: 6px 9px 7px;
   border-right: 1px solid rgba(100,80,60,0.14);
 }
 .atlas-project-stat:last-child {
@@ -194,19 +226,21 @@ body {
 }
 .atlas-project-stat .num {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 28px;
+  font-size: 19px;
+  line-height: 1.1;
   color: #2a241d;
 }
-.atlas-project-stat--date {
-  font-size: clamp(20px, 3.2vw, 26px);
-  line-height: 1.15;
+.atlas-project-stat .num.atlas-project-stat--date {
+  font-size: clamp(14px, 2.2vw, 17px);
+  line-height: 1.1;
   word-break: break-all;
 }
 .atlas-project-stat .txt {
-  font-size: 10px;
+  font-size: 9px;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.9px;
   color: #867b6f;
+  margin-top: 1px;
 }
 .atlas-btn {
   border: 1px solid rgba(100,80,60,0.18);
@@ -224,29 +258,29 @@ body {
   border-color: #9a6f35;
 }
 
-/* ---- Hero ---- */
-.hero {
+/* ---- AI Daily 区（#legacy-home，与历史版本一致的 hero 视觉） ---- */
+#legacy-home.hero {
   background:
-    radial-gradient(ellipse at 20% 80%, rgba(178,200,218,0.35) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
+    radial-gradient(ellipse at 20% 80%, rgba(178, 200, 218, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(210, 185, 220, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(245, 235, 210, 0.5) 0%, transparent 70%),
     #f5f0e8;
   padding: 52px 24px 40px;
   text-align: center;
   position: relative;
-  border-bottom: 2px solid rgba(100,80,60,0.15);
+  border-bottom: 2px solid rgba(100, 80, 60, 0.15);
 }
-.hero::before {
+#legacy-home.hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
     0deg, transparent, transparent 3px,
-    rgba(100,80,60,0.02) 3px, rgba(100,80,60,0.02) 4px
+    rgba(100, 80, 60, 0.02) 3px, rgba(100, 80, 60, 0.02) 4px
   );
   pointer-events: none;
 }
-.hero h1 {
+#legacy-home.hero h1 {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 34px;
   font-weight: 700;
@@ -254,8 +288,9 @@ body {
   letter-spacing: 3px;
   position: relative;
   z-index: 1;
+  margin: 0;
 }
-.hero .subtitle {
+#legacy-home.hero .subtitle {
   color: #8a7e6e;
   font-size: 13px;
   margin-top: 10px;
@@ -263,7 +298,7 @@ body {
   z-index: 1;
   letter-spacing: 1.5px;
 }
-.hero .today-link {
+#legacy-home.hero .today-link {
   display: inline-block;
   margin-top: 24px;
   padding: 10px 22px;
@@ -278,35 +313,8 @@ body {
   z-index: 1;
   transition: background 0.2s;
 }
-.hero .today-link:hover { background: #4a6080; }
-
-/* ---- Stats bar ---- */
-.stats-bar {
-  max-width: 720px;
-  margin: 28px auto 0;
-  padding: 0 24px;
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-}
-.stats-bar .stat {
-  text-align: center;
-  border: 1px solid rgba(100,80,60,0.12);
-  padding: 12px 20px;
-  background: rgba(255,255,255,0.5);
-}
-.stats-bar .stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: #5a6e8a;
-}
-.stats-bar .stat-label {
-  font-size: 10px;
-  color: #8a7e6e;
-  margin-top: 2px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+#legacy-home.hero .today-link:hover {
+  background: #4a6080;
 }
 
 /* ---- Archive list ---- */
@@ -480,9 +488,9 @@ body {
 </head>
 <body>
 
-<section class="atlas-shell">
+<header class="atlas-nav-sticky">
   <div class="atlas-nav">
-    <div class="atlas-brand">Lava · LavaAgent</div>
+    <div class="atlas-brand">Lava</div>
     <div class="atlas-nav-right">
       <div class="atlas-lang" role="group" aria-label="Language">
         <button type="button" id="lang-zh" data-set-lang="zh">中</button>
@@ -495,10 +503,17 @@ body {
       </div>
     </div>
   </div>
+</header>
 
+<section class="atlas-shell">
   <div class="atlas-hero">
-    <p class="atlas-byline">Lava</p>
-    <h1 class="atlas-title" data-i18n-html="hero_title">the project map<br>of <em>LavaAgent.</em></h1>
+    <h1 class="atlas-title">
+      <span class="atlas-title-line1" data-i18n="hero_line1">the project map</span><br>
+      <span class="atlas-title-line2">
+        <span class="atlas-hero-of" data-i18n="hero_of">of </span><img class="atlas-hero-favicon" src="favicon.ico" alt="" decoding="async" />
+        <em class="atlas-title-brand" data-i18n="hero_brand">LavaAgent.</em>
+      </span>
+    </h1>
   </div>
 
   <div class="atlas-project-strip">
@@ -549,22 +564,6 @@ body {
   <h1 data-i18n="legacy_h1">AI Daily · LavaAgent</h1>
   <p class="subtitle">LavaAgent · 历史存档 · 共 10 期</p>
   <a class="today-link" href="today.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看当天日报 →</a>
-</div>
-
-<!-- Stats -->
-<div class="stats-bar">
-  <div class="stat">
-    <div class="stat-num">8</div>
-    <div class="stat-label" data-i18n="bar_total_issues">Total Issues</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">1</div>
-    <div class="stat-label" data-i18n="bar_pages">Pages</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">10</div>
-    <div class="stat-label" data-i18n="bar_per_page">Per Page</div>
-  </div>
 </div>
 
 <!-- Archive list -->
@@ -736,7 +735,9 @@ const I18N = {
   zh: {
     nav_archive: 'AI Daily 存档',
     nav_today: '今日刊',
-    hero_title: '项目地图<br><em>LavaAgent</em>',
+    hero_line1: '项目地图',
+    hero_of: '',
+    hero_brand: 'LavaAgent',
     card_digest: 'LavaAgent · 精选文摘',
     stat_issues: '期数',
     stat_items: '条目合计',
@@ -748,9 +749,6 @@ const I18N = {
     placeholder_body: '预留',
     legacy_h1: 'AI Daily · LavaAgent',
     legacy_today_link: '查看当天日报 →',
-    bar_total_issues: '总期数',
-    bar_pages: '页数',
-    bar_per_page: '每页条数',
     page_prev: '‹ 上一页',
     page_next: '下一页 ›',
     footer_generated_prefix: '生成于',
@@ -761,7 +759,9 @@ const I18N = {
   en: {
     nav_archive: 'AI Daily archive',
     nav_today: 'Today',
-    hero_title: 'the project map<br>of <em>LavaAgent.</em>',
+    hero_line1: 'the project map',
+    hero_of: 'of ',
+    hero_brand: 'LavaAgent.',
     card_digest: 'LavaAgent · curated digest',
     stat_issues: 'Issues',
     stat_items: 'Items total',
@@ -773,9 +773,6 @@ const I18N = {
     placeholder_body: 'Reserved',
     legacy_h1: 'AI Daily · LavaAgent',
     legacy_today_link: "Today's issue →",
-    bar_total_issues: 'Total issues',
-    bar_pages: 'Pages',
-    bar_per_page: 'Per page',
     page_prev: '‹ Prev',
     page_next: 'Next ›',
     footer_generated_prefix: 'Generated at',
@@ -796,14 +793,14 @@ function getLang() {
   return 'zh';
 }
 
+function formatPageInfo(lang, p, total) {
+  return lang === 'zh' ? `第 ${p} / ${total} 页` : `Page ${p} / ${total}`;
+}
+
 function formatSubtitle(lang, n) {
   return lang === 'zh'
     ? `LavaAgent · 历史存档 · 共 ${n} 期`
     : `LavaAgent · archive · ${n} issues`;
-}
-
-function formatPageInfo(lang, p, total) {
-  return lang === 'zh' ? `第 ${p} / ${total} 页` : `Page ${p} / ${total}`;
 }
 
 function formatItemsLabel(lang, n) {
@@ -897,10 +894,9 @@ function syncAtlasMetrics() {
   set('proj-m-latest', latest);
   set('proj-m-max', n ? String(maxItems) : '—');
 
-  const sub = document.querySelector('.hero .subtitle');
+  const sub = document.querySelector('#legacy-home.hero .subtitle');
   if (sub) sub.textContent = formatSubtitle(getLang(), n);
-  const firstStat = document.querySelector('.stats-bar .stat:first-child .stat-num');
-  if (firstStat) firstStat.textContent = n ? String(n) : '—';
+
   syncTodayLinks();
 }
 
