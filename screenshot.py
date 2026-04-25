@@ -38,12 +38,6 @@ async def main():
         await page.goto(page_url, wait_until="networkidle", timeout=30000)
         await page.wait_for_timeout(3000)
 
-        # 隐藏 share-bar
-        await page.evaluate("""() => {
-            const el = document.querySelector('.share-bar');
-            if (el) el.style.display = 'none';
-        }""")
-
         # 用 html2canvas 截取（CDN 加载）
         data_url = await page.evaluate("""async () => {
             if (!window.html2canvas) {

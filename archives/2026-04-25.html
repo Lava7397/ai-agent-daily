@@ -8,12 +8,11 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:title" content="AI Agent 日报 — 2026-04-25">
-<meta property="og:description" content="今日 22 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
+<meta property="og:description" content="今日 19 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://lava7397.com">
 <meta name="twitter:card" content="summary">
 <title>AI Agent 日报 — 2026-04-25</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
@@ -273,49 +272,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* ---- Share Bar ---- */
-.share-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(245,240,232,0.97);
-  backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(100,80,60,0.1);
-  padding: 14px 20px;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  z-index: 100;
-}
-.share-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: 1px solid rgba(100,80,60,0.15);
-  color: #5a5a5a;
-  padding: 10px 18px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: 'Inter', sans-serif;
-  -webkit-tap-highlight-color: transparent;
-}
-.share-btn:hover {
-  border-color: #5a6e8a;
-  color: #5a6e8a;
-}
-.share-btn.primary {
-  background: #5a6e8a;
-  border-color: #5a6e8a;
-  color: #fff;
-}
-.share-btn.primary:hover {
-  background: #4a5e7a;
-}
-.share-btn .icon { font-size: 15px; }
-
 .skip-link {
   position: absolute;
   top: -40px;
@@ -339,77 +295,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* ---- Toast ---- */
-.toast {
-  position: fixed;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: #5a6e8a;
-  color: #fff;
-  padding: 12px 24px;
-  font-size: 13px;
-  font-weight: 500;
-  opacity: 0;
-  transition: all 0.3s;
-  z-index: 200;
-}
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* ---- Modal ---- */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(245,240,232,0.92);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 300;
-}
-.modal-overlay.show { display: flex; }
-.modal {
-  background: #fff;
-  border: 1px solid rgba(100,80,60,0.1);
-  padding: 32px;
-  max-width: 320px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
-}
-.modal h3 {
-  font-family: 'Cormorant Garamond', serif;
-  color: #5a6e8a;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
-.qr-placeholder {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 20px;
-  background: rgba(178,200,218,0.1);
-  border: 1px dashed rgba(90,110,138,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #aaa;
-  font-size: 12px;
-}
-.qr-placeholder img { max-width: 100%; }
-.close-btn {
-  background: transparent;
-  border: 1px solid rgba(100,80,60,0.15);
-  color: #5a6e8a;
-  padding: 10px 24px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.close-btn:hover {
-  background: #5a6e8a;
-  color: #fff;
-}
 </style>
 </head>
 <body>
@@ -426,7 +311,7 @@ body {
   <p class="date">2026-04-25 · 每日精选</p>
   <div class="stats">
     <div class="stat">
-      <div class="stat-num">22</div>
+      <div class="stat-num">19</div>
       <div class="stat-label">条资讯</div>
     </div>
     <div class="stat">
@@ -452,50 +337,50 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://arxiv.org/abs/2604.21896v1" target="_blank" rel="noopener noreferrer" class="card-title">Nemobot Games: Crafting Strategic AI Gaming 智能体 for Interactive Learning with Large Language Mode</a>
-      <p class="card-summary">This 论文 introduces a new paradigm for AI game programming, leveraging large language models (LLMs) to extend and operationalize Claude Shannon&#x27;s ta</p>
+      <a href="https://arxiv.org/abs/2604.21910v1" target="_blank" rel="noopener noreferrer" class="card-title">From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation</a>
+      <p class="card-summary">Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes i</p>
+      <a href="https://arxiv.org/abs/2604.21910v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">arXiv</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://arxiv.org/abs/2604.21896v1" target="_blank" rel="noopener noreferrer" class="card-title">Nemobot Games: Crafting Strategic AI Gaming Agents for Interactive Learning with Large Language Mode</a>
+      <p class="card-summary">This paper introduces a new paradigm for AI game programming, leveraging large language models (LLMs) to extend and operationalize Claude Shannon&#x27;s ta</p>
       <a href="https://arxiv.org/abs/2604.21896v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">研究</span>
+      <span class="tag">arXiv</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://arxiv.org/abs/2604.21850v1" target="_blank" rel="noopener noreferrer" class="card-title">OptiMat Alloys: A FAIR End-to-End Agent with Living Database for Computational Multi-Principal Alloy</a>
+      <p class="card-summary">The FAIR principles have transformed how computational data and workflows are shared in materials research, yet existing repositories can only serve p</p>
+      <a href="https://arxiv.org/abs/2604.21850v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">arXiv</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://arxiv.org/abs/2604.21829v1" target="_blank" rel="noopener noreferrer" class="card-title">Black-Box Skill Stealing Attack from Proprietary LLM Agents: An Empirical Study</a>
+      <p class="card-summary">LLM agents increasingly rely on skills to encapsulate reusable capabilities via progressively disclosed instructions. High-quality skills inject exper</p>
+      <a href="https://arxiv.org/abs/2604.21829v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">arXiv</span>
     </div>
 
     <div class="card">
       
       <a href="https://arxiv.org/abs/2604.21816v1" target="_blank" rel="noopener noreferrer" class="card-title">Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/</a>
-      <p class="card-summary">The 模型 Context Protocol (MCP) has become a common interface for connecting large language 模型 (大语言模型) agents to external tools, but its reliance on</p>
+      <p class="card-summary">The Model Context Protocol (MCP) has become a common interface for connecting large language model (LLM) agents to external tools, but its reliance on</p>
       <a href="https://arxiv.org/abs/2604.21816v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">研究</span>
+      <span class="tag">arXiv</span>
     </div>
 
     <div class="card">
       
-      <a href="https://arxiv.org/abs/2604.21910v1" target="_blank" rel="noopener noreferrer" class="card-title">From 研究 Question to Scientific 工作流: Leveraging 代理式 AI for Science Automation</a>
-      <p class="card-summary">Scientific 工作流 systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes i</p>
-      <a href="https://arxiv.org/abs/2604.21910v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">研究</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arxiv.org/abs/2604.21794v1" target="_blank" rel="noopener noreferrer" class="card-title">Learning to Communicate: Toward End-to-End Optimization of Multi-智能体 Language Systems</a>
-      <p class="card-summary">多智能体 systems built on large language models have shown strong performance on complex reasoning tasks, yet most work focuses on agent roles and</p>
-      <a href="https://arxiv.org/abs/2604.21794v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">研究</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arxiv.org/abs/2604.21787v1" target="_blank" rel="noopener noreferrer" class="card-title">代理式 AI-Enabled 框架 for Thermal Comfort and Building Energy Assessment in Tropical Urban Ne</a>
-      <p class="card-summary">In response to the urban heat island effects and building energy demands in Singapore, this study proposes an 代理式 AI-enabled reasoning 框架 t</p>
-      <a href="https://arxiv.org/abs/2604.21787v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">研究</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arxiv.org/abs/2604.21129v1" target="_blank" rel="noopener noreferrer" class="card-title">AGNT2: Autonomous 智能体 Economies on Interaction-Optimized Layer 2 Infrastructure</a>
-      <p class="card-summary">Current blockchain Layer 2 solutions, including Optimism, Arbitrum, zkSync, and their derivatives, optimize for human-initiated financial transactions</p>
-      <a href="https://arxiv.org/abs/2604.21129v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">研究</span>
+      <a href="https://arxiv.org/abs/2604.21804v1" target="_blank" rel="noopener noreferrer" class="card-title">Phenomenological Detector Design and Optimization in Vertically-Integrated Differentiable Full Simul</a>
+      <p class="card-summary">We present the first implementation of AI agents into the design and optimization of detectors in high-energy physics experiments via a bilevel optimi</p>
+      <a href="https://arxiv.org/abs/2604.21804v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">arXiv</span>
     </div>
     </section>
 
@@ -505,41 +390,41 @@ body {
     <div class="card top">
       <span class="top-badge">TOP</span>
       <a href="https://github.com/ConardLi/web-design-skill" target="_blank" rel="noopener noreferrer" class="card-title">ConardLi/web-design-skill</a>
-      <p class="card-summary">An AI agent skill that transforms AI-generated web pages from &quot;functional&quot; to &quot;s | ⭐ 1,056 | CSS</p>
+      <p class="card-summary">An AI agent skill that transforms AI-generated web pages from &quot;functional&quot; to &quot;stunning.&quot;(Inspired by Claude Design)</p>
       <a href="https://github.com/ConardLi/web-design-skill" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">GitHub</span> <span class="tag">开源</span>
+      <span class="tag">GitHub</span>
     </div>
 
     <div class="card">
       
       <a href="https://github.com/GammaLabTechnologies/harmonist" target="_blank" rel="noopener noreferrer" class="card-title">GammaLabTechnologies/harmonist</a>
-      <p class="card-summary">Portable AI agent orchestration with mechanical protocol enforcement. 186 agents | ⭐ 383 | Python</p>
+      <p class="card-summary">Portable AI agent orchestration with mechanical protocol enforcement. 186 agents, zero runtime dependencies.</p>
       <a href="https://github.com/GammaLabTechnologies/harmonist" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">GitHub</span> <span class="tag">开源</span>
+      <span class="tag">GitHub</span>
     </div>
 
     <div class="card">
       
       <a href="https://github.com/future-agi/future-agi" target="_blank" rel="noopener noreferrer" class="card-title">future-agi/future-agi</a>
-      <p class="card-summary">Open-source, end-to-end platform for evaluating, observing, and improving 大语言模型 an | ⭐ 279 | Python</p>
+      <p class="card-summary">Open-source, end-to-end platform for evaluating, observing, and improving LLM and AI agent applications. Tracing · Evals · Simulations · Datasets · Gateway · Guardrails. Self-hostable. Apache 2.0.</p>
       <a href="https://github.com/future-agi/future-agi" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">GitHub</span> <span class="tag">开源</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/riverscn/intro-agentic-ai" target="_blank" rel="noopener noreferrer" class="card-title">riverscn/intro-代理式-ai</a>
-      <p class="card-summary">认识 代理式 AI：从神经网络到智能体 | ⭐ 98 | Vue</p>
-      <a href="https://github.com/riverscn/intro-agentic-ai" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">GitHub</span> <span class="tag">开源</span>
+      <span class="tag">GitHub</span>
     </div>
 
     <div class="card">
       
       <a href="https://github.com/dezgit2025/auto-memory" target="_blank" rel="noopener noreferrer" class="card-title">dezgit2025/auto-memory</a>
-      <p class="card-summary">Your AI coding agent never forgets — progressive session recall CLI | ⭐ 192 | Python</p>
+      <p class="card-summary">Your AI coding agent never forgets — progressive session recall CLI</p>
       <a href="https://github.com/dezgit2025/auto-memory" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">GitHub</span> <span class="tag">开源</span>
+      <span class="tag">GitHub</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://github.com/Yaolinwang/AITD" target="_blank" rel="noopener noreferrer" class="card-title">Yaolinwang/AITD</a>
+      <p class="card-summary">AI Trading Agent for Everyone</p>
+      <a href="https://github.com/Yaolinwang/AITD" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">GitHub</span>
     </div>
     </section>
 
@@ -548,42 +433,18 @@ body {
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/" target="_blank" rel="noopener noreferrer" class="card-title">Gemini 2.0: our new AI 模型 for the 代理式 era</a>
-      <p class="card-summary">HN 热度：1015</p>
+      <a href="https://agentgpt.reworkd.ai/" target="_blank" rel="noopener noreferrer" class="card-title">Agent GPT – Assemble, configure, and deploy autonomous AI Agents in the browser</a>
+      <p class="card-summary"></p>
+      <a href="https://agentgpt.reworkd.ai/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Hacker News</span> <span class="tag">by kevinslin</span> <span class="tag">98 points</span> <span class="tag">44 comments</span>
+    </div>
+
+    <div class="card">
+      
+      <a href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/" target="_blank" rel="noopener noreferrer" class="card-title">Gemini 2.0: our new AI model for the agentic era</a>
+      <p class="card-summary"></p>
       <a href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">模型</span> <span class="tag">动态</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://sketch.dev/blog/agent-loop" target="_blank" rel="noopener noreferrer" class="card-title">The unreasonable effectiveness of an 大语言模型 agent loop with tool use</a>
-      <p class="card-summary">HN 热度：447</p>
-      <a href="https://sketch.dev/blog/agent-loop" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">社区</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://twitter.com/karpathy/status/2024987174077432126" target="_blank" rel="noopener noreferrer" class="card-title">Claws are now a new layer on top of 大语言模型 agents</a>
-      <p class="card-summary">HN 热度：412</p>
-      <a href="https://twitter.com/karpathy/status/2024987174077432126" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">社区</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation" target="_blank" rel="noopener noreferrer" class="card-title">Donating the 模型 Context Protocol and establishing the 代理式 AI Foundation</a>
-      <p class="card-summary">HN 热度：288</p>
-      <a href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">社区</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://kix.dev/two-things-llm-coding-agents-are-still-bad-at/" target="_blank" rel="noopener noreferrer" class="card-title">Two things 大语言模型 coding agents are still bad at</a>
-      <p class="card-summary">HN 热度：345</p>
-      <a href="https://kix.dev/two-things-llm-coding-agents-are-still-bad-at/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">社区</span>
+      <span class="tag">Hacker News</span> <span class="tag">by meetpateltech</span> <span class="tag">1015 points</span> <span class="tag">490 comments</span>
     </div>
     </section>
 
@@ -593,178 +454,62 @@ body {
     <div class="card top">
       <span class="top-badge">TOP</span>
       <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/" target="_blank" rel="noopener noreferrer" class="card-title">An AI agent published a hit piece on me</a>
-      <p class="card-summary">HN 热度：2346</p>
+      <p class="card-summary">Previously:  AI agent opens a PR write a blogpost to shames the maintainer who closes it  -  https:&amp;#x2F;&amp;#x2F;news.ycombinator.com&amp;#x2F;item?id=46987</p>
       <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">社区</span>
+      <span class="tag">Hacker News</span> <span class="tag">by scottshambaugh</span> <span class="tag">2346 points</span> <span class="tag">951 comments</span>
     </div>
 
     <div class="card">
       
       <a href="https://opencode.ai/" target="_blank" rel="noopener noreferrer" class="card-title">OpenCode – Open source AI coding agent</a>
-      <p class="card-summary">HN 热度：1274</p>
+      <p class="card-summary"></p>
       <a href="https://opencode.ai/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">社区</span>
+      <span class="tag">Hacker News</span> <span class="tag">by rbanffy</span> <span class="tag">1274 points</span> <span class="tag">619 comments</span>
     </div>
 
     <div class="card">
       
       <a href="https://github.com/matplotlib/matplotlib/pull/31132" target="_blank" rel="noopener noreferrer" class="card-title">AI agent opens a PR write a blogpost to shames the maintainer who closes it</a>
-      <p class="card-summary">HN 热度：953</p>
+      <p class="card-summary"></p>
       <a href="https://github.com/matplotlib/matplotlib/pull/31132" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">社区</span>
+      <span class="tag">Hacker News</span> <span class="tag">by wrxd</span> <span class="tag">953 points</span> <span class="tag">750 comments</span>
     </div>
 
     <div class="card">
       
       <a href="https://burkeholland.github.io/posts/opus-4-5-change-everything/" target="_blank" rel="noopener noreferrer" class="card-title">Opus 4.5 is not the normal AI agent experience that I have had thus far</a>
-      <p class="card-summary">HN 热度：879</p>
+      <p class="card-summary"></p>
       <a href="https://burkeholland.github.io/posts/opus-4-5-change-everything/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">社区</span>
+      <span class="tag">Hacker News</span> <span class="tag">by tbassetto</span> <span class="tag">879 points</span> <span class="tag">1353 comments</span>
     </div>
 
     <div class="card">
       
       <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me-part-2/" target="_blank" rel="noopener noreferrer" class="card-title">An AI agent published a hit piece on me – more things have happened</a>
-      <p class="card-summary">HN 热度：768</p>
+      <p class="card-summary">https:&amp;#x2F;&amp;#x2F;infosec.exchange&amp;#x2F;@mttaggart&amp;#x2F;116065340523529645</p>
       <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me-part-2/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">社区</span>
+      <span class="tag">Hacker News</span> <span class="tag">by scottshambaugh</span> <span class="tag">768 points</span> <span class="tag">624 comments</span>
     </div>
 
     <div class="card">
       
-      <a href="https://utkarshkanwat.com/writing/betting-against-agents/" target="_blank" rel="noopener noreferrer" class="card-title">The current hype around autonomous agents, and what actually works in production</a>
-      <p class="card-summary">HN 热度：427</p>
-      <a href="https://utkarshkanwat.com/writing/betting-against-agents/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">社区</span>
+      <a href="https://sketch.dev/blog/agent-loop" target="_blank" rel="noopener noreferrer" class="card-title">The unreasonable effectiveness of an LLM agent loop with tool use</a>
+      <p class="card-summary"></p>
+      <a href="https://sketch.dev/blog/agent-loop" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <span class="tag">Hacker News</span> <span class="tag">by crawshaw</span> <span class="tag">447 points</span> <span class="tag">320 comments</span>
     </div>
     </section>
 </main>
 
 <!-- Footer -->
 <div class="footer">
-  数据来源：arXiv, GitHub, HN, HuggingFace<br>
-  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-25 13:26
-</div>
-
-<!-- Share Bar -->
-<div class="share-bar">
-  <button class="share-btn primary" onclick="downloadImage()">
-    <span class="icon">📸</span> 保存图片
-  </button>
-  <button class="share-btn" onclick="shareWechat()">
-    <span class="icon">💬</span> 微信分享
-  </button>
-  <button class="share-btn" onclick="copyLink()">
-    <span class="icon">🔗</span> 复制链接
-  </button>
-</div>
-
-<!-- Toast -->
-<div class="toast" id="toast"></div>
-
-<!-- WeChat Modal -->
-<div class="modal-overlay" id="wechatModal" onclick="closeModal(event)">
-  <div class="modal">
-    <h3>📱 微信扫码分享</h3>
-    <div class="qr-placeholder" id="qrCode">
-      部署后自动生成二维码
-    </div>
-    <p style="color:#666;font-size:12px;margin-bottom:16px;">截图或长按保存，发送给朋友</p>
-    <button class="close-btn" onclick="document.getElementById('wechatModal').classList.remove('show')">关闭</button>
-  </div>
+  数据来源：arXiv, GitHub, Hacker News, HuggingFace<br>
+  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-25 14:16
 </div>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
 
-const SHARE_URL = 'https://lava7397.com';
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 1800);
-}
-
-function copyLink() {
-  const url = SHARE_URL;
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(() => showToast('✅ 链接已复制'));
-  } else {
-    const ta = document.createElement('textarea');
-    ta.value = url;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    showToast('✅ 链接已复制');
-  }
-}
-
-function shareWechat() {
-  const modal = document.getElementById('wechatModal');
-  const qrCode = document.getElementById('qrCode');
-  const qrApi = 'https://api.qrserver.com/v1/create-qr-code/?size=360x360&data=' + encodeURIComponent(SHARE_URL);
-
-  qrCode.innerHTML = '<img alt="微信分享二维码" src="' + qrApi + '" />';
-  const qrImg = qrCode.querySelector('img');
-  if (qrImg) {
-    qrImg.onerror = () => {
-      qrCode.textContent = '二维码加载失败，请使用“复制链接”分享';
-    };
-  }
-
-  modal.classList.add('show');
-}
-
-function closeModal(e) {
-  if (e.target === e.currentTarget) {
-    e.currentTarget.classList.remove('show');
-  }
-}
-
-function downloadImage() {
-  const date = '2026-04-25';
-  const fileName = `AI-Agent日报-${date}.png`;
-  const shareBar = document.querySelector('.share-bar');
-  const toast = document.getElementById('toast');
-
-  showToast('📸 正在生成图片…');
-  if (shareBar) shareBar.style.display = 'none';
-  if (toast) toast.style.display = 'none';
-
-  const body = document.body;
-  const origWidth = body.style.width;
-  body.style.width = '720px';
-
-  html2canvas(body, {
-    scale: 2,
-    useCORS: true,
-    backgroundColor: '#f5f0e8',
-    width: 720,
-    windowWidth: 720
-  }).then(canvas => {
-    body.style.width = origWidth;
-    if (shareBar) shareBar.style.display = '';
-    if (toast) toast.style.display = '';
-    canvas.toBlob(blob => {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = fileName;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      showToast('✅ 图片已保存');
-    }, 'image/png');
-  }).catch(err => {
-    body.style.width = origWidth;
-    if (shareBar) shareBar.style.display = '';
-    if (toast) toast.style.display = '';
-    showToast('❌ 截图失败: ' + err.message);
-  });
-}
 </script>
 
 </body>

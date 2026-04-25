@@ -13,7 +13,6 @@
 <meta property="og:url" content="https://lava-agent-daily.vercel.app">
 <meta name="twitter:card" content="summary">
 <title>AI Agent 日报 — 2026-04-17</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
@@ -95,8 +94,6 @@ body {
   letter-spacing: 1.5px;
 }
 
-
-
 /* ---- Detail top bar（与 quick-nav / 正文同宽，按钮同首页 atlas-btn） ---- */
 .detail-topbar {
   max-width: 720px;
@@ -122,7 +119,6 @@ body {
   gap: 6px;
   -webkit-tap-highlight-color: transparent;
 }
-
 
 /* ---- Quick Nav ---- */
 .quick-nav {
@@ -275,50 +271,6 @@ body {
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.5px;
 }
-
-/* ---- Share Bar ---- */
-.share-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(245,240,232,0.97);
-  backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(100,80,60,0.1);
-  padding: 14px 20px;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  z-index: 100;
-}
-.share-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: 1px solid rgba(100,80,60,0.15);
-  color: #5a5a5a;
-  padding: 10px 18px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: 'Inter', sans-serif;
-  -webkit-tap-highlight-color: transparent;
-}
-.share-btn:hover {
-  border-color: #5a6e8a;
-  color: #5a6e8a;
-}
-.share-btn.primary {
-  background: #5a6e8a;
-  border-color: #5a6e8a;
-  color: #fff;
-}
-.share-btn.primary:hover {
-  background: #4a5e7a;
-}
-.share-btn .icon { font-size: 15px; }
-
 .skip-link {
   position: absolute;
   top: -40px;
@@ -340,78 +292,6 @@ body {
   font-size: 11px;
   border-top: 1px solid rgba(100,80,60,0.08);
   letter-spacing: 0.5px;
-}
-
-/* ---- Toast ---- */
-.toast {
-  position: fixed;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: #5a6e8a;
-  color: #fff;
-  padding: 12px 24px;
-  font-size: 13px;
-  font-weight: 500;
-  opacity: 0;
-  transition: all 0.3s;
-  z-index: 200;
-}
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* ---- Modal ---- */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(245,240,232,0.92);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 300;
-}
-.modal-overlay.show { display: flex; }
-.modal {
-  background: #fff;
-  border: 1px solid rgba(100,80,60,0.1);
-  padding: 32px;
-  max-width: 320px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
-}
-.modal h3 {
-  font-family: 'Cormorant Garamond', serif;
-  color: #5a6e8a;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
-.qr-placeholder {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 20px;
-  background: rgba(178,200,218,0.1);
-  border: 1px dashed rgba(90,110,138,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #aaa;
-  font-size: 12px;
-}
-.qr-placeholder img { max-width: 100%; }
-.close-btn {
-  background: transparent;
-  border: 1px solid rgba(100,80,60,0.15);
-  color: #5a6e8a;
-  padding: 10px 24px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.close-btn:hover {
-  background: #5a6e8a;
-  color: #fff;
 }
 </style>
 </head>
@@ -617,125 +497,8 @@ body {
   由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-17 10:15
 </div>
 
-<!-- Share Bar -->
-<div class="share-bar">
-  <button class="share-btn primary" onclick="downloadImage()">
-    <span class="icon">📸</span> 保存图片
-  </button>
-  <button class="share-btn" onclick="shareWechat()">
-    <span class="icon">💬</span> 微信分享
-  </button>
-  <button class="share-btn" onclick="copyLink()">
-    <span class="icon">🔗</span> 复制链接
-  </button>
-</div>
-
-<!-- Toast -->
-<div class="toast" id="toast"></div>
-
-<!-- WeChat Modal -->
-<div class="modal-overlay" id="wechatModal" onclick="closeModal(event)">
-  <div class="modal">
-    <h3>📱 微信扫码分享</h3>
-    <div class="qr-placeholder" id="qrCode">
-      部署后自动生成二维码
-    </div>
-    <p style="color:#666;font-size:12px;margin-bottom:16px;">截图或长按保存，发送给朋友</p>
-    <button class="close-btn" onclick="document.getElementById('wechatModal').classList.remove('show')">关闭</button>
-  </div>
-</div>
-
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
-
-const SHARE_URL = 'https://lava-agent-daily.vercel.app';
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 1800);
-}
-
-function copyLink() {
-  const url = SHARE_URL;
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(() => showToast('✅ 链接已复制'));
-  } else {
-    const ta = document.createElement('textarea');
-    ta.value = url;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    showToast('✅ 链接已复制');
-  }
-}
-
-function shareWechat() {
-  const modal = document.getElementById('wechatModal');
-  const qrCode = document.getElementById('qrCode');
-  const qrApi = 'https://api.qrserver.com/v1/create-qr-code/?size=360x360&data=' + encodeURIComponent(SHARE_URL);
-
-  qrCode.innerHTML = '<img alt="微信分享二维码" src="' + qrApi + '" />';
-  const qrImg = qrCode.querySelector('img');
-  if (qrImg) {
-    qrImg.onerror = () => {
-      qrCode.textContent = '二维码加载失败，请使用“复制链接”分享';
-    };
-  }
-
-  modal.classList.add('show');
-}
-
-function closeModal(e) {
-  if (e.target === e.currentTarget) {
-    e.currentTarget.classList.remove('show');
-  }
-}
-
-function downloadImage() {
-  const date = '2026-04-17';
-  const fileName = `AI-Agent日报-${date}.png`;
-  const shareBar = document.querySelector('.share-bar');
-  const toast = document.getElementById('toast');
-
-  showToast('📸 正在生成图片…');
-  if (shareBar) shareBar.style.display = 'none';
-  if (toast) toast.style.display = 'none';
-
-  const body = document.body;
-  const origWidth = body.style.width;
-  body.style.width = '720px';
-
-  html2canvas(body, {
-    scale: 2,
-    useCORS: true,
-    backgroundColor: '#f5f0e8',
-    width: 720,
-    windowWidth: 720
-  }).then(canvas => {
-    body.style.width = origWidth;
-    if (shareBar) shareBar.style.display = '';
-    if (toast) toast.style.display = '';
-    canvas.toBlob(blob => {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = fileName;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      showToast('✅ 图片已保存');
-    }, 'image/png');
-  }).catch(err => {
-    body.style.width = origWidth;
-    if (shareBar) shareBar.style.display = '';
-    if (toast) toast.style.display = '';
-    showToast('❌ 截图失败: ' + err.message);
-  });
-}
 </script>
 
 </body>

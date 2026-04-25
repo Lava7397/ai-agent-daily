@@ -56,8 +56,8 @@ Hermes Cron (每天 11:30 BJT)
 
 - 项目名:ai-agent-daily
 - 部署命令:`cd ~/Hermes/ai-daily-h5 && vercel --prod --yes`
-- 站点地址:<https://lava7397.com>(自定义域名,配置在 Vercel dashboard)
-- Vercel 默认域名:<https://ai-agent-daily-phi.vercel.app>(备用访问)
+- 站点地址:[https://lava7397.com](https://lava7397.com)(自定义域名,配置在 Vercel dashboard)
+- Vercel 默认域名:[https://ai-agent-daily-phi.vercel.app](https://ai-agent-daily-phi.vercel.app)(备用访问)
 - 站点地址在代码里是单一常量:`generate.py` 的 `SITE_URL`(可用同名环境变量覆盖)
 - **路由说明**:当日刊页面文件名为 `today.html`(不是 `index.html`)。静态托管普遍会把 URL `/` 映射到根目录的 `index.html`,其优先级会盖住 `vercel.json` 里把 `/` 重写到 `home.html` 的规则,导致首页误显示成「当天刊」。`www` 与 apex 域名在 Vercel 上行为一致。
 
@@ -71,3 +71,4 @@ Hermes Cron (每天 11:30 BJT)
 - 所有命令和路径使用 `~/Hermes/ai-daily-h5/` 为根目录
 - 敏感文件(如 `.env`、以 `.json` 结尾的运行时状态)一律不进 git,见 `.gitignore`
 - archives/ 下是不可变历史归档,不要删除或改写
+
