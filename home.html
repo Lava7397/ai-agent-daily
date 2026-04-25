@@ -629,7 +629,6 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
   max-width: 720px;
   margin: 0 auto;
   padding: 32px 20px 60px;
-  scroll-margin-top: 72px;
 }
 .archive-list {
   display: flex;
@@ -891,15 +890,9 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
   </div>
 </header>
 
-<div class="hero" id="legacy-home">
-  <h1 data-i18n="legacy_h1">AI Agent Daily News</h1>
-  <p class="subtitle">历史存档 · 共 10 期</p>
-  <a class="today-link" href="today.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看今日刊 →</a>
-</div>
-
 <section class="atlas-shell">
   <div class="atlas-hero">
-    <h2 class="atlas-title">
+    <h1 class="atlas-title">
       <span class="atlas-title-line2">
         <span class="atlas-title-line2-start">
           <span class="atlas-hero-of" data-i18n="hero_of">of </span>
@@ -910,7 +903,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
           <img class="atlas-hero-favicon" src="images/site-mascot.png" alt="" width="64" height="64" decoding="async" />
         </picture>
       </span>
-    </h2>
+    </h1>
   </div>
 
   <div class="atlas-project-strip">
@@ -942,7 +935,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
         </div>
         <div class="atlas-project-actions">
           <a class="atlas-btn primary" href="today.html" data-role="today-issue-link" data-i18n="btn_today">Today</a>
-          <a class="atlas-btn" href="#the-archive" data-i18n="btn_archive">Archive</a>
+          <a class="atlas-btn" href="#legacy-home" data-i18n="btn_archive">Archive</a>
         </div>
       </article>
       <article class="atlas-project-card atlas-project-card--placeholder">
@@ -955,6 +948,12 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
     </div>
   </div>
 </section>
+
+<div class="hero" id="legacy-home">
+  <h1 data-i18n="legacy_h1">AI Agent Daily News</h1>
+  <p class="subtitle">历史存档 · 共 10 期</p>
+  <a class="today-link" href="today.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看今日刊 →</a>
+</div>
 
 <!-- Archive list -->
 <div class="archive-wrap">
@@ -1054,7 +1053,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 <!-- Footer -->
 <div class="footer">
   <p><span data-i18n="footer_generated_prefix">生成于</span> <time id="footer-bj-date" datetime=""></time> · Lava · LavaAgent</p>
-  <p style="margin-top:6px;"><a class="footer-link-archive" href="#the-archive" data-i18n="footer_archive">历史存档</a> <span class="footer-sep" aria-hidden="true">·</span> <a class="footer-link-today" href="today.html" data-role="today-issue-link" data-i18n="footer_today">今日刊</a></p>
+  <p style="margin-top:6px;"><a class="footer-link-archive" href="#legacy-home" data-i18n="footer_archive">历史存档</a> <span class="footer-sep" aria-hidden="true">·</span> <a class="footer-link-today" href="today.html" data-role="today-issue-link" data-i18n="footer_today">今日刊</a></p>
 </div>
 
 <script>
