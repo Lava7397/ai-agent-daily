@@ -14,12 +14,12 @@
 <meta property="og:url" content="https://lava7397.com/intro.html">
 <meta property="og:title" content="每日 AI Agent 资讯 — LavaAgent">
 <meta property="og:description" content="每天精选 AI 智能体相关研究、项目与行业动态。由 LavaAgent 汇总。">
-<meta property="og:image" content="https://lava7397.com/images/site-mascot-raw.png">
+<meta property="og:image" content="https://lava7397.com/images/site-mascot-raw.webp">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日 AI Agent 资讯 — LavaAgent">
 <meta name="twitter:description" content="每天精选 AI 智能体相关研究、项目与行业动态。由 LavaAgent 汇总。">
-<meta name="twitter:image" content="https://lava7397.com/images/site-mascot-raw.png">
+<meta name="twitter:image" content="https://lava7397.com/images/site-mascot-raw.webp">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -64,15 +64,20 @@ body {
   background: rgba(100, 80, 60, 0.14);
   margin: 0 0 20px;
 }
+.intro-card .intro-mascot {
+  display: block;
+  margin: 0 auto 14px;
+  width: fit-content;
+  line-height: 0;
+}
 .intro-icon {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 16px;
+  width: 72px;
+  height: 72px;
   display: block;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 9px;
   image-rendering: auto;
-  box-shadow: 0 2px 12px rgba(50, 40, 32, 0.12);
+  box-shadow: 0 2px 10px rgba(50, 40, 32, 0.1);
 }
 .intro-card h2 {
   font-size: 1.2rem;
@@ -125,15 +130,18 @@ body {
     <h1>每日 AI Agent 资讯</h1>
     <p class="intro-daily-zh" lang="zh-CN">LavaAgent Daily — 每天精选 <strong>AI 智能体</strong> 相关研究、产品、开源项目与行业动态。北京时间每日更新。</p>
     <hr class="intro-divider" />
-    <img
-      class="intro-icon"
-      src="images/site-mascot-raw.png"
-      width="1024"
-      height="998"
-      alt=""
-      loading="eager"
-      decoding="async"
-    />
+    <picture class="intro-mascot">
+      <source type="image/webp" srcset="images/site-mascot-intro.webp" />
+      <img
+        class="intro-icon"
+        src="images/site-mascot-intro.png"
+        width="192"
+        height="187"
+        alt=""
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
     <h2>LavaAgent</h2>
     <p class="intro-lava-line">LavaAgent Daily News — 主站提供历史归档与项目入口。点击下方进入。</p>
     <a class="intro-cta" href="https://www.lava7397.com/">进入 www.lava7397.com</a>

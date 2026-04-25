@@ -23,7 +23,8 @@ ai-daily-h5/
 │   ├── source_explorer.py     # 发现新数据源
 │   ├── source_evaluator.py    # 评估数据源质量
 │   ├── source_evolution.py    # 数据源自我迭代编排
-│   └── export_mascot_from_raw.py  # 从原图导出站标 / favicon（漫画化等）
+│   ├── export_mascot_from_raw.py  # 从原图导出站标 / favicon（漫画化等）
+│   └── compress_images.py         # 站用 PNG 优化 + WebP 导出（Pillow）
 ├── vercel.json              # Vercel 部署配置
 └── CNAME                    # 自定义域名
 ```

@@ -3,6 +3,7 @@
 从 site-mascot-raw 导出站用图：裁边 → 等比缩放到长边 400~720 → 漫画风格（减色、略增饱和/对比、线稿感描边、USM 锐化），
 生成 site-mascot.png 与 favicon / apple-touch。alpha 不变。
 改素材时替换 images/site-mascot-raw.png 后运行本脚本即可。
+再运行 python3 scripts/compress_images.py 可生成/更新 WebP 与优化 PNG 体积（站首页/intro 已优先加载 WebP）。
 """
 from __future__ import annotations
 

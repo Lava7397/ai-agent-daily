@@ -168,6 +168,12 @@ body {
   background: transparent;
   line-height: 0;
 }
+.atlas-fav-img-crop picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+}
 /* 基类：contain 保完整；未点/已点由父级类决定 */
 .atlas-fav-img {
   display: block;
@@ -362,6 +368,12 @@ body {
 }
 .atlas-hero-of:empty {
   display: none;
+}
+.atlas-title-line2 picture {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
 }
 .atlas-hero-favicon {
   height: 1.15em;
@@ -840,7 +852,10 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
         <button type="button" class="atlas-fav-btn" id="fav-site-url" aria-label="喜欢本网站" title="点一颗爱心" aria-pressed="false">
           <span class="atlas-fav-btn-inner" aria-hidden="true">
             <span class="atlas-fav-img-crop">
-              <img class="atlas-fav-img" src="images/finger-heart.png" width="52" height="52" alt="" decoding="async" />
+              <picture>
+                <source type="image/webp" srcset="images/finger-heart.webp" />
+                <img class="atlas-fav-img" src="images/finger-heart.png" width="52" height="52" alt="" decoding="async" />
+              </picture>
             </span>
           </span>
         </button>
@@ -866,7 +881,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
     <h1 class="atlas-title">
       <span class="atlas-title-line1" data-i18n="hero_line1">the project map</span><br>
       <span class="atlas-title-line2">
-        <span class="atlas-hero-of" data-i18n="hero_of">of </span><img class="atlas-hero-favicon" src="images/site-mascot.png" alt="" decoding="async" />
+        <span class="atlas-hero-of" data-i18n="hero_of">of </span><picture><source type="image/webp" srcset="images/site-mascot.webp" /><img class="atlas-hero-favicon" src="images/site-mascot.png" alt="" decoding="async" /></picture>
         <em class="atlas-title-brand" data-i18n="hero_brand">LavaAgent.</em>
       </span>
     </h1>
