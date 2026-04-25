@@ -2,16 +2,17 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="AI Agent 日报 · 历史存档 — 共 5 期">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="Lava · LavaAgent — 个人项目入口与 AI Agent Daily News 历史存档">
 <meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>AI Agent 日报 · 历史存档</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>I'm Lava</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+/* 可交互元素统一动效（简洁） */
 :root { --ix: 0.18s ease; }
 @media (hover: hover) and (pointer: fine) {
   a, button, .atlas-btn, [role="button"] { -webkit-tap-highlight-color: transparent; }
@@ -25,29 +26,559 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---- Hero ---- */
-.hero {
+/* ---- 顶栏 Lava 行：整页滚动时吸顶 ---- */
+.atlas-nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(242, 237, 227, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(100, 80, 60, 0.12);
+}
+
+/* ---- Atlas Summary (new top section) ---- */
+.atlas-shell {
+  border-bottom: 1px solid rgba(100,80,60,0.18);
+  background: #f2ede3;
+}
+.atlas-nav {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.atlas-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 12px;
+}
+.atlas-brand {
+  color: #2f2c27;
+  font-weight: 600;
+}
+/* 与复制按钮多留一截空隙；小字 + 比心 + 分享说明（左）+ 分享按钮 */
+.atlas-fav-encourage-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 12px;
+}
+.atlas-fav-encourage,
+.atlas-share-hint {
+  font-size: 10px;
+  font-weight: 500;
+  color: #8a7f72;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  white-space: nowrap;
+  user-select: none;
+}
+/* 英文整句可能较长，窄屏允许换行 */
+@media (max-width: 420px) {
+  .atlas-share-hint { white-space: normal; max-width: 7.5em; }
+}
+.atlas-copy-btn,
+.atlas-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: #6f6559;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 0;
+  transition: color var(--ix), background var(--ix), transform 0.12s ease;
+}
+.atlas-copy-btn:hover,
+.atlas-share-btn:hover {
+  color: #2f2c27;
+  background: rgba(100, 80, 60, 0.08);
+  transform: scale(1.06);
+}
+.atlas-copy-btn:active,
+.atlas-share-btn:active { transform: scale(0.98); }
+.atlas-copy-btn:focus-visible,
+.atlas-share-btn:focus-visible {
+  outline: 2px solid #98703f;
+  outline-offset: 2px;
+}
+.atlas-fav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;
+  border: none;
+  background: transparent;
+  color: #6f6559;
+  cursor: pointer;
+  border-radius: 6px;
+  line-height: 0;
+  position: relative;
+  transition: background var(--ix), transform 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.atlas-fav-btn:hover {
+  background: rgba(100, 80, 60, 0.08);
+}
+.atlas-fav-btn:not(.atlas-fav-btn--on):hover .atlas-fav-img {
+  filter: grayscale(0.12) saturate(0.95) contrast(0.98) brightness(1) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+  transform: scale(1.02);
+}
+.atlas-fav-btn--on:hover {
+  background: rgba(196, 92, 106, 0.1);
+}
+.atlas-fav-btn--on:hover .atlas-fav-img {
+  filter: saturate(1.12) drop-shadow(0 0 8px rgba(228, 80, 100, 0.5));
+  transform: scale(1.06);
+}
+.atlas-fav-btn:active { transform: scale(0.96); }
+.atlas-fav-btn:focus-visible {
+  outline: 2px solid #98703f;
+  outline-offset: 2px;
+}
+/* 内层不裁切，方便星星粒子溢出；真正裁图在 .atlas-fav-img-crop */
+.atlas-fav-btn-inner {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+  pointer-events: none;
+  flex: 0 0 auto;
+}
+/* 透明底图整图放入，不裁切（避免红心被切）；与导航条背景一致 */
+.atlas-fav-img-crop {
+  display: block;
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+  background: transparent;
+  line-height: 0;
+}
+.atlas-fav-img-crop picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+}
+/* 基类：contain 保完整；未点/已点由父级类决定 */
+.atlas-fav-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  vertical-align: top;
+  transition: filter 0.28s ease, transform 0.28s ease;
+}
+/* 默认 = 未点：保留肤色/层次，比已点更平、无粉光（首屏与未收藏一致） */
+.atlas-fav-btn:not(.atlas-fav-btn--on) .atlas-fav-img {
+  filter: grayscale(0.28) saturate(0.88) contrast(0.96) brightness(0.99) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08));
+  transform: scale(0.98);
+}
+.atlas-fav-btn--on .atlas-fav-img {
+  filter: saturate(1.15) drop-shadow(0 1px 2px rgba(0,0,0,0.12)) drop-shadow(0 0 8px rgba(230, 72, 95, 0.45));
+  transform: scale(1);
+}
+.atlas-fav-btn--fx .atlas-fav-img {
+  animation: fav-pop 0.72s cubic-bezier(0.28, 1.7, 0.48, 1);
+}
+.atlas-fav-btn--fx {
+  animation: fav-ring 0.68s ease-out, fav-pulse-outer 0.75s ease-out 0.05s;
+}
+@keyframes fav-pop {
+  0% { transform: scale(0.78) rotate(-2deg); }
+  22% { transform: scale(1.28) rotate(-8deg); }
+  45% { transform: scale(0.95) rotate(4deg); }
+  70% { transform: scale(1.08) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+@keyframes fav-ring {
+  0% { box-shadow: 0 0 0 0 rgba(255, 120, 150, 0.65); }
+  100% { box-shadow: 0 0 0 22px rgba(255, 100, 130, 0); }
+}
+@keyframes fav-pulse-outer {
+  0% { filter: none; }
+  40% { filter: drop-shadow(0 0 10px rgba(255, 190, 210, 0.85)); }
+  100% { filter: none; }
+}
+.atlas-fav-spark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  font-size: 9px;
+  line-height: 10px;
+  text-align: center;
+  color: #e86b8a;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow: 0 0 4px rgba(255, 180, 200, 0.95);
+  --tx: 0px;
+  --ty: 0px;
+}
+.atlas-fav-spark--go {
+  animation: fav-spark-fly 0.65s ease-out forwards;
+}
+@keyframes fav-spark-fly {
+  0% { opacity: 0.95; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0.35); }
+}
+/* 点击「喜欢」后往下掉的星星 */
+.atlas-fav-star {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+  font-size: 11px;
+  line-height: 12px;
+  text-align: center;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  color: #ffcf4a;
+  text-shadow: 0 0 5px rgba(255, 220, 150, 1), 0 0 10px rgba(255, 180, 100, 0.55);
+  --fall: 88px;
+  --drift: 0px;
+  --swing: 0deg;
+  --delay: 0s;
+}
+.atlas-fav-star--fall {
+  animation: fav-star-fall 1.15s cubic-bezier(0.2, 0.45, 0.35, 1) var(--delay, 0s) forwards;
+}
+@keyframes fav-star-fall {
+  0% {
+    opacity: 1;
+    transform: translate(var(--x0, 0px), -4px) rotate(var(--swing, 0deg)) scale(1.15);
+  }
+  12% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--x0, 0px) + var(--drift, 0px)), var(--fall, 88px)) rotate(calc(var(--swing, 0deg) + 200deg)) scale(0.35);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas-fav-btn--fx,
+  .atlas-fav-btn--fx .atlas-fav-img,
+  .atlas-fav-spark--go,
+  .atlas-fav-star--fall { animation: none; }
+  .atlas-fav-spark--go { opacity: 0; }
+  .atlas-fav-star--fall { opacity: 0; }
+}
+.atlas-copy-feedback {
+  font-size: 11px;
+  font-weight: 500;
+  color: #2d5a32;
+  background: rgba(60, 120, 70, 0.14);
+  border: 1px solid rgba(60, 120, 70, 0.22);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 2px;
+  white-space: nowrap;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(-2px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.atlas-copy-feedback[hidden] {
+  display: none;
+}
+.atlas-copy-feedback--show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.atlas-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.atlas-lang {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.atlas-lang button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #6f6559;
+  padding: 4px 6px;
+  border-radius: 2px;
+  transition: color var(--ix), background var(--ix), font-weight 0.1s, transform 0.1s;
+}
+.atlas-lang button:hover {
+  color: #2f2c27;
+  background: rgba(100, 80, 60, 0.1);
+  transform: translateY(-0.5px);
+}
+.atlas-lang button:focus-visible {
+  outline: 2px solid #98703f;
+  outline-offset: 1px;
+}
+.atlas-lang button.active {
+  color: #2f2c27;
+  font-weight: 700;
+  background: rgba(100,80,60,0.08);
+}
+.atlas-lang-sep {
+  color: #b0a89a;
+  font-size: 11px;
+  user-select: none;
+}
+.atlas-hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 6px 24px 8px;
+}
+.atlas-title {
+  display: block;
+  width: 100%;
+  font-size: clamp(0.9rem, 2.15vw, 1.35rem);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+  color: #171615;
+}
+.atlas-title-line2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  width: 100%;
+  max-width: 100%;
+}
+.atlas-title-line2-start {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.2em 0.4em;
+  min-width: 0;
+  flex: 1 1 12rem;
+}
+.atlas-hero-of:empty {
+  display: none;
+}
+.atlas-title-line2 picture {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+.atlas-hero-favicon {
+  height: 2.15em;
+  width: auto;
+  max-width: 2.6em;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  /* 比原先的 0.1em 细，仍保留一点白边；整体约为原先的 0.8 倍 */
+  padding: 0.06em;
+  border-radius: 0.2em;
+  border: 1px solid rgba(100, 80, 60, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 0 1px rgba(45, 36, 28, 0.05);
+}
+.atlas-title em,
+.atlas-title-brand {
+  font-style: normal;
+  color: #98703f;
+  font-size: 1em;
+  line-height: 1.35;
+  font-weight: 600;
+  min-width: 0;
+  max-width: 100%;
+  text-align: left;
+  letter-spacing: 0.01em;
+}
+.atlas-project-strip {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px 14px;
+}
+.atlas-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+.atlas-project-card {
+  border: 1px solid rgba(100,80,60,0.2);
+  background: rgba(255,255,255,0.45);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  transition: background var(--ix), border-color var(--ix), box-shadow var(--ix);
+}
+article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(100, 80, 60, 0.26);
+  box-shadow: 0 2px 10px rgba(45, 36, 28, 0.06);
+}
+.atlas-project-card--placeholder {
+  border-style: dashed;
+  background: rgba(255,255,255,0.25);
+}
+.atlas-placeholder-body {
+  padding: 6px 12px 8px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 11px;
+  color: #8a7e6e;
+  letter-spacing: 0.5px;
+  min-height: 0;
+}
+.atlas-project-title {
+  padding: 7px 12px 5px;
+  border-bottom: 1px solid rgba(100,80,60,0.14);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.atlas-project-title h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #23201b;
+}
+.atlas-project-title .version {
+  font-size: 11px;
+  color: #796f61;
+  letter-spacing: 0.5px;
+  text-align: right;
+}
+.atlas-project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 7px 12px 8px;
+  border-top: 1px solid rgba(100,80,60,0.12);
+  margin-top: auto;
+}
+.atlas-project-actions .atlas-btn {
+  padding: 5px 11px;
+  font-size: 10px;
+  letter-spacing: 0.9px;
+}
+.atlas-project-body {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+}
+.atlas-project-stat {
+  padding: 6px 9px 7px;
+  border-right: 1px solid rgba(100,80,60,0.14);
+}
+.atlas-project-stat:last-child {
+  border-right: 0;
+}
+.atlas-project-stat .num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.1;
+  color: #2a241d;
+}
+.atlas-project-stat .num.atlas-project-stat--date {
+  font-size: clamp(14px, 2.2vw, 17px);
+  line-height: 1.1;
+  word-break: break-all;
+}
+.atlas-project-stat .txt {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  color: #867b6f;
+  margin-top: 1px;
+}
+.atlas-btn {
+  border: 1px solid rgba(100,80,60,0.18);
+  color: #4d4338;
+  background: #f8f4eb;
+  text-decoration: none;
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  transition: background var(--ix), color var(--ix), border-color var(--ix), box-shadow var(--ix), transform 0.12s ease;
+}
+.atlas-btn:hover {
+  background: #efe6d8;
+  border-color: rgba(100, 80, 60, 0.32);
+  box-shadow: 0 1px 4px rgba(45, 36, 28, 0.08);
+  transform: translateY(-1px);
+}
+.atlas-btn:active { transform: translateY(0); }
+.atlas-btn:focus-visible {
+  outline: 2px solid #98703f;
+  outline-offset: 2px;
+}
+.atlas-btn.primary {
+  background: #9a6f35;
+  color: #fff;
+  border-color: #9a6f35;
+}
+.atlas-btn.primary:hover {
+  background: #8a5e28;
+  border-color: #8a5e28;
+  box-shadow: 0 2px 8px rgba(138, 94, 40, 0.28);
+}
+.atlas-btn.primary:focus-visible { outline-color: #c49a4a; }
+
+/* ---- 历史区（#legacy-home，与历史版本一致的 hero 视觉） ---- */
+#legacy-home.hero {
   background:
-    radial-gradient(ellipse at 20% 80%, rgba(178,200,218,0.35) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
+    radial-gradient(ellipse at 20% 80%, rgba(178, 200, 218, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(210, 185, 220, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(245, 235, 210, 0.5) 0%, transparent 70%),
     #f5f0e8;
   padding: 20px 24px 16px;
   text-align: center;
   position: relative;
-  border-bottom: 2px solid rgba(100,80,60,0.15);
+  border-bottom: 2px solid rgba(100, 80, 60, 0.15);
 }
-.hero::before {
+#legacy-home.hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
     0deg, transparent, transparent 3px,
-    rgba(100,80,60,0.02) 3px, rgba(100,80,60,0.02) 4px
+    rgba(100, 80, 60, 0.02) 3px, rgba(100, 80, 60, 0.02) 4px
   );
   pointer-events: none;
 }
-.hero h1 {
+#legacy-home.hero h1 {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 34px;
   font-weight: 700;
@@ -55,8 +586,9 @@ body {
   letter-spacing: 3px;
   position: relative;
   z-index: 1;
+  margin: 0;
 }
-.hero .subtitle {
+#legacy-home.hero .subtitle {
   color: #8a7e6e;
   font-size: 13px;
   margin-top: 6px;
@@ -64,56 +596,32 @@ body {
   z-index: 1;
   letter-spacing: 1.5px;
 }
-.hero .today-link {
+#legacy-home.hero .today-link {
   display: inline-block;
   margin-top: 14px;
-  padding: 10px 22px;
-  background: #5a6e8a;
+  padding: 12px 26px;
+  background: linear-gradient(165deg, #5a6e8a 0%, #445770 100%);
   color: #fff;
   text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  border-radius: 8px;
   position: relative;
   z-index: 1;
+  box-shadow: 0 2px 12px rgba(60, 75, 100, 0.28);
   transition: background var(--ix), box-shadow var(--ix), transform 0.2s;
   -webkit-tap-highlight-color: transparent;
 }
-.hero .today-link:hover {
+#legacy-home.hero .today-link:hover {
   background: #4a6080;
   box-shadow: 0 3px 12px rgba(74, 96, 128, 0.28);
   transform: translateY(-1px);
 }
-.hero .today-link:focus-visible { outline: 2px solid #3d4f68; outline-offset: 2px; }
-
-/* ---- Stats bar ---- */
-.stats-bar {
-  max-width: 720px;
-  margin: 28px auto 0;
-  padding: 0 24px;
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-}
-.stats-bar .stat {
-  text-align: center;
-  border: 1px solid rgba(100,80,60,0.12);
-  padding: 12px 20px;
-  background: rgba(255,255,255,0.5);
-}
-.stats-bar .stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: #5a6e8a;
-}
-.stats-bar .stat-label {
-  font-size: 10px;
-  color: #8a7e6e;
-  margin-top: 2px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+#legacy-home.hero .today-link:active { transform: translateY(0); }
+#legacy-home.hero .today-link:focus-visible {
+  outline: 2px solid #3d4f68;
+  outline-offset: 2px;
 }
 
 /* ---- Archive list ---- */
@@ -151,7 +659,10 @@ body {
   transform: translateX(4px);
   box-shadow: 0 2px 10px rgba(45, 36, 28, 0.07);
 }
-.date-card:focus-visible { outline: 2px solid #5a6e8a; outline-offset: 2px; }
+.date-card:focus-visible {
+  outline: 2px solid #5a6e8a;
+  outline-offset: 2px;
+}
 .date-meta-wrap {
   flex-shrink: 0;
   display: flex;
@@ -184,6 +695,7 @@ body {
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
@@ -194,6 +706,7 @@ body {
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
@@ -265,13 +778,16 @@ body {
   transform: translateY(-1px);
   box-shadow: 0 2px 6px rgba(90, 110, 138, 0.22);
 }
-.page-btn:hover:not(:disabled).active { box-shadow: 0 2px 6px rgba(74, 96, 128, 0.3); }
-.page-btn:focus-visible:not(:disabled) { outline: 2px solid #4a6080; outline-offset: 2px; }
 .page-btn.active {
   background: #4a6080;
   color: #fff;
   border-color: #4a6080;
   font-weight: 600;
+}
+.page-btn:hover:not(:disabled).active { box-shadow: 0 2px 6px rgba(74, 96, 128, 0.3); }
+.page-btn:focus-visible:not(:disabled) {
+  outline: 2px solid #4a6080;
+  outline-offset: 2px;
 }
 .page-btn:disabled {
   opacity: 0.35;
@@ -302,31 +818,141 @@ body {
 }
 .footer a:hover { color: #5a6e8a; text-decoration-color: rgba(90, 110, 138, 0.45); }
 .footer a:focus-visible { outline: 2px solid #5a6e8a; outline-offset: 2px; border-radius: 2px; }
+.footer a.footer-link-today {
+  font-weight: 600;
+  color: #6b5a48;
+  text-decoration-color: rgba(106, 90, 72, 0.35);
+}
+.footer a.footer-link-today:hover {
+  color: #8a5e28;
+  text-decoration-color: rgba(138, 94, 40, 0.5);
+}
+.footer a.footer-link-archive {
+  font-weight: 400;
+  color: #a89888;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.08);
+}
+.footer a.footer-link-archive:hover {
+  color: #7a6e62;
+  text-decoration-color: rgba(90, 110, 138, 0.35);
+}
+.footer .footer-sep { color: #b8a99a; margin: 0 3px; }
+
+@media (max-width: 900px) {
+  .atlas-project-body {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+  .atlas-project-stat:nth-child(2n) {
+    border-right: 0;
+  }
+  .atlas-project-stat:nth-child(n+3) {
+    border-top: 1px solid rgba(100,80,60,0.14);
+  }
+}
 </style>
 </head>
 <body>
 
-<!-- Hero -->
-<div class="hero">
-  <h1>AI Agent 日报</h1>
-  <p class="subtitle">历史存档 · 共 5 期</p>
-  <a class="today-link" href="archives/2026-04-25.html">查看今日刊 →</a>
-</div>
+<header class="atlas-nav-sticky">
+  <div class="atlas-nav">
+    <div class="atlas-brand-row">
+      <span class="atlas-brand" id="atlas-site-label">www.lava7397.com</span>
+      <button type="button" class="atlas-copy-btn" id="copy-site-url" aria-label="复制网站地址" title="复制到剪贴板">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+      <span class="atlas-fav-encourage-wrap">
+        <span class="atlas-fav-encourage" data-i18n="fav_encourage">还行吧</span>
+        <button type="button" class="atlas-fav-btn" id="fav-site-url" aria-label="喜欢本网站" title="点一颗爱心" aria-pressed="false">
+          <span class="atlas-fav-btn-inner" aria-hidden="true">
+            <span class="atlas-fav-img-crop">
+              <picture>
+                <source type="image/webp" srcset="images/finger-heart.webp" />
+                <img class="atlas-fav-img" src="images/finger-heart.png" width="52" height="52" alt="" decoding="async" />
+              </picture>
+            </span>
+          </span>
+        </button>
+        <span class="atlas-share-hint" data-i18n="share_hint">给朋友看看</span>
+        <button type="button" class="atlas-share-btn" id="share-page-btn" aria-label="分享介绍页" title="分享介绍页，打开可进入主站">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </button>
+      </span>
+      <span class="atlas-copy-feedback" id="copy-site-feedback" role="status" aria-live="polite" hidden>复制成功</span>
+    </div>
+    <div class="atlas-nav-right">
+      <div class="atlas-lang" role="group" aria-label="Language">
+        <button type="button" id="lang-zh" data-set-lang="zh">中</button>
+        <span class="atlas-lang-sep">/</span>
+        <button type="button" id="lang-en" data-set-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
 
-<!-- Stats -->
-<div class="stats-bar">
-  <div class="stat">
-    <div class="stat-num">5</div>
-    <div class="stat-label">Total Issues</div>
+<section class="atlas-shell">
+  <div class="atlas-hero">
+    <h1 class="atlas-title">
+      <span class="atlas-title-line2">
+        <span class="atlas-title-line2-start">
+          <span class="atlas-hero-of" data-i18n="hero_of">of </span>
+          <em class="atlas-title-brand" data-i18n="hero_brand">I'm Lava. Aal izz well. Vamos Rafa.</em>
+        </span>
+        <picture>
+          <source type="image/webp" srcset="images/site-mascot.webp" />
+          <img class="atlas-hero-favicon" src="images/site-mascot.png" alt="" width="64" height="64" decoding="async" />
+        </picture>
+      </span>
+    </h1>
   </div>
-  <div class="stat">
-    <div class="stat-num">1</div>
-    <div class="stat-label">Pages</div>
+
+  <div class="atlas-project-strip">
+    <div class="atlas-projects-grid">
+      <article class="atlas-project-card">
+        <div class="atlas-project-title">
+          <div>
+            <h2 data-i18n="card_title">AI Agent Daily News</h2>
+          </div>
+          <span class="version" data-i18n="card_digest">精选期刊</span>
+        </div>
+        <div class="atlas-project-body">
+          <div class="atlas-project-stat">
+            <div class="num" id="proj-m-issues">—</div>
+            <div class="txt" data-i18n="stat_issues">Issues</div>
+          </div>
+          <div class="atlas-project-stat">
+            <div class="num" id="proj-m-items">—</div>
+            <div class="txt" data-i18n="stat_items">Items total</div>
+          </div>
+          <div class="atlas-project-stat">
+            <div class="num atlas-project-stat--date" id="proj-m-latest">—</div>
+            <div class="txt" data-i18n="stat_latest">Latest archive</div>
+          </div>
+          <div class="atlas-project-stat">
+            <div class="num" id="proj-m-max">—</div>
+            <div class="txt" data-i18n="stat_max">Max items / issue</div>
+          </div>
+        </div>
+        <div class="atlas-project-actions">
+          <a class="atlas-btn primary" href="today.html" data-role="today-issue-link" data-i18n="btn_today">Today</a>
+          <a class="atlas-btn" href="#legacy-home" data-i18n="btn_archive">Archive</a>
+        </div>
+      </article>
+      <article class="atlas-project-card atlas-project-card--placeholder">
+        <div class="atlas-project-title">
+          <h2 data-i18n="next_title">Next</h2>
+          <span class="version">—</span>
+        </div>
+        <div class="atlas-placeholder-body" data-i18n="placeholder_body">预留</div>
+      </article>
+    </div>
   </div>
-  <div class="stat">
-    <div class="stat-num">10</div>
-    <div class="stat-label">Per Page</div>
-  </div>
+</section>
+
+<div class="hero" id="legacy-home">
+  <h1 data-i18n="legacy_h1">AI Agent Daily News</h1>
+  <p class="subtitle">历史存档 · 共 10 期</p>
+  <a class="today-link" href="today.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看今日刊 →</a>
 </div>
 
 <!-- Archive list -->
@@ -426,30 +1052,263 @@ body {
 
 <!-- Footer -->
 <div class="footer">
-  <p>Generated at 2026-04-25 23:04 · Powered by Lava Agent</p>
-  <p style="margin-top:6px;"><a href="archives/2026-04-25.html">今日刊</a> · <a href="home.html">历史存档</a></p>
+  <p><span data-i18n="footer_generated_prefix">生成于</span> <time id="footer-bj-date" datetime=""></time> · Lava · LavaAgent</p>
+  <p style="margin-top:6px;"><a class="footer-link-archive" href="#legacy-home" data-i18n="footer_archive">历史存档</a> <span class="footer-sep" aria-hidden="true">·</span> <a class="footer-link-today" href="today.html" data-role="today-issue-link" data-i18n="footer_today">今日刊</a></p>
 </div>
 
 <script>
-// 所有归档数据（按日期降序）: [date_str, headline, total_items]
-const ALL_ARCHIVES = [["2026-04-25", "Google will invest as much as $40 billion in Anthropic", "15", "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"], ["2026-04-24", "Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税", "18", "研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "18", "阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "18", "AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。"], ["2026-04-21", "Mind DeepResearch Technical Report", "18", "理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。"]];
+const ALL_ARCHIVES = [["2026-04-25", "Google will invest as much as $40 billion in Anthropic", "15", "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"], ["2026-04-24", "Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税", "18", "研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "18", "阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "18", "AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。"], ["2026-04-21", "Mind DeepResearch Technical Report", "18", "理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。"]]
+
+const LANG_STORAGE = 'lavaagent_home_lang';
+const I18N = {
+  zh: {
+    hero_of: '',
+    hero_brand: "I'm Lava. Aal izz well. Vamos Rafa.",
+    card_title: 'AI Agent Daily News',
+    card_digest: '精选期刊',
+    stat_issues: '期数',
+    stat_items: '条目合计',
+    stat_latest: '最新归档',
+    stat_max: '单期最多',
+    btn_archive: '存档',
+    btn_today: '今日刊',
+    next_title: '下一项',
+    placeholder_body: '预留',
+    legacy_h1: 'AI Agent Daily News',
+    legacy_today_link: '查看今日刊 →',
+    page_prev: '‹ 上一页',
+    page_next: '下一页 ›',
+    footer_generated_prefix: '生成于',
+    footer_today: '今日刊',
+    footer_archive: '历史存档',
+    lang_group_label: '界面语言',
+    copy_url_aria: '复制网站地址',
+    copy_url_title: '复制到剪贴板',
+    copy_copied: '已复制',
+    copy_success_toast: '复制成功',
+    fav_aria_add: '喜欢本网站',
+    fav_aria_on: '已喜欢，点击取消',
+    fav_title_add: '点一颗爱心',
+    fav_title_remove: '取消爱心',
+    fav_encourage: '还行吧',
+    share_aria: '分享介绍页',
+    share_title: '分享可展示标题与摘要的链接，打开后进入主站',
+    share_card_title: 'LavaAgent Daily News',
+    share_text: '每日 AI Agent 资讯 — LavaAgent Daily News',
+    share_toast: '已复制介绍页链接，对方打开可进入主站',
+    share_toast_block_hint: '（若未弹出新窗口，请检查浏览器是否拦截弹窗）',
+    share_hint: '给朋友看看',
+  },
+  en: {
+    hero_of: 'of ',
+    hero_brand: "I'm Lava. Aal izz well. Vamos Rafa.",
+    card_title: 'AI Agent Daily News',
+    card_digest: 'Selected journal',
+    stat_issues: 'Issues',
+    stat_items: 'Items total',
+    stat_latest: 'Latest archive',
+    stat_max: 'Max items / issue',
+    btn_archive: 'Archive',
+    btn_today: 'Today',
+    next_title: 'Next',
+    placeholder_body: 'Reserved',
+    legacy_h1: 'AI Agent Daily News',
+    legacy_today_link: "Today's issue →",
+    page_prev: '‹ Prev',
+    page_next: 'Next ›',
+    footer_generated_prefix: 'Generated at',
+    footer_today: "Today's issue",
+    footer_archive: 'Archive',
+    lang_group_label: 'Language',
+    copy_url_aria: 'Copy site URL',
+    copy_url_title: 'Copy to clipboard',
+    copy_copied: 'Copied',
+    copy_success_toast: 'Copied',
+    fav_aria_add: 'Like this site',
+    fav_aria_on: 'Liked, click to remove',
+    fav_title_add: 'Add a heart',
+    fav_title_remove: 'Remove heart',
+    fav_encourage: 'Not bad',
+    share_aria: 'Share intro link',
+    share_title: 'Link includes title and summary; opens the main site',
+    share_card_title: 'LavaAgent Daily News',
+    share_text: 'Daily AI Agent news — LavaAgent Daily News',
+    share_toast: 'Intro page link copied — open to visit the site',
+    share_toast_block_hint: ' (If the new tab did not open, check whether your browser is blocking pop-ups.)',
+    share_hint: 'To share with a friend.',
+  },
+};
+
+const DAY_NAMES = {
+  zh: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+  en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+};
+
+function getLang() {
+  const s = localStorage.getItem(LANG_STORAGE);
+  if (s === 'en' || s === 'zh') return s;
+  return 'zh';
+}
+
+function formatPageInfo(lang, p, total) {
+  return lang === 'zh' ? `第 ${p} / ${total} 页` : `Page ${p} / ${total}`;
+}
+
+function formatSubtitle(lang, n) {
+  return lang === 'zh'
+    ? `历史存档 · 共 ${n} 期`
+    : `Archive · ${n} issues`;
+}
+
+function formatItemCountAria(lang, n) {
+  return lang === 'zh' ? `${n} 条内容` : `${n} items`;
+}
+
+function noSummary(lang) {
+  return lang === 'zh' ? '暂无摘要' : 'No summary';
+}
+
+function getLatestIssueHref() {
+  // 与 /today.html 统一：由 generate 将「最新一期归档」同步到 today.html，避免
+  // daily_data 日期滞后时，直链 /today.html 与「今日刊」分别指向 4/23 与 4/24。
+  return 'today.html';
+}
+
+/** 页脚「生成于」后的日期：按北京时间 YYYY-MM-DD，避免静态 HTML 写死日期与当天不符 */
+function beijingYMD() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Shanghai',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date());
+  const y = parts.find((p) => p.type === 'year')?.value;
+  const m = parts.find((p) => p.type === 'month')?.value;
+  const d = parts.find((p) => p.type === 'day')?.value;
+  if (y && m && d) return `${y}-${m}-${d}`;
+  return new Date().toISOString().slice(0, 10);
+}
+
+function setFooterBeijingDate() {
+  const el = document.getElementById('footer-bj-date');
+  if (!el) return;
+  const s = beijingYMD();
+  el.textContent = s;
+  el.setAttribute('datetime', s);
+}
+
+function syncTodayLinks() {
+  const href = getLatestIssueHref();
+  document.querySelectorAll('[data-role="today-issue-link"]').forEach(el => {
+    el.setAttribute('href', href);
+  });
+}
+
+function applyStaticI18n() {
+  const lang = getLang();
+  const pack = I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (pack[k] !== undefined) el.textContent = pack[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (pack[k] !== undefined) el.innerHTML = pack[k];
+  });
+  const lg = document.querySelector('.atlas-lang');
+  if (lg) lg.setAttribute('aria-label', pack.lang_group_label);
+  const copyBtn = document.getElementById('copy-site-url');
+  if (copyBtn && pack.copy_url_aria) {
+    copyBtn.setAttribute('aria-label', pack.copy_url_aria);
+    copyBtn.setAttribute('title', pack.copy_url_title);
+  }
+  const shareBtn = document.getElementById('share-page-btn');
+  if (shareBtn && pack.share_aria) {
+    shareBtn.setAttribute('aria-label', pack.share_aria);
+    shareBtn.setAttribute('title', pack.share_title);
+  }
+  setFooterBeijingDate();
+  syncFavButtonLabels();
+}
+
+function updateLangButtons() {
+  const lang = getLang();
+  const bZh = document.getElementById('lang-zh');
+  const bEn = document.getElementById('lang-en');
+  if (bZh) bZh.classList.toggle('active', lang === 'zh');
+  if (bEn) bEn.classList.toggle('active', lang === 'en');
+}
+
+function applyDocumentLang(lang) {
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.title = "I'm Lava";
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.content = lang === 'zh'
+      ? 'Lava · LavaAgent — 个人项目入口与 AI Agent Daily News 历史存档'
+      : 'Lava · LavaAgent — project hub and AI Agent Daily News archive';
+  }
+}
+
+function setLang(lang) {
+  if (lang !== 'en' && lang !== 'zh') return;
+  localStorage.setItem(LANG_STORAGE, lang);
+  applyDocumentLang(lang);
+  updateLangButtons();
+  applyStaticI18n();
+  syncAtlasMetrics();
+  renderPage(currentPage);
+}
+
+let currentPage = 1;
+
+function syncAtlasMetrics() {
+  const rows = ALL_ARCHIVES;
+  const n = rows.length;
+  let totalItems = 0;
+  let maxItems = 0;
+  for (const r of rows) {
+    const c = parseInt(r[2], 10) || 0;
+    totalItems += c;
+    if (c > maxItems) maxItems = c;
+  }
+  const latest = n ? rows[0][0] : '—';
+
+  const set = (id, v) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = v;
+  };
+
+  set('proj-m-issues', n ? String(n) : '—');
+  set('proj-m-items', n ? String(totalItems) : '—');
+  set('proj-m-latest', latest);
+  set('proj-m-max', n ? String(maxItems) : '—');
+
+  const sub = document.querySelector('#legacy-home.hero .subtitle');
+  if (sub) sub.textContent = formatSubtitle(getLang(), n);
+
+  syncTodayLinks();
+}
 
 const PER_PAGE = 10;
 const totalPages = Math.max(1, Math.ceil(ALL_ARCHIVES.length / PER_PAGE));
 
 function renderPage(p) {
   p = Math.max(1, Math.min(p, totalPages));
+  currentPage = p;
   const start = (p - 1) * PER_PAGE;
   const end = start + PER_PAGE;
   const pageItems = ALL_ARCHIVES.slice(start, end);
 
-  const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
+  const lang = getLang();
+  const dayNames = DAY_NAMES[lang];
   const listEl = document.getElementById('archiveList');
   listEl.innerHTML = pageItems.map(([d, headline, total, summary]) => {
     const dn = dayNames[new Date(d + 'T00:00:00').getDay()];
-    const n = total ? (parseInt(total, 10) || 0) : 0;
-    const rightInner = n > 0
-      ? `<span class="date-arrow-stack" aria-label="${n} 条内容" title="${n} 条内容"><span class="date-count-num">${n}</span><span class="date-arrow" aria-hidden="true">→</span></span>`
+    const nItems = total ? (parseInt(total, 10) || 0) : 0;
+    const aria = nItems > 0 ? formatItemCountAria(lang, nItems) : '';
+    const rightInner = nItems > 0
+      ? `<span class="date-arrow-stack" aria-label="${aria}" title="${aria}"><span class="date-count-num">${nItems}</span><span class="date-arrow" aria-hidden="true">→</span></span>`
       : `<span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>`;
     const summaryHtml = summary ? `<p class="date-summary">${summary}</p>` : '';
     return `<a class="date-card" href="archives/${d}.html">
@@ -458,7 +1317,7 @@ function renderPage(p) {
         <span class="date-day">${dn}</span>
       </div>
       <div class="date-text-wrap">
-        <p class="date-headline">${headline || '暂无摘要'}</p>
+        <p class="date-headline">${headline || noSummary(lang)}</p>
         ${summaryHtml}
       </div>
       <div class="date-right">
@@ -467,7 +1326,6 @@ function renderPage(p) {
     </a>`;
   }).join('');
 
-  // 更新分页按钮
   const pager = document.getElementById('pagination');
   const btns = pager.querySelectorAll('.page-btn[data-page]');
   btns.forEach(b => {
@@ -475,25 +1333,259 @@ function renderPage(p) {
     b.disabled = parseInt(b.dataset.page) < 1 || parseInt(b.dataset.page) > totalPages;
   });
 
-  // 更新 page info
   let info = pager.querySelector('.page-info');
-  if (info) info.textContent = `第 ${p} / ${totalPages} 页`;
+  if (info) info.textContent = formatPageInfo(lang, p, totalPages);
 
-  // 更新 URL hash
   history.replaceState(null, '', p > 1 ? `#page=${p}` : window.location.pathname);
 }
 
-// 绑定分页按钮点击
+document.getElementById('lang-zh').addEventListener('click', () => setLang('zh'));
+document.getElementById('lang-en').addEventListener('click', () => setLang('en'));
+
+const SITE_URL_CLIPBOARD = 'https://lava7397.com';
+const FAV_SITE_STORAGE_KEY = 'lavaagent_site_favorited';
+
+/** 与当前站同源，本地预览为 http://127.0.0.1:端口/intro.html，线上为 https://lava7397.com/intro.html */
+function getIntroShareUrl() {
+  try {
+    if (location.protocol === 'file:') {
+      return new URL('intro.html', String(location.href).replace(/[^/\\]+$/, '')).href;
+    }
+    return new URL('intro.html', location.origin + '/').href;
+  } catch (e) {
+    return 'https://lava7397.com/intro.html';
+  }
+}
+
+function isSiteFavorited() {
+  try {
+    return localStorage.getItem(FAV_SITE_STORAGE_KEY) === '1';
+  } catch (e) {
+    return false;
+  }
+}
+
+function setSiteFavorited(on) {
+  try {
+    if (on) localStorage.setItem(FAV_SITE_STORAGE_KEY, '1');
+    else localStorage.removeItem(FAV_SITE_STORAGE_KEY);
+  } catch (e) { /* private mode / quota */ }
+}
+
+function syncFavButtonLabels() {
+  const btn = document.getElementById('fav-site-url');
+  if (!btn) return;
+  const lang = getLang();
+  const pack = I18N[lang];
+  const on = isSiteFavorited();
+  btn.classList.toggle('atlas-fav-btn--on', on);
+  btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  btn.setAttribute('aria-label', on ? (pack.fav_aria_on || '') : (pack.fav_aria_add || ''));
+  btn.setAttribute('title', on ? (pack.fav_title_remove || '') : (pack.fav_title_add || ''));
+}
+
+function playFavClickFx(btn, didFavorite) {
+  btn.classList.remove('atlas-fav-btn--fx');
+  void btn.offsetWidth;
+  btn.classList.add('atlas-fav-btn--fx');
+  window.setTimeout(function () {
+    btn.classList.remove('atlas-fav-btn--fx');
+  }, 900);
+  if (!didFavorite) return;
+  var inner = btn.querySelector('.atlas-fav-btn-inner');
+  if (!inner) return;
+  var n = 10;
+  for (var i = 0; i < n; i++) {
+    (function (idx) {
+      var sp = document.createElement('span');
+      sp.className = 'atlas-fav-spark';
+      sp.setAttribute('aria-hidden', 'true');
+      sp.textContent = '\u2665';
+      var deg = (360 * idx) / n + (Math.random() * 24 - 12);
+      var dist = 18 + Math.random() * 16;
+      var rad = (deg * Math.PI) / 180;
+      sp.style.setProperty('--tx', Math.cos(rad) * dist + 'px');
+      sp.style.setProperty('--ty', Math.sin(rad) * dist + 'px');
+      inner.appendChild(sp);
+      requestAnimationFrame(function () {
+        sp.classList.add('atlas-fav-spark--go');
+      });
+      window.setTimeout(function () {
+        if (sp.parentNode) sp.parentNode.removeChild(sp);
+      }, 800);
+    })(i);
+  }
+  var starChars = ['\u2605', '\u2726', '\u22C6', '\u2606', '\u2727', '\u2736'];
+  var nStars = 20;
+  for (var s = 0; s < nStars; s++) {
+    (function (idx) {
+      var st = document.createElement('span');
+      st.className = 'atlas-fav-star';
+      st.setAttribute('aria-hidden', 'true');
+      st.textContent = starChars[idx % starChars.length];
+      st.style.setProperty('--x0', Math.random() * 22 - 11 + 'px');
+      st.style.setProperty('--drift', (Math.random() * 40 - 20) + 'px');
+      st.style.setProperty('--fall', 72 + Math.random() * 58 + 'px');
+      st.style.setProperty('--swing', (Math.random() * 60 - 30) + 'deg');
+      st.style.setProperty('--delay', idx * 0.032 + Math.random() * 0.1 + 's');
+      inner.appendChild(st);
+      requestAnimationFrame(function () {
+        st.classList.add('atlas-fav-star--fall');
+      });
+      window.setTimeout(function () {
+        if (st.parentNode) st.parentNode.removeChild(st);
+      }, 1500);
+    })(s);
+  }
+}
+
+(function initFavSite() {
+  var btn = document.getElementById('fav-site-url');
+  if (!btn) return;
+  syncFavButtonLabels();
+  btn.addEventListener('click', function () {
+    var was = isSiteFavorited();
+    var next = !was;
+    setSiteFavorited(next);
+    syncFavButtonLabels();
+    playFavClickFx(btn, next);
+  });
+})();
+
+let navUrlToastT1;
+let navUrlToastT2;
+function clearNavUrlToastTimers() {
+  if (navUrlToastT1) clearTimeout(navUrlToastT1);
+  if (navUrlToastT2) clearTimeout(navUrlToastT2);
+  navUrlToastT1 = null;
+  navUrlToastT2 = null;
+}
+function showNavUrlToast(message) {
+  const feedback = document.getElementById('copy-site-feedback');
+  if (!feedback || !message) return;
+  clearNavUrlToastTimers();
+  feedback.textContent = message;
+  feedback.hidden = false;
+  feedback.classList.remove('atlas-copy-feedback--show');
+  requestAnimationFrame(() => {
+    void feedback.offsetWidth;
+    feedback.classList.add('atlas-copy-feedback--show');
+  });
+  navUrlToastT1 = setTimeout(() => {
+    feedback.classList.remove('atlas-copy-feedback--show');
+    navUrlToastT2 = setTimeout(() => {
+      if (feedback) feedback.hidden = true;
+    }, 220);
+  }, 2500);
+}
+
+function copyStringToClipboard(str) {
+  if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(str);
+  }
+  return new Promise((resolve, reject) => {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = str;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      resolve();
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
+
+(function initCopySiteUrl() {
+  const copyBtn = document.getElementById('copy-site-url');
+  if (!copyBtn) return;
+  copyBtn.addEventListener('click', async () => {
+    const lang = getLang();
+    const pack = I18N[lang];
+    const text = SITE_URL_CLIPBOARD;
+    const success = () => {
+      showNavUrlToast(pack.copy_success_toast);
+      copyBtn.setAttribute('title', pack.copy_copied);
+      setTimeout(() => {
+        if (pack.copy_url_title) copyBtn.setAttribute('title', pack.copy_url_title);
+      }, 2000);
+    };
+    try {
+      await copyStringToClipboard(text);
+      success();
+    } catch (e) {
+      /* ignore */
+    }
+  });
+})();
+
+(function initSharePage() {
+  const shareBtn = document.getElementById('share-page-btn');
+  if (!shareBtn) return;
+  shareBtn.addEventListener('click', async () => {
+    const lang = getLang();
+    const pack = I18N[lang];
+    const url = getIntroShareUrl();
+    const title = (pack.share_card_title !== undefined) ? pack.share_card_title : 'LavaAgent Daily News';
+    const text = (pack.share_text !== undefined) ? pack.share_text : title;
+    /* 必须同步调 window.open；若在 await 之后调，浏览器会当成非用户手势而拦截新窗口 */
+    var sharePreview = window.open(url, '_blank', 'noopener,noreferrer');
+    if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
+      const full = { title, text, url };
+      try {
+        if (typeof navigator.canShare === 'function') {
+          if (navigator.canShare(full)) {
+            await navigator.share(full);
+            return;
+          }
+          if (navigator.canShare({ url })) {
+            await navigator.share({ url });
+            return;
+          }
+        } else {
+          await navigator.share(full);
+          return;
+        }
+      } catch (e) {
+        if (e && (e.name === 'AbortError' || e.name === 'NotAllowedError')) return;
+      }
+    }
+    try {
+      await copyStringToClipboard(url);
+      if (!sharePreview) {
+        showNavUrlToast(pack.share_toast + (pack.share_toast_block_hint || ''));
+      } else {
+        showNavUrlToast(pack.share_toast);
+      }
+    } catch (e) {
+      /* ignore */
+    }
+  });
+})();
+
 document.getElementById('pagination').addEventListener('click', e => {
   const btn = e.target.closest('.page-btn');
   if (!btn || btn.disabled) return;
   renderPage(parseInt(btn.dataset.page));
 });
 
-// 初始化：读取 hash 或默认第1页
 const hash = window.location.hash;
 const initPage = hash ? parseInt(hash.replace('#page=', '')) || 1 : 1;
-renderPage(initPage);
+currentPage = initPage;
+
+(function initLangFromStorage() {
+  applyDocumentLang(getLang());
+  updateLangButtons();
+  applyStaticI18n();
+})();
+
+syncAtlasMetrics();
+renderPage(currentPage);
 </script>
 </body>
 </html>
