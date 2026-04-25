@@ -8,7 +8,7 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:title" content="AI Agent 日报 — 2026-04-25">
-<meta property="og:description" content="今日 19 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
+<meta property="og:description" content="今日 14 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://lava7397.com">
 <meta name="twitter:card" content="summary">
@@ -28,14 +28,22 @@ body {
 
 /* ---- Detail top bar（与 quick-nav / 正文同宽，按钮同首页 atlas-btn） ---- */
 .detail-topbar {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 20px 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245,240,232,0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(100,80,60,0.08);
 }
 .detail-topbar-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 12px 16px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  gap: 12px;
 }
 .atlas-btn {
   border: 1px solid rgba(100,80,60,0.18);
@@ -50,6 +58,36 @@ body {
   align-items: center;
   gap: 6px;
   -webkit-tap-highlight-color: transparent;
+}
+.atlas-lang {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.atlas-lang button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #6f6559;
+  padding: 4px 6px;
+  border-radius: 2px;
+}
+.atlas-lang button:hover {
+  color: #2f2c27;
+}
+.atlas-lang button.active {
+  color: #2f2c27;
+  font-weight: 700;
+  background: rgba(100,80,60,0.08);
+}
+.atlas-lang-sep {
+  color: #b0a89a;
+  font-size: 11px;
+  user-select: none;
 }
 
 /* ---- Hero / 莫比斯封面 ---- */
@@ -298,204 +336,179 @@ body {
 </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link">跳到正文</a>
+<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
 <div class="detail-topbar">
   <div class="detail-topbar-inner">
-    <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> 返回</a>
+    <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
+    <div class="atlas-lang" role="group" aria-label="界面语言">
+      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
+      <span class="atlas-lang-sep">/</span>
+      <button type="button" id="lang-en" data-set-lang="en">EN</button>
+    </div>
   </div>
 </div>
 
 <!-- Hero -->
 <div class="hero">
-  <h1>AI Agent 日报</h1>
-  <p class="date">2026-04-25 · 每日精选</p>
+  <h1 data-i18n="hero_title">AI Agent 日报</h1>
+  <p class="date">2026-04-25 <span data-i18n="hero_subtitle_suffix">· 每日精选</span></p>
   <div class="stats">
     <div class="stat">
-      <div class="stat-num">19</div>
-      <div class="stat-label">条资讯</div>
+      <div class="stat-num">14</div>
+      <div class="stat-label" data-i18n="stat_items">条资讯</div>
     </div>
     <div class="stat">
-      <div class="stat-num">4</div>
-      <div class="stat-label">个板块</div>
+      <div class="stat-num">3</div>
+      <div class="stat-label" data-i18n="stat_sections">个板块</div>
     </div>
     <div class="stat">
-      <div class="stat-num">4</div>
-      <div class="stat-label">个来源</div>
+      <div class="stat-num">7</div>
+      <div class="stat-label" data-i18n="stat_sources">个来源</div>
     </div>
   </div>
 </div>
 
 <nav class="quick-nav" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
+  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-community">社区热议</a>
 </nav>
 
 <!-- Content -->
 <main class="container" id="main-content">
   
     <section class="section" id="section-research">
-      <h2 class="section-title">🤖 AI Agent 研究</h2>
+      <h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2>
       
     <div class="card top">
       <span class="top-badge">TOP</span>
-      <a href="https://arxiv.org/abs/2604.21910v1" target="_blank" rel="noopener noreferrer" class="card-title">From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation</a>
-      <p class="card-summary">Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes i</p>
-      <a href="https://arxiv.org/abs/2604.21910v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span>
+      <a href="https://venturebeat.com/security/85-of-enterprises-are-running-ai-agents-only-5-trust-them-enough-to-ship" target="_blank" rel="noopener noreferrer" class="card-title">85% of enterprises are running AI agents. Only 5% trust them enough to ship.</a>
+      <p class="card-summary" data-i18n-text="zh">85%的企业正在运行人工智能代理试点，但只有5%的企业已将这些代理投入生产。在RSA Conference 2026的独家专访中，思科总裁兼首席产品官</p>
+      <p class="card-summary" data-i18n-text="en" hidden>Eighty-five percent of enterprises are running AI agent pilots, but only 5% have moved those agents into production. In an exclusive interview at RSA Conference 2026 , Cisco President and Chief Produ</p>
+      <a href="https://venturebeat.com/security/85-of-enterprises-are-running-ai-agents-only-5-trust-them-enough-to-ship" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
+      <span class="tag">VentureBeat</span>
     </div>
 
     <div class="card">
       
-      <a href="https://arxiv.org/abs/2604.21896v1" target="_blank" rel="noopener noreferrer" class="card-title">Nemobot Games: Crafting Strategic AI Gaming Agents for Interactive Learning with Large Language Mode</a>
-      <p class="card-summary">This paper introduces a new paradigm for AI game programming, leveraging large language models (LLMs) to extend and operationalize Claude Shannon&#x27;s ta</p>
-      <a href="https://arxiv.org/abs/2604.21896v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span>
+      <a href="https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator" target="_blank" rel="noopener noreferrer" class="card-title">Talking to AI agents is one thing — what about when they talk to each other? New startup BAND debuts &#x27;universal orchestrator&#x27;</a>
+      <p class="card-summary" data-i18n-text="zh">在过去的十八个月里，企业界一直痴迷于生成式人工智能革命的“构建者”阶段。企业已经竞相部署自主代理来处理所有的事情，</p>
+      <p class="card-summary" data-i18n-text="en" hidden>For the past eighteen months, the corporate world has been obsessed with the &quot;builder&quot; phase of the generative AI revolution. Enterprises have raced to deploy autonomous agents to handle everything fr</p>
+      <a href="https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
+      <span class="tag">VentureBeat</span>
     </div>
 
     <div class="card">
       
-      <a href="https://arxiv.org/abs/2604.21850v1" target="_blank" rel="noopener noreferrer" class="card-title">OptiMat Alloys: A FAIR End-to-End Agent with Living Database for Computational Multi-Principal Alloy</a>
-      <p class="card-summary">The FAIR principles have transformed how computational data and workflows are shared in materials research, yet existing repositories can only serve p</p>
-      <a href="https://arxiv.org/abs/2604.21850v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arxiv.org/abs/2604.21829v1" target="_blank" rel="noopener noreferrer" class="card-title">Black-Box Skill Stealing Attack from Proprietary LLM Agents: An Empirical Study</a>
-      <p class="card-summary">LLM agents increasingly rely on skills to encapsulate reusable capabilities via progressively disclosed instructions. High-quality skills inject exper</p>
-      <a href="https://arxiv.org/abs/2604.21829v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arxiv.org/abs/2604.21816v1" target="_blank" rel="noopener noreferrer" class="card-title">Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/</a>
-      <p class="card-summary">The Model Context Protocol (MCP) has become a common interface for connecting large language model (LLM) agents to external tools, but its reliance on</p>
-      <a href="https://arxiv.org/abs/2604.21816v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arxiv.org/abs/2604.21804v1" target="_blank" rel="noopener noreferrer" class="card-title">Phenomenological Detector Design and Optimization in Vertically-Integrated Differentiable Full Simul</a>
-      <p class="card-summary">We present the first implementation of AI agents into the design and optimization of detectors in high-energy physics experiments via a bilevel optimi</p>
-      <a href="https://arxiv.org/abs/2604.21804v1" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span>
+      <a href="https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI unveils Workspace Agents, a successor to custom GPTs for enterprises that can plug directly into Slack, Salesforce and more</a>
+      <p class="card-summary" data-i18n-text="zh">OpenAI今天推出了一种新的范式和产品，可能会对寻求采用和控制人工智能代理工人队伍的企业产生巨大影响。称为“工作空间代理” ， OpenA</p>
+      <p class="card-summary" data-i18n-text="en" hidden>OpenAI introduced a new paradigm and product today that is likely to have huge implications for enterprises seeking to adopt and control fleets of AI agent workers. Called &quot; Workspace Agents ,&quot; OpenA</p>
+      <a href="https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
+      <span class="tag">VentureBeat</span>
     </div>
     </section>
 
     <section class="section" id="section-github">
-      <h2 class="section-title">⭐ GitHub 热门项目</h2>
+      <h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2>
       
     <div class="card top">
       <span class="top-badge">TOP</span>
       <a href="https://github.com/ConardLi/web-design-skill" target="_blank" rel="noopener noreferrer" class="card-title">ConardLi/web-design-skill</a>
-      <p class="card-summary">An AI agent skill that transforms AI-generated web pages from &quot;functional&quot; to &quot;stunning.&quot;(Inspired by Claude Design)</p>
-      <a href="https://github.com/ConardLi/web-design-skill" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">GitHub - ConardLi/web-design-skill ：一种人工智能代理技能，将人工智能生成的网页从“功能性”转变为“令人惊叹”。“（灵感来自Claude Design ） · GitHub跳至内容导航菜单切换</p>
+      <p class="card-summary" data-i18n-text="en" hidden>GitHub - ConardLi/web-design-skill: An AI agent skill that transforms AI-generated web pages from &quot;functional&quot; to &quot;stunning.&quot;(Inspired by Claude Design) · GitHub Skip to content Navigation Menu Toggle</p>
+      <a href="https://github.com/ConardLi/web-design-skill" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">GitHub</span>
     </div>
 
     <div class="card">
       
       <a href="https://github.com/GammaLabTechnologies/harmonist" target="_blank" rel="noopener noreferrer" class="card-title">GammaLabTechnologies/harmonist</a>
-      <p class="card-summary">Portable AI agent orchestration with mechanical protocol enforcement. 186 agents, zero runtime dependencies.</p>
-      <a href="https://github.com/GammaLabTechnologies/harmonist" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">GitHub - GammaLabTechnologies/harmonist ：具有机械协议实施的便携式AI代理编排。186个代理，零运行时依赖关系。· GitHub跳到内容导航菜单切换na</p>
+      <p class="card-summary" data-i18n-text="en" hidden>GitHub - GammaLabTechnologies/harmonist: Portable AI agent orchestration with mechanical protocol enforcement. 186 agents, zero runtime dependencies. · GitHub Skip to content Navigation Menu Toggle na</p>
+      <a href="https://github.com/GammaLabTechnologies/harmonist" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">GitHub</span>
     </div>
 
     <div class="card">
       
       <a href="https://github.com/future-agi/future-agi" target="_blank" rel="noopener noreferrer" class="card-title">future-agi/future-agi</a>
-      <p class="card-summary">Open-source, end-to-end platform for evaluating, observing, and improving LLM and AI agent applications. Tracing · Evals · Simulations · Datasets · Gateway · Guardrails. Self-hostable. Apache 2.0.</p>
-      <a href="https://github.com/future-agi/future-agi" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">GitHub - future-agi/future-agi ：用于评估、观察和改进LLM和AI代理应用的开源端到端平台。追踪· Evals ·模拟·数据集·网关·护栏</p>
+      <p class="card-summary" data-i18n-text="en" hidden>GitHub - future-agi/future-agi: Open-source, end-to-end platform for evaluating, observing, and improving LLM and AI agent applications. Tracing · Evals · Simulations · Datasets · Gateway · Guardrails</p>
+      <a href="https://github.com/future-agi/future-agi" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">GitHub</span>
     </div>
 
     <div class="card">
       
       <a href="https://github.com/dezgit2025/auto-memory" target="_blank" rel="noopener noreferrer" class="card-title">dezgit2025/auto-memory</a>
-      <p class="card-summary">Your AI coding agent never forgets — progressive session recall CLI</p>
-      <a href="https://github.com/dezgit2025/auto-memory" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">GitHub - dezgit2025/auto-memory ：您的AI编码代理永远不会忘记—渐进式会话召回CLI · GitHub跳转到内容导航菜单切换导航登录外观设置平台AI</p>
+      <p class="card-summary" data-i18n-text="en" hidden>GitHub - dezgit2025/auto-memory: Your AI coding agent never forgets — progressive session recall CLI · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI </p>
+      <a href="https://github.com/dezgit2025/auto-memory" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">GitHub</span>
     </div>
 
     <div class="card">
       
       <a href="https://github.com/Yaolinwang/AITD" target="_blank" rel="noopener noreferrer" class="card-title">Yaolinwang/AITD</a>
-      <p class="card-summary">AI Trading Agent for Everyone</p>
-      <a href="https://github.com/Yaolinwang/AITD" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">GitHub - Yaolinwang/AITD ： AI Trading Agent for Everyone · GitHub跳转到内容导航菜单切换导航登录外观设置平台AI代码创建GitHub Copilot编写更好的COD</p>
+      <p class="card-summary" data-i18n-text="en" hidden>GitHub - Yaolinwang/AITD: AI Trading Agent for Everyone · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better cod</p>
+      <a href="https://github.com/Yaolinwang/AITD" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">GitHub</span>
     </div>
     </section>
 
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 模型与行业动态</h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://agentgpt.reworkd.ai/" target="_blank" rel="noopener noreferrer" class="card-title">Agent GPT – Assemble, configure, and deploy autonomous AI Agents in the browser</a>
-      <p class="card-summary"></p>
-      <a href="https://agentgpt.reworkd.ai/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">by kevinslin</span> <span class="tag">98 points</span> <span class="tag">44 comments</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/" target="_blank" rel="noopener noreferrer" class="card-title">Gemini 2.0: our new AI model for the agentic era</a>
-      <p class="card-summary"></p>
-      <a href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">by meetpateltech</span> <span class="tag">1015 points</span> <span class="tag">490 comments</span>
-    </div>
-    </section>
-
     <section class="section" id="section-community">
-      <h2 class="section-title">🔥 社区热议</h2>
+      <h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2>
       
     <div class="card top">
       <span class="top-badge">TOP</span>
       <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/" target="_blank" rel="noopener noreferrer" class="card-title">An AI agent published a hit piece on me</a>
-      <p class="card-summary">Previously:  AI agent opens a PR write a blogpost to shames the maintainer who closes it  -  https:&amp;#x2F;&amp;#x2F;news.ycombinator.com&amp;#x2F;item?id=46987</p>
-      <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">一位人工智能代理发布了关于我的热门文章– Shamblog跳到内容Shamblog主页所有项目所有帖子联系人切换网站搜索菜单关闭主页所有项目所有帖子联系人切换网站</p>
+      <p class="card-summary" data-i18n-text="en" hidden>An AI Agent Published a Hit Piece on Me – The Shamblog Skip to content The Shamblog Home All Projects All Posts Contact Toggle website search Menu Close Home All Projects All Posts Contact Toggle webs</p>
+      <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">Hacker News</span> <span class="tag">by scottshambaugh</span> <span class="tag">2346 points</span> <span class="tag">951 comments</span>
     </div>
 
     <div class="card">
       
       <a href="https://opencode.ai/" target="_blank" rel="noopener noreferrer" class="card-title">OpenCode – Open source AI coding agent</a>
-      <p class="card-summary"></p>
-      <a href="https://opencode.ai/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">OpenCode |开源AI编码代理GitHub [140K] Docs Zen Go Enterprise下载打开菜单在macOS、Windows和Linux上提供新的桌面应用程序测试版。立即下载下载桌面</p>
+      <p class="card-summary" data-i18n-text="en" hidden>OpenCode | The open source AI coding agent GitHub [ 140K ] Docs Zen Go Enterprise Download Open menu New Desktop app available in beta on macOS, Windows, and Linux . Download now Download the desktop </p>
+      <a href="https://opencode.ai/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">Hacker News</span> <span class="tag">by rbanffy</span> <span class="tag">1274 points</span> <span class="tag">619 comments</span>
     </div>
 
     <div class="card">
       
       <a href="https://github.com/matplotlib/matplotlib/pull/31132" target="_blank" rel="noopener noreferrer" class="card-title">AI agent opens a PR write a blogpost to shames the maintainer who closes it</a>
-      <p class="card-summary"></p>
-      <a href="https://github.com/matplotlib/matplotlib/pull/31132" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">[PERF]将np.column_stack替换为np.vstack () .T by crabby-rathbun ·拉取请求# 31132 · matplotlib/matplotlib · GitHub跳到内容导航菜单切换导航登录外观设置</p>
+      <p class="card-summary" data-i18n-text="en" hidden>[PERF] Replace np.column_stack with np.vstack().T by crabby-rathbun · Pull Request #31132 · matplotlib/matplotlib · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings</p>
+      <a href="https://github.com/matplotlib/matplotlib/pull/31132" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">Hacker News</span> <span class="tag">by wrxd</span> <span class="tag">953 points</span> <span class="tag">750 comments</span>
     </div>
 
     <div class="card">
       
       <a href="https://burkeholland.github.io/posts/opus-4-5-change-everything/" target="_blank" rel="noopener noreferrer" class="card-title">Opus 4.5 is not the normal AI agent experience that I have had thus far</a>
-      <p class="card-summary"></p>
-      <a href="https://burkeholland.github.io/posts/opus-4-5-change-everything/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">Opus 4.5不是我到目前为止所拥有的正常AI代理体验</p>
+      <p class="card-summary" data-i18n-text="en" hidden>Opus 4.5 is not the normal AI agent experience that I have had thus far</p>
+      <a href="https://burkeholland.github.io/posts/opus-4-5-change-everything/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">Hacker News</span> <span class="tag">by tbassetto</span> <span class="tag">879 points</span> <span class="tag">1353 comments</span>
     </div>
 
     <div class="card">
       
       <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me-part-2/" target="_blank" rel="noopener noreferrer" class="card-title">An AI agent published a hit piece on me – more things have happened</a>
-      <p class="card-summary">https:&amp;#x2F;&amp;#x2F;infosec.exchange&amp;#x2F;@mttaggart&amp;#x2F;116065340523529645</p>
-      <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me-part-2/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">一位人工智能代理发布了一篇关于我的热门文章–发生了更多事情– Shamblog跳到内容Shamblog主页所有项目所有帖子联系人切换网站搜索菜单关闭主页所有项目A</p>
+      <p class="card-summary" data-i18n-text="en" hidden>An AI Agent Published a Hit Piece on Me – More Things Have Happened – The Shamblog Skip to content The Shamblog Home All Projects All Posts Contact Toggle website search Menu Close Home All Projects A</p>
+      <a href="https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me-part-2/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">Hacker News</span> <span class="tag">by scottshambaugh</span> <span class="tag">768 points</span> <span class="tag">624 comments</span>
     </div>
 
     <div class="card">
       
       <a href="https://sketch.dev/blog/agent-loop" target="_blank" rel="noopener noreferrer" class="card-title">The unreasonable effectiveness of an LLM agent loop with tool use</a>
-      <p class="card-summary"></p>
-      <a href="https://sketch.dev/blog/agent-loop" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">sketch blog: The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use sketch.dev blog The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use 2025-05-15 by Philip Zeyliger My co-wor</p>
+      <p class="card-summary" data-i18n-text="en" hidden>sketch blog: The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use sketch.dev blog The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use 2025-05-15 by Philip Zeyliger My co-wor</p>
+      <a href="https://sketch.dev/blog/agent-loop" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       <span class="tag">Hacker News</span> <span class="tag">by crawshaw</span> <span class="tag">447 points</span> <span class="tag">320 comments</span>
     </div>
     </section>
@@ -503,13 +516,75 @@ body {
 
 <!-- Footer -->
 <div class="footer">
-  数据来源：arXiv, GitHub, Hacker News, HuggingFace<br>
-  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-25 14:22
+  <span data-i18n="sources_prefix">数据来源：</span>The Verge, VentureBeat, Ars Technica, GitHub, Hacker News, HuggingFace, Models<br>
+  <span data-i18n="footer_meta_prefix">由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 </span>2026-04-25 15:43
 </div>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
 
+(function(){
+  var LANG_STORAGE = 'lavaagent_home_lang';
+  var I18N = {
+    zh: {
+      nav_back_text: '返回',
+      skip_to_content: '跳到正文',
+      hero_title: 'AI Agent 日报',
+      hero_subtitle_suffix: '· 每日精选',
+      stat_items: '条资讯',
+      stat_sections: '个板块',
+      stat_sources: '个来源',
+      card_read_more: '查看原文',
+      sources_prefix: '数据来源：',
+      footer_meta_prefix: '由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 ',
+      lang_group_label: '界面语言'
+    },
+    en: {
+      nav_back_text: 'Back',
+      skip_to_content: 'Skip to content',
+      hero_title: 'AI Agent Daily',
+      hero_subtitle_suffix: '· Daily picks',
+      stat_items: 'items',
+      stat_sections: 'sections',
+      stat_sources: 'sources',
+      card_read_more: 'Read more',
+      sources_prefix: 'Sources: ',
+      footer_meta_prefix: 'Auto-generated by Hermes Agent · Updated daily at 11:30 BJT · Generated at ',
+      lang_group_label: 'Language'
+    }
+  };
+  function getLang(){
+    try { var s = localStorage.getItem(LANG_STORAGE); return (s === 'en' || s === 'zh') ? s : 'zh'; }
+    catch(_){ return 'zh'; }
+  }
+  function applyI18n(){
+    var lang = getLang();
+    var pack = I18N[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.dataset.i18n;
+      if (pack[k] !== undefined) el.textContent = pack[k];
+    });
+    document.querySelectorAll('[data-i18n-text]').forEach(function(el){
+      el.hidden = (el.dataset.i18nText !== lang);
+    });
+    document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
+    var bZh = document.getElementById('lang-zh');
+    var bEn = document.getElementById('lang-en');
+    if (bZh) bZh.classList.toggle('active', lang === 'zh');
+    if (bEn) bEn.classList.toggle('active', lang === 'en');
+    var lg = document.querySelector('.atlas-lang');
+    if (lg) lg.setAttribute('aria-label', pack.lang_group_label);
+  }
+  function setLang(lang){
+    if (lang !== 'zh' && lang !== 'en') return;
+    try { localStorage.setItem(LANG_STORAGE, lang); } catch(_){}
+    applyI18n();
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(function(el){
+    el.addEventListener('click', function(){ setLang(el.dataset.setLang); });
+  });
+  applyI18n();
+})();
 </script>
 
 </body>

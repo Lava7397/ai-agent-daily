@@ -72,18 +72,26 @@ def extract_between(text, start_marker, end_marker):
 
 
 def extract_archive_meta(archive_path):
-    """从归档 HTML 中提取头条标题和总条目数"""
+    """从归档 HTML 中提取头条标题、总条目数、头条中文摘要
+
+    新模板下头条卡片有两个 .card-summary（zh / en），第一个就是中文；
+    旧模板下只有一个 .card-summary，本身即中文。统一取「第一个出现的」。
+    """
     try:
         html = archive_path.read_text(encoding="utf-8")
-        # 提取第一个 .card-title 的文本（头条标题）
         m = re.search(r'<a[^>]+class="card-title"[^>]*>([^<]+)</a>', html)
         headline = m.group(1).strip() if m else ""
-        # 提取总条目数（hero stats 里）
         n = re.findall(r'class="stat-num"[^>]*>([\d]+)</div>', html)
-        total = n[0] if n else ""   # 第一个 stat-num 是 total items
-        return headline, total
+        total = n[0] if n else ""
+        summary = ""
+        if m:
+            after = html[m.end():]
+            sm = re.search(r'<p[^>]*class="card-summary"[^>]*>([^<]+)</p>', after)
+            if sm:
+                summary = sm.group(1).strip()
+        return headline, total, summary
     except Exception:
-        return "", ""
+        return "", "", ""
 
 
 def build_home_html(archive_infos, page=1, per_page=10):
@@ -92,10 +100,10 @@ def build_home_html(archive_infos, page=1, per_page=10):
     """
 
 SECTION_META = {
-    "research": {"icon": "🤖", "title": "AI Agent 研究"},
-    "github":   {"icon": "⭐", "title": "GitHub 热门项目"},
-    "models":   {"icon": "🚀", "title": "模型与行业动态"},
-    "community": {"icon": "🔥", "title": "社区热议"},
+    "research": {"icon": "🤖", "title_zh": "AI Agent 研究",     "title_en": "Research"},
+    "github":   {"icon": "⭐", "title_zh": "GitHub 热门项目",   "title_en": "GitHub Trending"},
+    "models":   {"icon": "🚀", "title_zh": "模型与行业动态",   "title_en": "Models & Industry"},
+    "community":{"icon": "🔥", "title_zh": "社区热议",         "title_en": "Community"},
 }
 
 
@@ -106,7 +114,10 @@ def load_data():
 
 def build_item_html(item, is_top=False):
     safe_title = escape(item.get("title", "Untitled"))
-    safe_summary = escape(item.get("summary", ""))
+    summary_zh_raw = item.get("summary_zh") or item.get("summary") or ""
+    summary_en_raw = item.get("summary_en") or item.get("summary") or summary_zh_raw
+    safe_summary_zh = escape(summary_zh_raw)
+    safe_summary_en = escape(summary_en_raw)
     safe_link = escape(item.get("url", "#"), quote=True)
     top_class = " top" if is_top else ""
     top_badge = '<span class="top-badge">TOP</span>' if is_top else ""
@@ -119,8 +130,9 @@ def build_item_html(item, is_top=False):
     <div class="card{top_class}">
       {top_badge}
       <a href="{safe_link}" target="_blank" rel="noopener noreferrer" class="card-title">{safe_title}</a>
-      <p class="card-summary">{safe_summary}</p>
-      <a href="{safe_link}" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
+      <p class="card-summary" data-i18n-text="zh">{safe_summary_zh}</p>
+      <p class="card-summary" data-i18n-text="en" hidden>{safe_summary_en}</p>
+      <a href="{safe_link}" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
       {tags}
     </div>"""
 
@@ -134,7 +146,7 @@ def build_section_html(key, items):
     cards = "\n".join(cards_list)
     return f"""
     <section class="section" id="{section_id}">
-      <h2 class="section-title">{meta['icon']} {meta['title']}</h2>
+      <h2 class="section-title">{meta['icon']} <span data-i18n-text="zh">{meta['title_zh']}</span><span data-i18n-text="en" hidden>{meta['title_en']}</span></h2>
       {cards}
     </section>"""
 
@@ -172,7 +184,12 @@ def build_html(data, include_nav_back=True):
     if include_nav_back:
         detail_topbar_block = """<div class="detail-topbar">
   <div class="detail-topbar-inner">
-    <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> 返回</a>
+    <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
+    <div class="atlas-lang" role="group" aria-label="界面语言">
+      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
+      <span class="atlas-lang-sep">/</span>
+      <button type="button" id="lang-en" data-set-lang="en">EN</button>
+    </div>
   </div>
 </div>
 """
@@ -214,14 +231,22 @@ body {{
 
 /* ---- Detail top bar（与 quick-nav / 正文同宽，按钮同首页 atlas-btn） ---- */
 .detail-topbar {{
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 20px 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245,240,232,0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(100,80,60,0.08);
 }}
 .detail-topbar-inner {{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 12px 16px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  gap: 12px;
 }}
 .atlas-btn {{
   border: 1px solid rgba(100,80,60,0.18);
@@ -236,6 +261,36 @@ body {{
   align-items: center;
   gap: 6px;
   -webkit-tap-highlight-color: transparent;
+}}
+.atlas-lang {{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}}
+.atlas-lang button {{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #6f6559;
+  padding: 4px 6px;
+  border-radius: 2px;
+}}
+.atlas-lang button:hover {{
+  color: #2f2c27;
+}}
+.atlas-lang button.active {{
+  color: #2f2c27;
+  font-weight: 700;
+  background: rgba(100,80,60,0.08);
+}}
+.atlas-lang-sep {{
+  color: #b0a89a;
+  font-size: 11px;
+  user-select: none;
 }}
 
 /* ---- Hero / 莫比斯封面 ---- */
@@ -484,24 +539,24 @@ body {{
 </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link">跳到正文</a>
+<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
 {detail_topbar_block}
 <!-- Hero -->
 <div class="hero">
-  <h1>AI Agent 日报</h1>
-  <p class="date">{safe_date} · 每日精选</p>
+  <h1 data-i18n="hero_title">AI Agent 日报</h1>
+  <p class="date">{safe_date} <span data-i18n="hero_subtitle_suffix">· 每日精选</span></p>
   <div class="stats">
     <div class="stat">
       <div class="stat-num">{total}</div>
-      <div class="stat-label">条资讯</div>
+      <div class="stat-label" data-i18n="stat_items">条资讯</div>
     </div>
     <div class="stat">
       <div class="stat-num">{section_count}</div>
-      <div class="stat-label">个板块</div>
+      <div class="stat-label" data-i18n="stat_sections">个板块</div>
     </div>
     <div class="stat">
       <div class="stat-num">{source_count}</div>
-      <div class="stat-label">个来源</div>
+      <div class="stat-label" data-i18n="stat_sources">个来源</div>
     </div>
   </div>
 </div>
@@ -517,12 +572,74 @@ body {{
 
 <!-- Footer -->
 <div class="footer">
-  数据来源：{safe_sources}<br>
-  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 {safe_generated_at}
+  <span data-i18n="sources_prefix">数据来源：</span>{safe_sources}<br>
+  <span data-i18n="footer_meta_prefix">由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 </span>{safe_generated_at}
 </div>
 
 <script>
-{back_home_js}</script>
+{back_home_js}(function(){{
+  var LANG_STORAGE = 'lavaagent_home_lang';
+  var I18N = {{
+    zh: {{
+      nav_back_text: '返回',
+      skip_to_content: '跳到正文',
+      hero_title: 'AI Agent 日报',
+      hero_subtitle_suffix: '· 每日精选',
+      stat_items: '条资讯',
+      stat_sections: '个板块',
+      stat_sources: '个来源',
+      card_read_more: '查看原文',
+      sources_prefix: '数据来源：',
+      footer_meta_prefix: '由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 ',
+      lang_group_label: '界面语言'
+    }},
+    en: {{
+      nav_back_text: 'Back',
+      skip_to_content: 'Skip to content',
+      hero_title: 'AI Agent Daily',
+      hero_subtitle_suffix: '· Daily picks',
+      stat_items: 'items',
+      stat_sections: 'sections',
+      stat_sources: 'sources',
+      card_read_more: 'Read more',
+      sources_prefix: 'Sources: ',
+      footer_meta_prefix: 'Auto-generated by Hermes Agent · Updated daily at 11:30 BJT · Generated at ',
+      lang_group_label: 'Language'
+    }}
+  }};
+  function getLang(){{
+    try {{ var s = localStorage.getItem(LANG_STORAGE); return (s === 'en' || s === 'zh') ? s : 'zh'; }}
+    catch(_){{ return 'zh'; }}
+  }}
+  function applyI18n(){{
+    var lang = getLang();
+    var pack = I18N[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function(el){{
+      var k = el.dataset.i18n;
+      if (pack[k] !== undefined) el.textContent = pack[k];
+    }});
+    document.querySelectorAll('[data-i18n-text]').forEach(function(el){{
+      el.hidden = (el.dataset.i18nText !== lang);
+    }});
+    document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
+    var bZh = document.getElementById('lang-zh');
+    var bEn = document.getElementById('lang-en');
+    if (bZh) bZh.classList.toggle('active', lang === 'zh');
+    if (bEn) bEn.classList.toggle('active', lang === 'en');
+    var lg = document.querySelector('.atlas-lang');
+    if (lg) lg.setAttribute('aria-label', pack.lang_group_label);
+  }}
+  function setLang(lang){{
+    if (lang !== 'zh' && lang !== 'en') return;
+    try {{ localStorage.setItem(LANG_STORAGE, lang); }} catch(_){{}}
+    applyI18n();
+  }}
+  document.querySelectorAll('[data-set-lang]').forEach(function(el){{
+    el.addEventListener('click', function(){{ setLang(el.dataset.setLang); }});
+  }});
+  applyI18n();
+}})();
+</script>
 
 </body>
 </html>"""
@@ -545,11 +662,15 @@ def build_home_html(archive_infos, page=1, per_page=10):
 
     # 生成日期卡片（含头条摘要）
     cards_html = ""
-    for date_str, headline, items_total in page_infos:
+    for date_str, headline, items_total, summary in page_infos:
         day_name = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"][
             datetime.strptime(date_str, "%Y-%m-%d").weekday()
         ]
         safe_headline = escape(headline) if headline else "暂无摘要"
+        safe_summary = escape(summary) if summary else ""
+        summary_html = (
+            f'<p class="date-summary">{safe_summary}</p>' if safe_summary else ""
+        )
         items_label = f"{items_total} 条内容" if items_total else ""
         cards_html += f"""
         <a class="date-card" href="archives/{date_str}.html">
@@ -557,7 +678,10 @@ def build_home_html(archive_infos, page=1, per_page=10):
             <span class="date-main">{date_str}</span>
             <span class="date-day">{day_name}</span>
           </div>
-          <p class="date-headline">{safe_headline}</p>
+          <div class="date-text-wrap">
+            <p class="date-headline">{safe_headline}</p>
+            {summary_html}
+          </div>
           <div class="date-right">
             {f'<span class="date-count">{items_label}</span>' if items_label else ''}
             <span class="date-arrow">→</span>
@@ -736,8 +860,14 @@ body {{
   color: #8a7e6e;
   letter-spacing: 1px;
 }}
-.date-headline {{
+.date-text-wrap {{
   flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}}
+.date-headline {{
   font-size: 13px;
   color: #5a5040;
   line-height: 1.5;
@@ -746,7 +876,16 @@ body {{
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  min-width: 0;
+}}
+.date-summary {{
+  font-size: 11.5px;
+  color: #8a7e6e;
+  line-height: 1.55;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }}
 .date-right {{
   flex-shrink: 0;
@@ -886,16 +1025,20 @@ function renderPage(p) {{
 
   const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
   const listEl = document.getElementById('archiveList');
-  listEl.innerHTML = pageItems.map(([d, headline, total]) => {{
+  listEl.innerHTML = pageItems.map(([d, headline, total, summary]) => {{
     const dn = dayNames[new Date(d + 'T00:00:00').getDay()];
     const label = total ? total + ' 条内容' : '';
     const countHtml = label ? `<span class="date-count">${{label}}</span>` : '';
+    const summaryHtml = summary ? `<p class="date-summary">${{summary}}</p>` : '';
     return `<a class="date-card" href="archives/${{d}}.html">
       <div class="date-meta-wrap">
         <span class="date-main">${{d}}</span>
         <span class="date-day">${{dn}}</span>
       </div>
-      <p class="date-headline">${{headline || '暂无摘要'}}</p>
+      <div class="date-text-wrap">
+        <p class="date-headline">${{headline || '暂无摘要'}}</p>
+        ${{summaryHtml}}
+      </div>
       <div class="date-right">
         ${{countHtml}}
         <span class="date-arrow">→</span>
@@ -1049,8 +1192,8 @@ def main(argv=None):
         for p in archive_files:
             if p.stem < MIN_DATE:
                 continue
-            headline, total = extract_archive_meta(p)
-            archive_infos.append((p.stem, headline, total))
+            headline, total, summary = extract_archive_meta(p)
+            archive_infos.append((p.stem, headline, total, summary))
 
         if archive_infos:
             home_path = BASE_DIR / "home.html"
@@ -1070,7 +1213,7 @@ def main(argv=None):
                 home_path.write_text(new_home_html, encoding="utf-8")
                 print(f"Generated: {home_path} ({len(archive_infos)} issues)")
             # 打印头条预览
-            for date_str, headline, total in archive_infos[:3]:
+            for date_str, headline, total, _summary in archive_infos[:3]:
                 print(f"  {date_str}: {headline[:50]}...")
         else:
             print("⚠️  No archives found, skipping home.html")
