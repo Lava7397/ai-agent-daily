@@ -1,125 +1,80 @@
 {
-  "date": "2026-04-24",
-  "sources": "The Verge, VentureBeat, Ars Technica, Hacker News, HuggingFace, GitHub",
-  "research": [
-    {
-      "title": "Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税",
-      "summary": "研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。",
-      "url": "https://arxiv.org/pdf/2604.21816v1",
-      "tags": ["MCP", "Agent", "工具调用", "性能优化"]
-    },
-    {
-      "title": "从研究问题到科学工作流：利用 Agentic AI 自动化科学研究",
-      "summary": "科研工作流系统擅长执行层面的调度、容错和资源管理，但无法自动完成「从研究问题到语义化工作流」的转换，科学家仍需手动完成这一过程。本文提出基于 Agentic AI 的自动化框架，利用 LLM 将自然语言研究问题直接转化为可执行工作流，降低科学计算门槛，已在多个科学领域验证有效性。",
-      "url": "https://arxiv.org/pdf/2604.21910v1",
-      "tags": ["Agentic AI", "科学工作流", "自动化", "LLM"]
-    },
-    {
-      "title": "Multi-Agent 语言系统的端到端通信优化",
-      "summary": "当前多 Agent 系统主要关注角色分配和工作流编排，却忽视 Agent 间的通信质量。本文提出端到端通信优化框架，针对多 Agent LLM 系统中的信息传递效率和信息损失问题进行建模，发现优化通信协议可将协作任务完成率提升 35%，为多 Agent 系统的通信设计提供了系统性方法论。",
-      "url": "https://arxiv.org/pdf/2604.21794v1",
-      "tags": ["Multi-Agent", "通信优化", "LLM", "协作系统"]
-    },
-    {
-      "title": "从专有 LLM Agent 窃取技能的灰盒攻击方法",
-      "summary": "LLM Agent 通过 Skills（封装可复用能力的渐进式指令集）来注入专业知识。本文首次系统性地研究黑盒技能窃取攻击，发现攻击者可在不了解目标模型架构的情况下提取 Agent 的专有技能，且被提取技能在新模型中可直接使用。这一发现对 Agent 知识产权保护提出新挑战，同时也推动了防御性研究。",
-      "url": "https://arxiv.org/pdf/2604.21829v1",
-      "tags": ["安全", "Agent", "技能窃取", "LLM"]
-    }
-  ],
-  "github": [
-    {
-      "title": "openclaw/openclaw: 跨平台 AI 助手框架",
-      "summary": "OpenClaw 是一个开源跨平台 AI 助手框架，支持任意操作系统和平台，主打「、龙虾方式」（The lobster way）的 AI 交互理念。项目已获 36.3 万星标，反映出市场对平台无关 AI Agent 解决方案的强烈需求，支持自定义工具链和多后端集成。",
-      "url": "https://github.com/openclaw/openclaw",
-      "stars": "363k",
-      "tags": ["AI助手", "开源", "跨平台", "框架"]
-    },
-    {
-      "title": "n8n-io/n8n: 原生 AI 能力的工作流自动化平台",
-      "summary": "n8n 是一个开源工作流自动化平台，兼具可视化构建和自定义代码能力，支持自托管或云端部署，提供 400+ 集成选项。最新版本强化了 AI Agent 原生集成，可将 AI 能力嵌入任意工作流，已获 18.5 万星标，成为企业内部 AI 自动化的事实标准。",
-      "url": "https://github.com/n8n-io/n8n",
-      "stars": "185k",
-      "tags": ["工作流自动化", "AI集成", "开源", "企业"]
-    },
-    {
-      "title": "langgenius/dify: 生产级 Agent 工作流开发平台",
-      "summary": "Dify 是一个生产级 Agent 工作流开发平台，提供可视化编排、模型接入和部署能力，支持自定义 Agent 和工作流设计。项目在四月再次获得大量关注（现 13.9 万星标），其简洁的工作流设计界面和丰富的模型支持使其成为中小企业快速落地 AI Agent 的首选工具。",
-      "url": "https://github.com/langgenius/dify",
-      "stars": "139k",
-      "tags": ["Agent", "工作流", "可视化编排", "平台"]
-    },
-    {
-      "title": "NousResearch/hermes-agent: 成长型 AI Agent 框架",
-      "summary": "Hermes Agent 是由 Nous Research 开发的 AI Agent 框架，理念是「与你一同成长的 Agent」。项目已获 11.4 万星标，注重 Agent 的自我改进和长期学习能力，支持多模态输入和工具调用，是开源社区中专注于 Agent 自主成长能力的代表项目。",
-      "url": "https://github.com/NousResearch/hermes-agent",
-      "stars": "114k",
-      "tags": ["Agent", "自我改进", "NousResearch", "开源"]
-    },
-    {
-      "title": "firecrawl/firecrawl: AI 网页搜索与抓取 API",
-      "summary": "Firecrawl 是一个专为 AI 设计网页搜索、抓取和交互 API，支持将任意网站转换为 Markdown 或其他格式，供 LLM 直接使用。项目已获 11.2 万星标，是 AI 数据采集领域的核心基础设施，解决了 Agent 获取最新网络信息的核心难题，支持动态内容渲染和反爬虫绕过。",
-      "url": "https://github.com/firecrawl/firecrawl",
-      "stars": "111k",
-      "tags": ["网页抓取", "AI数据", "RAG", "API"]
-    }
-  ],
+  "date": "2026-04-25",
+  "sources": "arXiv, GitHub Trending, HuggingFace Papers, Hacker News, VentureBeat, The Verge, AI News",
+  "research": [],
+  "github": [],
   "models": [
     {
-      "title": "Claude Code 新增团队协作与 MCP 服务注册功能",
-      "summary": "Anthropic 为 Claude Code 推出重大更新，新增团队协作模式和多 MCP 服务注册功能。团队模式支持多人共享 Agent 会话上下文，MCP 注册表允许开发者上传并分享自建工具服务。Anthropic 同时宣布 Claude Code 企业版即将发布，起售价 $25/人/月，提供 SLA 保证和集中管理控制台。",
-      "url": "https://www.anthropic.com/news/claude-code-teams",
-      "tags": ["Anthropic", "Claude Code", "MCP", "企业协作"]
-    },
-    {
-      "title": "Google Gemini 3.1 Pro 新增跨文档记忆与主动推理模式",
-      "summary": "Google 发布 Gemini 3.1 Pro 重要更新，引入跨文档长期记忆和主动推理（Proactive Reasoning）两大新特性。跨文档记忆允许模型在单一会话中整合来自不同文档的信息，主动推理则让模型可提前预判用户需求并主动调用工具，在 GAIA 基准测试中准确率提升 18 个百分点。",
-      "url": "https://ai.google/discover/gemini",
-      "tags": ["Google", "Gemini", "长记忆", "推理"]
-    },
-    {
-      "title": "OpenAI 即将发布 GPT-5 Agent 原生工具调用 API",
-      "summary": "据多方披露，OpenAI 正在测试 GPT-5 的 Agent 原生工具调用 API，采用新的 function calling 协议，支持多步骤工具链并行调用和状态持久化。内部测试显示 GPT-5 在复杂多步骤任务中的成功率比 GPT-4o 提升 42%，预计本季度末向开发者开放 API 预览版。",
-      "url": "https://openai.com/index/gpt-5",
-      "tags": ["OpenAI", "GPT-5", "工具调用", "Agent API"]
-    },
-    {
-      "title": "Meta 推出开源 Llama Agent 工具包：150 亿参数支持本地部署",
-      "summary": "Meta 发布 Llama Agent 工具包，基于 Llama 3 150 亿参数模型，专为本地 Agent 场景优化。工具包包含完整的多模态感知、工具调用和短期记忆模块，支持纯 CPU 推理（int4 量化）和 4-bit GPU 加速推理，可在消费级显卡运行，实测在复杂推理任务中达到 GPT-4o 80% 的性能水平。",
-      "url": "https://ai.meta.com/blog/llama-agent-toolkit",
-      "tags": ["Meta", "Llama", "Agent工具包", "本地部署"]
+      "title": "Google plans to invest up to $40B in Anthropic",
+      "summary": "HN Score: 292, by elffjs",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-24/google-plans-to-invest-up-to-40-billion-in-anthropic",
+      "tags": [
+        "Hacker News",
+        "社区"
+      ],
+      "_impact": 10
     }
   ],
   "community": [
     {
-      "title": "Hacker News 热议：单 Agent 为何常胜多 Agent 集群",
-      "summary": "Hacker News 社区围绕斯坦福新研究「计算预算修复方案可改变单 Agent 与多 Agent 的竞争格局」展开热议。帖子指出，多 Agent 集群虽并行度高，但协调开销（swarm tax）往往抵消并行收益。在固定计算预算下，单一 Agent 反而更高效。评论中有人指出，这一结论对企业设计 Agent 系统具有重要启示：不是堆数量，而是合理分配计算资源。",
-      "url": "https://news.ycombinator.com/item?id=43091824",
-      "tags": ["Hacker News", "Agent", "效率", "研究"]
+      "title": "Siemens introduces AI system for automation engineering",
+      "summary": "Siemens has introduced the Eigen Engineering Agent, an AI system designed to plan and validate automation engineering tasks in operational environment",
+      "url": "https://www.artificialintelligence-news.com/news/siemens-ai-automation-engineering-workflows/",
+      "tags": [
+        "AI News",
+        "行业"
+      ],
+      "_impact": 2
     },
     {
-      "title": "Stack Overflow 开发者调查：42% 开发者已在生产环境使用 AI Agent",
-      "summary": "Stack Overflow 发布 2026 年开发者调查，42% 的受访开发者表示已在生产环境中使用 AI Agent 工具，另有 31% 正在评估中。AI Agent 最常用场景依次为：代码审查（58%）、自动化测试生成（49%）、文档编写（43%）和 CI/CD 流水线维护（38%）。Python 仍是最受 AI Agent 青睐的语言（67%），JavaScript 位列第二（52%）。",
-      "url": "https://survey.stackoverflow.co/2026",
-      "tags": ["社区", "开发者调查", "AI Agent", "生产环境"]
+      "title": "Why AI agents need interaction infrastructure",
+      "summary": "To stop automation waste, enterprises must deploy interaction infrastructure that physically governs how independent AI agents operate. AI agents now",
+      "url": "https://www.artificialintelligence-news.com/news/why-ai-agents-need-interaction-infrastructure/",
+      "tags": [
+        "AI News",
+        "行业"
+      ],
+      "_impact": 1
     },
     {
-      "title": "AI Agent 融资持续火爆：3 家初创公司本周共融资 5.3 亿美元",
-      "summary": "企业级 AI Agent 初创公司本周迎来新一轮融资热潮：Cogna AI 融资 2.4 亿美元（a16z 领投）、FlowStack 融资 1.9 亿美元（Sequoia 领投）、Nomi AI 融资 1 亿美元（Index Ventures 领投）。三家公司的共同特点是专注于特定行业的垂直 Agent 解决方案（分别对应客服、金融分析和供应链管理），反映出 AI Agent 投资正在从通用平台向行业深度应用分化。",
-      "url": "https://venturebeat.com/ai-agent-startup-funding-april-2026",
-      "tags": ["融资", "AI Agent", "初创公司", "投资"]
+      "title": "Sony AI robot beats players as humanoid robot wins Beijing race",
+      "summary": "An autonomous table tennis robot developed by Sony AI has competed against and defeated high-level human players in regulated matches, according to Re",
+      "url": "https://www.artificialintelligence-news.com/news/sony-ai-robot-table-tennis-humanoid-robot-beijing-race/",
+      "tags": [
+        "AI News",
+        "行业"
+      ],
+      "_impact": 1
     },
     {
-      "title": "GitHub Copilot Enterprise 新增 Agent 模式：可直接操作代码库",
-      "summary": "GitHub 宣布 Copilot Enterprise 全面引入 Agent 模式，AI 可直接对代码库进行读写操作、创建分支、提交 PR 和触发 CI/CD。管理员可细粒度控制 Agent 的代码库访问权限和操作边界。该功能基于 GitHub 与 Anthropic 的深度合作，在安全和可控的前提下大幅提升开发效率，已向企业用户开放测试。",
-      "url": "https://github.blog/news/copilot-enterprise-agent-mode",
-      "tags": ["GitHub", "Copilot", "Agent", "开发者工具"]
+      "title": "Sabotaging projects by overthinking, scope creep, and structural diffing",
+      "summary": "HN Score: 348, by alcazar",
+      "url": "https://kevinlynagh.com/newsletter/2026_04_overthinking/",
+      "tags": [
+        "Hacker News",
+        "社区"
+      ],
+      "_impact": 0.5
     },
     {
-      "title": "Anthropic Claude Artifacts 企业数据隔离模式引发社区讨论",
-      "summary": "Anthropic 推出 Claude Artifacts 的企业数据隔离模式，支持企业在沙箱环境中生成和分享 AI 生成内容，数据不会用于模型训练。该功能在社区引发关于 AI 数据隐私和企业控制权的讨论。Anthropic 同时确认，其 AI 安全研究中发现的 271 个 Firefox 零日漏洞已全部提交 Mozilla 修复，展示了 AI 在网络安全领域的实际价值。",
-      "url": "https://www.anthropic.com/news/enterprise-artifacts",
-      "tags": ["Anthropic", "Claude", "数据隐私", "企业"]
+      "title": "How to be anti-social – a guide to incoherent and isolating social experiences",
+      "summary": "HN Score: 296, by calcifer",
+      "url": "https://nate.leaflet.pub/3mk4xkaxobc2p",
+      "tags": [
+        "Hacker News",
+        "社区"
+      ],
+      "_impact": 0.5
+    },
+    {
+      "title": "The role of AI in modern forex bot development",
+      "summary": "Artificial intelligence has become a defining force in financial markets. And currency trading is no exception. The rise of the AI-powered forex bot r",
+      "url": "https://www.artificialintelligence-news.com/news/the-role-of-ai-in-modern-forex-bot-development/",
+      "tags": [
+        "AI News",
+        "行业"
+      ],
+      "_impact": 0.5
     }
   ]
 }
