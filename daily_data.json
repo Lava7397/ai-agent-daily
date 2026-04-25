@@ -3,14 +3,35 @@
   "sources": "arXiv, GitHub Trending, HuggingFace Papers, Hacker News, LangChain/CrewAI/Dify Blogs, AI Tools",
   "description": "AI Agent 领域最新情报 - 研究论文 | 开源项目 | 模型发布 | 社区实践",
   "research": [],
-  "github": [],
+  "github": [
+    {
+      "title": "Alishahryar1 / free-claude-code",
+      "summary": "Star Alishahryar1 / free-claude-code Use claude-code for free in the terminal, VSCode extension or via discord like openclaw | ⭐ 今日 +2638",
+      "url": "https://github.com/Alishahryar1/free-claude-code",
+      "tags": [
+        "GitHub",
+        "开源"
+      ],
+      "score": 264
+    },
+    {
+      "title": "zilliztech / claude-context",
+      "summary": "Star zilliztech / claude-context Code search MCP for Claude Code. Make entire codebase the context for any coding 智能体. | ⭐ 今日 +706",
+      "url": "https://github.com/zilliztech/claude-context",
+      "tags": [
+        "GitHub",
+        "开源"
+      ],
+      "score": 73
+    }
+  ],
   "models": [],
   "community": [],
   "stats": {
-    "total": 0,
+    "total": 2,
     "by_module": {
       "research": 0,
-      "github": 0,
+      "github": 2,
       "models": 0,
       "community": 0
     }
