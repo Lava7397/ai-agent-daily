@@ -158,6 +158,10 @@ body {
 
 /* ---- Hero / 莫比斯封面 ---- */
 .hero {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background:
     radial-gradient(ellipse at 20% 80%, rgba(178,200,218,0.35) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
@@ -188,6 +192,10 @@ body {
   z-index: 1;
 }
 .hero .date {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   color: #8a7e6e;
   font-size: 13px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -196,6 +204,8 @@ body {
   z-index: 1;
   letter-spacing: 0.5px;
   line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 .hero .date .hero-sep,
 .hero .date .hero-tagline,
