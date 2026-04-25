@@ -12,6 +12,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+/* 可交互元素统一动效（简洁） */
+:root { --ix: 0.18s ease; }
+@media (hover: hover) and (pointer: fine) {
+  a, button, .atlas-btn, [role="button"] { -webkit-tap-highlight-color: transparent; }
+}
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -50,9 +55,63 @@ body {
   letter-spacing: 1.4px;
   text-transform: uppercase;
 }
+.atlas-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 12px;
+}
 .atlas-brand {
   color: #2f2c27;
   font-weight: 600;
+}
+.atlas-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: #6f6559;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 0;
+  transition: color var(--ix), background var(--ix), transform 0.12s ease;
+}
+.atlas-copy-btn:hover {
+  color: #2f2c27;
+  background: rgba(100, 80, 60, 0.08);
+  transform: scale(1.06);
+}
+.atlas-copy-btn:active { transform: scale(0.98); }
+.atlas-copy-btn:focus-visible {
+  outline: 2px solid #98703f;
+  outline-offset: 2px;
+}
+.atlas-copy-feedback {
+  font-size: 11px;
+  font-weight: 500;
+  color: #2d5a32;
+  background: rgba(60, 120, 70, 0.14);
+  border: 1px solid rgba(60, 120, 70, 0.22);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 2px;
+  white-space: nowrap;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(-2px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.atlas-copy-feedback[hidden] {
+  display: none;
+}
+.atlas-copy-feedback--show {
+  opacity: 1;
+  transform: translateY(0);
 }
 .atlas-nav-right {
   display: flex;
@@ -75,9 +134,16 @@ body {
   color: #6f6559;
   padding: 4px 6px;
   border-radius: 2px;
+  transition: color var(--ix), background var(--ix), font-weight 0.1s, transform 0.1s;
 }
 .atlas-lang button:hover {
   color: #2f2c27;
+  background: rgba(100, 80, 60, 0.1);
+  transform: translateY(-0.5px);
+}
+.atlas-lang button:focus-visible {
+  outline: 2px solid #98703f;
+  outline-offset: 1px;
 }
 .atlas-lang button.active {
   color: #2f2c27;
@@ -95,15 +161,24 @@ body {
 }
 .atlas-links a {
   color: #6f6559;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: color var(--ix), text-decoration-color var(--ix);
 }
 .atlas-links a:hover {
   color: #2f2c27;
+  text-decoration-color: rgba(47, 44, 39, 0.4);
+}
+.atlas-links a:focus-visible {
+  outline: 2px solid #98703f;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 .atlas-hero {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 44px 24px 18px;
+  padding: 16px 24px 14px;
 }
 .atlas-title {
   font-size: clamp(36px, 6vw, 72px);
@@ -128,11 +203,12 @@ body {
   display: block;
   flex-shrink: 0;
   box-sizing: border-box;
-  padding: 0.1em;
-  border-radius: 0.2em;
-  border: 1px solid rgba(100, 80, 60, 0.2);
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 1px 2px rgba(45, 36, 28, 0.06);
+  /* 比原先的 0.1em 细，仍保留一点白边 */
+  padding: 0.03em;
+  border-radius: 0.14em;
+  border: 1px solid rgba(100, 80, 60, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 0 1px rgba(45, 36, 28, 0.05);
 }
 .atlas-title em,
 .atlas-title-brand {
@@ -156,6 +232,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  transition: background var(--ix), border-color var(--ix), box-shadow var(--ix);
+}
+article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(100, 80, 60, 0.26);
+  box-shadow: 0 2px 10px rgba(45, 36, 28, 0.06);
 }
 .atlas-project-card--placeholder {
   border-style: dashed;
@@ -251,12 +333,34 @@ body {
   font-size: 11px;
   letter-spacing: 1.1px;
   text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  transition: background var(--ix), color var(--ix), border-color var(--ix), box-shadow var(--ix), transform 0.12s ease;
+}
+.atlas-btn:hover {
+  background: #efe6d8;
+  border-color: rgba(100, 80, 60, 0.32);
+  box-shadow: 0 1px 4px rgba(45, 36, 28, 0.08);
+  transform: translateY(-1px);
+}
+.atlas-btn:active { transform: translateY(0); }
+.atlas-btn:focus-visible {
+  outline: 2px solid #98703f;
+  outline-offset: 2px;
 }
 .atlas-btn.primary {
   background: #9a6f35;
   color: #fff;
   border-color: #9a6f35;
 }
+.atlas-btn.primary:hover {
+  background: #8a5e28;
+  border-color: #8a5e28;
+  box-shadow: 0 2px 8px rgba(138, 94, 40, 0.28);
+}
+.atlas-btn.primary:focus-visible { outline-color: #c49a4a; }
 
 /* ---- AI Daily 区（#legacy-home，与历史版本一致的 hero 视觉） ---- */
 #legacy-home.hero {
@@ -265,7 +369,7 @@ body {
     radial-gradient(ellipse at 80% 20%, rgba(210, 185, 220, 0.3) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 50%, rgba(245, 235, 210, 0.5) 0%, transparent 70%),
     #f5f0e8;
-  padding: 52px 24px 40px;
+  padding: 20px 24px 16px;
   text-align: center;
   position: relative;
   border-bottom: 2px solid rgba(100, 80, 60, 0.15);
@@ -293,14 +397,14 @@ body {
 #legacy-home.hero .subtitle {
   color: #8a7e6e;
   font-size: 13px;
-  margin-top: 10px;
+  margin-top: 6px;
   position: relative;
   z-index: 1;
   letter-spacing: 1.5px;
 }
 #legacy-home.hero .today-link {
   display: inline-block;
-  margin-top: 24px;
+  margin-top: 14px;
   padding: 10px 22px;
   background: #5a6e8a;
   color: #fff;
@@ -311,10 +415,18 @@ body {
   border-radius: 4px;
   position: relative;
   z-index: 1;
-  transition: background 0.2s;
+  transition: background var(--ix), box-shadow var(--ix), transform 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 #legacy-home.hero .today-link:hover {
   background: #4a6080;
+  box-shadow: 0 3px 12px rgba(74, 96, 128, 0.28);
+  transform: translateY(-1px);
+}
+#legacy-home.hero .today-link:active { transform: translateY(0); }
+#legacy-home.hero .today-link:focus-visible {
+  outline: 2px solid #3d4f68;
+  outline-offset: 2px;
 }
 
 /* ---- Archive list ---- */
@@ -339,7 +451,8 @@ body {
   text-decoration: none;
   color: #2c2c2c;
   border-radius: 2px;
-  transition: all 0.18s ease;
+  transition: background 0.18s ease, border-color 0.18s, border-left-color 0.18s, transform 0.18s, box-shadow 0.18s;
+  -webkit-tap-highlight-color: transparent;
 }
 .date-card:nth-child(5n+2) { border-left-color: #7a6e9a; }
 .date-card:nth-child(5n+3) { border-left-color: #6a8a7a; }
@@ -349,6 +462,11 @@ body {
   background: rgba(255,255,255,0.9);
   border-left-color: #4a6080;
   transform: translateX(4px);
+  box-shadow: 0 2px 10px rgba(45, 36, 28, 0.07);
+}
+.date-card:focus-visible {
+  outline: 2px solid #5a6e8a;
+  outline-offset: 2px;
 }
 .date-meta-wrap {
   flex-shrink: 0;
@@ -398,22 +516,40 @@ body {
   -webkit-box-orient: vertical;
 }
 .date-right {
-  flex-shrink: 0;
+  flex: 0 0 2.35rem;
+  width: 2.35rem;
+  max-width: 2.35rem;
+  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
 }
-.date-count {
-  font-size: 11px;
-  color: #8a7e6e;
-  white-space: nowrap;
+.date-arrow-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 100%;
+}
+.date-count-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #5a6e8a;
+  line-height: 1;
+  margin-bottom: 1px;
 }
 .date-arrow {
-  font-size: 16px;
+  font-size: 15px;
   color: #b0a89a;
   transition: transform 0.18s, color 0.18s;
+  line-height: 1;
+  display: block;
 }
-.date-card:hover .date-arrow {
+.date-card:hover .date-arrow-stack .date-arrow {
   transform: translateX(3px);
   color: #5a6e8a;
 }
@@ -436,19 +572,27 @@ body {
   font-family: 'Inter', sans-serif;
   cursor: pointer;
   border-radius: 2px;
-  transition: all 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s;
   min-width: 40px;
+  -webkit-tap-highlight-color: transparent;
 }
 .page-btn:hover:not(:disabled) {
   background: #5a6e8a;
   color: #fff;
   border-color: #5a6e8a;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(90, 110, 138, 0.22);
 }
 .page-btn.active {
   background: #4a6080;
   color: #fff;
   border-color: #4a6080;
   font-weight: 600;
+}
+.page-btn:hover:not(:disabled).active { box-shadow: 0 2px 6px rgba(74, 96, 128, 0.3); }
+.page-btn:focus-visible:not(:disabled) {
+  outline: 2px solid #4a6080;
+  outline-offset: 2px;
 }
 .page-btn:disabled {
   opacity: 0.35;
@@ -470,8 +614,15 @@ body {
   font-size: 11px;
   letter-spacing: 1px;
 }
-.footer a { color: #8a7e6e; text-decoration: none; }
-.footer a:hover { color: #5a6e8a; }
+.footer a {
+  color: #8a7e6e;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 2px;
+  transition: color var(--ix), text-decoration-color var(--ix);
+}
+.footer a:hover { color: #5a6e8a; text-decoration-color: rgba(90, 110, 138, 0.45); }
+.footer a:focus-visible { outline: 2px solid #5a6e8a; outline-offset: 2px; border-radius: 2px; }
 
 @media (max-width: 900px) {
   .atlas-project-body {
@@ -490,7 +641,13 @@ body {
 
 <header class="atlas-nav-sticky">
   <div class="atlas-nav">
-    <div class="atlas-brand">Lava</div>
+    <div class="atlas-brand-row">
+      <span class="atlas-brand" id="atlas-site-label">www.lava7397.com</span>
+      <button type="button" class="atlas-copy-btn" id="copy-site-url" aria-label="复制网站地址" title="复制到剪贴板">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+      <span class="atlas-copy-feedback" id="copy-site-feedback" role="status" aria-live="polite" hidden>复制成功</span>
+    </div>
     <div class="atlas-nav-right">
       <div class="atlas-lang" role="group" aria-label="Language">
         <button type="button" id="lang-zh" data-set-lang="zh">中</button>
@@ -563,7 +720,7 @@ body {
 <div class="hero" id="legacy-home">
   <h1 data-i18n="legacy_h1">AI Daily · LavaAgent</h1>
   <p class="subtitle">LavaAgent · 历史存档 · 共 10 期</p>
-  <a class="today-link" href="today.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看当天日报 →</a>
+  <a class="today-link" href="today.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看今日刊 →</a>
 </div>
 
 <!-- Archive list -->
@@ -580,8 +737,7 @@ body {
             <p class="date-summary">Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。</p>
           </div>
           <div class="date-right">
-            <span class="date-count">15 条内容</span>
-            <span class="date-arrow">→</span>
+            <span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>
           </div>
         </a>
         <a class="date-card" href="archives/2026-04-24.html">
@@ -594,8 +750,7 @@ body {
             <p class="date-summary">研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。</p>
           </div>
           <div class="date-right">
-            <span class="date-count">18 条内容</span>
-            <span class="date-arrow">→</span>
+            <span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>
           </div>
         </a>
         <a class="date-card" href="archives/2026-04-23.html">
@@ -608,8 +763,7 @@ body {
             <p class="date-summary">阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。</p>
           </div>
           <div class="date-right">
-            <span class="date-count">18 条内容</span>
-            <span class="date-arrow">→</span>
+            <span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>
           </div>
         </a>
         <a class="date-card" href="archives/2026-04-22.html">
@@ -622,8 +776,7 @@ body {
             <p class="date-summary">AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。</p>
           </div>
           <div class="date-right">
-            <span class="date-count">18 条内容</span>
-            <span class="date-arrow">→</span>
+            <span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>
           </div>
         </a>
         <a class="date-card" href="archives/2026-04-21.html">
@@ -636,78 +789,7 @@ body {
             <p class="date-summary">理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。</p>
           </div>
           <div class="date-right">
-            <span class="date-count">18 条内容</span>
-            <span class="date-arrow">→</span>
-          </div>
-        </a>
-        <a class="date-card" href="archives/2026-04-19.html">
-          <div class="date-meta-wrap">
-            <span class="date-main">2026-04-19</span>
-            <span class="date-day">周日</span>
-          </div>
-          <div class="date-text-wrap">
-            <p class="date-headline">Dive into Claude Code: The Design Space of AI Agent Systems</p>
-            <p class="date-summary">一篇深入分析 Claude Code 架构的学术论文（arXiv:2604.14228），通过解析其 TypeScript 源码，识别出五大核心设计价值和十三项设计原则。核心架构为一个简单的 while 循环调用模型并运行工具，外围包含七级权限系统、五层上下文压缩管道、四种扩展机制（MCP/插件/技能/Hooks）以及子代理委派机制，并与开源项目 OpenClaw 进行了对比分析。</p>
-          </div>
-          <div class="date-right">
-            <span class="date-count">18 条内容</span>
-            <span class="date-arrow">→</span>
-          </div>
-        </a>
-        <a class="date-card" href="archives/2026-04-18.html">
-          <div class="date-meta-wrap">
-            <span class="date-main">2026-04-18</span>
-            <span class="date-day">周六</span>
-          </div>
-          <div class="date-text-wrap">
-            <p class="date-headline">HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界</p>
-            <p class="date-summary">腾讯混元团队发布HY-World 2.0，支持文本、单视角/多视角图像和视频输入，通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens渲染平台支持交互式探索，多基准测试达开源SOTA，接近闭源Marble模型效果。GitHub 1.02k stars。</p>
-          </div>
-          <div class="date-right">
-            <span class="date-count">15 条内容</span>
-            <span class="date-arrow">→</span>
-          </div>
-        </a>
-        <a class="date-card" href="archives/2026-04-17.html">
-          <div class="date-meta-wrap">
-            <span class="date-main">2026-04-17</span>
-            <span class="date-day">周五</span>
-          </div>
-          <div class="date-text-wrap">
-            <p class="date-headline">OpenAI 发布 GPT-Rosalind：面向生命科学的专属大模型</p>
-            <p class="date-summary">OpenAI 推出 GPT-Rosalind，这是一款专门针对生物学工作流微调的大语言模型，采用封闭访问模式。该模型旨在加速药物研发流程，通常需要 10-15 年和数十亿美元投入的实验室假设到药房货架的过程。VentureBeat 指出这是 OpenAI 首次为特定科学领域推出专属模型，标志着 AI 正从通用能力向垂直专业领域深度渗透。</p>
-          </div>
-          <div class="date-right">
-            <span class="date-count">18 条内容</span>
-            <span class="date-arrow">→</span>
-          </div>
-        </a>
-        <a class="date-card" href="archives/2026-04-16.html">
-          <div class="date-meta-wrap">
-            <span class="date-main">2026-04-16</span>
-            <span class="date-day">周四</span>
-          </div>
-          <div class="date-text-wrap">
-            <p class="date-headline">ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架</p>
-            <p class="date-summary">浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。</p>
-          </div>
-          <div class="date-right">
-            <span class="date-count">18 条内容</span>
-            <span class="date-arrow">→</span>
-          </div>
-        </a>
-        <a class="date-card" href="archives/2026-04-15.html">
-          <div class="date-meta-wrap">
-            <span class="date-main">2026-04-15</span>
-            <span class="date-day">周三</span>
-          </div>
-          <div class="date-text-wrap">
-            <p class="date-headline">ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架</p>
-            <p class="date-summary">浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。</p>
-          </div>
-          <div class="date-right">
-            <span class="date-count">18 条内容</span>
-            <span class="date-arrow">→</span>
+            <span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>
           </div>
         </a>
   </div>
@@ -724,11 +806,11 @@ body {
 <!-- Footer -->
 <div class="footer">
   <p><span data-i18n="footer_generated_prefix">生成于</span> 2026-04-24 · Lava · LavaAgent</p>
-  <p style="margin-top:6px;"><a href="today.html" data-role="today-issue-link" data-i18n="footer_today">当天日报</a> · <a href="home.html" data-i18n="footer_archive">历史存档</a></p>
+  <p style="margin-top:6px;"><a href="today.html" data-role="today-issue-link" data-i18n="footer_today">今日刊</a> · <a href="home.html" data-i18n="footer_archive">历史存档</a></p>
 </div>
 
 <script>
-const ALL_ARCHIVES = [["2026-04-25", "Google will invest as much as $40 billion in Anthropic", "15", "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"], ["2026-04-24", "Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税", "18", "研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "18", "阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "18", "AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。"], ["2026-04-21", "Mind DeepResearch Technical Report", "18", "理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。"], ["2026-04-19", "Dive into Claude Code: The Design Space of AI Agent Systems", "18", "一篇深入分析 Claude Code 架构的学术论文（arXiv:2604.14228），通过解析其 TypeScript 源码，识别出五大核心设计价值和十三项设计原则。核心架构为一个简单的 while 循环调用模型并运行工具，外围包含七级权限系统、五层上下文压缩管道、四种扩展机制（MCP/插件/技能/Hooks）以及子代理委派机制，并与开源项目 OpenClaw 进行了对比分析。"], ["2026-04-18", "HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界", "15", "腾讯混元团队发布HY-World 2.0，支持文本、单视角/多视角图像和视频输入，通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens渲染平台支持交互式探索，多基准测试达开源SOTA，接近闭源Marble模型效果。GitHub 1.02k stars。"], ["2026-04-17", "OpenAI 发布 GPT-Rosalind：面向生命科学的专属大模型", "18", "OpenAI 推出 GPT-Rosalind，这是一款专门针对生物学工作流微调的大语言模型，采用封闭访问模式。该模型旨在加速药物研发流程，通常需要 10-15 年和数十亿美元投入的实验室假设到药房货架的过程。VentureBeat 指出这是 OpenAI 首次为特定科学领域推出专属模型，标志着 AI 正从通用能力向垂直专业领域深度渗透。"], ["2026-04-16", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18", "浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。"], ["2026-04-15", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18", "浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。"]]
+const ALL_ARCHIVES = [["2026-04-25", "Google will invest as much as $40 billion in Anthropic", "", "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"], ["2026-04-24", "Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税", "", "研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "", "阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "", "AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。"], ["2026-04-21", "Mind DeepResearch Technical Report", "", "理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。"]]
 
 const LANG_STORAGE = 'lavaagent_home_lang';
 const I18N = {
@@ -748,13 +830,17 @@ const I18N = {
     next_title: '下一项',
     placeholder_body: '预留',
     legacy_h1: 'AI Daily · LavaAgent',
-    legacy_today_link: '查看当天日报 →',
+    legacy_today_link: '查看今日刊 →',
     page_prev: '‹ 上一页',
     page_next: '下一页 ›',
     footer_generated_prefix: '生成于',
-    footer_today: '当天日报',
+    footer_today: '今日刊',
     footer_archive: '历史存档',
     lang_group_label: '界面语言',
+    copy_url_aria: '复制网站地址',
+    copy_url_title: '复制到剪贴板',
+    copy_copied: '已复制',
+    copy_success_toast: '复制成功',
   },
   en: {
     nav_archive: 'AI Daily archive',
@@ -779,6 +865,10 @@ const I18N = {
     footer_today: "Today's issue",
     footer_archive: 'Archive',
     lang_group_label: 'Language',
+    copy_url_aria: 'Copy site URL',
+    copy_url_title: 'Copy to clipboard',
+    copy_copied: 'Copied',
+    copy_success_toast: 'Copied',
   },
 };
 
@@ -803,7 +893,7 @@ function formatSubtitle(lang, n) {
     : `LavaAgent · archive · ${n} issues`;
 }
 
-function formatItemsLabel(lang, n) {
+function formatItemCountAria(lang, n) {
   return lang === 'zh' ? `${n} 条内容` : `${n} items`;
 }
 
@@ -837,6 +927,11 @@ function applyStaticI18n() {
   });
   const lg = document.querySelector('.atlas-lang');
   if (lg) lg.setAttribute('aria-label', pack.lang_group_label);
+  const copyBtn = document.getElementById('copy-site-url');
+  if (copyBtn && pack.copy_url_aria) {
+    copyBtn.setAttribute('aria-label', pack.copy_url_aria);
+    copyBtn.setAttribute('title', pack.copy_url_title);
+  }
 }
 
 function updateLangButtons() {
@@ -915,9 +1010,11 @@ function renderPage(p) {
   const listEl = document.getElementById('archiveList');
   listEl.innerHTML = pageItems.map(([d, headline, total, summary]) => {
     const dn = dayNames[new Date(d + 'T00:00:00').getDay()];
-    const nItems = parseInt(total, 10) || 0;
-    const label = total ? formatItemsLabel(lang, nItems) : '';
-    const countHtml = label ? `<span class="date-count">${label}</span>` : '';
+    const nItems = total ? (parseInt(total, 10) || 0) : 0;
+    const aria = nItems > 0 ? formatItemCountAria(lang, nItems) : '';
+    const rightInner = nItems > 0
+      ? `<span class="date-arrow-stack" aria-label="${aria}" title="${aria}"><span class="date-count-num">${nItems}</span><span class="date-arrow" aria-hidden="true">→</span></span>`
+      : `<span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>`;
     const summaryHtml = summary ? `<p class="date-summary">${summary}</p>` : '';
     return `<a class="date-card" href="archives/${d}.html">
       <div class="date-meta-wrap">
@@ -929,8 +1026,7 @@ function renderPage(p) {
         ${summaryHtml}
       </div>
       <div class="date-right">
-        ${countHtml}
-        <span class="date-arrow">→</span>
+        ${rightInner}
       </div>
     </a>`;
   }).join('');
@@ -950,6 +1046,72 @@ function renderPage(p) {
 
 document.getElementById('lang-zh').addEventListener('click', () => setLang('zh'));
 document.getElementById('lang-en').addEventListener('click', () => setLang('en'));
+
+const SITE_URL_CLIPBOARD = 'https://lava7397.com';
+(function initCopySiteUrl() {
+  const copyBtn = document.getElementById('copy-site-url');
+  const feedback = document.getElementById('copy-site-feedback');
+  if (!copyBtn) return;
+  let copyFeedbackT1;
+  let copyFeedbackT2;
+  const clearCopyFeedbackTimers = () => {
+    if (copyFeedbackT1) clearTimeout(copyFeedbackT1);
+    if (copyFeedbackT2) clearTimeout(copyFeedbackT2);
+    copyFeedbackT1 = null;
+    copyFeedbackT2 = null;
+  };
+  const showCopySuccess = (pack) => {
+    if (feedback) {
+      clearCopyFeedbackTimers();
+      feedback.textContent = pack.copy_success_toast;
+      feedback.hidden = false;
+      feedback.classList.remove('atlas-copy-feedback--show');
+      requestAnimationFrame(() => {
+        void feedback.offsetWidth;
+        feedback.classList.add('atlas-copy-feedback--show');
+      });
+      copyFeedbackT1 = setTimeout(() => {
+        feedback.classList.remove('atlas-copy-feedback--show');
+        copyFeedbackT2 = setTimeout(() => {
+          if (feedback) {
+            feedback.hidden = true;
+          }
+        }, 220);
+      }, 2500);
+    }
+    copyBtn.setAttribute('title', pack.copy_copied);
+    setTimeout(() => {
+      if (pack.copy_url_title) copyBtn.setAttribute('title', pack.copy_url_title);
+    }, 2000);
+  };
+  copyBtn.addEventListener('click', async () => {
+    const lang = getLang();
+    const pack = I18N[lang];
+    const text = SITE_URL_CLIPBOARD;
+    const success = () => {
+      showCopySuccess(pack);
+    };
+    try {
+      await navigator.clipboard.writeText(text);
+      success();
+    } catch (e) {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        success();
+      } catch (e2) {
+        /* ignore */
+      }
+    }
+  });
+})();
 
 document.getElementById('pagination').addEventListener('click', e => {
   const btn = e.target.closest('.page-btn');

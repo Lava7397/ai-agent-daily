@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AI Agent 日报 — 分享图片生成器
+LavaAgent 今日刊 — 分享图片生成器
 中性色调 + 宫崎骏风格边角装饰，带 LavaDaily 水印
 """
 import json
@@ -245,7 +245,7 @@ def generate():
 
     # ====== Header ======
     y += 50
-    title = "AI Agent 日报"
+    title = "LavaAgent 今日刊"
     bbox = draw.textbbox((0, 0), title, font=fonts["title"])
     tw = bbox[2] - bbox[0]
     draw.text(((WIDTH - tw) // 2, y), title, fill=COLORS["header"], font=fonts["title"])

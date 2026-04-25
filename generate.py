@@ -164,10 +164,7 @@ def build_html(data, include_nav_back=True):
     # Count total items
     total = sum(len(data.get(k, [])) for k in ("research", "github", "models", "community"))
     sources = data.get("sources", "arXiv, GitHub, Anthropic, Google, TechCrunch")
-    source_list = [s.strip() for s in sources.split(",") if s.strip()]
     safe_sources = escape(sources)
-    source_count = len(source_list)
-    section_count = sum(1 for k in ("research", "github", "models", "community") if data.get(k, []))
     generated_at = datetime.now(BEIJING_TZ).strftime("%Y-%m-%d %H:%M")
     safe_generated_at = escape(generated_at)
     nav_items = [
@@ -194,19 +191,44 @@ def build_html(data, include_nav_back=True):
         if include_nav_back
         else ""
     )
-    inner_extra = "" if include_nav_back else " detail-topbar-inner--nav-only"
-    detail_sticky_header = f"""<header class="detail-sticky-header">
-<div class="detail-topbar">
-  <div class="detail-topbar-inner{inner_extra}">
-{back_block}
+    quick_nav_block = f"""<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
+  {quick_nav_html}
+</nav>"""
+    nav_row_nav_only = f"""<div class="detail-topbar">
+  <div class="detail-topbar-inner detail-topbar-inner--nav-only">
 <nav class="quick-nav" aria-label="内容导航">
   {quick_nav_html}
 </nav>
+  </div>
+</div>"""
+    # 单块 sticky：返回、四格、语言同在一行，Hero 在下方
+    hero_block = f"""<div class="hero">
+  <h1 data-i18n="hero_title">LavaAgent 今日刊</h1>
+  <p class="date">
+    {safe_date} <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="{total}">{total}</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
+  </p>
+</div>
+"""
+    if include_nav_back:
+        issue_top = f"""<div class="detail-issue-top detail-issue-top--fixed-dock">
+<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
+<div class="detail-topbar">
+  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
+{back_block}
+{quick_nav_block}
 {lang_block}
   </div>
 </div>
 </header>
-"""
+{hero_block}
+</div>"""
+    else:
+        issue_top = f"""<div class="detail-issue-top detail-issue-top--fixed-dock detail-issue-top--nav-only-bar">
+{hero_block}
+<header class="issue-sticky-dock issue-sticky-dock--nav-only" aria-label="栏目导航">
+{nav_row_nav_only}
+</header>
+</div>"""
     back_home_js = (
         "(function(){var el=document.getElementById('back-home');if(!el)return;"
         "var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)"
@@ -219,21 +241,30 @@ def build_html(data, include_nav_back=True):
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="AI Agent 日报 {safe_date} — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="description" content="LavaAgent 今日刊 {safe_date} — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="AI Agent 日报 — {safe_date}">
+<meta property="og:title" content="LavaAgent 今日刊 — {safe_date}">
 <meta property="og:description" content="今日 {total} 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{SITE_URL}">
 <meta name="twitter:card" content="summary">
-<title>AI Agent 日报 — {safe_date}</title>
+<title>LavaAgent 今日刊 — {safe_date}</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+:root {{
+  --ix: 0.18s ease;
+  /* 与 .issue-sticky-dock 内顶栏行高一致，供正文区留空防遮挡 */
+  --issue-dock-row-h: 52px;
+  --issue-dock-navonly-h: 48px;
+}}
+@media (hover: hover) and (pointer: fine) {{
+  a, button, .atlas-btn, [role="button"] {{ -webkit-tap-highlight-color: transparent; }}
+}}
 
 body {{
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -243,27 +274,64 @@ body {{
   -webkit-font-smoothing: antialiased;
 }}
 
-/* ---- 顶栏 + 四栏导航：整块 sticky，滚动时与正文同宽 ---- */
-.detail-sticky-header {{
-  position: sticky;
+/* ---- 日刊头：顶栏 position:fixed（相对视口吸顶，滚入正文时仍不离开顶部；sticky 在部分 WebView 上不可靠）---- */
+.detail-issue-top--fixed-dock {{
+  /* 为固定顶栏 + 刘海区留出与 issue-sticky-dock 同高的起始空白，避免首屏/滚动时正文顶到栏下 */
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--issue-dock-row-h));
+}}
+.detail-issue-top--fixed-dock.detail-issue-top--nav-only-bar {{
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--issue-dock-navonly-h));
+}}
+.issue-sticky-dock {{
+  position: fixed;
   top: 0;
-  z-index: 50;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  z-index: 200;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
   background: rgba(245,240,232,0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(100,80,60,0.1);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }}
-.detail-topbar-inner {{
+.issue-sticky-dock .detail-topbar {{
   max-width: 720px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}}
+.issue-sticky-dock--nav-only {{
+  border-top: none;
+}}
+.detail-topbar-inner {{
   padding: 8px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+  min-height: 28px;
+}}
+.detail-topbar-inner--with-quicknav {{
+  flex-wrap: nowrap;
+  padding: 6px 8px 6px 10px;
+  min-height: 40px;
+  gap: 6px;
 }}
 .detail-topbar-inner--nav-only {{
   justify-content: center;
+  padding: 8px 10px;
+}}
+.detail-topbar-sub {{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 12px 6px;
+  border-top: none;
 }}
 .atlas-btn {{
   flex-shrink: 0;
@@ -278,8 +346,19 @@ body {{
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  border-radius: 2px;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  transition: background var(--ix), color var(--ix), border-color var(--ix), box-shadow var(--ix), transform 0.12s ease;
 }}
+.atlas-btn:hover {{
+  background: #efe6d8;
+  border-color: rgba(100, 80, 60, 0.32);
+  box-shadow: 0 1px 4px rgba(45, 36, 28, 0.08);
+  transform: translateY(-1px);
+}}
+.atlas-btn:active {{ transform: translateY(0); }}
+.atlas-btn:focus-visible {{ outline: 2px solid #98703f; outline-offset: 2px; }}
 .atlas-lang {{
   flex-shrink: 0;
   display: flex;
@@ -297,10 +376,14 @@ body {{
   color: #6f6559;
   padding: 4px 6px;
   border-radius: 2px;
+  transition: color var(--ix), background var(--ix), font-weight 0.1s, transform 0.1s;
 }}
 .atlas-lang button:hover {{
   color: #2f2c27;
+  background: rgba(100, 80, 60, 0.1);
+  transform: translateY(-0.5px);
 }}
+.atlas-lang button:focus-visible {{ outline: 2px solid #98703f; outline-offset: 1px; }}
 .atlas-lang button.active {{
   color: #2f2c27;
   font-weight: 700;
@@ -319,7 +402,7 @@ body {{
     radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
     #f5f0e8;
-  padding: 48px 24px 44px;
+  padding: 20px 24px 16px;
   text-align: center;
   position: relative;
   border-bottom: 2px solid rgba(100,80,60,0.15);
@@ -346,43 +429,30 @@ body {{
 .hero .date {{
   color: #8a7e6e;
   font-size: 13px;
-  margin-top: 10px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: 6px;
   position: relative;
   z-index: 1;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
 }}
-.hero .stats {{
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 28px;
-  position: relative;
-  z-index: 1;
+.hero .date .hero-sep,
+.hero .date .hero-tagline,
+.hero .date .hero-count,
+.hero .date .hero-count-unit {{
+  font: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }}
-.hero .stat {{
-  text-align: center;
-  border: 1px solid rgba(100,80,60,0.12);
-  padding: 14px 22px;
-  background: rgba(255,255,255,0.5);
-  backdrop-filter: blur(4px);
-}}
-.hero .stat-num {{
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 30px;
-  font-weight: 700;
-  color: #5a6e8a;
-}}
-.hero .stat-label {{
-  font-size: 10px;
-  color: #8a7e6e;
-  margin-top: 4px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}}
+.hero .date .hero-sep {{ color: #b0a89a; margin: 0 0.1em; }}
+.hero .date .hero-tagline {{ color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }}
+.hero .date .hero-count {{ font-weight: 600; color: #5a6e8a; margin-left: 0.1em; }}
+.hero .date .hero-count-unit {{ color: #6f6559; font-weight: 500; margin-left: 0; }}
 
-/* ---- Quick Nav（与返回、语言同一行；中间可横向滑动） ---- */
+/* ---- Quick Nav：顶栏内与返回同行时可横向滑动 ---- */
 .quick-nav {{
-  flex: 1 1 0;
+  width: 100%;
   min-width: 0;
   margin: 0;
   padding: 0;
@@ -395,9 +465,12 @@ body {{
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }}
-.detail-topbar-inner--nav-only .quick-nav {{
-  flex: 0 1 auto;
-  justify-content: center;
+.quick-nav--inline {{
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  justify-content: flex-start;
+  gap: 3px;
 }}
 .quick-nav::-webkit-scrollbar {{ display: none; }}
 .quick-link {{
@@ -414,10 +487,21 @@ body {{
   letter-spacing: 0.2px;
   transition: all 0.25s;
 }}
+.detail-topbar-inner--with-quicknav .quick-link {{
+  padding: 4px 5px;
+  font-size: 9px;
+  letter-spacing: 0;
+}}
 .quick-link:hover {{
   color: #fff;
   background: #5a6e8a;
   border-color: #5a6e8a;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(90, 110, 138, 0.2);
+}}
+.quick-link:focus-visible {{
+  outline: 2px solid #4a6080;
+  outline-offset: 2px;
 }}
 
 /* ---- Container ---- */
@@ -510,6 +594,11 @@ body {{
 .card-title:hover {{
   color: #5a6e8a;
 }}
+.card-title:focus-visible {{
+  outline: 2px solid #5a6e8a;
+  outline-offset: 3px;
+  border-radius: 2px;
+}}
 .card-summary {{
   color: #4a4a4a;
   font-size: 14px;
@@ -530,7 +619,13 @@ body {{
   transition: all 0.2s;
 }}
 .read-more:hover {{
+  color: #4a6080;
   border-bottom-color: #5a6e8a;
+}}
+.read-more:focus-visible {{
+  outline: 2px solid #5a6e8a;
+  outline-offset: 2px;
+  border-radius: 2px;
 }}
 .tag {{
   display: inline-block;
@@ -553,8 +648,13 @@ body {{
   color: #fff;
   padding: 8px 16px;
   z-index: 1000;
+  text-decoration: none;
+  border-radius: 0 0 2px 0;
+  transition: top 0.2s, background 0.15s, box-shadow 0.15s;
 }}
+.skip-link:hover {{ background: #4a6080; box-shadow: 0 2px 8px rgba(74, 96, 128, 0.2); }}
 .skip-link:focus {{ top: 0; }}
+.skip-link:focus-visible {{ outline: 2px solid #2d3a4a; outline-offset: 2px; }}
 
 /* ---- Footer ---- */
 .footer {{
@@ -572,27 +672,7 @@ body {{
 </head>
 <body>
 <a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-{detail_sticky_header}
-<!-- Hero -->
-<div class="hero">
-  <h1 data-i18n="hero_title">AI Agent 日报</h1>
-  <p class="date">{safe_date} <span data-i18n="hero_subtitle_suffix">· 每日精选</span></p>
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-num">{total}</div>
-      <div class="stat-label" data-i18n="stat_items">条资讯</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">{section_count}</div>
-      <div class="stat-label" data-i18n="stat_sections">个板块</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">{source_count}</div>
-      <div class="stat-label" data-i18n="stat_sources">个来源</div>
-    </div>
-  </div>
-</div>
-
+{issue_top}
 <!-- Content -->
 <main class="container" id="main-content">
   {sections_html}
@@ -611,11 +691,9 @@ body {{
     zh: {{
       nav_back_text: '返回',
       skip_to_content: '跳到正文',
-      hero_title: 'AI Agent 日报',
-      hero_subtitle_suffix: '· 每日精选',
-      stat_items: '条资讯',
-      stat_sections: '个板块',
-      stat_sources: '个来源',
+      hero_title: 'LavaAgent 今日刊',
+      hero_tagline: '每日精选',
+      hero_count_unit: '条',
       card_read_more: '查看原文',
       sources_prefix: '数据来源：',
       footer_meta_prefix: '由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 ',
@@ -624,11 +702,9 @@ body {{
     en: {{
       nav_back_text: 'Back',
       skip_to_content: 'Skip to content',
-      hero_title: 'AI Agent Daily',
-      hero_subtitle_suffix: '· Daily picks',
-      stat_items: 'items',
-      stat_sections: 'sections',
-      stat_sources: 'sources',
+      hero_title: 'LavaAgent · Today',
+      hero_tagline: 'Daily picks',
+      hero_count_unit: ' items',
       card_read_more: 'Read more',
       sources_prefix: 'Sources: ',
       footer_meta_prefix: 'Auto-generated by Hermes Agent · Updated daily at 11:30 BJT · Generated at ',
@@ -699,7 +775,17 @@ def build_home_html(archive_infos, page=1, per_page=10):
         summary_html = (
             f'<p class="date-summary">{safe_summary}</p>' if safe_summary else ""
         )
-        items_label = f"{items_total} 条内容" if items_total else ""
+        try:
+            n_total = int(str(items_total).strip()) if items_total not in (None, "") else 0
+        except ValueError:
+            n_total = 0
+        if n_total > 0:
+            right_col = f"""<span class="date-arrow-stack" aria-label="{n_total} 条内容" title="{n_total} 条内容">
+              <span class="date-count-num">{n_total}</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>"""
+        else:
+            right_col = '<span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>'
         cards_html += f"""
         <a class="date-card" href="archives/{date_str}.html">
           <div class="date-meta-wrap">
@@ -711,8 +797,7 @@ def build_home_html(archive_infos, page=1, per_page=10):
             {summary_html}
           </div>
           <div class="date-right">
-            {f'<span class="date-count">{items_label}</span>' if items_label else ''}
-            <span class="date-arrow">→</span>
+            {right_col}
           </div>
         </a>"""
 
@@ -733,7 +818,7 @@ def build_home_html(archive_infos, page=1, per_page=10):
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="description" content="AI Agent 日报 · 历史存档 — 共 {total} 期">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -743,6 +828,10 @@ def build_home_html(archive_infos, page=1, per_page=10):
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+:root {{ --ix: 0.18s ease; }}
+@media (hover: hover) and (pointer: fine) {{
+  a, button, .atlas-btn, [role="button"] {{ -webkit-tap-highlight-color: transparent; }}
+}}
 
 body {{
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -759,7 +848,7 @@ body {{
     radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
     #f5f0e8;
-  padding: 52px 24px 40px;
+  padding: 20px 24px 16px;
   text-align: center;
   position: relative;
   border-bottom: 2px solid rgba(100,80,60,0.15);
@@ -786,14 +875,14 @@ body {{
 .hero .subtitle {{
   color: #8a7e6e;
   font-size: 13px;
-  margin-top: 10px;
+  margin-top: 6px;
   position: relative;
   z-index: 1;
   letter-spacing: 1.5px;
 }}
 .hero .today-link {{
   display: inline-block;
-  margin-top: 24px;
+  margin-top: 14px;
   padding: 10px 22px;
   background: #5a6e8a;
   color: #fff;
@@ -804,9 +893,15 @@ body {{
   border-radius: 4px;
   position: relative;
   z-index: 1;
-  transition: background 0.2s;
+  transition: background var(--ix), box-shadow var(--ix), transform 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }}
-.hero .today-link:hover {{ background: #4a6080; }}
+.hero .today-link:hover {{
+  background: #4a6080;
+  box-shadow: 0 3px 12px rgba(74, 96, 128, 0.28);
+  transform: translateY(-1px);
+}}
+.hero .today-link:focus-visible {{ outline: 2px solid #3d4f68; outline-offset: 2px; }}
 
 /* ---- Stats bar ---- */
 .stats-bar {{
@@ -859,7 +954,8 @@ body {{
   text-decoration: none;
   color: #2c2c2c;
   border-radius: 2px;
-  transition: all 0.18s ease;
+  transition: background 0.18s ease, border-color 0.18s, border-left-color 0.18s, transform 0.18s, box-shadow 0.18s;
+  -webkit-tap-highlight-color: transparent;
 }}
 .date-card:nth-child(5n+2) {{ border-left-color: #7a6e9a; }}
 .date-card:nth-child(5n+3) {{ border-left-color: #6a8a7a; }}
@@ -869,7 +965,9 @@ body {{
   background: rgba(255,255,255,0.9);
   border-left-color: #4a6080;
   transform: translateX(4px);
+  box-shadow: 0 2px 10px rgba(45, 36, 28, 0.07);
 }}
+.date-card:focus-visible {{ outline: 2px solid #5a6e8a; outline-offset: 2px; }}
 .date-meta-wrap {{
   flex-shrink: 0;
   display: flex;
@@ -916,22 +1014,40 @@ body {{
   -webkit-box-orient: vertical;
 }}
 .date-right {{
-  flex-shrink: 0;
+  flex: 0 0 2.35rem;
+  width: 2.35rem;
+  max-width: 2.35rem;
+  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
 }}
-.date-count {{
-  font-size: 11px;
-  color: #8a7e6e;
-  white-space: nowrap;
+.date-arrow-stack {{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 100%;
+}}
+.date-count-num {{
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #5a6e8a;
+  line-height: 1;
+  margin-bottom: 1px;
 }}
 .date-arrow {{
-  font-size: 16px;
+  font-size: 15px;
   color: #b0a89a;
   transition: transform 0.18s, color 0.18s;
+  line-height: 1;
+  display: block;
 }}
-.date-card:hover .date-arrow {{
+.date-card:hover .date-arrow-stack .date-arrow {{
   transform: translateX(3px);
   color: #5a6e8a;
 }}
@@ -954,14 +1070,19 @@ body {{
   font-family: 'Inter', sans-serif;
   cursor: pointer;
   border-radius: 2px;
-  transition: all 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s;
   min-width: 40px;
+  -webkit-tap-highlight-color: transparent;
 }}
 .page-btn:hover:not(:disabled) {{
   background: #5a6e8a;
   color: #fff;
   border-color: #5a6e8a;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(90, 110, 138, 0.22);
 }}
+.page-btn:hover:not(:disabled).active {{ box-shadow: 0 2px 6px rgba(74, 96, 128, 0.3); }}
+.page-btn:focus-visible:not(:disabled) {{ outline: 2px solid #4a6080; outline-offset: 2px; }}
 .page-btn.active {{
   background: #4a6080;
   color: #fff;
@@ -988,8 +1109,15 @@ body {{
   font-size: 11px;
   letter-spacing: 1px;
 }}
-.footer a {{ color: #8a7e6e; text-decoration: none; }}
-.footer a:hover {{ color: #5a6e8a; }}
+.footer a {{
+  color: #8a7e6e;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 2px;
+  transition: color var(--ix), text-decoration-color var(--ix);
+}}
+.footer a:hover {{ color: #5a6e8a; text-decoration-color: rgba(90, 110, 138, 0.45); }}
+.footer a:focus-visible {{ outline: 2px solid #5a6e8a; outline-offset: 2px; border-radius: 2px; }}
 </style>
 </head>
 <body>
@@ -998,7 +1126,7 @@ body {{
 <div class="hero">
   <h1>AI Agent 日报</h1>
   <p class="subtitle">历史存档 · 共 {total} 期</p>
-  <a class="today-link" href="{latest_issue_href}">查看当天日报 →</a>
+  <a class="today-link" href="{latest_issue_href}">查看今日刊 →</a>
 </div>
 
 <!-- Stats -->
@@ -1035,7 +1163,7 @@ body {{
 <!-- Footer -->
 <div class="footer">
   <p>Generated at {generated_at} · Powered by Lava Agent</p>
-  <p style="margin-top:6px;"><a href="{latest_issue_href}">当天日报</a> · <a href="home.html">历史存档</a></p>
+  <p style="margin-top:6px;"><a href="{latest_issue_href}">今日刊</a> · <a href="home.html">历史存档</a></p>
 </div>
 
 <script>
@@ -1055,8 +1183,10 @@ function renderPage(p) {{
   const listEl = document.getElementById('archiveList');
   listEl.innerHTML = pageItems.map(([d, headline, total, summary]) => {{
     const dn = dayNames[new Date(d + 'T00:00:00').getDay()];
-    const label = total ? total + ' 条内容' : '';
-    const countHtml = label ? `<span class="date-count">${{label}}</span>` : '';
+    const n = total ? (parseInt(total, 10) || 0) : 0;
+    const rightInner = n > 0
+      ? `<span class="date-arrow-stack" aria-label="${{n}} 条内容" title="${{n}} 条内容"><span class="date-count-num">${{n}}</span><span class="date-arrow" aria-hidden="true">→</span></span>`
+      : `<span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>`;
     const summaryHtml = summary ? `<p class="date-summary">${{summary}}</p>` : '';
     return `<a class="date-card" href="archives/${{d}}.html">
       <div class="date-meta-wrap">
@@ -1068,8 +1198,7 @@ function renderPage(p) {{
         ${{summaryHtml}}
       </div>
       <div class="date-right">
-        ${{countHtml}}
-        <span class="date-arrow">→</span>
+        ${{rightInner}}
       </div>
     </a>`;
   }}).join('');
@@ -1209,8 +1338,8 @@ def main(argv=None):
     print("\n🏠 Generating home page...")
     try:
         # 扫描所有归档日期（YYYY-MM-DD.html）并提取头条信息
-        # 只保留 2026-04-15 及之后的归档
-        MIN_DATE = "2026-04-15"
+        # 只保留 2026-04-21 及之后的归档
+        MIN_DATE = "2026-04-21"
         archive_files = sorted(
             OUTPUT_DIR.glob("????-??-??.html"),
             key=lambda p: p.stem,
