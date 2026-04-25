@@ -181,7 +181,7 @@ def build_html(data, include_nav_back=True):
     )
 
     back_block = (
-        """<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>"""
+        """<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>"""
         if include_nav_back
         else ""
     )
@@ -206,7 +206,7 @@ def build_html(data, include_nav_back=True):
 </div>"""
     # 单块 sticky：返回、四格、语言同在一行，Hero 在下方
     hero_block = f"""<div class="hero">
-  <h1 data-i18n="hero_title">LavaAgent 今日刊</h1>
+  <h1 data-i18n="hero_title">今日刊</h1>
   <p class="date">
     {safe_date} <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="{total}">{total}</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
   </p>
@@ -245,16 +245,16 @@ def build_html(data, include_nav_back=True):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="LavaAgent 今日刊 {safe_date} — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
+<meta name="description" content="今日刊 {safe_date} — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="LavaAgent 今日刊 — {safe_date}">
+<meta property="og:title" content="今日刊 — {safe_date}">
 <meta property="og:description" content="今日 {total} 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{SITE_URL}">
 <meta name="twitter:card" content="summary">
-<title>LavaAgent 今日刊 — {safe_date}</title>
+<title>今日刊 — {safe_date}</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
@@ -400,6 +400,10 @@ body {{
 
 /* ---- Hero / 莫比斯封面 ---- */
 .hero {{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background:
     radial-gradient(ellipse at 20% 80%, rgba(178,200,218,0.35) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
@@ -430,6 +434,10 @@ body {{
   z-index: 1;
 }}
 .hero .date {{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   color: #8a7e6e;
   font-size: 13px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -438,6 +446,8 @@ body {{
   z-index: 1;
   letter-spacing: 0.5px;
   line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }}
 .hero .date .hero-sep,
 .hero .date .hero-tagline,
@@ -676,7 +686,7 @@ body {{
     zh: {{
       nav_back_text: '返回',
       skip_to_content: '跳到正文',
-      hero_title: 'LavaAgent 今日刊',
+      hero_title: '今日刊',
       hero_tagline: '每日精选',
       hero_count_unit: '条',
       card_read_more: '查看原文',
@@ -685,7 +695,7 @@ body {{
     en: {{
       nav_back_text: 'Back',
       skip_to_content: 'Skip to content',
-      hero_title: 'LavaAgent · Today',
+      hero_title: 'Today',
       hero_tagline: 'Daily picks',
       hero_count_unit: ' items',
       card_read_more: 'Read more',

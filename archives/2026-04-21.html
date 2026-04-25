@@ -3,22 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="LavaAgent 今日刊 2026-04-21 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
+<meta name="description" content="今日刊 2026-04-21 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="LavaAgent 今日刊 — 2026-04-21">
+<meta property="og:title" content="今日刊 — 2026-04-21">
 <meta property="og:description" content="今日 18 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://lava-agent-daily.vercel.app">
 <meta name="twitter:card" content="summary">
-<title>LavaAgent 今日刊 — 2026-04-21</title>
+<title>今日刊 — 2026-04-21</title>
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-:root { --ix: 0.18s ease; }
+:root {
+  --ix: 0.18s ease;
+  --issue-dock-row-h: 52px;
+  --issue-dock-navonly-h: 48px;
+}
 @media (hover: hover) and (pointer: fine) {
   a, button, .atlas-btn, [role="button"] { -webkit-tap-highlight-color: transparent; }
 }
@@ -154,6 +158,10 @@ body {
 
 /* ---- Hero / 莫比斯封面 ---- */
 .hero {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background:
     radial-gradient(ellipse at 20% 80%, rgba(178,200,218,0.35) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
@@ -184,6 +192,10 @@ body {
   z-index: 1;
 }
 .hero .date {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   color: #8a7e6e;
   font-size: 13px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -192,6 +204,8 @@ body {
   z-index: 1;
   letter-spacing: 0.5px;
   line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 .hero .date .hero-sep,
 .hero .date .hero-tagline,
@@ -401,11 +415,11 @@ body {
 </head>
 <body>
 <a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top">
+<div class="detail-issue-top detail-issue-top--fixed-dock">
 <header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
 
 <div class="detail-topbar">
-<div class="detail-topbar-inner detail-topbar-inner--with-quicknav">  <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
+<div class="detail-topbar-inner detail-topbar-inner--with-quicknav">  <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
   <nav class="quick-nav quick-nav--inline" aria-label="内容导航">
   <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
 </nav>
@@ -418,10 +432,11 @@ body {
 </div>
 </header>
 <div class="hero">
-  <h1>LavaAgent 今日刊</h1>
+  <h1>今日刊</h1>
     <p class="date">
     2026-04-21 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="18">18</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
   </p>
+</div>
 </div>
 <!-- Content -->
 <main class="container" id="main-content">
@@ -596,7 +611,7 @@ body {
     zh: {
       nav_back_text: '返回',
       skip_to_content: '跳到正文',
-      hero_title: 'LavaAgent 今日刊',
+      hero_title: '今日刊',
       hero_tagline: '每日精选',
       hero_count_unit: '条',
       card_read_more: '查看原文',
@@ -607,7 +622,7 @@ body {
     en: {
       nav_back_text: 'Back',
       skip_to_content: 'Skip to content',
-      hero_title: 'LavaAgent · Today',
+      hero_title: 'Today',
       hero_tagline: 'Daily picks',
       hero_count_unit: ' items',
       card_read_more: 'Read more',

@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="Lava · LavaAgent — 个人项目入口与 AI Daily 历史存档">
+<meta name="description" content="Lava · LavaAgent — 个人项目入口与 AI Agent Daily News 历史存档">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>LavaAgent · Lava 的个人项目入口</title>
+<title>I'm Lava</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
@@ -351,20 +351,33 @@ body {
 .atlas-hero {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 16px 24px 14px;
+  padding: 6px 24px 8px;
 }
 .atlas-title {
-  font-size: clamp(36px, 6vw, 72px);
-  line-height: 1.03;
-  letter-spacing: -0.02em;
+  display: block;
+  width: 100%;
+  font-size: clamp(0.9rem, 2.15vw, 1.35rem);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
   font-weight: 600;
   color: #171615;
 }
 .atlas-title-line2 {
-  display: inline-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  width: 100%;
+  max-width: 100%;
+}
+.atlas-title-line2-start {
+  display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.2em 0.28em;
+  gap: 0.2em 0.4em;
+  min-width: 0;
+  flex: 1 1 12rem;
 }
 .atlas-hero-of:empty {
   display: none;
@@ -376,16 +389,16 @@ body {
   line-height: 0;
 }
 .atlas-hero-favicon {
-  height: 1.15em;
+  height: 2.15em;
   width: auto;
-  max-width: 1.5em;
+  max-width: 2.6em;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
   box-sizing: border-box;
-  /* 比原先的 0.1em 细，仍保留一点白边 */
-  padding: 0.03em;
-  border-radius: 0.14em;
+  /* 比原先的 0.1em 细，仍保留一点白边；整体约为原先的 0.8 倍 */
+  padding: 0.06em;
+  border-radius: 0.2em;
   border: 1px solid rgba(100, 80, 60, 0.18);
   background: rgba(255, 255, 255, 0.72);
   box-shadow: 0 0 1px rgba(45, 36, 28, 0.05);
@@ -394,6 +407,13 @@ body {
 .atlas-title-brand {
   font-style: normal;
   color: #98703f;
+  font-size: 1em;
+  line-height: 1.35;
+  font-weight: 600;
+  min-width: 0;
+  max-width: 100%;
+  text-align: left;
+  letter-spacing: 0.01em;
 }
 .atlas-project-strip {
   max-width: 1120px;
@@ -455,12 +475,6 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
   color: #796f61;
   letter-spacing: 0.5px;
   text-align: right;
-}
-.atlas-project-meta {
-  font-size: 10px;
-  color: #9a8f82;
-  letter-spacing: 0.4px;
-  margin-top: 1px;
 }
 .atlas-project-actions {
   display: flex;
@@ -542,7 +556,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 }
 .atlas-btn.primary:focus-visible { outline-color: #c49a4a; }
 
-/* ---- AI Daily 区（#legacy-home，与历史版本一致的 hero 视觉） ---- */
+/* ---- 历史区（#legacy-home，与历史版本一致的 hero 视觉） ---- */
 #legacy-home.hero {
   background:
     radial-gradient(ellipse at 20% 80%, rgba(178, 200, 218, 0.35) 0%, transparent 50%),
@@ -848,7 +862,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
       </button>
       <span class="atlas-fav-encourage-wrap">
-        <span class="atlas-fav-encourage" data-i18n="fav_encourage">还不错</span>
+        <span class="atlas-fav-encourage" data-i18n="fav_encourage">还行吧</span>
         <button type="button" class="atlas-fav-btn" id="fav-site-url" aria-label="喜欢本网站" title="点一颗爱心" aria-pressed="false">
           <span class="atlas-fav-btn-inner" aria-hidden="true">
             <span class="atlas-fav-img-crop">
@@ -879,10 +893,15 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 <section class="atlas-shell">
   <div class="atlas-hero">
     <h1 class="atlas-title">
-      <span class="atlas-title-line1" data-i18n="hero_line1">the project map</span><br>
       <span class="atlas-title-line2">
-        <span class="atlas-hero-of" data-i18n="hero_of">of </span><picture><source type="image/webp" srcset="images/site-mascot.webp" /><img class="atlas-hero-favicon" src="images/site-mascot.png" alt="" decoding="async" /></picture>
-        <em class="atlas-title-brand" data-i18n="hero_brand">LavaAgent.</em>
+        <span class="atlas-title-line2-start">
+          <span class="atlas-hero-of" data-i18n="hero_of">of </span>
+          <em class="atlas-title-brand" data-i18n="hero_brand">I'm Lava. Aal izz well. Vamos Rafa.</em>
+        </span>
+        <picture>
+          <source type="image/webp" srcset="images/site-mascot.webp" />
+          <img class="atlas-hero-favicon" src="images/site-mascot.png" alt="" width="64" height="64" decoding="async" />
+        </picture>
       </span>
     </h1>
   </div>
@@ -892,10 +911,9 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
       <article class="atlas-project-card">
         <div class="atlas-project-title">
           <div>
-            <h2>AI Daily</h2>
-            <p class="atlas-project-meta">11:30 BJT</p>
+            <h2 data-i18n="card_title">AI Agent Daily News</h2>
           </div>
-          <span class="version" data-i18n="card_digest">LavaAgent · curated digest</span>
+          <span class="version" data-i18n="card_digest">精选期刊</span>
         </div>
         <div class="atlas-project-body">
           <div class="atlas-project-stat">
@@ -932,8 +950,8 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 </section>
 
 <div class="hero" id="legacy-home">
-  <h1 data-i18n="legacy_h1">AI Daily · LavaAgent</h1>
-  <p class="subtitle">LavaAgent · 历史存档 · 共 10 期</p>
+  <h1 data-i18n="legacy_h1">AI Agent Daily News</h1>
+  <p class="subtitle">历史存档 · 共 10 期</p>
   <a class="today-link" href="today.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看今日刊 →</a>
 </div>
 
@@ -1044,10 +1062,10 @@ const ALL_ARCHIVES = [["2026-04-25", "Google will invest as much as $40 billion 
 const LANG_STORAGE = 'lavaagent_home_lang';
 const I18N = {
   zh: {
-    hero_line1: '项目地图',
     hero_of: '',
-    hero_brand: 'LavaAgent',
-    card_digest: 'LavaAgent · 精选文摘',
+    hero_brand: "I'm Lava. Aal izz well. Vamos Rafa.",
+    card_title: 'AI Agent Daily News',
+    card_digest: '精选期刊',
     stat_issues: '期数',
     stat_items: '条目合计',
     stat_latest: '最新归档',
@@ -1056,7 +1074,7 @@ const I18N = {
     btn_today: '今日刊',
     next_title: '下一项',
     placeholder_body: '预留',
-    legacy_h1: 'AI Daily · LavaAgent',
+    legacy_h1: 'AI Agent Daily News',
     legacy_today_link: '查看今日刊 →',
     page_prev: '‹ 上一页',
     page_next: '下一页 ›',
@@ -1072,7 +1090,7 @@ const I18N = {
     fav_aria_on: '已喜欢，点击取消',
     fav_title_add: '点一颗爱心',
     fav_title_remove: '取消爱心',
-    fav_encourage: '还不错',
+    fav_encourage: '还行吧',
     share_aria: '分享介绍页',
     share_title: '分享可展示标题与摘要的链接，打开后进入主站',
     share_card_title: 'LavaAgent Daily News',
@@ -1082,10 +1100,10 @@ const I18N = {
     share_hint: '给朋友看看',
   },
   en: {
-    hero_line1: 'the project map',
     hero_of: 'of ',
-    hero_brand: 'LavaAgent.',
-    card_digest: 'LavaAgent · curated digest',
+    hero_brand: "I'm Lava. Aal izz well. Vamos Rafa.",
+    card_title: 'AI Agent Daily News',
+    card_digest: 'Selected journal',
     stat_issues: 'Issues',
     stat_items: 'Items total',
     stat_latest: 'Latest archive',
@@ -1094,7 +1112,7 @@ const I18N = {
     btn_today: 'Today',
     next_title: 'Next',
     placeholder_body: 'Reserved',
-    legacy_h1: 'AI Daily · LavaAgent',
+    legacy_h1: 'AI Agent Daily News',
     legacy_today_link: "Today's issue →",
     page_prev: '‹ Prev',
     page_next: 'Next ›',
@@ -1138,8 +1156,8 @@ function formatPageInfo(lang, p, total) {
 
 function formatSubtitle(lang, n) {
   return lang === 'zh'
-    ? `LavaAgent · 历史存档 · 共 ${n} 期`
-    : `LavaAgent · archive · ${n} issues`;
+    ? `历史存档 · 共 ${n} 期`
+    : `Archive · ${n} issues`;
 }
 
 function formatItemCountAria(lang, n) {
@@ -1223,14 +1241,12 @@ function updateLangButtons() {
 
 function applyDocumentLang(lang) {
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-  document.title = lang === 'zh'
-    ? 'LavaAgent · Lava 的个人项目入口'
-    : 'LavaAgent · Lava — projects';
+  document.title = "I'm Lava";
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) {
     metaDesc.content = lang === 'zh'
-      ? 'Lava · LavaAgent — 个人项目入口与 AI Daily 历史存档'
-      : 'Lava · LavaAgent — project hub and AI Daily archive';
+      ? 'Lava · LavaAgent — 个人项目入口与 AI Agent Daily News 历史存档'
+      : 'Lava · LavaAgent — project hub and AI Agent Daily News archive';
   }
 }
 
