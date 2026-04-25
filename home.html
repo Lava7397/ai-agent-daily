@@ -851,14 +851,13 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
       <span class="atlas-copy-feedback" id="copy-site-feedback" role="status" aria-live="polite" hidden>复制成功</span>
     </div>
     <div class="atlas-nav-right">
+      <div class="atlas-links">
+        <a href="today.html" data-role="today-issue-link" data-i18n="nav_today">今日刊</a>
+      </div>
       <div class="atlas-lang" role="group" aria-label="Language">
         <button type="button" id="lang-zh" data-set-lang="zh">中</button>
         <span class="atlas-lang-sep">/</span>
         <button type="button" id="lang-en" data-set-lang="en">EN</button>
-      </div>
-      <div class="atlas-links">
-        <a href="#legacy-home" data-i18n="nav_archive">AI Daily 存档</a>
-        <a href="today.html" data-role="today-issue-link" data-i18n="nav_today">今日刊</a>
       </div>
     </div>
   </div>
@@ -939,7 +938,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
             <p class="date-summary">Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。</p>
           </div>
           <div class="date-right">
-            <span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>
+            <span class="date-arrow-stack" aria-label="15 条内容" title="15 条内容"><span class="date-count-num">15</span><span class="date-arrow" aria-hidden="true">→</span></span>
           </div>
         </a>
         <a class="date-card" href="archives/2026-04-24.html">
@@ -952,7 +951,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
             <p class="date-summary">研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。</p>
           </div>
           <div class="date-right">
-            <span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容"><span class="date-count-num">18</span><span class="date-arrow" aria-hidden="true">→</span></span>
           </div>
         </a>
         <a class="date-card" href="archives/2026-04-23.html">
@@ -965,7 +964,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
             <p class="date-summary">阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。</p>
           </div>
           <div class="date-right">
-            <span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容"><span class="date-count-num">18</span><span class="date-arrow" aria-hidden="true">→</span></span>
           </div>
         </a>
         <a class="date-card" href="archives/2026-04-22.html">
@@ -978,7 +977,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
             <p class="date-summary">AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。</p>
           </div>
           <div class="date-right">
-            <span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容"><span class="date-count-num">18</span><span class="date-arrow" aria-hidden="true">→</span></span>
           </div>
         </a>
         <a class="date-card" href="archives/2026-04-21.html">
@@ -991,7 +990,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
             <p class="date-summary">理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。</p>
           </div>
           <div class="date-right">
-            <span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容"><span class="date-count-num">18</span><span class="date-arrow" aria-hidden="true">→</span></span>
           </div>
         </a>
   </div>
@@ -1007,17 +1006,16 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 
 <!-- Footer -->
 <div class="footer">
-  <p><span data-i18n="footer_generated_prefix">生成于</span> 2026-04-24 · Lava · LavaAgent</p>
+  <p><span data-i18n="footer_generated_prefix">生成于</span> <time id="footer-bj-date" datetime=""></time> · Lava · LavaAgent</p>
   <p style="margin-top:6px;"><a href="today.html" data-role="today-issue-link" data-i18n="footer_today">今日刊</a> · <a href="home.html" data-i18n="footer_archive">历史存档</a></p>
 </div>
 
 <script>
-const ALL_ARCHIVES = [["2026-04-25", "Google will invest as much as $40 billion in Anthropic", "", "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"], ["2026-04-24", "Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税", "", "研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "", "阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "", "AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。"], ["2026-04-21", "Mind DeepResearch Technical Report", "", "理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。"]]
+const ALL_ARCHIVES = [["2026-04-25", "Google will invest as much as $40 billion in Anthropic", "15", "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"], ["2026-04-24", "Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税", "18", "研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "18", "阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "18", "AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。"], ["2026-04-21", "Mind DeepResearch Technical Report", "18", "理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。"]]
 
 const LANG_STORAGE = 'lavaagent_home_lang';
 const I18N = {
   zh: {
-    nav_archive: 'AI Daily 存档',
     nav_today: '今日刊',
     hero_line1: '项目地图',
     hero_of: '',
@@ -1057,7 +1055,6 @@ const I18N = {
     share_hint: '给朋友看看',
   },
   en: {
-    nav_archive: 'AI Daily archive',
     nav_today: 'Today',
     hero_line1: 'the project map',
     hero_of: 'of ',
@@ -1133,6 +1130,29 @@ function getLatestIssueHref() {
   return 'today.html';
 }
 
+/** 页脚「生成于」后的日期：按北京时间 YYYY-MM-DD，避免静态 HTML 写死日期与当天不符 */
+function beijingYMD() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Shanghai',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date());
+  const y = parts.find((p) => p.type === 'year')?.value;
+  const m = parts.find((p) => p.type === 'month')?.value;
+  const d = parts.find((p) => p.type === 'day')?.value;
+  if (y && m && d) return `${y}-${m}-${d}`;
+  return new Date().toISOString().slice(0, 10);
+}
+
+function setFooterBeijingDate() {
+  const el = document.getElementById('footer-bj-date');
+  if (!el) return;
+  const s = beijingYMD();
+  el.textContent = s;
+  el.setAttribute('datetime', s);
+}
+
 function syncTodayLinks() {
   const href = getLatestIssueHref();
   document.querySelectorAll('[data-role="today-issue-link"]').forEach(el => {
@@ -1163,6 +1183,7 @@ function applyStaticI18n() {
     shareBtn.setAttribute('aria-label', pack.share_aria);
     shareBtn.setAttribute('title', pack.share_title);
   }
+  setFooterBeijingDate();
   syncFavButtonLabels();
 }
 

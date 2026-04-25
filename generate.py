@@ -81,8 +81,15 @@ def extract_archive_meta(archive_path):
         html = archive_path.read_text(encoding="utf-8")
         m = re.search(r'<a[^>]+class="card-title"[^>]*>([^<]+)</a>', html)
         headline = m.group(1).strip() if m else ""
-        n = re.findall(r'class="stat-num"[^>]*>([\d]+)</div>', html)
-        total = n[0] if n else ""
+        mtot = re.search(
+            r'id="hero-item-count"[^>]*data-total-items="(\d+)"',
+            html,
+        ) or re.search(r'data-total-items="(\d+)"', html)
+        if mtot:
+            total = mtot.group(1)
+        else:
+            n = re.findall(r'class="stat-num"[^>]*>([\d]+)</div>', html)
+            total = n[0] if n else ""
         summary = ""
         if m:
             after = html[m.end():]
