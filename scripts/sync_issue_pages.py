@@ -630,6 +630,38 @@ def _ensure_viewport_fit_cover(t: str) -> str:
     )
 
 
+def _strip_sources_footer_from_issue_page(t: str) -> str:
+    """移除日刊页底「数据来源 + Hermes 生成时间」与对应 .footer 样式（仅含 main#content 的日刊）。"""
+    if 'id="main-content"' not in t:
+        return t
+    if "<!-- Footer -->" in t and '<div class="footer">' in t:
+        t = re.sub(
+            r"\n<!-- Footer -->\s*<div class=\"footer\">[\s\S]*?</div>\s*",
+            "\n",
+            t,
+            count=1,
+            flags=re.DOTALL,
+        )
+    elif "数据来源" in t and re.search(
+        r'<div class="footer">[\s\S]*?数据来源[\s\S]*?</div>', t
+    ):
+        t = re.sub(
+            r"\n<div class=\"footer\">[\s\S]*?数据来源[\s\S]*?</div>\s*",
+            "\n",
+            t,
+            count=1,
+            flags=re.DOTALL,
+        )
+    if "/* ---- Footer ---- */" in t and ".footer {" in t:
+        t = re.sub(
+            r"/\* ---- Footer ---- \*/\s*\.footer \{[\s\S]*?\}\s*",
+            "",
+            t,
+            count=1,
+        )
+    return t
+
+
 def _ensure_fixed_dock_html_classes(t: str) -> str:
     if "detail-issue-top--fixed-dock" in t:
         return t
@@ -683,6 +715,7 @@ def _patch_page(html: str) -> tuple[str, bool]:
     t = _ensure_issue_dock_root_vars(t)
     t = _ensure_viewport_fit_cover(t)
     t = _ensure_fixed_dock_html_classes(t)
+    t = _strip_sources_footer_from_issue_page(t)
     t = _ensure_ix_var_and_tap(t)
     t = _patch_i18n_hero_tagline(t)
 

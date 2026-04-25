@@ -67,7 +67,24 @@ body {
   color: #2f2c27;
   font-weight: 600;
 }
-.atlas-copy-btn {
+/* 与复制按钮多留一截空隙；文案 + 比心 + 分享成组 */
+.atlas-fav-encourage-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 12px;
+}
+.atlas-fav-encourage {
+  font-size: 10px;
+  font-weight: 500;
+  color: #8a7f72;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  white-space: nowrap;
+  user-select: none;
+}
+.atlas-copy-btn,
+.atlas-share-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -80,15 +97,180 @@ body {
   line-height: 0;
   transition: color var(--ix), background var(--ix), transform 0.12s ease;
 }
-.atlas-copy-btn:hover {
+.atlas-copy-btn:hover,
+.atlas-share-btn:hover {
   color: #2f2c27;
   background: rgba(100, 80, 60, 0.08);
   transform: scale(1.06);
 }
-.atlas-copy-btn:active { transform: scale(0.98); }
-.atlas-copy-btn:focus-visible {
+.atlas-copy-btn:active,
+.atlas-share-btn:active { transform: scale(0.98); }
+.atlas-copy-btn:focus-visible,
+.atlas-share-btn:focus-visible {
   outline: 2px solid #98703f;
   outline-offset: 2px;
+}
+.atlas-fav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;
+  border: none;
+  background: transparent;
+  color: #6f6559;
+  cursor: pointer;
+  border-radius: 6px;
+  line-height: 0;
+  position: relative;
+  transition: background var(--ix), transform 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.atlas-fav-btn:hover {
+  background: rgba(100, 80, 60, 0.08);
+}
+.atlas-fav-btn:not(.atlas-fav-btn--on):hover .atlas-fav-img {
+  filter: grayscale(0.12) saturate(0.95) contrast(0.98) brightness(1) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+  transform: scale(1.02);
+}
+.atlas-fav-btn--on:hover {
+  background: rgba(196, 92, 106, 0.1);
+}
+.atlas-fav-btn--on:hover .atlas-fav-img {
+  filter: saturate(1.12) drop-shadow(0 0 8px rgba(228, 80, 100, 0.5));
+  transform: scale(1.06);
+}
+.atlas-fav-btn:active { transform: scale(0.96); }
+.atlas-fav-btn:focus-visible {
+  outline: 2px solid #98703f;
+  outline-offset: 2px;
+}
+/* 内层不裁切，方便星星粒子溢出；真正裁图在 .atlas-fav-img-crop */
+.atlas-fav-btn-inner {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+  pointer-events: none;
+  flex: 0 0 auto;
+}
+/* 透明底图整图放入，不裁切（避免红心被切）；与导航条背景一致 */
+.atlas-fav-img-crop {
+  display: block;
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+  background: transparent;
+  line-height: 0;
+}
+/* 基类：contain 保完整；未点/已点由父级类决定 */
+.atlas-fav-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  vertical-align: top;
+  transition: filter 0.28s ease, transform 0.28s ease;
+}
+/* 默认 = 未点：保留肤色/层次，比已点更平、无粉光（首屏与未收藏一致） */
+.atlas-fav-btn:not(.atlas-fav-btn--on) .atlas-fav-img {
+  filter: grayscale(0.28) saturate(0.88) contrast(0.96) brightness(0.99) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08));
+  transform: scale(0.98);
+}
+.atlas-fav-btn--on .atlas-fav-img {
+  filter: saturate(1.15) drop-shadow(0 1px 2px rgba(0,0,0,0.12)) drop-shadow(0 0 8px rgba(230, 72, 95, 0.45));
+  transform: scale(1);
+}
+.atlas-fav-btn--fx .atlas-fav-img {
+  animation: fav-pop 0.72s cubic-bezier(0.28, 1.7, 0.48, 1);
+}
+.atlas-fav-btn--fx {
+  animation: fav-ring 0.68s ease-out, fav-pulse-outer 0.75s ease-out 0.05s;
+}
+@keyframes fav-pop {
+  0% { transform: scale(0.78) rotate(-2deg); }
+  22% { transform: scale(1.28) rotate(-8deg); }
+  45% { transform: scale(0.95) rotate(4deg); }
+  70% { transform: scale(1.08) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+@keyframes fav-ring {
+  0% { box-shadow: 0 0 0 0 rgba(255, 120, 150, 0.65); }
+  100% { box-shadow: 0 0 0 22px rgba(255, 100, 130, 0); }
+}
+@keyframes fav-pulse-outer {
+  0% { filter: none; }
+  40% { filter: drop-shadow(0 0 10px rgba(255, 190, 210, 0.85)); }
+  100% { filter: none; }
+}
+.atlas-fav-spark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  font-size: 9px;
+  line-height: 10px;
+  text-align: center;
+  color: #e86b8a;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow: 0 0 4px rgba(255, 180, 200, 0.95);
+  --tx: 0px;
+  --ty: 0px;
+}
+.atlas-fav-spark--go {
+  animation: fav-spark-fly 0.65s ease-out forwards;
+}
+@keyframes fav-spark-fly {
+  0% { opacity: 0.95; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0.35); }
+}
+/* 点击「喜欢」后往下掉的星星 */
+.atlas-fav-star {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+  font-size: 11px;
+  line-height: 12px;
+  text-align: center;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  color: #ffcf4a;
+  text-shadow: 0 0 5px rgba(255, 220, 150, 1), 0 0 10px rgba(255, 180, 100, 0.55);
+  --fall: 88px;
+  --drift: 0px;
+  --swing: 0deg;
+  --delay: 0s;
+}
+.atlas-fav-star--fall {
+  animation: fav-star-fall 1.15s cubic-bezier(0.2, 0.45, 0.35, 1) var(--delay, 0s) forwards;
+}
+@keyframes fav-star-fall {
+  0% {
+    opacity: 1;
+    transform: translate(var(--x0, 0px), -4px) rotate(var(--swing, 0deg)) scale(1.15);
+  }
+  12% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--x0, 0px) + var(--drift, 0px)), var(--fall, 88px)) rotate(calc(var(--swing, 0deg) + 200deg)) scale(0.35);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas-fav-btn--fx,
+  .atlas-fav-btn--fx .atlas-fav-img,
+  .atlas-fav-spark--go,
+  .atlas-fav-star--fall { animation: none; }
+  .atlas-fav-spark--go { opacity: 0; }
+  .atlas-fav-star--fall { opacity: 0; }
 }
 .atlas-copy-feedback {
   font-size: 11px;
@@ -646,6 +828,19 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
       <button type="button" class="atlas-copy-btn" id="copy-site-url" aria-label="复制网站地址" title="复制到剪贴板">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
       </button>
+      <span class="atlas-fav-encourage-wrap">
+        <span class="atlas-fav-encourage" data-i18n="fav_encourage">给个鼓励</span>
+        <button type="button" class="atlas-fav-btn" id="fav-site-url" aria-label="喜欢本网站" title="点一颗爱心" aria-pressed="false">
+          <span class="atlas-fav-btn-inner" aria-hidden="true">
+            <span class="atlas-fav-img-crop">
+              <img class="atlas-fav-img" src="images/finger-heart.png" width="52" height="52" alt="" decoding="async" />
+            </span>
+          </span>
+        </button>
+        <button type="button" class="atlas-share-btn" id="share-page-btn" aria-label="分享介绍页" title="分享介绍页，打开可进入主站">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </button>
+      </span>
       <span class="atlas-copy-feedback" id="copy-site-feedback" role="status" aria-live="polite" hidden>复制成功</span>
     </div>
     <div class="atlas-nav-right">
@@ -841,6 +1036,16 @@ const I18N = {
     copy_url_title: '复制到剪贴板',
     copy_copied: '已复制',
     copy_success_toast: '复制成功',
+    fav_aria_add: '喜欢本网站',
+    fav_aria_on: '已喜欢，点击取消',
+    fav_title_add: '点一颗爱心',
+    fav_title_remove: '取消爱心',
+    fav_encourage: '给个鼓励',
+    share_aria: '分享介绍页',
+    share_title: '分享可展示标题与摘要的链接，打开后进入主站',
+    share_card_title: 'LavaAgent Daily News',
+    share_text: '每日 AI Agent 资讯 — LavaAgent Daily News',
+    share_toast: '已复制介绍页链接，对方打开可进入主站',
   },
   en: {
     nav_archive: 'AI Daily archive',
@@ -869,6 +1074,16 @@ const I18N = {
     copy_url_title: 'Copy to clipboard',
     copy_copied: 'Copied',
     copy_success_toast: 'Copied',
+    fav_aria_add: 'Like this site',
+    fav_aria_on: 'Liked, click to remove',
+    fav_title_add: 'Add a heart',
+    fav_title_remove: 'Remove heart',
+    fav_encourage: 'Show some love',
+    share_aria: 'Share intro link',
+    share_title: 'Link includes title and summary; opens the main site',
+    share_card_title: 'LavaAgent Daily News',
+    share_text: 'Daily AI Agent news — LavaAgent Daily News',
+    share_toast: 'Intro page link copied — open to visit the site',
   },
 };
 
@@ -932,6 +1147,12 @@ function applyStaticI18n() {
     copyBtn.setAttribute('aria-label', pack.copy_url_aria);
     copyBtn.setAttribute('title', pack.copy_url_title);
   }
+  const shareBtn = document.getElementById('share-page-btn');
+  if (shareBtn && pack.share_aria) {
+    shareBtn.setAttribute('aria-label', pack.share_aria);
+    shareBtn.setAttribute('title', pack.share_title);
+  }
+  syncFavButtonLabels();
 }
 
 function updateLangButtons() {
@@ -1048,67 +1269,228 @@ document.getElementById('lang-zh').addEventListener('click', () => setLang('zh')
 document.getElementById('lang-en').addEventListener('click', () => setLang('en'));
 
 const SITE_URL_CLIPBOARD = 'https://lava7397.com';
+const FAV_SITE_STORAGE_KEY = 'lavaagent_site_favorited';
+
+/** 与当前站同源，本地预览为 http://127.0.0.1:端口/intro.html，线上为 https://lava7397.com/intro.html */
+function getIntroShareUrl() {
+  try {
+    if (location.protocol === 'file:') {
+      return new URL('intro.html', String(location.href).replace(/[^/\\]+$/, '')).href;
+    }
+    return new URL('intro.html', location.origin + '/').href;
+  } catch (e) {
+    return 'https://lava7397.com/intro.html';
+  }
+}
+
+function isSiteFavorited() {
+  try {
+    return localStorage.getItem(FAV_SITE_STORAGE_KEY) === '1';
+  } catch (e) {
+    return false;
+  }
+}
+
+function setSiteFavorited(on) {
+  try {
+    if (on) localStorage.setItem(FAV_SITE_STORAGE_KEY, '1');
+    else localStorage.removeItem(FAV_SITE_STORAGE_KEY);
+  } catch (e) { /* private mode / quota */ }
+}
+
+function syncFavButtonLabels() {
+  const btn = document.getElementById('fav-site-url');
+  if (!btn) return;
+  const lang = getLang();
+  const pack = I18N[lang];
+  const on = isSiteFavorited();
+  btn.classList.toggle('atlas-fav-btn--on', on);
+  btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  btn.setAttribute('aria-label', on ? (pack.fav_aria_on || '') : (pack.fav_aria_add || ''));
+  btn.setAttribute('title', on ? (pack.fav_title_remove || '') : (pack.fav_title_add || ''));
+}
+
+function playFavClickFx(btn, didFavorite) {
+  btn.classList.remove('atlas-fav-btn--fx');
+  void btn.offsetWidth;
+  btn.classList.add('atlas-fav-btn--fx');
+  window.setTimeout(function () {
+    btn.classList.remove('atlas-fav-btn--fx');
+  }, 900);
+  if (!didFavorite) return;
+  var inner = btn.querySelector('.atlas-fav-btn-inner');
+  if (!inner) return;
+  var n = 10;
+  for (var i = 0; i < n; i++) {
+    (function (idx) {
+      var sp = document.createElement('span');
+      sp.className = 'atlas-fav-spark';
+      sp.setAttribute('aria-hidden', 'true');
+      sp.textContent = '\u2665';
+      var deg = (360 * idx) / n + (Math.random() * 24 - 12);
+      var dist = 18 + Math.random() * 16;
+      var rad = (deg * Math.PI) / 180;
+      sp.style.setProperty('--tx', Math.cos(rad) * dist + 'px');
+      sp.style.setProperty('--ty', Math.sin(rad) * dist + 'px');
+      inner.appendChild(sp);
+      requestAnimationFrame(function () {
+        sp.classList.add('atlas-fav-spark--go');
+      });
+      window.setTimeout(function () {
+        if (sp.parentNode) sp.parentNode.removeChild(sp);
+      }, 800);
+    })(i);
+  }
+  var starChars = ['\u2605', '\u2726', '\u22C6', '\u2606', '\u2727', '\u2736'];
+  var nStars = 20;
+  for (var s = 0; s < nStars; s++) {
+    (function (idx) {
+      var st = document.createElement('span');
+      st.className = 'atlas-fav-star';
+      st.setAttribute('aria-hidden', 'true');
+      st.textContent = starChars[idx % starChars.length];
+      st.style.setProperty('--x0', Math.random() * 22 - 11 + 'px');
+      st.style.setProperty('--drift', (Math.random() * 40 - 20) + 'px');
+      st.style.setProperty('--fall', 72 + Math.random() * 58 + 'px');
+      st.style.setProperty('--swing', (Math.random() * 60 - 30) + 'deg');
+      st.style.setProperty('--delay', idx * 0.032 + Math.random() * 0.1 + 's');
+      inner.appendChild(st);
+      requestAnimationFrame(function () {
+        st.classList.add('atlas-fav-star--fall');
+      });
+      window.setTimeout(function () {
+        if (st.parentNode) st.parentNode.removeChild(st);
+      }, 1500);
+    })(s);
+  }
+}
+
+(function initFavSite() {
+  var btn = document.getElementById('fav-site-url');
+  if (!btn) return;
+  syncFavButtonLabels();
+  btn.addEventListener('click', function () {
+    var was = isSiteFavorited();
+    var next = !was;
+    setSiteFavorited(next);
+    syncFavButtonLabels();
+    playFavClickFx(btn, next);
+  });
+})();
+
+let navUrlToastT1;
+let navUrlToastT2;
+function clearNavUrlToastTimers() {
+  if (navUrlToastT1) clearTimeout(navUrlToastT1);
+  if (navUrlToastT2) clearTimeout(navUrlToastT2);
+  navUrlToastT1 = null;
+  navUrlToastT2 = null;
+}
+function showNavUrlToast(message) {
+  const feedback = document.getElementById('copy-site-feedback');
+  if (!feedback || !message) return;
+  clearNavUrlToastTimers();
+  feedback.textContent = message;
+  feedback.hidden = false;
+  feedback.classList.remove('atlas-copy-feedback--show');
+  requestAnimationFrame(() => {
+    void feedback.offsetWidth;
+    feedback.classList.add('atlas-copy-feedback--show');
+  });
+  navUrlToastT1 = setTimeout(() => {
+    feedback.classList.remove('atlas-copy-feedback--show');
+    navUrlToastT2 = setTimeout(() => {
+      if (feedback) feedback.hidden = true;
+    }, 220);
+  }, 2500);
+}
+
+function copyStringToClipboard(str) {
+  if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(str);
+  }
+  return new Promise((resolve, reject) => {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = str;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      resolve();
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
+
 (function initCopySiteUrl() {
   const copyBtn = document.getElementById('copy-site-url');
-  const feedback = document.getElementById('copy-site-feedback');
   if (!copyBtn) return;
-  let copyFeedbackT1;
-  let copyFeedbackT2;
-  const clearCopyFeedbackTimers = () => {
-    if (copyFeedbackT1) clearTimeout(copyFeedbackT1);
-    if (copyFeedbackT2) clearTimeout(copyFeedbackT2);
-    copyFeedbackT1 = null;
-    copyFeedbackT2 = null;
-  };
-  const showCopySuccess = (pack) => {
-    if (feedback) {
-      clearCopyFeedbackTimers();
-      feedback.textContent = pack.copy_success_toast;
-      feedback.hidden = false;
-      feedback.classList.remove('atlas-copy-feedback--show');
-      requestAnimationFrame(() => {
-        void feedback.offsetWidth;
-        feedback.classList.add('atlas-copy-feedback--show');
-      });
-      copyFeedbackT1 = setTimeout(() => {
-        feedback.classList.remove('atlas-copy-feedback--show');
-        copyFeedbackT2 = setTimeout(() => {
-          if (feedback) {
-            feedback.hidden = true;
-          }
-        }, 220);
-      }, 2500);
-    }
-    copyBtn.setAttribute('title', pack.copy_copied);
-    setTimeout(() => {
-      if (pack.copy_url_title) copyBtn.setAttribute('title', pack.copy_url_title);
-    }, 2000);
-  };
   copyBtn.addEventListener('click', async () => {
     const lang = getLang();
     const pack = I18N[lang];
     const text = SITE_URL_CLIPBOARD;
     const success = () => {
-      showCopySuccess(pack);
+      showNavUrlToast(pack.copy_success_toast);
+      copyBtn.setAttribute('title', pack.copy_copied);
+      setTimeout(() => {
+        if (pack.copy_url_title) copyBtn.setAttribute('title', pack.copy_url_title);
+      }, 2000);
     };
     try {
-      await navigator.clipboard.writeText(text);
+      await copyStringToClipboard(text);
       success();
     } catch (e) {
+      /* ignore */
+    }
+  });
+})();
+
+(function initSharePage() {
+  const shareBtn = document.getElementById('share-page-btn');
+  if (!shareBtn) return;
+  shareBtn.addEventListener('click', async () => {
+    const lang = getLang();
+    const pack = I18N[lang];
+    const url = getIntroShareUrl();
+    const title = (pack.share_card_title !== undefined) ? pack.share_card_title : 'LavaAgent Daily News';
+    const text = (pack.share_text !== undefined) ? pack.share_text : title;
+    const isLocal =
+      /^(127\.0\.0\.1|localhost)$/.test(String(location.hostname)) ||
+      (location.port !== '' && location.port !== '80' && location.port !== '443');
+    if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
+      const full = { title, text, url };
       try {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        ta.setAttribute('readonly', '');
-        ta.style.position = 'fixed';
-        ta.style.left = '-9999px';
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        success();
-      } catch (e2) {
-        /* ignore */
+        if (typeof navigator.canShare === 'function') {
+          if (navigator.canShare(full)) {
+            await navigator.share(full);
+            if (isLocal) window.open(url, '_blank', 'noopener,noreferrer');
+            return;
+          }
+          if (navigator.canShare({ url })) {
+            await navigator.share({ url });
+            if (isLocal) window.open(url, '_blank', 'noopener,noreferrer');
+            return;
+          }
+        } else {
+          await navigator.share(full);
+          if (isLocal) window.open(url, '_blank', 'noopener,noreferrer');
+          return;
+        }
+      } catch (e) {
+        if (e && (e.name === 'AbortError' || e.name === 'NotAllowedError')) return;
       }
+    }
+    try {
+      await copyStringToClipboard(url);
+      showNavUrlToast(pack.share_toast);
+      if (isLocal) window.open(url, '_blank', 'noopener,noreferrer');
+    } catch (e) {
+      /* ignore */
     }
   });
 })();
