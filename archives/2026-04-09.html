@@ -14,206 +14,364 @@
 <meta name="twitter:card" content="summary">
 <title>AI Agent 日报 — 2026-04-09</title>
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Segoe UI', Roboto, sans-serif;
-  background: #0a0a1a;
-  color: #e0e0e0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f0e8;
+  color: #2c2c2c;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Hero */
+/* ---- 顶栏 + 四栏导航：整块 sticky，滚动时与正文同宽 ---- */
+.detail-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(100,80,60,0.1);
+}
+.detail-topbar-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.detail-topbar-inner--nav-only {
+  justify-content: center;
+}
+.atlas-btn {
+  flex-shrink: 0;
+  border: 1px solid rgba(100,80,60,0.18);
+  color: #4d4338;
+  background: #f8f4eb;
+  text-decoration: none;
+  padding: 6px 10px;
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  -webkit-tap-highlight-color: transparent;
+}
+.atlas-lang {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.atlas-lang button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #6f6559;
+  padding: 4px 6px;
+  border-radius: 2px;
+}
+.atlas-lang button:hover {
+  color: #2f2c27;
+}
+.atlas-lang button.active {
+  color: #2f2c27;
+  font-weight: 700;
+  background: rgba(100,80,60,0.08);
+}
+.atlas-lang-sep {
+  color: #b0a89a;
+  font-size: 11px;
+  user-select: none;
+}
+
+/* ---- Hero / 莫比斯封面 ---- */
 .hero {
-  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 40%, #2a5298 100%);
-  padding: 48px 20px 36px;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(178,200,218,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
+    #f5f0e8;
+  padding: 48px 24px 44px;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  border-bottom: 2px solid rgba(100,80,60,0.15);
 }
-.hero::after {
+.hero::before {
   content: '';
   position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle at 30% 70%, rgba(99,179,237,0.08) 0%, transparent 50%);
-  animation: pulse 8s ease-in-out infinite;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(100,80,60,0.02) 3px, rgba(100,80,60,0.02) 4px
+  );
+  pointer-events: none;
 }
-@keyframes pulse { 50% { transform: scale(1.1); } }
 .hero h1 {
-  font-size: 28px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: 1px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #3a3a3a;
+  letter-spacing: 3px;
   position: relative;
   z-index: 1;
 }
 .hero .date {
-  color: #7eb8e8;
-  font-size: 14px;
-  margin-top: 8px;
+  color: #8a7e6e;
+  font-size: 13px;
+  margin-top: 10px;
   position: relative;
   z-index: 1;
+  letter-spacing: 2px;
 }
 .hero .stats {
   display: flex;
   justify-content: center;
   gap: 24px;
-  margin-top: 20px;
+  margin-top: 28px;
   position: relative;
   z-index: 1;
 }
 .hero .stat {
   text-align: center;
+  border: 1px solid rgba(100,80,60,0.12);
+  padding: 14px 22px;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
 }
 .hero .stat-num {
-  font-size: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
   font-weight: 700;
-  color: #63b3ed;
+  color: #5a6e8a;
 }
 .hero .stat-label {
-  font-size: 11px;
-  color: #7eb8e8;
-  margin-top: 2px;
+  font-size: 10px;
+  color: #8a7e6e;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
-/* ---- Detail top bar（与 quick-nav 同宽） ---- */
-.detail-topbar--legacy {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 12px 16px 0;
-}
-
+/* ---- Quick Nav（与返回、语言同一行；中间可横向滑动） ---- */
 .quick-nav {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 12px 16px 0;
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.detail-topbar-inner--nav-only .quick-nav {
+  flex: 0 1 auto;
+  justify-content: center;
+}
+.quick-nav::-webkit-scrollbar { display: none; }
 .quick-link {
   display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding: 5px 8px;
   text-decoration: none;
-  color: #7eb8e8;
-  background: rgba(126,184,232,0.12);
-  border: 1px solid rgba(126,184,232,0.22);
-  font-size: 12px;
-  transition: all 0.2s;
+  color: #5a6e8a;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(90,110,138,0.2);
+  font-size: 10px;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.2px;
+  transition: all 0.25s;
 }
 .quick-link:hover {
-  color: #d8ecff;
-  background: rgba(126,184,232,0.2);
+  color: #fff;
+  background: #5a6e8a;
+  border-color: #5a6e8a;
 }
 
-/* Container */
+/* ---- Container ---- */
 .container {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 16px 100px;
 }
 
-/* Section */
+/* ---- Section ---- */
 .section {
-  margin-top: 28px;
+  margin-top: 44px;
 }
 .section-title {
-  font-size: 17px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
   font-weight: 700;
-  color: #a0c4ff;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(160,196,255,0.15);
-  margin-bottom: 16px;
+  color: #4a6080;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  border-bottom: 2px solid rgba(90,110,138,0.25);
+  letter-spacing: 1px;
 }
 
-/* Card */
+/* ---- Card / 莫比斯分格 ---- */
 .card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 12px;
-  padding: 18px;
-  margin-bottom: 14px;
-  transition: background 0.2s, transform 0.15s;
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(100,80,60,0.15);
+  border-left: 3px solid #9ab8d0;
+  padding: 26px;
+  margin-bottom: 24px;
+  transition: all 0.25s;
+  position: relative;
 }
-.card:active {
-  transform: scale(0.98);
-  background: rgba(255,255,255,0.07);
+.card::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #b2c8da, #d2b9dc);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.card:hover {
+  border-left-color: transparent;
+  background: rgba(255,255,255,0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(100,80,60,0.08);
+}
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ---- TOP card 高标 ---- */
+.card.top {
+  background: rgba(255,255,255,0.85);
+  border-left: 3px solid #4a6080;
+  border-color: rgba(74,96,128,0.25);
+  padding: 28px 26px 26px;
+}
+.card.top .card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.card.top .card-summary {
+  color: #3a3a3a;
+}
+.top-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+  background: #4a6080;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
 }
 .card-title {
-  color: #e2e8f0;
-  font-size: 15px;
+  font-family: 'Cormorant Garamond', serif;
+  color: #1a1a1a;
+  font-size: 18px;
   font-weight: 600;
   line-height: 1.5;
   text-decoration: none;
   display: block;
 }
 .card-title:hover {
-  color: #63b3ed;
+  color: #5a6e8a;
 }
 .card-summary {
-  color: #a0aec0;
-  font-size: 13px;
-  line-height: 1.75;
-  margin-top: 8px;
+  color: #4a4a4a;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-top: 14px;
+  border-top: 1px solid rgba(100,80,60,0.08);
+  padding-top: 14px;
 }
 .read-more {
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 14px;
   font-size: 12px;
-  color: #7eb8e8;
+  color: #5a6e8a;
   text-decoration: none;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(90,110,138,0.3);
+  padding-bottom: 2px;
+  transition: all 0.2s;
 }
 .read-more:hover {
-  color: #b8dbff;
+  border-bottom-color: #5a6e8a;
 }
 .tag {
   display: inline-block;
-  background: rgba(99,179,237,0.12);
-  color: #63b3ed;
+  background: rgba(154,184,208,0.2);
+  color: #4a6080;
   font-size: 11px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-top: 8px;
+  padding: 4px 10px;
+  margin-top: 14px;
   margin-right: 6px;
-}
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  z-index: 1000;
-}
-.skip-link:focus {
-  left: 12px;
-  top: 12px;
-  padding: 8px 12px;
-  color: #fff;
-  background: #1b3a5c;
-  border-radius: 8px;
+  border: 1px solid rgba(90,110,138,0.12);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
 }
 
-/* Footer */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #5a6e8a;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+}
+.skip-link:focus { top: 0; }
+
+/* ---- Footer ---- */
 .footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
   text-align: center;
-  padding: 32px 20px 90px;
-  color: #4a5568;
-  font-size: 12px;
-  line-height: 1.8;
+  color: #aaa090;
+  font-size: 11px;
+  border-top: 1px solid rgba(100,80,60,0.08);
+  letter-spacing: 0.5px;
 }
-.footer a {
-  color: #63b3ed;
-  text-decoration: none;
-}
+
+
 </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link">跳到正文</a>
-<div class="detail-topbar detail-topbar--legacy">
+<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
+<header class="detail-sticky-header">
+<div class="detail-topbar">
   <div class="detail-topbar-inner">
-    <a href="home.html" class="quick-link" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> 返回</a>
+<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
+<nav class="quick-nav" aria-label="内容导航">
+  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
+</nav>
+<div class="atlas-lang" role="group" aria-label="界面语言">
+      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
+      <span class="atlas-lang-sep">/</span>
+      <button type="button" id="lang-en" data-set-lang="en">EN</button>
+    </div>
   </div>
 </div>
+</header>
 
 <!-- Hero -->
 <div class="hero">
@@ -234,10 +392,6 @@ body {
     </div>
   </div>
 </div>
-
-<nav class="quick-nav" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
 
 <!-- Content -->
 <main class="container" id="main-content">
@@ -337,7 +491,68 @@ body {
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
-</script>
 
-</body>
+(function(){
+  var LANG_STORAGE = 'lavaagent_home_lang';
+  var I18N = {
+    zh: {
+      nav_back_text: '返回',
+      skip_to_content: '跳到正文',
+      hero_title: 'AI Agent 日报',
+      hero_subtitle_suffix: '· 每日精选',
+      stat_items: '条资讯',
+      stat_sections: '个板块',
+      stat_sources: '个来源',
+      card_read_more: '查看原文',
+      sources_prefix: '数据来源：',
+      footer_meta_prefix: '由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 ',
+      lang_group_label: '界面语言'
+    },
+    en: {
+      nav_back_text: 'Back',
+      skip_to_content: 'Skip to content',
+      hero_title: 'AI Agent Daily',
+      hero_subtitle_suffix: '· Daily picks',
+      stat_items: 'items',
+      stat_sections: 'sections',
+      stat_sources: 'sources',
+      card_read_more: 'Read more',
+      sources_prefix: 'Sources: ',
+      footer_meta_prefix: 'Auto-generated by Hermes Agent · Updated daily at 11:30 BJT · Generated at ',
+      lang_group_label: 'Language'
+    }
+  };
+  function getLang(){
+    try { var s = localStorage.getItem(LANG_STORAGE); return (s === 'en' || s === 'zh') ? s : 'zh'; }
+    catch(_){ return 'zh'; }
+  }
+  function applyI18n(){
+    var lang = getLang();
+    var pack = I18N[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.dataset.i18n;
+      if (pack[k] !== undefined) el.textContent = pack[k];
+    });
+    document.querySelectorAll('[data-i18n-text]').forEach(function(el){
+      el.hidden = (el.dataset.i18nText !== lang);
+    });
+    document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
+    var bZh = document.getElementById('lang-zh');
+    var bEn = document.getElementById('lang-en');
+    if (bZh) bZh.classList.toggle('active', lang === 'zh');
+    if (bEn) bEn.classList.toggle('active', lang === 'en');
+    var lg = document.querySelector('.atlas-lang');
+    if (lg) lg.setAttribute('aria-label', pack.lang_group_label);
+  }
+  function setLang(lang){
+    if (lang !== 'zh' && lang !== 'en') return;
+    try { localStorage.setItem(LANG_STORAGE, lang); } catch(_){}
+    applyI18n();
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(function(el){
+    el.addEventListener('click', function(){ setLang(el.dataset.setLang); });
+  });
+  applyI18n();
+})();
+</script></body>
 </html>

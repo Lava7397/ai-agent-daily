@@ -180,18 +180,32 @@ def build_html(data, include_nav_back=True):
         f'<a class="quick-link" href="#section-{k}">{escape(v)}</a>' for k, v in nav_items if data.get(k, [])
     )
 
-    detail_topbar_block = ""
-    if include_nav_back:
-        detail_topbar_block = """<div class="detail-topbar">
-  <div class="detail-topbar-inner">
-    <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-    <div class="atlas-lang" role="group" aria-label="界面语言">
+    back_block = (
+        """<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>"""
+        if include_nav_back
+        else ""
+    )
+    lang_block = (
+        """<div class="atlas-lang" role="group" aria-label="界面语言">
       <button type="button" id="lang-zh" data-set-lang="zh">中</button>
       <span class="atlas-lang-sep">/</span>
       <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
+    </div>"""
+        if include_nav_back
+        else ""
+    )
+    inner_extra = "" if include_nav_back else " detail-topbar-inner--nav-only"
+    detail_sticky_header = f"""<header class="detail-sticky-header">
+<div class="detail-topbar">
+  <div class="detail-topbar-inner{inner_extra}">
+{back_block}
+<nav class="quick-nav" aria-label="内容导航">
+  {quick_nav_html}
+</nav>
+{lang_block}
   </div>
 </div>
+</header>
 """
     back_home_js = (
         "(function(){var el=document.getElementById('back-home');if(!el)return;"
@@ -229,32 +243,36 @@ body {{
   -webkit-font-smoothing: antialiased;
 }}
 
-/* ---- Detail top bar（与 quick-nav / 正文同宽，按钮同首页 atlas-btn） ---- */
-.detail-topbar {{
+/* ---- 顶栏 + 四栏导航：整块 sticky，滚动时与正文同宽 ---- */
+.detail-sticky-header {{
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(245,240,232,0.92);
+  background: rgba(245,240,232,0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(100,80,60,0.08);
+  border-bottom: 1px solid rgba(100,80,60,0.1);
 }}
 .detail-topbar-inner {{
   max-width: 720px;
   margin: 0 auto;
-  padding: 12px 16px;
+  padding: 8px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+}}
+.detail-topbar-inner--nav-only {{
+  justify-content: center;
 }}
 .atlas-btn {{
+  flex-shrink: 0;
   border: 1px solid rgba(100,80,60,0.18);
   color: #4d4338;
   background: #f8f4eb;
   text-decoration: none;
-  padding: 8px 14px;
-  font-size: 11px;
+  padding: 6px 10px;
+  font-size: 10px;
   letter-spacing: 1.1px;
   text-transform: uppercase;
   display: inline-flex;
@@ -263,6 +281,7 @@ body {{
   -webkit-tap-highlight-color: transparent;
 }}
 .atlas-lang {{
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -361,25 +380,38 @@ body {{
   letter-spacing: 1.5px;
 }}
 
-/* ---- Quick Nav ---- */
+/* ---- Quick Nav（与返回、语言同一行；中间可横向滑动） ---- */
 .quick-nav {{
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 20px 16px 0;
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }}
+.detail-topbar-inner--nav-only .quick-nav {{
+  flex: 0 1 auto;
+  justify-content: center;
+}}
+.quick-nav::-webkit-scrollbar {{ display: none; }}
 .quick-link {{
   display: inline-block;
-  padding: 8px 16px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding: 5px 8px;
   text-decoration: none;
   color: #5a6e8a;
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(90,110,138,0.2);
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'Inter', sans-serif;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2px;
   transition: all 0.25s;
 }}
 .quick-link:hover {{
@@ -540,7 +572,7 @@ body {{
 </head>
 <body>
 <a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-{detail_topbar_block}
+{detail_sticky_header}
 <!-- Hero -->
 <div class="hero">
   <h1 data-i18n="hero_title">AI Agent 日报</h1>
@@ -560,10 +592,6 @@ body {{
     </div>
   </div>
 </div>
-
-<nav class="quick-nav" aria-label="内容导航">
-  {quick_nav_html}
-</nav>
 
 <!-- Content -->
 <main class="container" id="main-content">

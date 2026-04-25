@@ -14,6 +14,7 @@
 <meta name="twitter:card" content="summary">
 <title>AI Agent 日报 — 2026-04-16</title>
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,6 +25,75 @@ body {
   color: #2c2c2c;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ---- 顶栏 + 四栏导航：整块 sticky，滚动时与正文同宽 ---- */
+.detail-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(100,80,60,0.1);
+}
+.detail-topbar-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.detail-topbar-inner--nav-only {
+  justify-content: center;
+}
+.atlas-btn {
+  flex-shrink: 0;
+  border: 1px solid rgba(100,80,60,0.18);
+  color: #4d4338;
+  background: #f8f4eb;
+  text-decoration: none;
+  padding: 6px 10px;
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  -webkit-tap-highlight-color: transparent;
+}
+.atlas-lang {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.atlas-lang button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #6f6559;
+  padding: 4px 6px;
+  border-radius: 2px;
+}
+.atlas-lang button:hover {
+  color: #2f2c27;
+}
+.atlas-lang button.active {
+  color: #2f2c27;
+  font-weight: 700;
+  background: rgba(100,80,60,0.08);
+}
+.atlas-lang-sep {
+  color: #b0a89a;
+  font-size: 11px;
+  user-select: none;
 }
 
 /* ---- Hero / 莫比斯封面 ---- */
@@ -94,51 +164,38 @@ body {
   letter-spacing: 1.5px;
 }
 
-/* ---- Detail top bar（与 quick-nav / 正文同宽，按钮同首页 atlas-btn） ---- */
-.detail-topbar {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 20px 16px 0;
-}
-.detail-topbar-inner {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.atlas-btn {
-  border: 1px solid rgba(100,80,60,0.18);
-  color: #4d4338;
-  background: #f8f4eb;
-  text-decoration: none;
-  padding: 8px 14px;
-  font-size: 11px;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* ---- Quick Nav ---- */
+/* ---- Quick Nav（与返回、语言同一行；中间可横向滑动） ---- */
 .quick-nav {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 20px 16px 0;
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.detail-topbar-inner--nav-only .quick-nav {
+  flex: 0 1 auto;
+  justify-content: center;
+}
+.quick-nav::-webkit-scrollbar { display: none; }
 .quick-link {
   display: inline-block;
-  padding: 8px 16px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding: 5px 8px;
   text-decoration: none;
   color: #5a6e8a;
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(90,110,138,0.2);
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'Inter', sans-serif;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2px;
   transition: all 0.25s;
 }
 .quick-link:hover {
@@ -271,6 +328,7 @@ body {
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.5px;
 }
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -293,15 +351,27 @@ body {
   border-top: 1px solid rgba(100,80,60,0.08);
   letter-spacing: 0.5px;
 }
+
+
 </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link">跳到正文</a>
+<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
+<header class="detail-sticky-header">
 <div class="detail-topbar">
   <div class="detail-topbar-inner">
-    <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> 返回</a>
+<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
+<nav class="quick-nav" aria-label="内容导航">
+  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
+</nav>
+<div class="atlas-lang" role="group" aria-label="界面语言">
+      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
+      <span class="atlas-lang-sep">/</span>
+      <button type="button" id="lang-en" data-set-lang="en">EN</button>
+    </div>
   </div>
 </div>
+</header>
 
 <!-- Hero -->
 <div class="hero">
@@ -322,10 +392,6 @@ body {
     </div>
   </div>
 </div>
-
-<nav class="quick-nav" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
 
 <!-- Content -->
 <main class="container" id="main-content">
@@ -499,7 +565,68 @@ body {
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
-</script>
 
-</body>
+(function(){
+  var LANG_STORAGE = 'lavaagent_home_lang';
+  var I18N = {
+    zh: {
+      nav_back_text: '返回',
+      skip_to_content: '跳到正文',
+      hero_title: 'AI Agent 日报',
+      hero_subtitle_suffix: '· 每日精选',
+      stat_items: '条资讯',
+      stat_sections: '个板块',
+      stat_sources: '个来源',
+      card_read_more: '查看原文',
+      sources_prefix: '数据来源：',
+      footer_meta_prefix: '由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 ',
+      lang_group_label: '界面语言'
+    },
+    en: {
+      nav_back_text: 'Back',
+      skip_to_content: 'Skip to content',
+      hero_title: 'AI Agent Daily',
+      hero_subtitle_suffix: '· Daily picks',
+      stat_items: 'items',
+      stat_sections: 'sections',
+      stat_sources: 'sources',
+      card_read_more: 'Read more',
+      sources_prefix: 'Sources: ',
+      footer_meta_prefix: 'Auto-generated by Hermes Agent · Updated daily at 11:30 BJT · Generated at ',
+      lang_group_label: 'Language'
+    }
+  };
+  function getLang(){
+    try { var s = localStorage.getItem(LANG_STORAGE); return (s === 'en' || s === 'zh') ? s : 'zh'; }
+    catch(_){ return 'zh'; }
+  }
+  function applyI18n(){
+    var lang = getLang();
+    var pack = I18N[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.dataset.i18n;
+      if (pack[k] !== undefined) el.textContent = pack[k];
+    });
+    document.querySelectorAll('[data-i18n-text]').forEach(function(el){
+      el.hidden = (el.dataset.i18nText !== lang);
+    });
+    document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
+    var bZh = document.getElementById('lang-zh');
+    var bEn = document.getElementById('lang-en');
+    if (bZh) bZh.classList.toggle('active', lang === 'zh');
+    if (bEn) bEn.classList.toggle('active', lang === 'en');
+    var lg = document.querySelector('.atlas-lang');
+    if (lg) lg.setAttribute('aria-label', pack.lang_group_label);
+  }
+  function setLang(lang){
+    if (lang !== 'zh' && lang !== 'en') return;
+    try { localStorage.setItem(LANG_STORAGE, lang); } catch(_){}
+    applyI18n();
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(function(el){
+    el.addEventListener('click', function(){ setLang(el.dataset.setLang); });
+  });
+  applyI18n();
+})();
+</script></body>
 </html>
