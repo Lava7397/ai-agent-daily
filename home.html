@@ -67,7 +67,7 @@ body {
   color: #2f2c27;
   font-weight: 600;
 }
-/* 与复制按钮多留一截空隙；小字 + 比心 + 分享说明（左）+ 分享按钮 */
+/* 与复制按钮多留一截空隙；小字 + 比心 + 分享说明 + 分享按钮 */
 .atlas-fav-encourage-wrap {
   display: inline-flex;
   align-items: center;
@@ -84,7 +84,6 @@ body {
   white-space: nowrap;
   user-select: none;
 }
-/* 英文整句可能较长，窄屏允许换行 */
 @media (max-width: 420px) {
   .atlas-share-hint { white-space: normal; max-width: 7.5em; }
 }
@@ -895,7 +894,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
     <h1 class="atlas-title">
       <span class="atlas-title-line2">
         <span class="atlas-title-line2-start">
-          <span class="atlas-hero-of" data-i18n="hero_of">of </span>
+          <span class="atlas-hero-of" data-i18n="hero_of"></span>
           <em class="atlas-title-brand" data-i18n="hero_brand">I'm Lava. Aal izz well. Vamos Rafa.</em>
         </span>
         <picture>
@@ -1100,7 +1099,7 @@ const I18N = {
     share_hint: '给朋友看看',
   },
   en: {
-    hero_of: 'of ',
+    hero_of: '',
     hero_brand: "I'm Lava. Aal izz well. Vamos Rafa.",
     card_title: 'AI Agent Daily News',
     card_digest: 'Selected journal',
@@ -1345,7 +1344,6 @@ document.getElementById('lang-en').addEventListener('click', () => setLang('en')
 const SITE_URL_CLIPBOARD = 'https://lava7397.com';
 const FAV_SITE_STORAGE_KEY = 'lavaagent_site_favorited';
 
-/** 与当前站同源，本地预览为 http://127.0.0.1:端口/intro.html，线上为 https://lava7397.com/intro.html */
 function getIntroShareUrl() {
   try {
     if (location.protocol === 'file:') {
@@ -1533,7 +1531,6 @@ function copyStringToClipboard(str) {
     const url = getIntroShareUrl();
     const title = (pack.share_card_title !== undefined) ? pack.share_card_title : 'LavaAgent Daily News';
     const text = (pack.share_text !== undefined) ? pack.share_text : title;
-    /* 必须同步调 window.open；若在 await 之后调，浏览器会当成非用户手势而拦截新窗口 */
     var sharePreview = window.open(url, '_blank', 'noopener,noreferrer');
     if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
       const full = { title, text, url };
