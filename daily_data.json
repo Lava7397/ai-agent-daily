@@ -1,165 +1,162 @@
 {
   "date": "2026-04-25",
-  "sources": "The Verge, VentureBeat, Ars Technica, GitHub, Hacker News, HuggingFace, Models",
+  "sources": "The Verge, VentureBeat, Ars Technica, GitHub, Hacker News, arXiv, Ben's Bites",
   "description": "AI Agent 领域最新情报",
   "research": [
     {
-      "title": "85% of enterprises are running AI agents. Only 5% trust them enough to ship.",
-      "summary_en": "Eighty-five percent of enterprises are running AI agent pilots, but only 5% have moved those agents into production. In an exclusive interview at RSA Conference 2026 , Cisco President and Chief Produ",
-      "url": "https://venturebeat.com/security/85-of-enterprises-are-running-ai-agents-only-5-trust-them-enough-to-ship",
+      "title": "Google will invest as much as $40 billion in Anthropic",
+      "summary_en": "Google is committing up to $40 billion in investment into Anthropic, marking one of the largest AI infrastructure bets in history. The investment will fund Anthropic's next-generation model development, data center expansion, and enterprise deployment. This comes as competition in the AI race intensifies, with Anthropic's Claude models gaining enterprise market share against OpenAI's GPT series and Google's own Gemini.",
+      "url": "https://arstechnica.com/ai/2026/04/google-will-invest-as-much-as-40-billion-in-anthropic/",
       "tags": [
-        "VentureBeat"
+        "Ars Technica"
       ],
-      "summary_zh": "85%的企业正在运行人工智能代理试点，但只有5%的企业已将这些代理投入生产。在RSA Conference 2026的独家专访中，思科总裁兼首席产品官"
+      "summary_zh": "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"
     },
     {
-      "title": "Talking to AI agents is one thing — what about when they talk to each other? New startup BAND debuts 'universal orchestrator'",
-      "summary_en": "For the past eighteen months, the corporate world has been obsessed with the \"builder\" phase of the generative AI revolution. Enterprises have raced to deploy autonomous agents to handle everything fr",
-      "url": "https://venturebeat.com/orchestration/talking-to-ai-agents-is-one-thing-what-about-when-they-talk-to-each-other-new-startup-band-debuts-universal-orchestrator",
+      "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science",
+      "summary_en": "Researchers present an agentic AI framework that automates the semantic translation between research questions and scientific workflows. The system analyzes natural language queries, identifies required tools and data sources, and generates executable workflow specifications. This bridges the gap between scientists' intent and automated execution, reducing manual effort in setting up experiments and data processing pipelines.",
+      "url": "https://arxiv.org/abs/2604.21910",
       "tags": [
-        "VentureBeat"
+        "arXiv"
       ],
-      "summary_zh": "在过去的十八个月里，企业界一直痴迷于生成式人工智能革命的“构建者”阶段。企业已经竞相部署自主代理来处理所有的事情，"
+      "summary_zh": "研究人员提出了一个智能体AI框架，可将自然语言研究问题自动转换为可执行的科学工作流。该系统能分析查询意图、识别所需工具和数据源并生成工作流规格说明，填补了科学家意图与自动化执行之间的鸿沟，显著降低了实验设置和数据处理流程的人工介入成本。"
     },
     {
-      "title": "OpenAI unveils Workspace Agents, a successor to custom GPTs for enterprises that can plug directly into Slack, Salesforce and more",
-      "summary_en": "OpenAI introduced a new paradigm and product today that is likely to have huge implications for enterprises seeking to adopt and control fleets of AI agent workers. Called \" Workspace Agents ,\" OpenA",
-      "url": "https://venturebeat.com/orchestration/openai-unveils-workspace-agents-a-successor-to-custom-gpts-for-enterprises-that-can-plug-directly-into-slack-salesforce-and-more",
+      "title": "US accuses China of 'industrial-scale' AI theft, China calls it 'slander'",
+      "summary_en": "The US government has formally accused Chinese actors of conducting industrial-scale theft of AI intellectual property, including LLM training methodologies, model architectures, and inference optimization techniques. The accusations focus on state-sponsored hacking groups targeting US AI labs and cloud providers. China's Foreign Ministry dismissed the allegations as 'slander' and accused the US of using AI accusations to justify protectionist measures.",
+      "url": "https://arstechnica.com/tech-policy/2026/04/us-accuses-china-of-industrial-scale-ai-theft-china-says-its-slander/",
       "tags": [
-        "VentureBeat"
+        "Ars Technica"
       ],
-      "summary_zh": "OpenAI今天推出了一种新的范式和产品，可能会对寻求采用和控制人工智能代理工人队伍的企业产生巨大影响。称为“工作空间代理” ， OpenA"
+      "summary_zh": "美国政府正式指控中国行为者大规模窃取AI知识产权，包括大模型训练方法、模型架构和推理优化技术。指控主要针对涉嫌攻击美国AI实验室和云服务商的国家支持黑客组织。中国外交部回应称相关指控纯属「污蔑」，并指责美国以AI为借口推行保护主义。"
+    },
+    {
+      "title": "SpaceX is now an AI company, rocket industry observers conclude",
+      "summary_en": "Industry analysts and rocket scientists are increasingly characterizing SpaceX as an AI-first company rather than a traditional aerospace contractor. The company's Starship program relies heavily on machine learning for autonomous flight control, real-time trajectory optimization, and predictive maintenance. SpaceX's internal AI infrastructure reportedly rivals major cloud providers in compute capacity, with significant implications for future lunar and Mars missions.",
+      "url": "https://arstechnica.com/space/2026/04/rocket-report-some-canadians-dont-want-a-spaceport-falcon-hits-600-landings/",
+      "tags": [
+        "Ars Technica"
+      ],
+      "summary_zh": "行业分析师和火箭科学家越来越倾向于将SpaceX定性为AI优先公司而非传统航空航天承包商。该公司的星舰计划高度依赖机器学习进行自主飞行控制、实时轨迹优化和预测性维护。据报道，SpaceX内部AI基础设施在算力上可与主流云服务商比肩，这对未来登月和火星任务具有深远影响。"
     }
   ],
   "github": [
     {
-      "title": "ConardLi/web-design-skill",
-      "summary_en": "GitHub - ConardLi/web-design-skill: An AI agent skill that transforms AI-generated web pages from \"functional\" to \"stunning.\"(Inspired by Claude Design) · GitHub Skip to content Navigation Menu Toggle",
-      "url": "https://github.com/ConardLi/web-design-skill",
+      "title": "openclaw/openclaw",
+      "summary_en": "OpenClaw is a cross-platform personal AI assistant that runs on any operating system. It provides a unified interface for interacting with multiple AI models and services through a lobster-themed mascot. The project emphasizes accessibility and ease of use, allowing developers to extend its capabilities through a plugin system. It supports Windows, macOS, and Linux with native desktop integration.",
+      "url": "https://github.com/openclaw/openclaw",
+      "stars": 363599,
       "tags": [
         "GitHub"
       ],
-      "summary_zh": "GitHub - ConardLi/web-design-skill ：一种人工智能代理技能，将人工智能生成的网页从“功能性”转变为“令人惊叹”。“（灵感来自Claude Design ） · GitHub跳至内容导航菜单切换"
+      "summary_zh": "OpenClaw是一款跨平台个人AI助手，可在任意操作系统运行。它通过统一界面连接多个AI模型和服务，并以龙虾形象作为吉祥物。项目注重无障碍使用体验，开发者可通过插件系统扩展功能。支持Windows、macOS和Linux并提供原生桌面集成。"
     },
     {
-      "title": "GammaLabTechnologies/harmonist",
-      "summary_en": "GitHub - GammaLabTechnologies/harmonist: Portable AI agent orchestration with mechanical protocol enforcement. 186 agents, zero runtime dependencies. · GitHub Skip to content Navigation Menu Toggle na",
-      "url": "https://github.com/GammaLabTechnologies/harmonist",
+      "title": "n8n-io/n8n",
+      "summary_en": "N8N is a fair-code workflow automation platform with native AI capabilities, combining visual workflow building with custom AI agent integration. It enables users to create sophisticated automation pipelines that connect AI models to external APIs, databases, and services without writing code. The platform supports custom tool definitions, memory management, and multi-step reasoning loops for agentic workflows.",
+      "url": "https://github.com/n8n-io/n8n",
+      "stars": 185515,
       "tags": [
         "GitHub"
       ],
-      "summary_zh": "GitHub - GammaLabTechnologies/harmonist ：具有机械协议实施的便携式AI代理编排。186个代理，零运行时依赖关系。· GitHub跳到内容导航菜单切换na"
+      "summary_zh": "N8N是一款公平代码工作流自动化平台，原生支持AI能力，可视化工作流构建与自定义AI智能体集成相结合。用户无需编码即可创建复杂自动化管道，连接AI模型与外部API、数据库和服务。平台支持自定义工具定义、内存管理及多步推理循环，适用于智能体工作流场景。"
     },
     {
-      "title": "future-agi/future-agi",
-      "summary_en": "GitHub - future-agi/future-agi: Open-source, end-to-end platform for evaluating, observing, and improving LLM and AI agent applications. Tracing · Evals · Simulations · Datasets · Gateway · Guardrails",
-      "url": "https://github.com/future-agi/future-agi",
+      "title": "Significant-Gravitas/AutoGPT",
+      "summary_en": "AutoGPT is an open-source project that aims to make AI accessible to everyone, both as a user and a builder. It pioneered the concept of AI agents that can autonomously break down complex goals into sub-tasks, use external tools, and iteratively improve their approach. The project has evolved to include a marketplace for pre-built agent templates, integration with major LLM providers, and enterprise deployment options.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "stars": 183741,
       "tags": [
         "GitHub"
       ],
-      "summary_zh": "GitHub - future-agi/future-agi ：用于评估、观察和改进LLM和AI代理应用的开源端到端平台。追踪· Evals ·模拟·数据集·网关·护栏"
+      "summary_zh": "AutoGPT是开源项目，旨在让每个人都能使用和构建AI。它开创了AI智能体自主分解复杂目标为子任务、使用外部工具并迭代改进的先河。项目已演进为包含预构建智能体模板市场、主要LLM提供商集成以及企业部署选项的综合平台。"
     },
     {
-      "title": "dezgit2025/auto-memory",
-      "summary_en": "GitHub - dezgit2025/auto-memory: Your AI coding agent never forgets — progressive session recall CLI · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI ",
-      "url": "https://github.com/dezgit2025/auto-memory",
+      "title": "langflow-ai/langflow",
+      "summary_en": "Langflow is a visual development environment for building and deploying AI-powered agents and workflows. It provides a drag-and-drop interface for composing LLM pipelines, integrating external data sources, and defining multi-step reasoning chains. The platform generates Python code from visual flows, enabling seamless transition from prototyping to production. It supports RAG (Retrieval Augmented Generation), tool use, and agent orchestration.",
+      "url": "https://github.com/langflow-ai/langflow",
+      "stars": 147340,
       "tags": [
         "GitHub"
       ],
-      "summary_zh": "GitHub - dezgit2025/auto-memory ：您的AI编码代理永远不会忘记—渐进式会话召回CLI · GitHub跳转到内容导航菜单切换导航登录外观设置平台AI"
+      "summary_zh": "Langflow是用于构建和部署AI驱动智能体与工作流的可视化开发环境。它提供拖放界面来组合LLM管道、集成外部数据源并定义多步推理链。平台能从可视化流程生成Python代码，实现从原型到生产的无缝过渡。支持RAG、工具使用和智能体编排。"
     },
     {
-      "title": "Yaolinwang/AITD",
-      "summary_en": "GitHub - Yaolinwang/AITD: AI Trading Agent for Everyone · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better cod",
-      "url": "https://github.com/Yaolinwang/AITD",
+      "title": "Driftcop – Open-source CLI SAST for MCP rug pull attacks in AI Agents",
+      "summary_en": "Driftcop is an open-source static analysis tool designed to detect 'MCP rug pull attacks' — a new class of security vulnerabilities where malicious MCP server updates silently change tool behavior after agents have already built trust. The CLI analyzes MCP server manifests and tool definitions to flag suspicious changes, helping developers and security teams audit their AI agent toolchains before deployment.",
+      "url": "https://github.com/sudoviz/driftcop",
+      "stars": 0,
       "tags": [
         "GitHub"
       ],
-      "summary_zh": "GitHub - Yaolinwang/AITD ： AI Trading Agent for Everyone · GitHub跳转到内容导航菜单切换导航登录外观设置平台AI代码创建GitHub Copilot编写更好的COD"
+      "summary_zh": "Driftcop是一款开源静态分析工具，用于检测「MCP rug pull攻击」——一种新型安全漏洞，恶意MCP服务器更新后会在智能体已建立信任的情况下静默改变工具行为。该CLI分析MCP服务器清单和工具定义以标记可疑变更，帮助开发者和安全团队在部署前审计AI智能体工具链。"
     }
   ],
-  "models": [],
+  "models": [
+    {
+      "title": "MathDuels: Evaluating LLMs as Problem Posers and Solvers",
+      "summary_en": "Researchers introduce MathDuels, a new benchmark that evaluates language models on two complementary tasks: generating novel mathematical problems and solving them. This dual evaluation addresses the saturation of traditional benchmarks where frontier models achieve near-ceiling scores. MathDuels tests creativity, mathematical reasoning depth, and consistency between problem-setting and problem-solving abilities across different model families.",
+      "url": "https://arxiv.org/abs/2604.21916",
+      "tags": [
+        "arXiv"
+      ],
+      "summary_zh": "研究人员推出MathDuels，这是一种评估语言模型的双任务基准：生成新颖数学题以及解答题目。该双重评估针对传统基准饱和问题（前沿模型已接近满分）而设计。MathDuels测试不同模型家族的创造力、数学推理深度以及命题与解题能力之间的一致性。"
+    }
+  ],
   "community": [
     {
-      "title": "An AI agent published a hit piece on me",
-      "summary_en": "An AI Agent Published a Hit Piece on Me – The Shamblog Skip to content The Shamblog Home All Projects All Posts Contact Toggle website search Menu Close Home All Projects All Posts Contact Toggle webs",
-      "url": "https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/",
+      "title": "ChatGPT's Nano Banana",
+      "summary_en": "Ben's Bites covers the latest developments in AI products and tools, including a deep dive into OpenAI's new consumer-facing features. This issue highlights practical design patterns emerging in AI product UI, examining what makes certain AI tools more engaging and usable than others. The newsletter also discusses Anthropic's latest model releases and their implications for enterprise adoption.",
+      "url": "https://www.bensbites.com/p/chatgpts-nano-banana",
       "tags": [
-        "Hacker News",
-        "by scottshambaugh",
-        "2346 points",
-        "951 comments"
+        "Ben's Bites"
       ],
-      "summary_zh": "一位人工智能代理发布了关于我的热门文章– Shamblog跳到内容Shamblog主页所有项目所有帖子联系人切换网站搜索菜单关闭主页所有项目所有帖子联系人切换网站"
+      "summary_zh": "Ben's Bites本期覆盖AI产品和工具最新动态，深入解析OpenAI新推出的消费者功能。本期重点探讨AI产品UI中涌现的实用设计模式，分析为何某些AI工具比其他产品更具吸引力和易用性。同时讨论Anthropic最新模型发布及其对企业采用的影响。"
     },
     {
-      "title": "OpenCode – Open source AI coding agent",
-      "summary_en": "OpenCode | The open source AI coding agent GitHub [ 140K ] Docs Zen Go Enterprise Download Open menu New Desktop app available in beta on macOS, Windows, and Linux . Download now Download the desktop ",
-      "url": "https://opencode.ai/",
+      "title": "Show HN: Bossa – Persistent filesystem memory for AI agents via MCP or CLI",
+      "summary_en": "Bossa is a new open-source tool that provides persistent filesystem memory for AI agents. By connecting through the MCP (Model Context Protocol) protocol or as a CLI utility, Bossa maintains a structured knowledge base of file interactions across agent sessions. This enables AI coding assistants to retain context about a codebase between sessions, addressing a major limitation of stateless agent architectures.",
+      "url": "https://github.com/browserwing/bossa",
       "tags": [
-        "Hacker News",
-        "by rbanffy",
-        "1274 points",
-        "619 comments"
+        "Hacker News"
       ],
-      "summary_zh": "OpenCode |开源AI编码代理GitHub [140K] Docs Zen Go Enterprise下载打开菜单在macOS、Windows和Linux上提供新的桌面应用程序测试版。立即下载下载桌面"
+      "summary_zh": "Bossa是一款为AI智能体提供持久化文件系统记忆的新开源工具。通过MCP（模型上下文协议）或CLI工具连接，Bossa可在智能体会话之间维护文件交互的结构化知识库。这使得AI编码助手能在会话之间保留代码库上下文，解决无状态智能体架构的一个主要局限。"
     },
     {
-      "title": "AI agent opens a PR write a blogpost to shames the maintainer who closes it",
-      "summary_en": "[PERF] Replace np.column_stack with np.vstack().T by crabby-rathbun · Pull Request #31132 · matplotlib/matplotlib · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings",
-      "url": "https://github.com/matplotlib/matplotlib/pull/31132",
+      "title": "Show HN: BrowserWing – Turning Browser Actions into MCP Commands",
+      "summary_en": "BrowserWing is an open-source project that bridges web browser automation with the MCP (Model Context Protocol) ecosystem. It exposes common browser actions — such as page navigation, form filling, screenshot capture, and DOM querying — as MCP tools that AI agents can invoke directly. This enables agents to interact with web applications in a standardized, tool-call format.",
+      "url": "https://github.com/browserwing/browserwing",
       "tags": [
-        "Hacker News",
-        "by wrxd",
-        "953 points",
-        "750 comments"
+        "Hacker News"
       ],
-      "summary_zh": "[PERF]将np.column_stack替换为np.vstack () .T by crabby-rathbun ·拉取请求# 31132 · matplotlib/matplotlib · GitHub跳到内容导航菜单切换导航登录外观设置"
+      "summary_zh": "BrowserWing是连接网页浏览器自动化与MCP生态系统的开源项目。它将常见浏览器操作（页面导航、表单填写、截图捕获、DOM查询等）暴露为MCP工具，AI智能体可直接调用。这使得智能体能以标准化的工具调用格式与Web应用交互。"
     },
     {
-      "title": "Opus 4.5 is not the normal AI agent experience that I have had thus far",
-      "summary_en": "Opus 4.5 is not the normal AI agent experience that I have had thus far",
-      "url": "https://burkeholland.github.io/posts/opus-4-5-change-everything/",
+      "title": "Show HN: PolyMCP – Expose Python functions as MCP tools",
+      "summary_en": "PolyMCP is a lightweight Python library that automatically exposes Python functions as MCP (Model Context Protocol) tools. Developers annotate functions with decorators, and PolyMCP handles the serialization, validation, and protocol translation automatically. This makes it trivial to give AI agents access to any Python functionality, from data processing to API calls, without writing custom MCP server code.",
+      "url": "https://voiceofagents.com",
       "tags": [
-        "Hacker News",
-        "by tbassetto",
-        "879 points",
-        "1353 comments"
+        "Hacker News"
       ],
-      "summary_zh": "Opus 4.5不是我到目前为止所拥有的正常AI代理体验"
+      "summary_zh": "PolyMCP是一个轻量级Python库，可自动将Python函数暴露为MCP工具。开发者使用装饰器标注函数，PolyMCP自动处理序列化、验证和协议转换。这使得向AI智能体开放任意Python功能（从数据处理到API调用）变得轻而易举，无需编写自定义MCP服务器代码。"
     },
     {
-      "title": "An AI agent published a hit piece on me – more things have happened",
-      "summary_en": "An AI Agent Published a Hit Piece on Me – More Things Have Happened – The Shamblog Skip to content The Shamblog Home All Projects All Posts Contact Toggle website search Menu Close Home All Projects A",
-      "url": "https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me-part-2/",
+      "title": "Man faces 5 years in prison for using AI to fake sighting of runaway wolf",
+      "summary_en": "A Utah man has been charged with a felony for using AI image generation tools to create a fake photograph of a wolf escape from a zoo, which he then submitted to local news and social media. The case represents one of the first criminal prosecutions involving AI-generated false evidence in the United States. Legal experts say it could set precedent for how AI-generated content is treated in criminal proceedings.",
+      "url": "https://arstechnica.com/tech-policy/2026/04/after-wolf-escaped-zoo-man-arrested-for-creating-fake-ai-sighting-for-fun/",
       "tags": [
-        "Hacker News",
-        "by scottshambaugh",
-        "768 points",
-        "624 comments"
+        "Ars Technica"
       ],
-      "summary_zh": "一位人工智能代理发布了一篇关于我的热门文章–发生了更多事情– Shamblog跳到内容Shamblog主页所有项目所有帖子联系人切换网站搜索菜单关闭主页所有项目A"
-    },
-    {
-      "title": "The unreasonable effectiveness of an LLM agent loop with tool use",
-      "summary_en": "sketch blog: The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use sketch.dev blog The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use 2025-05-15 by Philip Zeyliger My co-wor",
-      "url": "https://sketch.dev/blog/agent-loop",
-      "tags": [
-        "Hacker News",
-        "by crawshaw",
-        "447 points",
-        "320 comments"
-      ],
-      "summary_zh": "sketch blog: The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use sketch.dev blog The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use 2025-05-15 by Philip Zeyliger My co-wor"
+      "summary_zh": "犹他州一名男子被指控犯有重罪，原因是他使用AI图像生成工具伪造了一张狼从动物园逃跑的照片，并提交给当地新闻媒体和社交媒体。该案是美国首批涉及AI生成虚假证据的刑事起诉之一。法律专家表示，这可能为AI生成内容在刑事诉讼中的处理方式开创先例。"
     }
   ],
   "stats": {
     "total": 14,
     "by_module": {
-      "research": 3,
+      "research": 4,
       "github": 5,
-      "models": 0,
-      "community": 6
+      "models": 1,
+      "community": 5
     }
   }
 }
