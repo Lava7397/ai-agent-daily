@@ -37,6 +37,7 @@ body {
 
 /* ---- 日刊头：顶栏 position:fixed（相对视口吸顶，滚入正文时仍不离开顶部；sticky 在部分 WebView 上不可靠）---- */
 .detail-issue-top--fixed-dock {
+  /* 为固定顶栏 + 刘海区留出与 issue-sticky-dock 同高的起始空白，避免首屏/滚动时正文顶到栏下 */
   padding-top: calc(env(safe-area-inset-top, 0px) + var(--issue-dock-row-h));
 }
 .detail-issue-top--fixed-dock.detail-issue-top--nav-only-bar {
@@ -614,7 +615,7 @@ body {
 <!-- Footer -->
 <div class="footer">
   <span data-i18n="sources_prefix">数据来源：</span>The Verge, VentureBeat, Ars Technica, GitHub, Hacker News, arXiv, Ben&#x27;s Bites<br>
-  <span data-i18n="footer_meta_prefix">由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 </span>2026-04-25 18:34
+  <span data-i18n="footer_meta_prefix">由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 </span>2026-04-25 18:53
 </div>
 
 <script>
