@@ -342,26 +342,6 @@ body {
   font-size: 11px;
   user-select: none;
 }
-.atlas-links {
-  display: flex;
-  gap: 16px;
-}
-.atlas-links a {
-  color: #6f6559;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 3px;
-  transition: color var(--ix), text-decoration-color var(--ix);
-}
-.atlas-links a:hover {
-  color: #2f2c27;
-  text-decoration-color: rgba(47, 44, 39, 0.4);
-}
-.atlas-links a:focus-visible {
-  outline: 2px solid #98703f;
-  outline-offset: 2px;
-  border-radius: 2px;
-}
 .atlas-hero {
   max-width: 1120px;
   margin: 0 auto;
@@ -593,16 +573,17 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 #legacy-home.hero .today-link {
   display: inline-block;
   margin-top: 14px;
-  padding: 10px 22px;
-  background: #5a6e8a;
+  padding: 12px 26px;
+  background: linear-gradient(165deg, #5a6e8a 0%, #445770 100%);
   color: #fff;
   text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  border-radius: 8px;
   position: relative;
   z-index: 1;
+  box-shadow: 0 2px 12px rgba(60, 75, 100, 0.28);
   transition: background var(--ix), box-shadow var(--ix), transform 0.2s;
   -webkit-tap-highlight-color: transparent;
 }
@@ -811,6 +792,26 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 }
 .footer a:hover { color: #5a6e8a; text-decoration-color: rgba(90, 110, 138, 0.45); }
 .footer a:focus-visible { outline: 2px solid #5a6e8a; outline-offset: 2px; border-radius: 2px; }
+.footer a.footer-link-today {
+  font-weight: 600;
+  color: #6b5a48;
+  text-decoration-color: rgba(106, 90, 72, 0.35);
+}
+.footer a.footer-link-today:hover {
+  color: #8a5e28;
+  text-decoration-color: rgba(138, 94, 40, 0.5);
+}
+.footer a.footer-link-archive {
+  font-weight: 400;
+  color: #a89888;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.08);
+}
+.footer a.footer-link-archive:hover {
+  color: #7a6e62;
+  text-decoration-color: rgba(90, 110, 138, 0.35);
+}
+.footer .footer-sep { color: #b8a99a; margin: 0 3px; }
 
 @media (max-width: 900px) {
   .atlas-project-body {
@@ -835,7 +836,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
       </button>
       <span class="atlas-fav-encourage-wrap">
-        <span class="atlas-fav-encourage" data-i18n="fav_encourage">看着不错</span>
+        <span class="atlas-fav-encourage" data-i18n="fav_encourage">还不错</span>
         <button type="button" class="atlas-fav-btn" id="fav-site-url" aria-label="喜欢本网站" title="点一颗爱心" aria-pressed="false">
           <span class="atlas-fav-btn-inner" aria-hidden="true">
             <span class="atlas-fav-img-crop">
@@ -851,9 +852,6 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
       <span class="atlas-copy-feedback" id="copy-site-feedback" role="status" aria-live="polite" hidden>复制成功</span>
     </div>
     <div class="atlas-nav-right">
-      <div class="atlas-links">
-        <a href="today.html" data-role="today-issue-link" data-i18n="nav_today">今日刊</a>
-      </div>
       <div class="atlas-lang" role="group" aria-label="Language">
         <button type="button" id="lang-zh" data-set-lang="zh">中</button>
         <span class="atlas-lang-sep">/</span>
@@ -903,8 +901,8 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
           </div>
         </div>
         <div class="atlas-project-actions">
-          <a class="atlas-btn primary" href="#legacy-home" data-i18n="btn_archive">Archive</a>
-          <a class="atlas-btn" href="today.html" data-role="today-issue-link" data-i18n="btn_today">Today</a>
+          <a class="atlas-btn primary" href="today.html" data-role="today-issue-link" data-i18n="btn_today">Today</a>
+          <a class="atlas-btn" href="#legacy-home" data-i18n="btn_archive">Archive</a>
         </div>
       </article>
       <article class="atlas-project-card atlas-project-card--placeholder">
@@ -1022,7 +1020,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 <!-- Footer -->
 <div class="footer">
   <p><span data-i18n="footer_generated_prefix">生成于</span> <time id="footer-bj-date" datetime=""></time> · Lava · LavaAgent</p>
-  <p style="margin-top:6px;"><a href="today.html" data-role="today-issue-link" data-i18n="footer_today">今日刊</a> · <a href="home.html" data-i18n="footer_archive">历史存档</a></p>
+  <p style="margin-top:6px;"><a class="footer-link-archive" href="#legacy-home" data-i18n="footer_archive">历史存档</a> <span class="footer-sep" aria-hidden="true">·</span> <a class="footer-link-today" href="today.html" data-role="today-issue-link" data-i18n="footer_today">今日刊</a></p>
 </div>
 
 <script>
@@ -1031,7 +1029,6 @@ const ALL_ARCHIVES = [["2026-04-25", "Google will invest as much as $40 billion 
 const LANG_STORAGE = 'lavaagent_home_lang';
 const I18N = {
   zh: {
-    nav_today: '今日刊',
     hero_line1: '项目地图',
     hero_of: '',
     hero_brand: 'LavaAgent',
@@ -1060,7 +1057,7 @@ const I18N = {
     fav_aria_on: '已喜欢，点击取消',
     fav_title_add: '点一颗爱心',
     fav_title_remove: '取消爱心',
-    fav_encourage: '看着不错',
+    fav_encourage: '还不错',
     share_aria: '分享介绍页',
     share_title: '分享可展示标题与摘要的链接，打开后进入主站',
     share_card_title: 'LavaAgent Daily News',
@@ -1070,7 +1067,6 @@ const I18N = {
     share_hint: '给朋友看看',
   },
   en: {
-    nav_today: 'Today',
     hero_line1: 'the project map',
     hero_of: 'of ',
     hero_brand: 'LavaAgent.',
