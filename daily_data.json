@@ -1,241 +1,197 @@
 {
   "date": "2026-04-25",
-  "sources": "arXiv, GitHub, HN, HuggingFace",
+  "sources": "arXiv, GitHub, Hacker News, HuggingFace",
   "description": "AI Agent 领域最新情报",
   "research": [
     {
-      "title": "Nemobot Games: Crafting Strategic AI Gaming 智能体 for Interactive Learning with Large Language Mode",
-      "summary": "This 论文 introduces a new paradigm for AI game programming, leveraging large language models (LLMs) to extend and operationalize Claude Shannon's ta",
+      "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation",
+      "summary": "Scientific workflow systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes i",
+      "url": "https://arxiv.org/abs/2604.21910v1",
+      "tags": [
+        "arXiv"
+      ]
+    },
+    {
+      "title": "Nemobot Games: Crafting Strategic AI Gaming Agents for Interactive Learning with Large Language Mode",
+      "summary": "This paper introduces a new paradigm for AI game programming, leveraging large language models (LLMs) to extend and operationalize Claude Shannon's ta",
       "url": "https://arxiv.org/abs/2604.21896v1",
       "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "score": 3
+        "arXiv"
+      ]
+    },
+    {
+      "title": "OptiMat Alloys: A FAIR End-to-End Agent with Living Database for Computational Multi-Principal Alloy",
+      "summary": "The FAIR principles have transformed how computational data and workflows are shared in materials research, yet existing repositories can only serve p",
+      "url": "https://arxiv.org/abs/2604.21850v1",
+      "tags": [
+        "arXiv"
+      ]
+    },
+    {
+      "title": "Black-Box Skill Stealing Attack from Proprietary LLM Agents: An Empirical Study",
+      "summary": "LLM agents increasingly rely on skills to encapsulate reusable capabilities via progressively disclosed instructions. High-quality skills inject exper",
+      "url": "https://arxiv.org/abs/2604.21829v1",
+      "tags": [
+        "arXiv"
+      ]
     },
     {
       "title": "Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/",
-      "summary": "The 模型 Context Protocol (MCP) has become a common interface for connecting large language 模型 (大语言模型) agents to external tools, but its reliance on",
+      "summary": "The Model Context Protocol (MCP) has become a common interface for connecting large language model (LLM) agents to external tools, but its reliance on",
       "url": "https://arxiv.org/abs/2604.21816v1",
       "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "score": 3
+        "arXiv"
+      ]
     },
     {
-      "title": "From 研究 Question to Scientific 工作流: Leveraging 代理式 AI for Science Automation",
-      "summary": "Scientific 工作流 systems automate execution -- scheduling, fault tolerance, resource management -- but not the semantic translation that precedes i",
-      "url": "https://arxiv.org/abs/2604.21910v1",
+      "title": "Phenomenological Detector Design and Optimization in Vertically-Integrated Differentiable Full Simul",
+      "summary": "We present the first implementation of AI agents into the design and optimization of detectors in high-energy physics experiments via a bilevel optimi",
+      "url": "https://arxiv.org/abs/2604.21804v1",
       "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "score": 2
-    },
-    {
-      "title": "Learning to Communicate: Toward End-to-End Optimization of Multi-智能体 Language Systems",
-      "summary": "多智能体 systems built on large language models have shown strong performance on complex reasoning tasks, yet most work focuses on agent roles and",
-      "url": "https://arxiv.org/abs/2604.21794v1",
-      "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "score": 2
-    },
-    {
-      "title": "代理式 AI-Enabled 框架 for Thermal Comfort and Building Energy Assessment in Tropical Urban Ne",
-      "summary": "In response to the urban heat island effects and building energy demands in Singapore, this study proposes an 代理式 AI-enabled reasoning 框架 t",
-      "url": "https://arxiv.org/abs/2604.21787v1",
-      "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "score": 2
-    },
-    {
-      "title": "AGNT2: Autonomous 智能体 Economies on Interaction-Optimized Layer 2 Infrastructure",
-      "summary": "Current blockchain Layer 2 solutions, including Optimism, Arbitrum, zkSync, and their derivatives, optimize for human-initiated financial transactions",
-      "url": "https://arxiv.org/abs/2604.21129v1",
-      "tags": [
-        "arXiv",
-        "研究"
-      ],
-      "score": 2
+        "arXiv"
+      ]
     }
   ],
   "github": [
     {
       "title": "ConardLi/web-design-skill",
-      "summary": "An AI agent skill that transforms AI-generated web pages from \"functional\" to \"s | ⭐ 1,056 | CSS",
+      "summary": "An AI agent skill that transforms AI-generated web pages from \"functional\" to \"stunning.\"(Inspired by Claude Design)",
       "url": "https://github.com/ConardLi/web-design-skill",
       "tags": [
-        "GitHub",
-        "开源"
-      ],
-      "score": 8
+        "GitHub"
+      ]
     },
     {
       "title": "GammaLabTechnologies/harmonist",
-      "summary": "Portable AI agent orchestration with mechanical protocol enforcement. 186 agents | ⭐ 383 | Python",
+      "summary": "Portable AI agent orchestration with mechanical protocol enforcement. 186 agents, zero runtime dependencies.",
       "url": "https://github.com/GammaLabTechnologies/harmonist",
       "tags": [
-        "GitHub",
-        "开源"
-      ],
-      "score": 4
+        "GitHub"
+      ]
     },
     {
       "title": "future-agi/future-agi",
-      "summary": "Open-source, end-to-end platform for evaluating, observing, and improving 大语言模型 an | ⭐ 279 | Python",
+      "summary": "Open-source, end-to-end platform for evaluating, observing, and improving LLM and AI agent applications. Tracing · Evals · Simulations · Datasets · Gateway · Guardrails. Self-hostable. Apache 2.0.",
       "url": "https://github.com/future-agi/future-agi",
       "tags": [
-        "GitHub",
-        "开源"
-      ],
-      "score": 3
-    },
-    {
-      "title": "riverscn/intro-代理式-ai",
-      "summary": "认识 代理式 AI：从神经网络到智能体 | ⭐ 98 | Vue",
-      "url": "https://github.com/riverscn/intro-agentic-ai",
-      "tags": [
-        "GitHub",
-        "开源"
-      ],
-      "score": 3
+        "GitHub"
+      ]
     },
     {
       "title": "dezgit2025/auto-memory",
-      "summary": "Your AI coding agent never forgets — progressive session recall CLI | ⭐ 192 | Python",
+      "summary": "Your AI coding agent never forgets — progressive session recall CLI",
       "url": "https://github.com/dezgit2025/auto-memory",
       "tags": [
-        "GitHub",
-        "开源"
-      ],
-      "score": 2
+        "GitHub"
+      ]
+    },
+    {
+      "title": "Yaolinwang/AITD",
+      "summary": "AI Trading Agent for Everyone",
+      "url": "https://github.com/Yaolinwang/AITD",
+      "tags": [
+        "GitHub"
+      ]
     }
   ],
   "models": [
     {
-      "title": "Gemini 2.0: our new AI 模型 for the 代理式 era",
-      "summary": "HN 热度：1015",
+      "title": "Agent GPT – Assemble, configure, and deploy autonomous AI Agents in the browser",
+      "summary": "",
+      "url": "https://agentgpt.reworkd.ai/",
+      "tags": [
+        "Hacker News",
+        "by kevinslin",
+        "98 points",
+        "44 comments"
+      ]
+    },
+    {
+      "title": "Gemini 2.0: our new AI model for the agentic era",
+      "summary": "",
       "url": "https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/",
       "tags": [
-        "模型",
-        "动态"
-      ],
-      "score": 54
-    },
-    {
-      "title": "The unreasonable effectiveness of an 大语言模型 agent loop with tool use",
-      "summary": "HN 热度：447",
-      "url": "https://sketch.dev/blog/agent-loop",
-      "tags": [
         "Hacker News",
-        "社区"
-      ],
-      "score": 24
-    },
-    {
-      "title": "Claws are now a new layer on top of 大语言模型 agents",
-      "summary": "HN 热度：412",
-      "url": "https://twitter.com/karpathy/status/2024987174077432126",
-      "tags": [
-        "Hacker News",
-        "社区"
-      ],
-      "score": 21
-    },
-    {
-      "title": "Donating the 模型 Context Protocol and establishing the 代理式 AI Foundation",
-      "summary": "HN 热度：288",
-      "url": "https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation",
-      "tags": [
-        "Hacker News",
-        "社区"
-      ],
-      "score": 19
-    },
-    {
-      "title": "Two things 大语言模型 coding agents are still bad at",
-      "summary": "HN 热度：345",
-      "url": "https://kix.dev/two-things-llm-coding-agents-are-still-bad-at/",
-      "tags": [
-        "Hacker News",
-        "社区"
-      ],
-      "score": 18
+        "by meetpateltech",
+        "1015 points",
+        "490 comments"
+      ]
     }
   ],
   "community": [
     {
       "title": "An AI agent published a hit piece on me",
-      "summary": "HN 热度：2346",
+      "summary": "Previously:  AI agent opens a PR write a blogpost to shames the maintainer who closes it  -  https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46987",
       "url": "https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/",
       "tags": [
         "Hacker News",
-        "社区"
-      ],
-      "score": 118
+        "by scottshambaugh",
+        "2346 points",
+        "951 comments"
+      ]
     },
     {
       "title": "OpenCode – Open source AI coding agent",
-      "summary": "HN 热度：1274",
+      "summary": "",
       "url": "https://opencode.ai/",
       "tags": [
         "Hacker News",
-        "社区"
-      ],
-      "score": 64
+        "by rbanffy",
+        "1274 points",
+        "619 comments"
+      ]
     },
     {
       "title": "AI agent opens a PR write a blogpost to shames the maintainer who closes it",
-      "summary": "HN 热度：953",
+      "summary": "",
       "url": "https://github.com/matplotlib/matplotlib/pull/31132",
       "tags": [
         "Hacker News",
-        "社区"
-      ],
-      "score": 48
+        "by wrxd",
+        "953 points",
+        "750 comments"
+      ]
     },
     {
       "title": "Opus 4.5 is not the normal AI agent experience that I have had thus far",
-      "summary": "HN 热度：879",
+      "summary": "",
       "url": "https://burkeholland.github.io/posts/opus-4-5-change-everything/",
       "tags": [
         "Hacker News",
-        "社区"
-      ],
-      "score": 44
+        "by tbassetto",
+        "879 points",
+        "1353 comments"
+      ]
     },
     {
       "title": "An AI agent published a hit piece on me – more things have happened",
-      "summary": "HN 热度：768",
+      "summary": "https:&#x2F;&#x2F;infosec.exchange&#x2F;@mttaggart&#x2F;116065340523529645",
       "url": "https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me-part-2/",
       "tags": [
         "Hacker News",
-        "社区"
-      ],
-      "score": 39
+        "by scottshambaugh",
+        "768 points",
+        "624 comments"
+      ]
     },
     {
-      "title": "The current hype around autonomous agents, and what actually works in production",
-      "summary": "HN 热度：427",
-      "url": "https://utkarshkanwat.com/writing/betting-against-agents/",
+      "title": "The unreasonable effectiveness of an LLM agent loop with tool use",
+      "summary": "",
+      "url": "https://sketch.dev/blog/agent-loop",
       "tags": [
         "Hacker News",
-        "社区"
-      ],
-      "score": 23
+        "by crawshaw",
+        "447 points",
+        "320 comments"
+      ]
     }
   ],
   "stats": {
-    "total": 22,
+    "total": 19,
     "by_module": {
       "research": 6,
       "github": 5,
-      "models": 5,
+      "models": 2,
       "community": 6
     }
   }
