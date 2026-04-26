@@ -67,25 +67,11 @@ body {
   color: #2f2c27;
   font-weight: 600;
 }
-/* 与复制按钮多留一截空隙；小字 + 比心 + 分享说明 + 分享按钮 */
-.atlas-fav-encourage-wrap {
+/* 顶栏：复制、比心、分享 三等分间距 */
+.atlas-nav-icon-actions {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-left: 12px;
-}
-.atlas-fav-encourage,
-.atlas-share-hint {
-  font-size: 10px;
-  font-weight: 500;
-  color: #8a7f72;
-  letter-spacing: 0.06em;
-  line-height: 1.2;
-  white-space: nowrap;
-  user-select: none;
-}
-@media (max-width: 420px) {
-  .atlas-share-hint { white-space: normal; max-width: 7.5em; }
+  gap: 10px;
 }
 .atlas-copy-btn,
 .atlas-share-btn {
@@ -937,11 +923,10 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
   <div class="atlas-nav">
     <div class="atlas-brand-row">
       <span class="atlas-brand" id="atlas-site-label">www.lava7397.com</span>
-      <button type="button" class="atlas-copy-btn" id="copy-site-url" aria-label="复制网站地址" title="复制到剪贴板">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-      </button>
-      <span class="atlas-fav-encourage-wrap">
-        <span class="atlas-fav-encourage" data-i18n="fav_encourage">还行吧</span>
+      <span class="atlas-nav-icon-actions">
+        <button type="button" class="atlas-copy-btn" id="copy-site-url" aria-label="复制网站地址" title="复制到剪贴板">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
         <button type="button" class="atlas-fav-btn" id="fav-site-url" aria-label="喜欢本网站" title="点一颗爱心" aria-pressed="false">
           <span class="atlas-fav-btn-inner" aria-hidden="true">
             <span class="atlas-fav-img-crop">
@@ -952,7 +937,6 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
             </span>
           </span>
         </button>
-        <span class="atlas-share-hint" data-i18n="share_hint">给朋友看看</span>
         <button type="button" class="atlas-share-btn" id="share-page-btn" aria-label="分享介绍页" title="分享介绍页，打开可进入主站">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
         </button>
@@ -1181,14 +1165,12 @@ const I18N = {
     fav_aria_on: '已喜欢，点击取消',
     fav_title_add: '点一颗爱心',
     fav_title_remove: '取消爱心',
-    fav_encourage: '还行吧',
     share_aria: '分享介绍页',
     share_title: '分享可展示标题与摘要的链接，打开后进入主站',
     share_card_title: 'LavaAgent Daily News',
     share_text: '每日 AI Agent 资讯 — LavaAgent Daily News',
     share_toast: '已复制介绍页链接，对方打开可进入主站',
     share_toast_block_hint: '（若未弹出新窗口，请检查浏览器是否拦截弹窗）',
-    share_hint: '给朋友看看',
     hero_mascot_aria: '点击查看主图高清版',
     hero_mascot_title: '查看高清主图',
     hero_mascot_dialog: '主图（高清）',
@@ -1223,14 +1205,12 @@ const I18N = {
     fav_aria_on: 'Liked, click to remove',
     fav_title_add: 'Add a heart',
     fav_title_remove: 'Remove heart',
-    fav_encourage: 'Not bad',
     share_aria: 'Share intro link',
     share_title: 'Link includes title and summary; opens the main site',
     share_card_title: 'LavaAgent Daily News',
     share_text: 'Daily AI Agent news — LavaAgent Daily News',
     share_toast: 'Intro page link copied — open to visit the site',
     share_toast_block_hint: ' (If the new tab did not open, check whether your browser is blocking pop-ups.)',
-    share_hint: 'To share with a friend.',
     hero_mascot_aria: 'View full-size mascot image',
     hero_mascot_title: 'View high-resolution image',
     hero_mascot_dialog: 'Mascot image (full size)',
