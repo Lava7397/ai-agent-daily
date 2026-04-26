@@ -102,6 +102,36 @@ def extract_archive_meta(archive_path):
         return "", "", ""
 
 
+def apply_home_archive_override(archive_infos, data):
+    """仅改首页历史列表的某一期的标题/摘要，不修改对应 archives/*.html。
+
+    daily_data 可选: home_archive_override =
+      { "date": "YYYY-MM-DD", "headline": "...", "summary": "...", "total_items": "20" }
+    未写的字段从该日归档页解析值沿用。
+    """
+    ov = data.get("home_archive_override")
+    if not isinstance(ov, dict):
+        return archive_infos
+    d0 = ov.get("date")
+    if not d0:
+        return archive_infos
+    h_new = ov.get("headline")
+    s_new = ov.get("summary")
+    t_new = ov.get("total_items")
+    if h_new is None and s_new is None and t_new is None:
+        return archive_infos
+    out = []
+    for row in archive_infos:
+        if row[0] != d0:
+            out.append(row)
+            continue
+        h = h_new if h_new is not None else row[1]
+        t = t_new if t_new is not None else row[2]
+        s = s_new if s_new is not None else row[3]
+        out.append((row[0], h, t, s))
+    return out
+
+
 def build_home_html(archive_infos, page=1, per_page=10):
     """生成首页 home.html：展示所有历史归档，支持分页
     archive_infos: list of (date_str, headline, total_items)
@@ -1413,6 +1443,8 @@ def main(argv=None):
         for p in archive_files:
             headline, total, summary = extract_archive_meta(p)
             archive_infos.append((p.stem, headline, total, summary))
+
+        archive_infos = apply_home_archive_override(archive_infos, data)
 
         if archive_infos:
             home_path = BASE_DIR / "home.html"

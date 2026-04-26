@@ -1,5 +1,10 @@
 {
   "date": "2026-04-26",
+  "home_archive_override": {
+    "date": "2026-04-26",
+    "headline": "Anthropic created a test marketplace for agent-on-agent commerce",
+    "summary": "Anthropic推出智能体间商业测试市场，允许不同AI智能体之间进行付费任务委托和资源交易。该市场支持函数调用计量、上下文窗口租赁、工具使用计费等新型商业模式，为AI经济体系奠定基础。平台目前处于邀请制测试阶段。"
+  },
   "sources": "The Verge, VentureBeat, Ars Technica, Ben's Bites, Hacker News, arXiv, GitHub",
   "description": "AI Agent 领域最新情报",
   "research": [
