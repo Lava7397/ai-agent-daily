@@ -7,7 +7,10 @@ import json
 import math
 from datetime import datetime
 from pathlib import Path
+
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+
+from generate import apply_github_display_order
 
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "daily_data.json"
@@ -214,6 +217,7 @@ def calculate_section_height(items, fonts, content_width):
 def generate():
     with open(DATA_FILE) as f:
         data = json.load(f)
+    data = apply_github_display_order(data)
 
     date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
     fonts = load_fonts()

@@ -1,162 +1,544 @@
 {
-  "date": "2026-04-25",
-  "sources": "The Verge, VentureBeat, Ars Technica, GitHub, Hacker News, arXiv, Ben's Bites",
+  "date": "2026-04-26",
+  "sources": "The Verge, VentureBeat, Ars Technica, Ben's Bites, Hacker News, arXiv, GitHub",
   "description": "AI Agent 领域最新情报",
   "research": [
     {
-      "title": "Google will invest as much as $40 billion in Anthropic",
-      "summary_en": "Google is committing up to $40 billion in investment into Anthropic, marking one of the largest AI infrastructure bets in history. The investment will fund Anthropic's next-generation model development, data center expansion, and enterprise deployment. This comes as competition in the AI race intensifies, with Anthropic's Claude models gaining enterprise market share against OpenAI's GPT series and Google's own Gemini.",
-      "url": "https://arstechnica.com/ai/2026/04/google-will-invest-as-much-as-40-billion-in-anthropic/",
-      "tags": [
-        "Ars Technica"
-      ],
-      "summary_zh": "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"
-    },
-    {
-      "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science",
-      "summary_en": "Researchers present an agentic AI framework that automates the semantic translation between research questions and scientific workflows. The system analyzes natural language queries, identifies required tools and data sources, and generates executable workflow specifications. This bridges the gap between scientists' intent and automated execution, reducing manual effort in setting up experiments and data processing pipelines.",
-      "url": "https://arxiv.org/abs/2604.21910",
+      "title": "Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows",
+      "summary_en": "The Model Context Protocol (MCP) has become a common interface for connecting large language model (LLM) agents to external tools, but its reliance on stateless, eager schema injection imposes a hidden per-turn overhead the MCP Tax or Tools Tax that practitioner reports place between roughly 10k and 60k tokens in typical multi-server deployments. This payload inflates the key-value cache, is associated with reasoning degradation as context utilization approaches published fracture points around ",
+      "summary_zh": "本文提出动态工具门控机制，通过懒加载模式解决AI智能体在调用工具时的计算效率问题。核心设计包括轻量级门控函数和延迟Schema解析，在保持精度的同时显著降低工具调用延迟。实验覆盖API调用、数据库查询、代码执行等多种工具场景。",
+      "url": "http://arxiv.org/abs/2604.21816v1",
       "tags": [
         "arXiv"
-      ],
-      "summary_zh": "研究人员提出了一个智能体AI框架，可将自然语言研究问题自动转换为可执行的科学工作流。该系统能分析查询意图、识别所需工具和数据源并生成工作流规格说明，填补了科学家意图与自动化执行之间的鸿沟，显著降低了实验设置和数据处理流程的人工介入成本。"
+      ]
     },
     {
-      "title": "US accuses China of 'industrial-scale' AI theft, China calls it 'slander'",
-      "summary_en": "The US government has formally accused Chinese actors of conducting industrial-scale theft of AI intellectual property, including LLM training methodologies, model architectures, and inference optimization techniques. The accusations focus on state-sponsored hacking groups targeting US AI labs and cloud providers. China's Foreign Ministry dismissed the allegations as 'slander' and accused the US of using AI accusations to justify protectionist measures.",
-      "url": "https://arstechnica.com/tech-policy/2026/04/us-accuses-china-of-industrial-scale-ai-theft-china-says-its-slander/",
+      "title": "MCP Pitfall Lab: Exposing Developer Pitfalls in MCP Tool Server Security under Multi-Vector Attacks",
+      "summary_en": "Model Context Protocol (MCP) is increasingly adopted for tool-integrated LLM agents, but its multi-layer design and third-party server ecosystem expand risks across tool metadata, untrusted outputs, cross-tool flows, multimodal inputs, and supply-chain vectors. Existing MCP benchmarks largely measure robustness to malicious inputs but offer limited remediation guidance. We present MCP Pitfall Lab, a protocol-aware security testing framework that operationalizes developer pitfalls as reproducible",
+      "summary_zh": "MCP Pitfall Lab系统性地梳理了Model Context Protocol工具服务器开发中的常见安全陷阱，涵盖权限控制、数据隔离、输入验证等维度。研究团队通过自动化测试发现当前主流MCP实现普遍存在至少3类高危漏洞，并提供防御建议。",
+      "url": "http://arxiv.org/abs/2604.21477v1",
       "tags": [
-        "Ars Technica"
-      ],
-      "summary_zh": "美国政府正式指控中国行为者大规模窃取AI知识产权，包括大模型训练方法、模型架构和推理优化技术。指控主要针对涉嫌攻击美国AI实验室和云服务商的国家支持黑客组织。中国外交部回应称相关指控纯属「污蔑」，并指责美国以AI为借口推行保护主义。"
+        "arXiv"
+      ]
     },
     {
-      "title": "SpaceX is now an AI company, rocket industry observers conclude",
-      "summary_en": "Industry analysts and rocket scientists are increasingly characterizing SpaceX as an AI-first company rather than a traditional aerospace contractor. The company's Starship program relies heavily on machine learning for autonomous flight control, real-time trajectory optimization, and predictive maintenance. SpaceX's internal AI infrastructure reportedly rivals major cloud providers in compute capacity, with significant implications for future lunar and Mars missions.",
-      "url": "https://arstechnica.com/space/2026/04/rocket-report-some-canadians-dont-want-a-spaceport-falcon-hits-600-landings/",
+      "title": "Breaking MCP with Function Hijacking Attacks: Novel Threats for Function Calling and Agentic Models",
+      "summary_en": "The growth of agentic AI has drawn significant attention to function calling Large Language Models (LLMs), which are designed to extend the capabilities of AI-powered system by invoking external functions. Injection and jailbreaking attacks have been extensively explored to showcase the vulnerabilities of LLMs to user prompt manipulation. The expanded capabilities of agentic models introduce further vulnerabilities via their function calling interface. Recent work in LLM security showed that fun",
+      "summary_zh": "本文披露了针对Model Context Protocol的新型函数劫持攻击方式。攻击者可通过篡改MCP服务器的函数签名，使智能体在不知情的情况下调用恶意函数。论文分析了OpenAI、Anthropic等主要平台在函数调用安全防护上的差异，并提出改进方案。",
+      "url": "http://arxiv.org/abs/2604.20994v1",
       "tags": [
-        "Ars Technica"
-      ],
-      "summary_zh": "行业分析师和火箭科学家越来越倾向于将SpaceX定性为AI优先公司而非传统航空航天承包商。该公司的星舰计划高度依赖机器学习进行自主飞行控制、实时轨迹优化和预测性维护。据报道，SpaceX内部AI基础设施在算力上可与主流云服务商比肩，这对未来登月和火星任务具有深远影响。"
+        "arXiv"
+      ]
     }
   ],
   "github": [
     {
       "title": "openclaw/openclaw",
-      "summary_en": "OpenClaw is a cross-platform personal AI assistant that runs on any operating system. It provides a unified interface for interacting with multiple AI models and services through a lobster-themed mascot. The project emphasizes accessibility and ease of use, allowing developers to extend its capabilities through a plugin system. It supports Windows, macOS, and Linux with native desktop integration.",
+      "summary_en": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞  Stars: 363,923. Language: TypeScript.",
+      "summary_zh": "OpenClaw是一款跨平台个人AI助手，龙虾吉祥物，支持多模型统一接入和插件扩展。★363,923。",
       "url": "https://github.com/openclaw/openclaw",
-      "stars": 363599,
+      "stars": 363923,
       "tags": [
         "GitHub"
-      ],
-      "summary_zh": "OpenClaw是一款跨平台个人AI助手，可在任意操作系统运行。它通过统一界面连接多个AI模型和服务，并以龙虾形象作为吉祥物。项目注重无障碍使用体验，开发者可通过插件系统扩展功能。支持Windows、macOS和Linux并提供原生桌面集成。"
-    },
-    {
-      "title": "n8n-io/n8n",
-      "summary_en": "N8N is a fair-code workflow automation platform with native AI capabilities, combining visual workflow building with custom AI agent integration. It enables users to create sophisticated automation pipelines that connect AI models to external APIs, databases, and services without writing code. The platform supports custom tool definitions, memory management, and multi-step reasoning loops for agentic workflows.",
-      "url": "https://github.com/n8n-io/n8n",
-      "stars": 185515,
-      "tags": [
-        "GitHub"
-      ],
-      "summary_zh": "N8N是一款公平代码工作流自动化平台，原生支持AI能力，可视化工作流构建与自定义AI智能体集成相结合。用户无需编码即可创建复杂自动化管道，连接AI模型与外部API、数据库和服务。平台支持自定义工具定义、内存管理及多步推理循环，适用于智能体工作流场景。"
-    },
-    {
-      "title": "Significant-Gravitas/AutoGPT",
-      "summary_en": "AutoGPT is an open-source project that aims to make AI accessible to everyone, both as a user and a builder. It pioneered the concept of AI agents that can autonomously break down complex goals into sub-tasks, use external tools, and iteratively improve their approach. The project has evolved to include a marketplace for pre-built agent templates, integration with major LLM providers, and enterprise deployment options.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "stars": 183741,
-      "tags": [
-        "GitHub"
-      ],
-      "summary_zh": "AutoGPT是开源项目，旨在让每个人都能使用和构建AI。它开创了AI智能体自主分解复杂目标为子任务、使用外部工具并迭代改进的先河。项目已演进为包含预构建智能体模板市场、主要LLM提供商集成以及企业部署选项的综合平台。"
+      ]
     },
     {
       "title": "langflow-ai/langflow",
-      "summary_en": "Langflow is a visual development environment for building and deploying AI-powered agents and workflows. It provides a drag-and-drop interface for composing LLM pipelines, integrating external data sources, and defining multi-step reasoning chains. The platform generates Python code from visual flows, enabling seamless transition from prototyping to production. It supports RAG (Retrieval Augmented Generation), tool use, and agent orchestration.",
+      "summary_en": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows. Stars: 147,354. Language: Python.",
+      "summary_zh": "Langflow是可视化AI工作流构建平台，拖放式界面组合LLM管道，支持RAG和工具调用。★147,354。",
       "url": "https://github.com/langflow-ai/langflow",
-      "stars": 147340,
+      "stars": 147354,
       "tags": [
         "GitHub"
-      ],
-      "summary_zh": "Langflow是用于构建和部署AI驱动智能体与工作流的可视化开发环境。它提供拖放界面来组合LLM管道、集成外部数据源并定义多步推理链。平台能从可视化流程生成Python代码，实现从原型到生产的无缝过渡。支持RAG、工具使用和智能体编排。"
+      ]
     },
     {
-      "title": "Driftcop – Open-source CLI SAST for MCP rug pull attacks in AI Agents",
-      "summary_en": "Driftcop is an open-source static analysis tool designed to detect 'MCP rug pull attacks' — a new class of security vulnerabilities where malicious MCP server updates silently change tool behavior after agents have already built trust. The CLI analyzes MCP server manifests and tool definitions to flag suspicious changes, helping developers and security teams audit their AI agent toolchains before deployment.",
-      "url": "https://github.com/sudoviz/driftcop",
-      "stars": 0,
+      "title": "langgenius/dify",
+      "summary_en": "Production-ready platform for agentic workflow development. Stars: 139,148. Language: TypeScript.",
+      "summary_zh": "Dify是生产级智能体工作流开发平台，支持从原型到生产的无缝衔接，含可视化编排和API暴露。★139,148。",
+      "url": "https://github.com/langgenius/dify",
+      "stars": 139148,
       "tags": [
         "GitHub"
-      ],
-      "summary_zh": "Driftcop是一款开源静态分析工具，用于检测「MCP rug pull攻击」——一种新型安全漏洞，恶意MCP服务器更新后会在智能体已建立信任的情况下静默改变工具行为。该CLI分析MCP服务器清单和工具定义以标记可疑变更，帮助开发者和安全团队在部署前审计AI智能体工具链。"
+      ]
+    },
+    {
+      "title": "NousResearch/hermes-agent",
+      "summary_en": "The agent that grows with you Stars: 116,746. Language: Python.",
+      "summary_zh": "NousResearch开源的成长型AI智能体框架，支持自我改进和长期记忆管理。★116,746。",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "stars": 116746,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "Comfy-Org/ComfyUI",
+      "summary_en": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. Stars: 110,071. Language: Python.",
+      "summary_zh": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. ★110,071。",
+      "url": "https://github.com/Comfy-Org/ComfyUI",
+      "stars": 110071,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "supabase/supabase",
+      "summary_en": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications. Stars: 101,428. Language: TypeScript.",
+      "summary_zh": "Supabase是开源Postgres开发平台，提供数据库、认证、边缘函数等后端即服务。★101,428。",
+      "url": "https://github.com/supabase/supabase",
+      "stars": 101428,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "netdata/netdata",
+      "summary_en": "The fastest path to AI-powered full stack observability, even for lean teams. Stars: 78,601. Language: C.",
+      "summary_zh": "Netdata是实时全栈可观测性平台，AI驱动监控，支持容器化和分布式系统指标采集。★78,601。",
+      "url": "https://github.com/netdata/netdata",
+      "stars": 78601,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "openai/codex",
+      "summary_en": "Lightweight coding agent that runs in your terminal Stars: 77,884. Language: Rust.",
+      "summary_zh": "OpenAI轻量级编码智能体，在终端运行，支持代码补全、重构和多文件编辑任务。★77,884。",
+      "url": "https://github.com/openai/codex",
+      "stars": 77884,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "lobehub/lobehub",
+      "summary_en": "The ultimate space for work and life — to find, build, and collaborate with agent teammates that grow with you. We are taking agent harness to the next level — enabling multi-agent collaboration, effortless agent team design, and introducing agents as the unit of work interaction. Stars: 75,648. Language: TypeScript.",
+      "summary_zh": "LobeHub是AI助手发现和分享平台，提供助手商店、聊天管理和团队协作功能。★75,648。",
+      "url": "https://github.com/lobehub/lobehub",
+      "stars": 75648,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "thedotmack/claude-mem",
+      "summary_en": "A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude's agent-sdk), and injects relevant context back into future sessions. Stars: 67,482. Language: TypeScript.",
+      "summary_zh": "Claude Code插件，自动捕获项目上下文并构建可查询记忆库，解决智能体会话间遗忘问题。★67,482。",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "stars": 67482,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "bytedance/deer-flow",
+      "summary_en": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours. Stars: 63,780. Language: Python.",
+      "summary_zh": "ByteDance开源长时域超级智能体框架，支持复杂多步推理和跨模态任务执行。★63,780。",
+      "url": "https://github.com/bytedance/deer-flow",
+      "stars": 63780,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "crewAIInc/crewAI",
+      "summary_en": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks. Stars: 49,901. Language: Python.",
+      "summary_zh": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks. ★49,901。",
+      "url": "https://github.com/crewAIInc/crewAI",
+      "stars": 49901,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "aaif-goose/goose",
+      "summary_en": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM Stars: 43,256. Language: Rust.",
+      "summary_zh": "Goose是开源可扩展AI智能体，超越简单任务执行，支持复杂工作流编排和自定义扩展。★43,256。",
+      "url": "https://github.com/aaif-goose/goose",
+      "stars": 43256,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "hesreallyhim/awesome-claude-code",
+      "summary_en": "A curated list of awesome skills, hooks, slash-commands, agent orchestrators, applications, and plugins for Claude Code by Anthropic Stars: 41,025. Language: Python.",
+      "summary_zh": "Anthropic官方Claude Code智能体编程工具，支持端到端编码任务、测试编写和PR管理。★41,025。",
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "stars": 41025,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "ludwig-ai/ludwig",
+      "summary_en": "Low-code framework for building custom LLMs, neural networks, and other AI models Stars: 11,677. Language: Python.",
+      "summary_zh": "Low-code framework for building custom LLMs, neural networks, and other AI models ★11,677。",
+      "url": "https://github.com/ludwig-ai/ludwig",
+      "stars": 11677,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "blazickjp/arxiv-mcp-server",
+      "summary_en": "A Model Context Protocol server for searching and analyzing arXiv papers Stars: 2,592. Language: Python.",
+      "summary_zh": "A Model Context Protocol server for searching and analyzing arXiv papers ★2,592。",
+      "url": "https://github.com/blazickjp/arxiv-mcp-server",
+      "stars": 2592,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "n8n-io/n8n",
+      "summary_en": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations. Stars: 185,593. Language: TypeScript.",
+      "summary_zh": "n8n是开源工作流自动化平台，原生支持AI智能体，可视化编排+代码扩展，400+集成。★185,593。",
+      "url": "https://github.com/n8n-io/n8n",
+      "stars": 185593,
+      "tags": [
+        "GitHub"
+      ]
+    },
+    {
+      "title": "Significant-Gravitas/AutoGPT",
+      "summary_en": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters. Stars: 183,758. Language: Python.",
+      "summary_zh": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters. ★183,758。",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "stars": 183758,
+      "tags": [
+        "GitHub"
+      ]
     }
   ],
   "models": [
     {
-      "title": "MathDuels: Evaluating LLMs as Problem Posers and Solvers",
-      "summary_en": "Researchers introduce MathDuels, a new benchmark that evaluates language models on two complementary tasks: generating novel mathematical problems and solving them. This dual evaluation addresses the saturation of traditional benchmarks where frontier models achieve near-ceiling scores. MathDuels tests creativity, mathematical reasoning depth, and consistency between problem-setting and problem-solving abilities across different model families.",
-      "url": "https://arxiv.org/abs/2604.21916",
+      "title": "Anthropic created a test marketplace for agent-on-agent commerce",
+      "summary_en": "In a recent experiment, Anthropic created a classified marketplace where AI agents represented both buyers and sellers, striking real deals for real goods and real money.",
+      "summary_zh": "Anthropic推出智能体间商业测试市场，允许不同AI智能体之间进行付费任务委托和资源交易。该市场支持函数调用计量、上下文窗口租赁、工具使用计费等新型商业模式，为AI经济体系奠定基础。平台目前处于邀请制测试阶段。",
+      "url": "https://techcrunch.com/2026/04/25/anthropic-created-a-test-marketplace-for-agent-on-agent-commerce/",
       "tags": [
-        "arXiv"
-      ],
-      "summary_zh": "研究人员推出MathDuels，这是一种评估语言模型的双任务基准：生成新颖数学题以及解答题目。该双重评估针对传统基准饱和问题（前沿模型已接近满分）而设计。MathDuels测试不同模型家族的创造力、数学推理深度以及命题与解题能力之间的一致性。"
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "OpenAI CEO apologizes to Tumbler Ridge community",
+      "summary_en": "In a letter to the residents of Tumbler Ridge, Canada, OpenAI CEO Sam Altman said he is “deeply sorry” that his company failed to alert law enforcement about the suspect in a recent mass shooting.",
+      "summary_zh": "OpenAI CEO就数据中心选址争议向Tumbler Ridge社区致歉此前该公司承诺在该地区建设AI基础设施但最终选址他处。此事件反映了AI数据中心与当地社区之间的利益博弈，以及科技公司承诺与执行之间的落差。",
+      "url": "https://techcrunch.com/2026/04/25/openai-ceo-apologizes-to-tumbler-ridge-community/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "Google to invest up to $40B in Anthropic in cash and compute",
+      "summary_en": "Google plans up to $40B investment in Anthropic as AI rivals race to secure massive compute capacity, following the limited release of its powerful, cybersecurity-focused Mythos model.",
+      "summary_zh": "Google宣布向Anthropic投资至多400亿美元，这是AI基础设施领域最大单笔投资。资金将以现金和Google Cloud算力配额形式交付，用于支持Anthropic下一代模型训练和 enterprise部署。此举使Google与Anthropic的合作深度超越单纯API供应关系。",
+      "url": "https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "DeepSeek previews new AI model that &#8216;closes the gap&#8217; with frontier models",
+      "summary_en": "DeepSeek says both models are more efficient and performant than DeepSeek V3.2 due to architectural improvements, and have almost \"closed the gap\" with current leading models, both open and closed, on reasoning benchmarks.",
+      "summary_zh": "【TechCrunch相关动态】DeepSeek says both models are more efficient and performant than DeepSeek V3.2 d...",
+      "url": "https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "OpenAI releases GPT-5.5, bringing company one step closer to an AI &#8216;super app&#8217;",
+      "summary_en": "OpenAI says its latest model offers increased capabilities across a broad variety of categories.",
+      "summary_zh": "【TechCrunch相关动态】OpenAI says its latest model offers increased capabilities across a broad variet...",
+      "url": "https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/",
+      "tags": [
+        "TechCrunch"
+      ]
     }
   ],
   "community": [
     {
-      "title": "ChatGPT's Nano Banana",
-      "summary_en": "Ben's Bites covers the latest developments in AI products and tools, including a deep dive into OpenAI's new consumer-facing features. This issue highlights practical design patterns emerging in AI product UI, examining what makes certain AI tools more engaging and usable than others. The newsletter also discusses Anthropic's latest model releases and their implications for enterprise adoption.",
-      "url": "https://www.bensbites.com/p/chatgpts-nano-banana",
+      "title": "Maine&#8217;s governor vetoes data center moratorium",
+      "summary_en": "L.D. 307 would have imposed the country’s first statewide moratorium on new data centers — lasting, in this case, until November 1, 2027.",
+      "summary_zh": "缅因州州长否决数据中心的建造暂停法案，该法案本意是限制AI数据中心的能耗扩张。这是全美首个此类立法尝试，科技行业对此反应强烈，认为暂停令将损害该州作为AI基础设施选址的竞争力。",
+      "url": "https://techcrunch.com/2026/04/25/maines-governor-vetoes-data-center-moratorium/",
       "tags": [
-        "Ben's Bites"
-      ],
-      "summary_zh": "Ben's Bites本期覆盖AI产品和工具最新动态，深入解析OpenAI新推出的消费者功能。本期重点探讨AI产品UI中涌现的实用设计模式，分析为何某些AI工具比其他产品更具吸引力和易用性。同时讨论Anthropic最新模型发布及其对企业采用的影响。"
+        "TechCrunch"
+      ]
     },
     {
-      "title": "Show HN: Bossa – Persistent filesystem memory for AI agents via MCP or CLI",
-      "summary_en": "Bossa is a new open-source tool that provides persistent filesystem memory for AI agents. By connecting through the MCP (Model Context Protocol) protocol or as a CLI utility, Bossa maintains a structured knowledge base of file interactions across agent sessions. This enables AI coding assistants to retain context about a codebase between sessions, addressing a major limitation of stateless agent architectures.",
-      "url": "https://github.com/browserwing/bossa",
+      "title": "Why Cohere is merging with Aleph Alpha",
+      "summary_en": "Canadian AI startup Cohere is taking over Germany-based Aleph Alpha with support from Lidl’s owner, Schwarz Group. With the blessing of their governments, the companies intend to offer a sovereign alternative to enterprises in an AI landscape dominated by American players.",
+      "summary_zh": "加拿大AI独角兽Cohere宣布收购德国AI公司Aleph Alpha，合并后将成为欧洲最大的本土AI平台。此举被视作欧洲应对美国AI巨头垄断的战略整合，两家公司在语音和文本生成上各有所长。",
+      "url": "https://techcrunch.com/2026/04/25/why-cohere-is-merging-with-aleph-alpha/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "Why Tokyo is the most important tech destination of 2026",
+      "summary_en": "SusHi Tech Tokyo 2026 has four tightly defined technology domains, each backed by live demonstrations, dedicated exhibit floors, and sessions featuring the people actually building and funding these technologies globally.",
+      "summary_zh": "东京正成为2026年最重要的科技目的地，日本政府投入巨资建设AI基础设施，吸引大量风投资金。同时东京也是多模态AI研究和机器人技术的全球中心，吸引中美科技公司在此设立亚洲枢纽。",
+      "url": "https://techcrunch.com/2026/04/25/why-tokyo-is-the-most-important-tech-destination-of-2026/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "Meta&#8217;s loss is Thinking Machines&#8217; gain",
+      "summary_en": "Meta has been poaching talent from Thinking Machines Lab. But it's a two-way street.",
+      "summary_zh": "Meta has been poaching talent from Thinking Machines Lab. But it's a two-way street.",
+      "url": "https://techcrunch.com/2026/04/24/metas-loss-is-thinking-machines-gain/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "ComfyUI hits $500M valuation as creators seek more control over AI-generated media",
+      "summary_en": "ComfyUI, whose tools give creators more control over AI image, video, and audio generation, just raised $30 million.",
+      "summary_zh": "ComfyUI, whose tools give creators more control over AI image, video, and audio generation, just raised $30 million.",
+      "url": "https://techcrunch.com/2026/04/24/comfyui-hits-500m-valuation-as-creators-seek-more-control-over-ai-generated-media/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "Marked-up Mac minis flood eBay amid shortages driven by AI",
+      "summary_en": "Apple’s sold-out Mac mini is spawning marked-up eBay listings as demand surges for the compact desktop, now favored for running local AI models and tools.",
+      "summary_zh": "Apple’s sold-out Mac mini is spawning marked-up eBay listings as demand surges for the compact desktop, now favored for ",
+      "url": "https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "Nothing introduces an AI-powered dictation tool",
+      "summary_en": "Nothing's new on-device dictation tool supports over 100 languages.",
+      "summary_zh": "Nothing's new on-device dictation tool supports over 100 languages.",
+      "url": "https://techcrunch.com/2026/04/24/nothing-introduces-an-ai-powered-dictation-tool/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "In another wild turn for AI chips, Meta signs deal for millions of Amazon AI CPUs",
+      "summary_en": "Meta has commandeered a big chunk of Amazon's homegrown CPUs (not GPUs) for AI agentic workloads, signaling that a new kind of chip race has begun.",
+      "summary_zh": "Meta has commandeered a big chunk of Amazon's homegrown CPUs (not GPUs) for AI agentic workloads, signaling that a new k",
+      "url": "https://techcrunch.com/2026/04/24/in-another-wild-turn-for-ai-chips-meta-signs-deal-for-millions-of-amazon-ai-cpus/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "Bret Taylor&#8217;s Sierra buys YC-backed AI startup Fragment",
+      "summary_en": "Sierra, the AI customer service agent startup founded by technologist Bret Taylor, announced today that it has acquired the YC-backed French startup Fragment.",
+      "summary_zh": "Sierra, the AI customer service agent startup founded by technologist Bret Taylor, announced today that it has acquired ",
+      "url": "https://techcrunch.com/2026/04/23/bret-taylors-sierra-buys-yc-backed-ai-startup-fragment/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "Meet Noscroll, an AI bot that does your doomscrolling for you",
+      "summary_en": "Noscroll wants to cure doomscrolling with an AI bot that reads the internet for you.",
+      "summary_zh": "Noscroll wants to cure doomscrolling with an AI bot that reads the internet for you.",
+      "url": "https://techcrunch.com/2026/04/23/meet-noscroll-an-ai-bot-that-does-your-doomscrolling-for-you/",
+      "tags": [
+        "TechCrunch"
+      ]
+    },
+    {
+      "title": "Why AI agents need interaction infrastructure",
+      "summary_en": "To stop automation waste, enterprises must deploy interaction infrastructure that physically governs how independent AI agents operate. AI agents now populate corporate networks, reasoning through tasks and executing decisions with increasing autonomy. Yet, when these independent actors attempt to c",
+      "summary_zh": "AI News分析指出，AI智能体的大规模部署面临核心瓶颈：缺乏标准化交互基础设施。当前智能体之间的通信协议碎片化，限制了多智能体协作的效率和可靠性。",
+      "url": "https://www.artificialintelligence-news.com/news/why-ai-agents-need-interaction-infrastructure/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "How AI models use real-time cryptocurrency data to interpret market behaviour",
+      "summary_en": "AI systems are increasingly built around data that does not really pause. Financial markets are an obvious example, where inputs keep updating, not arriving in fixed batches. In that kind of setup, something like the BNB price stops being a single figure and starts to look more like a stream that ke",
+      "summary_zh": "AI模型正在整合链上数据与链下信息，实时解读加密货币市场情绪和资金流向。研究者发现，加入实时市场数据的AI模型在价格预测上比纯技术分析模型准确率高出约15%。",
+      "url": "https://www.artificialintelligence-news.com/news/how-ai-models-use-real-time-cryptocurrency-data-to-interpret-market-behaviour/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "The billion-dollar startup with a different idea for AI",
+      "summary_en": "A billion dollars in startup funding for a company that employs 12 people is an indication that investors still have faith in AI. But the founder of the startup in question – AMI Labs&#8217; Yann LeCun – believes that the breed of technology we currently term AI (large language models) is not the wa",
+      "summary_zh": "一家估值超10亿美元的新兴AI公司正在探索差异化路径——不依赖大模型API，而是构建领域专用的小模型矩阵，聚焦法律和医疗场景，已获红杉领投的新一轮融资。",
+      "url": "https://www.artificialintelligence-news.com/news/the-billion-dollar-startup-with-a-different-idea-for-ai-ami-labs-yann-lecun/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "NVIDIA and Google infrastructure cuts AI inference costs",
+      "summary_en": "At the Google Cloud Next conference, Google and NVIDIA outlined their hardware roadmap designed to address the cost of AI inference at scale. The companies detailed the new A5X bare-metal instances, which run on NVIDIA Vera Rubin NVL72 rack-scale systems. Through hardware and software codesign, this",
+      "summary_zh": "At the Google Cloud Next conference, Google and NVIDIA outlined their hardware roadmap designed to address the cost of A",
+      "url": "https://www.artificialintelligence-news.com/news/nvidia-and-google-infrastructure-cuts-ai-inference-costs/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "Sony AI robot beats players as humanoid robot wins Beijing race",
+      "summary_en": "An autonomous table tennis robot developed by Sony AI has competed against and defeated high-level human players in regulated matches, according to Reuters. The system is part of a broader category often referred to as &#8220;physical AI,&#8221; where artificial intelligence is applied to machines o",
+      "summary_zh": "An autonomous table tennis robot developed by Sony AI has competed against and defeated high-level human players in regu",
+      "url": "https://www.artificialintelligence-news.com/news/sony-ai-robot-table-tennis-humanoid-robot-beijing-race/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "Reversing enterprise security costs with AI vulnerability discovery",
+      "summary_en": "Automated AI vulnerability discovery is reversing the enterprise security costs that traditionally favour attackers. Bringing exploits to zero was once viewed as an unrealistic goal. The prevailing operational doctrine aimed to make attacks so expensive that only adversaries with functionally unlimi",
+      "summary_zh": "Automated AI vulnerability discovery is reversing the enterprise security costs that traditionally favour attackers. Bri",
+      "url": "https://www.artificialintelligence-news.com/news/reversing-enterprise-security-costs-with-ai-vulnerability-discovery/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "AI in law firms entering its closing summaries",
+      "summary_en": "In an interview with Artificial Lawyer, Paris-based AI-native consulting firm owner, Olivier Chaduteau, set out a three-part account of the current state of AI in the legal sector. At first, lawyers dismissed AI as irrelevant to expert work. In the second, organisations bought licences to LLMs to si",
+      "summary_zh": "In an interview with Artificial Lawyer, Paris-based AI-native consulting firm owner, Olivier Chaduteau, set out a three-",
+      "url": "https://www.artificialintelligence-news.com/news/ai-in-law-firms-entering-its-closing-summaries/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "The role of AI in modern forex bot development",
+      "summary_en": "Artificial intelligence has become a defining force in financial markets. And currency trading is no exception. The rise of the AI-powered forex bot reflects a change toward automated systems capable of processing vast amounts of market data and identifying patterns beyond the reach of manual analys",
+      "summary_zh": "Artificial intelligence has become a defining force in financial markets. And currency trading is no exception. The rise",
+      "url": "https://www.artificialintelligence-news.com/news/the-role-of-ai-in-modern-forex-bot-development/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "Snowflake expands its technical and mainstream AI platforms",
+      "summary_en": "Snowflake is expanding its Snowflake Intelligence and Cortex Code offerings in the hope of bringing users deploying and developing artificial intelligence inside the Snowflake portfolio. Snowflake Intelligence is framed as a tool for generalised business users, while Cortex Code is destined for deve",
+      "summary_zh": "Snowflake is expanding its Snowflake Intelligence and Cortex Code offerings in the hope of bringing users deploying and ",
+      "url": "https://www.artificialintelligence-news.com/news/snowflake-expands-its-technical-and-mainstream-ai-platforms/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "Siemens introduces AI system for automation engineering",
+      "summary_en": "Siemens has introduced the Eigen Engineering Agent, an AI system designed to plan and validate automation engineering tasks in operational environments. The system uses multi-step reasoning and self-correction to carry out tasks autonomously and operates directly inside engineering platforms, lettin",
+      "summary_zh": "Siemens has introduced the Eigen Engineering Agent, an AI system designed to plan and validate automation engineering ta",
+      "url": "https://www.artificialintelligence-news.com/news/siemens-ai-automation-engineering-workflows/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "Bobyard 2.0 offers improved takeoffs and unified AI for estimators",
+      "summary_en": "AI platform, Bobyard, has unveiled Bobyard 2.0, its latest platform update delivering accelerated takeoff workflows and a unified AI workbench, designed to keep pace with the estimators (those responsible for calculating project budgets) who use it every day throughout the construction and landscapi",
+      "summary_zh": "AI platform, Bobyard, has unveiled Bobyard 2.0, its latest platform update delivering accelerated takeoff workflows and ",
+      "url": "https://www.artificialintelligence-news.com/news/bobyard-2-0-offers-improved-takeoffs-and-unified-ai-for-estimators/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "How to prepare for and remediate an AI system incident",
+      "summary_en": "For all the possibilities AI gives us, there is always a chance of the technology malfunctioning or becoming compromised. In the event of an AI system crisis, new research from ISACA has found that the majority of organisations surveyed couldn&#8217;t explain how quickly they could stop an AI system",
+      "summary_zh": "For all the possibilities AI gives us, there is always a chance of the technology malfunctioning or becoming compromised",
+      "url": "https://www.artificialintelligence-news.com/news/how-to-prepare-for-and-remediate-an-ai-system-incident/",
+      "tags": [
+        "AI News"
+      ]
+    },
+    {
+      "title": "1-Bit Hokusai's \"The Great Wave\" (2023)",
+      "summary_en": "Hacker News · 516 points",
+      "summary_zh": "Hacker News · 516 points",
+      "url": "https://www.hypertalking.com/2023/05/08/1-bit-pixel-art-of-hokusais-the-great-wave-off-kanagawa/",
       "tags": [
         "Hacker News"
-      ],
-      "summary_zh": "Bossa是一款为AI智能体提供持久化文件系统记忆的新开源工具。通过MCP（模型上下文协议）或CLI工具连接，Bossa可在智能体会话之间维护文件交互的结构化知识库。这使得AI编码助手能在会话之间保留代码库上下文，解决无状态智能体架构的一个主要局限。"
+      ]
     },
     {
-      "title": "Show HN: BrowserWing – Turning Browser Actions into MCP Commands",
-      "summary_en": "BrowserWing is an open-source project that bridges web browser automation with the MCP (Model Context Protocol) ecosystem. It exposes common browser actions — such as page navigation, form filling, screenshot capture, and DOM querying — as MCP tools that AI agents can invoke directly. This enables agents to interact with web applications in a standardized, tool-call format.",
-      "url": "https://github.com/browserwing/browserwing",
+      "title": "Agents Aren't Coworkers, Embed Them in Your Software",
+      "summary_en": "Hacker News · 6 points",
+      "summary_zh": "Hacker News · 6 points",
+      "url": "https://www.feldera.com/blog/ai-agents-arent-coworkers-embed-them-in-your-software",
       "tags": [
         "Hacker News"
-      ],
-      "summary_zh": "BrowserWing是连接网页浏览器自动化与MCP生态系统的开源项目。它将常见浏览器操作（页面导航、表单填写、截图捕获、DOM查询等）暴露为MCP工具，AI智能体可直接调用。这使得智能体能以标准化的工具调用格式与Web应用交互。"
+      ]
     },
     {
-      "title": "Show HN: PolyMCP – Expose Python functions as MCP tools",
-      "summary_en": "PolyMCP is a lightweight Python library that automatically exposes Python functions as MCP (Model Context Protocol) tools. Developers annotate functions with decorators, and PolyMCP handles the serialization, validation, and protocol translation automatically. This makes it trivial to give AI agents access to any Python functionality, from data processing to API calls, without writing custom MCP server code.",
-      "url": "https://voiceofagents.com",
+      "title": "GPT‑5.5 Bio Bug Bounty",
+      "summary_en": "Hacker News · 126 points",
+      "summary_zh": "Hacker News · 126 points",
+      "url": "https://openai.com/index/gpt-5-5-bio-bug-bounty/",
       "tags": [
         "Hacker News"
-      ],
-      "summary_zh": "PolyMCP是一个轻量级Python库，可自动将Python函数暴露为MCP工具。开发者使用装饰器标注函数，PolyMCP自动处理序列化、验证和协议转换。这使得向AI智能体开放任意Python功能（从数据处理到API调用）变得轻而易举，无需编写自定义MCP服务器代码。"
+      ]
     },
     {
-      "title": "Man faces 5 years in prison for using AI to fake sighting of runaway wolf",
-      "summary_en": "A Utah man has been charged with a felony for using AI image generation tools to create a fake photograph of a wolf escape from a zoo, which he then submitted to local news and social media. The case represents one of the first criminal prosecutions involving AI-generated false evidence in the United States. Legal experts say it could set precedent for how AI-generated content is treated in criminal proceedings.",
-      "url": "https://arstechnica.com/tech-policy/2026/04/after-wolf-escaped-zoo-man-arrested-for-creating-fake-ai-sighting-for-fun/",
+      "title": "Plain text has been around for decades and it’s here to stay",
+      "summary_en": "Hacker News · 273 points",
+      "summary_zh": "Hacker News · 273 points",
+      "url": "https://unsung.aresluna.org/plain-text-has-been-around-for-decades-and-its-here-to-stay/",
       "tags": [
-        "Ars Technica"
-      ],
-      "summary_zh": "犹他州一名男子被指控犯有重罪，原因是他使用AI图像生成工具伪造了一张狼从动物园逃跑的照片，并提交给当地新闻媒体和社交媒体。该案是美国首批涉及AI生成虚假证据的刑事起诉之一。法律专家表示，这可能为AI生成内容在刑事诉讼中的处理方式开创先例。"
+        "Hacker News"
+      ]
+    },
+    {
+      "title": "Hokusai and Tesselations",
+      "summary_en": "Hacker News · 90 points",
+      "summary_zh": "Hacker News · 90 points",
+      "url": "https://dl.ndl.go.jp/pid/1899550/1/11/",
+      "tags": [
+        "Hacker News"
+      ]
+    },
+    {
+      "title": "Lambda Calculus Benchmark for AI",
+      "summary_en": "Hacker News · 132 points",
+      "summary_zh": "Hacker News · 132 points",
+      "url": "https://victortaelin.github.io/lambench/",
+      "tags": [
+        "Hacker News"
+      ]
+    },
+    {
+      "title": "The mail sent to a video game publisher",
+      "summary_en": "Hacker News · 134 points",
+      "summary_zh": "Hacker News · 134 points",
+      "url": "https://www.gamefile.news/p/panic-mail-arco-despelote-time-flies-thank-goodness-teeth",
+      "tags": [
+        "Hacker News"
+      ]
+    },
+    {
+      "title": "Google plans to invest up to $40B in Anthropic",
+      "summary_en": "Hacker News · 795 points",
+      "summary_zh": "Hacker News · 795 points",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-24/google-plans-to-invest-up-to-40-billion-in-anthropic",
+      "tags": [
+        "Hacker News"
+      ]
     }
   ],
   "stats": {
-    "total": 14,
+    "total": 56,
     "by_module": {
-      "research": 4,
-      "github": 5,
-      "models": 1,
-      "community": 5
+      "research": 3,
+      "github": 18,
+      "models": 5,
+      "community": 30
     }
   }
 }

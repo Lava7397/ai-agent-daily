@@ -6,6 +6,7 @@ AI Agent 日报 H5 页面生成器
 import argparse
 import json
 import os
+import random
 import re
 import sys
 from html import escape
@@ -113,10 +114,76 @@ SECTION_META = {
     "community":{"icon": "🔥", "title_zh": "社区热议",         "title_en": "Community"},
 }
 
+# 与 build_html / daily_data 结构一致；网站总条数超过此值时做各板块数量裁剪
+#（github 模块先按刊期种子打乱再截断，不跟随上游 star 排序）
+SECTION_KEYS = ("research", "github", "models", "community")
+MAX_SITE_ITEMS = 20
+
 
 def load_data():
     with open(DATA_FILE) as f:
         return json.load(f)
+
+
+def _github_display_rng(data):
+    """与刊期、模块绑定，同日多次生成结果一致，避免无意义 diff。"""
+    return random.Random(f"github|{get_issue_date(data)}|v1")
+
+
+def apply_github_display_order(data):
+    """将 github 列表按固定种子乱序，用于展示/配图，不依赖热门度排序。
+
+    返回浅拷贝，不修改入参。无 github 字段或为空则原样返回。
+    """
+    g = data.get("github")
+    if not g:
+        return data
+    out = dict(data)
+    g2 = list(g)
+    _github_display_rng(data).shuffle(g2)
+    out["github"] = g2
+    return out
+
+
+def fair_section_quotas(counts, cap):
+    """在总数上限 cap 下，按各模块可用条数约束做尽量均分。
+
+    每轮将 1 条配额给「当前已分配最少」的模块；并列时按 SECTION_KEYS 顺序优先。
+    不改动 JSON 内条目顺序，仅决定每模块取前若干条。
+    """
+    total = sum(counts.get(k, 0) for k in SECTION_KEYS)
+    if total <= cap:
+        return {k: counts.get(k, 0) for k in SECTION_KEYS}
+    res = {k: 0 for k in SECTION_KEYS}
+    for _ in range(min(cap, total)):
+        eligible = [k for k in SECTION_KEYS if res[k] < counts.get(k, 0)]
+        if not eligible:
+            break
+        k_pick = min(eligible, key=lambda k: (res[k], SECTION_KEYS.index(k)))
+        res[k_pick] += 1
+    return res
+
+
+def cap_data_for_site(data, max_items=MAX_SITE_ITEMS):
+    """生成网站用数据：总条数超过 max_items 时按各模块配额截断。
+
+    research / models / community 保持原序前缀截断；github 先打乱再截，避免按 star
+    取「前 N 条」。"""
+    counts = {k: len(data.get(k) or []) for k in SECTION_KEYS}
+    total = sum(counts.values())
+    if total <= max_items:
+        return apply_github_display_order(data)
+    quotas = fair_section_quotas(counts, max_items)
+    out = dict(data)
+    for k in SECTION_KEYS:
+        row = data.get(k) or []
+        if k == "github":
+            row = list(row)
+            _github_display_rng(data).shuffle(row)
+            out[k] = row[: quotas[k]]
+        else:
+            out[k] = row[: quotas[k]]
+    return out
 
 
 def build_item_html(item, is_top=False):
@@ -162,14 +229,14 @@ def build_html(data, include_nav_back=True):
     date_str = get_issue_date(data)
     safe_date = escape(date_str)
     sections = []
-    for key in ("research", "github", "models", "community"):
+    for key in SECTION_KEYS:
         items = data.get(key, [])
         if items:
             sections.append(build_section_html(key, items))
     sections_html = "\n".join(sections)
 
     # Count total items
-    total = sum(len(data.get(k, [])) for k in ("research", "github", "models", "community"))
+    total = sum(len(data.get(k, [])) for k in SECTION_KEYS)
     nav_items = [
         ("research", "AI Agent 研究"),
         ("github", "GitHub 热门"),
@@ -1286,6 +1353,8 @@ def main(argv=None):
         sys.exit(1)
 
     data = load_data()
+    raw_item_total = sum(len(data.get(k, [])) for k in SECTION_KEYS)
+    data = cap_data_for_site(data)
     date_str = get_issue_date(data)
     today_str = current_beijing_date_str()
 
@@ -1322,7 +1391,13 @@ def main(argv=None):
     # （Hermes 若只更新了较新的 archive、daily_data 仍滞后，否则会 4/24 vs 4/23 打架）
     sync_today_html_from_newest_archive()
 
-    print(f"\nTotal items: {sum(len(data.get(k, [])) for k in ('research','github','models','community'))}")
+    site_total = sum(len(data.get(k, [])) for k in SECTION_KEYS)
+    if raw_item_total > MAX_SITE_ITEMS:
+        print(
+            f"\nTotal items (site): {site_total} (raw {raw_item_total}, display cap {MAX_SITE_ITEMS}, fair split by section)"
+        )
+    else:
+        print(f"\nTotal items: {site_total}")
     print("Done!")
 
     # ── 生成首页 home.html ─────────────────────────────
