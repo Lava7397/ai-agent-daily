@@ -2,22 +2,32 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="AI Agent 日报 2026-04-18 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="description" content="今日刊 2026-04-18 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="AI Agent 日报 — 2026-04-18">
+<meta property="og:title" content="今日刊 — 2026-04-18">
 <meta property="og:description" content="今日 15 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://lava-agent-daily.vercel.app">
+<meta property="og:url" content="https://lava7397.com">
 <meta name="twitter:card" content="summary">
-<title>AI Agent 日报 — 2026-04-18</title>
+<title>今日刊 — 2026-04-18</title>
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ix: 0.18s ease;
+  /* 与 .issue-sticky-dock 内顶栏行高一致，供正文区留空防遮挡 */
+  --issue-dock-row-h: 52px;
+  --issue-dock-navonly-h: 48px;
+}
+@media (hover: hover) and (pointer: fine) {
+  a, button, .atlas-btn, [role="button"] { -webkit-tap-highlight-color: transparent; }
+}
+
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -27,27 +37,63 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---- 顶栏 + 四栏导航：整块 sticky，滚动时与正文同宽 ---- */
-.detail-sticky-header {
-  position: sticky;
+/* ---- 日刊头：顶栏 position:fixed（相对视口吸顶，滚入正文时仍不离开顶部；sticky 在部分 WebView 上不可靠）---- */
+.detail-issue-top--fixed-dock {
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--issue-dock-row-h));
+}
+.detail-issue-top--fixed-dock.detail-issue-top--nav-only-bar {
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--issue-dock-navonly-h));
+}
+.issue-sticky-dock {
+  position: fixed;
   top: 0;
-  z-index: 50;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  z-index: 200;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
   background: rgba(245,240,232,0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(100,80,60,0.1);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
-.detail-topbar-inner {
+.issue-sticky-dock .detail-topbar {
   max-width: 720px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+.issue-sticky-dock--nav-only {
+  border-top: none;
+}
+.detail-topbar-inner {
   padding: 8px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+  min-height: 28px;
+}
+.detail-topbar-inner--with-quicknav {
+  flex-wrap: nowrap;
+  padding: 6px 8px 6px 10px;
+  min-height: 40px;
+  gap: 6px;
 }
 .detail-topbar-inner--nav-only {
   justify-content: center;
+  padding: 8px 10px;
+}
+.detail-topbar-sub {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 12px 6px;
+  border-top: none;
 }
 .atlas-btn {
   flex-shrink: 0;
@@ -62,8 +108,19 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  border-radius: 2px;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  transition: background var(--ix), color var(--ix), border-color var(--ix), box-shadow var(--ix), transform 0.12s ease;
 }
+.atlas-btn:hover {
+  background: #efe6d8;
+  border-color: rgba(100, 80, 60, 0.32);
+  box-shadow: 0 1px 4px rgba(45, 36, 28, 0.08);
+  transform: translateY(-1px);
+}
+.atlas-btn:active { transform: translateY(0); }
+.atlas-btn:focus-visible { outline: 2px solid #98703f; outline-offset: 2px; }
 .atlas-lang {
   flex-shrink: 0;
   display: flex;
@@ -81,10 +138,14 @@ body {
   color: #6f6559;
   padding: 4px 6px;
   border-radius: 2px;
+  transition: color var(--ix), background var(--ix), font-weight 0.1s, transform 0.1s;
 }
 .atlas-lang button:hover {
   color: #2f2c27;
+  background: rgba(100, 80, 60, 0.1);
+  transform: translateY(-0.5px);
 }
+.atlas-lang button:focus-visible { outline: 2px solid #98703f; outline-offset: 1px; }
 .atlas-lang button.active {
   color: #2f2c27;
   font-weight: 700;
@@ -103,7 +164,7 @@ body {
     radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
     #f5f0e8;
-  padding: 48px 24px 44px;
+  padding: 20px 24px 16px;
   text-align: center;
   position: relative;
   border-bottom: 2px solid rgba(100,80,60,0.15);
@@ -130,43 +191,30 @@ body {
 .hero .date {
   color: #8a7e6e;
   font-size: 13px;
-  margin-top: 10px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: 6px;
   position: relative;
   z-index: 1;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
 }
-.hero .stats {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 28px;
-  position: relative;
-  z-index: 1;
+.hero .date .hero-sep,
+.hero .date .hero-tagline,
+.hero .date .hero-count,
+.hero .date .hero-count-unit {
+  font: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
-.hero .stat {
-  text-align: center;
-  border: 1px solid rgba(100,80,60,0.12);
-  padding: 14px 22px;
-  background: rgba(255,255,255,0.5);
-  backdrop-filter: blur(4px);
-}
-.hero .stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 30px;
-  font-weight: 700;
-  color: #5a6e8a;
-}
-.hero .stat-label {
-  font-size: 10px;
-  color: #8a7e6e;
-  margin-top: 4px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
+.hero .date .hero-sep { color: #b0a89a; margin: 0 0.1em; }
+.hero .date .hero-tagline { color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }
+.hero .date .hero-count { font-weight: 600; color: #5a6e8a; margin-left: 0.1em; }
+.hero .date .hero-count-unit { color: #6f6559; font-weight: 500; margin-left: 0; }
 
-/* ---- Quick Nav（与返回、语言同一行；中间可横向滑动） ---- */
+/* ---- Quick Nav：顶栏内与返回同行时可横向滑动 ---- */
 .quick-nav {
-  flex: 1 1 0;
+  width: 100%;
   min-width: 0;
   margin: 0;
   padding: 0;
@@ -179,9 +227,12 @@ body {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
-.detail-topbar-inner--nav-only .quick-nav {
-  flex: 0 1 auto;
-  justify-content: center;
+.quick-nav--inline {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  justify-content: flex-start;
+  gap: 3px;
 }
 .quick-nav::-webkit-scrollbar { display: none; }
 .quick-link {
@@ -198,10 +249,21 @@ body {
   letter-spacing: 0.2px;
   transition: all 0.25s;
 }
+.detail-topbar-inner--with-quicknav .quick-link {
+  padding: 4px 5px;
+  font-size: 9px;
+  letter-spacing: 0;
+}
 .quick-link:hover {
   color: #fff;
   background: #5a6e8a;
   border-color: #5a6e8a;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(90, 110, 138, 0.2);
+}
+.quick-link:focus-visible {
+  outline: 2px solid #4a6080;
+  outline-offset: 2px;
 }
 
 /* ---- Container ---- */
@@ -340,31 +402,19 @@ body {
 }
 .skip-link:focus { top: 0; }
 
-/* ---- Footer ---- */
-.footer {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 24px 16px;
-  text-align: center;
-  color: #aaa090;
-  font-size: 11px;
-  border-top: 1px solid rgba(100,80,60,0.08);
-  letter-spacing: 0.5px;
-}
-
-
 </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<header class="detail-sticky-header">
+<div class="detail-issue-top detail-issue-top--fixed-dock">
+<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
 <div class="detail-topbar">
-  <div class="detail-topbar-inner">
-<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回 LavaAgent 首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-<nav class="quick-nav" aria-label="内容导航">
+  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
+  <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
+<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
   <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
 </nav>
-<div class="atlas-lang" role="group" aria-label="界面语言">
+  <div class="atlas-lang" role="group" aria-label="界面语言">
       <button type="button" id="lang-zh" data-set-lang="zh">中</button>
       <span class="atlas-lang-sep">/</span>
       <button type="button" id="lang-en" data-set-lang="en">EN</button>
@@ -372,25 +422,12 @@ body {
   </div>
 </div>
 </header>
-
-<!-- Hero -->
 <div class="hero">
-  <h1>AI Agent 日报</h1>
-  <p class="date">2026-04-18 · 每日精选</p>
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-num">15</div>
-      <div class="stat-label">条资讯</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">4</div>
-      <div class="stat-label">个板块</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">6</div>
-      <div class="stat-label">个来源</div>
-    </div>
-  </div>
+  <h1 data-i18n="hero_title">今日刊</h1>
+    <p class="date">
+    2026-04-18 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="15">15</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
+  </p>
+</div>
 </div>
 
 <!-- Content -->
@@ -533,12 +570,6 @@ body {
     </section>
 </main>
 
-<!-- Footer -->
-<div class="footer">
-  数据来源：The Verge, VentureBeat, Ars Technica, Hacker News, HuggingFace, GitHub<br>
-  由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 2026-04-19 07:36
-</div>
-
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
 
@@ -548,11 +579,9 @@ body {
     zh: {
       nav_back_text: '返回',
       skip_to_content: '跳到正文',
-      hero_title: 'AI Agent 日报',
-      hero_subtitle_suffix: '· 每日精选',
-      stat_items: '条资讯',
-      stat_sections: '个板块',
-      stat_sources: '个来源',
+      hero_title: '今日刊',
+      hero_tagline: '每日精选',
+      hero_count_unit: '条',
       card_read_more: '查看原文',
       sources_prefix: '数据来源：',
       footer_meta_prefix: '由 Hermes Agent 自动生成 · 每日北京时间 11:30 更新 · 生成时间 ',
@@ -561,11 +590,9 @@ body {
     en: {
       nav_back_text: 'Back',
       skip_to_content: 'Skip to content',
-      hero_title: 'AI Agent Daily',
-      hero_subtitle_suffix: '· Daily picks',
-      stat_items: 'items',
-      stat_sections: 'sections',
-      stat_sources: 'sources',
+      hero_title: 'Today',
+      hero_tagline: 'Daily picks',
+      hero_count_unit: ' items',
       card_read_more: 'Read more',
       sources_prefix: 'Sources: ',
       footer_meta_prefix: 'Auto-generated by Hermes Agent · Updated daily at 11:30 BJT · Generated at ',

@@ -617,6 +617,80 @@ def _ensure_issue_dock_root_vars(t: str) -> str:
     )
 
 
+def _expand_oneline_root_vars(t: str) -> str:
+    """单行 :root 无法被 _ensure_issue_dock_root_vars 处理，与 generate 输出对齐为含顶栏高度变量。"""
+    old = ":root { --ix: 0.18s ease; }"
+    if old not in t:
+        return t
+    new = (
+        ":root {\n  --ix: 0.18s ease;\n"
+        "  /* 与 .issue-sticky-dock 内顶栏行高一致，供正文区留空防遮挡 */\n"
+        "  --issue-dock-row-h: 52px;\n  --issue-dock-navonly-h: 48px;\n}"
+    )
+    return t.replace(old, new, 1)
+
+
+# 历史页曾误为「语言在快链前」；与 generate 一致为：返回 → 四栏快链 → 语言
+RE_TOPBAR_LANG_BEFORE_NAV = re.compile(
+    r'(<div class="detail-topbar-inner detail-topbar-inner--with-quicknav">\s*)'
+    r'(<a href="home\.html" class="atlas-btn" id="back-home"[\s\S]*?</a>\s*)'
+    r'(<div class="atlas-lang"[\s\S]*?</div>\s*)'
+    r'(<nav class="quick-nav quick-nav--inline"[\s\S]*?</nav>\s*)'
+    r'(</div>\s*</div>\s*</header>)',
+    re.MULTILINE,
+)
+
+
+def _fix_topbar_lang_before_nav(t: str) -> str:
+    m = RE_TOPBAR_LANG_BEFORE_NAV.search(t)
+    if not m:
+        return t
+    return t[: m.start()] + m.group(1) + m.group(2) + m.group(4) + m.group(3) + m.group(5) + t[m.end() :]
+
+
+def _inject_hero_tagline_if_missing(t: str) -> str:
+    if "<main" not in t:
+        return t
+    head, rest = t.split("<main", 1)
+    if "hero-tagline" in head or "hero-item-count" not in head:
+        return t
+    head2 = re.sub(
+        r'(<p class="date">[\s\S]*?)(<span class="hero-sep"[^>]*>·</span>)(\s*)'
+        r'(<span class="hero-count" id="hero-item-count")',
+        r"\1\2\3 <span class=\"hero-tagline\" data-i18n=\"hero_tagline\">每日精选</span> "
+        r'<span class="hero-sep" aria-hidden="true">·</span> \4',
+        head,
+        count=1,
+    )
+    if head2 == head:
+        return t
+    return head2 + "<main" + rest
+
+
+def _ensure_detail_issue_top_close(t: str) -> str:
+    """部分旧页在 .hero 之后少一层 </div>（未闭合 .detail-issue-top--fixed-dock）。"""
+    if "detail-issue-top--fixed-dock" not in t or "<main " not in t:
+        return t
+    if "\n</div>\n</div>\n\n<!-- Content -->" in t:
+        return t
+    return t.replace(
+        "\n</div>\n\n<!-- Content -->\n<main",
+        "\n</div>\n</div>\n\n<!-- Content -->\n<main",
+        1,
+    )
+
+
+def _align_today_issue_branding(t: str) -> str:
+    """与 generate 一致：主标题为「今日刊」、meta 不强制带 LavaAgent 前缀、返回按钮文案等。"""
+    t = t.replace("LavaAgent 今日刊", "今日刊")
+    t = t.replace("meta property=\"og:url\" content=\"https://lava-agent-daily.vercel.app\"", 'meta property="og:url" content="https://lava7397.com"')
+    t = t.replace('aria-label="返回 LavaAgent 首页"', 'aria-label="返回首页"')
+    t = re.sub(r"<h1>\s*今日刊\s*</h1>", '<h1 data-i18n="hero_title">今日刊</h1>', t, count=1)
+    t = t.replace("hero_title: 'LavaAgent 今日刊'", "hero_title: '今日刊'")
+    t = t.replace("hero_title: 'LavaAgent · Today'", "hero_title: 'Today'")
+    return t
+
+
 def _ensure_viewport_fit_cover(t: str) -> str:
     if "viewport-fit=cover" in t:
         return t
@@ -757,8 +831,14 @@ def _patch_page(html: str) -> tuple[str, bool]:
                     t2 = t[:st] + t[en:]
         t = t2
 
-    t = t.replace("AI Agent 日报", "LavaAgent 今日刊")
-    t = t.replace("hero_title: 'AI Agent Daily'", "hero_title: 'LavaAgent · Today'")
+    t = _expand_oneline_root_vars(t)
+    t = _fix_topbar_lang_before_nav(t)
+    t = _inject_hero_tagline_if_missing(t)
+    t = _ensure_detail_issue_top_close(t)
+    t = _align_today_issue_branding(t)
+
+    t = t.replace("AI Agent 日报", "今日刊")
+    t = t.replace("hero_title: 'AI Agent Daily'", "hero_title: 'Today'")
     t = _patch_i18n_hero(t)
     t = re.sub(
         r"([0-9]{4}-[0-9]{2}-[0-9]{2})(<span class=\"hero-sep)",
