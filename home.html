@@ -937,7 +937,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
             </span>
           </span>
         </button>
-        <button type="button" class="atlas-share-btn" id="share-page-btn" aria-label="分享介绍页" title="分享介绍页，打开可进入主站">
+        <button type="button" class="atlas-share-btn" id="share-page-btn" aria-label="分享介绍页" title="分享">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
         </button>
       </span>
@@ -1246,13 +1246,7 @@ const I18N = {
     fav_title_add: '点一颗爱心',
     fav_title_remove: '取消爱心',
     share_aria: '分享介绍页',
-    share_title: '分享可展示标题与摘要的链接，打开后进入主站',
-    share_card_title: 'LavaAgent Daily News',
-    share_text: '每日 AI Agent 资讯 — LavaAgent Daily News',
-    share_toast: '已复制介绍页链接，对方打开可进入主站',
-    share_toast_wechat:
-      '已复制介绍页链接。若「发送给朋友」未打开聊天，请在与好友的会话中粘贴发送。',
-    share_toast_block_hint: '（若未弹出新窗口，请检查浏览器是否拦截弹窗）',
+    share_title: '分享',
     hero_mascot_aria: '点击查看主图高清版',
     hero_mascot_title: '查看高清主图',
     hero_mascot_dialog: '主图（高清）',
@@ -1288,13 +1282,7 @@ const I18N = {
     fav_title_add: 'Add a heart',
     fav_title_remove: 'Remove heart',
     share_aria: 'Share intro link',
-    share_title: 'Link includes title and summary; opens the main site',
-    share_card_title: 'LavaAgent Daily News',
-    share_text: 'Daily AI Agent news — LavaAgent Daily News',
-    share_toast: 'Intro page link copied — open to visit the site',
-    share_toast_wechat:
-      'Link copied. If Send to Chat does not open, paste the link in a WeChat chat.',
-    share_toast_block_hint: ' (If the new tab did not open, check whether your browser is blocking pop-ups.)',
+    share_title: 'Share',
     hero_mascot_aria: 'View full-size mascot image',
     hero_mascot_title: 'View high-resolution image',
     hero_mascot_dialog: 'Mascot image (full size)',
@@ -1745,21 +1733,16 @@ function copyStringToClipboard(str) {
     const lang = getLang();
     const pack = I18N[lang];
     const url = getIntroShareUrl();
-    const title = (pack.share_card_title !== undefined) ? pack.share_card_title : 'LavaAgent Daily News';
-    const text = (pack.share_text !== undefined) ? pack.share_text : title;
+    const onlyUrl = { url: url };
 
     if (isWeChatInApp()) {
-      // 微信内置浏览器里 navigator.share({title,text,url}) 在选「发送给朋友」时常异常结束；
-      // 先复制，再仅传 { url } 调起分享，失败时用户仍可粘贴
+      // 微信内先复制，再仅传 { url } 调起分享，避免大段附文
       try {
         await copyStringToClipboard(url);
-        var tw = pack.share_toast_wechat;
-        if (tw === undefined || tw === '') tw = pack.share_toast;
-        showNavUrlToast(tw);
+        showNavUrlToast(pack.copy_success_toast);
       } catch (e) { /* */ }
       if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
         try {
-          var onlyUrl = { url: url };
           if (typeof navigator.canShare === 'function' && !navigator.canShare(onlyUrl)) {
             return;
           }
@@ -1771,22 +1754,13 @@ function copyStringToClipboard(str) {
       return;
     }
 
-    var sharePreview = null;
-    sharePreview = window.open(url, '_blank', 'noopener,noreferrer');
+    window.open(url, '_blank', 'noopener,noreferrer');
     if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
-      const full = { title, text, url };
       try {
-        if (typeof navigator.canShare === 'function') {
-          if (navigator.canShare(full)) {
-            await navigator.share(full);
-            return;
-          }
-          if (navigator.canShare({ url: url })) {
-            await navigator.share({ url: url });
-            return;
-          }
+        if (typeof navigator.canShare === 'function' && !navigator.canShare(onlyUrl)) {
+          /* fall through to copy */
         } else {
-          await navigator.share(full);
+          await navigator.share(onlyUrl);
           return;
         }
       } catch (e) {
@@ -1795,11 +1769,7 @@ function copyStringToClipboard(str) {
     }
     try {
       await copyStringToClipboard(url);
-      if (!sharePreview) {
-        showNavUrlToast(pack.share_toast + (pack.share_toast_block_hint || ''));
-      } else {
-        showNavUrlToast(pack.share_toast);
-      }
+      showNavUrlToast(pack.copy_success_toast);
     } catch (e) {
       /* ignore */
     }
