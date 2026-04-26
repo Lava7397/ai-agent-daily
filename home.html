@@ -95,10 +95,62 @@ body {
 }
 .atlas-copy-btn:active,
 .atlas-share-btn:active { transform: scale(0.98); }
+/* 仅复制：更明显的按压感 */
+.atlas-copy-btn:active {
+  transform: scale(0.88);
+  background: rgba(55, 95, 72, 0.26);
+  color: #1a3d28;
+}
+.atlas-copy-btn .atlas-copy-icon {
+  display: block;
+  transform-origin: center;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
 .atlas-copy-btn:focus-visible,
 .atlas-share-btn:focus-visible {
   outline: 2px solid #98703f;
   outline-offset: 2px;
+}
+@keyframes atlas-copy-ok {
+  0% { transform: scale(0.85) rotate(-6deg); }
+  45% { transform: scale(1.14) rotate(4deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.atlas-copy-btn--flash .atlas-copy-icon {
+  animation: atlas-copy-ok 0.5s cubic-bezier(0.34, 1.25, 0.64, 1) both;
+}
+/* 仅分享：按压与弹跳（暖蓝灰，与复制绿色区分） */
+.atlas-share-btn:active {
+  transform: scale(0.88);
+  background: rgba(70, 88, 118, 0.22);
+  color: #252e40;
+}
+.atlas-share-btn .atlas-share-icon {
+  display: block;
+  transform-origin: center;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+@keyframes atlas-share-ok {
+  0% { transform: scale(0.85) rotate(5deg); }
+  45% { transform: scale(1.14) rotate(-4deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.atlas-share-btn--flash .atlas-share-icon {
+  animation: atlas-share-ok 0.5s cubic-bezier(0.34, 1.25, 0.64, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas-copy-btn:active {
+    transform: scale(0.96);
+  }
+  .atlas-copy-btn--flash .atlas-copy-icon {
+    animation: none;
+  }
+  .atlas-share-btn:active {
+    transform: scale(0.96);
+  }
+  .atlas-share-btn--flash .atlas-share-icon {
+    animation: none;
+  }
 }
 .atlas-fav-btn {
   display: inline-flex;
@@ -267,29 +319,6 @@ body {
   .atlas-fav-star--fall { animation: none; }
   .atlas-fav-spark--go { opacity: 0; }
   .atlas-fav-star--fall { opacity: 0; }
-}
-.atlas-copy-feedback {
-  font-size: 11px;
-  font-weight: 500;
-  color: #2d5a32;
-  background: rgba(60, 120, 70, 0.14);
-  border: 1px solid rgba(60, 120, 70, 0.22);
-  padding: 3px 8px;
-  border-radius: 4px;
-  margin-left: 2px;
-  white-space: nowrap;
-  line-height: 1.2;
-  opacity: 0;
-  transform: translateY(-2px);
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-.atlas-copy-feedback[hidden] {
-  display: none;
-}
-.atlas-copy-feedback--show {
-  opacity: 1;
-  transform: translateY(0);
 }
 .atlas-nav-right {
   display: flex;
@@ -925,7 +954,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
       <span class="atlas-brand" id="atlas-site-label">www.lava7397.com</span>
       <span class="atlas-nav-icon-actions">
         <button type="button" class="atlas-copy-btn" id="copy-site-url" aria-label="复制网站地址" title="复制到剪贴板">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <svg class="atlas-copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
         </button>
         <button type="button" class="atlas-fav-btn" id="fav-site-url" aria-label="喜欢本网站" title="点一颗爱心" aria-pressed="false">
           <span class="atlas-fav-btn-inner" aria-hidden="true">
@@ -938,10 +967,9 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
           </span>
         </button>
         <button type="button" class="atlas-share-btn" id="share-page-btn" aria-label="分享介绍页" title="分享">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+          <svg class="atlas-share-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
         </button>
       </span>
-      <span class="atlas-copy-feedback" id="copy-site-feedback" role="status" aria-live="polite" hidden>复制成功</span>
     </div>
     <div class="atlas-nav-right">
       <div class="atlas-lang" role="group" aria-label="Language">
@@ -1240,7 +1268,6 @@ const I18N = {
     copy_url_aria: '复制网站地址',
     copy_url_title: '复制到剪贴板',
     copy_copied: '已复制',
-    copy_success_toast: '复制成功',
     fav_aria_add: '喜欢本网站',
     fav_aria_on: '已喜欢，点击取消',
     fav_title_add: '点一颗爱心',
@@ -1276,7 +1303,6 @@ const I18N = {
     copy_url_aria: 'Copy site URL',
     copy_url_title: 'Copy to clipboard',
     copy_copied: 'Copied',
-    copy_success_toast: 'Copied',
     fav_aria_add: 'Like this site',
     fav_aria_on: 'Liked, click to remove',
     fav_title_add: 'Add a heart',
@@ -1624,33 +1650,6 @@ function playFavClickFx(btn, didFavorite) {
   });
 })();
 
-let navUrlToastT1;
-let navUrlToastT2;
-function clearNavUrlToastTimers() {
-  if (navUrlToastT1) clearTimeout(navUrlToastT1);
-  if (navUrlToastT2) clearTimeout(navUrlToastT2);
-  navUrlToastT1 = null;
-  navUrlToastT2 = null;
-}
-function showNavUrlToast(message) {
-  const feedback = document.getElementById('copy-site-feedback');
-  if (!feedback || !message) return;
-  clearNavUrlToastTimers();
-  feedback.textContent = message;
-  feedback.hidden = false;
-  feedback.classList.remove('atlas-copy-feedback--show');
-  requestAnimationFrame(() => {
-    void feedback.offsetWidth;
-    feedback.classList.add('atlas-copy-feedback--show');
-  });
-  navUrlToastT1 = setTimeout(() => {
-    feedback.classList.remove('atlas-copy-feedback--show');
-    navUrlToastT2 = setTimeout(() => {
-      if (feedback) feedback.hidden = true;
-    }, 220);
-  }, 2500);
-}
-
 function copyStringToClipboard(str) {
   if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
     return navigator.clipboard.writeText(str);
@@ -1676,12 +1675,21 @@ function copyStringToClipboard(str) {
 (function initCopySiteUrl() {
   const copyBtn = document.getElementById('copy-site-url');
   if (!copyBtn) return;
+  let copyFlashT = 0;
   copyBtn.addEventListener('click', async () => {
     const lang = getLang();
     const pack = I18N[lang];
     const text = SITE_URL_CLIPBOARD;
+    const copyFlashMs = 520;
     const success = () => {
-      showNavUrlToast(pack.copy_success_toast);
+      copyBtn.classList.remove('atlas-copy-btn--flash');
+      void copyBtn.offsetWidth;
+      copyBtn.classList.add('atlas-copy-btn--flash');
+      if (copyFlashT) clearTimeout(copyFlashT);
+      copyFlashT = window.setTimeout(() => {
+        copyBtn.classList.remove('atlas-copy-btn--flash');
+        copyFlashT = 0;
+      }, copyFlashMs);
       copyBtn.setAttribute('title', pack.copy_copied);
       setTimeout(() => {
         if (pack.copy_url_title) copyBtn.setAttribute('title', pack.copy_url_title);
@@ -1729,49 +1737,61 @@ function copyStringToClipboard(str) {
 (function initSharePage() {
   const shareBtn = document.getElementById('share-page-btn');
   if (!shareBtn) return;
+  const shareFlashMs = 520;
+  let shareFlashT = 0;
+  function playShareIconFlash() {
+    shareBtn.classList.remove('atlas-share-btn--flash');
+    void shareBtn.offsetWidth;
+    shareBtn.classList.add('atlas-share-btn--flash');
+    if (shareFlashT) clearTimeout(shareFlashT);
+    shareFlashT = window.setTimeout(() => {
+      shareBtn.classList.remove('atlas-share-btn--flash');
+      shareFlashT = 0;
+    }, shareFlashMs);
+  }
   shareBtn.addEventListener('click', async () => {
-    const lang = getLang();
-    const pack = I18N[lang];
-    const url = getIntroShareUrl();
-    const onlyUrl = { url: url };
+    try {
+      const url = getIntroShareUrl();
+      const onlyUrl = { url: url };
 
-    if (isWeChatInApp()) {
-      // 微信内先复制，再仅传 { url } 调起分享，避免大段附文
-      try {
-        await copyStringToClipboard(url);
-        showNavUrlToast(pack.copy_success_toast);
-      } catch (e) { /* */ }
+      if (isWeChatInApp()) {
+        // 微信内先复制，再仅传 { url } 调起分享，避免大段附文
+        try {
+          await copyStringToClipboard(url);
+        } catch (e) { /* */ }
+        if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
+          try {
+            if (typeof navigator.canShare === 'function' && !navigator.canShare(onlyUrl)) {
+              return;
+            }
+            await navigator.share(onlyUrl);
+          } catch (e) {
+            if (e && (e.name === 'AbortError' || e.name === 'NotAllowedError')) { /*  */ }
+          }
+        }
+        return;
+      }
+
+      window.open(url, '_blank', 'noopener,noreferrer');
       if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
         try {
           if (typeof navigator.canShare === 'function' && !navigator.canShare(onlyUrl)) {
+            /* fall through to copy */
+          } else {
+            await navigator.share(onlyUrl);
             return;
           }
-          await navigator.share(onlyUrl);
         } catch (e) {
-          if (e && (e.name === 'AbortError' || e.name === 'NotAllowedError')) { /*  */ }
+          if (e && (e.name === 'AbortError' || e.name === 'NotAllowedError')) return;
         }
       }
-      return;
-    }
-
-    window.open(url, '_blank', 'noopener,noreferrer');
-    if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
       try {
-        if (typeof navigator.canShare === 'function' && !navigator.canShare(onlyUrl)) {
-          /* fall through to copy */
-        } else {
-          await navigator.share(onlyUrl);
-          return;
-        }
+        await copyStringToClipboard(url);
       } catch (e) {
-        if (e && (e.name === 'AbortError' || e.name === 'NotAllowedError')) return;
+        /* ignore */
       }
-    }
-    try {
-      await copyStringToClipboard(url);
-      showNavUrlToast(pack.copy_success_toast);
-    } catch (e) {
-      /* ignore */
+    } finally {
+      playShareIconFlash();
     }
   });
 })();
