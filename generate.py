@@ -1403,9 +1403,7 @@ def main(argv=None):
     # ── 生成首页 home.html ─────────────────────────────
     print("\n🏠 Generating home page...")
     try:
-        # 扫描所有归档日期（YYYY-MM-DD.html）并提取头条信息
-        # 只保留 2026-04-21 及之后的归档
-        MIN_DATE = "2026-04-21"
+        # 扫描所有归档日期（YYYY-MM-DD.html）并提取头条信息（全量列入首页列表）
         archive_files = sorted(
             OUTPUT_DIR.glob("????-??-??.html"),
             key=lambda p: p.stem,
@@ -1413,8 +1411,6 @@ def main(argv=None):
         )
         archive_infos = []
         for p in archive_files:
-            if p.stem < MIN_DATE:
-                continue
             headline, total, summary = extract_archive_meta(p)
             archive_infos.append((p.stem, headline, total, summary))
 
