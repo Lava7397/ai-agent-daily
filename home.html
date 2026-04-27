@@ -1052,14 +1052,30 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 <div class="archive-wrap">
   <div class="archive-list" id="archiveList">
     
+        <a class="date-card" href="archives/2026-04-27.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-27</span>
+            <span class="date-day">周一</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">Hiding in the AI Traffic: Abusing MCP for LLM-Powered Agentic Red Teaming</p>
+            <p class="date-summary">本文探讨如何利用 Model Context Protocol（MCP）为 LLM 驱动的自主红队代理提供动态工具选择和延迟模式切换，以在渗透测试中实现更灵活、高效的攻击面评估。研究提出了新颖的工具门控和懒散模式加载机制，显著降低了传统 MCP 集成的性能开销。实验表明，该方法在保持代理自主性的同时减少了 40% 的工具调用延迟。</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容">
+              <span class="date-count-num">18</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
         <a class="date-card" href="archives/2026-04-26.html">
           <div class="date-meta-wrap">
             <span class="date-main">2026-04-26</span>
             <span class="date-day">周日</span>
           </div>
           <div class="date-text-wrap">
-            <p class="date-headline">Anthropic created a test marketplace for agent-on-agent commerce</p>
-            <p class="date-summary">Anthropic推出智能体间商业测试市场，允许不同AI智能体之间进行付费任务委托和资源交易。该市场支持函数调用计量、上下文窗口租赁、工具使用计费等新型商业模式，为AI经济体系奠定基础。平台目前处于邀请制测试阶段。</p>
+            <p class="date-headline">Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows</p>
+            <p class="date-summary">本文提出动态工具门控机制，通过懒加载模式解决AI智能体在调用工具时的计算效率问题。核心设计包括轻量级门控函数和延迟Schema解析，在保持精度的同时显著降低工具调用延迟。实验覆盖API调用、数据库查询、代码执行等多种工具场景。</p>
           </div>
           <div class="date-right">
             <span class="date-arrow-stack" aria-label="20 条内容" title="20 条内容">
@@ -1196,22 +1212,6 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
             </span>
           </div>
         </a>
-        <a class="date-card" href="archives/2026-04-16.html">
-          <div class="date-meta-wrap">
-            <span class="date-main">2026-04-16</span>
-            <span class="date-day">周四</span>
-          </div>
-          <div class="date-text-wrap">
-            <p class="date-headline">ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架</p>
-            <p class="date-summary">浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。</p>
-          </div>
-          <div class="date-right">
-            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容">
-              <span class="date-count-num">18</span>
-              <span class="date-arrow" aria-hidden="true">→</span>
-            </span>
-          </div>
-        </a>
   </div>
 
   <!-- Pagination -->
@@ -1240,7 +1240,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 </div>
 
 <script>
-const ALL_ARCHIVES = [["2026-04-26", "Anthropic created a test marketplace for agent-on-agent commerce", "20", "Anthropic推出智能体间商业测试市场，允许不同AI智能体之间进行付费任务委托和资源交易。该市场支持函数调用计量、上下文窗口租赁、工具使用计费等新型商业模式，为AI经济体系奠定基础。平台目前处于邀请制测试阶段。"], ["2026-04-25", "Google will invest as much as $40 billion in Anthropic", "15", "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"], ["2026-04-24", "Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税", "18", "研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "18", "阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "18", "AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。"], ["2026-04-21", "Mind DeepResearch Technical Report", "18", "理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。"], ["2026-04-19", "Dive into Claude Code: The Design Space of AI Agent Systems", "18", "一篇深入分析 Claude Code 架构的学术论文（arXiv:2604.14228），通过解析其 TypeScript 源码，识别出五大核心设计价值和十三项设计原则。核心架构为一个简单的 while 循环调用模型并运行工具，外围包含七级权限系统、五层上下文压缩管道、四种扩展机制（MCP/插件/技能/Hooks）以及子代理委派机制，并与开源项目 OpenClaw 进行了对比分析。"], ["2026-04-18", "HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界", "15", "腾讯混元团队发布HY-World 2.0，支持文本、单视角/多视角图像和视频输入，通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens渲染平台支持交互式探索，多基准测试达开源SOTA，接近闭源Marble模型效果。GitHub 1.02k stars。"], ["2026-04-17", "OpenAI 发布 GPT-Rosalind：面向生命科学的专属大模型", "18", "OpenAI 推出 GPT-Rosalind，这是一款专门针对生物学工作流微调的大语言模型，采用封闭访问模式。该模型旨在加速药物研发流程，通常需要 10-15 年和数十亿美元投入的实验室假设到药房货架的过程。VentureBeat 指出这是 OpenAI 首次为特定科学领域推出专属模型，标志着 AI 正从通用能力向垂直专业领域深度渗透。"], ["2026-04-16", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18", "浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。"], ["2026-04-15", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18", "浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。"], ["2026-04-14", "SATO: Strips as Tokens — 艺术家级 3D 网格生成", "19", "DEEMOS Technology 提出 SATO 框架，用三角带序列替代传统坐标排序，解决自回归 Transformer 生成网格时序列过长、边流断裂的问题。关键创新是同一 token 序列可解码为三角形或四边形网格，支持联合训练。在几何质量、结构连贯性和 UV 分割上全面超越前代方法。今日 HuggingFace #1 论文，GitHub 已获 37 stars。"], ["2026-04-13", "Strategic Algorithmic Monoculture: AI Agent 多智能体协调行为实验", "14", "arXiv 最新论文研究 AI agents 在多智能体环境中的协调行为，区分了基础算法单一性和策略性算法单一性，发现 LLM 在协调方面表现优异但在维持多样性方面落后于人类。"], ["2026-04-11", "Act Wisely: 元认知工具使用培养AI Agent自主决策能力", "11", "arXiv最新论文提出Act Wisely框架，通过培养多模态AI Agent的元认知能力，使其更明智地判断何时使用外部工具，而非盲目调用。"], ["2026-04-09", "MegaTrain: Full Precision Training of 100B+ Parameter LLMs on a Single GPU", "10", "arXiv最新论文MegaTrain提出全新训练框架，支持在单个GPU上进行100B+参数大模型的全精度训练，在Hacker News引发热烈讨论(261分)。"], ["2026-04-08", "MCPSHIELD: MCP-based AI Agent 形式化安全框架", "10", "本文提出 MCPSHIELD，一个针对基于 MCP 协议的 AI Agent 的综合形式化安全框架。包含 7 类威胁、23 种攻击向量，覆盖 4 个攻击面，并对 12 种现有防御机制进行系统评估。研究发现现有单一防御最多仅覆盖 34% 的威胁，而 MCPSHIELD 集成架构理论覆盖率达 91%。"]]
+const ALL_ARCHIVES = [["2026-04-27", "Hiding in the AI Traffic: Abusing MCP for LLM-Powered Agentic Red Teaming", "18", "本文探讨如何利用 Model Context Protocol（MCP）为 LLM 驱动的自主红队代理提供动态工具选择和延迟模式切换，以在渗透测试中实现更灵活、高效的攻击面评估。研究提出了新颖的工具门控和懒散模式加载机制，显著降低了传统 MCP 集成的性能开销。实验表明，该方法在保持代理自主性的同时减少了 40% 的工具调用延迟。"], ["2026-04-26", "Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows", "20", "本文提出动态工具门控机制，通过懒加载模式解决AI智能体在调用工具时的计算效率问题。核心设计包括轻量级门控函数和延迟Schema解析，在保持精度的同时显著降低工具调用延迟。实验覆盖API调用、数据库查询、代码执行等多种工具场景。"], ["2026-04-25", "Google will invest as much as $40 billion in Anthropic", "15", "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"], ["2026-04-24", "Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税", "18", "研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "18", "阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "18", "AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。"], ["2026-04-21", "Mind DeepResearch Technical Report", "18", "理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。"], ["2026-04-19", "Dive into Claude Code: The Design Space of AI Agent Systems", "18", "一篇深入分析 Claude Code 架构的学术论文（arXiv:2604.14228），通过解析其 TypeScript 源码，识别出五大核心设计价值和十三项设计原则。核心架构为一个简单的 while 循环调用模型并运行工具，外围包含七级权限系统、五层上下文压缩管道、四种扩展机制（MCP/插件/技能/Hooks）以及子代理委派机制，并与开源项目 OpenClaw 进行了对比分析。"], ["2026-04-18", "HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界", "15", "腾讯混元团队发布HY-World 2.0，支持文本、单视角/多视角图像和视频输入，通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens渲染平台支持交互式探索，多基准测试达开源SOTA，接近闭源Marble模型效果。GitHub 1.02k stars。"], ["2026-04-17", "OpenAI 发布 GPT-Rosalind：面向生命科学的专属大模型", "18", "OpenAI 推出 GPT-Rosalind，这是一款专门针对生物学工作流微调的大语言模型，采用封闭访问模式。该模型旨在加速药物研发流程，通常需要 10-15 年和数十亿美元投入的实验室假设到药房货架的过程。VentureBeat 指出这是 OpenAI 首次为特定科学领域推出专属模型，标志着 AI 正从通用能力向垂直专业领域深度渗透。"], ["2026-04-16", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18", "浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。"], ["2026-04-15", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18", "浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。"], ["2026-04-14", "SATO: Strips as Tokens — 艺术家级 3D 网格生成", "19", "DEEMOS Technology 提出 SATO 框架，用三角带序列替代传统坐标排序，解决自回归 Transformer 生成网格时序列过长、边流断裂的问题。关键创新是同一 token 序列可解码为三角形或四边形网格，支持联合训练。在几何质量、结构连贯性和 UV 分割上全面超越前代方法。今日 HuggingFace #1 论文，GitHub 已获 37 stars。"], ["2026-04-13", "Strategic Algorithmic Monoculture: AI Agent 多智能体协调行为实验", "14", "arXiv 最新论文研究 AI agents 在多智能体环境中的协调行为，区分了基础算法单一性和策略性算法单一性，发现 LLM 在协调方面表现优异但在维持多样性方面落后于人类。"], ["2026-04-11", "Act Wisely: 元认知工具使用培养AI Agent自主决策能力", "11", "arXiv最新论文提出Act Wisely框架，通过培养多模态AI Agent的元认知能力，使其更明智地判断何时使用外部工具，而非盲目调用。"], ["2026-04-09", "MegaTrain: Full Precision Training of 100B+ Parameter LLMs on a Single GPU", "10", "arXiv最新论文MegaTrain提出全新训练框架，支持在单个GPU上进行100B+参数大模型的全精度训练，在Hacker News引发热烈讨论(261分)。"], ["2026-04-08", "MCPSHIELD: MCP-based AI Agent 形式化安全框架", "10", "本文提出 MCPSHIELD，一个针对基于 MCP 协议的 AI Agent 的综合形式化安全框架。包含 7 类威胁、23 种攻击向量，覆盖 4 个攻击面，并对 12 种现有防御机制进行系统评估。研究发现现有单一防御最多仅覆盖 34% 的威胁，而 MCPSHIELD 集成架构理论覆盖率达 91%。"]]
 
 const LANG_STORAGE = 'lavaagent_home_lang';
 const I18N = {

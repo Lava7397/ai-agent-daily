@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light">
+<title>本期推荐</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:#f5f0e8;
+  color:#2c2c2c;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.55;
+  min-height:100vh;
+  padding:20px 16px 32px;
+}
+main{
+  max-width:32rem;
+  margin:0 auto;
+}
+.kicker{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#4a6080;
+  margin-bottom:8px
+}
+h1{
+  font-size:1.15rem;
+  font-weight:600;
+  color:#1a1a1a;
+  word-break:break-word;
+  margin-bottom:14px
+}
+.summary{
+  font-size:14px;
+  color:#3a3a3a;
+  margin-bottom:22px;
+  white-space:pre-wrap;
+  word-break:break-word
+}
+a.site{
+  display:inline-block;
+  font-size:14px;
+  font-weight:500;
+  color:#fff;
+  background:#4a6080;
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:4px
+}
+a.site:hover{background:#3d5468}
+a.site:active{transform:scale(.98)}
+a.site:focus-visible{outline:2px solid #1e3a2f;outline-offset:2px}
+.err{
+  color:#6a3a3a;
+  font-size:14px
+}
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker" id="k">本期推荐</p>
+  <h1 id="t">…</h1>
+  <p class="summary" id="s"></p>
+  <a class="site" id="go" href="https://www.lava7397.com" rel="noopener">访问 LavaAgent Daily</a>
+  <p class="err" id="e" hidden></p>
+</main>
+<script>
+(function () {
+  var tEl = document.getElementById("t");
+  var sEl = document.getElementById("s");
+  var eEl = document.getElementById("e");
+  if (!tEl || !sEl || !eEl) return;
+  function showErr(msg) {
+    tEl.textContent = "无法显示";
+    sEl.setAttribute("hidden", "");
+    eEl.removeAttribute("hidden");
+    eEl.textContent = msg;
+  }
+  /** atob 得到的 Latin1 字节串 -> UTF-8 文本，兼容无 TextDecoder 的 WebView / 老微信 */
+  function bytesLatin1ToUtf8(bin) {
+    if (typeof TextDecoder !== "undefined") {
+      var u8 = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i) & 255;
+      return new TextDecoder("utf-8").decode(u8);
+    }
+    var pct = "";
+    for (var j = 0; j < bin.length; j++) {
+      pct += "%" + ("00" + (bin.charCodeAt(j) & 255).toString(16)).slice(-2);
+    }
+    return decodeURIComponent(pct);
+  }
+  /** 优先 ?d=（各端常丢弃 #）；兼容旧 #fragment */
+  function getPayloadRaw() {
+    var d = "";
+    try {
+      if (window.URLSearchParams) {
+        d = new URLSearchParams(window.location.search).get("d") || "";
+      } else {
+        var m = /[?&]d=([^&]*)/.exec(window.location.search || "");
+        d = m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : "";
+      }
+    } catch (e) { d = ""; }
+    if (d) return d;
+    try {
+      return (location.hash || "").replace(/^#/, "");
+    } catch (e2) { return ""; }
+  }
+  var h = getPayloadRaw();
+  if (!h) {
+    tEl.textContent = "无分享内容";
+    sEl.setAttribute("hidden", "");
+    eEl.removeAttribute("hidden");
+    eEl.textContent = "请从日刊内「分享」链接打开本页。";
+    return;
+  }
+  if (typeof atob === "undefined") {
+    showErr("当前环境无法解析分享链接，请用系统浏览器打开。");
+    return;
+  }
+  try {
+    var p = h.replace(/-/g, "+").replace(/_/g, "/");
+    var pad = p.length % 4 ? 4 - (p.length % 4) : 0;
+    for (var k = 0; k < pad; k++) p += "=";
+    var bin = atob(p);
+    var json = bytesLatin1ToUtf8(bin);
+    var o = JSON.parse(json);
+    var title = o && o.t != null ? String(o.t) : "";
+    var sum = o && o.s != null ? String(o.s) : "";
+    tEl.textContent = title || "本期推荐";
+    sEl.textContent = sum;
+    if (!sum) sEl.setAttribute("hidden", "");
+    document.title = (title || "本期推荐") + " — LavaAgent";
+  } catch (err) {
+    showErr("链接已损坏或环境受限，请从日刊内重新点「分享」。");
+  }
+})();
+</script>
+</body>
+</html>

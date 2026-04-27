@@ -4,6 +4,7 @@ AI Agent 日报 H5 页面生成器
 读取 daily_data.json → 生成 today.html(当天刊) + 归档页面
 """
 import argparse
+import base64
 import json
 import os
 import random
@@ -216,6 +217,40 @@ def cap_data_for_site(data, max_items=MAX_SITE_ITEMS):
     return out
 
 
+def _share_query_frag_for(title: str, summary: str) -> str:
+    """将 JSON→UTF-8→base64url，控制长度，避免极长 query 被代理截断。"""
+    max_d = 1800
+    s = (summary or "").strip()
+    t = (title or "Untitled").strip() or "Untitled"
+    for _ in range(12):
+        payload = json.dumps(
+            {"t": t, "s": s},
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        frag = base64.urlsafe_b64encode(payload.encode("utf-8")).decode("ascii").rstrip("=")
+        if len(frag) <= max_d:
+            return frag
+        if len(s) < 8:
+            break
+        s = s[: max(0, (len(s) * 2) // 3)] + "…"
+    return base64.urlsafe_b64encode(
+        json.dumps(
+            {"t": t, "s": s[:200] + "…"},
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).decode("ascii").rstrip("=")
+
+
+def make_item_share_href(item) -> str:
+    """根路径 /share.html?d= — 使用 query 传参，兼容会丢弃 #hash 的微信/内置 WebView。旧链 # 仍由 share.html 支持。"""
+    title = (item.get("title") or "Untitled").strip() or "Untitled"
+    summary = (item.get("summary_zh") or item.get("summary") or "").strip()
+    frag = _share_query_frag_for(title, summary)
+    return f"/share.html?d={frag}"
+
+
 def build_item_html(item, is_top=False):
     safe_title = escape(item.get("title", "Untitled"))
     summary_zh_raw = item.get("summary_zh") or item.get("summary") or ""
@@ -223,21 +258,31 @@ def build_item_html(item, is_top=False):
     safe_summary_zh = escape(summary_zh_raw)
     safe_summary_en = escape(summary_en_raw)
     safe_link = escape(item.get("url", "#"), quote=True)
+    safe_share_href = escape(make_item_share_href(item), quote=True)
     top_class = " top" if is_top else ""
     top_badge = '<span class="top-badge">TOP</span>' if is_top else ""
     tags = ""
     if item.get("tags"):
-        tags = " ".join(
+        inner = " ".join(
             f'<span class="tag">{escape(str(t))}</span>' for t in item["tags"]
         )
+        tags = f'<div class="card-tags">{inner}</div>'
     return f"""
     <div class="card{top_class}">
       {top_badge}
       <a href="{safe_link}" target="_blank" rel="noopener noreferrer" class="card-title">{safe_title}</a>
       <p class="card-summary" data-i18n-text="zh">{safe_summary_zh}</p>
       <p class="card-summary" data-i18n-text="en" hidden>{safe_summary_en}</p>
-      <a href="{safe_link}" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      {tags}
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <a href="{safe_link}" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
+          {tags}
+        </div>
+        <a href="{safe_share_href}" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
+          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+          分享
+        </a>
+      </div>
     </div>"""
 
 
@@ -737,6 +782,71 @@ body {{
   outline-offset: 2px;
   border-radius: 2px;
 }}
+.card-actions {{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 12px;
+  margin-top: 14px;
+}}
+.card-actions .read-more {{
+  margin-top: 0;
+}}
+.card-actions-left {{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  min-width: 0;
+  flex: 1;
+}}
+.card-tags {{
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}}
+.card-tags .tag {{
+  margin-top: 0;
+  margin-right: 0;
+}}
+.card-share {{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #5a6e8a;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(90,110,138,0.22);
+  border-radius: 4px;
+  padding: 5px 10px;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.12s;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}}
+.card-share-ico {{
+  display: block;
+  flex-shrink: 0;
+}}
+.card-share:hover {{
+  color: #4a6080;
+  background: rgba(90, 110, 138, 0.08);
+  border-color: rgba(90,110,138,0.35);
+}}
+.card-share:active {{
+  transform: scale(0.96);
+}}
+.card-share:focus-visible {{
+  outline: 2px solid #5a6e8a;
+  outline-offset: 2px;
+  border-radius: 4px;
+}}
 .tag {{
   display: inline-block;
   background: rgba(154,184,208,0.2);
@@ -787,6 +897,7 @@ body {{
       hero_tagline: '每日精选',
       hero_count_unit: '条',
       card_read_more: '查看原文',
+      card_share: '分享',
       lang_group_label: '界面语言'
     }},
     en: {{
@@ -796,6 +907,7 @@ body {{
       hero_tagline: 'Daily picks',
       hero_count_unit: ' items',
       card_read_more: 'Read more',
+      card_share: 'Share',
       lang_group_label: 'Language'
     }}
   }};
