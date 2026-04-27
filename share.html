@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="color-scheme" content="light">
-<title>本期推荐</title>
+<title>分享</title>
 <style>
 *{box-sizing:border-box;margin:0}
 body{
@@ -15,7 +15,7 @@ body{
   -webkit-font-smoothing:antialiased;
   line-height:1.6;
   min-height:100vh;
-  padding:20px 16px 40px;
+  padding:20px 16px 32px;
 }
 main{max-width:22rem;margin:0 auto}
 .card{
@@ -48,36 +48,10 @@ h1{
 .summary{
   font-size:14px;
   color:#3d3d3d;
-  margin-bottom:0;
+  margin-bottom:16px;
   white-space:pre-wrap;
   word-break:break-word
 }
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:18px;
-  padding-top:16px;
-  border-top:1px solid rgba(0,0,0,0.06)
-}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-size:13px;
-  font-weight:500;
-  border:none;
-  border-radius:8px;
-  padding:8px 14px;
-  cursor:pointer;
-  font-family:inherit;
-  -webkit-tap-highlight-color:transparent
-}
-.btn--pri{background:#4a6080;color:#fff}
-.btn--pri:hover{background:#3d5468}
-.btn--sec{background:rgba(74,96,128,0.1);color:#3d5066}
-.btn--sec:hover{background:rgba(74,96,128,0.16)}
-.btn:active{transform:scale(.98)}
 a.site{
   display:inline-block;
   font-size:14px;
@@ -90,60 +64,29 @@ a.site{
 }
 a.site:hover{background:#3d5468}
 a.site:focus-visible{outline:2px solid #1e3a2f;outline-offset:2px}
-.linkbox{
-  margin-top:10px;
-  font-size:11px;
-  color:#6a6a6a;
-  line-height:1.45
-}
-.linkbox .url{
-  display:block;
-  margin-top:4px;
-  padding:8px 10px;
-  background:#f3f0ea;
-  border-radius:6px;
-  word-break:break-all;
-  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-  color:#333
-}
-.err{color:#6a3a3a;font-size:14px;margin-top:10px}
-.tip{min-height:1.2em;font-size:12px;color:#3a6a4a;margin-top:8px}
-.foot{
-  text-align:center;
-  font-size:11px;
-  color:#9a8f82;
-  margin-top:20px
-}
-#t.loading{ color:#8a8a8a; font-weight:500 }
+.err{color:#6a3a3a;font-size:14px;margin-top:12px}
+#t.loading{color:#8a8a8a;font-weight:500}
 </style>
 </head>
 <body>
-<main>
+<main id="root">
   <article class="card">
-    <p class="kicker" id="k">本期推荐</p>
+    <p class="kicker">本期推荐</p>
     <h1 class="loading" id="t">加载中…</h1>
     <p class="summary" id="s"></p>
-    <a class="site" id="go" href="https://www.lava7397.com" rel="noopener">访问：AI Agent 期刊</a>
-    <div class="linkbox" id="linkbox" hidden>
-      <span>将短链或下方文案粘到微信，比转发里的 URL 更清爽：</span>
-      <span class="url" id="urlDisplay"></span>
-    </div>
+    <a class="site" id="go" href="https://lava7397.com" rel="noopener">访问：AI Agent 期刊</a>
     <p class="err" id="e" hidden></p>
-    <p class="tip" id="tip" aria-live="polite"></p>
   </article>
-  <p class="foot">LavaAgent Daily News</p>
 </main>
 <script>
 (function () {
+  var KEY_ORDER = ["research", "github", "models", "community"];
   var tEl = document.getElementById("t");
   var sEl = document.getElementById("s");
   var eEl = document.getElementById("e");
   var goEl = document.getElementById("go");
-  var linkbox = document.getElementById("linkbox");
-  var urlDisplay = document.getElementById("urlDisplay");
-  var tipEl = document.getElementById("tip");
-  if (!tEl || !sEl || !eEl || !goEl || !linkbox || !urlDisplay) return;
-  var KEY_ORDER = ["research", "github", "models", "community"];
+  if (!tEl || !sEl || !eEl) return;
+  if (goEl) goEl.href = "https://lava7397.com";
 
   function showErr(msg) {
     tEl.classList.remove("loading");
@@ -161,46 +104,6 @@ a.site:focus-visible{outline:2px solid #1e3a2f;outline-offset:2px}
     else sEl.removeAttribute("hidden");
     document.title = (title || "本期推荐") + " — LavaAgent";
   }
-  function showTools() {
-    var shortU = (location.protocol + "//" + location.host + location.pathname + location.search).split("#")[0];
-    urlDisplay.textContent = shortU;
-    linkbox.removeAttribute("hidden");
-    if (!window.__toolsDone) {
-      window.__toolsDone = true;
-      var card = tEl.closest(".card");
-      if (card) {
-        var w = document.createElement("div");
-        w.className = "actions";
-        w.id = "shareActions";
-        w.innerHTML =
-          "<button type=\"button\" class=\"btn btn--sec\" id=\"btnCopyText\">复制分享文案</button>" +
-          "<button type=\"button\" class=\"btn btn--pri\" id=\"btnCopyLink\">复制短链</button>";
-        var tnode = document.getElementById("tip");
-        if (tnode) card.insertBefore(w, tnode);
-        else card.appendChild(w);
-        document.getElementById("btnCopyLink").addEventListener("click", function () {
-          var u = (location.protocol + "//" + location.host + location.pathname + location.search).split("#")[0];
-          copyStr(u, "已复制短链");
-        });
-        document.getElementById("btnCopyText").addEventListener("click", function () {
-          var u = (location.protocol + "//" + location.host + location.pathname + location.search).split("#")[0];
-          var line = "【本期推荐】" + (tEl.textContent || "") + "\n\n" + (sEl.textContent || "").trim() + "\n\n" + u;
-          copyStr(line, "已复制，可直接粘贴到微信");
-        });
-      }
-    }
-  }
-  function copyStr(text, doneHint) {
-    function done() {
-      if (tipEl) { tipEl.textContent = doneHint; setTimeout(function () { if (tipEl) tipEl.textContent = ""; }, 2400); }
-      else { window.alert(doneHint); }
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done).catch(function () { promptCopy(text, doneHint); });
-    } else { promptCopy(text, doneHint); }
-  }
-  function promptCopy(text, hint) { window.prompt(hint, text); }
-
   function bytesLatin1ToUtf8(bin) {
     if (typeof TextDecoder !== "undefined") {
       var u8 = new Uint8Array(bin.length);
@@ -217,7 +120,10 @@ a.site:focus-visible{outline:2px solid #1e3a2f;outline-offset:2px}
     var d = "";
     try {
       if (window.URLSearchParams) d = new URLSearchParams(window.location.search).get("d") || "";
-      else { var m = /[?&]d=([^&]*)/.exec(window.location.search || ""); d = m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : ""; }
+      else {
+        var m = /[?&]d=([^&]*)/.exec(window.location.search || "");
+        d = m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : "";
+      }
     } catch (e) { d = ""; }
     if (d) return d;
     try { return (location.hash || "").replace(/^#/, ""); } catch (e2) { return ""; }
@@ -226,55 +132,54 @@ a.site:focus-visible{outline:2px solid #1e3a2f;outline-offset:2px}
     if (typeof atob === "undefined") throw new Error("atob");
     var p = h.replace(/-/g, "+").replace(/_/g, "/");
     var pad = p.length % 4 ? 4 - (p.length % 4) : 0;
-    for (var k = 0; k < pad; k++) p += "=";
-    var json = bytesLatin1ToUtf8(atob(p));
-    return JSON.parse(json);
+    for (var k0 = 0; k0 < pad; k0++) p += "=";
+    return JSON.parse(bytesLatin1ToUtf8(atob(p)));
   }
 
   (async function run() {
     var q;
     try { q = new URLSearchParams(window.location.search); } catch (e) { q = new URLSearchParams(""); }
-    var k = q.get("k");
+    var k = q.get("k") || "";
     var sStr = q.get("s");
     var iStr = q.get("i");
+
     if (k && /^\d{4}-\d{2}-\d{2}$/.test(k) && sStr !== null && sStr !== "" && iStr !== null && iStr !== "") {
       var si = parseInt(sStr, 10);
       var ii = parseInt(iStr, 10);
       if (isNaN(si) || isNaN(ii) || si < 0 || si > 3) {
-        showErr("分享链接参数无效。");
+        showErr("分享参数无效。");
         return;
       }
       try {
         var res = await fetch("/issue-data/" + encodeURIComponent(k) + ".json", { cache: "no-cache" });
-        if (!res.ok) { showErr("未找到该期数据（" + k + "），请用最新日刊的分享重试。"); return; }
+        if (!res.ok) { showErr("未找到该期数据，请用最新日刊的「分享」重试。"); return; }
         var J = await res.json();
         var sk = KEY_ORDER[si];
         var row = J.sections && J.sections[sk] && J.sections[sk][ii];
         if (!row) { showErr("未找到该条内容，可能链接已过期。"); return; }
         fill(String(row.t || ""), String(row.s || ""));
-        if (row && row.u) goEl.href = row.u;
-        showTools();
       } catch (x) {
         showErr("加载失败，请检查网络后重试。");
       }
       return;
     }
+
     var b64 = getLegacyB64();
-    if (!b64) {
-      tEl.classList.remove("loading");
-      tEl.textContent = "无分享内容";
-      sEl.setAttribute("hidden", "");
-      eEl.removeAttribute("hidden");
-      eEl.textContent = "请从日刊内「分享」打开本页。";
+    if (b64) {
+      try {
+        var o = decodeB64Fragment(b64);
+        fill(String(o.t != null ? o.t : ""), String(o.s != null ? o.s : ""));
+      } catch (e2) {
+        showErr("旧版长链接已损坏，请从日刊重新点「分享」。");
+      }
       return;
     }
-    try {
-      var o = decodeB64Fragment(b64);
-      fill(String(o.t != null ? o.t : ""), String(o.s != null ? o.s : ""));
-      showTools();
-    } catch (e2) {
-      showErr("旧版长链接已损坏，请从日刊重新点「分享」。");
-    }
+
+    tEl.classList.remove("loading");
+    tEl.textContent = "无分享内容";
+    sEl.setAttribute("hidden", "");
+    eEl.removeAttribute("hidden");
+    eEl.textContent = "请从日刊内「分享」打开，或使用上方按钮访问主站。";
   })();
 })();
 </script>
