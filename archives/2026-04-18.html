@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 2026-04-18 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="今日刊 — 2026-04-18">
-<meta property="og:description" content="今日 15 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lava7397.com">
-<meta name="twitter:card" content="summary">
-<title>今日刊 — 2026-04-18</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><meta name="description" content="今日刊 2026-04-18 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:title" content="今日刊 — 2026-04-18"><meta property="og:description" content="今日 15 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态"><meta property="og:type" content="article"><meta property="og:url" content="https://lava7397.com"><meta name="twitter:card" content="summary"><title>今日刊 — 2026-04-18</title>
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+/* 系统字体栈，避免 Google Fonts 外联阻塞首屏 */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -30,7 +16,7 @@
 
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f5f0e8;
   color: #2c2c2c;
   min-height: 100vh;
@@ -56,8 +42,8 @@ body {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   background: rgba(245,240,232,0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(100,80,60,0.1);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -180,7 +166,7 @@ body {
   pointer-events: none;
 }
 .hero h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 38px;
   font-weight: 700;
   color: #3a3a3a;
@@ -191,7 +177,7 @@ body {
 .hero .date {
   color: #8a7e6e;
   font-size: 13px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin-top: 6px;
   position: relative;
   z-index: 1;
@@ -205,7 +191,7 @@ body {
   font: inherit;
   font-size: inherit;
   line-height: inherit;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 .hero .date .hero-sep { color: #b0a89a; margin: 0 0.1em; }
 .hero .date .hero-tagline { color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }
@@ -245,7 +231,7 @@ body {
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(90,110,138,0.2);
   font-size: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.2px;
   transition: all 0.25s;
 }
@@ -278,7 +264,7 @@ body {
   margin-top: 44px;
 }
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 20px;
   font-weight: 700;
   color: #4a6080;
@@ -345,7 +331,7 @@ body {
   letter-spacing: 1.5px;
 }
 .card-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   color: #1a1a1a;
   font-size: 18px;
   font-weight: 600;
@@ -387,7 +373,7 @@ body {
   margin-top: 14px;
   margin-right: 6px;
   border: 1px solid rgba(90,110,138,0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -403,172 +389,8 @@ body {
 .skip-link:focus { top: 0; }
 
 </style>
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top detail-issue-top--fixed-dock">
-<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
-<div class="detail-topbar">
-  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
-  <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
-  <div class="atlas-lang" role="group" aria-label="界面语言">
-      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
-      <span class="atlas-lang-sep">/</span>
-      <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-</header>
-<div class="hero">
-  <h1 data-i18n="hero_title">今日刊</h1>
-    <p class="date">
-    2026-04-18 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="15">15</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
-</div>
-</div>
-
-<!-- Content -->
-<main class="container" id="main-content">
-  
-    <section class="section" id="section-research">
-      <h2 class="section-title">🤖 AI Agent 研究</h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://huggingface.co/papers/2604.14268" target="_blank" rel="noopener noreferrer" class="card-title">HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界</a>
-      <p class="card-summary">腾讯混元团队发布HY-World 2.0，支持文本、单视角/多视角图像和视频输入，通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens渲染平台支持交互式探索，多基准测试达开源SOTA，接近闭源Marble模型效果。GitHub 1.02k stars。</p>
-      <a href="https://huggingface.co/papers/2604.14268" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">3D生成</span> <span class="tag">世界模型</span> <span class="tag">多模态</span> <span class="tag">腾讯</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://huggingface.co/papers/2604.15308" target="_blank" rel="noopener noreferrer" class="card-title">RAD-2: 生成器-判别器框架下强化学习扩展，自动驾驶碰撞率降低56%</a>
-      <p class="card-summary">华中科技大学提出RAD-2统一框架，扩散模型生成器产生多样化轨迹候选，RL优化判别器根据长期驾驶质量重排序。引入时间一致性组相对策略优化（TC-GRPO）和在线策略生成器优化（OGO），在BEV-Warp高吞吐仿真环境训练。相比强扩散规划器碰撞率降低56%，城市复杂交通中安全性和流畅度显著提升。</p>
-      <a href="https://huggingface.co/papers/2604.15308" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">自动驾驶</span> <span class="tag">强化学习</span> <span class="tag">运动规划</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://huggingface.co/papers/2604.14164" target="_blank" rel="noopener noreferrer" class="card-title">TESSY: 师生合作数据合成框架，解决推理模型微调风格分歧</a>
-      <p class="card-summary">南京大学提出TESSY框架，解决用强教师模型生成数据微调推理模型（如Qwen3-8B）时的性能下降。核心发现：教师生成数据与学生分布存在显著风格分歧导致灾难性遗忘。TESSY让师生交替生成能力token和风格token，合成既保留教师推理质量又符合学生分布的on-policy数据。以GPT-OSS-120B为教师，LiveCodeBench-Pro提升11.25%。</p>
-      <a href="https://huggingface.co/papers/2604.14164" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">推理模型</span> <span class="tag">微调</span> <span class="tag">数据合成</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-github">
-      <h2 class="section-title">⭐ GitHub 热门项目</h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer" class="card-title">Tencent-Hunyuan/HY-World-2.0</a>
-      <p class="card-summary">腾讯混元世界模型2.0官方代码库，包含全景生成、轨迹规划、世界扩展、世界合成四大模块及WorldLens渲染平台。全部模型权重、代码和技术细节开源，支持交互式3D世界探索。</p>
-      <a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">3D世界模型</span> <span class="tag">开源</span> <span class="tag">腾讯</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/zhuqn1021/Agent-template" target="_blank" rel="noopener noreferrer" class="card-title">zhuqn1021/Agent-template</a>
-      <p class="card-summary">现代化AI Agent项目模板，支持多模型切换、工具调用、RAG检索增强、对话记忆等核心能力。基于Python实现，为开发者提供开箱即用的Agent开发脚手架。</p>
-      <a href="https://github.com/zhuqn1021/Agent-template" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">AI Agent</span> <span class="tag">模板</span> <span class="tag">Python</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/sly-codechum/chum-mem" target="_blank" rel="noopener noreferrer" class="card-title">sly-codechum/chum-mem</a>
-      <p class="card-summary">Rust实现的AI Agent记忆增强系统，融合Karpathy的LLM Wiki思想、Graphify图谱和PCKC技术，为AI agent提供更持久、结构化的长期记忆能力。</p>
-      <a href="https://github.com/sly-codechum/chum-mem" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Agent记忆</span> <span class="tag">Rust</span> <span class="tag">知识图谱</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 模型与行业动态</h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic推出Claude Design：Opus 4.7驱动AI设计工具，挑战Figma</a>
-      <p class="card-summary">Anthropic发布Claude Design，由Opus 4.7驱动，允许用户通过提示词创建设计、原型、Pitch Deck和营销材料。标志Anthropic从基础模型提供商向全栈产品公司转型。年化收入达200亿美元（3月），4月初突破300亿美元，正与高盛/摩根大通/摩根士丹利洽谈IPO，可能10月上市。</p>
-      <a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Anthropic</span> <span class="tag">设计工具</span> <span class="tag">Opus 4.7</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://venturebeat.com/technology/openai-debuts-gpt-rosalind-a-new-limited-access-model-for-life-sciences-and-broader-codex-plugin-on-github" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI发布GPT-Rosalind：生命科学专用大模型</a>
-      <p class="card-summary">OpenAI推出GPT-Rosalind，针对生命科学工作流专门训练的LLM。从实验室假设到药房货架通常需10-15年和数十亿美元，该模型旨在加速药物研发。采用封闭访问模式，面向研究人员和制药企业。同时扩展Codex插件在GitHub的可用性。</p>
-      <a href="https://venturebeat.com/technology/openai-debuts-gpt-rosalind-a-new-limited-access-model-for-life-sciences-and-broader-codex-plugin-on-github" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">OpenAI</span> <span class="tag">生命科学</span> <span class="tag">垂直模型</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://twitter.com/elonmusk/status/2045292855854260710" target="_blank" rel="noopener noreferrer" class="card-title">Grok 4.3升级：xAI新增幻灯片创建能力</a>
-      <p class="card-summary">Elon Musk宣布Grok 4.3版本升级，新增创建幻灯片功能。xAI在多模态生产力工具方向又进一步，使Grok从对话式AI向内容创作助手演进。</p>
-      <a href="https://twitter.com/elonmusk/status/2045292855854260710" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">xAI</span> <span class="tag">Grok</span> <span class="tag">生产力工具</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-community">
-      <h2 class="section-title">🔥 社区热议</h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://news.ycombinator.com/item?id=47806725" target="_blank" rel="noopener noreferrer" class="card-title">Claude Design引爆HN热榜：823 points，550条评论</a>
-      <p class="card-summary">Anthropic发布的Claude Design在Hacker News上获823 points和550条评论，成为当日最热AI话题。社区讨论焦点：Opus 4.7能力边界、与Figma竞争态势、Anthropic从API公司向产品公司转型、IPO预期对产品策略影响。多位开发者分享早期体验，设计质量超出预期但复杂布局仍有局限。</p>
-      <a href="https://news.ycombinator.com/item?id=47806725" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">HN热议</span> <span class="tag">Anthropic</span> <span class="tag">设计工具</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://news.ycombinator.com/item?id=47807006" target="_blank" rel="noopener noreferrer" class="card-title">Claude 4.7 tokenizer成本实测：535 points深度分析</a>
-      <p class="card-summary">claudecodecamp.com发布Claude 4.7新tokenizer成本实测，HN获535 points和366条评论。详细测量新tokenizer在不同任务下的token消耗变化，代码生成场景效率提升约15%，长文本推理略有增加。社区热议tokenizer优化对API成本的实际影响及与其他模型（GPT-4o、Gemini）成本对比。</p>
-      <a href="https://news.ycombinator.com/item?id=47807006" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">HN热议</span> <span class="tag">tokenizer</span> <span class="tag">成本优化</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://www.theverge.com/ai-artificial-intelligence/914463/openai-sora-bill-peebles-kevin-weil-leaving-departing" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI Sora负责人Bill Peebles离职</a>
-      <p class="card-summary">The Verge报道OpenAI视频生成模型Sora负责人Bill Peebles和AI for Science副总裁即将离职，延续OpenAI近期高管和核心研究人员流失趋势。Sora面临Runway、Pika等激烈竞争，人事变动可能影响产品路线图。</p>
-      <a href="https://www.theverge.com/ai-artificial-intelligence/914463/openai-sora-bill-peebles-kevin-weil-leaving-departing" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">OpenAI</span> <span class="tag">人事变动</span> <span class="tag">Sora</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://www.theverge.com/ai-artificial-intelligence/914229/tides-turning-anthropic-trump-administration-cybersecurity-mythos-preview" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic网络安全模型Mythos：赢回政府信任</a>
-      <p class="card-summary">The Verge报道Anthropic推出新网络安全模型Mythos，旨在改善与美国政府的关系。在特朗普政府加强AI监管审查的背景下，Anthropic通过专注网络安全能力展示其技术实力和合规意愿。此举被视为Anthropic在AI安全叙事中的差异化策略。</p>
-      <a href="https://www.theverge.com/ai-artificial-intelligence/914229/tides-turning-anthropic-trump-administration-cybersecurity-mythos-preview" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Anthropic</span> <span class="tag">网络安全</span> <span class="tag">政策</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/ai/2026/04/mozilla-launches-thunderbolt-ai-client-with-focus-on-self-hosted-infrastructure" target="_blank" rel="noopener noreferrer" class="card-title">Mozilla推出Thunderbolt AI客户端：聚焦自托管基础设施</a>
-      <p class="card-summary">Mozilla发布Thunderbolt AI客户端，基于deepset的Haystack框架构建，致力于去中心化开源AI生态系统。允许用户在本地或自托管基础设施上运行AI工作负载，不依赖云端API。Mozilla在隐私优先AI方向的重要布局，回应企业和开发者对数据主权的诉求。</p>
-      <a href="https://arstechnica.com/ai/2026/04/mozilla-launches-thunderbolt-ai-client-with-focus-on-self-hosted-infrastructure" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Mozilla</span> <span class="tag">自托管</span> <span class="tag">开源AI</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/ai/2026/04/construction-delays-hit-40-of-us-data-centers-planned-for-2026" target="_blank" rel="noopener noreferrer" class="card-title">美国40%数据中心建设延期：卫星和无人机图像揭示</a>
-      <p class="card-summary">Ars Technica报道，通过卫星和无人机热成像分析发现2026年美国计划建设的数据中心约40%遭遇严重延期。主因：施工延迟、能源供应瓶颈、社区对耗水耗电的抵制。对AI基础设施扩张预期构成挑战，可能影响大模型训练和推理服务供给。</p>
-      <a href="https://arstechnica.com/ai/2026/04/construction-delays-hit-40-of-us-data-centers-planned-for-2026" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">数据中心</span> <span class="tag">基础设施</span> <span class="tag">延期</span>
-    </div>
-    </section>
-</main>
+</head><body><a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a><div class="detail-issue-top detail-issue-top--fixed-dock"><header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航"><div class="detail-topbar"><div class="detail-topbar-inner detail-topbar-inner--with-quicknav"><a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span><span data-i18n="nav_back_text">返回</span></a><nav class="quick-nav quick-nav--inline" aria-label="内容导航"><a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a></nav><div class="atlas-lang" role="group" aria-label="界面语言"><button type="button" id="lang-zh" data-set-lang="zh">中</button><span class="atlas-lang-sep">/</span><button type="button" id="lang-en" data-set-lang="en">EN</button></div></div></div></header><div class="hero"><h1 data-i18n="hero_title">今日刊</h1><p class="date">
+    2026-04-18 <span class="hero-sep" aria-hidden="true">·</span><span class="hero-tagline" data-i18n="hero_tagline">每日精选</span><span class="hero-sep" aria-hidden="true">·</span><span class="hero-count" id="hero-item-count" data-total-items="15">15</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span></p></div></div><!-- Content --><main class="container" id="main-content"><section class="section" id="section-research"><h2 class="section-title">🤖 AI Agent 研究</h2><div class="card top"><span class="top-badge">TOP</span><a href="https://huggingface.co/papers/2604.14268" target="_blank" rel="noopener noreferrer" class="card-title">HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界</a><p class="card-summary">腾讯混元团队发布HY-World 2.0，支持文本、单视角/多视角图像和视频输入，通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens渲染平台支持交互式探索，多基准测试达开源SOTA，接近闭源Marble模型效果。GitHub 1.02k stars。</p><a href="https://huggingface.co/papers/2604.14268" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">3D生成</span><span class="tag">世界模型</span><span class="tag">多模态</span><span class="tag">腾讯</span></div><div class="card"><a href="https://huggingface.co/papers/2604.15308" target="_blank" rel="noopener noreferrer" class="card-title">RAD-2: 生成器-判别器框架下强化学习扩展，自动驾驶碰撞率降低56%</a><p class="card-summary">华中科技大学提出RAD-2统一框架，扩散模型生成器产生多样化轨迹候选，RL优化判别器根据长期驾驶质量重排序。引入时间一致性组相对策略优化（TC-GRPO）和在线策略生成器优化（OGO），在BEV-Warp高吞吐仿真环境训练。相比强扩散规划器碰撞率降低56%，城市复杂交通中安全性和流畅度显著提升。</p><a href="https://huggingface.co/papers/2604.15308" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">自动驾驶</span><span class="tag">强化学习</span><span class="tag">运动规划</span></div><div class="card"><a href="https://huggingface.co/papers/2604.14164" target="_blank" rel="noopener noreferrer" class="card-title">TESSY: 师生合作数据合成框架，解决推理模型微调风格分歧</a><p class="card-summary">南京大学提出TESSY框架，解决用强教师模型生成数据微调推理模型（如Qwen3-8B）时的性能下降。核心发现：教师生成数据与学生分布存在显著风格分歧导致灾难性遗忘。TESSY让师生交替生成能力token和风格token，合成既保留教师推理质量又符合学生分布的on-policy数据。以GPT-OSS-120B为教师，LiveCodeBench-Pro提升11.25%。</p><a href="https://huggingface.co/papers/2604.14164" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">推理模型</span><span class="tag">微调</span><span class="tag">数据合成</span></div></section><section class="section" id="section-github"><h2 class="section-title">⭐ GitHub 热门项目</h2><div class="card top"><span class="top-badge">TOP</span><a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer" class="card-title">Tencent-Hunyuan/HY-World-2.0</a><p class="card-summary">腾讯混元世界模型2.0官方代码库，包含全景生成、轨迹规划、世界扩展、世界合成四大模块及WorldLens渲染平台。全部模型权重、代码和技术细节开源，支持交互式3D世界探索。</p><a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">3D世界模型</span><span class="tag">开源</span><span class="tag">腾讯</span></div><div class="card"><a href="https://github.com/zhuqn1021/Agent-template" target="_blank" rel="noopener noreferrer" class="card-title">zhuqn1021/Agent-template</a><p class="card-summary">现代化AI Agent项目模板，支持多模型切换、工具调用、RAG检索增强、对话记忆等核心能力。基于Python实现，为开发者提供开箱即用的Agent开发脚手架。</p><a href="https://github.com/zhuqn1021/Agent-template" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">AI Agent</span><span class="tag">模板</span><span class="tag">Python</span></div><div class="card"><a href="https://github.com/sly-codechum/chum-mem" target="_blank" rel="noopener noreferrer" class="card-title">sly-codechum/chum-mem</a><p class="card-summary">Rust实现的AI Agent记忆增强系统，融合Karpathy的LLM Wiki思想、Graphify图谱和PCKC技术，为AI agent提供更持久、结构化的长期记忆能力。</p><a href="https://github.com/sly-codechum/chum-mem" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Agent记忆</span><span class="tag">Rust</span><span class="tag">知识图谱</span></div></section><section class="section" id="section-models"><h2 class="section-title">🚀 模型与行业动态</h2><div class="card top"><span class="top-badge">TOP</span><a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic推出Claude Design：Opus 4.7驱动AI设计工具，挑战Figma</a><p class="card-summary">Anthropic发布Claude Design，由Opus 4.7驱动，允许用户通过提示词创建设计、原型、Pitch Deck和营销材料。标志Anthropic从基础模型提供商向全栈产品公司转型。年化收入达200亿美元（3月），4月初突破300亿美元，正与高盛/摩根大通/摩根士丹利洽谈IPO，可能10月上市。</p><a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Anthropic</span><span class="tag">设计工具</span><span class="tag">Opus 4.7</span></div><div class="card"><a href="https://venturebeat.com/technology/openai-debuts-gpt-rosalind-a-new-limited-access-model-for-life-sciences-and-broader-codex-plugin-on-github" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI发布GPT-Rosalind：生命科学专用大模型</a><p class="card-summary">OpenAI推出GPT-Rosalind，针对生命科学工作流专门训练的LLM。从实验室假设到药房货架通常需10-15年和数十亿美元，该模型旨在加速药物研发。采用封闭访问模式，面向研究人员和制药企业。同时扩展Codex插件在GitHub的可用性。</p><a href="https://venturebeat.com/technology/openai-debuts-gpt-rosalind-a-new-limited-access-model-for-life-sciences-and-broader-codex-plugin-on-github" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">OpenAI</span><span class="tag">生命科学</span><span class="tag">垂直模型</span></div><div class="card"><a href="https://twitter.com/elonmusk/status/2045292855854260710" target="_blank" rel="noopener noreferrer" class="card-title">Grok 4.3升级：xAI新增幻灯片创建能力</a><p class="card-summary">Elon Musk宣布Grok 4.3版本升级，新增创建幻灯片功能。xAI在多模态生产力工具方向又进一步，使Grok从对话式AI向内容创作助手演进。</p><a href="https://twitter.com/elonmusk/status/2045292855854260710" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">xAI</span><span class="tag">Grok</span><span class="tag">生产力工具</span></div></section><section class="section" id="section-community"><h2 class="section-title">🔥 社区热议</h2><div class="card top"><span class="top-badge">TOP</span><a href="https://news.ycombinator.com/item?id=47806725" target="_blank" rel="noopener noreferrer" class="card-title">Claude Design引爆HN热榜：823 points，550条评论</a><p class="card-summary">Anthropic发布的Claude Design在Hacker News上获823 points和550条评论，成为当日最热AI话题。社区讨论焦点：Opus 4.7能力边界、与Figma竞争态势、Anthropic从API公司向产品公司转型、IPO预期对产品策略影响。多位开发者分享早期体验，设计质量超出预期但复杂布局仍有局限。</p><a href="https://news.ycombinator.com/item?id=47806725" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">HN热议</span><span class="tag">Anthropic</span><span class="tag">设计工具</span></div><div class="card"><a href="https://news.ycombinator.com/item?id=47807006" target="_blank" rel="noopener noreferrer" class="card-title">Claude 4.7 tokenizer成本实测：535 points深度分析</a><p class="card-summary">claudecodecamp.com发布Claude 4.7新tokenizer成本实测，HN获535 points和366条评论。详细测量新tokenizer在不同任务下的token消耗变化，代码生成场景效率提升约15%，长文本推理略有增加。社区热议tokenizer优化对API成本的实际影响及与其他模型（GPT-4o、Gemini）成本对比。</p><a href="https://news.ycombinator.com/item?id=47807006" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">HN热议</span><span class="tag">tokenizer</span><span class="tag">成本优化</span></div><div class="card"><a href="https://www.theverge.com/ai-artificial-intelligence/914463/openai-sora-bill-peebles-kevin-weil-leaving-departing" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI Sora负责人Bill Peebles离职</a><p class="card-summary">The Verge报道OpenAI视频生成模型Sora负责人Bill Peebles和AI for Science副总裁即将离职，延续OpenAI近期高管和核心研究人员流失趋势。Sora面临Runway、Pika等激烈竞争，人事变动可能影响产品路线图。</p><a href="https://www.theverge.com/ai-artificial-intelligence/914463/openai-sora-bill-peebles-kevin-weil-leaving-departing" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">OpenAI</span><span class="tag">人事变动</span><span class="tag">Sora</span></div><div class="card"><a href="https://www.theverge.com/ai-artificial-intelligence/914229/tides-turning-anthropic-trump-administration-cybersecurity-mythos-preview" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic网络安全模型Mythos：赢回政府信任</a><p class="card-summary">The Verge报道Anthropic推出新网络安全模型Mythos，旨在改善与美国政府的关系。在特朗普政府加强AI监管审查的背景下，Anthropic通过专注网络安全能力展示其技术实力和合规意愿。此举被视为Anthropic在AI安全叙事中的差异化策略。</p><a href="https://www.theverge.com/ai-artificial-intelligence/914229/tides-turning-anthropic-trump-administration-cybersecurity-mythos-preview" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Anthropic</span><span class="tag">网络安全</span><span class="tag">政策</span></div><div class="card"><a href="https://arstechnica.com/ai/2026/04/mozilla-launches-thunderbolt-ai-client-with-focus-on-self-hosted-infrastructure" target="_blank" rel="noopener noreferrer" class="card-title">Mozilla推出Thunderbolt AI客户端：聚焦自托管基础设施</a><p class="card-summary">Mozilla发布Thunderbolt AI客户端，基于deepset的Haystack框架构建，致力于去中心化开源AI生态系统。允许用户在本地或自托管基础设施上运行AI工作负载，不依赖云端API。Mozilla在隐私优先AI方向的重要布局，回应企业和开发者对数据主权的诉求。</p><a href="https://arstechnica.com/ai/2026/04/mozilla-launches-thunderbolt-ai-client-with-focus-on-self-hosted-infrastructure" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Mozilla</span><span class="tag">自托管</span><span class="tag">开源AI</span></div><div class="card"><a href="https://arstechnica.com/ai/2026/04/construction-delays-hit-40-of-us-data-centers-planned-for-2026" target="_blank" rel="noopener noreferrer" class="card-title">美国40%数据中心建设延期：卫星和无人机图像揭示</a><p class="card-summary">Ars Technica报道，通过卫星和无人机热成像分析发现2026年美国计划建设的数据中心约40%遭遇严重延期。主因：施工延迟、能源供应瓶颈、社区对耗水耗电的抵制。对AI基础设施扩张预期构成挑战，可能影响大模型训练和推理服务供给。</p><a href="https://arstechnica.com/ai/2026/04/construction-delays-hit-40-of-us-data-centers-planned-for-2026" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">数据中心</span><span class="tag">基础设施</span><span class="tag">延期</span></div></section></main>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
@@ -631,5 +453,4 @@ body {
   });
   applyI18n();
 })();
-</script></body>
-</html>
+</script></body></html>

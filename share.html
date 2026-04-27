@@ -238,7 +238,7 @@ button.copy[hidden]{display:none}
         return;
       }
       try {
-        var res = await fetch("/issue-data/" + encodeURIComponent(k) + ".json", { cache: "no-cache" });
+        var res = await fetch("/issue-data/" + encodeURIComponent(k) + ".json");
         if (!res.ok) { showErr("未找到该期数据，请用最新日刊的「分享」重试。"); return; }
         var J = await res.json();
         var sk = KEY_ORDER[si];

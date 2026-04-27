@@ -2,8 +2,12 @@
 """
 AI Agent 日报 H5 页面生成器
 读取 daily_data.json → 生成 today.html(当天刊) + 归档页面
+
+生成结束后会自动压缩「北京时间当天」之前的历史 archives/*.html（空白 minify，
+见 scripts/compress_archives.py）；可用 --no-compress-archives 关闭。
 """
 import argparse
+import importlib.util
 import json
 import os
 import random
@@ -413,7 +417,7 @@ def build_html(data, include_nav_back=True):
 <meta name="twitter:card" content="summary">
 <title>今日刊 — {safe_date}</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+/* 系统字体栈，避免 Google Fonts 外联阻塞首屏（移动网与 Wi‑Fi 均少一次跨域往返） */
 
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 :root {{
@@ -427,7 +431,7 @@ def build_html(data, include_nav_back=True):
 }}
 
 body {{
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f5f0e8;
   color: #2c2c2c;
   min-height: 100vh;
@@ -454,8 +458,8 @@ body {{
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   background: rgba(245,240,232,0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(100,80,60,0.1);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -582,7 +586,7 @@ body {{
   pointer-events: none;
 }}
 .hero h1 {{
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 38px;
   font-weight: 700;
   color: #3a3a3a;
@@ -597,7 +601,7 @@ body {{
   box-sizing: border-box;
   color: #8a7e6e;
   font-size: 13px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin-top: 6px;
   position: relative;
   z-index: 1;
@@ -613,7 +617,7 @@ body {{
   font: inherit;
   font-size: inherit;
   line-height: inherit;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }}
 .hero .date .hero-sep {{ color: #b0a89a; margin: 0 0.1em; }}
 .hero .date .hero-tagline {{ color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }}
@@ -653,7 +657,7 @@ body {{
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(90,110,138,0.2);
   font-size: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.2px;
   transition: all 0.25s;
 }}
@@ -686,7 +690,7 @@ body {{
   margin-top: 44px;
 }}
 .section-title {{
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 20px;
   font-weight: 700;
   color: #4a6080;
@@ -753,7 +757,7 @@ body {{
   letter-spacing: 1.5px;
 }}
 .card-title {{
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   color: #1a1a1a;
   font-size: 18px;
   font-weight: 600;
@@ -835,7 +839,7 @@ body {{
   font-size: 12px;
   color: #5a6e8a;
   text-decoration: none;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
   border: 1px solid rgba(90,110,138,0.22);
   border-radius: 4px;
@@ -871,7 +875,7 @@ body {{
   margin-top: 14px;
   margin-right: 6px;
   border: 1px solid rgba(90,110,138,0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }}
 
@@ -1040,7 +1044,7 @@ def build_home_html(archive_infos, page=1, per_page=10):
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>AI Agent 日报 · 历史存档</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+/* 系统字体栈，避免 Google Fonts 外联阻塞首屏（移动网与 Wi‑Fi 均少一次跨域往返） */
 
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 :root {{ --ix: 0.18s ease; }}
@@ -1049,7 +1053,7 @@ def build_home_html(archive_infos, page=1, per_page=10):
 }}
 
 body {{
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f5f0e8;
   color: #2c2c2c;
   min-height: 100vh;
@@ -1079,7 +1083,7 @@ body {{
   pointer-events: none;
 }}
 .hero h1 {{
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 34px;
   font-weight: 700;
   color: #3a3a3a;
@@ -1134,7 +1138,7 @@ body {{
   background: rgba(255,255,255,0.5);
 }}
 .stats-bar .stat-num {{
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 26px;
   font-weight: 700;
   color: #5a6e8a;
@@ -1190,7 +1194,7 @@ body {{
   gap: 1px;
 }}
 .date-main {{
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 17px;
   font-weight: 600;
   color: #3a3a3a;
@@ -1248,7 +1252,7 @@ body {{
   width: 100%;
 }}
 .date-count-num {{
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 12.5px;
   font-weight: 600;
   color: #5a6e8a;
@@ -1282,7 +1286,7 @@ body {{
   background: rgba(255,255,255,0.6);
   color: #5a6e8a;
   font-size: 13px;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   cursor: pointer;
   border-radius: 2px;
   transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s;
@@ -1490,6 +1494,26 @@ def update_polished_home_html(existing_html, generated_html, archive_infos):
     return updated
 
 
+def run_compress_historic_archives() -> int:
+    """将「北京时间当天」之前的历史 archives/*.html 做 HTML 空白压缩（见 scripts/compress_archives.py）。"""
+    path = BASE_DIR / "scripts" / "compress_archives.py"
+    if not path.is_file():
+        print(f"⚠️  compress_archives: missing {path}")
+        return 0
+    spec = importlib.util.spec_from_file_location("compress_archives", path)
+    if spec is None or spec.loader is None:
+        print("⚠️  compress_archives: could not load module spec")
+        return 0
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    n = mod.compress_historic_archives(BASE_DIR, current_beijing_date_str(), dry_run=False)
+    if n:
+        print(
+            f"\n📦 Historical archives: minified {n} file(s) (BJT date < {current_beijing_date_str()})."
+        )
+    return n
+
+
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(
         description="Generate the AI Daily site from daily_data.json."
@@ -1498,6 +1522,11 @@ def parse_args(argv=None):
         "--run-source-evolution",
         action="store_true",
         help="also run scripts/source_evolution.py after generating site files",
+    )
+    parser.add_argument(
+        "--no-compress-archives",
+        action="store_true",
+        help="do not minify historical archives/*.html (only YYYY-MM-DD < today BJT)",
     )
     return parser.parse_args(argv)
 
@@ -1603,6 +1632,12 @@ def main(argv=None):
             print("⚠️  No archives found, skipping home.html")
     except Exception as e:
         print(f"⚠️  Home page generation failed: {e}")
+
+    if not args.no_compress_archives:
+        try:
+            run_compress_historic_archives()
+        except Exception as e:
+            print(f"⚠️  compress_archives failed: {e}")
 
     if args.run_source_evolution:
         run_source_evolution()

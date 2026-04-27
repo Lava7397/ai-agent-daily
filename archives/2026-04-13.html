@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 2026-04-13 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="今日刊 — 2026-04-13">
-<meta property="og:description" content="今日 14 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lava7397.com">
-<meta name="twitter:card" content="summary">
-<title>今日刊 — 2026-04-13</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><meta name="description" content="今日刊 2026-04-13 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:title" content="今日刊 — 2026-04-13"><meta property="og:description" content="今日 14 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态"><meta property="og:type" content="article"><meta property="og:url" content="https://lava7397.com"><meta name="twitter:card" content="summary"><title>今日刊 — 2026-04-13</title>
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+/* 系统字体栈，避免 Google Fonts 外联阻塞首屏 */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -30,7 +16,7 @@
 
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f5f0e8;
   color: #2c2c2c;
   min-height: 100vh;
@@ -56,8 +42,8 @@ body {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   background: rgba(245,240,232,0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(100,80,60,0.1);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -180,7 +166,7 @@ body {
   pointer-events: none;
 }
 .hero h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 38px;
   font-weight: 700;
   color: #3a3a3a;
@@ -191,7 +177,7 @@ body {
 .hero .date {
   color: #8a7e6e;
   font-size: 13px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin-top: 6px;
   position: relative;
   z-index: 1;
@@ -205,7 +191,7 @@ body {
   font: inherit;
   font-size: inherit;
   line-height: inherit;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 .hero .date .hero-sep { color: #b0a89a; margin: 0 0.1em; }
 .hero .date .hero-tagline { color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }
@@ -245,7 +231,7 @@ body {
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(90,110,138,0.2);
   font-size: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.2px;
   transition: all 0.25s;
 }
@@ -278,7 +264,7 @@ body {
   margin-top: 44px;
 }
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 20px;
   font-weight: 700;
   color: #4a6080;
@@ -345,7 +331,7 @@ body {
   letter-spacing: 1.5px;
 }
 .card-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   color: #1a1a1a;
   font-size: 18px;
   font-weight: 600;
@@ -387,7 +373,7 @@ body {
   margin-top: 14px;
   margin-right: 6px;
   border: 1px solid rgba(90,110,138,0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -403,150 +389,8 @@ body {
 .skip-link:focus { top: 0; }
 
 </style>
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top detail-issue-top--fixed-dock">
-<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
-<div class="detail-topbar">
-  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
-  <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
-  <div class="atlas-lang" role="group" aria-label="界面语言">
-      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
-      <span class="atlas-lang-sep">/</span>
-      <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-</header>
-<div class="hero">
-  <h1 data-i18n="hero_title">今日刊</h1>
-    <p class="date">
-    2026-04-13 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="14">14</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
-</div>
-</div>
-
-<!-- Content -->
-<main class="container" id="main-content">
-  
-    <section class="section" id="section-research">
-      <h2 class="section-title">🤖 AI Agent 研究</h2>
-      
-    <div class="card">
-      <a href="https://arxiv.org/abs/2604.09502" target="_blank" rel="noopener noreferrer" class="card-title">Strategic Algorithmic Monoculture: AI Agent 多智能体协调行为实验</a>
-      <p class="card-summary">arXiv 最新论文研究 AI agents 在多智能体环境中的协调行为，区分了基础算法单一性和策略性算法单一性，发现 LLM 在协调方面表现优异但在维持多样性方面落后于人类。</p>
-      <a href="https://arxiv.org/abs/2604.09502" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">2026-04-10</span>
-    </div>
-
-    <div class="card">
-      <a href="https://arxiv.org/abs/2604.09413" target="_blank" rel="noopener noreferrer" class="card-title">生成式 AI 需要更细致的 Opt-in 同意机制</a>
-      <p class="card-summary">论文指出一刀切的同意方式不足以应对生成式 AI 对创意作品的使用，提出基于推理时验证的细粒度同意架构，可在训练、推理和传播各环节实现权利平衡。</p>
-      <a href="https://arxiv.org/abs/2604.09413" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">2026-04-10</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/umputun/revdiff" target="_blank" rel="noopener noreferrer" class="card-title">Revdiff: 专为 AI Agent 设计的终端 Diff 审查工具</a>
-      <p class="card-summary">开源 TUI 工具，可在终端中直接审查 AI 生成的代码变更，支持行级标注并将反馈直接返回给 Agent，支持 Claude Code、Codex 等主流编码助手。</p>
-      <a href="https://github.com/umputun/revdiff" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">2026-04-13</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-github">
-      <h2 class="section-title">⭐ GitHub 热门项目</h2>
-      
-    <div class="card">
-      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="card-title">NousResearch/hermes-agent</a>
-      <p class="card-summary">「与你一起成长的 AI Agent」框架持续火爆，今日新增 7,454 星标，累计 72,941 星标，稳居 GitHub Trending 榜首。</p>
-      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Python</span> <span class="tag">⭐ 72,941</span> <span class="tag">+7,454 today</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener noreferrer" class="card-title">microsoft/markitdown</a>
-      <p class="card-summary">微软出品的文件转 Markdown 工具，支持 Office 文档转换，累计 10 万+ 星标，今日新增 2,513 星标。</p>
-      <a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Python</span> <span class="tag">⭐ 105,981</span> <span class="tag">+2,513 today</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/coleam00/Archon" target="_blank" rel="noopener noreferrer" class="card-title">coleam00/Archon</a>
-      <p class="card-summary">首个开源 AI 编码 Harness Builder，让 AI 编码变得确定性和可重复，今日新增 2,739 星标。</p>
-      <a href="https://github.com/coleam00/Archon" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">TypeScript</span> <span class="tag">⭐ 17,333</span> <span class="tag">+2,739 today</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/forrestchang/andrej-karpathy-skills" target="_blank" rel="noopener noreferrer" class="card-title">forrestchang/andrej-karpathy-skills</a>
-      <p class="card-summary">基于 Andrej Karpathy 对 LLM 编码陷阱观察提炼的 CLAUDE.md 文件，帮助改善 Claude Code 行为，今日新增 2,369 星标。</p>
-      <a href="https://github.com/forrestchang/andrej-karpathy-skills" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Markdown</span> <span class="tag">⭐ 19,305</span> <span class="tag">+2,369 today</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer" class="card-title">shiyu-coder/Kronos</a>
-      <p class="card-summary">金融市场语言基础模型，专为金融时间序列数据设计，今日新增 1,985 星标。</p>
-      <a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Python</span> <span class="tag">⭐ 16,437</span> <span class="tag">+1,985 today</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 模型与行业动态</h2>
-      
-    <div class="card">
-      <a href="https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/" target="_blank" rel="noopener noreferrer" class="card-title">全球最大轨道计算集群正式开放运营</a>
-      <p class="card-summary">太空计算基础设施取得突破，最大的轨道计算集群开始接受商业订单，为太空 AI 应用提供新可能。</p>
-      <a href="https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">TechCrunch</span> <span class="tag">2026-04-13</span>
-    </div>
-
-    <div class="card">
-      <a href="https://techcrunch.com/2026/04/12/trump-officials-may-be-encouraging-banks-to-test-anthropics-mythos-model/" target="_blank" rel="noopener noreferrer" class="card-title">特朗普政府鼓励银行测试 Anthropic Mythos 模型</a>
-      <p class="card-summary">美国政府官员可能正在推动金融机构试用 Anthropic 的 Mythos 模型，显示 AI 在金融监管领域的应用正在加速。</p>
-      <a href="https://techcrunch.com/2026/04/12/trump-officials-may-be-encouraging-banks-to-test-anthropics-mythos-model/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">TechCrunch</span> <span class="tag">2026-04-12</span>
-    </div>
-
-    <div class="card">
-      <a href="https://techcrunch.com/2026/04/12/at-the-humanx-conference-everyone-was-talking-about-claude/" target="_blank" rel="noopener noreferrer" class="card-title">HumanX 大会焦点：人人都在谈论 Claude</a>
-      <p class="card-summary">在 HumanX 会议上，Anthropic 的 Claude 成为最受关注的 AI 模型，展现了其在 Agent 和编码领域的强势地位。</p>
-      <a href="https://techcrunch.com/2026/04/12/at-the-humanx-conference-everyone-was-talking-about-claude/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">TechCrunch</span> <span class="tag">2026-04-12</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-community">
-      <h2 class="section-title">🔥 社区热议</h2>
-      
-    <div class="card">
-      <a href="https://github.com/Grimm67123/GrimmBot" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: AI Agent 自我改进机器人引发讨论</a>
-      <p class="card-summary">开发者展示了一个能够自我改进的 AI Agent，引发社区对 AI 自主进化能力的热议。</p>
-      <a href="https://github.com/Grimm67123/GrimmBot" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">2026-04-13</span>
-    </div>
-
-    <div class="card">
-      <a href="https://is.team" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: 项目看板让 AI 成为真正的团队成员</a>
-      <p class="card-summary">新工具让 AI Agent 以真实队友身份加入项目看板，可分配任务、追踪进度，重新定义人机协作模式。</p>
-      <a href="https://is.team" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">2026-04-13</span>
-    </div>
-
-    <div class="card">
-      <a href="https://superhq.ai/" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: 本地沙盒运行 AI 编码 Agent 的新方案</a>
-      <p class="card-summary">SuperHQ 让编码 Agent 在本地微虚拟机中运行，支持并行多 Agent 工作，API 密钥通过本地代理注入，保护系统安全。</p>
-      <a href="https://superhq.ai/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">2026-04-13</span>
-    </div>
-    </section>
-</main>
+</head><body><a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a><div class="detail-issue-top detail-issue-top--fixed-dock"><header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航"><div class="detail-topbar"><div class="detail-topbar-inner detail-topbar-inner--with-quicknav"><a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span><span data-i18n="nav_back_text">返回</span></a><nav class="quick-nav quick-nav--inline" aria-label="内容导航"><a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a></nav><div class="atlas-lang" role="group" aria-label="界面语言"><button type="button" id="lang-zh" data-set-lang="zh">中</button><span class="atlas-lang-sep">/</span><button type="button" id="lang-en" data-set-lang="en">EN</button></div></div></div></header><div class="hero"><h1 data-i18n="hero_title">今日刊</h1><p class="date">
+    2026-04-13 <span class="hero-sep" aria-hidden="true">·</span><span class="hero-tagline" data-i18n="hero_tagline">每日精选</span><span class="hero-sep" aria-hidden="true">·</span><span class="hero-count" id="hero-item-count" data-total-items="14">14</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span></p></div></div><!-- Content --><main class="container" id="main-content"><section class="section" id="section-research"><h2 class="section-title">🤖 AI Agent 研究</h2><div class="card"><a href="https://arxiv.org/abs/2604.09502" target="_blank" rel="noopener noreferrer" class="card-title">Strategic Algorithmic Monoculture: AI Agent 多智能体协调行为实验</a><p class="card-summary">arXiv 最新论文研究 AI agents 在多智能体环境中的协调行为，区分了基础算法单一性和策略性算法单一性，发现 LLM 在协调方面表现优异但在维持多样性方面落后于人类。</p><a href="https://arxiv.org/abs/2604.09502" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">arXiv</span><span class="tag">2026-04-10</span></div><div class="card"><a href="https://arxiv.org/abs/2604.09413" target="_blank" rel="noopener noreferrer" class="card-title">生成式 AI 需要更细致的 Opt-in 同意机制</a><p class="card-summary">论文指出一刀切的同意方式不足以应对生成式 AI 对创意作品的使用，提出基于推理时验证的细粒度同意架构，可在训练、推理和传播各环节实现权利平衡。</p><a href="https://arxiv.org/abs/2604.09413" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">arXiv</span><span class="tag">2026-04-10</span></div><div class="card"><a href="https://github.com/umputun/revdiff" target="_blank" rel="noopener noreferrer" class="card-title">Revdiff: 专为 AI Agent 设计的终端 Diff 审查工具</a><p class="card-summary">开源 TUI 工具，可在终端中直接审查 AI 生成的代码变更，支持行级标注并将反馈直接返回给 Agent，支持 Claude Code、Codex 等主流编码助手。</p><a href="https://github.com/umputun/revdiff" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Hacker News</span><span class="tag">2026-04-13</span></div></section><section class="section" id="section-github"><h2 class="section-title">⭐ GitHub 热门项目</h2><div class="card"><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="card-title">NousResearch/hermes-agent</a><p class="card-summary">「与你一起成长的 AI Agent」框架持续火爆，今日新增 7,454 星标，累计 72,941 星标，稳居 GitHub Trending 榜首。</p><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Python</span><span class="tag">⭐ 72,941</span><span class="tag">+7,454 today</span></div><div class="card"><a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener noreferrer" class="card-title">microsoft/markitdown</a><p class="card-summary">微软出品的文件转 Markdown 工具，支持 Office 文档转换，累计 10 万+ 星标，今日新增 2,513 星标。</p><a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Python</span><span class="tag">⭐ 105,981</span><span class="tag">+2,513 today</span></div><div class="card"><a href="https://github.com/coleam00/Archon" target="_blank" rel="noopener noreferrer" class="card-title">coleam00/Archon</a><p class="card-summary">首个开源 AI 编码 Harness Builder，让 AI 编码变得确定性和可重复，今日新增 2,739 星标。</p><a href="https://github.com/coleam00/Archon" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">TypeScript</span><span class="tag">⭐ 17,333</span><span class="tag">+2,739 today</span></div><div class="card"><a href="https://github.com/forrestchang/andrej-karpathy-skills" target="_blank" rel="noopener noreferrer" class="card-title">forrestchang/andrej-karpathy-skills</a><p class="card-summary">基于 Andrej Karpathy 对 LLM 编码陷阱观察提炼的 CLAUDE.md 文件，帮助改善 Claude Code 行为，今日新增 2,369 星标。</p><a href="https://github.com/forrestchang/andrej-karpathy-skills" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Markdown</span><span class="tag">⭐ 19,305</span><span class="tag">+2,369 today</span></div><div class="card"><a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer" class="card-title">shiyu-coder/Kronos</a><p class="card-summary">金融市场语言基础模型，专为金融时间序列数据设计，今日新增 1,985 星标。</p><a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Python</span><span class="tag">⭐ 16,437</span><span class="tag">+1,985 today</span></div></section><section class="section" id="section-models"><h2 class="section-title">🚀 模型与行业动态</h2><div class="card"><a href="https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/" target="_blank" rel="noopener noreferrer" class="card-title">全球最大轨道计算集群正式开放运营</a><p class="card-summary">太空计算基础设施取得突破，最大的轨道计算集群开始接受商业订单，为太空 AI 应用提供新可能。</p><a href="https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">TechCrunch</span><span class="tag">2026-04-13</span></div><div class="card"><a href="https://techcrunch.com/2026/04/12/trump-officials-may-be-encouraging-banks-to-test-anthropics-mythos-model/" target="_blank" rel="noopener noreferrer" class="card-title">特朗普政府鼓励银行测试 Anthropic Mythos 模型</a><p class="card-summary">美国政府官员可能正在推动金融机构试用 Anthropic 的 Mythos 模型，显示 AI 在金融监管领域的应用正在加速。</p><a href="https://techcrunch.com/2026/04/12/trump-officials-may-be-encouraging-banks-to-test-anthropics-mythos-model/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">TechCrunch</span><span class="tag">2026-04-12</span></div><div class="card"><a href="https://techcrunch.com/2026/04/12/at-the-humanx-conference-everyone-was-talking-about-claude/" target="_blank" rel="noopener noreferrer" class="card-title">HumanX 大会焦点：人人都在谈论 Claude</a><p class="card-summary">在 HumanX 会议上，Anthropic 的 Claude 成为最受关注的 AI 模型，展现了其在 Agent 和编码领域的强势地位。</p><a href="https://techcrunch.com/2026/04/12/at-the-humanx-conference-everyone-was-talking-about-claude/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">TechCrunch</span><span class="tag">2026-04-12</span></div></section><section class="section" id="section-community"><h2 class="section-title">🔥 社区热议</h2><div class="card"><a href="https://github.com/Grimm67123/GrimmBot" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: AI Agent 自我改进机器人引发讨论</a><p class="card-summary">开发者展示了一个能够自我改进的 AI Agent，引发社区对 AI 自主进化能力的热议。</p><a href="https://github.com/Grimm67123/GrimmBot" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Hacker News</span><span class="tag">2026-04-13</span></div><div class="card"><a href="https://is.team" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: 项目看板让 AI 成为真正的团队成员</a><p class="card-summary">新工具让 AI Agent 以真实队友身份加入项目看板，可分配任务、追踪进度，重新定义人机协作模式。</p><a href="https://is.team" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Hacker News</span><span class="tag">2026-04-13</span></div><div class="card"><a href="https://superhq.ai/" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: 本地沙盒运行 AI 编码 Agent 的新方案</a><p class="card-summary">SuperHQ 让编码 Agent 在本地微虚拟机中运行，支持并行多 Agent 工作，API 密钥通过本地代理注入，保护系统安全。</p><a href="https://superhq.ai/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Hacker News</span><span class="tag">2026-04-13</span></div></section></main>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
@@ -609,5 +453,4 @@ body {
   });
   applyI18n();
 })();
-</script></body>
-</html>
+</script></body></html>

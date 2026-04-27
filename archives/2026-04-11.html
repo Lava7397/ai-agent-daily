@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 2026-04-11 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="今日刊 — 2026-04-11">
-<meta property="og:description" content="今日 11 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lava7397.com">
-<meta name="twitter:card" content="summary">
-<title>今日刊 — 2026-04-11</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><meta name="description" content="今日刊 2026-04-11 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:title" content="今日刊 — 2026-04-11"><meta property="og:description" content="今日 11 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态"><meta property="og:type" content="article"><meta property="og:url" content="https://lava7397.com"><meta name="twitter:card" content="summary"><title>今日刊 — 2026-04-11</title>
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+/* 系统字体栈，避免 Google Fonts 外联阻塞首屏 */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -30,7 +16,7 @@
 
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f5f0e8;
   color: #2c2c2c;
   min-height: 100vh;
@@ -56,8 +42,8 @@ body {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   background: rgba(245,240,232,0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(100,80,60,0.1);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -180,7 +166,7 @@ body {
   pointer-events: none;
 }
 .hero h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 38px;
   font-weight: 700;
   color: #3a3a3a;
@@ -191,7 +177,7 @@ body {
 .hero .date {
   color: #8a7e6e;
   font-size: 13px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin-top: 6px;
   position: relative;
   z-index: 1;
@@ -205,7 +191,7 @@ body {
   font: inherit;
   font-size: inherit;
   line-height: inherit;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 .hero .date .hero-sep { color: #b0a89a; margin: 0 0.1em; }
 .hero .date .hero-tagline { color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }
@@ -245,7 +231,7 @@ body {
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(90,110,138,0.2);
   font-size: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.2px;
   transition: all 0.25s;
 }
@@ -278,7 +264,7 @@ body {
   margin-top: 44px;
 }
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 20px;
   font-weight: 700;
   color: #4a6080;
@@ -345,7 +331,7 @@ body {
   letter-spacing: 1.5px;
 }
 .card-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   color: #1a1a1a;
   font-size: 18px;
   font-weight: 600;
@@ -387,7 +373,7 @@ body {
   margin-top: 14px;
   margin-right: 6px;
   border: 1px solid rgba(90,110,138,0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -403,129 +389,8 @@ body {
 .skip-link:focus { top: 0; }
 
 </style>
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top detail-issue-top--fixed-dock">
-<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
-<div class="detail-topbar">
-  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
-  <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
-  <div class="atlas-lang" role="group" aria-label="界面语言">
-      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
-      <span class="atlas-lang-sep">/</span>
-      <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-</header>
-<div class="hero">
-  <h1 data-i18n="hero_title">今日刊</h1>
-    <p class="date">
-    2026-04-11 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="11">11</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
-</div>
-</div>
-
-<!-- Content -->
-<main class="container" id="main-content">
-  
-    <section class="section" id="section-research">
-      <h2 class="section-title">🤖 AI Agent 研究</h2>
-      
-    <div class="card">
-      <a href="https://arxiv.org/abs/2604.08545" target="_blank" rel="noopener noreferrer" class="card-title">Act Wisely: 元认知工具使用培养AI Agent自主决策能力</a>
-      <p class="card-summary">arXiv最新论文提出Act Wisely框架，通过培养多模态AI Agent的元认知能力，使其更明智地判断何时使用外部工具，而非盲目调用。</p>
-      <a href="https://arxiv.org/abs/2604.08545" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">2026-04-09</span>
-    </div>
-
-    <div class="card">
-      <a href="https://arxiv.org/abs/2604.08523" target="_blank" rel="noopener noreferrer" class="card-title">ClawBench: AI Agent能否完成日常在线任务？</a>
-      <p class="card-summary">新基准测试ClawBench评估AI Agent处理日常在线任务的能力，涵盖邮件管理、日程安排等真实场景，揭示当前Agent在复杂任务中的短板。</p>
-      <a href="https://arxiv.org/abs/2604.08523" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">2026-04-09</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/torvalds/linux/blob/master/Documentation/process/coding-assistants.rst" target="_blank" rel="noopener noreferrer" class="card-title">Linux内核正式引入AI辅助编程指南</a>
-      <p class="card-summary">Linus Torvalds主导的Linux内核仓库新增AI辅助编程文档，为贡献者提供使用AI编码助手的规范和建议，在HN获得367分热议。</p>
-      <a href="https://github.com/torvalds/linux/blob/master/Documentation/process/coding-assistants.rst" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">2026-04-10</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-github">
-      <h2 class="section-title">⭐ GitHub 热门项目</h2>
-      
-    <div class="card">
-      <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="card-title">openclaw/openclaw</a>
-      <p class="card-summary">超人气开源个人AI助手OpenClaw，支持全平台运行。近期因Anthropic调整Claude定价引发社区关注，35万+星标领跑GitHub。</p>
-      <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Python</span> <span class="tag">⭐ 354,581</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="card-title">NousResearch/hermes-agent</a>
-      <p class="card-summary">Nous Research发布&quot;与你一起成长的AI Agent&quot;框架Hermes Agent，5.5万+星标，AI Agent领域热门项目。</p>
-      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Python</span> <span class="tag">⭐ 55,808</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener noreferrer" class="card-title">microsoft/playwright-mcp</a>
-      <p class="card-summary">微软官方Playwright MCP服务器，为AI Agent提供浏览器自动化能力，3万+星标，MCP生态最热门项目之一。</p>
-      <a href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">TypeScript</span> <span class="tag">⭐ 30,628</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/CopilotKit/CopilotKit" target="_blank" rel="noopener noreferrer" class="card-title">CopilotKit/CopilotKit</a>
-      <p class="card-summary">面向AI Agent的前端全栈解决方案，支持React和Angular，提出AG-UI协议，3万+星标。让Agent原生UI成为可能。</p>
-      <a href="https://github.com/CopilotKit/CopilotKit" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">TypeScript</span> <span class="tag">⭐ 30,142</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 模型与行业动态</h2>
-      
-    <div class="card">
-      <a href="https://www.anthropic.com/news/claude-sonnet-4-6" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic发布Claude Sonnet 4.6（Project Glasswing）</a>
-      <p class="card-summary">Anthropic推出Claude Sonnet 4.6全面升级，强化编码、Agent规划、长推理和计算机使用能力，被视为Agent时代的重要模型更新。</p>
-      <a href="https://www.anthropic.com/news/claude-sonnet-4-6" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Anthropic</span> <span class="tag">2026-04-10</span>
-    </div>
-
-    <div class="card">
-      <a href="https://techcrunch.com/2026/04/09/chatgpt-pro-plan-100-month-codex/" target="_blank" rel="noopener noreferrer" class="card-title">ChatGPT推出$100/月Pro计划</a>
-      <p class="card-summary">OpenAI填补$20到$200之间的空白，新增$100/月ChatGPT Pro计划，面向重度用户和Codex开发者，满足专业需求。</p>
-      <a href="https://techcrunch.com/2026/04/09/chatgpt-pro-plan-100-month-codex/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">OpenAI</span> <span class="tag">2026-04-09</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-community">
-      <h2 class="section-title">🔥 社区热议</h2>
-      
-    <div class="card">
-      <a href="https://techcrunch.com/2026/04/10/anthropic-temporarily-banned-openclaws-creator-from-accessing-claude/" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic临时封禁OpenClaw创建者的Claude访问权限</a>
-      <p class="card-summary">Anthropic在调整Claude对OpenClaw用户的定价后，临时封禁了OpenClaw创建者访问Claude的权限，引发AI开源社区广泛讨论。</p>
-      <a href="https://techcrunch.com/2026/04/10/anthropic-temporarily-banned-openclaws-creator-from-accessing-claude/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">TechCrunch</span> <span class="tag">2026-04-10</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="card-title">OpenClaw创建者被禁后社区热议AI Agent开源生态</a>
-      <p class="card-summary">Anthropic封禁OpenClaw创建者事件在社区持续发酵，围绕AI Agent开源生态、模型提供商权利和开发者权益的辩论升温。</p>
-      <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">GitHub</span> <span class="tag">2026-04-10</span>
-    </div>
-    </section>
-</main>
+</head><body><a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a><div class="detail-issue-top detail-issue-top--fixed-dock"><header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航"><div class="detail-topbar"><div class="detail-topbar-inner detail-topbar-inner--with-quicknav"><a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span><span data-i18n="nav_back_text">返回</span></a><nav class="quick-nav quick-nav--inline" aria-label="内容导航"><a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a></nav><div class="atlas-lang" role="group" aria-label="界面语言"><button type="button" id="lang-zh" data-set-lang="zh">中</button><span class="atlas-lang-sep">/</span><button type="button" id="lang-en" data-set-lang="en">EN</button></div></div></div></header><div class="hero"><h1 data-i18n="hero_title">今日刊</h1><p class="date">
+    2026-04-11 <span class="hero-sep" aria-hidden="true">·</span><span class="hero-tagline" data-i18n="hero_tagline">每日精选</span><span class="hero-sep" aria-hidden="true">·</span><span class="hero-count" id="hero-item-count" data-total-items="11">11</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span></p></div></div><!-- Content --><main class="container" id="main-content"><section class="section" id="section-research"><h2 class="section-title">🤖 AI Agent 研究</h2><div class="card"><a href="https://arxiv.org/abs/2604.08545" target="_blank" rel="noopener noreferrer" class="card-title">Act Wisely: 元认知工具使用培养AI Agent自主决策能力</a><p class="card-summary">arXiv最新论文提出Act Wisely框架，通过培养多模态AI Agent的元认知能力，使其更明智地判断何时使用外部工具，而非盲目调用。</p><a href="https://arxiv.org/abs/2604.08545" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">arXiv</span><span class="tag">2026-04-09</span></div><div class="card"><a href="https://arxiv.org/abs/2604.08523" target="_blank" rel="noopener noreferrer" class="card-title">ClawBench: AI Agent能否完成日常在线任务？</a><p class="card-summary">新基准测试ClawBench评估AI Agent处理日常在线任务的能力，涵盖邮件管理、日程安排等真实场景，揭示当前Agent在复杂任务中的短板。</p><a href="https://arxiv.org/abs/2604.08523" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">arXiv</span><span class="tag">2026-04-09</span></div><div class="card"><a href="https://github.com/torvalds/linux/blob/master/Documentation/process/coding-assistants.rst" target="_blank" rel="noopener noreferrer" class="card-title">Linux内核正式引入AI辅助编程指南</a><p class="card-summary">Linus Torvalds主导的Linux内核仓库新增AI辅助编程文档，为贡献者提供使用AI编码助手的规范和建议，在HN获得367分热议。</p><a href="https://github.com/torvalds/linux/blob/master/Documentation/process/coding-assistants.rst" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Hacker News</span><span class="tag">2026-04-10</span></div></section><section class="section" id="section-github"><h2 class="section-title">⭐ GitHub 热门项目</h2><div class="card"><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="card-title">openclaw/openclaw</a><p class="card-summary">超人气开源个人AI助手OpenClaw，支持全平台运行。近期因Anthropic调整Claude定价引发社区关注，35万+星标领跑GitHub。</p><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Python</span><span class="tag">⭐ 354,581</span></div><div class="card"><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="card-title">NousResearch/hermes-agent</a><p class="card-summary">Nous Research发布&quot;与你一起成长的AI Agent&quot;框架Hermes Agent，5.5万+星标，AI Agent领域热门项目。</p><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Python</span><span class="tag">⭐ 55,808</span></div><div class="card"><a href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener noreferrer" class="card-title">microsoft/playwright-mcp</a><p class="card-summary">微软官方Playwright MCP服务器，为AI Agent提供浏览器自动化能力，3万+星标，MCP生态最热门项目之一。</p><a href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">TypeScript</span><span class="tag">⭐ 30,628</span></div><div class="card"><a href="https://github.com/CopilotKit/CopilotKit" target="_blank" rel="noopener noreferrer" class="card-title">CopilotKit/CopilotKit</a><p class="card-summary">面向AI Agent的前端全栈解决方案，支持React和Angular，提出AG-UI协议，3万+星标。让Agent原生UI成为可能。</p><a href="https://github.com/CopilotKit/CopilotKit" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">TypeScript</span><span class="tag">⭐ 30,142</span></div></section><section class="section" id="section-models"><h2 class="section-title">🚀 模型与行业动态</h2><div class="card"><a href="https://www.anthropic.com/news/claude-sonnet-4-6" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic发布Claude Sonnet 4.6（Project Glasswing）</a><p class="card-summary">Anthropic推出Claude Sonnet 4.6全面升级，强化编码、Agent规划、长推理和计算机使用能力，被视为Agent时代的重要模型更新。</p><a href="https://www.anthropic.com/news/claude-sonnet-4-6" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Anthropic</span><span class="tag">2026-04-10</span></div><div class="card"><a href="https://techcrunch.com/2026/04/09/chatgpt-pro-plan-100-month-codex/" target="_blank" rel="noopener noreferrer" class="card-title">ChatGPT推出$100/月Pro计划</a><p class="card-summary">OpenAI填补$20到$200之间的空白，新增$100/月ChatGPT Pro计划，面向重度用户和Codex开发者，满足专业需求。</p><a href="https://techcrunch.com/2026/04/09/chatgpt-pro-plan-100-month-codex/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">OpenAI</span><span class="tag">2026-04-09</span></div></section><section class="section" id="section-community"><h2 class="section-title">🔥 社区热议</h2><div class="card"><a href="https://techcrunch.com/2026/04/10/anthropic-temporarily-banned-openclaws-creator-from-accessing-claude/" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic临时封禁OpenClaw创建者的Claude访问权限</a><p class="card-summary">Anthropic在调整Claude对OpenClaw用户的定价后，临时封禁了OpenClaw创建者访问Claude的权限，引发AI开源社区广泛讨论。</p><a href="https://techcrunch.com/2026/04/10/anthropic-temporarily-banned-openclaws-creator-from-accessing-claude/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">TechCrunch</span><span class="tag">2026-04-10</span></div><div class="card"><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="card-title">OpenClaw创建者被禁后社区热议AI Agent开源生态</a><p class="card-summary">Anthropic封禁OpenClaw创建者事件在社区持续发酵，围绕AI Agent开源生态、模型提供商权利和开发者权益的辩论升温。</p><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">GitHub</span><span class="tag">2026-04-10</span></div></section></main>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
@@ -588,5 +453,4 @@ body {
   });
   applyI18n();
 })();
-</script></body>
-</html>
+</script></body></html>

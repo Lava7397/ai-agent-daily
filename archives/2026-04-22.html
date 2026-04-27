@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 2026-04-22 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="今日刊 — 2026-04-22">
-<meta property="og:description" content="今日 18 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lava7397.com">
-<meta name="twitter:card" content="summary">
-<title>今日刊 — 2026-04-22</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><meta name="description" content="今日刊 2026-04-22 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:title" content="今日刊 — 2026-04-22"><meta property="og:description" content="今日 18 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态"><meta property="og:type" content="article"><meta property="og:url" content="https://lava7397.com"><meta name="twitter:card" content="summary"><title>今日刊 — 2026-04-22</title>
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+/* 系统字体栈，避免 Google Fonts 外联阻塞首屏 */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -29,7 +15,7 @@
 
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f5f0e8;
   color: #2c2c2c;
   min-height: 100vh;
@@ -55,8 +41,8 @@ body {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   background: rgba(245,240,232,0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(100,80,60,0.1);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -179,7 +165,7 @@ body {
   pointer-events: none;
 }
 .hero h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 38px;
   font-weight: 700;
   color: #3a3a3a;
@@ -190,7 +176,7 @@ body {
 .hero .date {
   color: #8a7e6e;
   font-size: 13px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin-top: 6px;
   position: relative;
   z-index: 1;
@@ -204,7 +190,7 @@ body {
   font: inherit;
   font-size: inherit;
   line-height: inherit;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 .hero .date .hero-sep { color: #b0a89a; margin: 0 0.1em; }
 .hero .date .hero-tagline { color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }
@@ -244,7 +230,7 @@ body {
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(90,110,138,0.2);
   font-size: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.2px;
   transition: all 0.25s;
 }
@@ -277,7 +263,7 @@ body {
   margin-top: 44px;
 }
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 20px;
   font-weight: 700;
   color: #4a6080;
@@ -344,7 +330,7 @@ body {
   letter-spacing: 1.5px;
 }
 .card-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   color: #1a1a1a;
   font-size: 18px;
   font-weight: 600;
@@ -386,7 +372,7 @@ body {
   margin-top: 14px;
   margin-right: 6px;
   border: 1px solid rgba(90,110,138,0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -402,194 +388,8 @@ body {
 .skip-link:focus { top: 0; }
 
 </style>
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top detail-issue-top--fixed-dock">
-<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
-
-<div class="detail-topbar">
-<div class="detail-topbar-inner detail-topbar-inner--with-quicknav">  <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-  <nav class="quick-nav quick-nav--inline" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
-  <div class="atlas-lang" role="group" aria-label="界面语言">
-      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
-      <span class="atlas-lang-sep">/</span>
-      <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-</header>
-<div class="hero">
-  <h1 data-i18n="hero_title">今日刊</h1>
-    <p class="date">
-    2026-04-22 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="18">18</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
-</div>
-<!-- Content -->
-<main class="container" id="main-content">
-  
-    <section class="section" id="section-research">
-      <h2 class="section-title">🤖 AI Agent 研究</h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="card-title">AgentSPEX: An Agent SPecification and EXecution Language</a>
-      <p class="card-summary">AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。</p>
-      <a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Agent</span> <span class="tag">DSL</span> <span class="tag">工作流</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="card-title">Agent-World: Scaling Real-World Environment Synthesis for Evolving General Agent Intelligence</a>
-      <p class="card-summary">Agent-World 是一个用于推进通用智能体智能的自我演进训练竞技场。通过可扩展的环境合成，结合多环境强化学习和自我演进智能体竞技场，自动识别能力差距并驱动定向学习。包含智能体环境-任务发现和持续自我演进的智能体训练两个核心组件。在23个具有挑战性的智能体基准测试中，Agent-World-8B和14B模型一致优于强大的专有模型。</p>
-      <a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Agent</span> <span class="tag">强化学习</span> <span class="tag">环境合成</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="card-title">OpenGame: Open Agentic Coding for Games</a>
-      <p class="card-summary">OpenGame 是首个专为端到端网页游戏创建而设计的开源智能体框架。核心是游戏技能——一种可重用、可演进的能力，由模板技能和调试技能组成。由 GameCoder-27B 驱动，这是一个专门用于游戏引擎掌握的代码LLM。OpenGame-Bench 评估管道通过构建健康度、视觉可用性和意图对齐来评估智能体游戏生成，在150个多样化游戏提示上建立了新的最先进水平。</p>
-      <a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Agent</span> <span class="tag">游戏生成</span> <span class="tag">代码LLM</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="card-title">When Can LLMs Learn to Reason with Weak Supervision?</a>
-      <p class="card-summary">这项研究探讨了在三种弱监督设置（数据稀缺、噪声奖励、自监督代理奖励）下，强化学习与可验证奖励（RLVR）的泛化能力。研究发现泛化能力受训练奖励饱和动态支配，推理忠实度是预测模型能否泛化的关键属性。在显式推理轨迹上的监督微调（SFT）对于弱监督下的泛化是必要的，持续预训练可以放大这一效应。</p>
-      <a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">LLM</span> <span class="tag">推理</span> <span class="tag">弱监督</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-github">
-      <h2 class="section-title">⭐ GitHub 热门项目</h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="card-title">OpenClaw - Personal AI assistant (361K ⭐)</a>
-      <p class="card-summary">OpenClaw 是一个个人AI助手项目，近期获得大量关注。支持多模态交互、工具调用和长期记忆，可作为个人AI伴侣运行。项目活跃度极高，社区贡献者众多，是开源AI助手领域的标杆项目。</p>
-      <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">AI助手</span> <span class="tag">开源</span> <span class="tag">多模态</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer" class="card-title">n8n - Workflow automation with AI (185K ⭐)</a>
-      <p class="card-summary">n8n 是一个开源工作流自动化平台，近期集成了大量AI能力。支持AI Agent节点、LangChain集成和自定义AI工作流构建。近48小时发布了新的AI节点更新，增强了与各种LLM的集成能力，是no-code AI自动化领域的热门选择。</p>
-      <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">自动化</span> <span class="tag">工作流</span> <span class="tag">AI集成</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/langflow-ai/langflow" target="_blank" rel="noopener noreferrer" class="card-title">Langflow - Visual AI builder (147K ⭐)</a>
-      <p class="card-summary">Langflow 是一个可视化的AI应用构建器，通过拖拽方式创建复杂的AI工作流。近期更新增强了对多种LLM的支持，改进了Agent构建体验。新增MCP（模型上下文协议）支持，可无缝连接外部工具和数据源。</p>
-      <a href="https://github.com/langflow-ai/langflow" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">可视化</span> <span class="tag">AI构建器</span> <span class="tag">低代码</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer" class="card-title">Dify - LLM app development platform (138K ⭐)</a>
-      <p class="card-summary">Dify 是一个开源的LLM应用开发平台，支持RAG引擎、Agent框架和工作流编排。近期发布了新的Agent模式，支持多步骤推理和工具调用。新增了对Claude和GPT-4o的优化支持，改进了知识库检索性能。</p>
-      <a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">LLM平台</span> <span class="tag">RAG</span> <span class="tag">Agent</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener noreferrer" class="card-title">Firecrawl - Web scraping for AI (111K ⭐)</a>
-      <p class="card-summary">Firecrawl 是一个专为AI应用设计的网页抓取工具，可将网页转换为LLM友好的markdown格式。近期更新增强了JavaScript渲染能力和反爬虫绕过功能。新增了批量抓取API和智能内容提取，是构建AI知识库的重要工具。</p>
-      <a href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">爬虫</span> <span class="tag">数据采集</span> <span class="tag">AI工具</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 模型与行业动态</h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://www.theverge.com/ai-artificial-intelligence/916166/openai-chatgpt-images-2" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI 发布 ChatGPT Images 2.0</a>
-      <p class="card-summary">OpenAI 推出 ChatGPT Images 2.0，集成O系列推理能力，采用代理式图像生成方法。支持从单个提示生成8张不同图像，可创建漫画页面、社交媒体图形。新增思考模型可进行网络研究并将结果融入图像，支持2K分辨率和多语言文本渲染，在日文、中文等多语言文本生成方面显著改善。</p>
-      <a href="https://www.theverge.com/ai-artificial-intelligence/916166/openai-chatgpt-images-2" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">OpenAI</span> <span class="tag">图像生成</span> <span class="tag">多模态</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://venturebeat.com/technology/googles-new-deep-research-and-deep-research-max-agents-can-search-the-web-and-your-private-data" target="_blank" rel="noopener noreferrer" class="card-title">Google 推出 Deep Research 与 Deep Research Max 代理</a>
-      <p class="card-summary">Google 发布两个新型自主研究代理，基于 Gemini 3.1 Pro 模型。首次支持通过单一API调用融合网络数据与企业私有数据，生成原生图表和信息图。支持模型上下文协议（MCP）连接第三方数据源。Deep Research Max 采用扩展测试时计算，专为耗时数小时的深度研究任务设计。</p>
-      <a href="https://venturebeat.com/technology/googles-new-deep-research-and-deep-research-max-agents-can-search-the-web-and-your-private-data" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Google</span> <span class="tag">研究代理</span> <span class="tag">Gemini</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://venturebeat.com/orchestration/kimi-k2-6-runs-agents-for-days-and-exposes-the-limits-of-enterprise-orchestration" target="_blank" rel="noopener noreferrer" class="card-title">Kimi K2.6：可连续运行数天的AI代理模型</a>
-      <p class="card-summary">Moonshot AI 的 Kimi K2.6 模型专为长时间运行的AI代理设计，支持连续执行数小时甚至数天。可管理多达300个子代理，同时执行4000个协调步骤。在测试中用10小时从头构建了完整的SysY编译器，通过所有140项功能测试。暴露了现有企业编排框架在长时间运行场景下的局限性。</p>
-      <a href="https://venturebeat.com/orchestration/kimi-k2-6-runs-agents-for-days-and-exposes-the-limits-of-enterprise-orchestration" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Moonshot</span> <span class="tag">长时间运行</span> <span class="tag">Agent</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-community">
-      <h2 class="section-title">🔥 社区热议</h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://www.theverge.com/science/916427/spacex-cursor-potential-deal-acquisition" target="_blank" rel="noopener noreferrer" class="card-title">SpaceX 拟以600亿美元收购 AI 编程平台 Cursor</a>
-      <p class="card-summary">SpaceX 宣布可能以600亿美元收购AI编程平台Cursor，或支付100亿美元的合作费用。此举旨在帮助 xAI 与市场领导者 Anthropic 竞争，同时应对 Google 和 OpenAI 在AI编码领域的竞争。随着 SpaceX 即将IPO，这笔交易将加强其在AI领域的布局，引发行业对AI编程工具估值的新一轮讨论。</p>
-      <a href="https://www.theverge.com/science/916427/spacex-cursor-potential-deal-acquisition" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">收购</span> <span class="tag">Cursor</span> <span class="tag">SpaceX</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/ai/2026/04/anthropic-gets-5b-investment-from-amazon-will-use-it-to-buy-amazon-chips/" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic 获亚马逊50亿美元追加投资</a>
-      <p class="card-summary">亚马逊向 Anthropic 追加50亿美元投资，使总投资达130亿美元。Anthropic 将获得亚马逊5吉瓦的AI芯片算力用于训练 Claude AI 模型。该交易包含 Anthropic 承诺未来十年在AWS技术上投入超1000亿美元，是AI热潮中循环融资的最新案例。此举旨在应对 Claude 付费订阅激增带来的基础设施压力。</p>
-      <a href="https://arstechnica.com/ai/2026/04/anthropic-gets-5b-investment-from-amazon-will-use-it-to-buy-amazon-chips/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">融资</span> <span class="tag">Anthropic</span> <span class="tag">亚马逊</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/ai/2026/04/meta-will-use-employee-tracking-software-to-help-train-ai-agents-report/" target="_blank" rel="noopener noreferrer" class="card-title">Meta 将追踪员工操作数据训练AI代理</a>
-      <p class="card-summary">Meta 将开始跟踪美国员工的鼠标移动、点击和击键，为AI代理生成高质量训练数据。该软件运行在特定工作应用和网站上，使用定期截图提供上下文。旨在解决AI代理在处理鼠标移动、点击按钮等日常计算机任务时的训练数据不足问题，但可能在欧洲面临法律限制。</p>
-      <a href="https://arstechnica.com/ai/2026/04/meta-will-use-employee-tracking-software-to-help-train-ai-agents-report/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Meta</span> <span class="tag">训练数据</span> <span class="tag">员工监控</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/ai/2026/04/mozilla-anthropics-mythos-found-271-zero-day-vulnerabilities-in-firefox-150/" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic Mythos 发现 Firefox 150 中271个零日漏洞</a>
-      <p class="card-summary">Anthropic 的 Mythos AI 模型在 Mozilla Firefox 150 中发现271个零日漏洞，CTO 称其安全研究能力与世界顶级安全研究人员相当。展示了AI在网络安全领域的突破性进展，能够自主发现复杂软件漏洞。但也引发对AI可能被用于恶意黑客攻击的担忧，防御部署速度可能跟不上AI攻击速度。</p>
-      <a href="https://arstechnica.com/ai/2026/04/mozilla-anthropics-mythos-found-271-zero-day-vulnerabilities-in-firefox-150/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">安全</span> <span class="tag">Anthropic</span> <span class="tag">零日漏洞</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/ai/2026/04/robot-runner-handily-beats-humans-in-half-marathon-setting-new-record/" target="_blank" rel="noopener noreferrer" class="card-title">人形机器人半马击败人类选手创纪录</a>
-      <p class="card-summary">中国人形机器人在半程马拉松比赛中轻松击败人类选手，创下新纪录。展示了中国在机器人领域的快速发展，特别是在运动能力和自主导航方面的突破。机器人能够以超过人类平均速度完成21.1公里比赛，标志着机器人技术在实际应用中的重大进步。</p>
-      <a href="https://arstechnica.com/ai/2026/04/robot-runner-handily-beats-humans-in-half-marathon-setting-new-record/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">机器人</span> <span class="tag">中国</span> <span class="tag">运动能力</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://venturebeat.com/orchestration/the-ai-governance-mirage-why-72-of-enterprises-dont-have-the-control-and-security-they-think-they-do" target="_blank" rel="noopener noreferrer" class="card-title">72% 企业AI安全治理存在盲区</a>
-      <p class="card-summary">VentureBeat 调查显示72%的企业拥有两个或更多主要AI平台，形成安全攻击面扩展。Mass General Brigham 医院案例显示，企业被迫围绕微软Copilot等工具构建安全外壳以防止健康信息泄露。56%受访者自信能检测AI异常，但近三分之一缺乏系统化检测机制，暴露了AI治理的深层问题。</p>
-      <a href="https://venturebeat.com/orchestration/the-ai-governance-mirage-why-72-of-enterprises-dont-have-the-control-and-security-they-think-they-do" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">安全治理</span> <span class="tag">企业AI</span> <span class="tag">合规</span>
-    </div>
-    </section>
-</main>
+</head><body><a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a><div class="detail-issue-top detail-issue-top--fixed-dock"><header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航"><div class="detail-topbar"><div class="detail-topbar-inner detail-topbar-inner--with-quicknav"><a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span><span data-i18n="nav_back_text">返回</span></a><nav class="quick-nav quick-nav--inline" aria-label="内容导航"><a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a></nav><div class="atlas-lang" role="group" aria-label="界面语言"><button type="button" id="lang-zh" data-set-lang="zh">中</button><span class="atlas-lang-sep">/</span><button type="button" id="lang-en" data-set-lang="en">EN</button></div></div></div></header><div class="hero"><h1 data-i18n="hero_title">今日刊</h1><p class="date">
+    2026-04-22 <span class="hero-sep" aria-hidden="true">·</span><span class="hero-tagline" data-i18n="hero_tagline">每日精选</span><span class="hero-sep" aria-hidden="true">·</span><span class="hero-count" id="hero-item-count" data-total-items="18">18</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span></p></div><!-- Content --><main class="container" id="main-content"><section class="section" id="section-research"><h2 class="section-title">🤖 AI Agent 研究</h2><div class="card top"><span class="top-badge">TOP</span><a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="card-title">AgentSPEX: An Agent SPecification and EXecution Language</a><p class="card-summary">AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。</p><a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Agent</span><span class="tag">DSL</span><span class="tag">工作流</span></div><div class="card"><a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="card-title">Agent-World: Scaling Real-World Environment Synthesis for Evolving General Agent Intelligence</a><p class="card-summary">Agent-World 是一个用于推进通用智能体智能的自我演进训练竞技场。通过可扩展的环境合成，结合多环境强化学习和自我演进智能体竞技场，自动识别能力差距并驱动定向学习。包含智能体环境-任务发现和持续自我演进的智能体训练两个核心组件。在23个具有挑战性的智能体基准测试中，Agent-World-8B和14B模型一致优于强大的专有模型。</p><a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Agent</span><span class="tag">强化学习</span><span class="tag">环境合成</span></div><div class="card"><a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="card-title">OpenGame: Open Agentic Coding for Games</a><p class="card-summary">OpenGame 是首个专为端到端网页游戏创建而设计的开源智能体框架。核心是游戏技能——一种可重用、可演进的能力，由模板技能和调试技能组成。由 GameCoder-27B 驱动，这是一个专门用于游戏引擎掌握的代码LLM。OpenGame-Bench 评估管道通过构建健康度、视觉可用性和意图对齐来评估智能体游戏生成，在150个多样化游戏提示上建立了新的最先进水平。</p><a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Agent</span><span class="tag">游戏生成</span><span class="tag">代码LLM</span></div><div class="card"><a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="card-title">When Can LLMs Learn to Reason with Weak Supervision?</a><p class="card-summary">这项研究探讨了在三种弱监督设置（数据稀缺、噪声奖励、自监督代理奖励）下，强化学习与可验证奖励（RLVR）的泛化能力。研究发现泛化能力受训练奖励饱和动态支配，推理忠实度是预测模型能否泛化的关键属性。在显式推理轨迹上的监督微调（SFT）对于弱监督下的泛化是必要的，持续预训练可以放大这一效应。</p><a href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">LLM</span><span class="tag">推理</span><span class="tag">弱监督</span></div></section><section class="section" id="section-github"><h2 class="section-title">⭐ GitHub 热门项目</h2><div class="card top"><span class="top-badge">TOP</span><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="card-title">OpenClaw - Personal AI assistant (361K ⭐)</a><p class="card-summary">OpenClaw 是一个个人AI助手项目，近期获得大量关注。支持多模态交互、工具调用和长期记忆，可作为个人AI伴侣运行。项目活跃度极高，社区贡献者众多，是开源AI助手领域的标杆项目。</p><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">AI助手</span><span class="tag">开源</span><span class="tag">多模态</span></div><div class="card"><a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer" class="card-title">n8n - Workflow automation with AI (185K ⭐)</a><p class="card-summary">n8n 是一个开源工作流自动化平台，近期集成了大量AI能力。支持AI Agent节点、LangChain集成和自定义AI工作流构建。近48小时发布了新的AI节点更新，增强了与各种LLM的集成能力，是no-code AI自动化领域的热门选择。</p><a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">自动化</span><span class="tag">工作流</span><span class="tag">AI集成</span></div><div class="card"><a href="https://github.com/langflow-ai/langflow" target="_blank" rel="noopener noreferrer" class="card-title">Langflow - Visual AI builder (147K ⭐)</a><p class="card-summary">Langflow 是一个可视化的AI应用构建器，通过拖拽方式创建复杂的AI工作流。近期更新增强了对多种LLM的支持，改进了Agent构建体验。新增MCP（模型上下文协议）支持，可无缝连接外部工具和数据源。</p><a href="https://github.com/langflow-ai/langflow" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">可视化</span><span class="tag">AI构建器</span><span class="tag">低代码</span></div><div class="card"><a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer" class="card-title">Dify - LLM app development platform (138K ⭐)</a><p class="card-summary">Dify 是一个开源的LLM应用开发平台，支持RAG引擎、Agent框架和工作流编排。近期发布了新的Agent模式，支持多步骤推理和工具调用。新增了对Claude和GPT-4o的优化支持，改进了知识库检索性能。</p><a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">LLM平台</span><span class="tag">RAG</span><span class="tag">Agent</span></div><div class="card"><a href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener noreferrer" class="card-title">Firecrawl - Web scraping for AI (111K ⭐)</a><p class="card-summary">Firecrawl 是一个专为AI应用设计的网页抓取工具，可将网页转换为LLM友好的markdown格式。近期更新增强了JavaScript渲染能力和反爬虫绕过功能。新增了批量抓取API和智能内容提取，是构建AI知识库的重要工具。</p><a href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">爬虫</span><span class="tag">数据采集</span><span class="tag">AI工具</span></div></section><section class="section" id="section-models"><h2 class="section-title">🚀 模型与行业动态</h2><div class="card top"><span class="top-badge">TOP</span><a href="https://www.theverge.com/ai-artificial-intelligence/916166/openai-chatgpt-images-2" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI 发布 ChatGPT Images 2.0</a><p class="card-summary">OpenAI 推出 ChatGPT Images 2.0，集成O系列推理能力，采用代理式图像生成方法。支持从单个提示生成8张不同图像，可创建漫画页面、社交媒体图形。新增思考模型可进行网络研究并将结果融入图像，支持2K分辨率和多语言文本渲染，在日文、中文等多语言文本生成方面显著改善。</p><a href="https://www.theverge.com/ai-artificial-intelligence/916166/openai-chatgpt-images-2" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">OpenAI</span><span class="tag">图像生成</span><span class="tag">多模态</span></div><div class="card"><a href="https://venturebeat.com/technology/googles-new-deep-research-and-deep-research-max-agents-can-search-the-web-and-your-private-data" target="_blank" rel="noopener noreferrer" class="card-title">Google 推出 Deep Research 与 Deep Research Max 代理</a><p class="card-summary">Google 发布两个新型自主研究代理，基于 Gemini 3.1 Pro 模型。首次支持通过单一API调用融合网络数据与企业私有数据，生成原生图表和信息图。支持模型上下文协议（MCP）连接第三方数据源。Deep Research Max 采用扩展测试时计算，专为耗时数小时的深度研究任务设计。</p><a href="https://venturebeat.com/technology/googles-new-deep-research-and-deep-research-max-agents-can-search-the-web-and-your-private-data" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Google</span><span class="tag">研究代理</span><span class="tag">Gemini</span></div><div class="card"><a href="https://venturebeat.com/orchestration/kimi-k2-6-runs-agents-for-days-and-exposes-the-limits-of-enterprise-orchestration" target="_blank" rel="noopener noreferrer" class="card-title">Kimi K2.6：可连续运行数天的AI代理模型</a><p class="card-summary">Moonshot AI 的 Kimi K2.6 模型专为长时间运行的AI代理设计，支持连续执行数小时甚至数天。可管理多达300个子代理，同时执行4000个协调步骤。在测试中用10小时从头构建了完整的SysY编译器，通过所有140项功能测试。暴露了现有企业编排框架在长时间运行场景下的局限性。</p><a href="https://venturebeat.com/orchestration/kimi-k2-6-runs-agents-for-days-and-exposes-the-limits-of-enterprise-orchestration" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Moonshot</span><span class="tag">长时间运行</span><span class="tag">Agent</span></div></section><section class="section" id="section-community"><h2 class="section-title">🔥 社区热议</h2><div class="card top"><span class="top-badge">TOP</span><a href="https://www.theverge.com/science/916427/spacex-cursor-potential-deal-acquisition" target="_blank" rel="noopener noreferrer" class="card-title">SpaceX 拟以600亿美元收购 AI 编程平台 Cursor</a><p class="card-summary">SpaceX 宣布可能以600亿美元收购AI编程平台Cursor，或支付100亿美元的合作费用。此举旨在帮助 xAI 与市场领导者 Anthropic 竞争，同时应对 Google 和 OpenAI 在AI编码领域的竞争。随着 SpaceX 即将IPO，这笔交易将加强其在AI领域的布局，引发行业对AI编程工具估值的新一轮讨论。</p><a href="https://www.theverge.com/science/916427/spacex-cursor-potential-deal-acquisition" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">收购</span><span class="tag">Cursor</span><span class="tag">SpaceX</span></div><div class="card"><a href="https://arstechnica.com/ai/2026/04/anthropic-gets-5b-investment-from-amazon-will-use-it-to-buy-amazon-chips/" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic 获亚马逊50亿美元追加投资</a><p class="card-summary">亚马逊向 Anthropic 追加50亿美元投资，使总投资达130亿美元。Anthropic 将获得亚马逊5吉瓦的AI芯片算力用于训练 Claude AI 模型。该交易包含 Anthropic 承诺未来十年在AWS技术上投入超1000亿美元，是AI热潮中循环融资的最新案例。此举旨在应对 Claude 付费订阅激增带来的基础设施压力。</p><a href="https://arstechnica.com/ai/2026/04/anthropic-gets-5b-investment-from-amazon-will-use-it-to-buy-amazon-chips/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">融资</span><span class="tag">Anthropic</span><span class="tag">亚马逊</span></div><div class="card"><a href="https://arstechnica.com/ai/2026/04/meta-will-use-employee-tracking-software-to-help-train-ai-agents-report/" target="_blank" rel="noopener noreferrer" class="card-title">Meta 将追踪员工操作数据训练AI代理</a><p class="card-summary">Meta 将开始跟踪美国员工的鼠标移动、点击和击键，为AI代理生成高质量训练数据。该软件运行在特定工作应用和网站上，使用定期截图提供上下文。旨在解决AI代理在处理鼠标移动、点击按钮等日常计算机任务时的训练数据不足问题，但可能在欧洲面临法律限制。</p><a href="https://arstechnica.com/ai/2026/04/meta-will-use-employee-tracking-software-to-help-train-ai-agents-report/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Meta</span><span class="tag">训练数据</span><span class="tag">员工监控</span></div><div class="card"><a href="https://arstechnica.com/ai/2026/04/mozilla-anthropics-mythos-found-271-zero-day-vulnerabilities-in-firefox-150/" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic Mythos 发现 Firefox 150 中271个零日漏洞</a><p class="card-summary">Anthropic 的 Mythos AI 模型在 Mozilla Firefox 150 中发现271个零日漏洞，CTO 称其安全研究能力与世界顶级安全研究人员相当。展示了AI在网络安全领域的突破性进展，能够自主发现复杂软件漏洞。但也引发对AI可能被用于恶意黑客攻击的担忧，防御部署速度可能跟不上AI攻击速度。</p><a href="https://arstechnica.com/ai/2026/04/mozilla-anthropics-mythos-found-271-zero-day-vulnerabilities-in-firefox-150/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">安全</span><span class="tag">Anthropic</span><span class="tag">零日漏洞</span></div><div class="card"><a href="https://arstechnica.com/ai/2026/04/robot-runner-handily-beats-humans-in-half-marathon-setting-new-record/" target="_blank" rel="noopener noreferrer" class="card-title">人形机器人半马击败人类选手创纪录</a><p class="card-summary">中国人形机器人在半程马拉松比赛中轻松击败人类选手，创下新纪录。展示了中国在机器人领域的快速发展，特别是在运动能力和自主导航方面的突破。机器人能够以超过人类平均速度完成21.1公里比赛，标志着机器人技术在实际应用中的重大进步。</p><a href="https://arstechnica.com/ai/2026/04/robot-runner-handily-beats-humans-in-half-marathon-setting-new-record/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">机器人</span><span class="tag">中国</span><span class="tag">运动能力</span></div><div class="card"><a href="https://venturebeat.com/orchestration/the-ai-governance-mirage-why-72-of-enterprises-dont-have-the-control-and-security-they-think-they-do" target="_blank" rel="noopener noreferrer" class="card-title">72% 企业AI安全治理存在盲区</a><p class="card-summary">VentureBeat 调查显示72%的企业拥有两个或更多主要AI平台，形成安全攻击面扩展。Mass General Brigham 医院案例显示，企业被迫围绕微软Copilot等工具构建安全外壳以防止健康信息泄露。56%受访者自信能检测AI异常，但近三分之一缺乏系统化检测机制，暴露了AI治理的深层问题。</p><a href="https://venturebeat.com/orchestration/the-ai-governance-mirage-why-72-of-enterprises-dont-have-the-control-and-security-they-think-they-do" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">安全治理</span><span class="tag">企业AI</span><span class="tag">合规</span></div></section></main>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
@@ -652,5 +452,4 @@ body {
   });
   applyI18n();
 })();
-</script></body>
-</html>
+</script></body></html>

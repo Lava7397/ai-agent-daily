@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 2026-04-26 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="今日刊 — 2026-04-26">
-<meta property="og:description" content="今日 20 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lava7397.com">
-<meta name="twitter:card" content="summary">
-<title>今日刊 — 2026-04-26</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><meta name="description" content="今日刊 2026-04-26 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:title" content="今日刊 — 2026-04-26"><meta property="og:description" content="今日 20 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态"><meta property="og:type" content="article"><meta property="og:url" content="https://lava7397.com"><meta name="twitter:card" content="summary"><title>今日刊 — 2026-04-26</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+/* 系统字体栈，避免 Google Fonts 外联阻塞首屏 */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -28,7 +14,7 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f5f0e8;
   color: #2c2c2c;
   min-height: 100vh;
@@ -55,8 +41,8 @@ body {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   background: rgba(245,240,232,0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(100,80,60,0.1);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -183,7 +169,7 @@ body {
   pointer-events: none;
 }
 .hero h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 38px;
   font-weight: 700;
   color: #3a3a3a;
@@ -198,7 +184,7 @@ body {
   box-sizing: border-box;
   color: #8a7e6e;
   font-size: 13px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin-top: 6px;
   position: relative;
   z-index: 1;
@@ -214,7 +200,7 @@ body {
   font: inherit;
   font-size: inherit;
   line-height: inherit;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 .hero .date .hero-sep { color: #b0a89a; margin: 0 0.1em; }
 .hero .date .hero-tagline { color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }
@@ -254,7 +240,7 @@ body {
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(90,110,138,0.2);
   font-size: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.2px;
   transition: all 0.25s;
 }
@@ -287,7 +273,7 @@ body {
   margin-top: 44px;
 }
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 20px;
   font-weight: 700;
   color: #4a6080;
@@ -354,7 +340,7 @@ body {
   letter-spacing: 1.5px;
 }
 .card-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   color: #1a1a1a;
   font-size: 18px;
   font-weight: 600;
@@ -407,7 +393,7 @@ body {
   margin-top: 14px;
   margin-right: 6px;
   border: 1px solid rgba(90,110,138,0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -428,232 +414,8 @@ body {
 .skip-link:focus-visible { outline: 2px solid #2d3a4a; outline-offset: 2px; }
 
 </style>
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top detail-issue-top--fixed-dock">
-<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
-<div class="detail-topbar">
-  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
-<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
-<div class="atlas-lang" role="group" aria-label="界面语言">
-      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
-      <span class="atlas-lang-sep">/</span>
-      <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-</header>
-<div class="hero">
-  <h1 data-i18n="hero_title">今日刊</h1>
-  <p class="date">
-    2026-04-26 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="20">20</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
-</div>
-
-</div>
-<!-- Content -->
-<main class="container" id="main-content">
-  
-    <section class="section" id="section-research">
-      <h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="http://arxiv.org/abs/2604.21816v1" target="_blank" rel="noopener noreferrer" class="card-title">Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows</a>
-      <p class="card-summary" data-i18n-text="zh">本文提出动态工具门控机制，通过懒加载模式解决AI智能体在调用工具时的计算效率问题。核心设计包括轻量级门控函数和延迟Schema解析，在保持精度的同时显著降低工具调用延迟。实验覆盖API调用、数据库查询、代码执行等多种工具场景。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>The Model Context Protocol (MCP) has become a common interface for connecting large language model (LLM) agents to external tools, but its reliance on stateless, eager schema injection imposes a hidden per-turn overhead the MCP Tax or Tools Tax that practitioner reports place between roughly 10k and 60k tokens in typical multi-server deployments. This payload inflates the key-value cache, is associated with reasoning degradation as context utilization approaches published fracture points around </p>
-      <a href="http://arxiv.org/abs/2604.21816v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">arXiv</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="http://arxiv.org/abs/2604.21477v1" target="_blank" rel="noopener noreferrer" class="card-title">MCP Pitfall Lab: Exposing Developer Pitfalls in MCP Tool Server Security under Multi-Vector Attacks</a>
-      <p class="card-summary" data-i18n-text="zh">MCP Pitfall Lab系统性地梳理了Model Context Protocol工具服务器开发中的常见安全陷阱，涵盖权限控制、数据隔离、输入验证等维度。研究团队通过自动化测试发现当前主流MCP实现普遍存在至少3类高危漏洞，并提供防御建议。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Model Context Protocol (MCP) is increasingly adopted for tool-integrated LLM agents, but its multi-layer design and third-party server ecosystem expand risks across tool metadata, untrusted outputs, cross-tool flows, multimodal inputs, and supply-chain vectors. Existing MCP benchmarks largely measure robustness to malicious inputs but offer limited remediation guidance. We present MCP Pitfall Lab, a protocol-aware security testing framework that operationalizes developer pitfalls as reproducible</p>
-      <a href="http://arxiv.org/abs/2604.21477v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">arXiv</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="http://arxiv.org/abs/2604.20994v1" target="_blank" rel="noopener noreferrer" class="card-title">Breaking MCP with Function Hijacking Attacks: Novel Threats for Function Calling and Agentic Models</a>
-      <p class="card-summary" data-i18n-text="zh">本文披露了针对Model Context Protocol的新型函数劫持攻击方式。攻击者可通过篡改MCP服务器的函数签名，使智能体在不知情的情况下调用恶意函数。论文分析了OpenAI、Anthropic等主要平台在函数调用安全防护上的差异，并提出改进方案。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>The growth of agentic AI has drawn significant attention to function calling Large Language Models (LLMs), which are designed to extend the capabilities of AI-powered system by invoking external functions. Injection and jailbreaking attacks have been extensively explored to showcase the vulnerabilities of LLMs to user prompt manipulation. The expanded capabilities of agentic models introduce further vulnerabilities via their function calling interface. Recent work in LLM security showed that fun</p>
-      <a href="http://arxiv.org/abs/2604.20994v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">arXiv</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-github">
-      <h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="card-title">NousResearch/hermes-agent</a>
-      <p class="card-summary" data-i18n-text="zh">NousResearch开源的成长型AI智能体框架，支持自我改进和长期记忆管理。★116,746。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>The agent that grows with you Stars: 116,746. Language: Python.</p>
-      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer" class="card-title">langgenius/dify</a>
-      <p class="card-summary" data-i18n-text="zh">Dify是生产级智能体工作流开发平台，支持从原型到生产的无缝衔接，含可视化编排和API暴露。★139,148。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Production-ready platform for agentic workflow development. Stars: 139,148. Language: TypeScript.</p>
-      <a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/netdata/netdata" target="_blank" rel="noopener noreferrer" class="card-title">netdata/netdata</a>
-      <p class="card-summary" data-i18n-text="zh">Netdata是实时全栈可观测性平台，AI驱动监控，支持容器化和分布式系统指标采集。★78,601。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>The fastest path to AI-powered full stack observability, even for lean teams. Stars: 78,601. Language: C.</p>
-      <a href="https://github.com/netdata/netdata" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/ludwig-ai/ludwig" target="_blank" rel="noopener noreferrer" class="card-title">ludwig-ai/ludwig</a>
-      <p class="card-summary" data-i18n-text="zh">Low-code framework for building custom LLMs, neural networks, and other AI models ★11,677。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Low-code framework for building custom LLMs, neural networks, and other AI models Stars: 11,677. Language: Python.</p>
-      <a href="https://github.com/ludwig-ai/ludwig" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer" class="card-title">thedotmack/claude-mem</a>
-      <p class="card-summary" data-i18n-text="zh">Claude Code插件，自动捕获项目上下文并构建可查询记忆库，解决智能体会话间遗忘问题。★67,482。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude&#x27;s agent-sdk), and injects relevant context back into future sessions. Stars: 67,482. Language: TypeScript.</p>
-      <a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/hesreallyhim/awesome-claude-code" target="_blank" rel="noopener noreferrer" class="card-title">hesreallyhim/awesome-claude-code</a>
-      <p class="card-summary" data-i18n-text="zh">Anthropic官方Claude Code智能体编程工具，支持端到端编码任务、测试编写和PR管理。★41,025。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>A curated list of awesome skills, hooks, slash-commands, agent orchestrators, applications, and plugins for Claude Code by Anthropic Stars: 41,025. Language: Python.</p>
-      <a href="https://github.com/hesreallyhim/awesome-claude-code" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 <span data-i18n-text="zh">模型与行业动态</span><span data-i18n-text="en" hidden>Models & Industry</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://techcrunch.com/2026/04/25/anthropic-created-a-test-marketplace-for-agent-on-agent-commerce/" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic created a test marketplace for agent-on-agent commerce</a>
-      <p class="card-summary" data-i18n-text="zh">Anthropic推出智能体间商业测试市场，允许不同AI智能体之间进行付费任务委托和资源交易。该市场支持函数调用计量、上下文窗口租赁、工具使用计费等新型商业模式，为AI经济体系奠定基础。平台目前处于邀请制测试阶段。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>In a recent experiment, Anthropic created a classified marketplace where AI agents represented both buyers and sellers, striking real deals for real goods and real money.</p>
-      <a href="https://techcrunch.com/2026/04/25/anthropic-created-a-test-marketplace-for-agent-on-agent-commerce/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/25/openai-ceo-apologizes-to-tumbler-ridge-community/" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI CEO apologizes to Tumbler Ridge community</a>
-      <p class="card-summary" data-i18n-text="zh">OpenAI CEO就数据中心选址争议向Tumbler Ridge社区致歉此前该公司承诺在该地区建设AI基础设施但最终选址他处。此事件反映了AI数据中心与当地社区之间的利益博弈，以及科技公司承诺与执行之间的落差。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>In a letter to the residents of Tumbler Ridge, Canada, OpenAI CEO Sam Altman said he is “deeply sorry” that his company failed to alert law enforcement about the suspect in a recent mass shooting.</p>
-      <a href="https://techcrunch.com/2026/04/25/openai-ceo-apologizes-to-tumbler-ridge-community/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/" target="_blank" rel="noopener noreferrer" class="card-title">Google to invest up to $40B in Anthropic in cash and compute</a>
-      <p class="card-summary" data-i18n-text="zh">Google宣布向Anthropic投资至多400亿美元，这是AI基础设施领域最大单笔投资。资金将以现金和Google Cloud算力配额形式交付，用于支持Anthropic下一代模型训练和 enterprise部署。此举使Google与Anthropic的合作深度超越单纯API供应关系。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Google plans up to $40B investment in Anthropic as AI rivals race to secure massive compute capacity, following the limited release of its powerful, cybersecurity-focused Mythos model.</p>
-      <a href="https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models/" target="_blank" rel="noopener noreferrer" class="card-title">DeepSeek previews new AI model that &amp;#8216;closes the gap&amp;#8217; with frontier models</a>
-      <p class="card-summary" data-i18n-text="zh">【TechCrunch相关动态】DeepSeek says both models are more efficient and performant than DeepSeek V3.2 d...</p>
-      <p class="card-summary" data-i18n-text="en" hidden>DeepSeek says both models are more efficient and performant than DeepSeek V3.2 due to architectural improvements, and have almost &quot;closed the gap&quot; with current leading models, both open and closed, on reasoning benchmarks.</p>
-      <a href="https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI releases GPT-5.5, bringing company one step closer to an AI &amp;#8216;super app&amp;#8217;</a>
-      <p class="card-summary" data-i18n-text="zh">【TechCrunch相关动态】OpenAI says its latest model offers increased capabilities across a broad variet...</p>
-      <p class="card-summary" data-i18n-text="en" hidden>OpenAI says its latest model offers increased capabilities across a broad variety of categories.</p>
-      <a href="https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-community">
-      <h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://techcrunch.com/2026/04/25/maines-governor-vetoes-data-center-moratorium/" target="_blank" rel="noopener noreferrer" class="card-title">Maine&amp;#8217;s governor vetoes data center moratorium</a>
-      <p class="card-summary" data-i18n-text="zh">缅因州州长否决数据中心的建造暂停法案，该法案本意是限制AI数据中心的能耗扩张。这是全美首个此类立法尝试，科技行业对此反应强烈，认为暂停令将损害该州作为AI基础设施选址的竞争力。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>L.D. 307 would have imposed the country’s first statewide moratorium on new data centers — lasting, in this case, until November 1, 2027.</p>
-      <a href="https://techcrunch.com/2026/04/25/maines-governor-vetoes-data-center-moratorium/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/25/why-cohere-is-merging-with-aleph-alpha/" target="_blank" rel="noopener noreferrer" class="card-title">Why Cohere is merging with Aleph Alpha</a>
-      <p class="card-summary" data-i18n-text="zh">加拿大AI独角兽Cohere宣布收购德国AI公司Aleph Alpha，合并后将成为欧洲最大的本土AI平台。此举被视作欧洲应对美国AI巨头垄断的战略整合，两家公司在语音和文本生成上各有所长。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Canadian AI startup Cohere is taking over Germany-based Aleph Alpha with support from Lidl’s owner, Schwarz Group. With the blessing of their governments, the companies intend to offer a sovereign alternative to enterprises in an AI landscape dominated by American players.</p>
-      <a href="https://techcrunch.com/2026/04/25/why-cohere-is-merging-with-aleph-alpha/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/25/why-tokyo-is-the-most-important-tech-destination-of-2026/" target="_blank" rel="noopener noreferrer" class="card-title">Why Tokyo is the most important tech destination of 2026</a>
-      <p class="card-summary" data-i18n-text="zh">东京正成为2026年最重要的科技目的地，日本政府投入巨资建设AI基础设施，吸引大量风投资金。同时东京也是多模态AI研究和机器人技术的全球中心，吸引中美科技公司在此设立亚洲枢纽。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>SusHi Tech Tokyo 2026 has four tightly defined technology domains, each backed by live demonstrations, dedicated exhibit floors, and sessions featuring the people actually building and funding these technologies globally.</p>
-      <a href="https://techcrunch.com/2026/04/25/why-tokyo-is-the-most-important-tech-destination-of-2026/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/24/metas-loss-is-thinking-machines-gain/" target="_blank" rel="noopener noreferrer" class="card-title">Meta&amp;#8217;s loss is Thinking Machines&amp;#8217; gain</a>
-      <p class="card-summary" data-i18n-text="zh">Meta has been poaching talent from Thinking Machines Lab. But it&#x27;s a two-way street.</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Meta has been poaching talent from Thinking Machines Lab. But it&#x27;s a two-way street.</p>
-      <a href="https://techcrunch.com/2026/04/24/metas-loss-is-thinking-machines-gain/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/24/comfyui-hits-500m-valuation-as-creators-seek-more-control-over-ai-generated-media/" target="_blank" rel="noopener noreferrer" class="card-title">ComfyUI hits $500M valuation as creators seek more control over AI-generated media</a>
-      <p class="card-summary" data-i18n-text="zh">ComfyUI, whose tools give creators more control over AI image, video, and audio generation, just raised $30 million.</p>
-      <p class="card-summary" data-i18n-text="en" hidden>ComfyUI, whose tools give creators more control over AI image, video, and audio generation, just raised $30 million.</p>
-      <a href="https://techcrunch.com/2026/04/24/comfyui-hits-500m-valuation-as-creators-seek-more-control-over-ai-generated-media/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/" target="_blank" rel="noopener noreferrer" class="card-title">Marked-up Mac minis flood eBay amid shortages driven by AI</a>
-      <p class="card-summary" data-i18n-text="zh">Apple’s sold-out Mac mini is spawning marked-up eBay listings as demand surges for the compact desktop, now favored for </p>
-      <p class="card-summary" data-i18n-text="en" hidden>Apple’s sold-out Mac mini is spawning marked-up eBay listings as demand surges for the compact desktop, now favored for running local AI models and tools.</p>
-      <a href="https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">TechCrunch</span>
-    </div>
-    </section>
-</main>
+</head><body><a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a><div class="detail-issue-top detail-issue-top--fixed-dock"><header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航"><div class="detail-topbar"><div class="detail-topbar-inner detail-topbar-inner--with-quicknav"><a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span><span data-i18n="nav_back_text">返回</span></a><nav class="quick-nav quick-nav--inline" aria-label="内容导航"><a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a></nav><div class="atlas-lang" role="group" aria-label="界面语言"><button type="button" id="lang-zh" data-set-lang="zh">中</button><span class="atlas-lang-sep">/</span><button type="button" id="lang-en" data-set-lang="en">EN</button></div></div></div></header><div class="hero"><h1 data-i18n="hero_title">今日刊</h1><p class="date">
+    2026-04-26 <span class="hero-sep" aria-hidden="true">·</span><span class="hero-tagline" data-i18n="hero_tagline">每日精选</span><span class="hero-sep" aria-hidden="true">·</span><span class="hero-count" id="hero-item-count" data-total-items="20">20</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span></p></div></div><!-- Content --><main class="container" id="main-content"><section class="section" id="section-research"><h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="http://arxiv.org/abs/2604.21816v1" target="_blank" rel="noopener noreferrer" class="card-title">Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows</a><p class="card-summary" data-i18n-text="zh">本文提出动态工具门控机制，通过懒加载模式解决AI智能体在调用工具时的计算效率问题。核心设计包括轻量级门控函数和延迟Schema解析，在保持精度的同时显著降低工具调用延迟。实验覆盖API调用、数据库查询、代码执行等多种工具场景。</p><p class="card-summary" data-i18n-text="en" hidden>The Model Context Protocol (MCP) has become a common interface for connecting large language model (LLM) agents to external tools, but its reliance on stateless, eager schema injection imposes a hidden per-turn overhead the MCP Tax or Tools Tax that practitioner reports place between roughly 10k and 60k tokens in typical multi-server deployments. This payload inflates the key-value cache, is associated with reasoning degradation as context utilization approaches published fracture points around </p><a href="http://arxiv.org/abs/2604.21816v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">arXiv</span></div><div class="card"><a href="http://arxiv.org/abs/2604.21477v1" target="_blank" rel="noopener noreferrer" class="card-title">MCP Pitfall Lab: Exposing Developer Pitfalls in MCP Tool Server Security under Multi-Vector Attacks</a><p class="card-summary" data-i18n-text="zh">MCP Pitfall Lab系统性地梳理了Model Context Protocol工具服务器开发中的常见安全陷阱，涵盖权限控制、数据隔离、输入验证等维度。研究团队通过自动化测试发现当前主流MCP实现普遍存在至少3类高危漏洞，并提供防御建议。</p><p class="card-summary" data-i18n-text="en" hidden>Model Context Protocol (MCP) is increasingly adopted for tool-integrated LLM agents, but its multi-layer design and third-party server ecosystem expand risks across tool metadata, untrusted outputs, cross-tool flows, multimodal inputs, and supply-chain vectors. Existing MCP benchmarks largely measure robustness to malicious inputs but offer limited remediation guidance. We present MCP Pitfall Lab, a protocol-aware security testing framework that operationalizes developer pitfalls as reproducible</p><a href="http://arxiv.org/abs/2604.21477v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">arXiv</span></div><div class="card"><a href="http://arxiv.org/abs/2604.20994v1" target="_blank" rel="noopener noreferrer" class="card-title">Breaking MCP with Function Hijacking Attacks: Novel Threats for Function Calling and Agentic Models</a><p class="card-summary" data-i18n-text="zh">本文披露了针对Model Context Protocol的新型函数劫持攻击方式。攻击者可通过篡改MCP服务器的函数签名，使智能体在不知情的情况下调用恶意函数。论文分析了OpenAI、Anthropic等主要平台在函数调用安全防护上的差异，并提出改进方案。</p><p class="card-summary" data-i18n-text="en" hidden>The growth of agentic AI has drawn significant attention to function calling Large Language Models (LLMs), which are designed to extend the capabilities of AI-powered system by invoking external functions. Injection and jailbreaking attacks have been extensively explored to showcase the vulnerabilities of LLMs to user prompt manipulation. The expanded capabilities of agentic models introduce further vulnerabilities via their function calling interface. Recent work in LLM security showed that fun</p><a href="http://arxiv.org/abs/2604.20994v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">arXiv</span></div></section><section class="section" id="section-github"><h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="card-title">NousResearch/hermes-agent</a><p class="card-summary" data-i18n-text="zh">NousResearch开源的成长型AI智能体框架，支持自我改进和长期记忆管理。★116,746。</p><p class="card-summary" data-i18n-text="en" hidden>The agent that grows with you Stars: 116,746. Language: Python.</p><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div><div class="card"><a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer" class="card-title">langgenius/dify</a><p class="card-summary" data-i18n-text="zh">Dify是生产级智能体工作流开发平台，支持从原型到生产的无缝衔接，含可视化编排和API暴露。★139,148。</p><p class="card-summary" data-i18n-text="en" hidden>Production-ready platform for agentic workflow development. Stars: 139,148. Language: TypeScript.</p><a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div><div class="card"><a href="https://github.com/netdata/netdata" target="_blank" rel="noopener noreferrer" class="card-title">netdata/netdata</a><p class="card-summary" data-i18n-text="zh">Netdata是实时全栈可观测性平台，AI驱动监控，支持容器化和分布式系统指标采集。★78,601。</p><p class="card-summary" data-i18n-text="en" hidden>The fastest path to AI-powered full stack observability, even for lean teams. Stars: 78,601. Language: C.</p><a href="https://github.com/netdata/netdata" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div><div class="card"><a href="https://github.com/ludwig-ai/ludwig" target="_blank" rel="noopener noreferrer" class="card-title">ludwig-ai/ludwig</a><p class="card-summary" data-i18n-text="zh">Low-code framework for building custom LLMs, neural networks, and other AI models ★11,677。</p><p class="card-summary" data-i18n-text="en" hidden>Low-code framework for building custom LLMs, neural networks, and other AI models Stars: 11,677. Language: Python.</p><a href="https://github.com/ludwig-ai/ludwig" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div><div class="card"><a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer" class="card-title">thedotmack/claude-mem</a><p class="card-summary" data-i18n-text="zh">Claude Code插件，自动捕获项目上下文并构建可查询记忆库，解决智能体会话间遗忘问题。★67,482。</p><p class="card-summary" data-i18n-text="en" hidden>A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude&#x27;s agent-sdk), and injects relevant context back into future sessions. Stars: 67,482. Language: TypeScript.</p><a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div><div class="card"><a href="https://github.com/hesreallyhim/awesome-claude-code" target="_blank" rel="noopener noreferrer" class="card-title">hesreallyhim/awesome-claude-code</a><p class="card-summary" data-i18n-text="zh">Anthropic官方Claude Code智能体编程工具，支持端到端编码任务、测试编写和PR管理。★41,025。</p><p class="card-summary" data-i18n-text="en" hidden>A curated list of awesome skills, hooks, slash-commands, agent orchestrators, applications, and plugins for Claude Code by Anthropic Stars: 41,025. Language: Python.</p><a href="https://github.com/hesreallyhim/awesome-claude-code" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div></section><section class="section" id="section-models"><h2 class="section-title">🚀 <span data-i18n-text="zh">模型与行业动态</span><span data-i18n-text="en" hidden>Models & Industry</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://techcrunch.com/2026/04/25/anthropic-created-a-test-marketplace-for-agent-on-agent-commerce/" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic created a test marketplace for agent-on-agent commerce</a><p class="card-summary" data-i18n-text="zh">Anthropic推出智能体间商业测试市场，允许不同AI智能体之间进行付费任务委托和资源交易。该市场支持函数调用计量、上下文窗口租赁、工具使用计费等新型商业模式，为AI经济体系奠定基础。平台目前处于邀请制测试阶段。</p><p class="card-summary" data-i18n-text="en" hidden>In a recent experiment, Anthropic created a classified marketplace where AI agents represented both buyers and sellers, striking real deals for real goods and real money.</p><a href="https://techcrunch.com/2026/04/25/anthropic-created-a-test-marketplace-for-agent-on-agent-commerce/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div><div class="card"><a href="https://techcrunch.com/2026/04/25/openai-ceo-apologizes-to-tumbler-ridge-community/" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI CEO apologizes to Tumbler Ridge community</a><p class="card-summary" data-i18n-text="zh">OpenAI CEO就数据中心选址争议向Tumbler Ridge社区致歉此前该公司承诺在该地区建设AI基础设施但最终选址他处。此事件反映了AI数据中心与当地社区之间的利益博弈，以及科技公司承诺与执行之间的落差。</p><p class="card-summary" data-i18n-text="en" hidden>In a letter to the residents of Tumbler Ridge, Canada, OpenAI CEO Sam Altman said he is “deeply sorry” that his company failed to alert law enforcement about the suspect in a recent mass shooting.</p><a href="https://techcrunch.com/2026/04/25/openai-ceo-apologizes-to-tumbler-ridge-community/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div><div class="card"><a href="https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/" target="_blank" rel="noopener noreferrer" class="card-title">Google to invest up to $40B in Anthropic in cash and compute</a><p class="card-summary" data-i18n-text="zh">Google宣布向Anthropic投资至多400亿美元，这是AI基础设施领域最大单笔投资。资金将以现金和Google Cloud算力配额形式交付，用于支持Anthropic下一代模型训练和 enterprise部署。此举使Google与Anthropic的合作深度超越单纯API供应关系。</p><p class="card-summary" data-i18n-text="en" hidden>Google plans up to $40B investment in Anthropic as AI rivals race to secure massive compute capacity, following the limited release of its powerful, cybersecurity-focused Mythos model.</p><a href="https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div><div class="card"><a href="https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models/" target="_blank" rel="noopener noreferrer" class="card-title">DeepSeek previews new AI model that &amp;#8216;closes the gap&amp;#8217; with frontier models</a><p class="card-summary" data-i18n-text="zh">【TechCrunch相关动态】DeepSeek says both models are more efficient and performant than DeepSeek V3.2 d...</p><p class="card-summary" data-i18n-text="en" hidden>DeepSeek says both models are more efficient and performant than DeepSeek V3.2 due to architectural improvements, and have almost &quot;closed the gap&quot; with current leading models, both open and closed, on reasoning benchmarks.</p><a href="https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div><div class="card"><a href="https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI releases GPT-5.5, bringing company one step closer to an AI &amp;#8216;super app&amp;#8217;</a><p class="card-summary" data-i18n-text="zh">【TechCrunch相关动态】OpenAI says its latest model offers increased capabilities across a broad variet...</p><p class="card-summary" data-i18n-text="en" hidden>OpenAI says its latest model offers increased capabilities across a broad variety of categories.</p><a href="https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div></section><section class="section" id="section-community"><h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://techcrunch.com/2026/04/25/maines-governor-vetoes-data-center-moratorium/" target="_blank" rel="noopener noreferrer" class="card-title">Maine&amp;#8217;s governor vetoes data center moratorium</a><p class="card-summary" data-i18n-text="zh">缅因州州长否决数据中心的建造暂停法案，该法案本意是限制AI数据中心的能耗扩张。这是全美首个此类立法尝试，科技行业对此反应强烈，认为暂停令将损害该州作为AI基础设施选址的竞争力。</p><p class="card-summary" data-i18n-text="en" hidden>L.D. 307 would have imposed the country’s first statewide moratorium on new data centers — lasting, in this case, until November 1, 2027.</p><a href="https://techcrunch.com/2026/04/25/maines-governor-vetoes-data-center-moratorium/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div><div class="card"><a href="https://techcrunch.com/2026/04/25/why-cohere-is-merging-with-aleph-alpha/" target="_blank" rel="noopener noreferrer" class="card-title">Why Cohere is merging with Aleph Alpha</a><p class="card-summary" data-i18n-text="zh">加拿大AI独角兽Cohere宣布收购德国AI公司Aleph Alpha，合并后将成为欧洲最大的本土AI平台。此举被视作欧洲应对美国AI巨头垄断的战略整合，两家公司在语音和文本生成上各有所长。</p><p class="card-summary" data-i18n-text="en" hidden>Canadian AI startup Cohere is taking over Germany-based Aleph Alpha with support from Lidl’s owner, Schwarz Group. With the blessing of their governments, the companies intend to offer a sovereign alternative to enterprises in an AI landscape dominated by American players.</p><a href="https://techcrunch.com/2026/04/25/why-cohere-is-merging-with-aleph-alpha/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div><div class="card"><a href="https://techcrunch.com/2026/04/25/why-tokyo-is-the-most-important-tech-destination-of-2026/" target="_blank" rel="noopener noreferrer" class="card-title">Why Tokyo is the most important tech destination of 2026</a><p class="card-summary" data-i18n-text="zh">东京正成为2026年最重要的科技目的地，日本政府投入巨资建设AI基础设施，吸引大量风投资金。同时东京也是多模态AI研究和机器人技术的全球中心，吸引中美科技公司在此设立亚洲枢纽。</p><p class="card-summary" data-i18n-text="en" hidden>SusHi Tech Tokyo 2026 has four tightly defined technology domains, each backed by live demonstrations, dedicated exhibit floors, and sessions featuring the people actually building and funding these technologies globally.</p><a href="https://techcrunch.com/2026/04/25/why-tokyo-is-the-most-important-tech-destination-of-2026/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div><div class="card"><a href="https://techcrunch.com/2026/04/24/metas-loss-is-thinking-machines-gain/" target="_blank" rel="noopener noreferrer" class="card-title">Meta&amp;#8217;s loss is Thinking Machines&amp;#8217; gain</a><p class="card-summary" data-i18n-text="zh">Meta has been poaching talent from Thinking Machines Lab. But it&#x27;s a two-way street.</p><p class="card-summary" data-i18n-text="en" hidden>Meta has been poaching talent from Thinking Machines Lab. But it&#x27;s a two-way street.</p><a href="https://techcrunch.com/2026/04/24/metas-loss-is-thinking-machines-gain/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div><div class="card"><a href="https://techcrunch.com/2026/04/24/comfyui-hits-500m-valuation-as-creators-seek-more-control-over-ai-generated-media/" target="_blank" rel="noopener noreferrer" class="card-title">ComfyUI hits $500M valuation as creators seek more control over AI-generated media</a><p class="card-summary" data-i18n-text="zh">ComfyUI, whose tools give creators more control over AI image, video, and audio generation, just raised $30 million.</p><p class="card-summary" data-i18n-text="en" hidden>ComfyUI, whose tools give creators more control over AI image, video, and audio generation, just raised $30 million.</p><a href="https://techcrunch.com/2026/04/24/comfyui-hits-500m-valuation-as-creators-seek-more-control-over-ai-generated-media/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div><div class="card"><a href="https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/" target="_blank" rel="noopener noreferrer" class="card-title">Marked-up Mac minis flood eBay amid shortages driven by AI</a><p class="card-summary" data-i18n-text="zh">Apple’s sold-out Mac mini is spawning marked-up eBay listings as demand surges for the compact desktop, now favored for </p><p class="card-summary" data-i18n-text="en" hidden>Apple’s sold-out Mac mini is spawning marked-up eBay listings as demand surges for the compact desktop, now favored for running local AI models and tools.</p><a href="https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">TechCrunch</span></div></section></main>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
@@ -714,5 +476,4 @@ body {
 })();
 </script>
 
-</body>
-</html>
+</body></html>

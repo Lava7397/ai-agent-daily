@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 2026-04-09 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="今日刊 — 2026-04-09">
-<meta property="og:description" content="今日 10 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lava7397.com">
-<meta name="twitter:card" content="summary">
-<title>今日刊 — 2026-04-09</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><meta name="description" content="今日刊 2026-04-09 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:title" content="今日刊 — 2026-04-09"><meta property="og:description" content="今日 10 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态"><meta property="og:type" content="article"><meta property="og:url" content="https://lava7397.com"><meta name="twitter:card" content="summary"><title>今日刊 — 2026-04-09</title>
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+/* 系统字体栈，避免 Google Fonts 外联阻塞首屏 */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -30,7 +16,7 @@
 
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f5f0e8;
   color: #2c2c2c;
   min-height: 100vh;
@@ -56,8 +42,8 @@ body {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   background: rgba(245,240,232,0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(100,80,60,0.1);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -180,7 +166,7 @@ body {
   pointer-events: none;
 }
 .hero h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 38px;
   font-weight: 700;
   color: #3a3a3a;
@@ -191,7 +177,7 @@ body {
 .hero .date {
   color: #8a7e6e;
   font-size: 13px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin-top: 6px;
   position: relative;
   z-index: 1;
@@ -205,7 +191,7 @@ body {
   font: inherit;
   font-size: inherit;
   line-height: inherit;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 .hero .date .hero-sep { color: #b0a89a; margin: 0 0.1em; }
 .hero .date .hero-tagline { color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }
@@ -245,7 +231,7 @@ body {
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(90,110,138,0.2);
   font-size: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.2px;
   transition: all 0.25s;
 }
@@ -278,7 +264,7 @@ body {
   margin-top: 44px;
 }
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 20px;
   font-weight: 700;
   color: #4a6080;
@@ -345,7 +331,7 @@ body {
   letter-spacing: 1.5px;
 }
 .card-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   color: #1a1a1a;
   font-size: 18px;
   font-weight: 600;
@@ -387,7 +373,7 @@ body {
   margin-top: 14px;
   margin-right: 6px;
   border: 1px solid rgba(90,110,138,0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -403,122 +389,8 @@ body {
 .skip-link:focus { top: 0; }
 
 </style>
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top detail-issue-top--fixed-dock">
-<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
-<div class="detail-topbar">
-  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
-  <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
-  <div class="atlas-lang" role="group" aria-label="界面语言">
-      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
-      <span class="atlas-lang-sep">/</span>
-      <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-</header>
-<div class="hero">
-  <h1 data-i18n="hero_title">今日刊</h1>
-    <p class="date">
-    2026-04-09 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="10">10</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
-</div>
-</div>
-
-<!-- Content -->
-<main class="container" id="main-content">
-  
-    <section class="section" id="section-research">
-      <h2 class="section-title">🤖 AI Agent 研究</h2>
-      
-    <div class="card">
-      <a href="https://arxiv.org/abs/2604.05091" target="_blank" rel="noopener noreferrer" class="card-title">MegaTrain: Full Precision Training of 100B+ Parameter LLMs on a Single GPU</a>
-      <p class="card-summary">arXiv最新论文MegaTrain提出全新训练框架，支持在单个GPU上进行100B+参数大模型的全精度训练，在Hacker News引发热烈讨论(261分)。</p>
-      <a href="https://arxiv.org/abs/2604.05091" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">arXiv</span> <span class="tag">2026-04-08</span>
-    </div>
-
-    <div class="card">
-      <a href="https://techcrunch.com/2026/04/08/poke-makes-ai-agents-as-easy-as-sending-a-text/" target="_blank" rel="noopener noreferrer" class="card-title">Poke: 让AI Agent像发短信一样简单</a>
-      <p class="card-summary">Poke通过短信界面让普通用户轻松使用AI Agent，无需复杂设置、APP或技术知识，即可完成任务自动化。获TechCrunch独家报道。</p>
-      <a href="https://techcrunch.com/2026/04/08/poke-makes-ai-agents-as-easy-as-sending-a-text/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">TechCrunch</span> <span class="tag">2026-04-08</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-github">
-      <h2 class="section-title">⭐ GitHub 热门项目</h2>
-      
-    <div class="card">
-      <a href="https://github.com/atilaahmettaner/tradingview-mcp" target="_blank" rel="noopener noreferrer" class="card-title">atilaahmettaner/tradingview-mcp</a>
-      <p class="card-summary">高级TradingView MCP服务器，为AI助手提供实时加密货币和股票筛选、技术指标分析、布林带智能判断和K线形态识别。支持Claude Desktop和多种交易所。</p>
-      <a href="https://github.com/atilaahmettaner/tradingview-mcp" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Python</span> <span class="tag">⭐ 1331</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/mem0ai/mem0" target="_blank" rel="noopener noreferrer" class="card-title">mem0ai/mem0</a>
-      <p class="card-summary">为AI Agent打造的通用记忆层，支持跨会话的持久化记忆管理。获得5.2万+星标，是AI Agent基础设施的热门项目。</p>
-      <a href="https://github.com/mem0ai/mem0" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Python</span> <span class="tag">⭐ 52344</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="card-title">NousResearch/hermes-agent</a>
-      <p class="card-summary">Nous Research发布的AI Agent框架——&quot;与你一起成长的Agent&quot;，获得3.8万+星标，今日Python趋势榜热门项目。</p>
-      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Python</span> <span class="tag">⭐ 38032</span>
-    </div>
-
-    <div class="card">
-      <a href="https://github.com/HKUDS/AI-Trader" target="_blank" rel="noopener noreferrer" class="card-title">HKUDS/AI-Trader</a>
-      <p class="card-summary">100%全自动Agent原生交易系统，来自香港大学数据科学实验室，1.2万+星标。整合多种AI Agent实现完全自主的金融交易。</p>
-      <a href="https://github.com/HKUDS/AI-Trader" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Python</span> <span class="tag">⭐ 12686</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 模型与行业动态</h2>
-      
-    <div class="card">
-      <a href="https://ai.meta.com/blog/introducing-muse-spark-msl/" target="_blank" rel="noopener noreferrer" class="card-title">Meta发布Muse Spark：迈向个人超级智能</a>
-      <p class="card-summary">Meta AI发布Muse Spark(MSL)项目，目标是构建个人超级智能。该文章在Hacker News获得268分关注，展示了Meta在AI Agent和个人化AI方面的最新方向。</p>
-      <a href="https://ai.meta.com/blog/introducing-muse-spark-msl/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Meta</span> <span class="tag">2026-04-08</span>
-    </div>
-
-    <div class="card">
-      <a href="https://techcrunch.com/2026/04/08/aws-boss-explains-why-investing-billions-in-both-anthropic-and-openai-is-an-ok-conflict/" target="_blank" rel="noopener noreferrer" class="card-title">AWS同时投资Anthropic和OpenAI：Matt Garman解释这是&#x27;可以接受的冲突&#x27;</a>
-      <p class="card-summary">AWS CEO Matt Garman解释为何同时向Anthropic和OpenAI各投资数十亿美元。AWS的文化是善于处理竞争关系，因为云巨头本身也与合作伙伴竞争。</p>
-      <a href="https://techcrunch.com/2026/04/08/aws-boss-explains-why-investing-billions-in-both-anthropic-and-openai-is-an-ok-conflict/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">AWS</span> <span class="tag">2026-04-08</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-community">
-      <h2 class="section-title">🔥 社区热议</h2>
-      
-    <div class="card">
-      <a href="https://news.ycombinator.com/item?id=47689174" target="_blank" rel="noopener noreferrer" class="card-title">MegaTrain登上Hacker News热榜：单GPU训练100B参数LLM</a>
-      <p class="card-summary">Hacker News上关于MegaTrain论文的讨论引发261分热度，社区对单GPU全精度训练超大模型的技术突破表现出浓厚兴趣。</p>
-      <a href="https://news.ycombinator.com/item?id=47689174" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">Hacker News</span> <span class="tag">2026-04-08</span>
-    </div>
-
-    <div class="card">
-      <a href="https://techcrunch.com/2026/04/08/atlassian-confluence-visual-ai-tools-agents/" target="_blank" rel="noopener noreferrer" class="card-title">Atlassian在Confluence中推出可视化AI工具和第三方Agent</a>
-      <p class="card-summary">Atlassian为Confluence新增可视化AI内容生成，并集成Lovable、Replit和Gamma的第三方Agent，进一步推动企业级AI Agent应用落地。</p>
-      <a href="https://techcrunch.com/2026/04/08/atlassian-confluence-visual-ai-tools-agents/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a>
-      <span class="tag">TechCrunch</span> <span class="tag">2026-04-08</span>
-    </div>
-    </section>
-</main>
+</head><body><a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a><div class="detail-issue-top detail-issue-top--fixed-dock"><header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航"><div class="detail-topbar"><div class="detail-topbar-inner detail-topbar-inner--with-quicknav"><a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span><span data-i18n="nav_back_text">返回</span></a><nav class="quick-nav quick-nav--inline" aria-label="内容导航"><a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a></nav><div class="atlas-lang" role="group" aria-label="界面语言"><button type="button" id="lang-zh" data-set-lang="zh">中</button><span class="atlas-lang-sep">/</span><button type="button" id="lang-en" data-set-lang="en">EN</button></div></div></div></header><div class="hero"><h1 data-i18n="hero_title">今日刊</h1><p class="date">
+    2026-04-09 <span class="hero-sep" aria-hidden="true">·</span><span class="hero-tagline" data-i18n="hero_tagline">每日精选</span><span class="hero-sep" aria-hidden="true">·</span><span class="hero-count" id="hero-item-count" data-total-items="10">10</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span></p></div></div><!-- Content --><main class="container" id="main-content"><section class="section" id="section-research"><h2 class="section-title">🤖 AI Agent 研究</h2><div class="card"><a href="https://arxiv.org/abs/2604.05091" target="_blank" rel="noopener noreferrer" class="card-title">MegaTrain: Full Precision Training of 100B+ Parameter LLMs on a Single GPU</a><p class="card-summary">arXiv最新论文MegaTrain提出全新训练框架，支持在单个GPU上进行100B+参数大模型的全精度训练，在Hacker News引发热烈讨论(261分)。</p><a href="https://arxiv.org/abs/2604.05091" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">arXiv</span><span class="tag">2026-04-08</span></div><div class="card"><a href="https://techcrunch.com/2026/04/08/poke-makes-ai-agents-as-easy-as-sending-a-text/" target="_blank" rel="noopener noreferrer" class="card-title">Poke: 让AI Agent像发短信一样简单</a><p class="card-summary">Poke通过短信界面让普通用户轻松使用AI Agent，无需复杂设置、APP或技术知识，即可完成任务自动化。获TechCrunch独家报道。</p><a href="https://techcrunch.com/2026/04/08/poke-makes-ai-agents-as-easy-as-sending-a-text/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">TechCrunch</span><span class="tag">2026-04-08</span></div></section><section class="section" id="section-github"><h2 class="section-title">⭐ GitHub 热门项目</h2><div class="card"><a href="https://github.com/atilaahmettaner/tradingview-mcp" target="_blank" rel="noopener noreferrer" class="card-title">atilaahmettaner/tradingview-mcp</a><p class="card-summary">高级TradingView MCP服务器，为AI助手提供实时加密货币和股票筛选、技术指标分析、布林带智能判断和K线形态识别。支持Claude Desktop和多种交易所。</p><a href="https://github.com/atilaahmettaner/tradingview-mcp" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Python</span><span class="tag">⭐ 1331</span></div><div class="card"><a href="https://github.com/mem0ai/mem0" target="_blank" rel="noopener noreferrer" class="card-title">mem0ai/mem0</a><p class="card-summary">为AI Agent打造的通用记忆层，支持跨会话的持久化记忆管理。获得5.2万+星标，是AI Agent基础设施的热门项目。</p><a href="https://github.com/mem0ai/mem0" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Python</span><span class="tag">⭐ 52344</span></div><div class="card"><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="card-title">NousResearch/hermes-agent</a><p class="card-summary">Nous Research发布的AI Agent框架——&quot;与你一起成长的Agent&quot;，获得3.8万+星标，今日Python趋势榜热门项目。</p><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Python</span><span class="tag">⭐ 38032</span></div><div class="card"><a href="https://github.com/HKUDS/AI-Trader" target="_blank" rel="noopener noreferrer" class="card-title">HKUDS/AI-Trader</a><p class="card-summary">100%全自动Agent原生交易系统，来自香港大学数据科学实验室，1.2万+星标。整合多种AI Agent实现完全自主的金融交易。</p><a href="https://github.com/HKUDS/AI-Trader" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Python</span><span class="tag">⭐ 12686</span></div></section><section class="section" id="section-models"><h2 class="section-title">🚀 模型与行业动态</h2><div class="card"><a href="https://ai.meta.com/blog/introducing-muse-spark-msl/" target="_blank" rel="noopener noreferrer" class="card-title">Meta发布Muse Spark：迈向个人超级智能</a><p class="card-summary">Meta AI发布Muse Spark(MSL)项目，目标是构建个人超级智能。该文章在Hacker News获得268分关注，展示了Meta在AI Agent和个人化AI方面的最新方向。</p><a href="https://ai.meta.com/blog/introducing-muse-spark-msl/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Meta</span><span class="tag">2026-04-08</span></div><div class="card"><a href="https://techcrunch.com/2026/04/08/aws-boss-explains-why-investing-billions-in-both-anthropic-and-openai-is-an-ok-conflict/" target="_blank" rel="noopener noreferrer" class="card-title">AWS同时投资Anthropic和OpenAI：Matt Garman解释这是&#x27;可以接受的冲突&#x27;</a><p class="card-summary">AWS CEO Matt Garman解释为何同时向Anthropic和OpenAI各投资数十亿美元。AWS的文化是善于处理竞争关系，因为云巨头本身也与合作伙伴竞争。</p><a href="https://techcrunch.com/2026/04/08/aws-boss-explains-why-investing-billions-in-both-anthropic-and-openai-is-an-ok-conflict/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">AWS</span><span class="tag">2026-04-08</span></div></section><section class="section" id="section-community"><h2 class="section-title">🔥 社区热议</h2><div class="card"><a href="https://news.ycombinator.com/item?id=47689174" target="_blank" rel="noopener noreferrer" class="card-title">MegaTrain登上Hacker News热榜：单GPU训练100B参数LLM</a><p class="card-summary">Hacker News上关于MegaTrain论文的讨论引发261分热度，社区对单GPU全精度训练超大模型的技术突破表现出浓厚兴趣。</p><a href="https://news.ycombinator.com/item?id=47689174" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">Hacker News</span><span class="tag">2026-04-08</span></div><div class="card"><a href="https://techcrunch.com/2026/04/08/atlassian-confluence-visual-ai-tools-agents/" target="_blank" rel="noopener noreferrer" class="card-title">Atlassian在Confluence中推出可视化AI工具和第三方Agent</a><p class="card-summary">Atlassian为Confluence新增可视化AI内容生成，并集成Lovable、Replit和Gamma的第三方Agent，进一步推动企业级AI Agent应用落地。</p><a href="https://techcrunch.com/2026/04/08/atlassian-confluence-visual-ai-tools-agents/" target="_blank" rel="noopener noreferrer" class="read-more">查看原文</a><span class="tag">TechCrunch</span><span class="tag">2026-04-08</span></div></section></main>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
@@ -581,5 +453,4 @@ body {
   });
   applyI18n();
 })();
-</script></body>
-</html>
+</script></body></html>

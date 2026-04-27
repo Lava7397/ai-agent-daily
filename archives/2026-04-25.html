@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 2026-04-25 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="今日刊 — 2026-04-25">
-<meta property="og:description" content="今日 15 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lava7397.com">
-<meta name="twitter:card" content="summary">
-<title>今日刊 — 2026-04-25</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><meta name="description" content="今日刊 2026-04-25 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:title" content="今日刊 — 2026-04-25"><meta property="og:description" content="今日 15 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态"><meta property="og:type" content="article"><meta property="og:url" content="https://lava7397.com"><meta name="twitter:card" content="summary"><title>今日刊 — 2026-04-25</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+/* 系统字体栈，避免 Google Fonts 外联阻塞首屏 */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -28,7 +14,7 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f5f0e8;
   color: #2c2c2c;
   min-height: 100vh;
@@ -54,8 +40,8 @@ body {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   background: rgba(245,240,232,0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(100,80,60,0.1);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -178,7 +164,7 @@ body {
   pointer-events: none;
 }
 .hero h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 38px;
   font-weight: 700;
   color: #3a3a3a;
@@ -189,7 +175,7 @@ body {
 .hero .date {
   color: #8a7e6e;
   font-size: 13px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin-top: 6px;
   position: relative;
   z-index: 1;
@@ -203,7 +189,7 @@ body {
   font: inherit;
   font-size: inherit;
   line-height: inherit;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 .hero .date .hero-sep { color: #b0a89a; margin: 0 0.1em; }
 .hero .date .hero-tagline { color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }
@@ -243,7 +229,7 @@ body {
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(90,110,138,0.2);
   font-size: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.2px;
   transition: all 0.25s;
 }
@@ -276,7 +262,7 @@ body {
   margin-top: 44px;
 }
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   font-size: 20px;
   font-weight: 700;
   color: #4a6080;
@@ -343,7 +329,7 @@ body {
   letter-spacing: 1.5px;
 }
 .card-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
   color: #1a1a1a;
   font-size: 18px;
   font-weight: 600;
@@ -396,7 +382,7 @@ body {
   margin-top: 14px;
   margin-right: 6px;
   border: 1px solid rgba(90,110,138,0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -417,187 +403,8 @@ body {
 .skip-link:focus-visible { outline: 2px solid #2d3a4a; outline-offset: 2px; }
 
 </style>
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top detail-issue-top--fixed-dock">
-<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
-<div class="detail-topbar">
-  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
-<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
-<div class="atlas-lang" role="group" aria-label="界面语言">
-      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
-      <span class="atlas-lang-sep">/</span>
-      <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-</header>
-<div class="hero">
-  <h1 data-i18n="hero_title">今日刊</h1>
-  <p class="date">
-    2026-04-25 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="15">15</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
-</div>
-
-</div>
-<!-- Content -->
-<main class="container" id="main-content">
-  
-    <section class="section" id="section-research">
-      <h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://arstechnica.com/ai/2026/04/google-will-invest-as-much-as-40-billion-in-anthropic/" target="_blank" rel="noopener noreferrer" class="card-title">Google will invest as much as $40 billion in Anthropic</a>
-      <p class="card-summary" data-i18n-text="zh">Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Google is committing up to $40 billion in investment into Anthropic, marking one of the largest AI infrastructure bets in history. The investment will fund Anthropic&#x27;s next-generation model development, data center expansion, and enterprise deployment. This comes as competition in the AI race intensifies, with Anthropic&#x27;s Claude models gaining enterprise market share against OpenAI&#x27;s GPT series and Google&#x27;s own Gemini.</p>
-      <a href="https://arstechnica.com/ai/2026/04/google-will-invest-as-much-as-40-billion-in-anthropic/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">Ars Technica</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arxiv.org/abs/2604.21910" target="_blank" rel="noopener noreferrer" class="card-title">From Research Question to Scientific Workflow: Leveraging Agentic AI for Science</a>
-      <p class="card-summary" data-i18n-text="zh">研究人员提出了一个智能体AI框架，可将自然语言研究问题自动转换为可执行的科学工作流。该系统能分析查询意图、识别所需工具和数据源并生成工作流规格说明，填补了科学家意图与自动化执行之间的鸿沟，显著降低了实验设置和数据处理流程的人工介入成本。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Researchers present an agentic AI framework that automates the semantic translation between research questions and scientific workflows. The system analyzes natural language queries, identifies required tools and data sources, and generates executable workflow specifications. This bridges the gap between scientists&#x27; intent and automated execution, reducing manual effort in setting up experiments and data processing pipelines.</p>
-      <a href="https://arxiv.org/abs/2604.21910" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">arXiv</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/tech-policy/2026/04/us-accuses-china-of-industrial-scale-ai-theft-china-says-its-slander/" target="_blank" rel="noopener noreferrer" class="card-title">US accuses China of &#x27;industrial-scale&#x27; AI theft, China calls it &#x27;slander&#x27;</a>
-      <p class="card-summary" data-i18n-text="zh">美国政府正式指控中国行为者大规模窃取AI知识产权，包括大模型训练方法、模型架构和推理优化技术。指控主要针对涉嫌攻击美国AI实验室和云服务商的国家支持黑客组织。中国外交部回应称相关指控纯属「污蔑」，并指责美国以AI为借口推行保护主义。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>The US government has formally accused Chinese actors of conducting industrial-scale theft of AI intellectual property, including LLM training methodologies, model architectures, and inference optimization techniques. The accusations focus on state-sponsored hacking groups targeting US AI labs and cloud providers. China&#x27;s Foreign Ministry dismissed the allegations as &#x27;slander&#x27; and accused the US of using AI accusations to justify protectionist measures.</p>
-      <a href="https://arstechnica.com/tech-policy/2026/04/us-accuses-china-of-industrial-scale-ai-theft-china-says-its-slander/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">Ars Technica</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/space/2026/04/rocket-report-some-canadians-dont-want-a-spaceport-falcon-hits-600-landings/" target="_blank" rel="noopener noreferrer" class="card-title">SpaceX is now an AI company, rocket industry observers conclude</a>
-      <p class="card-summary" data-i18n-text="zh">行业分析师和火箭科学家越来越倾向于将SpaceX定性为AI优先公司而非传统航空航天承包商。该公司的星舰计划高度依赖机器学习进行自主飞行控制、实时轨迹优化和预测性维护。据报道，SpaceX内部AI基础设施在算力上可与主流云服务商比肩，这对未来登月和火星任务具有深远影响。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Industry analysts and rocket scientists are increasingly characterizing SpaceX as an AI-first company rather than a traditional aerospace contractor. The company&#x27;s Starship program relies heavily on machine learning for autonomous flight control, real-time trajectory optimization, and predictive maintenance. SpaceX&#x27;s internal AI infrastructure reportedly rivals major cloud providers in compute capacity, with significant implications for future lunar and Mars missions.</p>
-      <a href="https://arstechnica.com/space/2026/04/rocket-report-some-canadians-dont-want-a-spaceport-falcon-hits-600-landings/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">Ars Technica</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-github">
-      <h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="card-title">openclaw/openclaw</a>
-      <p class="card-summary" data-i18n-text="zh">OpenClaw是一款跨平台个人AI助手，可在任意操作系统运行。它通过统一界面连接多个AI模型和服务，并以龙虾形象作为吉祥物。项目注重无障碍使用体验，开发者可通过插件系统扩展功能。支持Windows、macOS和Linux并提供原生桌面集成。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>OpenClaw is a cross-platform personal AI assistant that runs on any operating system. It provides a unified interface for interacting with multiple AI models and services through a lobster-themed mascot. The project emphasizes accessibility and ease of use, allowing developers to extend its capabilities through a plugin system. It supports Windows, macOS, and Linux with native desktop integration.</p>
-      <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer" class="card-title">n8n-io/n8n</a>
-      <p class="card-summary" data-i18n-text="zh">N8N是一款公平代码工作流自动化平台，原生支持AI能力，可视化工作流构建与自定义AI智能体集成相结合。用户无需编码即可创建复杂自动化管道，连接AI模型与外部API、数据库和服务。平台支持自定义工具定义、内存管理及多步推理循环，适用于智能体工作流场景。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>N8N is a fair-code workflow automation platform with native AI capabilities, combining visual workflow building with custom AI agent integration. It enables users to create sophisticated automation pipelines that connect AI models to external APIs, databases, and services without writing code. The platform supports custom tool definitions, memory management, and multi-step reasoning loops for agentic workflows.</p>
-      <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener noreferrer" class="card-title">Significant-Gravitas/AutoGPT</a>
-      <p class="card-summary" data-i18n-text="zh">AutoGPT是开源项目，旨在让每个人都能使用和构建AI。它开创了AI智能体自主分解复杂目标为子任务、使用外部工具并迭代改进的先河。项目已演进为包含预构建智能体模板市场、主要LLM提供商集成以及企业部署选项的综合平台。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>AutoGPT is an open-source project that aims to make AI accessible to everyone, both as a user and a builder. It pioneered the concept of AI agents that can autonomously break down complex goals into sub-tasks, use external tools, and iteratively improve their approach. The project has evolved to include a marketplace for pre-built agent templates, integration with major LLM providers, and enterprise deployment options.</p>
-      <a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/langflow-ai/langflow" target="_blank" rel="noopener noreferrer" class="card-title">langflow-ai/langflow</a>
-      <p class="card-summary" data-i18n-text="zh">Langflow是用于构建和部署AI驱动智能体与工作流的可视化开发环境。它提供拖放界面来组合LLM管道、集成外部数据源并定义多步推理链。平台能从可视化流程生成Python代码，实现从原型到生产的无缝过渡。支持RAG、工具使用和智能体编排。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Langflow is a visual development environment for building and deploying AI-powered agents and workflows. It provides a drag-and-drop interface for composing LLM pipelines, integrating external data sources, and defining multi-step reasoning chains. The platform generates Python code from visual flows, enabling seamless transition from prototyping to production. It supports RAG (Retrieval Augmented Generation), tool use, and agent orchestration.</p>
-      <a href="https://github.com/langflow-ai/langflow" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/sudoviz/driftcop" target="_blank" rel="noopener noreferrer" class="card-title">Driftcop – Open-source CLI SAST for MCP rug pull attacks in AI Agents</a>
-      <p class="card-summary" data-i18n-text="zh">Driftcop是一款开源静态分析工具，用于检测「MCP rug pull攻击」——一种新型安全漏洞，恶意MCP服务器更新后会在智能体已建立信任的情况下静默改变工具行为。该CLI分析MCP服务器清单和工具定义以标记可疑变更，帮助开发者和安全团队在部署前审计AI智能体工具链。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Driftcop is an open-source static analysis tool designed to detect &#x27;MCP rug pull attacks&#x27; — a new class of security vulnerabilities where malicious MCP server updates silently change tool behavior after agents have already built trust. The CLI analyzes MCP server manifests and tool definitions to flag suspicious changes, helping developers and security teams audit their AI agent toolchains before deployment.</p>
-      <a href="https://github.com/sudoviz/driftcop" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">GitHub</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 <span data-i18n-text="zh">模型与行业动态</span><span data-i18n-text="en" hidden>Models & Industry</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://arxiv.org/abs/2604.21916" target="_blank" rel="noopener noreferrer" class="card-title">MathDuels: Evaluating LLMs as Problem Posers and Solvers</a>
-      <p class="card-summary" data-i18n-text="zh">研究人员推出MathDuels，这是一种评估语言模型的双任务基准：生成新颖数学题以及解答题目。该双重评估针对传统基准饱和问题（前沿模型已接近满分）而设计。MathDuels测试不同模型家族的创造力、数学推理深度以及命题与解题能力之间的一致性。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Researchers introduce MathDuels, a new benchmark that evaluates language models on two complementary tasks: generating novel mathematical problems and solving them. This dual evaluation addresses the saturation of traditional benchmarks where frontier models achieve near-ceiling scores. MathDuels tests creativity, mathematical reasoning depth, and consistency between problem-setting and problem-solving abilities across different model families.</p>
-      <a href="https://arxiv.org/abs/2604.21916" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">arXiv</span>
-    </div>
-    </section>
-
-    <section class="section" id="section-community">
-      <h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://www.bensbites.com/p/chatgpts-nano-banana" target="_blank" rel="noopener noreferrer" class="card-title">ChatGPT&#x27;s Nano Banana</a>
-      <p class="card-summary" data-i18n-text="zh">Ben&#x27;s Bites本期覆盖AI产品和工具最新动态，深入解析OpenAI新推出的消费者功能。本期重点探讨AI产品UI中涌现的实用设计模式，分析为何某些AI工具比其他产品更具吸引力和易用性。同时讨论Anthropic最新模型发布及其对企业采用的影响。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Ben&#x27;s Bites covers the latest developments in AI products and tools, including a deep dive into OpenAI&#x27;s new consumer-facing features. This issue highlights practical design patterns emerging in AI product UI, examining what makes certain AI tools more engaging and usable than others. The newsletter also discusses Anthropic&#x27;s latest model releases and their implications for enterprise adoption.</p>
-      <a href="https://www.bensbites.com/p/chatgpts-nano-banana" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">Ben&#x27;s Bites</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/browserwing/bossa" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: Bossa – Persistent filesystem memory for AI agents via MCP or CLI</a>
-      <p class="card-summary" data-i18n-text="zh">Bossa是一款为AI智能体提供持久化文件系统记忆的新开源工具。通过MCP（模型上下文协议）或CLI工具连接，Bossa可在智能体会话之间维护文件交互的结构化知识库。这使得AI编码助手能在会话之间保留代码库上下文，解决无状态智能体架构的一个主要局限。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Bossa is a new open-source tool that provides persistent filesystem memory for AI agents. By connecting through the MCP (Model Context Protocol) protocol or as a CLI utility, Bossa maintains a structured knowledge base of file interactions across agent sessions. This enables AI coding assistants to retain context about a codebase between sessions, addressing a major limitation of stateless agent architectures.</p>
-      <a href="https://github.com/browserwing/bossa" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">Hacker News</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/browserwing/browserwing" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: BrowserWing – Turning Browser Actions into MCP Commands</a>
-      <p class="card-summary" data-i18n-text="zh">BrowserWing是连接网页浏览器自动化与MCP生态系统的开源项目。它将常见浏览器操作（页面导航、表单填写、截图捕获、DOM查询等）暴露为MCP工具，AI智能体可直接调用。这使得智能体能以标准化的工具调用格式与Web应用交互。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>BrowserWing is an open-source project that bridges web browser automation with the MCP (Model Context Protocol) ecosystem. It exposes common browser actions — such as page navigation, form filling, screenshot capture, and DOM querying — as MCP tools that AI agents can invoke directly. This enables agents to interact with web applications in a standardized, tool-call format.</p>
-      <a href="https://github.com/browserwing/browserwing" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">Hacker News</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://voiceofagents.com" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: PolyMCP – Expose Python functions as MCP tools</a>
-      <p class="card-summary" data-i18n-text="zh">PolyMCP是一个轻量级Python库，可自动将Python函数暴露为MCP工具。开发者使用装饰器标注函数，PolyMCP自动处理序列化、验证和协议转换。这使得向AI智能体开放任意Python功能（从数据处理到API调用）变得轻而易举，无需编写自定义MCP服务器代码。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>PolyMCP is a lightweight Python library that automatically exposes Python functions as MCP (Model Context Protocol) tools. Developers annotate functions with decorators, and PolyMCP handles the serialization, validation, and protocol translation automatically. This makes it trivial to give AI agents access to any Python functionality, from data processing to API calls, without writing custom MCP server code.</p>
-      <a href="https://voiceofagents.com" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">Hacker News</span>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/tech-policy/2026/04/after-wolf-escaped-zoo-man-arrested-for-creating-fake-ai-sighting-for-fun/" target="_blank" rel="noopener noreferrer" class="card-title">Man faces 5 years in prison for using AI to fake sighting of runaway wolf</a>
-      <p class="card-summary" data-i18n-text="zh">犹他州一名男子被指控犯有重罪，原因是他使用AI图像生成工具伪造了一张狼从动物园逃跑的照片，并提交给当地新闻媒体和社交媒体。该案是美国首批涉及AI生成虚假证据的刑事起诉之一。法律专家表示，这可能为AI生成内容在刑事诉讼中的处理方式开创先例。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>A Utah man has been charged with a felony for using AI image generation tools to create a fake photograph of a wolf escape from a zoo, which he then submitted to local news and social media. The case represents one of the first criminal prosecutions involving AI-generated false evidence in the United States. Legal experts say it could set precedent for how AI-generated content is treated in criminal proceedings.</p>
-      <a href="https://arstechnica.com/tech-policy/2026/04/after-wolf-escaped-zoo-man-arrested-for-creating-fake-ai-sighting-for-fun/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-      <span class="tag">Ars Technica</span>
-    </div>
-    </section>
-</main>
+</head><body><a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a><div class="detail-issue-top detail-issue-top--fixed-dock"><header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航"><div class="detail-topbar"><div class="detail-topbar-inner detail-topbar-inner--with-quicknav"><a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span><span data-i18n="nav_back_text">返回</span></a><nav class="quick-nav quick-nav--inline" aria-label="内容导航"><a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a></nav><div class="atlas-lang" role="group" aria-label="界面语言"><button type="button" id="lang-zh" data-set-lang="zh">中</button><span class="atlas-lang-sep">/</span><button type="button" id="lang-en" data-set-lang="en">EN</button></div></div></div></header><div class="hero"><h1 data-i18n="hero_title">今日刊</h1><p class="date">
+    2026-04-25 <span class="hero-sep" aria-hidden="true">·</span><span class="hero-tagline" data-i18n="hero_tagline">每日精选</span><span class="hero-sep" aria-hidden="true">·</span><span class="hero-count" id="hero-item-count" data-total-items="15">15</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span></p></div></div><!-- Content --><main class="container" id="main-content"><section class="section" id="section-research"><h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://arstechnica.com/ai/2026/04/google-will-invest-as-much-as-40-billion-in-anthropic/" target="_blank" rel="noopener noreferrer" class="card-title">Google will invest as much as $40 billion in Anthropic</a><p class="card-summary" data-i18n-text="zh">Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。</p><p class="card-summary" data-i18n-text="en" hidden>Google is committing up to $40 billion in investment into Anthropic, marking one of the largest AI infrastructure bets in history. The investment will fund Anthropic&#x27;s next-generation model development, data center expansion, and enterprise deployment. This comes as competition in the AI race intensifies, with Anthropic&#x27;s Claude models gaining enterprise market share against OpenAI&#x27;s GPT series and Google&#x27;s own Gemini.</p><a href="https://arstechnica.com/ai/2026/04/google-will-invest-as-much-as-40-billion-in-anthropic/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">Ars Technica</span></div><div class="card"><a href="https://arxiv.org/abs/2604.21910" target="_blank" rel="noopener noreferrer" class="card-title">From Research Question to Scientific Workflow: Leveraging Agentic AI for Science</a><p class="card-summary" data-i18n-text="zh">研究人员提出了一个智能体AI框架，可将自然语言研究问题自动转换为可执行的科学工作流。该系统能分析查询意图、识别所需工具和数据源并生成工作流规格说明，填补了科学家意图与自动化执行之间的鸿沟，显著降低了实验设置和数据处理流程的人工介入成本。</p><p class="card-summary" data-i18n-text="en" hidden>Researchers present an agentic AI framework that automates the semantic translation between research questions and scientific workflows. The system analyzes natural language queries, identifies required tools and data sources, and generates executable workflow specifications. This bridges the gap between scientists&#x27; intent and automated execution, reducing manual effort in setting up experiments and data processing pipelines.</p><a href="https://arxiv.org/abs/2604.21910" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">arXiv</span></div><div class="card"><a href="https://arstechnica.com/tech-policy/2026/04/us-accuses-china-of-industrial-scale-ai-theft-china-says-its-slander/" target="_blank" rel="noopener noreferrer" class="card-title">US accuses China of &#x27;industrial-scale&#x27; AI theft, China calls it &#x27;slander&#x27;</a><p class="card-summary" data-i18n-text="zh">美国政府正式指控中国行为者大规模窃取AI知识产权，包括大模型训练方法、模型架构和推理优化技术。指控主要针对涉嫌攻击美国AI实验室和云服务商的国家支持黑客组织。中国外交部回应称相关指控纯属「污蔑」，并指责美国以AI为借口推行保护主义。</p><p class="card-summary" data-i18n-text="en" hidden>The US government has formally accused Chinese actors of conducting industrial-scale theft of AI intellectual property, including LLM training methodologies, model architectures, and inference optimization techniques. The accusations focus on state-sponsored hacking groups targeting US AI labs and cloud providers. China&#x27;s Foreign Ministry dismissed the allegations as &#x27;slander&#x27; and accused the US of using AI accusations to justify protectionist measures.</p><a href="https://arstechnica.com/tech-policy/2026/04/us-accuses-china-of-industrial-scale-ai-theft-china-says-its-slander/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">Ars Technica</span></div><div class="card"><a href="https://arstechnica.com/space/2026/04/rocket-report-some-canadians-dont-want-a-spaceport-falcon-hits-600-landings/" target="_blank" rel="noopener noreferrer" class="card-title">SpaceX is now an AI company, rocket industry observers conclude</a><p class="card-summary" data-i18n-text="zh">行业分析师和火箭科学家越来越倾向于将SpaceX定性为AI优先公司而非传统航空航天承包商。该公司的星舰计划高度依赖机器学习进行自主飞行控制、实时轨迹优化和预测性维护。据报道，SpaceX内部AI基础设施在算力上可与主流云服务商比肩，这对未来登月和火星任务具有深远影响。</p><p class="card-summary" data-i18n-text="en" hidden>Industry analysts and rocket scientists are increasingly characterizing SpaceX as an AI-first company rather than a traditional aerospace contractor. The company&#x27;s Starship program relies heavily on machine learning for autonomous flight control, real-time trajectory optimization, and predictive maintenance. SpaceX&#x27;s internal AI infrastructure reportedly rivals major cloud providers in compute capacity, with significant implications for future lunar and Mars missions.</p><a href="https://arstechnica.com/space/2026/04/rocket-report-some-canadians-dont-want-a-spaceport-falcon-hits-600-landings/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">Ars Technica</span></div></section><section class="section" id="section-github"><h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="card-title">openclaw/openclaw</a><p class="card-summary" data-i18n-text="zh">OpenClaw是一款跨平台个人AI助手，可在任意操作系统运行。它通过统一界面连接多个AI模型和服务，并以龙虾形象作为吉祥物。项目注重无障碍使用体验，开发者可通过插件系统扩展功能。支持Windows、macOS和Linux并提供原生桌面集成。</p><p class="card-summary" data-i18n-text="en" hidden>OpenClaw is a cross-platform personal AI assistant that runs on any operating system. It provides a unified interface for interacting with multiple AI models and services through a lobster-themed mascot. The project emphasizes accessibility and ease of use, allowing developers to extend its capabilities through a plugin system. It supports Windows, macOS, and Linux with native desktop integration.</p><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div><div class="card"><a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer" class="card-title">n8n-io/n8n</a><p class="card-summary" data-i18n-text="zh">N8N是一款公平代码工作流自动化平台，原生支持AI能力，可视化工作流构建与自定义AI智能体集成相结合。用户无需编码即可创建复杂自动化管道，连接AI模型与外部API、数据库和服务。平台支持自定义工具定义、内存管理及多步推理循环，适用于智能体工作流场景。</p><p class="card-summary" data-i18n-text="en" hidden>N8N is a fair-code workflow automation platform with native AI capabilities, combining visual workflow building with custom AI agent integration. It enables users to create sophisticated automation pipelines that connect AI models to external APIs, databases, and services without writing code. The platform supports custom tool definitions, memory management, and multi-step reasoning loops for agentic workflows.</p><a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div><div class="card"><a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener noreferrer" class="card-title">Significant-Gravitas/AutoGPT</a><p class="card-summary" data-i18n-text="zh">AutoGPT是开源项目，旨在让每个人都能使用和构建AI。它开创了AI智能体自主分解复杂目标为子任务、使用外部工具并迭代改进的先河。项目已演进为包含预构建智能体模板市场、主要LLM提供商集成以及企业部署选项的综合平台。</p><p class="card-summary" data-i18n-text="en" hidden>AutoGPT is an open-source project that aims to make AI accessible to everyone, both as a user and a builder. It pioneered the concept of AI agents that can autonomously break down complex goals into sub-tasks, use external tools, and iteratively improve their approach. The project has evolved to include a marketplace for pre-built agent templates, integration with major LLM providers, and enterprise deployment options.</p><a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div><div class="card"><a href="https://github.com/langflow-ai/langflow" target="_blank" rel="noopener noreferrer" class="card-title">langflow-ai/langflow</a><p class="card-summary" data-i18n-text="zh">Langflow是用于构建和部署AI驱动智能体与工作流的可视化开发环境。它提供拖放界面来组合LLM管道、集成外部数据源并定义多步推理链。平台能从可视化流程生成Python代码，实现从原型到生产的无缝过渡。支持RAG、工具使用和智能体编排。</p><p class="card-summary" data-i18n-text="en" hidden>Langflow is a visual development environment for building and deploying AI-powered agents and workflows. It provides a drag-and-drop interface for composing LLM pipelines, integrating external data sources, and defining multi-step reasoning chains. The platform generates Python code from visual flows, enabling seamless transition from prototyping to production. It supports RAG (Retrieval Augmented Generation), tool use, and agent orchestration.</p><a href="https://github.com/langflow-ai/langflow" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div><div class="card"><a href="https://github.com/sudoviz/driftcop" target="_blank" rel="noopener noreferrer" class="card-title">Driftcop – Open-source CLI SAST for MCP rug pull attacks in AI Agents</a><p class="card-summary" data-i18n-text="zh">Driftcop是一款开源静态分析工具，用于检测「MCP rug pull攻击」——一种新型安全漏洞，恶意MCP服务器更新后会在智能体已建立信任的情况下静默改变工具行为。该CLI分析MCP服务器清单和工具定义以标记可疑变更，帮助开发者和安全团队在部署前审计AI智能体工具链。</p><p class="card-summary" data-i18n-text="en" hidden>Driftcop is an open-source static analysis tool designed to detect &#x27;MCP rug pull attacks&#x27; — a new class of security vulnerabilities where malicious MCP server updates silently change tool behavior after agents have already built trust. The CLI analyzes MCP server manifests and tool definitions to flag suspicious changes, helping developers and security teams audit their AI agent toolchains before deployment.</p><a href="https://github.com/sudoviz/driftcop" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">GitHub</span></div></section><section class="section" id="section-models"><h2 class="section-title">🚀 <span data-i18n-text="zh">模型与行业动态</span><span data-i18n-text="en" hidden>Models & Industry</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://arxiv.org/abs/2604.21916" target="_blank" rel="noopener noreferrer" class="card-title">MathDuels: Evaluating LLMs as Problem Posers and Solvers</a><p class="card-summary" data-i18n-text="zh">研究人员推出MathDuels，这是一种评估语言模型的双任务基准：生成新颖数学题以及解答题目。该双重评估针对传统基准饱和问题（前沿模型已接近满分）而设计。MathDuels测试不同模型家族的创造力、数学推理深度以及命题与解题能力之间的一致性。</p><p class="card-summary" data-i18n-text="en" hidden>Researchers introduce MathDuels, a new benchmark that evaluates language models on two complementary tasks: generating novel mathematical problems and solving them. This dual evaluation addresses the saturation of traditional benchmarks where frontier models achieve near-ceiling scores. MathDuels tests creativity, mathematical reasoning depth, and consistency between problem-setting and problem-solving abilities across different model families.</p><a href="https://arxiv.org/abs/2604.21916" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">arXiv</span></div></section><section class="section" id="section-community"><h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://www.bensbites.com/p/chatgpts-nano-banana" target="_blank" rel="noopener noreferrer" class="card-title">ChatGPT&#x27;s Nano Banana</a><p class="card-summary" data-i18n-text="zh">Ben&#x27;s Bites本期覆盖AI产品和工具最新动态，深入解析OpenAI新推出的消费者功能。本期重点探讨AI产品UI中涌现的实用设计模式，分析为何某些AI工具比其他产品更具吸引力和易用性。同时讨论Anthropic最新模型发布及其对企业采用的影响。</p><p class="card-summary" data-i18n-text="en" hidden>Ben&#x27;s Bites covers the latest developments in AI products and tools, including a deep dive into OpenAI&#x27;s new consumer-facing features. This issue highlights practical design patterns emerging in AI product UI, examining what makes certain AI tools more engaging and usable than others. The newsletter also discusses Anthropic&#x27;s latest model releases and their implications for enterprise adoption.</p><a href="https://www.bensbites.com/p/chatgpts-nano-banana" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">Ben&#x27;s Bites</span></div><div class="card"><a href="https://github.com/browserwing/bossa" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: Bossa – Persistent filesystem memory for AI agents via MCP or CLI</a><p class="card-summary" data-i18n-text="zh">Bossa是一款为AI智能体提供持久化文件系统记忆的新开源工具。通过MCP（模型上下文协议）或CLI工具连接，Bossa可在智能体会话之间维护文件交互的结构化知识库。这使得AI编码助手能在会话之间保留代码库上下文，解决无状态智能体架构的一个主要局限。</p><p class="card-summary" data-i18n-text="en" hidden>Bossa is a new open-source tool that provides persistent filesystem memory for AI agents. By connecting through the MCP (Model Context Protocol) protocol or as a CLI utility, Bossa maintains a structured knowledge base of file interactions across agent sessions. This enables AI coding assistants to retain context about a codebase between sessions, addressing a major limitation of stateless agent architectures.</p><a href="https://github.com/browserwing/bossa" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">Hacker News</span></div><div class="card"><a href="https://github.com/browserwing/browserwing" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: BrowserWing – Turning Browser Actions into MCP Commands</a><p class="card-summary" data-i18n-text="zh">BrowserWing是连接网页浏览器自动化与MCP生态系统的开源项目。它将常见浏览器操作（页面导航、表单填写、截图捕获、DOM查询等）暴露为MCP工具，AI智能体可直接调用。这使得智能体能以标准化的工具调用格式与Web应用交互。</p><p class="card-summary" data-i18n-text="en" hidden>BrowserWing is an open-source project that bridges web browser automation with the MCP (Model Context Protocol) ecosystem. It exposes common browser actions — such as page navigation, form filling, screenshot capture, and DOM querying — as MCP tools that AI agents can invoke directly. This enables agents to interact with web applications in a standardized, tool-call format.</p><a href="https://github.com/browserwing/browserwing" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">Hacker News</span></div><div class="card"><a href="https://voiceofagents.com" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: PolyMCP – Expose Python functions as MCP tools</a><p class="card-summary" data-i18n-text="zh">PolyMCP是一个轻量级Python库，可自动将Python函数暴露为MCP工具。开发者使用装饰器标注函数，PolyMCP自动处理序列化、验证和协议转换。这使得向AI智能体开放任意Python功能（从数据处理到API调用）变得轻而易举，无需编写自定义MCP服务器代码。</p><p class="card-summary" data-i18n-text="en" hidden>PolyMCP is a lightweight Python library that automatically exposes Python functions as MCP (Model Context Protocol) tools. Developers annotate functions with decorators, and PolyMCP handles the serialization, validation, and protocol translation automatically. This makes it trivial to give AI agents access to any Python functionality, from data processing to API calls, without writing custom MCP server code.</p><a href="https://voiceofagents.com" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">Hacker News</span></div><div class="card"><a href="https://arstechnica.com/tech-policy/2026/04/after-wolf-escaped-zoo-man-arrested-for-creating-fake-ai-sighting-for-fun/" target="_blank" rel="noopener noreferrer" class="card-title">Man faces 5 years in prison for using AI to fake sighting of runaway wolf</a><p class="card-summary" data-i18n-text="zh">犹他州一名男子被指控犯有重罪，原因是他使用AI图像生成工具伪造了一张狼从动物园逃跑的照片，并提交给当地新闻媒体和社交媒体。该案是美国首批涉及AI生成虚假证据的刑事起诉之一。法律专家表示，这可能为AI生成内容在刑事诉讼中的处理方式开创先例。</p><p class="card-summary" data-i18n-text="en" hidden>A Utah man has been charged with a felony for using AI image generation tools to create a fake photograph of a wolf escape from a zoo, which he then submitted to local news and social media. The case represents one of the first criminal prosecutions involving AI-generated false evidence in the United States. Legal experts say it could set precedent for how AI-generated content is treated in criminal proceedings.</p><a href="https://arstechnica.com/tech-policy/2026/04/after-wolf-escaped-zoo-man-arrested-for-creating-fake-ai-sighting-for-fun/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><span class="tag">Ars Technica</span></div></section></main>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
@@ -658,5 +465,4 @@ body {
 })();
 </script>
 
-</body>
-</html>
+</body></html>
