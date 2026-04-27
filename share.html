@@ -53,17 +53,50 @@ h1{
   word-break:break-word
 }
 a.site{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:1 1 0;
+  min-width:0;
   font-size:14px;
   font-weight:500;
   color:#fff;
   background:#4a6080;
   text-decoration:none;
-  padding:10px 18px;
+  padding:10px 12px;
   border-radius:8px
 }
 a.site:hover{background:#3d5468}
 a.site:focus-visible{outline:2px solid #1e3a2f;outline-offset:2px}
+.card-actions{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items:stretch;
+  gap:8px;
+  width:100%;
+  margin-top:4px
+}
+button.copy{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  white-space:nowrap;
+  font-size:14px;
+  font-weight:500;
+  color:#2c2c2c;
+  background:#f0ebe3;
+  border:1px solid rgba(100,80,60,0.22);
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  font-family:inherit;
+  -webkit-tap-highlight-color:transparent
+}
+button.copy:hover{background:#e5dfd4}
+button.copy:focus-visible{outline:2px solid #4a6080;outline-offset:2px}
+button.copy[hidden]{display:none}
 .err{color:#6a3a3a;font-size:14px;margin-top:12px}
 #t.loading{color:#8a8a8a;font-weight:500}
 </style>
@@ -74,7 +107,10 @@ a.site:focus-visible{outline:2px solid #1e3a2f;outline-offset:2px}
     <p class="kicker">本期推荐</p>
     <h1 class="loading" id="t">加载中…</h1>
     <p class="summary" id="s"></p>
+    <div class="card-actions">
     <a class="site" id="go" href="https://lava7397.com" rel="noopener">访问：AI Agent 期刊</a>
+    <button type="button" class="copy" id="copySum" hidden aria-label="仅复制下方摘要到剪贴板">复制摘要</button>
+    </div>
     <p class="err" id="e" hidden></p>
   </article>
 </main>
@@ -85,8 +121,22 @@ a.site:focus-visible{outline:2px solid #1e3a2f;outline-offset:2px}
   var sEl = document.getElementById("s");
   var eEl = document.getElementById("e");
   var goEl = document.getElementById("go");
+  var copyBtn = document.getElementById("copySum");
+  var lastShareText = "";
   if (!tEl || !sEl || !eEl) return;
   if (goEl) goEl.href = "https://lava7397.com";
+
+  function setCopyable(summaryOnly) {
+    lastShareText = typeof summaryOnly === "string" ? summaryOnly : "";
+    if (copyBtn) {
+      if (lastShareText) {
+        copyBtn.removeAttribute("hidden");
+        if (copyBtn.textContent === "已复制") copyBtn.textContent = "复制摘要";
+      } else {
+        copyBtn.setAttribute("hidden", "");
+      }
+    }
+  }
 
   function showErr(msg) {
     tEl.classList.remove("loading");
@@ -95,14 +145,51 @@ a.site:focus-visible{outline:2px solid #1e3a2f;outline-offset:2px}
     sEl.textContent = "";
     eEl.removeAttribute("hidden");
     eEl.textContent = msg;
+    setCopyable("");
   }
   function fill(title, sum) {
     tEl.classList.remove("loading");
     tEl.textContent = title || "本期推荐";
-    sEl.textContent = sum || "";
-    if (!sum) sEl.setAttribute("hidden", "");
-    else sEl.removeAttribute("hidden");
+    var raw = String(sum != null ? sum : "");
+    sEl.textContent = raw;
+    var sTrim = raw.trim();
+    if (!sTrim) {
+      sEl.setAttribute("hidden", "");
+      sEl.textContent = "";
+    } else {
+      sEl.removeAttribute("hidden");
+    }
     document.title = (title || "本期推荐") + " — LavaAgent";
+    setCopyable(sTrim);
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var text = lastShareText;
+      if (!text) return;
+      var label = "复制摘要";
+      function done() {
+        copyBtn.textContent = "已复制";
+        setTimeout(function () { copyBtn.textContent = label; }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.cssText = "position:fixed;left:-9999px;top:0";
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          if (document.execCommand("copy")) done();
+        } catch (e1) {}
+        document.body.removeChild(ta);
+      }
+    });
   }
   function bytesLatin1ToUtf8(bin) {
     if (typeof TextDecoder !== "undefined") {
@@ -180,6 +267,7 @@ a.site:focus-visible{outline:2px solid #1e3a2f;outline-offset:2px}
     sEl.setAttribute("hidden", "");
     eEl.removeAttribute("hidden");
     eEl.textContent = "请从日刊内「分享」打开，或使用上方按钮访问主站。";
+    setCopyable("");
   })();
 })();
 </script>
