@@ -4,7 +4,6 @@ AI Agent 日报 H5 页面生成器
 读取 daily_data.json → 生成 today.html(当天刊) + 归档页面
 """
 import argparse
-import base64
 import json
 import os
 import random
@@ -217,48 +216,56 @@ def cap_data_for_site(data, max_items=MAX_SITE_ITEMS):
     return out
 
 
-def _share_query_frag_for(title: str, summary: str) -> str:
-    """将 JSON→UTF-8→base64url，控制长度，避免极长 query 被代理截断。"""
-    max_d = 1800
-    s = (summary or "").strip()
-    t = (title or "Untitled").strip() or "Untitled"
-    for _ in range(12):
-        payload = json.dumps(
-            {"t": t, "s": s},
-            ensure_ascii=False,
-            separators=(",", ":"),
-        )
-        frag = base64.urlsafe_b64encode(payload.encode("utf-8")).decode("ascii").rstrip("=")
-        if len(frag) <= max_d:
-            return frag
-        if len(s) < 8:
-            break
-        s = s[: max(0, (len(s) * 2) // 3)] + "…"
-    return base64.urlsafe_b64encode(
-        json.dumps(
-            {"t": t, "s": s[:200] + "…"},
-            ensure_ascii=False,
-            separators=(",", ":"),
-        ).encode("utf-8")
-    ).decode("ascii").rstrip("=")
+SECTION_KEY_TO_INDEX = {k: i for i, k in enumerate(SECTION_KEYS)}
 
 
-def make_item_share_href(item) -> str:
-    """根路径 /share.html?d= — 使用 query 传参，兼容会丢弃 #hash 的微信/内置 WebView。旧链 # 仍由 share.html 支持。"""
-    title = (item.get("title") or "Untitled").strip() or "Untitled"
-    summary = (item.get("summary_zh") or item.get("summary") or "").strip()
-    frag = _share_query_frag_for(title, summary)
-    return f"/share.html?d={frag}"
+def make_item_share_href(date_str: str, section_key: str, item_index: int) -> str:
+    """短链 ?k=期号&s=板块下标&i=条下标，正文由 /issue-data/YYYY-MM-DD.json 拉取，微信里转发不再刷巨长 query。"""
+    s = SECTION_KEY_TO_INDEX[section_key]
+    return f"/share.html?k={date_str}&s={s}&i={item_index}"
 
 
-def build_item_html(item, is_top=False):
+def write_issue_data_json(data, date_str) -> None:
+    """与当日 cap 后条目一致，供 share.html 短链使用。"""
+    out_dir = BASE_DIR / "issue-data"
+    out_dir.mkdir(exist_ok=True)
+    sections = {}
+    for k in SECTION_KEYS:
+        rows = data.get(k) or []
+        sections[k] = [
+            {
+                "t": (it.get("title") or "Untitled").strip() or "Untitled",
+                "s": (it.get("summary_zh") or it.get("summary") or "").strip(),
+                "u": (it.get("url") or "#").strip() or "#",
+            }
+            for it in rows
+        ]
+    obj = {"date": date_str, "v": 1, "sections": sections}
+    p = out_dir / f"{date_str}.json"
+    p.write_text(
+        json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
+    print(f"Wrote: {p}")
+
+
+def build_item_html(
+    item,
+    is_top=False,
+    *,
+    date_str: str,
+    section_key: str,
+    item_index: int,
+):
     safe_title = escape(item.get("title", "Untitled"))
     summary_zh_raw = item.get("summary_zh") or item.get("summary") or ""
     summary_en_raw = item.get("summary_en") or item.get("summary") or summary_zh_raw
     safe_summary_zh = escape(summary_zh_raw)
     safe_summary_en = escape(summary_en_raw)
     safe_link = escape(item.get("url", "#"), quote=True)
-    safe_share_href = escape(make_item_share_href(item), quote=True)
+    safe_share_href = escape(
+        make_item_share_href(date_str, section_key, item_index), quote=True
+    )
     top_class = " top" if is_top else ""
     top_badge = '<span class="top-badge">TOP</span>' if is_top else ""
     tags = ""
@@ -286,12 +293,20 @@ def build_item_html(item, is_top=False):
     </div>"""
 
 
-def build_section_html(key, items):
+def build_section_html(key, items, date_str: str):
     meta = SECTION_META[key]
     section_id = f"section-{key}"
     cards_list = []
     for i, item in enumerate(items):
-        cards_list.append(build_item_html(item, is_top=(i == 0)))
+        cards_list.append(
+            build_item_html(
+                item,
+                is_top=(i == 0),
+                date_str=date_str,
+                section_key=key,
+                item_index=i,
+            )
+        )
     cards = "\n".join(cards_list)
     return f"""
     <section class="section" id="{section_id}">
@@ -307,7 +322,7 @@ def build_html(data, include_nav_back=True):
     for key in SECTION_KEYS:
         items = data.get(key, [])
         if items:
-            sections.append(build_section_html(key, items))
+            sections.append(build_section_html(key, items, date_str))
     sections_html = "\n".join(sections)
 
     # Count total items
@@ -1501,6 +1516,7 @@ def main(argv=None):
     today_str = current_beijing_date_str()
 
     html = build_html(data)
+    write_issue_data_json(data, date_str)
 
     # Write today.html (当天刊; 不是 index.html,见模块顶注释)
     today_path = BASE_DIR / TODAY_FILENAME
