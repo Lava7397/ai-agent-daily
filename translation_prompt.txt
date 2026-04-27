@@ -1,0 +1,74 @@
+请将以下 18 条 AI 新闻摘要从英文翻译成中文。
+
+要求：
+1. 每条翻译 80-150 字
+2. 保留所有技术术语、专有名词、数字、项目名原样（如 MCP, Claude Code, OpenClaw 等）
+3. 语气专业，符合新闻风格
+4. 只返回 JSON，不要其他内容
+
+JSON 格式：
+{
+  "translations": [
+    {
+      "index": 0,
+      "summary_zh": "中文翻译..."
+    },
+    ...
+  ]
+}
+
+需要翻译的内容：
+
+[0] Hiding in the AI Traffic: Abusing MCP for LLM-Powered Agentic Red Teaming
+Generative AI is reshaping offensive cybersecurity by enabling autonomous red team agents that can plan, execute, and adapt during penetration tests. However, existing approaches face trade-offs between generality and specialization, and practical de
+
+[1] ROSBag MCP Server: Analyzing Robot Data with LLMs for Agentic Embodied AI Applications
+Agentic AI systems and Physical or Embodied AI systems have been two key research verticals at the forefront of Artificial Intelligence and Robotics, with Model Context Protocol (MCP) increasingly becoming a key component and enabler of agentic appli
+
+[2] SciFi: A Safe, Lightweight, User-Friendly, and Fully Autonomous Agentic AI Workflow for Scientific Applications
+Recent advances in agentic AI have enabled increasingly autonomous workflows, but existing systems still face substantial challenges in achieving reliable deployment in real-world scientific research. In this work, we present a safe, lightweight, and
+
+[3] Environment-Grounded Multi-Agent Workflow for Autonomous Penetration Testing
+The increasing complexity and interconnectivity of digital infrastructures make scalable and reliable security assessment methods essential. Robotic systems represent a particularly important class of operational technology, as modern robots are high
+
+[4] Whth/fabricatio
+Fabricatio is a Python library designed for building applications that leverage Large Language Models (LLMs) using an event-based agent structure. It utilizes Handlebars for templating and provides a  （⭐ 7）
+
+[5] ashergarland/skidl-vscode
+SKiDL Language Server VSCode Extension & MCP Server: Real-time KiCad symbol, footprint, and pin validation for SKiDL Python files （⭐ 1）
+
+[6] r2jitu/zest-lang
+Token-efficient programming language for LLM tool calls; transpiles to Python; ships with MCP server （⭐ 0）
+
+[7] vulnmaster/CASE-UCO-SDK
+Multi-language SDK (Python, C#, Java, Rust) for building validated CASE/UCO JSON-LD graphs for digital forensics and cyber-investigation. AI-agent ready with MCP server and 428+ typed ontology classes （⭐ 0）
+
+[8] Gitlawb/openclaude
+Open Claude Is Open-source coding-agent CLI for OpenAI, Gemini, DeepSeek, Ollama, Codex, GitHub Models, and 200+ models via OpenAI-compatible APIs. （⭐ 24572）
+
+[9] 
+Railway, a San Francisco-based cloud platform that has quietly amassed two million developers without spending a dollar on marketing, announced Thursday that it raised $100 million in a Series B fundi
+
+[10] 
+The artificial intelligence coding revolution comes with a catch: it&#x27;s expensive.Claude Code, Anthropic&#x27;s terminal-based AI agent that can write, debug, and deploy code autonomously, has cap
+
+[11] 
+Alfred Wahlforss was running out of options. His startup, Listen Labs, needed to hire over 100 engineers, but competing against Mark Zuckerberg&#x27;s $100 million offers seemed impossible. So he spen
+
+[12] Three constraints before I build anything
+热度: 83 分 | 13 评论
+
+[13] EvanFlow – A TDD driven feedback loop for Claude Code
+热度: 15 分 | 4 评论
+
+[14] AI should elevate your thinking, not replace it
+热度: 319 分 | 264 评论
+
+[15] Google banks on AI edge to catch up to cloud rivals Amazon and Microsoft
+热度: 79 分 | 47 评论
+
+[16] Show HN: AI memory with biological decay (52% recall)
+热度: 70 分 | 32 评论
+
+[17] An AI agent deleted our production database. The agent's confession is below
+热度: 521 分 | 673 评论
