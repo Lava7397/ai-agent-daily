@@ -13,6 +13,9 @@ venv/
 .env.local
 .env.*.local
 
+# Local backups (e.g. translate.py renames daily_data.json → .bak)
+*.json.bak
+
 # OS
 .DS_Store
 Thumbs.db
