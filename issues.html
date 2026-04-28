@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="description" content="AI Agent 期刊 · 历史归档 — 共 18 期">
+<meta name="theme-color" content="#0d1b2a">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>AI Agent 期刊 · 历史归档</title>
+<style>
+/* 系统字体栈，避免 Google Fonts 外联阻塞首屏（移动网与 Wi‑Fi 均少一次跨域往返） */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ix: 0.18s ease;
+  --issue-dock-row-h: 52px;
+}
+@media (hover: hover) and (pointer: fine) {
+  a, button, .atlas-btn, [role="button"] { -webkit-tap-highlight-color: transparent; }
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #f5f0e8;
+  color: #2c2c2c;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 与 today.html / journal.html：fixed 顶栏 + 同高占位 */
+.detail-issue-top--fixed-dock {
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--issue-dock-row-h));
+}
+.issue-sticky-dock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  z-index: 200;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(100,80,60,0.1);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.issue-sticky-dock .detail-topbar {
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+.detail-topbar-inner--with-quicknav {
+  padding: 6px 8px 6px 10px;
+  min-height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+.atlas-btn {
+  flex-shrink: 0;
+  border: 1px solid rgba(100,80,60,0.18);
+  color: #4d4338;
+  background: #f8f4eb;
+  text-decoration: none;
+  padding: 6px 10px;
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background var(--ix), color var(--ix), border-color var(--ix), box-shadow var(--ix), transform 0.12s ease;
+}
+.atlas-btn:hover {
+  background: #efe6d8;
+  border-color: rgba(100, 80, 60, 0.32);
+  box-shadow: 0 1px 4px rgba(45, 36, 28, 0.08);
+  transform: translateY(-1px);
+}
+.atlas-btn:active { transform: translateY(0); }
+.atlas-btn:focus-visible { outline: 2px solid #98703f; outline-offset: 2px; }
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #5a6e8a;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+  border-radius: 0 0 2px 0;
+  transition: top 0.2s, background 0.15s, box-shadow 0.15s;
+}
+.skip-link:hover { background: #4a6080; box-shadow: 0 2px 8px rgba(74, 96, 128, 0.2); }
+.skip-link:focus { top: 0; }
+.skip-link:focus-visible { outline: 2px solid #2d3a4a; outline-offset: 2px; }
+
+/* ---- Hero ---- */
+.hero {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(178,200,218,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(210,185,220,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(245,235,210,0.5) 0%, transparent 70%),
+    #f5f0e8;
+  padding: 20px 24px 16px;
+  text-align: center;
+  position: relative;
+  border-bottom: 2px solid rgba(100,80,60,0.15);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(100,80,60,0.02) 3px, rgba(100,80,60,0.02) 4px
+  );
+  pointer-events: none;
+}
+.hero h1 {
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #3a3a3a;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 1;
+}
+.hero .subtitle {
+  color: #8a7e6e;
+  font-size: 13px;
+  margin-top: 6px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 1.5px;
+}
+.hero .today-link {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 22px;
+  background: #5a6e8a;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  transition: background var(--ix), box-shadow var(--ix), transform 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.hero .today-link:hover {
+  background: #4a6080;
+  box-shadow: 0 3px 12px rgba(74, 96, 128, 0.28);
+  transform: translateY(-1px);
+}
+.hero .today-link:focus-visible { outline: 2px solid #3d4f68; outline-offset: 2px; }
+
+/* ---- Stats bar ---- */
+.stats-bar {
+  max-width: 720px;
+  margin: 28px auto 0;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+.stats-bar .stat {
+  text-align: center;
+  border: 1px solid rgba(100,80,60,0.12);
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.5);
+}
+.stats-bar .stat-num {
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #5a6e8a;
+}
+.stats-bar .stat-label {
+  font-size: 10px;
+  color: #8a7e6e;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* ---- Archive list ---- */
+.archive-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+.archive-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.date-card {
+  display: flex;
+  align-items: center;
+  gap: 10px 12px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(100,80,60,0.1);
+  border-left: 4px solid #5a6e8a;
+  text-decoration: none;
+  color: #2c2c2c;
+  border-radius: 2px;
+  transition: background 0.18s ease, border-color 0.18s, border-left-color 0.18s, transform 0.18s, box-shadow 0.18s;
+  -webkit-tap-highlight-color: transparent;
+}
+.date-card:nth-child(5n+2) { border-left-color: #7a6e9a; }
+.date-card:nth-child(5n+3) { border-left-color: #6a8a7a; }
+.date-card:nth-child(5n+4) { border-left-color: #8a7a6a; }
+.date-card:nth-child(5n+5) { border-left-color: #6a7a8a; }
+.date-card:hover {
+  background: rgba(255,255,255,0.9);
+  border-left-color: #4a6080;
+  transform: translateX(4px);
+  box-shadow: 0 2px 10px rgba(45, 36, 28, 0.07);
+}
+.date-card:focus-visible { outline: 2px solid #5a6e8a; outline-offset: 2px; }
+.date-meta-wrap {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.date-main {
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #3a3a3a;
+  white-space: nowrap;
+}
+.date-day {
+  font-size: 11px;
+  color: #8a7e6e;
+  letter-spacing: 1px;
+}
+.date-text-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.date-headline {
+  font-size: 13px;
+  color: #5a5040;
+  line-height: 1.5;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.date-summary {
+  font-size: 11.5px;
+  color: #8a7e6e;
+  line-height: 1.55;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.date-right {
+  flex: 0 0 2.35rem;
+  width: 2.35rem;
+  max-width: 2.35rem;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+}
+.date-arrow-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 100%;
+}
+.date-count-num {
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #5a6e8a;
+  line-height: 1;
+  margin-bottom: 1px;
+}
+.date-arrow {
+  font-size: 15px;
+  color: #b0a89a;
+  transition: transform 0.18s, color 0.18s;
+  line-height: 1;
+  display: block;
+}
+.date-card:hover .date-arrow-stack .date-arrow {
+  transform: translateX(3px);
+  color: #5a6e8a;
+}
+
+/* ---- Pagination ---- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.page-btn {
+  padding: 8px 14px;
+  border: 1px solid rgba(100,80,60,0.15);
+  background: rgba(255,255,255,0.6);
+  color: #5a6e8a;
+  font-size: 13px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+  min-width: 40px;
+  -webkit-tap-highlight-color: transparent;
+}
+.page-btn:hover:not(:disabled) {
+  background: #5a6e8a;
+  color: #fff;
+  border-color: #5a6e8a;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(90, 110, 138, 0.22);
+}
+.page-btn:hover:not(:disabled).active { box-shadow: 0 2px 6px rgba(74, 96, 128, 0.3); }
+.page-btn:focus-visible:not(:disabled) { outline: 2px solid #4a6080; outline-offset: 2px; }
+.page-btn.active {
+  background: #4a6080;
+  color: #fff;
+  border-color: #4a6080;
+  font-weight: 600;
+}
+.page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.page-info {
+  font-size: 12px;
+  color: #8a7e6e;
+  margin: 0 8px;
+  letter-spacing: 1px;
+}
+
+/* ---- Footer ---- */
+.footer {
+  text-align: center;
+  padding: 32px 20px;
+  border-top: 1px solid rgba(100,80,60,0.1);
+  color: #a09080;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.footer a {
+  color: #8a7e6e;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 2px;
+  transition: color var(--ix), text-decoration-color var(--ix);
+}
+.footer a:hover { color: #5a6e8a; text-decoration-color: rgba(90, 110, 138, 0.45); }
+.footer a:focus-visible { outline: 2px solid #5a6e8a; outline-offset: 2px; border-radius: 2px; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">跳到正文</a>
+<div class="detail-issue-top detail-issue-top--fixed-dock">
+<header class="issue-sticky-dock" aria-label="期刊归档顶栏">
+<div class="detail-topbar">
+  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
+<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span>返回</span></a>
+  </div>
+</div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>AI Agent 期刊</h1>
+  <p class="subtitle">历史存档 · 共 18 期</p>
+  <a class="today-link" href="today.html">查看今日刊 →</a>
+</div>
+
+</div>
+<main id="main-content">
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">18</div>
+    <div class="stat-label">Total Issues</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2</div>
+    <div class="stat-label">Pages</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">10</div>
+    <div class="stat-label">Per Page</div>
+  </div>
+</div>
+
+<!-- Archive list -->
+<div class="archive-wrap">
+  <div class="archive-list" id="archiveList">
+    
+        <a class="date-card" href="archives/2026-04-28.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-28</span>
+            <span class="date-day">周二</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">Hiding in the AI Traffic: Abusing MCP for LLM-Powered Agentic Red Teaming</p>
+            <p class="date-summary">【arXiv】生成式人工智能正在通过启用能够在渗透测试期间规划、执行和适应的自主红队代理来重塑进攻性网络安全。然而，现有的方法面临着通用性和专业化之间的权衡，以及</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="17 条内容" title="17 条内容">
+              <span class="date-count-num">17</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+        <a class="date-card" href="archives/2026-04-27.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-27</span>
+            <span class="date-day">周一</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">Hiding in the AI Traffic: Abusing MCP for LLM-Powered Agentic Red Teaming</p>
+            <p class="date-summary">【arXiv】Generative AI is reshaping offensive cybersecurity by enabling autonomous red team agents that can plan, execute, and adapt during penetration tests. However, existing approaches face trade-offs between generality and specialization, and practical de</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容">
+              <span class="date-count-num">18</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+        <a class="date-card" href="archives/2026-04-26.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-26</span>
+            <span class="date-day">周日</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows</p>
+            <p class="date-summary">本文提出动态工具门控机制，通过懒加载模式解决AI智能体在调用工具时的计算效率问题。核心设计包括轻量级门控函数和延迟Schema解析，在保持精度的同时显著降低工具调用延迟。实验覆盖API调用、数据库查询、代码执行等多种工具场景。</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="20 条内容" title="20 条内容">
+              <span class="date-count-num">20</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+        <a class="date-card" href="archives/2026-04-25.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-25</span>
+            <span class="date-day">周六</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">Google will invest as much as $40 billion in Anthropic</p>
+            <p class="date-summary">Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="15 条内容" title="15 条内容">
+              <span class="date-count-num">15</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+        <a class="date-card" href="archives/2026-04-24.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-24</span>
+            <span class="date-day">周五</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税</p>
+            <p class="date-summary">研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容">
+              <span class="date-count-num">18</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+        <a class="date-card" href="archives/2026-04-23.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-23</span>
+            <span class="date-day">周四</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线</p>
+            <p class="date-summary">阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容">
+              <span class="date-count-num">18</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+        <a class="date-card" href="archives/2026-04-22.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-22</span>
+            <span class="date-day">周三</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">AgentSPEX: An Agent SPecification and EXecution Language</p>
+            <p class="date-summary">AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容">
+              <span class="date-count-num">18</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+        <a class="date-card" href="archives/2026-04-21.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-21</span>
+            <span class="date-day">周二</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">Mind DeepResearch Technical Report</p>
+            <p class="date-summary">理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容">
+              <span class="date-count-num">18</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+        <a class="date-card" href="archives/2026-04-19.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-19</span>
+            <span class="date-day">周日</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">Dive into Claude Code: The Design Space of AI Agent Systems</p>
+            <p class="date-summary">一篇深入分析 Claude Code 架构的学术论文（arXiv:2604.14228），通过解析其 TypeScript 源码，识别出五大核心设计价值和十三项设计原则。核心架构为一个简单的 while 循环调用模型并运行工具，外围包含七级权限系统、五层上下文压缩管道、四种扩展机制（MCP/插件/技能/Hooks）以及子代理委派机制，并与开源项目 OpenClaw 进行了对比分析。</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="18 条内容" title="18 条内容">
+              <span class="date-count-num">18</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+        <a class="date-card" href="archives/2026-04-18.html">
+          <div class="date-meta-wrap">
+            <span class="date-main">2026-04-18</span>
+            <span class="date-day">周六</span>
+          </div>
+          <div class="date-text-wrap">
+            <p class="date-headline">HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界</p>
+            <p class="date-summary">腾讯混元团队发布HY-World 2.0，支持文本、单视角/多视角图像和视频输入，通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens渲染平台支持交互式探索，多基准测试达开源SOTA，接近闭源Marble模型效果。GitHub 1.02k stars。</p>
+          </div>
+          <div class="date-right">
+            <span class="date-arrow-stack" aria-label="15 条内容" title="15 条内容">
+              <span class="date-count-num">15</span>
+              <span class="date-arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination" id="pagination">
+    <button class="page-btn nav-btn" disabled>‹ 上一页</button>
+    <button class="page-btn active" data-page="1">1</button><button class="page-btn" data-page="2">2</button>
+    <button class="page-btn nav-btn" data-page="2" >下一页 ›</button>
+    <span class="page-info">第 1 / 2 页</span>
+  </div>
+</div>
+
+</main>
+<!-- Footer -->
+<div class="footer">
+  <p>Generated at 2026-04-28 17:49 · Powered by Lava Agent</p>
+  <p style="margin-top:6px;"><a href="home.html">首页</a> · <a href="today.html">今日刊</a></p>
+</div>
+
+<script>
+// 所有归档数据（按日期降序）: [date_str, headline, total_items]
+const ALL_ARCHIVES = [["2026-04-28", "Hiding in the AI Traffic: Abusing MCP for LLM-Powered Agentic Red Teaming", "17", "【arXiv】生成式人工智能正在通过启用能够在渗透测试期间规划、执行和适应的自主红队代理来重塑进攻性网络安全。然而，现有的方法面临着通用性和专业化之间的权衡，以及"], ["2026-04-27", "Hiding in the AI Traffic: Abusing MCP for LLM-Powered Agentic Red Teaming", "18", "【arXiv】Generative AI is reshaping offensive cybersecurity by enabling autonomous red team agents that can plan, execute, and adapt during penetration tests. However, existing approaches face trade-offs between generality and specialization, and practical de"], ["2026-04-26", "Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows", "20", "本文提出动态工具门控机制，通过懒加载模式解决AI智能体在调用工具时的计算效率问题。核心设计包括轻量级门控函数和延迟Schema解析，在保持精度的同时显著降低工具调用延迟。实验覆盖API调用、数据库查询、代码执行等多种工具场景。"], ["2026-04-25", "Google will invest as much as $40 billion in Anthropic", "15", "Google承诺向Anthropic投资至多400亿美元，创下AI基础设施领域最大单笔投资记录。资金将用于支持Anthropic下一代模型研发、数据中心扩建及企业级部署。随着AI竞争加剧，Anthropic的Claude系列正从OpenAI的GPT和Google自家Gemini手中夺取企业市场份额。"], ["2026-04-24", "Tool Attention Is All You Need: 动态工具门控与懒加载方案消除 MCP/Tools 税", "18", "研究指出 Model Context Protocol（MCP）虽已成为 LLM Agent 连接外部工具的标准接口，但其无状态、贪心式 Schema 注入机制给小规模工作流带来显著的隐性开销（Tools Tax）。本文提出动态工具门控与懒加载机制，通过只激活当前步骤所需工具来削减延迟，在保持工具发现能力的同时将平均工具调用延迟降低 60%，为可扩展 Agent 工作流提供了新的优化方向。"], ["2026-04-23", "Tstars-Tryon 1.0: 淘宝商用级虚拟试穿系统上线", "18", "阿里巴巴发布 Tstars-Tryon 1.0 商用虚拟试穿系统，在极端姿态、光照变化、运动模糊等挑战性场景下保持高成功率，生成照片级真实效果并支持近实时推理。该系统已部署于淘宝 App，服务数百万用户、处理数千万请求，涵盖 8 种时尚品类最多 6 张参考图，完整保留服装纹理和材质属性。"], ["2026-04-22", "AgentSPEX: An Agent SPecification and EXecution Language", "18", "AgentSPEX 是一个用于创建结构化、模块化和可解释的大语言模型代理工作流的领域特定语言和框架。它提供显式控制流和状态管理，支持类型化步骤、分支和循环、并行执行、可重用子模块以及显式状态管理。包含可视化编辑器，支持同步图视图和工作流视图。在7个基准测试上进行了评估，比现有框架更具可解释性和可访问性。"], ["2026-04-21", "Mind DeepResearch Technical Report", "18", "理想汽车发布 Mind DeepResearch 技术报告，展示其在深度研究领域的突破。该系统能够自动化执行多步骤复杂研究任务，通过智能体框架整合信息检索、数据分析和推理链条，实现端到端的科研流程自动化。论文在 HuggingFace 获得 18 个 upvote，标志着中国车企在 AI 基础研究领域的持续投入。"], ["2026-04-19", "Dive into Claude Code: The Design Space of AI Agent Systems", "18", "一篇深入分析 Claude Code 架构的学术论文（arXiv:2604.14228），通过解析其 TypeScript 源码，识别出五大核心设计价值和十三项设计原则。核心架构为一个简单的 while 循环调用模型并运行工具，外围包含七级权限系统、五层上下文压缩管道、四种扩展机制（MCP/插件/技能/Hooks）以及子代理委派机制，并与开源项目 OpenClaw 进行了对比分析。"], ["2026-04-18", "HY-World 2.0: 腾讯混元多模态世界模型，重建、生成和模拟3D世界", "15", "腾讯混元团队发布HY-World 2.0，支持文本、单视角/多视角图像和视频输入，通过四阶段方法（全景生成HY-Pano 2.0、轨迹规划WorldNav、世界扩展WorldStereo 2.0、世界合成WorldMirror 2.0）生成高保真3D Gaussian Splatting场景。引入WorldLens渲染平台支持交互式探索，多基准测试达开源SOTA，接近闭源Marble模型效果。GitHub 1.02k stars。"], ["2026-04-17", "OpenAI 发布 GPT-Rosalind：面向生命科学的专属大模型", "18", "OpenAI 推出 GPT-Rosalind，这是一款专门针对生物学工作流微调的大语言模型，采用封闭访问模式。该模型旨在加速药物研发流程，通常需要 10-15 年和数十亿美元投入的实验室假设到药房货架的过程。VentureBeat 指出这是 OpenAI 首次为特定科学领域推出专属模型，标志着 AI 正从通用能力向垂直专业领域深度渗透。"], ["2026-04-16", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18", "浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。"], ["2026-04-15", "ClawGUI: 统一训练、评估、部署的 GUI Agent 全栈框架", "18", "浙江大学团队开源 ClawGUI，首个支持 RL 训练的 GUI Agent 全栈框架，统一覆盖 Android、HarmonyOS、iOS 三端部署。集成 GiGPO 和 Process Reward Model，支持并行虚拟环境与真实物理设备训练。ClawGUI-2B 在 MobileWorld GUI-Only 基准上超越同规模 MAI-UI-2B 6.0%，达到 17.1% 成功率。项目同时发布 6 个基准的标准化评估套件，填补开源 GUI Agent RL 基础设施空白。"], ["2026-04-14", "SATO: Strips as Tokens — 艺术家级 3D 网格生成", "19", "DEEMOS Technology 提出 SATO 框架，用三角带序列替代传统坐标排序，解决自回归 Transformer 生成网格时序列过长、边流断裂的问题。关键创新是同一 token 序列可解码为三角形或四边形网格，支持联合训练。在几何质量、结构连贯性和 UV 分割上全面超越前代方法。今日 HuggingFace #1 论文，GitHub 已获 37 stars。"], ["2026-04-13", "Strategic Algorithmic Monoculture: AI Agent 多智能体协调行为实验", "14", "arXiv 最新论文研究 AI agents 在多智能体环境中的协调行为，区分了基础算法单一性和策略性算法单一性，发现 LLM 在协调方面表现优异但在维持多样性方面落后于人类。"], ["2026-04-11", "Act Wisely: 元认知工具使用培养AI Agent自主决策能力", "11", "arXiv最新论文提出Act Wisely框架，通过培养多模态AI Agent的元认知能力，使其更明智地判断何时使用外部工具，而非盲目调用。"], ["2026-04-09", "MegaTrain: Full Precision Training of 100B+ Parameter LLMs on a Single GPU", "10", "arXiv最新论文MegaTrain提出全新训练框架，支持在单个GPU上进行100B+参数大模型的全精度训练，在Hacker News引发热烈讨论(261分)。"], ["2026-04-08", "MCPSHIELD: MCP-based AI Agent 形式化安全框架", "10", "本文提出 MCPSHIELD，一个针对基于 MCP 协议的 AI Agent 的综合形式化安全框架。包含 7 类威胁、23 种攻击向量，覆盖 4 个攻击面，并对 12 种现有防御机制进行系统评估。研究发现现有单一防御最多仅覆盖 34% 的威胁，而 MCPSHIELD 集成架构理论覆盖率达 91%。"]];
+
+const PER_PAGE = 10;
+const totalPages = Math.max(1, Math.ceil(ALL_ARCHIVES.length / PER_PAGE));
+
+function renderPage(p) {
+  p = Math.max(1, Math.min(p, totalPages));
+  const start = (p - 1) * PER_PAGE;
+  const end = start + PER_PAGE;
+  const pageItems = ALL_ARCHIVES.slice(start, end);
+
+  const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
+  const listEl = document.getElementById('archiveList');
+  listEl.innerHTML = pageItems.map(([d, headline, total, summary]) => {
+    const dn = dayNames[new Date(d + 'T00:00:00').getDay()];
+    const n = total ? (parseInt(total, 10) || 0) : 0;
+    const rightInner = n > 0
+      ? `<span class="date-arrow-stack" aria-label="${n} 条内容" title="${n} 条内容"><span class="date-count-num">${n}</span><span class="date-arrow" aria-hidden="true">→</span></span>`
+      : `<span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>`;
+    const summaryHtml = summary ? `<p class="date-summary">${summary}</p>` : '';
+    return `<a class="date-card" href="archives/${d}.html">
+      <div class="date-meta-wrap">
+        <span class="date-main">${d}</span>
+        <span class="date-day">${dn}</span>
+      </div>
+      <div class="date-text-wrap">
+        <p class="date-headline">${headline || '暂无摘要'}</p>
+        ${summaryHtml}
+      </div>
+      <div class="date-right">
+        ${rightInner}
+      </div>
+    </a>`;
+  }).join('');
+
+  // 更新分页按钮
+  const pager = document.getElementById('pagination');
+  const btns = pager.querySelectorAll('.page-btn[data-page]');
+  btns.forEach(b => {
+    b.classList.toggle('active', parseInt(b.dataset.page) === p);
+    b.disabled = parseInt(b.dataset.page) < 1 || parseInt(b.dataset.page) > totalPages;
+  });
+
+  // 更新 page info
+  let info = pager.querySelector('.page-info');
+  if (info) info.textContent = `第 ${p} / ${totalPages} 页`;
+
+  // 更新 URL hash
+  history.replaceState(null, '', p > 1 ? `#page=${p}` : window.location.pathname);
+}
+
+// 绑定分页按钮点击
+document.getElementById('pagination').addEventListener('click', e => {
+  const btn = e.target.closest('.page-btn');
+  if (!btn || btn.disabled) return;
+  renderPage(parseInt(btn.dataset.page));
+});
+
+// 初始化：读取 hash 或默认第1页
+const hash = window.location.hash;
+const initPage = hash ? parseInt(hash.replace('#page=', '')) || 1 : 1;
+renderPage(initPage);
+</script>
+</body>
+</html>

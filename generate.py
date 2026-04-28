@@ -26,6 +26,8 @@ OUTPUT_DIR = BASE_DIR / "archives"
 # 当天刊文件名。不能用 index.html: 静态托管会把 URL `/` 映射到根目录的
 # index.html,优先于 vercel.json 里把 `/` 重写到 home.html,导致首页变成「当天刊」。
 TODAY_FILENAME = "today.html"
+# AI Agent 期刊历史列表（从首页拆出，由 generate.py 全量生成）
+ISSUES_FILENAME = "issues.html"
 
 # Canonical public URL for the site. Override with SITE_URL env var if needed.
 # Keep in sync with CNAME file and Vercel custom domain settings.
@@ -107,7 +109,7 @@ def extract_archive_meta(archive_path):
 
 
 def apply_home_archive_override(archive_infos, data):
-    """仅改首页历史列表的某一期的标题/摘要，不修改对应 archives/*.html。
+    """仅改 issues.html / 首页统计用的列表中某一期的标题/摘要，不修改对应 archives/*.html。
 
     daily_data 可选: home_archive_override =
       { "date": "YYYY-MM-DD", "headline": "...", "summary": "...", "total_items": "20" }
@@ -135,11 +137,6 @@ def apply_home_archive_override(archive_infos, data):
         out.append((row[0], h, t, s))
     return out
 
-
-def build_home_html(archive_infos, page=1, per_page=10):
-    """生成首页 home.html：展示所有历史归档，支持分页
-    archive_infos: list of (date_str, headline, total_items)
-    """
 
 SECTION_META = {
     "research": {"icon": "🤖", "title_zh": "AI Agent 研究",     "title_en": "Research"},
@@ -969,9 +966,10 @@ body {{
 
 
 
-def build_home_html(archive_infos, page=1, per_page=10):
-    """生成首页 home.html：展示所有历史归档，支持分页
-    archive_infos: list of (date_str, headline, total_items)
+def build_issues_html(archive_infos, page=1, per_page=10):
+    """生成 issues.html：AI Agent 期刊历史归档列表（分页），独立页面。
+
+    archive_infos: list of (date_str, headline, total_items, summary)
     """
     total = len(archive_infos)
     total_pages = max(1, (total + per_page - 1) // per_page)
@@ -979,9 +977,7 @@ def build_home_html(archive_infos, page=1, per_page=10):
     start = (page - 1) * per_page
     end = start + per_page
     page_infos = archive_infos[start:end]
-    latest_issue_href = (
-        f"archives/{archive_infos[0][0]}.html" if archive_infos else TODAY_FILENAME
-    )
+    latest_issue_href = TODAY_FILENAME
 
     # 生成日期卡片（含头条摘要）
     cards_html = ""
@@ -1038,16 +1034,19 @@ def build_home_html(archive_infos, page=1, per_page=10):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="AI Agent 日报 · 历史存档 — 共 {total} 期">
+<meta name="description" content="AI Agent 期刊 · 历史归档 — 共 {total} 期">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>AI Agent 日报 · 历史存档</title>
+<title>AI Agent 期刊 · 历史归档</title>
 <style>
 /* 系统字体栈，避免 Google Fonts 外联阻塞首屏（移动网与 Wi‑Fi 均少一次跨域往返） */
 
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-:root {{ --ix: 0.18s ease; }}
+:root {{
+  --ix: 0.18s ease;
+  --issue-dock-row-h: 52px;
+}}
 @media (hover: hover) and (pointer: fine) {{
   a, button, .atlas-btn, [role="button"] {{ -webkit-tap-highlight-color: transparent; }}
 }}
@@ -1059,6 +1058,85 @@ body {{
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }}
+
+/* 与 today.html / journal.html：fixed 顶栏 + 同高占位 */
+.detail-issue-top--fixed-dock {{
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--issue-dock-row-h));
+}}
+.issue-sticky-dock {{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  z-index: 200;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(100,80,60,0.1);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}}
+.issue-sticky-dock .detail-topbar {{
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}}
+.detail-topbar-inner--with-quicknav {{
+  padding: 6px 8px 6px 10px;
+  min-height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+}}
+.atlas-btn {{
+  flex-shrink: 0;
+  border: 1px solid rgba(100,80,60,0.18);
+  color: #4d4338;
+  background: #f8f4eb;
+  text-decoration: none;
+  padding: 6px 10px;
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background var(--ix), color var(--ix), border-color var(--ix), box-shadow var(--ix), transform 0.12s ease;
+}}
+.atlas-btn:hover {{
+  background: #efe6d8;
+  border-color: rgba(100, 80, 60, 0.32);
+  box-shadow: 0 1px 4px rgba(45, 36, 28, 0.08);
+  transform: translateY(-1px);
+}}
+.atlas-btn:active {{ transform: translateY(0); }}
+.atlas-btn:focus-visible {{ outline: 2px solid #98703f; outline-offset: 2px; }}
+
+.skip-link {{
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #5a6e8a;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+  border-radius: 0 0 2px 0;
+  transition: top 0.2s, background 0.15s, box-shadow 0.15s;
+}}
+.skip-link:hover {{ background: #4a6080; box-shadow: 0 2px 8px rgba(74, 96, 128, 0.2); }}
+.skip-link:focus {{ top: 0; }}
+.skip-link:focus-visible {{ outline: 2px solid #2d3a4a; outline-offset: 2px; }}
 
 /* ---- Hero ---- */
 .hero {{
@@ -1340,13 +1418,25 @@ body {{
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">跳到正文</a>
+<div class="detail-issue-top detail-issue-top--fixed-dock">
+<header class="issue-sticky-dock" aria-label="期刊归档顶栏">
+<div class="detail-topbar">
+  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
+<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span>返回</span></a>
+  </div>
+</div>
+</header>
 
 <!-- Hero -->
 <div class="hero">
-  <h1>AI Agent 日报</h1>
+  <h1>AI Agent 期刊</h1>
   <p class="subtitle">历史存档 · 共 {total} 期</p>
   <a class="today-link" href="{latest_issue_href}">查看今日刊 →</a>
 </div>
+
+</div>
+<main id="main-content">
 
 <!-- Stats -->
 <div class="stats-bar">
@@ -1379,10 +1469,11 @@ body {{
   </div>
 </div>
 
+</main>
 <!-- Footer -->
 <div class="footer">
   <p>Generated at {generated_at} · Powered by Lava Agent</p>
-  <p style="margin-top:6px;"><a href="{latest_issue_href}">今日刊</a> · <a href="home.html">历史存档</a></p>
+  <p style="margin-top:6px;"><a href="home.html">首页</a> · <a href="{latest_issue_href}">今日刊</a></p>
 </div>
 
 <script>
@@ -1470,27 +1561,16 @@ def run_source_evolution():
         print(f"⚠️  Evolution skipped: {e}")
 
 
-def update_polished_home_html(existing_html, generated_html, archive_infos):
-    archive_block = extract_between(
-        generated_html,
-        "<!-- Archive list -->",
-        "<!-- Footer -->",
-    )
+def patch_polished_home_archives_data(existing_html, archive_infos):
+    """仅更新精修首页中的 ALL_ARCHIVES（供 atlas 卡片统计）；归档列表在 issues.html。"""
     archive_data_block = json.dumps(archive_infos, ensure_ascii=False)
-
     updated = replace_between(
         existing_html,
-        "<!-- Archive list -->",
-        "<!-- Footer -->",
-        archive_block,
-    )
-    updated = replace_between(
-        updated,
         "const ALL_ARCHIVES = ",
         "\n\nconst LANG_STORAGE =",
         archive_data_block,
     )
-    print(f"Updated: home.html ({len(archive_infos)} issues, polished preserved)")
+    print(f"Updated: home.html (ALL_ARCHIVES, {len(archive_infos)} issues)")
     return updated
 
 
@@ -1587,10 +1667,10 @@ def main(argv=None):
         print(f"\nTotal items: {site_total}")
     print("Done!")
 
-    # ── 生成首页 home.html ─────────────────────────────
+    # ── issues.html（期刊归档列表）与 home.html（仅同步 ALL_ARCHIVES 供 atlas 统计）──
     print("\n🏠 Generating home page...")
     try:
-        # 扫描所有归档日期（YYYY-MM-DD.html）并提取头条信息（全量列入首页列表）
+        # 扫描所有归档日期（YYYY-MM-DD.html）并提取头条信息（全量写入 issues.html）
         archive_files = sorted(
             OUTPUT_DIR.glob("????-??-??.html"),
             key=lambda p: p.stem,
@@ -1606,25 +1686,36 @@ def main(argv=None):
         if archive_infos:
             home_path = BASE_DIR / "home.html"
             # 生成完整新页面（用于提取新存档列表）
-            new_home_html = build_home_html(archive_infos)
+            new_issues_html = build_issues_html(archive_infos)
+            issues_path = BASE_DIR / ISSUES_FILENAME
+            issues_path.write_text(new_issues_html, encoding="utf-8")
+            print(f"Generated: {issues_path} ({len(archive_infos)} issues)")
 
-            existing_home_html = home_path.read_text(encoding="utf-8") if home_path.exists() else ""
-            # 精修版含顶栏/项目卡/多语言等；原用「项目地图」检测，UI 迭代后已去掉，改用布局类名避免误全量覆盖
+            existing_home_html = (
+                home_path.read_text(encoding="utf-8") if home_path.exists() else ""
+            )
             is_polished = home_path.exists() and (
                 "项目地图" in existing_home_html
                 or "atlas-nav-sticky" in existing_home_html
             )
-            if is_polished:
-                # 精修版：只替换归档区与 ALL_ARCHIVES，保留顶部/样式/i18n
-                polished = update_polished_home_html(
-                    existing_home_html,
-                    new_home_html,
-                    archive_infos,
+            if (
+                is_polished
+                or (
+                    "const ALL_ARCHIVES = " in existing_home_html
+                    and "const LANG_STORAGE =" in existing_home_html
                 )
-                home_path.write_text(polished, encoding="utf-8")
+            ):
+                home_path.write_text(
+                    patch_polished_home_archives_data(
+                        existing_home_html,
+                        archive_infos,
+                    ),
+                    encoding="utf-8",
+                )
             else:
-                home_path.write_text(new_home_html, encoding="utf-8")
-                print(f"Generated: {home_path} ({len(archive_infos)} issues)")
+                print(
+                    "⚠️  home.html has no ALL_ARCHIVES markers; skipping home data patch"
+                )
             # 打印头条预览
             for date_str, headline, total, _summary in archive_infos[:3]:
                 print(f"  {date_str}: {headline[:50]}...")
