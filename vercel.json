@@ -34,6 +34,13 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=120, stale-while-revalidate=3600" }
       ]
+    },
+    {
+      "source": "/journal-submit.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "private, max-age=0, must-revalidate" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
     }
   ],
   "redirects": [

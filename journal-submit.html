@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d1b2a">
+<link rel="icon" href="favicon.ico" sizes="any">
+<title>剪藏投稿（作者）</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #1a1510;
+  color: #e8e4dc;
+  min-height: 100vh;
+  padding: 20px;
+  line-height: 1.55;
+}
+.journal-submit-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.p-note {
+  font-size: 12px;
+  color: rgba(232,228,220,0.55);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.gate-panel, .submit-panel {
+  border: 1px solid rgba(200,175,145,0.2);
+  background: rgba(40,34,26,0.85);
+  border-radius: 4px;
+  padding: 16px;
+}
+.submit-panel {
+  margin-top: 14px;
+}
+label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(232,228,220,0.65);
+  margin-bottom: 6px;
+}
+input[type=text], input[type=password], input[type=datetime-local], textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(200,175,145,0.25);
+  background: rgba(20,17,13,0.9);
+  color: #e8e4dc;
+  border-radius: 2px;
+  font-size: 14px;
+  font-family: inherit;
+}
+textarea { min-height: 120px; resize: vertical; }
+.field + .field { margin-top: 14px; }
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 18px;
+}
+button[type=button] {
+  border: 1px solid rgba(200,175,145,0.35);
+  background: #98703f;
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 16px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: inherit;
+}
+button[type=button]:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn-secondary {
+  background: transparent;
+  color: rgba(232,228,220,0.85);
+}
+.status {
+  margin-top: 12px;
+  font-size: 12px;
+  color: rgba(232,228,220,0.7);
+}
+.status.err {
+  color: #e8a088;
+}
+.fallback-detail {
+  margin-top: 12px;
+}
+.fallback-detail summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: rgba(232,228,220,0.55);
+}
+#pasteFallback {
+  margin-top: 8px;
+}
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="journal-submit-wrap">
+  <h1>剪藏投稿</h1>
+  <p class="p-note">此页不向 C 端开放入口（首页 / 当日刊 / journal 均未链到此处）；仍建议改为自己的强口令哈希并勿公开传播 URL。口令写在页面脚本内可被查看源码还原，只适合个人静态站轻度隔离。</p>
+
+  <div id="gate" class="gate-panel">
+    <div class="field">
+      <label for="unlockPwd">站内口令</label>
+      <input type="password" id="unlockPwd" autocomplete="current-password" placeholder="请输入">
+    </div>
+    <div class="row-actions">
+      <button type="button" id="btnUnlock">解锁投稿区</button>
+    </div>
+    <p id="gateErr" class="status err hidden"></p>
+  </div>
+
+  <div id="work" class="submit-panel hidden">
+    <div class="field">
+      <label for="fUrl">链接（可选）</label>
+      <input type="text" id="fUrl" placeholder="https://..." autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="fTitle">标题（可选）</label>
+      <input type="text" id="fTitle" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="fText">正文 / 摘录（可选）</label>
+      <textarea id="fText" placeholder="纯文本即可"></textarea>
+    </div>
+    <div class="field">
+      <label for="fTime">发布时间</label>
+      <input type="datetime-local" id="fTime">
+    </div>
+    <div class="row-actions">
+      <button type="button" id="btnMerge">拉取现有 JSON 并合并</button>
+      <button type="button" id="btnDownload" class="btn-secondary" disabled>下载 journal-data.json</button>
+    </div>
+    <p id="workStatus" class="status"></p>
+    <details class="fallback-detail">
+      <summary>离线 / fetch 失败时：粘贴完整 journal-data.json</summary>
+      <textarea id="pasteFallback" placeholder='粘贴 {"schema_version":1,"entries":[...]}' rows="6"></textarea>
+      <div class="row-actions">
+        <button type="button" id="btnMergePaste">用粘贴内容合并</button>
+      </div>
+    </details>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /*
+   * SHA-256（十六进制）：由你的口令离线生成——勿把口令明文写进仓库。
+   * python3 -c "import hashlib;h=hashlib.sha256(b'你的口令'.encode());print(h.hexdigest())"
+   */
+  var REQUIRED_SHA256 = '3dcadf39a01147e4176a8c0d05a2698325746912ce967be3f3c0c323420cad39';
+
+  var SK = '__journal_submit_unlock_v1';
+
+  function el(id) { return document.getElementById(id); }
+
+  async function sha256Hex(str) {
+    var enc = new TextEncoder().encode(str);
+    var buf = await crypto.subtle.digest('SHA-256', enc);
+    var hex = '';
+    var a = new Uint8Array(buf);
+    for (var i = 0; i < a.length; i++) {
+      hex += a[i].toString(16).padStart(2, '0');
+    }
+    return hex;
+  }
+
+  async function unlock() {
+    var pw = el('unlockPwd').value.trim();
+    el('gateErr').classList.add('hidden');
+    if (!pw) {
+      el('gateErr').textContent = '请输入口令。';
+      el('gateErr').classList.remove('hidden');
+      return;
+    }
+    var got = await sha256Hex(pw);
+    if (got !== REQUIRED_SHA256) {
+      el('gateErr').textContent = '口令不正确。';
+      el('gateErr').classList.remove('hidden');
+      return;
+    }
+    sessionStorage.setItem(SK, String(Date.now()));
+    el('gate').classList.add('hidden');
+    el('work').classList.remove('hidden');
+    bootstrapTime();
+  }
+
+  function unlocked() {
+    var t = sessionStorage.getItem(SK);
+    if (!t) return false;
+    var age = Date.now() - Number(t);
+    return age >= 0 && age < 12 * 3600 * 1000;
+  }
+
+  function bootstrapTime() {
+    var d = new Date();
+    d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+    el('fTime').value = d.toISOString().slice(0, 16);
+  }
+
+  function localToIso(datetimeLocalVal) {
+    if (!datetimeLocalVal) return new Date().toISOString();
+    var d = new Date(datetimeLocalVal);
+    return Number.isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+  }
+
+  function normalizeEntry(raw) {
+    if (!raw || !raw.id || !raw.createdAt) return null;
+    return {
+      id: String(raw.id),
+      createdAt: String(raw.createdAt),
+      url: raw.url ? String(raw.url).trim() : '',
+      title: raw.title ? String(raw.title).trim() : '',
+      text: raw.text != null ? String(raw.text) : '',
+    };
+  }
+
+  function makeNewEntry() {
+    var u = el('fUrl').value.trim();
+    var ti = el('fTitle').value.trim();
+    var tx = el('fText').value.trim();
+    if (!u && !ti && !tx) {
+      return null;
+    }
+    return {
+      id: (crypto.randomUUID ? crypto.randomUUID() : randomId()),
+      createdAt: localToIso(el('fTime').value),
+      url: u,
+      title: ti,
+      text: tx,
+    };
+  }
+
+  function randomId() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0;
+      var v = c === 'x' ? r : (r & 3 | 8);
+      return v.toString(16);
+    });
+  }
+
+  var mergedPayload = null;
+
+  function mergeFromData(data) {
+    var ent = Array.isArray(data.entries) ? data.entries.map(normalizeEntry).filter(Boolean) : [];
+    var newE = makeNewEntry();
+    if (!newE) {
+      throw new Error('请至少填写「链接」「标题」「正文」中的一项。');
+    }
+    mergedPayload = {
+      schema_version: typeof data.schema_version === 'number' ? data.schema_version : 1,
+      updated_at: new Date().toISOString(),
+      entries: [newE].concat(ent),
+    };
+    var s = JSON.stringify(mergedPayload, null, 2);
+    mergedPayload.__raw = s;
+    el('btnDownload').disabled = false;
+    el('workStatus').classList.remove('err');
+    el('workStatus').textContent =
+      '合并成功（新条目已在最前）。请下载并覆盖仓库根的 journal-data.json，再 git push。';
+    return mergedPayload;
+  }
+
+  async function mergeFromFetch() {
+    var res = await fetch('/journal-data.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('拉取 journal-data.json 失败 HTTP ' + res.status);
+    var data = await res.json();
+    return mergeFromData(data);
+  }
+
+  function mergeFromPaste() {
+    var raw = el('pasteFallback').value.trim();
+    if (!raw) throw new Error('请先粘贴完整的 journal-data.json 文本。');
+    var data = JSON.parse(raw);
+    return mergeFromData(data);
+  }
+
+  function triggerDownload(content) {
+    var blob = new Blob([content], { type: 'application/json;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'journal-data.json';
+    a.rel = 'noopener';
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+  }
+
+  document.getElementById('btnUnlock').addEventListener('click', unlock);
+  document.getElementById('btnMerge').addEventListener('click', function () {
+    el('workStatus').textContent = '合并中…';
+    mergeFromFetch()
+      .then(function () {})
+      .catch(function (e) {
+        el('workStatus').classList.add('err');
+        el('workStatus').textContent = e.message || String(e);
+        mergedPayload = null;
+        el('btnDownload').disabled = true;
+      });
+  });
+  document.getElementById('btnMergePaste').addEventListener('click', function () {
+    el('workStatus').textContent = '合并中…';
+    try {
+      mergeFromPaste();
+    } catch (e) {
+      el('workStatus').classList.add('err');
+      el('workStatus').textContent = e.message || String(e);
+      mergedPayload = null;
+      el('btnDownload').disabled = true;
+      return;
+    }
+  });
+  document.getElementById('btnDownload').addEventListener('click', function () {
+    if (!mergedPayload || !mergedPayload.__raw) return;
+    triggerDownload(mergedPayload.__raw);
+  });
+
+  if (unlocked()) {
+    el('gate').classList.add('hidden');
+    el('work').classList.remove('hidden');
+    bootstrapTime();
+  }
+})();
+</script>
+</body>
+</html>
