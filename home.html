@@ -549,6 +549,15 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
   letter-spacing: 0.5px;
   min-height: 0;
 }
+.atlas-journal-teaser {
+  padding: 6px 12px 8px;
+  flex: 1;
+  font-size: 11px;
+  color: #6f6559;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  min-height: 0;
+}
 .atlas-project-title {
   padding: 7px 12px 5px;
   border-bottom: 1px solid rgba(100,80,60,0.14);
@@ -1031,12 +1040,17 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
           <a class="atlas-btn" href="#legacy-home" data-i18n="btn_archive">Archive</a>
         </div>
       </article>
-      <article class="atlas-project-card atlas-project-card--placeholder">
+      <article class="atlas-project-card">
         <div class="atlas-project-title">
-          <h2 data-i18n="next_title">Next</h2>
-          <span class="version">—</span>
+          <div>
+            <h2 data-i18n="next_title">推荐</h2>
+          </div>
+          <span class="version" data-i18n="next_digest">本地剪藏</span>
         </div>
-        <div class="atlas-placeholder-body" data-i18n="placeholder_body">预留</div>
+        <p class="atlas-journal-teaser" data-i18n="next_blurb">链接 / 文字 / 图片，仅存本机浏览器。</p>
+        <div class="atlas-project-actions">
+          <a class="atlas-btn primary" href="journal.html" data-i18n="btn_journal">打开剪藏</a>
+        </div>
       </article>
     </div>
   </div>
@@ -1255,7 +1269,10 @@ const I18N = {
     stat_max: '单期最多',
     btn_archive: '存档',
     btn_today: '今日刊',
-    next_title: '下一项',
+    next_title: '推荐',
+    next_digest: '本地剪藏',
+    next_blurb: '公开内容由 journal-data.json 提供；草稿仅存本机。',
+    btn_journal: '打开剪藏',
     placeholder_body: '预留',
     legacy_h1: 'AI Agent Daily News',
     legacy_today_link: '查看今日刊 →',
@@ -1290,7 +1307,10 @@ const I18N = {
     stat_max: 'Max items / issue',
     btn_archive: 'Archive',
     btn_today: 'Today',
-    next_title: 'Next',
+    next_title: 'Recommended',
+    next_digest: 'Local clip',
+    next_blurb: 'Public feed from journal-data.json; drafts stay on-device.',
+    btn_journal: 'Open',
     placeholder_body: 'Reserved',
     legacy_h1: 'AI Agent Daily News',
     legacy_today_link: "Today's issue →",

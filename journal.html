@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="description" content="剪藏：公开内容来自仓库 journal-data.json；本机草稿需写入该文件并 push 后生产环境更新。">
+<meta name="theme-color" content="#0d1b2a">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>剪藏 · Lava</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --ix: 0.18s ease; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #f5f0e8;
+  color: #2c2c2c;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.journal-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+  background: rgba(242, 237, 227, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(100, 80, 60, 0.12);
+}
+.journal-nav a {
+  color: #5a6e8a;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  transition: color var(--ix);
+}
+.journal-nav a:hover { color: #2f2c27; text-decoration: underline; }
+.journal-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.journal-toolbar button {
+  border: 1px solid rgba(100,80,60,0.18);
+  color: #4d4338;
+  background: #f8f4eb;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background var(--ix), border-color var(--ix);
+  font-family: inherit;
+}
+.journal-toolbar button:hover {
+  background: #fff;
+  border-color: rgba(100,80,60,0.28);
+}
+.journal-toolbar button:focus-visible {
+  outline: 2px solid #98703f;
+  outline-offset: 2px;
+}
+
+.journal-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px 20px 48px;
+}
+.journal-lede {
+  font-size: 12px;
+  color: #6f6559;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.journal-lede strong { font-weight: 600; color: #4a433a; }
+.journal-lede code {
+  font-size: 0.92em;
+  background: rgba(100,80,60,0.08);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+.journal-section-h {
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #23201b;
+  margin: 22px 0 6px;
+}
+.journal-section-h:first-of-type { margin-top: 4px; }
+.journal-public-status {
+  font-size: 11px;
+  color: #8a7e6e;
+  margin-bottom: 10px;
+  min-height: 1.2em;
+}
+
+.journal-draft {
+  margin-top: 28px;
+  border: 1px dashed rgba(100,80,60,0.28);
+  background: rgba(255,255,255,0.35);
+  border-radius: 4px;
+  padding: 0;
+}
+.journal-draft > summary {
+  cursor: pointer;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a4338;
+  list-style-position: outside;
+}
+.journal-draft > summary::-webkit-details-marker { color: #8a7e6e; }
+.journal-draft-inner { padding: 0 14px 14px; }
+.journal-lede--tight { margin-bottom: 10px; font-size: 11.5px; }
+
+.journal-form {
+  border: 1px solid rgba(100,80,60,0.18);
+  background: rgba(255,255,255,0.55);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.journal-form label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #867b6f;
+  margin-bottom: 4px;
+}
+.journal-form input[type="text"],
+.journal-form textarea {
+  width: 100%;
+  border: 1px solid rgba(100,80,60,0.15);
+  background: rgba(255,255,255,0.9);
+  padding: 8px 10px;
+  font-size: 14px;
+  font-family: inherit;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+.journal-form textarea {
+  min-height: 88px;
+  resize: vertical;
+  line-height: 1.45;
+}
+.journal-preview {
+  margin: 8px 0 10px;
+  max-width: 100%;
+}
+.journal-preview img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid rgba(100,80,60,0.12);
+}
+.journal-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 4px;
+}
+.journal-form-actions button.primary {
+  background: #5a6e8a;
+  border-color: #5a6e8a;
+  color: #fff;
+  font-size: 12px;
+  padding: 8px 18px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.04em;
+}
+.journal-form-actions button.primary:hover {
+  background: #4a6080;
+  border-color: #4a6080;
+}
+.journal-status {
+  font-size: 12px;
+  color: #5a6e8a;
+  min-height: 1.2em;
+}
+
+.journal-day {
+  margin-top: 22px;
+}
+.journal-day:first-of-type { margin-top: 6px; }
+.journal-day-h {
+  font-family: ui-serif, Georgia, "Palatino Linotype", "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #23201b;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(100,80,60,0.14);
+  margin-bottom: 10px;
+}
+.journal-day-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8a7e6e;
+  margin-left: 8px;
+}
+
+.journal-entry {
+  border: 1px solid rgba(100,80,60,0.12);
+  background: rgba(255,255,255,0.55);
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+}
+.journal-entry-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 11px;
+  color: #8a7e6e;
+}
+.journal-entry-meta time { font-variant-numeric: tabular-nums; }
+.journal-entry-del {
+  border: none;
+  background: transparent;
+  color: #a07070;
+  cursor: pointer;
+  font-size: 11px;
+  text-decoration: underline;
+  padding: 0;
+  font-family: inherit;
+}
+.journal-entry-del:hover { color: #702020; }
+.journal-entry p.entry-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2a241d;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+.journal-entry a.entry-link {
+  word-break: break-all;
+  color: #4a6080;
+  font-size: 13px;
+}
+.journal-entry p.entry-text {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #3a342c;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.journal-entry .entry-img {
+  margin-top: 8px;
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgba(100,80,60,0.1);
+}
+
+.journal-empty {
+  text-align: center;
+  padding: 28px 16px;
+  color: #8a7e6e;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+<nav class="journal-nav" aria-label="页面导航">
+  <a href="home.html">← 返回首页</a>
+  <div class="journal-toolbar">
+    <button type="button" id="btn-reload-public">刷新公开内容</button>
+  </div>
+</nav>
+
+<main class="journal-wrap">
+  <p class="journal-lede">
+    <strong>公开剪藏</strong>来自仓库根目录的 <code>journal-data.json</code>（随站部署），<strong>所有访客可读</strong>。
+    <strong>本机草稿</strong>先存在当前浏览器，用于试写；若要出现在生产站，需将对应内容写入仓库里的 <code>journal-data.json</code>，<strong>提交并 push 到 GitHub</strong>（由 Vercel 等随仓库部署），生产环境即可看到。
+  </p>
+
+  <h2 class="journal-section-h" id="public-heading">公开剪藏</h2>
+  <p class="journal-public-status" id="public-status" role="status" aria-live="polite"></p>
+  <section id="timeline-public" aria-label="公开剪藏"></section>
+
+  <details class="journal-draft" id="draft-panel">
+    <summary>本机草稿（不对访客展示）</summary>
+    <div class="journal-draft-inner">
+      <p class="journal-lede journal-lede--tight">
+        在此<strong>保存草稿</strong>仅写入本机，不会自动进公开剪藏。草稿满意后，把条目整理进仓库里的 <code>journal-data.json</code>，再 <strong>push 到 GitHub</strong>，生产环境即可读到最新公开内容。
+      </p>
+
+      <form class="journal-form" id="clip-form" autocomplete="off">
+        <label for="clip-title-or-link">文章标题或链接（可选）</label>
+        <input type="text" id="clip-title-or-link" name="title_or_link" placeholder="填写标题，或粘贴 https://…" autocomplete="off" autocapitalize="off">
+
+        <label for="clip-text">文字（可选）</label>
+        <textarea id="clip-text" name="text" placeholder="摘录、笔记…"></textarea>
+
+        <label>图片（可选）</label>
+        <div class="journal-preview" id="img-preview" hidden></div>
+        <div class="journal-form-actions">
+          <label class="upload-btn">选择图片<input type="file" id="clip-file" accept="image/*"></label>
+          <button type="submit" class="primary">保存到草稿</button>
+        </div>
+        <p class="journal-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <section id="timeline-local" aria-label="本机草稿"></section>
+    </div>
+  </details>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  const PUBLIC_JSON = 'journal-data.json';
+  const DB_NAME = 'lava_journal_v1';
+  const DB_VERSION = 1;
+  const STORE = 'entries';
+  const BJ = 'Asia/Shanghai';
+  const WD_ZH = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+
+  const elPublic = document.getElementById('timeline-public');
+  const elLocal = document.getElementById('timeline-local');
+  const elPublicStatus = document.getElementById('public-status');
+
+  function beijingDayKey(date) {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: BJ,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).formatToParts(date);
+    const y = parts.find((p) => p.type === 'year')?.value;
+    const m = parts.find((p) => p.type === 'month')?.value;
+    const d = parts.find((p) => p.type === 'day')?.value;
+    if (y && m && d) return `${y}-${m}-${d}`;
+    return new Date().toISOString().slice(0, 10);
+  }
+
+  function weekdayZhForDayKey(dayKey) {
+    const [y, m, d] = dayKey.split('-').map(Number);
+    if (!y || !m || !d) return '';
+    const dt = new Date(y, m - 1, d);
+    return WD_ZH[dt.getDay()] || '';
+  }
+
+  function formatBjHm(iso) {
+    try {
+      return new Date(iso).toLocaleTimeString('zh-CN', {
+        timeZone: BJ,
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+    } catch (_) {
+      return '';
+    }
+  }
+
+  function groupRowsByBeijingDay(rows) {
+    const groups = {};
+    for (let i = 0; i < rows.length; i++) {
+      const day = beijingDayKey(new Date(rows[i].createdAt));
+      if (!groups[day]) groups[day] = [];
+      groups[day].push(rows[i]);
+    }
+    return groups;
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  /** 公开条目：可把图片放在 imageDataUrl，或沿用 JSON 里的 image.base64（在 normalizePublicRows 转好） */
+  function renderEntry(en, opts) {
+    const readonly = opts && opts.readonly;
+    const div = document.createElement('article');
+    div.className = 'journal-entry';
+    div.dataset.entryId = en.id;
+
+    const meta = document.createElement('div');
+    meta.className = 'journal-entry-meta';
+    const time = document.createElement('time');
+    time.dateTime = en.createdAt;
+    time.textContent = formatBjHm(en.createdAt);
+    meta.appendChild(time);
+
+    if (!readonly) {
+      const del = document.createElement('button');
+      del.type = 'button';
+      del.className = 'journal-entry-del';
+      del.textContent = '删除';
+      del.addEventListener('click', function () {
+        if (!confirm('删除这条草稿？')) return;
+        deleteEntry(en.id)
+          .then(function () {
+            renderTimelineLocal();
+          })
+          .catch(function (e) {
+            alert('删除失败：' + (e.message || e));
+          });
+      });
+      meta.appendChild(del);
+    }
+
+    div.appendChild(meta);
+
+    if (en.url) {
+      const a = document.createElement('a');
+      a.className = 'entry-link';
+      a.href = en.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = en.url;
+      div.appendChild(a);
+    } else if (en.title) {
+      const t = document.createElement('p');
+      t.className = 'entry-title';
+      t.textContent = en.title;
+      div.appendChild(t);
+    }
+    if (en.text) {
+      const p = document.createElement('p');
+      p.className = 'entry-text';
+      p.textContent = en.text;
+      div.appendChild(p);
+    }
+
+    if (en.imageDataUrl) {
+      const img = document.createElement('img');
+      img.className = 'entry-img';
+      img.src = en.imageDataUrl;
+      img.alt = '';
+      img.loading = 'lazy';
+      div.appendChild(img);
+    } else if (en.imageBlob) {
+      const u = URL.createObjectURL(en.imageBlob);
+      const img = document.createElement('img');
+      img.className = 'entry-img';
+      img.src = u;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.onload = function () {
+        URL.revokeObjectURL(u);
+      };
+      div.appendChild(img);
+    }
+
+    return div;
+  }
+
+  function fillTimeline(container, rows, emptyMsg, readonly) {
+    rows = rows.slice().sort(function (a, b) {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+    const groups = groupRowsByBeijingDay(rows);
+    const days = Object.keys(groups).sort(function (a, b) {
+      return b.localeCompare(a);
+    });
+    container.innerHTML = '';
+    if (!days.length) {
+      const empty = document.createElement('div');
+      empty.className = 'journal-empty';
+      empty.textContent = emptyMsg;
+      container.appendChild(empty);
+      return;
+    }
+    for (let d = 0; d < days.length; d++) {
+      const dayKey = days[d];
+      const section = document.createElement('section');
+      section.className = 'journal-day';
+      section.setAttribute('aria-label', dayKey);
+      const h = document.createElement('h3');
+      h.className = 'journal-day-h';
+      h.textContent = dayKey;
+      const sub = document.createElement('span');
+      sub.className = 'journal-day-sub';
+      sub.textContent = weekdayZhForDayKey(dayKey);
+      h.appendChild(sub);
+      section.appendChild(h);
+      const list = groups[dayKey].slice().sort(function (a, b) {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      });
+      for (let j = 0; j < list.length; j++) {
+        section.appendChild(renderEntry(list[j], { readonly: readonly }));
+      }
+      container.appendChild(section);
+    }
+  }
+
+  function normalizePublicRows(list) {
+    const out = [];
+    for (let i = 0; i < list.length; i++) {
+      const r = list[i];
+      if (!r || !r.id || !r.createdAt) continue;
+      const row = {
+        id: String(r.id),
+        createdAt: String(r.createdAt),
+        url: r.url ? String(r.url).trim() : '',
+        title: r.title ? String(r.title).trim() : '',
+        text: r.text ? String(r.text || '') : '',
+      };
+      const img = r.image;
+      if (img && img.data_base64) {
+        const mime = img.mime || 'image/png';
+        row.imageDataUrl = 'data:' + mime + ';base64,' + img.data_base64;
+      }
+      out.push(row);
+    }
+    return out;
+  }
+
+  async function fetchPublicEntries() {
+    const res = await fetch(PUBLIC_JSON, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    const list = Array.isArray(data.entries) ? data.entries : [];
+    return normalizePublicRows(list);
+  }
+
+  async function reloadPublicTimeline() {
+    elPublicStatus.textContent = '正在加载 ' + PUBLIC_JSON + ' …';
+    try {
+      const rows = await fetchPublicEntries();
+      elPublicStatus.textContent =
+        '共 ' + rows.length + ' 条（来源：' + PUBLIC_JSON + '）';
+      fillTimeline(
+        elPublic,
+        rows,
+        '暂无公开剪藏。维护者在仓库根目录编辑 journal-data.json 并部署后，所有人都能看到。',
+        true
+      );
+    } catch (e) {
+      elPublicStatus.textContent =
+        '无法加载 ' + PUBLIC_JSON + '：' + (e.message || e);
+      elPublic.innerHTML =
+        '<p class="journal-empty">访客需要能访问到与页面同目录的 <code>journal-data.json</code>。若首次部署，请确认该文件已加入仓库。</p>';
+    }
+  }
+
+  let dbPromise = null;
+  function openDb() {
+    if (dbPromise) return dbPromise;
+    dbPromise = new Promise(function (resolve, reject) {
+      const req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onerror = function () {
+        reject(req.error);
+      };
+      req.onupgradeneeded = function (ev) {
+        const db = ev.target.result;
+        if (!db.objectStoreNames.contains(STORE)) {
+          db.createObjectStore(STORE, { keyPath: 'id' });
+        }
+      };
+      req.onsuccess = function () {
+        resolve(req.result);
+      };
+    });
+    return dbPromise;
+  }
+
+  function txRW() {
+    return openDb().then(function (db) {
+      return db.transaction(STORE, 'readwrite').objectStore(STORE);
+    });
+  }
+  function txRO() {
+    return openDb().then(function (db) {
+      return db.transaction(STORE, 'readonly').objectStore(STORE);
+    });
+  }
+
+  function putEntry(entry) {
+    return txRW().then(function (s) {
+      return new Promise(function (res, rej) {
+        const r = s.put(entry);
+        r.onsuccess = function () {
+          res();
+        };
+        r.onerror = function () {
+          rej(r.error);
+        };
+      });
+    });
+  }
+
+  function deleteEntry(id) {
+    return txRW().then(function (s) {
+      return new Promise(function (res, rej) {
+        const r = s.delete(id);
+        r.onsuccess = function () {
+          res();
+        };
+        r.onerror = function () {
+          rej(r.error);
+        };
+      });
+    });
+  }
+
+  function getAllEntries() {
+    return txRO().then(function (s) {
+      return new Promise(function (res, rej) {
+        const r = s.getAll();
+        r.onsuccess = function () {
+          res(r.result || []);
+        };
+        r.onerror = function () {
+          rej(r.error);
+        };
+      });
+    });
+  }
+
+  let pendingImageBlob = null;
+
+  function setPreview(blob) {
+    const el = document.getElementById('img-preview');
+    el.innerHTML = '';
+    if (!blob) {
+      el.hidden = true;
+      return;
+    }
+    const url = URL.createObjectURL(blob);
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = '预览';
+    img.onload = function () {
+      URL.revokeObjectURL(url);
+    };
+    el.appendChild(img);
+    el.hidden = false;
+  }
+
+  async function validateImageBlob(blob) {
+    const max = 6 * 1024 * 1024;
+    if (blob.size > max) throw new Error('图片过大（单张 ≤ 6 MB）');
+    return blob;
+  }
+
+  document.getElementById('clip-file').addEventListener('change', async function (e) {
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    try {
+      pendingImageBlob = await validateImageBlob(f);
+      setPreview(pendingImageBlob);
+    } catch (err) {
+      alert(err.message || String(err));
+      pendingImageBlob = null;
+      setPreview(null);
+    }
+    e.target.value = '';
+  });
+
+  document.addEventListener('paste', function (e) {
+    const items = e.clipboardData && e.clipboardData.items;
+    if (!items) return;
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].type && items[i].type.indexOf('image') !== -1) {
+        const f = items[i].getAsFile();
+        if (f) {
+          validateImageBlob(f)
+            .then(function (blob) {
+              pendingImageBlob = blob;
+              setPreview(blob);
+            })
+            .catch(function (err) {
+              alert(err.message || String(err));
+            });
+        }
+        e.preventDefault();
+        break;
+      }
+    }
+  });
+
+  /** 可解析为 http(s) 则视为链接，否则整段作为标题 */
+  function parseTitleOrLink(raw) {
+    const s = String(raw || '').trim();
+    if (!s) return { url: '', title: '' };
+    try {
+      const u = new URL(s.indexOf('://') !== -1 ? s : 'https://' + s);
+      if (u.protocol === 'http:' || u.protocol === 'https:') {
+        return { url: u.href, title: '' };
+      }
+    } catch (_) {}
+    return { url: '', title: s };
+  }
+
+  document.getElementById('clip-form').addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    const status = document.getElementById('form-status');
+    status.textContent = '';
+    const tl = parseTitleOrLink(document.getElementById('clip-title-or-link').value);
+    const text = String(document.getElementById('clip-text').value || '').trim();
+    const imgBlob = pendingImageBlob;
+
+    if (!tl.url && !tl.title && !text && !imgBlob) {
+      status.textContent = '至少填写标题/链接、摘录或图片之一。';
+      return;
+    }
+
+    const forIdb = {
+      id: crypto.randomUUID(),
+      createdAt: new Date().toISOString(),
+    };
+    if (tl.url) forIdb.url = tl.url;
+    if (tl.title) forIdb.title = tl.title;
+    if (text) forIdb.text = text;
+    if (imgBlob) {
+      forIdb.imageMime = imgBlob.type || 'application/octet-stream';
+      forIdb.imageBlob = imgBlob;
+    }
+
+    try {
+      await putEntry(forIdb);
+    } catch (e) {
+      status.textContent = '保存失败：' + (e.message || e);
+      return;
+    }
+
+    pendingImageBlob = null;
+    setPreview(null);
+    document.getElementById('clip-title-or-link').value = '';
+    document.getElementById('clip-text').value = '';
+    status.textContent =
+      '已保存到草稿。将待发布内容写入仓库 journal-data.json 并 push 到 GitHub 后，即可在生产环境看到公开剪藏。';
+
+    renderTimelineLocal();
+
+    window.setTimeout(function () {
+      if (
+        status.textContent ===
+        '已保存到草稿。将待发布内容写入仓库 journal-data.json 并 push 到 GitHub 后，即可在生产环境看到公开剪藏。'
+      )
+        status.textContent = '';
+    }, 9000);
+  });
+
+  function renderTimelineLocal() {
+    getAllEntries()
+      .then(function (rows) {
+        fillTimeline(
+          elLocal,
+          rows,
+          '暂无草稿。可在上方填写标题/链接、摘录或图片后保存。',
+          false
+        );
+      })
+      .catch(function (e) {
+        elLocal.innerHTML =
+          '<p class="journal-empty">无法读取草稿：' + escapeHtml(e.message || String(e)) + '</p>';
+      });
+  }
+
+  document.getElementById('btn-reload-public').addEventListener('click', function () {
+    reloadPublicTimeline();
+  });
+
+  reloadPublicTimeline();
+
+  openDb()
+    .then(function () {
+      renderTimelineLocal();
+    })
+    .catch(function (e) {
+      document.getElementById('timeline-local').innerHTML =
+        '<p class="journal-empty">不支持 IndexedDB 或打开失败（草稿不可用）：' +
+        escapeHtml(e.message || String(e)) +
+        '</p>';
+    });
+})();
+</script>
+</body>
+</html>

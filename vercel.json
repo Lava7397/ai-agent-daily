@@ -28,6 +28,12 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400" }
       ]
+    },
+    {
+      "source": "/journal-data.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=120, stale-while-revalidate=3600" }
+      ]
     }
   ],
   "redirects": [
