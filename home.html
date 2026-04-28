@@ -1423,17 +1423,11 @@ function normalizeJournalRow(r) {
   };
 }
 
-function summarizeJournalEntry(entry) {
-  const title = entry.title;
-  const url = entry.url;
-  let text = entry.text.replace(/\s+/g, ' ').trim();
-  const MAX = 220;
-  if (text.length > MAX) text = text.slice(0, MAX).trimEnd() + '…';
-  const head = title || url;
-  if (head && text) return head + ' · ' + text;
-  if (head) return head;
-  if (text) return text;
-  return '';
+/** 仅取最新一条标题或链接，避免长文与相对路径问题 */
+function pickLatestJournalHeadline(entry) {
+  const title = (entry.title || '').trim();
+  const url = (entry.url || '').trim();
+  return title || url || '';
 }
 
 async function refreshJournalRecommendTeaser() {
@@ -1445,7 +1439,7 @@ async function refreshJournalRecommendTeaser() {
   el.textContent = pack.journal_teaser_loading;
 
   try {
-    const res = await fetch('journal-data.json', { cache: 'no-store' });
+    const res = await fetch('/journal-data.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('http');
     const data = await res.json();
     const list = Array.isArray(data.entries) ? data.entries.map(normalizeJournalRow).filter(Boolean) : [];
@@ -1456,7 +1450,7 @@ async function refreshJournalRecommendTeaser() {
       el.textContent = pack.journal_teaser_empty;
       return;
     }
-    const summary = summarizeJournalEntry(top);
+    const summary = pickLatestJournalHeadline(top);
     if (!summary) {
       el.classList.add('atlas-recommend-teaser--muted');
       el.textContent = pack.journal_teaser_empty;

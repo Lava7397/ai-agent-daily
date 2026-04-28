@@ -90,7 +90,7 @@ body {
 (function () {
   'use strict';
 
-  const PUBLIC_JSON = 'journal-data.json';
+  const PUBLIC_JSON = '/journal-data.json';
   const elPublic = document.getElementById('timeline-public');
 
   function normalizePublicRows(list) {
@@ -221,7 +221,11 @@ body {
       const rows = await fetchPublicEntries();
       renderPublicTimeline(rows);
     } catch (_) {
-      renderPublicTimeline([]);
+      elPublic.innerHTML = '';
+      const hint = document.createElement('p');
+      hint.className = 'journal-empty';
+      hint.textContent = '加载失败，请检查网络后刷新页面。';
+      elPublic.appendChild(hint);
     }
   }
 
