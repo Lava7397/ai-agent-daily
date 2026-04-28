@@ -62,6 +62,12 @@ input[type=text], input[type=password], input[type=datetime-local], textarea {
 }
 textarea { min-height: 120px; resize: vertical; }
 .field + .field { margin-top: 14px; }
+.field-hint {
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: rgba(232,228,220,0.45);
+}
 .row-actions {
   display: flex;
   flex-wrap: wrap;
@@ -148,6 +154,10 @@ button[type=button]:disabled {
     <div class="field">
       <label for="fUrl">链接（可选）</label>
       <input type="text" id="fUrl" placeholder="https://..." autocomplete="off">
+      <p class="field-hint">粘贴有效 http(s) 链接后将自动抓取页面 meta 摘要填到下方（标题/正文为空时才会写入）；也可手动点按钮覆盖已有内容。</p>
+      <div class="row-actions" style="margin-top: 8px;">
+        <button type="button" id="btnFetchMeta" class="btn-secondary">抓取并覆盖标题与摘要</button>
+      </div>
     </div>
     <div class="field">
       <label for="fTitle">标题（可选）</label>
@@ -252,6 +262,72 @@ button[type=button]:disabled {
     if (!datetimeLocalVal) return new Date().toISOString();
     var d = new Date(datetimeLocalVal);
     return Number.isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+  }
+
+  function looksLikeHttpUrl(s) {
+    return /^https?:\/\/.+/i.test(String(s || '').trim());
+  }
+
+  async function previewUrlMeta() {
+    var u = el('fUrl').value.trim();
+    if (!looksLikeHttpUrl(u)) {
+      throw new Error('请先填写以 http/https 开头的链接');
+    }
+    var res = await fetch('/api/journal_url_preview?url=' + encodeURIComponent(u), { cache: 'no-store' });
+    var data;
+    try {
+      data = await res.json();
+    } catch (e2) {
+      throw new Error('服务器返回无效 JSON');
+    }
+    if (!data.ok) {
+      throw new Error(data.error || ('HTTP ' + res.status));
+    }
+    return data;
+  }
+
+  async function fetchMetaFillEmptyOnly() {
+    var u = el('fUrl').value.trim();
+    if (!looksLikeHttpUrl(u)) return;
+    try {
+      el('workStatus').classList.remove('err');
+      el('workStatus').textContent = '正在抓取页面摘要…';
+      var data = await previewUrlMeta();
+      var did = false;
+      if (data.title && !el('fTitle').value.trim()) {
+        el('fTitle').value = data.title;
+        did = true;
+      }
+      if (data.summary && !el('fText').value.trim()) {
+        el('fText').value = data.summary;
+        did = true;
+      }
+      el('workStatus').classList.remove('err');
+      if (did) {
+        el('workStatus').textContent = '已从链接填入标题或摘要（可编辑）。';
+      } else {
+        el('workStatus').textContent =
+          '标题与正文均已填写，未自动覆盖。可使用「抓取并覆盖」按钮。';
+      }
+    } catch (e) {
+      el('workStatus').classList.add('err');
+      el('workStatus').textContent = '自动抓取摘要失败：' + (e.message || String(e));
+    }
+  }
+
+  async function fetchMetaForceOverwrite() {
+    try {
+      el('workStatus').classList.remove('err');
+      el('workStatus').textContent = '正在抓取页面摘要…';
+      var data = await previewUrlMeta();
+      if (data.title) el('fTitle').value = data.title;
+      if (data.summary) el('fText').value = data.summary;
+      el('workStatus').classList.remove('err');
+      el('workStatus').textContent = '已覆盖标题与摘要（可编辑）。';
+    } catch (e) {
+      el('workStatus').classList.add('err');
+      el('workStatus').textContent = '抓取失败：' + (e.message || String(e));
+    }
   }
 
   function normalizeEntry(raw) {
@@ -547,6 +623,13 @@ button[type=button]:disabled {
   document.getElementById('btnDownload').addEventListener('click', function () {
     if (!mergedRawJson) return;
     triggerDownload(mergedRawJson);
+  });
+
+  el('fUrl').addEventListener('paste', function () {
+    setTimeout(function () { void fetchMetaFillEmptyOnly(); }, 100);
+  });
+  document.getElementById('btnFetchMeta').addEventListener('click', function () {
+    void fetchMetaForceOverwrite();
   });
 
   if (unlocked()) {

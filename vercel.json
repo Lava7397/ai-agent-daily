@@ -1,6 +1,11 @@
 {
   "cleanUrls": false,
   "trailingSlash": false,
+  "functions": {
+    "api/journal_url_preview.py": {
+      "maxDuration": 20
+    }
+  },
   "headers": [
     {
       "source": "/issue-data/(.*)",
