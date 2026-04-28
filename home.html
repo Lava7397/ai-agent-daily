@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="Lava · LavaAgent — 个人项目入口与 AI Agent Daily News 历史存档">
+<meta name="description" content="Lava · LavaAgent — 个人项目入口与 AI Agent 期刊 历史存档">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -1004,7 +1004,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
       <article class="atlas-project-card">
         <div class="atlas-project-title">
           <div>
-            <h2 data-i18n="card_title">AI Agent Daily News</h2>
+            <h2 data-i18n="card_title">AI Agent 期刊</h2>
           </div>
           <span class="version" data-i18n="card_digest">精选期刊</span>
         </div>
@@ -1047,7 +1047,7 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 </section>
 
 <div class="hero" id="legacy-home">
-  <h1 data-i18n="legacy_h1">AI Agent Daily News</h1>
+  <h1 data-i18n="legacy_h1">AI Agent 期刊</h1>
   <p class="subtitle">历史存档 · 共 10 期</p>
   <a class="today-link" href="today.html" data-role="today-issue-link" data-i18n="legacy_today_link">查看今日刊 →</a>
 </div>
@@ -1251,7 +1251,7 @@ const I18N = {
   zh: {
     hero_of: '',
     hero_brand: "I'm Lava. Aal izz well. Vamos Rafa.",
-    card_title: 'AI Agent Daily News',
+    card_title: 'AI Agent 期刊',
     card_digest: '精选期刊',
     stat_issues: '期数',
     stat_items: '条目合计',
@@ -1263,7 +1263,7 @@ const I18N = {
     next_digest: '本地剪藏',
     btn_journal: '打开剪藏',
     placeholder_body: '预留',
-    legacy_h1: 'AI Agent Daily News',
+    legacy_h1: 'AI Agent 期刊',
     legacy_today_link: '查看今日刊 →',
     page_prev: '‹ 上一页',
     page_next: '下一页 ›',
@@ -1288,7 +1288,7 @@ const I18N = {
   en: {
     hero_of: '',
     hero_brand: "I'm Lava. Aal izz well. Vamos Rafa.",
-    card_title: 'AI Agent Daily News',
+    card_title: 'AI Agent Journal',
     card_digest: 'Selected journal',
     stat_issues: 'Issues',
     stat_items: 'Items total',
@@ -1300,7 +1300,7 @@ const I18N = {
     next_digest: 'Local clip',
     btn_journal: 'Open',
     placeholder_body: 'Reserved',
-    legacy_h1: 'AI Agent Daily News',
+    legacy_h1: 'AI Agent Journal',
     legacy_today_link: "Today's issue →",
     page_prev: '‹ Prev',
     page_next: 'Next ›',
@@ -1443,8 +1443,8 @@ function applyDocumentLang(lang) {
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) {
     metaDesc.content = lang === 'zh'
-      ? 'Lava · LavaAgent — 个人项目入口与 AI Agent Daily News 历史存档'
-      : 'Lava · LavaAgent — project hub and AI Agent Daily News archive';
+      ? 'Lava · LavaAgent — 个人项目入口与 AI Agent 期刊 历史存档'
+      : 'Lava · LavaAgent — project hub and AI Agent Journal archive';
   }
 }
 
