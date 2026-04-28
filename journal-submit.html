@@ -107,6 +107,25 @@ button[type=button]:disabled {
   margin-top: 8px;
 }
 .hidden { display: none !important; }
+.fs-panel {
+  border: 1px dashed rgba(200,175,145,0.35);
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  background: rgba(25,21,15,0.6);
+}
+.fs-panel strong { font-weight: 600; font-size: 12px; }
+.fs-line {
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(232,228,220,0.65);
+}
+.btn-primary-hit {
+  background: linear-gradient(165deg, #b8894a 0%, #876238 100%);
+  border-color: rgba(230,205,165,0.45);
+}
+.badge-fs { font-size: 11px; color: rgba(180,235,165,0.85); margin-left: 8px; }
+.badge-fs.no { color: rgba(235,165,165,0.75); }
 </style>
 </head>
 <body>
@@ -142,8 +161,21 @@ button[type=button]:disabled {
       <label for="fTime">发布时间</label>
       <input type="datetime-local" id="fTime">
     </div>
+    <div class="fs-panel" id="fsPanel">
+      <strong>写入本仓库（推荐）</strong>
+      <span id="fsBadge" class="badge-fs no">尚未绑定文件</span>
+      <p class="fs-line">使用 Chrome / Edge / Arc：首次点「绑定」选中 <code style="opacity:.85">~/Hermes/ai-daily-h5/journal-data.json</code>，句柄会保存在本机浏览器。之后填好上面内容，点「一键投稿写入」即可直接覆盖该文件（不会自动 git commit）。</p>
+      <div class="row-actions">
+        <button type="button" id="btnBindFile" class="btn-secondary">绑定 journal-data.json</button>
+        <button type="button" id="btnClearBind" class="btn-secondary hidden">解除绑定</button>
+      </div>
+      <div class="row-actions" style="margin-top:10px;">
+        <button type="button" id="btnSubmitLocal" class="btn-primary-hit" disabled>一键投稿写入</button>
+      </div>
+      <p id="fsHint" class="status err hidden"></p>
+    </div>
     <div class="row-actions">
-      <button type="button" id="btnMerge">拉取现有 JSON 并合并</button>
+      <button type="button" id="btnMerge">拉取线上 JSON 并合并（备用）</button>
       <button type="button" id="btnDownload" class="btn-secondary" disabled>下载 journal-data.json</button>
     </div>
     <p id="workStatus" class="status"></p>
@@ -200,6 +232,7 @@ button[type=button]:disabled {
     el('gate').classList.add('hidden');
     el('work').classList.remove('hidden');
     bootstrapTime();
+    await hydrateBoundHandle();
   }
 
   function unlocked() {
@@ -257,8 +290,10 @@ button[type=button]:disabled {
   }
 
   var mergedPayload = null;
+  var mergedRawJson = null;
 
-  function mergeFromData(data) {
+  function mergeFromData(data, opt) {
+    opt = opt || {};
     var ent = Array.isArray(data.entries) ? data.entries.map(normalizeEntry).filter(Boolean) : [];
     var newE = makeNewEntry();
     if (!newE) {
@@ -269,12 +304,13 @@ button[type=button]:disabled {
       updated_at: new Date().toISOString(),
       entries: [newE].concat(ent),
     };
-    var s = JSON.stringify(mergedPayload, null, 2);
-    mergedPayload.__raw = s;
+    mergedRawJson = JSON.stringify(mergedPayload, null, 2);
     el('btnDownload').disabled = false;
-    el('workStatus').classList.remove('err');
-    el('workStatus').textContent =
-      '合并成功（新条目已在最前）。请下载并覆盖仓库根的 journal-data.json，再 git push。';
+    if (!opt.quiet) {
+      el('workStatus').classList.remove('err');
+      el('workStatus').textContent = opt.msg ||
+        '合并成功（新条目已在最前）。可选用「下载 journal-data.json」，或先绑定本机文件后使用一键写入。';
+    }
     return mergedPayload;
   }
 
@@ -303,6 +339,185 @@ button[type=button]:disabled {
     setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
   }
 
+  /** IndexedDB: persist FileSystemFileHandle (Chrome-compatible). */
+  var DB_NAME = 'journal-submit-fs';
+  var DB_VER = 1;
+  var STORE = 'handles';
+  var KEY_BIND = 'journal-data';
+
+  function idbOpen() {
+    return new Promise(function (resolve, reject) {
+      var r = indexedDB.open(DB_NAME, DB_VER);
+      r.onerror = function () { reject(r.error); };
+      r.onupgradeneeded = function () {
+        if (!r.result.objectStoreNames.contains(STORE)) r.result.createObjectStore(STORE);
+      };
+      r.onsuccess = function () { resolve(r.result); };
+    });
+  }
+
+  function idbPut(handle) {
+    return idbOpen().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        var tx = db.transaction(STORE, 'readwrite');
+        tx.oncomplete = function () { resolve(); };
+        tx.onerror = function () { reject(tx.error); };
+        tx.objectStore(STORE).put(handle, KEY_BIND);
+      });
+    });
+  }
+
+  function idbGetHandle() {
+    return idbOpen().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        var tx = db.transaction(STORE, 'readonly');
+        var q = tx.objectStore(STORE).get(KEY_BIND);
+        q.onsuccess = function () { resolve(q.result || null); };
+        q.onerror = function () { reject(q.error); };
+      });
+    });
+  }
+
+  function idbClearBind() {
+    return idbOpen().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        var tx = db.transaction(STORE, 'readwrite');
+        tx.oncomplete = function () { resolve(); };
+        tx.onerror = function () { reject(tx.error); };
+        tx.objectStore(STORE).delete(KEY_BIND);
+      });
+    });
+  }
+
+  async function verifyFilePermission(fileHandle, rw) {
+    var opts = {};
+    if (rw) opts.mode = 'readwrite';
+    try {
+      if ((await fileHandle.queryPermission(opts)) === 'granted') return true;
+      return (await fileHandle.requestPermission(opts)) === 'granted';
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function fsSupported() {
+    return typeof window.showOpenFilePicker === 'function';
+  }
+
+  async function readJsonFromHandle(handle) {
+    var ok = await verifyFilePermission(handle, false);
+    if (!ok) throw new Error('无法读取文件权限，请重新绑定。');
+    var file = await handle.getFile();
+    var text = await file.text();
+    return JSON.parse(text);
+  }
+
+  async function writeTextToHandle(handle, text) {
+    var ok = await verifyFilePermission(handle, true);
+    if (!ok) throw new Error('需要保存权限：请在弹窗里允许写入。');
+    var w = await handle.createWritable();
+    await w.write(text);
+    await w.close();
+  }
+
+  function updateFsUI(hasHandle) {
+    var badge = document.getElementById('fsBadge');
+    var btnClear = document.getElementById('btnClearBind');
+    var btnSubmit = document.getElementById('btnSubmitLocal');
+    if (hasHandle) {
+      badge.textContent = '已绑定本机 journal-data.json';
+      badge.classList.remove('no');
+      btnClear.classList.remove('hidden');
+      btnSubmit.disabled = false;
+    } else {
+      badge.textContent = '尚未绑定文件';
+      badge.classList.add('no');
+      btnClear.classList.add('hidden');
+      btnSubmit.disabled = true;
+    }
+  }
+
+  var boundHandle = null;
+
+  async function hydrateBoundHandle() {
+    el('fsHint').classList.add('hidden');
+    if (!fsSupported()) {
+      el('fsHint').textContent = '当前浏览器不支持直连本机文件（需 Chrome / Edge / Arc）。请用下方「拉取合并 + 下载」。';
+      el('fsHint').classList.remove('hidden');
+      updateFsUI(false);
+      return;
+    }
+    try {
+      var h = await idbGetHandle();
+      if (h && typeof h.getFile === 'function') {
+        boundHandle = h;
+        updateFsUI(true);
+        return;
+      }
+    } catch (_) {}
+    boundHandle = null;
+    updateFsUI(false);
+  }
+
+  document.getElementById('btnBindFile').addEventListener('click', async function () {
+    el('fsHint').classList.add('hidden');
+    if (!fsSupported()) {
+      el('fsHint').textContent = '浏览器不支持文件选择 API。';
+      el('fsHint').classList.remove('hidden');
+      return;
+    }
+    try {
+      var arr = await window.showOpenFilePicker({
+        types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
+        multiple: false,
+      });
+      if (!arr || !arr.length) return;
+      var handle = arr[0];
+      await idbPut(handle);
+      boundHandle = handle;
+      updateFsUI(true);
+    } catch (e) {
+      if (e.name === 'AbortError') return;
+      el('fsHint').textContent = e.message || String(e);
+      el('fsHint').classList.remove('hidden');
+    }
+  });
+
+  document.getElementById('btnClearBind').addEventListener('click', async function () {
+    await idbClearBind();
+    boundHandle = null;
+    updateFsUI(false);
+  });
+
+  document.getElementById('btnSubmitLocal').addEventListener('click', async function () {
+    el('fsHint').classList.add('hidden');
+    el('workStatus').textContent = '';
+    if (!boundHandle) {
+      el('fsHint').textContent = '请先绑定仓库中的 journal-data.json。';
+      el('fsHint').classList.remove('hidden');
+      return;
+    }
+    try {
+      el('workStatus').textContent = '正在读取并合并…';
+      var data = await readJsonFromHandle(boundHandle);
+      mergeFromData(data, { quiet: true });
+      if (!mergedRawJson) throw new Error('合并失败');
+      el('workStatus').textContent = '正在写入磁盘…';
+      await writeTextToHandle(boundHandle, mergedRawJson);
+      el('workStatus').classList.remove('err');
+      el('workStatus').textContent =
+        '已写入「' + (boundHandle.name || 'journal-data.json') + '」。请在终端执行 git add / commit / push 后部署。';
+      el('btnDownload').disabled = false;
+    } catch (e) {
+      el('workStatus').classList.add('err');
+      el('workStatus').textContent = e.message || String(e);
+      if (String(e.message || e).indexOf('权限') >= 0 || String(e.message || e).indexOf('permission') >= 0) {
+        el('fsHint').textContent = '若浏览器撤回了权限，请点「解除绑定」后重新绑定。';
+        el('fsHint').classList.remove('hidden');
+      }
+    }
+  });
+
   document.getElementById('btnUnlock').addEventListener('click', unlock);
   document.getElementById('btnMerge').addEventListener('click', function () {
     el('workStatus').textContent = '合并中…';
@@ -312,6 +527,7 @@ button[type=button]:disabled {
         el('workStatus').classList.add('err');
         el('workStatus').textContent = e.message || String(e);
         mergedPayload = null;
+        mergedRawJson = null;
         el('btnDownload').disabled = true;
       });
   });
@@ -323,19 +539,21 @@ button[type=button]:disabled {
       el('workStatus').classList.add('err');
       el('workStatus').textContent = e.message || String(e);
       mergedPayload = null;
+      mergedRawJson = null;
       el('btnDownload').disabled = true;
       return;
     }
   });
   document.getElementById('btnDownload').addEventListener('click', function () {
-    if (!mergedPayload || !mergedPayload.__raw) return;
-    triggerDownload(mergedPayload.__raw);
+    if (!mergedRawJson) return;
+    triggerDownload(mergedRawJson);
   });
 
   if (unlocked()) {
     el('gate').classList.add('hidden');
     el('work').classList.remove('hidden');
     bootstrapTime();
+    void hydrateBoundHandle();
   }
 })();
 </script>
