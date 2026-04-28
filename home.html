@@ -1052,12 +1052,12 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
       <article class="atlas-project-card" id="atlas-card-recommend">
         <div class="atlas-project-title">
           <div>
-            <h2 data-i18n="next_title">推荐</h2>
+            <h2 data-i18n="next_title">一切都好</h2>
           </div>
         </div>
         <p class="atlas-recommend-teaser atlas-recommend-teaser--muted" id="journal-recommend-summary" data-journal-teaser aria-live="polite"></p>
         <div class="atlas-project-actions">
-          <a class="atlas-btn primary" href="journal.html" data-i18n="btn_journal">打开推荐</a>
+          <a class="atlas-btn primary" href="journal.html" data-i18n="btn_journal">查看</a>
         </div>
       </article>
     </div>
@@ -1277,11 +1277,11 @@ const I18N = {
     stat_max: '单期最多',
     btn_archive: '存档',
     btn_today: '今日刊',
-    next_title: '推荐',
-    btn_journal: '打开推荐',
+    next_title: '一切都好',
+    btn_journal: '查看',
     journal_teaser_loading: '加载摘要中…',
-    journal_teaser_empty: '暂无推荐内容。',
-    journal_teaser_failed: '无法加载推荐摘要。',
+    journal_teaser_empty: '暂无内容。',
+    journal_teaser_failed: '无法加载概要。',
     placeholder_body: '预留',
     legacy_h1: 'AI Agent 期刊',
     legacy_today_link: '查看今日刊 →',
@@ -1316,8 +1316,8 @@ const I18N = {
     stat_max: 'Max items / issue',
     btn_archive: 'Archive',
     btn_today: 'Today',
-    next_title: 'Recommended',
-    btn_journal: 'Open picks',
+    next_title: 'Aal izz well',
+    btn_journal: 'View',
     journal_teaser_loading: 'Loading summary…',
     journal_teaser_empty: 'Nothing here yet.',
     journal_teaser_failed: 'Could not load summary.',
@@ -1411,7 +1411,7 @@ function syncTodayLinks() {
   });
 }
 
-/** 拉取 journal-data.json，在「推荐」卡片展示最新一条概要（非静态写死） */
+/** 拉取 journal-data.json，在第二卡片展示最新一条标题或链接（非静态写死） */
 function normalizeJournalRow(r) {
   if (!r || !r.id || !r.createdAt) return null;
   return {
