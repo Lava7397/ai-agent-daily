@@ -1,5 +1,13 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-04-28T00:00:00.000Z",
-  "entries": []
+  "updated_at": "2026-04-28T12:00:00.000Z",
+  "entries": [
+    {
+      "id": "f4985f57-b7d2-4bf7-8923-34548c5dee1e",
+      "createdAt": "2026-04-19T00:00:00.000Z",
+      "url": "https://www.koshyjohn.com/blog/ai-should-elevate-your-thinking-not-replace-it/",
+      "title": "A.I. Should Elevate Your Thinking, Not Replace It",
+      "text": "作者 Koshy John。核心观点：行业里工程师正在分成两类——一类用 AI 去掉琐事、把时间花在界定问题与判断上；一类用 polished 输出装作自己的推理。「外包思考」会削弱判断力；真正有价值的是判断力与无法替代的深层理解。\n文章来源：同名博客。"
+    }
+  ]
 }
