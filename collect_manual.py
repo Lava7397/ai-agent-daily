@@ -13,12 +13,15 @@ from urllib.parse import quote_plus
 import concurrent.futures
 
 BEIJING_TZ = timezone(timedelta(hours=8))
+
+# 时间窗口：严格 24 小时（skill 要求近 24 小时，排除旧闻）
+SINCE_24H = datetime.now(BEIJING_TZ) - timedelta(hours=24)
+
+# 当天日期字符串（北京时间）
 TODAY = datetime.now(BEIJING_TZ).strftime("%Y-%m-%d")
 
-# 计算 48 小时前的时间点（用于 API 筛选）
-SINCE_48H = datetime.now(BEIJING_TZ) - timedelta(hours=48)
-# arXiv 用 5 天窗口（因为论文延迟）
-ARXIV_SINCE = (datetime.now(BEIJING_TZ) - timedelta(days=5)).strftime("%Y-%m-%d")
+# arXiv：论文投稿到索引有延迟，用 1 天窗口并严格关键词过滤
+ARXIV_SINCE = (datetime.now(BEIJING_TZ) - timedelta(days=1)).strftime("%Y-%m-%d")
 
 def fetch_verge():
     """从 The Verge /ai 采集 - 使用 RSS"""
@@ -158,8 +161,8 @@ def fetch_arxiv():
 
 def fetch_github():
     """GitHub API 搜索 AI Agent 项目"""
-    # 5 天窗口
-    since_date = (datetime.now() - timedelta(days=5)).strftime("%Y-%m-%d")
+    # 1 天窗口
+    since_date = (datetime.now(BEIJING_TZ) - timedelta(days=1)).strftime("%Y-%m-%d")
     queries = [
         "ai+agent+language:python+stars:>100",
         "llm+agent+framework+language:python",
@@ -171,7 +174,7 @@ def fetch_github():
 
     for q in queries:
         try:
-            url = f"https://api.github.com/search/repositories?q={quote_plus(q)}+pushed:>={since_date}&sort=stars&order=desc&per_page=5"
+            url = f"https://api.github.com/search/repositories?q={quote_plus(q)}+created:>={since_date}&sort=stars&order=desc&per_page=5"
             req = Request(url, headers=headers)
             with urlopen(req, timeout=20) as resp:
                 data = json.loads(resp.read().decode('utf-8'))
@@ -191,6 +194,48 @@ def fetch_github():
             print(f"[WARN] GitHub 查询失败 ({q}): {e}")
 
     return results[:5]
+
+
+def fetch_techcrunch_ai():
+    """从 TechCrunch AI 采集 - RSS 备用主力源（24h 窗口）"""
+    RSS_URL = "https://techcrunch.com/category/artificial-intelligence/feed/"
+    try:
+        from urllib.request import urlopen
+        import xml.etree.ElementTree as ET
+        from email.utils import parsedate_to_datetime
+        resp = urlopen(RSS_URL, timeout=15)
+        rss = resp.read().decode('utf-8')
+        root = ET.fromstring(rss)
+        items = []
+        for item in root.findall('.//item'):
+            title_elem = item.find('title')
+            link_elem = item.find('link')
+            desc_elem = item.find('description')
+            pub_elem = item.find('pubDate')
+            if title_elem is None or link_elem is None:
+                continue
+            title = (title_elem.text or "").strip()
+            link = (link_elem.text or "").strip()
+            summary = (desc_elem.text or "")[:250] if desc_elem is not None else ""
+            # 时间过滤
+            if pub_elem is not None:
+                try:
+                    pub_dt = parsedate_to_datetime(pub_elem.text).astimezone(BEIJING_TZ)
+                    if (datetime.now(BEIJING_TZ) - pub_dt).total_seconds() > 24*3600:
+                        continue
+                except Exception:
+                    pass
+            items.append({
+                "title": title,
+                "summary": summary,
+                "url": link,
+                "tags": ["industry", "techcrunch"],
+            })
+        return items[:5]
+    except Exception as e:
+        print(f"  ⚠️ TechCrunch AI 采集失败: {e}")
+        return []
+
 
 def fetch_hackernews():
     """Hacker News Firebase API 获取热帖"""
@@ -274,11 +319,9 @@ all_items = {
 
 # 并发采集（除了 arxiv 和 github，其他也可以并发）
 sources = [
-    ("research", fetch_arstechnica),   # Ars -> research/models
+    ("research", fetch_arstechnica),   # Ars Technica → research/models
     ("github", fetch_github),
-    ("models", fetch_verge),
-    ("models", fetch_venturebeat),
-    ("models", fetch_bensbites),
+    ("models", fetch_techcrunch_ai),   # TechCrunch AI → models
     ("community", fetch_hackernews),
 ]
 
@@ -403,6 +446,54 @@ output = {
         for item in all_items["community"]
     ]
 }
+
+# 补充数据：若总条数不足 18，从备用源 TechCrunch AI 补充
+total_items = sum(len(v) for v in all_items.values())
+if total_items < 18:
+    print(f"\n⚠️  总条数不足（{total_items} < 18），正在从备用源补充...")
+    try:
+        from urllib.request import urlopen
+        import xml.etree.ElementTree as ET
+        from email.utils import parsedate_to_datetime
+        techcrunch_rss = "https://techcrunch.com/category/artificial-intelligence/feed/"
+        resp = urlopen(techcrunch_rss, timeout=15)
+        rss_data = resp.read().decode('utf-8')
+        root = ET.fromstring(rss_data)
+        added = 0
+        for item in root.findall('.//item'):
+            if added >= (18 - total_items):
+                break
+            title_elem = item.find('title')
+            link_elem = item.find('link')
+            desc_elem = item.find('description')
+            if title_elem is None or link_elem is None:
+                continue
+            title = (title_elem.text or "").strip()
+            link = (link_elem.text or "#").strip()
+            summary = (desc_elem.text or "")[:200]
+            # 检查时间（24h 内）
+            pub_elem = item.find('pubDate')
+            if pub_elem is not None:
+                try:
+                    pub_dt = parsedate_to_datetime(pub_elem.text)
+                    if pub_dt.tzinfo:
+                        pub_dt = pub_dt.astimezone(BEIJING_TZ)
+                    else:
+                        pub_dt = pub_dt.replace(tzinfo=timezone.utc).astimezone(BEIJING_TZ)
+                    if (datetime.now(BEIJING_TZ) - pub_dt).total_seconds() > 24*3600:
+                        continue
+                except Exception:
+                    pass
+            all_items["models"].append({
+                "title": title,
+                "summary": summary,
+                "url": link,
+                "tags": ["industry", "supplement"],
+            })
+            added += 1
+        print(f"  ✅ 补充 {added} 条，当前 total: {sum(len(v) for v in all_items.values())}")
+    except Exception as e:
+        print(f"  ⚠️ 补充失败: {e}")
 
 # 写入文件
 out_path = os.path.join(os.path.expanduser('~/Hermes/ai-daily-h5'), 'daily_data.json')
