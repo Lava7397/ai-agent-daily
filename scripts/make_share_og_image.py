@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-从 site-mascot-raw.png 生成分享/OG 用小图：限制长边 + JPEG（通用预览）+ WebP（更省体积）。
+从 site-mascot-raw.png 生成分享/OG 用小图：限制长边 + JPEG + WebP + 256 色 PNG（微信预览更稳）。
 依赖：Pillow
 用法：python3 scripts/make_share_og_image.py
 """
@@ -15,6 +15,7 @@ BASE = Path(__file__).resolve().parent.parent
 SRC = BASE / "images" / "site-mascot-raw.png"
 OUT_JPG = BASE / "images" / "site-mascot-og.jpg"
 OUT_WEBP = BASE / "images" / "site-mascot-og.webp"
+OUT_PNG = BASE / "images" / "site-mascot-og.png"
 MAX_SIDE = 640
 JPEG_QUALITY = 88
 WEBP_QUALITY = 86
@@ -50,8 +51,11 @@ def main() -> int:
         quality=WEBP_QUALITY,
         method=WEBP_METHOD,
     )
+    q = im.quantize(colors=256, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.FLOYDSTEINBERG)
+    q.save(OUT_PNG, format="PNG", optimize=True, compress_level=9)
     print(f"Wrote {OUT_JPG.name} ({OUT_JPG.stat().st_size} bytes)")
     print(f"Wrote {OUT_WEBP.name} ({OUT_WEBP.stat().st_size} bytes)")
+    print(f"Wrote {OUT_PNG.name} ({OUT_PNG.stat().st_size} bytes)")
     return 0
 
 
