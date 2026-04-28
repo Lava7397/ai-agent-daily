@@ -1562,8 +1562,11 @@ def run_source_evolution():
 
 
 def patch_polished_home_archives_data(existing_html, archive_infos):
-    """仅更新精修首页中的 ALL_ARCHIVES（供 atlas 卡片统计）；归档列表在 issues.html。"""
-    archive_data_block = json.dumps(archive_infos, ensure_ascii=False)
+    """仅更新精修首页中的 ALL_ARCHIVES（供 atlas 卡片统计）；归档列表在 issues.html。
+
+    首页 JS 只读取每期日期与条目数，嵌入完整元数据会显著拖慢首屏下载与解析；故只写入 [[date, total], ...]。"""
+    home_rows = [[row[0], str(row[2])] for row in archive_infos]
+    archive_data_block = json.dumps(home_rows, ensure_ascii=False, separators=(",", ":"))
     updated = replace_between(
         existing_html,
         "const ALL_ARCHIVES = ",

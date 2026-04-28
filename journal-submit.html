@@ -390,8 +390,16 @@ button[type=button]:disabled {
     return mergedPayload;
   }
 
+  /** apex → www 308：内嵌浏览器 fetch 可能失败，直接请求 www + CORS * */
+  function journalDataJsonUrl() {
+    if (location.hostname === 'lava7397.com') {
+      return 'https://www.lava7397.com/journal-data.json';
+    }
+    return new URL('journal-data.json', location.href).href;
+  }
+
   async function mergeFromFetch() {
-    var res = await fetch('/journal-data.json', { cache: 'no-store' });
+    var res = await fetch(journalDataJsonUrl(), { cache: 'no-store', credentials: 'omit' });
     if (!res.ok) throw new Error('拉取 journal-data.json 失败 HTTP ' + res.status);
     var data = await res.json();
     return mergeFromData(data);

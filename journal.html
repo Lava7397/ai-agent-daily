@@ -186,7 +186,14 @@ body {
 (function () {
   'use strict';
 
-  const PUBLIC_JSON = '/journal-data.json';
+  /** 见 home.html：apex → www 308 时避免 fetch 在内嵌内核失败 */
+  function journalDataJsonUrl() {
+    if (location.hostname === 'lava7397.com') {
+      return 'https://www.lava7397.com/journal-data.json';
+    }
+    return new URL('journal-data.json', location.href).href;
+  }
+
   const elPublic = document.getElementById('timeline-public');
 
   function normalizePublicRows(list) {
@@ -207,7 +214,7 @@ body {
   }
 
   async function fetchPublicEntries() {
-    const res = await fetch(PUBLIC_JSON, { cache: 'no-store' });
+    const res = await fetch(journalDataJsonUrl(), { credentials: 'omit' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     const list = Array.isArray(data.entries) ? data.entries : [];
