@@ -549,6 +549,24 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
   letter-spacing: 0.5px;
   min-height: 0;
 }
+.atlas-recommend-teaser {
+  margin: 0;
+  flex: 1;
+  padding: 4px 12px 12px;
+  font-size: 12px;
+  line-height: 1.52;
+  letter-spacing: 0.015em;
+  color: #4a453e;
+  min-height: 3.65em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  word-break: break-word;
+}
+.atlas-recommend-teaser.atlas-recommend-teaser--muted {
+  color: #9a9288;
+}
 .atlas-project-title {
   padding: 7px 12px 5px;
   border-bottom: 1px solid rgba(100,80,60,0.14);
@@ -1031,15 +1049,15 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
           <a class="atlas-btn" href="#legacy-home" data-i18n="btn_archive">Archive</a>
         </div>
       </article>
-      <article class="atlas-project-card">
+      <article class="atlas-project-card" id="atlas-card-recommend">
         <div class="atlas-project-title">
           <div>
             <h2 data-i18n="next_title">推荐</h2>
           </div>
-          <span class="version" data-i18n="next_digest">本地剪藏</span>
         </div>
+        <p class="atlas-recommend-teaser atlas-recommend-teaser--muted" id="journal-recommend-summary" data-journal-teaser aria-live="polite"></p>
         <div class="atlas-project-actions">
-          <a class="atlas-btn primary" href="journal.html" data-i18n="btn_journal">打开剪藏</a>
+          <a class="atlas-btn primary" href="journal.html" data-i18n="btn_journal">打开推荐</a>
         </div>
       </article>
     </div>
@@ -1260,8 +1278,10 @@ const I18N = {
     btn_archive: '存档',
     btn_today: '今日刊',
     next_title: '推荐',
-    next_digest: '本地剪藏',
-    btn_journal: '打开剪藏',
+    btn_journal: '打开推荐',
+    journal_teaser_loading: '加载摘要中…',
+    journal_teaser_empty: '暂无推荐内容。',
+    journal_teaser_failed: '无法加载推荐摘要。',
     placeholder_body: '预留',
     legacy_h1: 'AI Agent 期刊',
     legacy_today_link: '查看今日刊 →',
@@ -1297,8 +1317,10 @@ const I18N = {
     btn_archive: 'Archive',
     btn_today: 'Today',
     next_title: 'Recommended',
-    next_digest: 'Local clip',
-    btn_journal: 'Open',
+    btn_journal: 'Open picks',
+    journal_teaser_loading: 'Loading summary…',
+    journal_teaser_empty: 'Nothing here yet.',
+    journal_teaser_failed: 'Could not load summary.',
     placeholder_body: 'Reserved',
     legacy_h1: 'AI Agent Journal',
     legacy_today_link: "Today's issue →",
@@ -1389,6 +1411,64 @@ function syncTodayLinks() {
   });
 }
 
+/** 拉取 journal-data.json，在「推荐」卡片展示最新一条概要（非静态写死） */
+function normalizeJournalRow(r) {
+  if (!r || !r.id || !r.createdAt) return null;
+  return {
+    id: String(r.id),
+    createdAt: String(r.createdAt),
+    url: (r.url || '').trim(),
+    title: (r.title || '').trim(),
+    text: r.text != null ? String(r.text) : '',
+  };
+}
+
+function summarizeJournalEntry(entry) {
+  const title = entry.title;
+  const url = entry.url;
+  let text = entry.text.replace(/\s+/g, ' ').trim();
+  const MAX = 220;
+  if (text.length > MAX) text = text.slice(0, MAX).trimEnd() + '…';
+  const head = title || url;
+  if (head && text) return head + ' · ' + text;
+  if (head) return head;
+  if (text) return text;
+  return '';
+}
+
+async function refreshJournalRecommendTeaser() {
+  const el = document.getElementById('journal-recommend-summary');
+  if (!el) return;
+  const lang = getLang();
+  const pack = I18N[lang];
+  el.classList.remove('atlas-recommend-teaser--muted');
+  el.textContent = pack.journal_teaser_loading;
+
+  try {
+    const res = await fetch('journal-data.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('http');
+    const data = await res.json();
+    const list = Array.isArray(data.entries) ? data.entries.map(normalizeJournalRow).filter(Boolean) : [];
+    list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    const top = list[0];
+    if (!top) {
+      el.classList.add('atlas-recommend-teaser--muted');
+      el.textContent = pack.journal_teaser_empty;
+      return;
+    }
+    const summary = summarizeJournalEntry(top);
+    if (!summary) {
+      el.classList.add('atlas-recommend-teaser--muted');
+      el.textContent = pack.journal_teaser_empty;
+      return;
+    }
+    el.textContent = summary;
+  } catch (e) {
+    el.classList.add('atlas-recommend-teaser--muted');
+    el.textContent = pack.journal_teaser_failed;
+  }
+}
+
 function applyStaticI18n() {
   const lang = getLang();
   const pack = I18N[lang];
@@ -1456,6 +1536,7 @@ function setLang(lang) {
   applyStaticI18n();
   syncAtlasMetrics();
   renderPage(currentPage);
+  void refreshJournalRecommendTeaser();
 }
 
 let currentPage = 1;
@@ -1818,6 +1899,7 @@ currentPage = initPage;
   applyDocumentLang(getLang());
   updateLangButtons();
   applyStaticI18n();
+  void refreshJournalRecommendTeaser();
 })();
 
 syncAtlasMetrics();
