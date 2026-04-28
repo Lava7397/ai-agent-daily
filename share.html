@@ -3,6 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="I'm Lava — 内容分享卡片">
+<meta name="theme-color" content="#0d1b2a">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lava7397.com/share.html">
+<meta property="og:title" content="分享 — I'm Lava">
+<meta property="og:description" content="I'm Lava · LavaAgent 分享页">
+<meta property="og:image" content="https://lava7397.com/images/site-mascot-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="623">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="分享 — I'm Lava">
+<meta name="twitter:description" content="I'm Lava · LavaAgent 分享页">
+<meta name="twitter:image" content="https://lava7397.com/images/site-mascot-og.jpg">
 <meta name="robots" content="noindex,nofollow">
 <meta name="color-scheme" content="light">
 <title>分享</title>
@@ -104,11 +121,11 @@ button.copy[hidden]{display:none}
 <body>
 <main id="root">
   <article class="card">
-    <p class="kicker">本期推荐</p>
+    <p class="kicker" id="share-kicker">本期推荐</p>
     <h1 class="loading" id="t">加载中…</h1>
     <p class="summary" id="s"></p>
     <div class="card-actions">
-    <a class="site" id="go" href="https://lava7397.com" rel="noopener">访问：AI Agent 期刊</a>
+    <a class="site" id="go" href="https://lava7397.com" rel="noopener">访问 I'm Lava</a>
     <button type="button" class="copy" id="copySum" hidden aria-label="仅复制下方摘要到剪贴板">复制摘要</button>
     </div>
     <p class="err" id="e" hidden></p>
@@ -124,7 +141,20 @@ button.copy[hidden]{display:none}
   var copyBtn = document.getElementById("copySum");
   var lastShareText = "";
   if (!tEl || !sEl || !eEl) return;
-  if (goEl) goEl.href = "https://lava7397.com";
+  if (goEl) {
+    goEl.href = "https://lava7397.com";
+    goEl.textContent = "访问 I'm Lava";
+  }
+
+  function journalDataJsonUrl() {
+    if (location.protocol === 'file:') {
+      return 'https://www.lava7397.com/journal-data.json';
+    }
+    if (location.hostname === 'lava7397.com') {
+      return 'https://www.lava7397.com/journal-data.json';
+    }
+    return new URL('journal-data.json', location.href).href;
+  }
 
   function setCopyable(summaryOnly) {
     lastShareText = typeof summaryOnly === "string" ? summaryOnly : "";
@@ -136,6 +166,14 @@ button.copy[hidden]{display:none}
         copyBtn.setAttribute("hidden", "");
       }
     }
+  }
+
+  /** 分享卡片摘要上限（字），展示与复制摘要一致 */
+  var SHARE_SUMMARY_MAX = 200;
+  function truncateShareSummary(s) {
+    var t = String(s != null ? s : "");
+    if (t.length <= SHARE_SUMMARY_MAX) return t;
+    return t.slice(0, SHARE_SUMMARY_MAX) + "\u2026";
   }
 
   function showErr(msg) {
@@ -150,7 +188,7 @@ button.copy[hidden]{display:none}
   function fill(title, sum) {
     tEl.classList.remove("loading");
     tEl.textContent = title || "本期推荐";
-    var raw = String(sum != null ? sum : "");
+    var raw = truncateShareSummary(sum);
     sEl.textContent = raw;
     var sTrim = raw.trim();
     if (!sTrim) {
@@ -226,6 +264,32 @@ button.copy[hidden]{display:none}
   (async function run() {
     var q;
     try { q = new URLSearchParams(window.location.search); } catch (e) { q = new URLSearchParams(""); }
+
+    var jid = (q.get("jid") || "").trim();
+    if (jid) {
+      var kickerJ = document.getElementById("share-kicker");
+      if (kickerJ) kickerJ.textContent = "Lava's Aal izz well";
+      try {
+        var resJ = await fetch(journalDataJsonUrl(), { credentials: "omit" });
+        if (!resJ.ok) { showErr("未找到数据，请刷新 Lava's Aal izz well 页面后重试。"); return; }
+        var dataJ = await resJ.json();
+        var rows = dataJ.entries && Array.isArray(dataJ.entries) ? dataJ.entries : [];
+        var found = null;
+        for (var ji = 0; ji < rows.length; ji++) {
+          var e = rows[ji];
+          if (e && String(e.id) === jid) { found = e; break; }
+        }
+        if (!found) { showErr("未找到该条内容，可能链接已过期。"); return; }
+        var tJ = found.title != null ? String(found.title).trim() : "";
+        var uJ = found.url != null ? String(found.url).trim() : "";
+        var sJ = found.text != null ? String(found.text) : "";
+        fill(tJ || uJ || "Lava's Aal izz well", sJ);
+      } catch (jx) {
+        showErr("加载失败，请检查网络后重试。");
+      }
+      return;
+    }
+
     var k = q.get("k") || "";
     var sStr = q.get("s");
     var iStr = q.get("i");

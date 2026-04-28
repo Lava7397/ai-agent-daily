@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="剪藏 · Lava's Aal izz well。阅读公开摘录与摘录正文。">
+<meta name="description" content="Lava's Aal izz well — 阅读公开摘录与正文。">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="canonical" href="https://lava7397.com/journal.html">
-<!-- 微信朋友圈/会话链接预览：爬虫读取 og:image，须公网 HTTPS 直连；PNG 兼容性通常优于 WebP -->
+<!-- 分享预览图：site-mascot-og.jpg 由 scripts/make_share_og_image.py 自 raw 缩小压缩生成 -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Agent 期刊">
 <meta property="og:url" content="https://lava7397.com/journal.html">
 <meta property="og:title" content="Lava's Aal izz well">
-<meta property="og:description" content="剪藏 — 公开内容与摘录正文。">
-<meta property="og:image" content="https://lava7397.com/images/site-mascot-raw.png">
-<meta property="og:image:type" content="image/png">
+<meta property="og:description" content="Lava's Aal izz well — 公开内容与摘录正文。">
+<meta property="og:image" content="https://lava7397.com/images/site-mascot-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="623">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lava's Aal izz well">
-<meta name="twitter:description" content="剪藏 — 公开内容与摘录正文。">
-<meta name="twitter:image" content="https://lava7397.com/images/site-mascot-raw.png">
+<meta name="twitter:description" content="Lava's Aal izz well — 公开内容与摘录正文。">
+<meta name="twitter:image" content="https://lava7397.com/images/site-mascot-og.jpg">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Lava's Aal izz well</title>
@@ -129,16 +131,70 @@ body {
   margin-bottom: 10px;
   border-radius: 2px;
 }
+/* 与 today.html 卡片分享一致 */
+.journal-entry-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.journal-entry-kicker {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: #5a6e8a;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.card-share {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #5a6e8a;
+  text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(90,110,138,0.22);
+  border-radius: 4px;
+  padding: 5px 10px;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.12s;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+.card-share-ico {
+  display: block;
+  flex-shrink: 0;
+}
+.card-share:hover {
+  color: #4a6080;
+  background: rgba(90, 110, 138, 0.08);
+  border-color: rgba(90,110,138,0.35);
+}
+.card-share:active {
+  transform: scale(0.96);
+}
+.card-share:focus-visible {
+  outline: 2px solid #5a6e8a;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 .journal-entry.public-data .journal-field + .journal-field {
   margin-top: 10px;
 }
-.journal-field-label {
+/* 字段名（文章标题或链接 / 文章内容 / 发布时间）加大加粗；正文保持常规排版 */
+.journal-entry.public-data .journal-field-label {
   display: block;
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  color: #5a5348;
-  font-weight: 600;
-  margin-bottom: 5px;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: #3a342c;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 .journal-field-value {
   font-size: 14px;
@@ -153,9 +209,11 @@ body {
   word-break: break-all;
   color: #4a6080;
   font-size: 14px;
+  font-weight: 400;
 }
 .journal-entry.public-data time {
   font-size: 14px;
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
   color: #5a5048;
 }
@@ -171,7 +229,7 @@ body {
 <body>
 <a href="#main-content" class="skip-link">跳到正文</a>
 <div class="detail-issue-top detail-issue-top--fixed-dock">
-  <header class="issue-sticky-dock" aria-label="剪藏顶栏">
+  <header class="issue-sticky-dock" aria-label="Lava's Aal izz well 顶栏">
     <div class="detail-topbar">
       <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
         <a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span>返回</span></a>
@@ -179,19 +237,39 @@ body {
     </div>
   </header>
   <main class="journal-wrap" id="main-content">
-    <section id="timeline-public" aria-label="剪藏"></section>
+    <section id="timeline-public" aria-label="Lava's Aal izz well"></section>
   </main>
 </div>
 <script>
 (function () {
   'use strict';
 
-  /** 见 home.html：apex → www 308 时避免 fetch 在内嵌内核失败 */
+  /** file:// 下浏览器通常禁止 fetch 同目录 JSON；用线上地址（CORS *）。apex 同 home。 */
   function journalDataJsonUrl() {
+    if (location.protocol === 'file:') {
+      return 'https://www.lava7397.com/journal-data.json';
+    }
     if (location.hostname === 'lava7397.com') {
       return 'https://www.lava7397.com/journal-data.json';
     }
     return new URL('journal-data.json', location.href).href;
+  }
+
+  /** 与当前页同目录的 share.html，避免 file:// 下 `/share.html` 变成 file:///share.html 空白页 */
+  function journalSharePageUrl(entryId) {
+    try {
+      return new URL('share.html?jid=' + encodeURIComponent(entryId), location.href).href;
+    } catch (_) {
+      return 'https://www.lava7397.com/share.html?jid=' + encodeURIComponent(entryId);
+    }
+  }
+
+  function isWeChatInApp() {
+    try {
+      return /MicroMessenger/i.test(navigator.userAgent || '');
+    } catch (_) {
+      return false;
+    }
   }
 
   const elPublic = document.getElementById('timeline-public');
@@ -252,6 +330,28 @@ body {
   function renderPublicEntry(row) {
     const art = document.createElement('article');
     art.className = 'journal-entry public-data';
+
+    const head = document.createElement('div');
+    head.className = 'journal-entry-head';
+    const kicker = document.createElement('span');
+    kicker.className = 'journal-entry-kicker';
+    kicker.textContent = "Lava's Aal izz well";
+    const shareA = document.createElement('a');
+    shareA.className = 'card-share';
+    shareA.href = journalSharePageUrl(row.id);
+    if (isWeChatInApp()) {
+      // 微信内核新开页常为空白，同页打开分享
+    } else {
+      shareA.target = '_blank';
+      shareA.rel = 'noopener noreferrer';
+    }
+    shareA.title = '分享本条';
+    shareA.setAttribute('aria-label', '分享本条');
+    shareA.innerHTML =
+      '<svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg> 分享';
+    head.appendChild(kicker);
+    head.appendChild(shareA);
+    art.appendChild(head);
 
     const fTitle = makeField('文章标题或链接');
     const valTitle = document.createElement('div');

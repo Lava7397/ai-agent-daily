@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="favicon.ico" sizes="any">
-<title>剪藏投稿（作者）</title>
+<title>Lava's Aal izz well 投稿（作者）</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -136,7 +136,7 @@ button[type=button]:disabled {
 </head>
 <body>
 <div class="journal-submit-wrap">
-  <h1>剪藏投稿</h1>
+  <h1>Lava's Aal izz well 投稿</h1>
   <p class="p-note">此页不向 C 端开放入口（首页 / 当日刊 / journal 均未链到此处）；仍建议改为自己的强口令哈希并勿公开传播 URL。口令写在页面脚本内可被查看源码还原，只适合个人静态站轻度隔离。</p>
 
   <div id="gate" class="gate-panel">
@@ -390,8 +390,11 @@ button[type=button]:disabled {
     return mergedPayload;
   }
 
-  /** apex → www 308：内嵌浏览器 fetch 可能失败，直接请求 www + CORS * */
+  /** file:// 禁止 fetch 本地 JSON；apex 同站。 */
   function journalDataJsonUrl() {
+    if (location.protocol === 'file:') {
+      return 'https://www.lava7397.com/journal-data.json';
+    }
     if (location.hostname === 'lava7397.com') {
       return 'https://www.lava7397.com/journal-data.json';
     }

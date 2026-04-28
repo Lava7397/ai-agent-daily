@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="Lava · LavaAgent — 个人项目入口：AI Agent 期刊与一切都好">
+<meta name="description" content="Lava · LavaAgent — 个人项目入口：AI Agent 期刊与 Lava's Aal izz well">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -68,14 +68,13 @@ body {
   color: #2f2c27;
   font-weight: 600;
 }
-/* 顶栏：复制、比心、分享 三等分间距 */
+/* 顶栏：复制、比心 */
 .atlas-nav-icon-actions {
   display: inline-flex;
   align-items: center;
   gap: 10px;
 }
-.atlas-copy-btn,
-.atlas-share-btn {
+.atlas-copy-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -88,14 +87,12 @@ body {
   line-height: 0;
   transition: color var(--ix), background var(--ix), transform 0.12s ease;
 }
-.atlas-copy-btn:hover,
-.atlas-share-btn:hover {
+.atlas-copy-btn:hover {
   color: #2f2c27;
   background: rgba(100, 80, 60, 0.08);
   transform: scale(1.06);
 }
-.atlas-copy-btn:active,
-.atlas-share-btn:active { transform: scale(0.98); }
+.atlas-copy-btn:active { transform: scale(0.98); }
 /* 仅复制：更明显的按压感 */
 .atlas-copy-btn:active {
   transform: scale(0.88);
@@ -107,8 +104,7 @@ body {
   transform-origin: center;
   transition: transform 0.15s ease, color 0.15s ease;
 }
-.atlas-copy-btn:focus-visible,
-.atlas-share-btn:focus-visible {
+.atlas-copy-btn:focus-visible {
   outline: 2px solid #98703f;
   outline-offset: 2px;
 }
@@ -120,36 +116,11 @@ body {
 .atlas-copy-btn--flash .atlas-copy-icon {
   animation: atlas-copy-ok 0.5s cubic-bezier(0.34, 1.25, 0.64, 1) both;
 }
-/* 仅分享：按压与弹跳（暖蓝灰，与复制绿色区分） */
-.atlas-share-btn:active {
-  transform: scale(0.88);
-  background: rgba(70, 88, 118, 0.22);
-  color: #252e40;
-}
-.atlas-share-btn .atlas-share-icon {
-  display: block;
-  transform-origin: center;
-  transition: transform 0.15s ease, color 0.15s ease;
-}
-@keyframes atlas-share-ok {
-  0% { transform: scale(0.85) rotate(5deg); }
-  45% { transform: scale(1.14) rotate(-4deg); }
-  100% { transform: scale(1) rotate(0deg); }
-}
-.atlas-share-btn--flash .atlas-share-icon {
-  animation: atlas-share-ok 0.5s cubic-bezier(0.34, 1.25, 0.64, 1) both;
-}
 @media (prefers-reduced-motion: reduce) {
   .atlas-copy-btn:active {
     transform: scale(0.96);
   }
   .atlas-copy-btn--flash .atlas-copy-icon {
-    animation: none;
-  }
-  .atlas-share-btn:active {
-    transform: scale(0.96);
-  }
-  .atlas-share-btn--flash .atlas-share-icon {
     animation: none;
   }
 }
@@ -718,9 +689,6 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
             </span>
           </span>
         </button>
-        <button type="button" class="atlas-share-btn" id="share-page-btn" aria-label="分享介绍页" title="分享">
-          <svg class="atlas-share-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-        </button>
       </span>
     </div>
     <div class="atlas-nav-right">
@@ -800,9 +768,9 @@ article.atlas-project-card:not(.atlas-project-card--placeholder):hover {
 
 <!-- Footer -->
 <div class="footer">
-  <p class="footer-line"><span data-i18n="footer_wechat_prefix">wechat聊一聊:</span> Lavacf</p>
+  <p class="footer-line" data-i18n="footer_tagline">也祝你一切都好</p>
+  <p class="footer-line"><span data-i18n="footer_wechat_prefix">wechat聊一聊:</span> LavaCF</p>
   <p class="footer-line"><span data-i18n="footer_updated_label">最近更新时间:</span> <time id="site-last-updated" datetime=""></time></p>
-  <p data-i18n="footer_tagline">也祝你一切都好</p>
 </div>
 
 <div id="mascot-lightbox" class="atlas-mascot-lightbox" role="dialog" aria-modal="true" aria-label="主图（高清）" hidden>
@@ -848,8 +816,6 @@ const I18N = {
     fav_aria_on: '已喜欢，点击取消',
     fav_title_add: '点一颗爱心',
     fav_title_remove: '取消爱心',
-    share_aria: '分享介绍页',
-    share_title: '分享',
     hero_mascot_aria: '点击查看主图高清版',
     hero_mascot_title: '查看高清主图',
     hero_mascot_dialog: '主图（高清）',
@@ -866,7 +832,7 @@ const I18N = {
     stat_max: 'Max items / issue',
     btn_archive: 'Archive',
     btn_today: 'Today',
-    next_title: 'Aal izz well',
+    next_title: 'Lava\'s Aal izz well',
     btn_journal: 'View',
     journal_teaser_loading: 'Loading summary…',
     journal_teaser_empty: 'Nothing here yet.',
@@ -883,8 +849,6 @@ const I18N = {
     fav_aria_on: 'Liked, click to remove',
     fav_title_add: 'Add a heart',
     fav_title_remove: 'Remove heart',
-    share_aria: 'Share intro link',
-    share_title: 'Share',
     hero_mascot_aria: 'View full-size mascot image',
     hero_mascot_title: 'View high-resolution image',
     hero_mascot_dialog: 'Mascot image (full size)',
@@ -912,10 +876,13 @@ function syncTodayLinks() {
 }
 
 /**
- * 与 lava7397.com（apex）→ www 的 308 并存：部分内嵌浏览器对「先 apex 再跳 www」的 fetch 会失败。
- * 在 apex 上直接请求 www 上的 JSON（CDN 已返回 Access-Control-Allow-Origin: *）。
+ * file:// 下浏览器通常禁止 fetch 本地 JSON；用线上地址（CORS *）。
+ * apex → www 308 的内嵌浏览器同上。
  */
 function journalDataJsonUrl() {
+  if (location.protocol === 'file:') {
+    return 'https://www.lava7397.com/journal-data.json';
+  }
   if (location.hostname === 'lava7397.com') {
     return 'https://www.lava7397.com/journal-data.json';
   }
@@ -982,30 +949,22 @@ function setSiteLastUpdatedDisplay() {
     el.textContent = '—';
     return;
   }
-  // 用 formatToParts + en-CA 避免部分环境 zh-CN 省略时分
   const parts = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Shanghai',
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hourCycle: 'h23',
   }).formatToParts(d);
   const g = (t) => parts.find((p) => p.type === t)?.value ?? '';
   const y = g('year');
   const mo = g('month');
   const day = g('day');
-  const h = g('hour');
-  const mi = g('minute');
-  const sec = g('second');
   const lang = getLang();
   el.textContent =
     lang === 'zh'
-      ? `${y}年${mo}月${day}日 ${h}:${mi}:${sec}`
-      : `${y}-${mo}-${day} ${h}:${mi}:${sec} BJT`;
-  el.setAttribute('datetime', d.toISOString());
+      ? `${y}年${mo}月${day}日`
+      : `${y}-${mo}-${day} (BJT)`;
+  el.setAttribute('datetime', `${y}-${mo}-${day}`);
 }
 
 function applyStaticI18n() {
@@ -1025,11 +984,6 @@ function applyStaticI18n() {
   if (copyBtn && pack.copy_url_aria) {
     copyBtn.setAttribute('aria-label', pack.copy_url_aria);
     copyBtn.setAttribute('title', pack.copy_url_title);
-  }
-  const shareBtn = document.getElementById('share-page-btn');
-  if (shareBtn && pack.share_aria) {
-    shareBtn.setAttribute('aria-label', pack.share_aria);
-    shareBtn.setAttribute('title', pack.share_title);
   }
   const mascotOpen = document.getElementById('atlas-hero-mascot-open');
   if (mascotOpen && pack.hero_mascot_aria) {
@@ -1062,8 +1016,8 @@ function applyDocumentLang(lang) {
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) {
     metaDesc.content = lang === 'zh'
-      ? 'Lava · LavaAgent — 个人项目入口：AI Agent 期刊与一切都好'
-      : 'Lava · LavaAgent — project hub: AI Agent Journal & Aal izz well';
+      ? 'Lava · LavaAgent — 个人项目入口：AI Agent 期刊与 Lava\'s Aal izz well'
+      : 'Lava · LavaAgent — project hub: AI Agent Journal & Lava\'s Aal izz well';
   }
 }
 
@@ -1107,26 +1061,6 @@ document.getElementById('lang-en').addEventListener('click', () => setLang('en')
 
 const SITE_URL_CLIPBOARD = 'https://lava7397.com';
 const FAV_SITE_STORAGE_KEY = 'lavaagent_site_favorited';
-
-function getIntroShareUrl() {
-  try {
-    if (location.protocol === 'file:') {
-      return new URL('intro.html', String(location.href).replace(/[^/\\]+$/, '')).href;
-    }
-    return new URL('intro.html', location.origin + '/').href;
-  } catch (e) {
-    return 'https://lava7397.com/intro.html';
-  }
-}
-
-/** 微信内置浏览器里 window.open 常被当成当前页跳转，会误打开 intro 并打乱返回栈；分享时勿用新窗预览。分享逻辑见 initSharePage（先复制、仅 {url} 调 share，减轻「发送给朋友」异常） */
-function isWeChatInApp() {
-  try {
-    return /MicroMessenger/i.test(navigator.userAgent || '');
-  } catch (e) {
-    return false;
-  }
-}
 
 function isSiteFavorited() {
   try {
@@ -1304,68 +1238,6 @@ function copyStringToClipboard(str) {
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !box.hasAttribute('hidden')) close();
-  });
-})();
-
-(function initSharePage() {
-  const shareBtn = document.getElementById('share-page-btn');
-  if (!shareBtn) return;
-  const shareFlashMs = 520;
-  let shareFlashT = 0;
-  function playShareIconFlash() {
-    shareBtn.classList.remove('atlas-share-btn--flash');
-    void shareBtn.offsetWidth;
-    shareBtn.classList.add('atlas-share-btn--flash');
-    if (shareFlashT) clearTimeout(shareFlashT);
-    shareFlashT = window.setTimeout(() => {
-      shareBtn.classList.remove('atlas-share-btn--flash');
-      shareFlashT = 0;
-    }, shareFlashMs);
-  }
-  shareBtn.addEventListener('click', async () => {
-    try {
-      const url = getIntroShareUrl();
-      const onlyUrl = { url: url };
-
-      if (isWeChatInApp()) {
-        // 微信内先复制，再仅传 { url } 调起分享，避免大段附文
-        try {
-          await copyStringToClipboard(url);
-        } catch (e) { /* */ }
-        if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
-          try {
-            if (typeof navigator.canShare === 'function' && !navigator.canShare(onlyUrl)) {
-              return;
-            }
-            await navigator.share(onlyUrl);
-          } catch (e) {
-            if (e && (e.name === 'AbortError' || e.name === 'NotAllowedError')) { /*  */ }
-          }
-        }
-        return;
-      }
-
-      window.open(url, '_blank', 'noopener,noreferrer');
-      if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
-        try {
-          if (typeof navigator.canShare === 'function' && !navigator.canShare(onlyUrl)) {
-            /* fall through to copy */
-          } else {
-            await navigator.share(onlyUrl);
-            return;
-          }
-        } catch (e) {
-          if (e && (e.name === 'AbortError' || e.name === 'NotAllowedError')) return;
-        }
-      }
-      try {
-        await copyStringToClipboard(url);
-      } catch (e) {
-        /* ignore */
-      }
-    } finally {
-      playShareIconFlash();
-    }
   });
 })();
 
