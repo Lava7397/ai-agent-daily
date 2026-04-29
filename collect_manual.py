@@ -35,6 +35,16 @@ def fetch_verge():
         items = re.findall(r'<item>(.*?)</item>', content, re.DOTALL)
         results = []
         for item in items[:5]:
+            # 提取 pubDate 并应用 24h 窗口
+            pub_elem = re.search(r'<pubDate>(.*?)</pubDate>', item)
+            if pub_elem:
+                try:
+                    from email.utils import parsedate_to_datetime
+                    pub_dt = parsedate_to_datetime(pub_elem.group(1)).astimezone(BEIJING_TZ)
+                    if (datetime.now(BEIJING_TZ) - pub_dt).total_seconds() > 24*3600:
+                        continue  # 跳过24h前的新闻
+                except Exception:
+                    pass
             title_match = re.search(r'<title>(.*?)</title>', item)
             link_match = re.search(r'<link>(.*?)</link>', item)
             desc_match = re.search(r'<description>(.*?)</description>', item, re.DOTALL)
@@ -63,6 +73,16 @@ def fetch_venturebeat():
         items = re.findall(r'<item>(.*?)</item>', content, re.DOTALL)
         results = []
         for item in items[:5]:
+            # 提取 pubDate 并应用 24h 窗口
+            pub_elem = re.search(r'<pubDate>(.*?)</pubDate>', item)
+            if pub_elem:
+                try:
+                    from email.utils import parsedate_to_datetime
+                    pub_dt = parsedate_to_datetime(pub_elem.group(1)).astimezone(BEIJING_TZ)
+                    if (datetime.now(BEIJING_TZ) - pub_dt).total_seconds() > 24*3600:
+                        continue  # 跳过24h前的新闻
+                except Exception:
+                    pass
             title_match = re.search(r'<title>(.*?)</title>', item)
             link_match = re.search(r'<link>(.*?)</link>', item)
             desc_match = re.search(r'<description>(.*?)</description>', item, re.DOTALL)
@@ -90,6 +110,16 @@ def fetch_arstechnica():
         items = re.findall(r'<item>(.*?)</item>', content, re.DOTALL)
         results = []
         for item in items[:5]:
+            # 提取 pubDate 并应用 24h 窗口
+            pub_elem = re.search(r'<pubDate>(.*?)</pubDate>', item)
+            if pub_elem:
+                try:
+                    from email.utils import parsedate_to_datetime
+                    pub_dt = parsedate_to_datetime(pub_elem.group(1)).astimezone(BEIJING_TZ)
+                    if (datetime.now(BEIJING_TZ) - pub_dt).total_seconds() > 24*3600:
+                        continue  # 跳过24h前的新闻
+                except Exception:
+                    pass
             title_match = re.search(r'<title>(.*?)</title>', item)
             link_match = re.search(r'<link>(.*?)</link>', item)
             desc_match = re.search(r'<description>(.*?)</description>', item, re.DOTALL)
@@ -108,9 +138,11 @@ def fetch_arstechnica():
         return []
 
 def fetch_arxiv():
-    """从 arXiv 采集论文 - API 查询"""
+    """从 arXiv 采集论文 - API 查询（24h 窗口 + published 时间过滤）"""
+    from datetime import datetime, timezone, timedelta
+    BEIJING_TZ = timezone(timedelta(hours=8))
+    
     base = "https://export.arxiv.org/api/query"
-    # 多个子查询合并
     queries = [
         "ti:(AI+agent+OR+LLM+agent+OR+agentic+AI+OR+MCP)",
         "ti:(multi-agent+OR+tool+use+OR+function+calling)",
@@ -118,26 +150,39 @@ def fetch_arxiv():
     ]
     results = []
     headers = {'User-Agent': 'Mozilla/5.0 (compatible; AI-Daily-Bot/1.0)'}
+    
+    # 24小时窗口
+    cutoff = datetime.now(BEIJING_TZ) - timedelta(hours=24)
 
     for q in queries:
         try:
-            url = f"{base}?search_query={quote_plus(q)}&start=0&max_results=5&sortBy=submittedDate&sortOrder=descending"
+            # arXiv API 的 + 是 OR 操作符，不能 URL 编码
+            url = f"{base}?search_query={q}&start=0&max_results=5&sortBy=submittedDate&sortOrder=descending"
             req = Request(url, headers=headers)
             with urlopen(req, timeout=20) as resp:
-                content = resp.read().decode('utf-8')
+                content_xml = resp.read().decode('utf-8')
 
-            # 解析 entry
-            entries = re.findall(r'<entry>(.*?)</entry>', content, re.DOTALL)
+            entries = re.findall(r'<entry>(.*?)</entry>', content_xml, re.DOTALL)
             for entry in entries:
                 title_match = re.search(r'<title>(.*?)</title>', entry)
                 id_match = re.search(r'<id>(.*?)</id>', entry)
                 summary_match = re.search(r'<summary>(.*?)</summary>', entry, re.DOTALL)
+                published_match = re.search(r'<published>(.*?)</published>', entry)
                 if title_match and id_match:
                     title = re.sub(r'\s+', ' ', title_match.group(1)).strip()
                     summary_raw = summary_match.group(1) if summary_match else ""
                     summary = re.sub(r'<[^>]+>', ' ', summary_raw).strip()[:250]
 
-                    # 严格过滤：标题或摘要中必须包含 agent 相关关键词
+                    # 时间过滤：<published> 首次公开日期
+                    if published_match:
+                        try:
+                            pub_dt = datetime.fromisoformat(published_match.group(1).replace('Z', '+00:00')).astimezone(BEIJING_TZ)
+                            if pub_dt < cutoff:
+                                continue
+                        except Exception:
+                            pass
+
+                    # 关键词过滤
                     combined = (title + " " + summary).lower()
                     if not any(kw in combined for kw in ['agent', 'llm', 'mcp', 'autonomous', 'tool use']):
                         continue
@@ -170,7 +215,7 @@ def fetch_huggingface_papers():
             data = json.loads(resp.read().decode('utf-8'))
 
         results = []
-        cutoff = datetime.now(BEIJING_TZ) - timedelta(hours=48)
+        cutoff = datetime.now(BEIJING_TZ) - timedelta(hours=24)
 
         for paper in data:
             title = (paper.get('title') or '').strip()
@@ -315,7 +360,12 @@ def fetch_hackernews():
                     return None
                 title = (item.get('title') or '').lower()
                 if any(kw in title for kw in keywords):
-                    return {
+                        # 24h 窗口（基于 HN item.time）
+                        item_time = item.get("time", 0)
+                        if item_time and (time.time() - item_time) > 24*3600:
+                            return None
+                        
+                        return {
                         "title": item.get('title', ''),
                         "summary": f"【HN】热度: {item.get('score',0)} 分 | {item.get('descendants',0)} 评论",
                         "url": item.get('url', f"https://news.ycombinator.com/item?id={item_id}"),
@@ -349,6 +399,16 @@ def fetch_bensbites():
         items = re.findall(r'<item>(.*?)</item>', content, re.DOTALL)
         results = []
         for item in items[:5]:
+            # 提取 pubDate 并应用 24h 窗口
+            pub_elem = re.search(r'<pubDate>(.*?)</pubDate>', item)
+            if pub_elem:
+                try:
+                    from email.utils import parsedate_to_datetime
+                    pub_dt = parsedate_to_datetime(pub_elem.group(1)).astimezone(BEIJING_TZ)
+                    if (datetime.now(BEIJING_TZ) - pub_dt).total_seconds() > 24*3600:
+                        continue  # 跳过24h前的新闻
+                except Exception:
+                    pass
             title_match = re.search(r'<title>(.*?)</title>', item)
             link_match = re.search(r'<link>(.*?)</link>', item)
             if title_match and link_match:

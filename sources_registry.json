@@ -6,7 +6,7 @@
       "url": "https://www.theverge.com/ai-artificial-intelligence",
       "type": "news",
       "category": "industry",
-      "quality_score": 61.1,
+      "quality_score": 58.0,
       "last_evaluated": "2026-04-24",
       "metrics": {
         "relevance": 0.4,
@@ -15,7 +15,7 @@
         "uniqueness": 0.5
       },
       "status": "active",
-      "today_contributions": 2
+      "today_contributions": 0
     },
     {
       "id": "venturebeat-ai",
@@ -23,7 +23,7 @@
       "url": "https://venturebeat.com/category/ai/",
       "type": "news",
       "category": "enterprise",
-      "quality_score": 95.0,
+      "quality_score": 90.2,
       "last_evaluated": "2026-04-24",
       "metrics": {
         "relevance": 0.85,
@@ -32,7 +32,7 @@
         "uniqueness": 0.6
       },
       "status": "active",
-      "today_contributions": 6
+      "today_contributions": 0
     },
     {
       "id": "arstechnica-ai",
@@ -40,7 +40,7 @@
       "url": "https://arstechnica.com/ai/",
       "type": "news",
       "category": "tech",
-      "quality_score": 92.7,
+      "quality_score": 88.1,
       "last_evaluated": "2026-04-24",
       "metrics": {
         "relevance": 0.4,
@@ -49,7 +49,7 @@
         "uniqueness": 0.5
       },
       "status": "active",
-      "today_contributions": 5
+      "today_contributions": 0
     },
     {
       "id": "hacker-news",
@@ -57,7 +57,7 @@
       "url": "https://news.ycombinator.com/",
       "type": "aggregator",
       "category": "community",
-      "quality_score": 20.9,
+      "quality_score": 19.9,
       "last_evaluated": "2026-04-19",
       "metrics": {
         "relevance": 0.3,
@@ -74,7 +74,7 @@
       "url": "https://huggingface.co/papers",
       "type": "research",
       "category": "academic",
-      "quality_score": 77.2,
+      "quality_score": 73.3,
       "last_evaluated": "2026-04-24",
       "metrics": {
         "relevance": 0.9,
@@ -83,7 +83,7 @@
         "uniqueness": 0.5
       },
       "status": "active",
-      "today_contributions": 4
+      "today_contributions": 0
     },
     {
       "id": "github-trending",
@@ -91,8 +91,8 @@
       "url": "https://github.com/trending",
       "type": "code",
       "category": "developer",
-      "quality_score": 42.7,
-      "last_evaluated": "2026-04-22",
+      "quality_score": 66.3,
+      "last_evaluated": "2026-04-29",
       "metrics": {
         "relevance": 0.2,
         "timeliness": 0.0,
@@ -100,7 +100,7 @@
         "uniqueness": 0.5
       },
       "status": "active",
-      "today_contributions": 0
+      "today_contributions": 5
     },
     {
       "id": "bens-bites",
@@ -108,7 +108,7 @@
       "url": "https://bensbites.beehiiv.com/",
       "type": "newsletter",
       "category": "curation",
-      "quality_score": 22.6,
+      "quality_score": 21.5,
       "last_evaluated": "2026-04-18",
       "metrics": {
         "relevance": 0.8,
@@ -475,6 +475,84 @@
       "source": "usage_analysis",
       "contributions": 1,
       "discovered_at": "2026-04-24T14:10:37.541412+08:00"
+    },
+    {
+      "domain": "techcrunch.com",
+      "source": "reference_analysis",
+      "confidence": 0.9,
+      "discovered_at": "2026-04-29T14:13:35.789055+08:00"
+    },
+    {
+      "domain": "www.buchodi.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-29T14:13:35.789061+08:00"
+    },
+    {
+      "domain": "ontherow.substack.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-29T14:13:35.789062+08:00"
+    },
+    {
+      "domain": "stratechery.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-29T14:13:35.789063+08:00"
+    },
+    {
+      "domain": "www.quantamagazine.org",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-29T14:13:35.789064+08:00"
+    },
+    {
+      "domain": "legallayer.substack.com",
+      "source": "reference_analysis",
+      "confidence": 0.6,
+      "discovered_at": "2026-04-29T14:13:35.789065+08:00"
+    },
+    {
+      "domain": "arxiv.org",
+      "source": "usage_analysis",
+      "contributions": 4,
+      "discovered_at": "2026-04-29T14:13:35.791185+08:00"
+    },
+    {
+      "domain": "techcrunch.com",
+      "source": "usage_analysis",
+      "contributions": 4,
+      "discovered_at": "2026-04-29T14:13:35.791188+08:00"
+    },
+    {
+      "domain": "www.buchodi.com",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-29T14:13:35.791189+08:00"
+    },
+    {
+      "domain": "ontherow.substack.com",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-29T14:13:35.791190+08:00"
+    },
+    {
+      "domain": "stratechery.com",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-29T14:13:35.791192+08:00"
+    },
+    {
+      "domain": "www.quantamagazine.org",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-29T14:13:35.791193+08:00"
+    },
+    {
+      "domain": "legallayer.substack.com",
+      "source": "usage_analysis",
+      "contributions": 1,
+      "discovered_at": "2026-04-29T14:13:35.791194+08:00"
     }
   ],
   "evaluation_log": []
