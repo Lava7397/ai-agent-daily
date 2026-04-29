@@ -78,6 +78,22 @@ def extract_between(text, start_marker, end_marker):
     return text[start:end]
 
 
+def _html_main_content_scope(html: str) -> str:
+    """只解析正文 <main id="main-content"> 内 HTML，避免误匹配样式表里的 .card-title 等。"""
+    m = re.search(
+        r'<main\b[^>]*\bid\s*=\s*["\']main-content["\'][^>]*>',
+        html,
+        re.I,
+    )
+    if not m:
+        return html
+    start = m.end()
+    end = html.lower().find("</main>", start)
+    if end == -1:
+        return html[start:]
+    return html[start:end]
+
+
 def extract_archive_meta(archive_path):
     """从归档 HTML 中提取头条标题、总条目数、头条中文摘要
 
@@ -85,17 +101,18 @@ def extract_archive_meta(archive_path):
     旧模板下只有一个 .card-summary，本身即中文。统一取「第一个出现的」。
     """
     try:
-        html = archive_path.read_text(encoding="utf-8")
+        raw = archive_path.read_text(encoding="utf-8")
+        html = _html_main_content_scope(raw)
         m = re.search(r'<a[^>]+class="card-title"[^>]*>([^<]+)</a>', html)
         headline = m.group(1).strip() if m else ""
         mtot = re.search(
             r'id="hero-item-count"[^>]*data-total-items="(\d+)"',
-            html,
-        ) or re.search(r'data-total-items="(\d+)"', html)
+            raw,
+        ) or re.search(r'data-total-items="(\d+)"', raw)
         if mtot:
             total = mtot.group(1)
         else:
-            n = re.findall(r'class="stat-num"[^>]*>([\d]+)</div>', html)
+            n = re.findall(r'class="stat-num"[^>]*>([\d]+)</div>', raw)
             total = n[0] if n else ""
         summary = ""
         if m:
