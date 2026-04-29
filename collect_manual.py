@@ -8,6 +8,7 @@ import os
 import sys
 import re
 from datetime import datetime, timezone, timedelta
+import time
 from urllib.request import urlopen, Request
 from urllib.parse import quote_plus
 import concurrent.futures
@@ -158,6 +159,62 @@ def fetch_arxiv():
             seen.add(r['title'])
             unique.append(r)
     return unique[:4]
+
+
+def fetch_huggingface_papers():
+    """从 HuggingFace API 采集最新论文 (24h 窗口)"""
+    url = "https://huggingface.co/api/papers?sort=publishedAt&direction=-1&limit=20"
+    try:
+        req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; AI-Daily-Bot/1.0)'})
+        with urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+
+        results = []
+        cutoff = datetime.now(BEIJING_TZ) - timedelta(hours=48)
+
+        for paper in data:
+            title = (paper.get('title') or '').strip()
+            if not title:
+                continue
+
+            # 检查发布时间（如果有）
+            published_at = paper.get('publishedAt', '')
+            if published_at:
+                try:
+                    pub_dt = datetime.fromisoformat(published_at.replace('Z', '+00:00')).astimezone(BEIJING_TZ)
+                    if pub_dt < cutoff:
+                        continue
+                except:
+                    pass  # 无法解析则不过滤
+
+            # 摘要可能为空，用 paper 的 description 或空
+            summary = (paper.get('description') or '')[:300]
+            summary = re.sub(r'<[^>]+>', ' ', summary).strip()
+
+            # 过滤非 AI/Agent 相关
+            combined = (title + " " + summary).lower()
+            if not any(kw in combined for kw in ['agent', 'llm', 'ai', 'autonomous', 'mcp', 'multi-agent']):
+                continue
+
+            paper_url = paper.get('url', '')
+            if not paper_url.startswith('http'):
+                paper_url = f"https://huggingface.co{paper_url}"
+
+            results.append({
+                "title": title,
+                "summary": f"【HuggingFace】{summary}",
+                "url": paper_url,
+                "tags": ["research", "paper", "huggingface"]
+            })
+
+        return results[:4]
+    except Exception as e:
+        print(f"[WARN] HuggingFace API 采集失败: {e}")
+        return []
+
+
+# def fetch_semantic_scholar():
+#     ... (disabled due to 429 rate limit)
 
 def fetch_github():
     """GitHub API 搜索 AI Agent 项目"""
@@ -341,9 +398,27 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
 
 # arXiv 单独处理
 print("正在采集 arXiv...")
+# 聚合多研究源：arXiv + HuggingFace Papers + Semantic Scholar
+print("\n🔄 采集 research (多源聚合)...")
 arxiv_items = fetch_arxiv()
-all_items["research"] = arxiv_items[:4]  # 优先 arXiv
-print(f"✓ research (arXiv): {len(arxiv_items)} 条")
+print(f"  ✓ arXiv: {len(arxiv_items)} 条")
+hf_items = fetch_huggingface_papers()
+print(f"  ✓ HuggingFace: {len(hf_items)} 条")
+# ss_items = fetch_semantic_scholar()  # Semantic Scholar rate limited (429)
+# print(f"  ✓ Semantic Scholar: {len(ss_items)} 条")
+
+# 合并去重
+combined = arxiv_items + hf_items  # + ss_items (disabled due to rate limit)
+seen = set()
+unique = []
+for item in combined:
+    key = item.get('title', '').strip().lower()
+    if key and key not in seen:
+        seen.add(key)
+        unique.append(item)
+
+all_items["research"] = unique[:4]  # 最多保留 4 条
+print(f"✓ research (合并后): {len(all_items['research'])} 条")
 
 # 统计
 print(f"\n=== 采集汇总 ===")
