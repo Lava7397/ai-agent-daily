@@ -1644,6 +1644,10 @@ def main(argv=None):
     # Write archive page
     OUTPUT_DIR.mkdir(exist_ok=True)
     archive_path = OUTPUT_DIR / f"{date_str}.html"
+    archive_paths_sorted = sorted(
+        OUTPUT_DIR.glob("????-??-??.html"), key=lambda p: p.stem
+    )
+    tip_stem = archive_paths_sorted[-1].stem if archive_paths_sorted else None
     if archive_path.exists():
         previous_archive = archive_path.read_text(encoding="utf-8")
         if previous_archive == html:
@@ -1651,6 +1655,11 @@ def main(argv=None):
         elif date_str == today_str:
             archive_path.write_text(html, encoding="utf-8")
             print(f"Updated: {archive_path} (today's issue refreshed)")
+        elif tip_stem == date_str:
+            # calendars 已跨过该日，但 daily_data 仍在订正「列表里最新日期」那一期：
+            # 若不写盘，下文 sync 会用旧 archives/*.html 盖掉刚写好的 today.html（例如缺 research）
+            archive_path.write_text(html, encoding="utf-8")
+            print(f"Updated: {archive_path} (tip issue refreshed; daily_data date == newest archive)")
         else:
             print(f"Skipped: {archive_path} (historical archive preserved)")
     else:
@@ -1660,6 +1669,16 @@ def main(argv=None):
     # 用日期最新的一期覆盖 today.html，与首页列表第一条、/today 直链 三者一致
     # （Hermes 若只更新了较新的 archive、daily_data 仍滞后，否则会 4/24 vs 4/23 打架）
     sync_today_html_from_newest_archive()
+    archive_paths_after = sorted(
+        OUTPUT_DIR.glob("????-??-??.html"), key=lambda p: p.stem
+    )
+    tip_after = archive_paths_after[-1].stem if archive_paths_after else None
+    if tip_after == date_str and today_path.read_text(encoding="utf-8") != html:
+        today_path.write_text(html, encoding="utf-8")
+        print(
+            f"Refreshed {TODAY_FILENAME} from current daily_data "
+            f"(sync had copied stale archive; data date {date_str} is newest)"
+        )
 
     site_total = sum(len(data.get(k, [])) for k in SECTION_KEYS)
     if raw_item_total > MAX_SITE_ITEMS:
