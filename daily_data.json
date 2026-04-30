@@ -1,251 +1,237 @@
 {
-  "date": "2026-04-29",
+  "date": "2026-04-30",
   "sources": "Hacker News, arXiv, GitHub",
   "description": "AI Agent 领域最新情报",
   "research": [
     {
-      "title": "Recursive Multi-Agent Systems",
-      "summary": "【arXiv】Recursive or looped language models have recently emerged as a new scaling axis by iteratively refining the same model computation over latent states to deepen reasoning. We extend such scaling principle from a single model to multi-agent systems, an",
-      "url": "http://arxiv.org/abs/2604.25917v1",
+      "title": "Cognitive Atrophy and Systemic Collapse in AI-Dependent Software Engineering",
+      "summary": "【arXiv】The integration of Large Language Models (LLMs) into the software development lifecycle (SDLC) masks a critical socio-technical failure: Cognitive-Systemic Collapse. This paper introduces \"Epistemological Debt,\" the hidden carrying cost incurred when",
+      "url": "http://arxiv.org/abs/2604.26855v1",
       "tags": [
         "research",
         "paper"
       ],
-      "title_zh": "递归多Agent系统",
-      "summary_zh": "【arXiv】递归或循环语言模型最近通过在潜在状态上迭代细化相同的模型计算以深化推理，成为新的缩放轴。我们将这种缩放原理从单个模型扩展到多智能体系统，",
-      "title_en": "Recursive Multi-Agent Systems",
-      "summary_en": "【arXiv】Recursive or looped language models have recently emerged as a new scaling axis by iteratively refining the same model computation over latent states to deepen reasoning. We extend such scaling principle from a single model to multi-agent systems, an"
+      "title_zh": "人工智能相关软件工程中的认知萎缩和系统性崩溃",
+      "summary_zh": "【arXiv】将大型语言模型（ LLM ）集成到软件开发生命周期（ SDLC ）中掩盖了一个关键的社会技术失败：认知系统崩溃。本文介绍了“认识论债务” ，即",
+      "title_en": "Cognitive Atrophy and Systemic Collapse in AI-Dependent Software Engineering",
+      "summary_en": "【arXiv】The integration of Large Language Models (LLMs) into the software development lifecycle (SDLC) masks a critical socio-technical failure: Cognitive-Systemic Collapse. This paper introduces \"Epistemological Debt,\" the hidden carrying cost incurred when"
     },
     {
-      "title": "DV-World: Benchmarking Data Visualization Agents in Real-World Scenarios",
-      "summary": "【arXiv】Real-world data visualization (DV) requires native environmental grounding, cross-platform evolution, and proactive intent alignment. Yet, existing benchmarks often suffer from code-sandbox confinement, single-language creation-only tasks, and assump",
-      "url": "http://arxiv.org/abs/2604.25914v1",
+      "title": "Unifying Sparse Attention with Hierarchical Memory for Scalable Long-Context LLM Serving",
+      "summary": "【arXiv】Long-context LLM serving is bottlenecked by the cost of attending over ever-growing KV caches. Dynamic sparse attention promises relief by accessing only a small, query-dependent subset of the KV state per decoding step and extending the KV storage t",
+      "url": "http://arxiv.org/abs/2604.26837v1",
       "tags": [
         "research",
         "paper"
       ],
-      "title_zh": "DV-World ：在真实场景中对数据可视化代理进行基准测试",
-      "summary_zh": "【arXiv】真实世界的数据可视化（ DV ）需要本地环境接地、跨平台演进和主动意图对齐。然而，现有的基准测试通常会受到代码沙箱限制、仅限单语言创建的任务以及",
-      "title_en": "DV-World: Benchmarking Data Visualization Agents in Real-World Scenarios",
-      "summary_en": "【arXiv】Real-world data visualization (DV) requires native environmental grounding, cross-platform evolution, and proactive intent alignment. Yet, existing benchmarks often suffer from code-sandbox confinement, single-language creation-only tasks, and assump"
+      "title_zh": "将稀疏注意力与分层内存统一起来，实现可扩展的长上下文LLM服务",
+      "summary_zh": "【arXiv】长期的LLM服务因参加不断增长的KV缓存的成本而受到瓶颈。动态稀疏注意承诺通过每个解码步骤仅访问KV状态的一个小的、依赖于查询的子集并扩展KV存储来缓解",
+      "title_en": "Unifying Sparse Attention with Hierarchical Memory for Scalable Long-Context LLM Serving",
+      "summary_en": "【arXiv】Long-context LLM serving is bottlenecked by the cost of attending over ever-growing KV caches. Dynamic sparse attention promises relief by accessing only a small, query-dependent subset of the KV state per decoding step and extending the KV storage t"
     },
     {
-      "title": "Pythia: Toward Predictability-Driven Agent-Native LLM Serving",
-      "summary": "【arXiv】As LLM applications grow more complex, developers are increasingly adopting multi-agent architectures to decompose workflows into specialized, collaborative components, introducing structure that constrains agent behavior and exposes useful semantic ",
-      "url": "http://arxiv.org/abs/2604.25899v1",
+      "title": "Bian Que: An Agentic Framework with Flexible Skill Arrangement for Online System Operations",
+      "summary": "【arXiv】Operating and maintaining (O&amp;M) large-scale online engine systems (search, recommendation, advertising) demands substantial human effort for release monitoring, alert response, and root cause analysis. While LLM-based agents are a natural fit for",
+      "url": "http://arxiv.org/abs/2604.26805v1",
       "tags": [
         "research",
         "paper"
       ],
-      "title_zh": "Pythia ：走向可预测性驱动的代理-本地LLM服务",
-      "summary_zh": "【arXiv】随着LLM应用程序变得越来越复杂，开发人员越来越多地采用多代理架构将工作流分解为专门的协作组件，引入了限制代理行为并公开有用语义的结构",
-      "title_en": "Pythia: Toward Predictability-Driven Agent-Native LLM Serving",
-      "summary_en": "【arXiv】As LLM applications grow more complex, developers are increasingly adopting multi-agent architectures to decompose workflows into specialized, collaborative components, introducing structure that constrains agent behavior and exposes useful semantic"
+      "title_zh": "Bian Que ：具有灵活的在线系统操作技能安排的代理框架",
+      "summary_zh": "【arXiv】运营和维护（ O&amp;M ）大规模在线引擎系统（搜索、推荐、广告）需要大量人力来进行发布监控、警报响应和根本原因分析。虽然基于LLM的代理人天生适合",
+      "title_en": "Bian Que: An Agentic Framework with Flexible Skill Arrangement for Online System Operations",
+      "summary_en": "【arXiv】Operating and maintaining (O&amp;M) large-scale online engine systems (search, recommendation, advertising) demands substantial human effort for release monitoring, alert response, and root cause analysis. While LLM-based agents are a natural fit for"
     },
     {
-      "title": "Slice Agent: Identifying and Isolating Slices in Shared Open Radio Unit",
-      "summary": "【arXiv】Network Slice as a Service (NSaaS) is a key enabler of Beyond Fifth Generation (5G) and Sixth Generation (6G) networks, supporting next-generation applications such as extended reality (XR), immersive services, and the tactile Internet. These network",
-      "url": "http://arxiv.org/abs/2604.25857v1",
+      "title": "GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents",
+      "summary": "【arXiv】We present GLM-5V-Turbo, a step toward native foundation models for multimodal agents. As foundation models are increasingly deployed in real environments, agentic capability depends not only on language reasoning, but also on the ability to perceive",
+      "url": "http://arxiv.org/abs/2604.26752v1",
       "tags": [
         "research",
         "paper"
       ],
-      "title_zh": "Slice Agent ：识别和隔离共享开放式无线电单元中的切片",
-      "summary_zh": "【arXiv】网络切片即服务(NSaaS)是超越第五代(5G)和第六代(6G)网络的关键推动者，支持扩展现实(XR)、沉浸式服务和触觉互联网等下一代应用。这些网络",
-      "title_en": "Slice Agent: Identifying and Isolating Slices in Shared Open Radio Unit",
-      "summary_en": "【arXiv】Network Slice as a Service (NSaaS) is a key enabler of Beyond Fifth Generation (5G) and Sixth Generation (6G) networks, supporting next-generation applications such as extended reality (XR), immersive services, and the tactile Internet. These network"
+      "title_zh": "GLM-5V-Turbo ：面向多式联运代理的本地基础模型",
+      "summary_zh": "【arXiv】我们介绍GLM-5V-Turbo ，这是朝着多式联运药物的原生基础模型迈出的一步。随着基础模型越来越多地部署在实际环境中，代理能力不仅取决于语言推理，还取决于感知",
+      "title_en": "GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents",
+      "summary_en": "【arXiv】We present GLM-5V-Turbo, a step toward native foundation models for multimodal agents. As foundation models are increasingly deployed in real environments, agentic capability depends not only on language reasoning, but also on the ability to perceive"
     }
   ],
   "github": [
     {
-      "title": "SwedeshnaMishra/Mcp-Leave-Management-Server",
-      "summary": "【GitHub】AI Leave Management Server using MCP, Python, SQLite, and Claude Desktop for natural language leave operations. （⭐ 0）",
-      "url": "https://github.com/SwedeshnaMishra/Mcp-Leave-Management-Server",
+      "title": "marsmike/agentic-toolkit",
+      "summary": "【GitHub】Open-source Claude Code plugins — released one at a time. （⭐ 0）",
+      "url": "https://github.com/marsmike/agentic-toolkit",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "SwedeshnaMishra/Mcp-Leave-Management-Server",
-      "summary_zh": "【GitHub】AI Leave Management Server使用MCP、Python、SQLite和Claude Desktop进行自然语言休假操作。（⭐ 0 ）",
-      "title_en": "SwedeshnaMishra/Mcp-Leave-Management-Server",
-      "summary_en": "【GitHub】AI Leave Management Server using MCP, Python, SQLite, and Claude Desktop for natural language leave operations. （⭐ 0）"
+      "title_zh": "marsmike/agentic-toolkit",
+      "summary_zh": "【GitHub】开源Claude Code插件—一次发布一个。（⭐ 0 ）",
+      "title_en": "marsmike/agentic-toolkit",
+      "summary_en": "【GitHub】Open-source Claude Code plugins — released one at a time. （⭐ 0）"
     },
     {
-      "title": "nexu-io/open-design",
-      "summary": "【GitHub】🎨 Local-first, open-source alternative to Anthropic's Claude Design. ⚡ 19 Skills · ✨ 71 brand-grade Design Systems · 🖼️ sandboxed preview · 📦 HTML/PDF/PPTX export. 🤖 Runs on Claude Code / Codex / Curs （⭐ 2151）",
-      "url": "https://github.com/nexu-io/open-design",
-      "stars": 2151,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "nexu-io/open-design",
-      "summary_zh": "【GitHub】Anthropic Claude Design的🎨本地首选开源替代品。⚡19 Skills · ✨ 71个品牌级设计系统·🖼️沙盒预览· 📦 HTML/PDF/PPTX导出。在Claude Code/Codex/Curs上🤖运行（⭐ 2151 ）",
-      "title_en": "nexu-io/open-design",
-      "summary_en": "【GitHub】🎨 Local-first, open-source alternative to Anthropic's Claude Design. ⚡ 19 Skills · ✨ 71 brand-grade Design Systems · 🖼️ sandboxed preview · 📦 HTML/PDF/PPTX export. 🤖 Runs on Claude Code / Codex / Curs （⭐ 2151）"
-    },
-    {
-      "title": "Garyzhu-hub/pencil-multi-platform-product-design-agent",
-      "summary": "【GitHub】An open-source multi-platform product design agent skill for Pencil MCP, VS Code, Cursor, Claude Code, and Codex workflows. （⭐ 2）",
-      "url": "https://github.com/Garyzhu-hub/pencil-multi-platform-product-design-agent",
-      "stars": 2,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "Garyzhu-hub/pencil-multi-platform-product-design-agent",
-      "summary_zh": "【GitHub】适用于Pencil MCP、VS Code、Cursor、Claude Code和Codex工作流程的开源多平台产品设计代理技能。（⭐ 2 ）",
-      "title_en": "Garyzhu-hub/pencil-multi-platform-product-design-agent",
-      "summary_en": "【GitHub】An open-source multi-platform product design agent skill for Pencil MCP, VS Code, Cursor, Claude Code, and Codex workflows. （⭐ 2）"
-    },
-    {
-      "title": "Veinsteint/claude-code",
-      "summary": "【GitHub】Claude Code open source （⭐ 0）",
-      "url": "https://github.com/Veinsteint/claude-code",
+      "title": "mmmmmmmm5455/code-audit",
+      "summary": "【GitHub】Automated open-source project quality & security audit skill for Claude Code （⭐ 0）",
+      "url": "https://github.com/mmmmmmmm5455/code-audit",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "Veinsteint/claude-code",
-      "summary_zh": "【GitHub】Claude Code开源（⭐ 0 ）",
-      "title_en": "Veinsteint/claude-code",
-      "summary_en": "【GitHub】Claude Code open source （⭐ 0）"
+      "title_zh": "mmmmmmmm5455/code-audit",
+      "summary_zh": "【GitHub】Claude Code自动化开源项目质量和安全审计技巧（⭐ 0 ）",
+      "title_en": "mmmmmmmm5455/code-audit",
+      "summary_en": "【GitHub】Automated open-source project quality & security audit skill for Claude Code （⭐ 0）"
+    },
+    {
+      "title": "pratikacharya1234/forge",
+      "summary": "【GitHub】Multi-model terminal AI coding agent forge code with any model. Gemini + Claude + GPT. 1M context. Free. Open source. （⭐ 0）",
+      "url": "https://github.com/pratikacharya1234/forge",
+      "stars": 0,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "pratikacharya1234/forge",
+      "summary_zh": "【GitHub】多模型终端AI编码代理伪造任何模型的代码。Gemini + Claude + GPT. 1M context.免费。开源。（⭐ 0 ）",
+      "title_en": "pratikacharya1234/forge",
+      "summary_en": "【GitHub】Multi-model terminal AI coding agent forge code with any model. Gemini + Claude + GPT. 1M context. Free. Open source. （⭐ 0）"
     }
   ],
   "models": [
     {
-      "title": "At his OpenAI trial, Musk relitigates an old friendship",
-      "summary": "It's a story Musk has told before -- in interviews and to author Walter Isaacson for his bestselling biography of Musk -- but Tuesday was the first time he said it under oath.",
-      "url": "https://techcrunch.com/2026/04/28/at-his-openai-trial-musk-relitigates-an-old-friendship/",
+      "title": "Amazon’s cloud business is surging — and so is its capital spending",
+      "summary": "The e-commerce giant is making more money than expected from AWS but it's also spending a lot, and will continue to do so in the near term, its chief executive said. ",
+      "url": "https://techcrunch.com/2026/04/29/amazons-cloud-business-is-surging-and-so-is-its-capital-spending/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "在他的OpenAI试验中，马斯克重温了一段悠久的友谊",
-      "summary_zh": "这是马斯克之前在采访中和作家沃尔特·艾萨克森（ Walter Isaacson ）关于马斯克的畅销传记中讲过的故事，但周二是他第一次宣誓就职。",
-      "title_en": "At his OpenAI trial, Musk relitigates an old friendship",
-      "summary_en": "It's a story Musk has told before -- in interviews and to author Walter Isaacson for his bestselling biography of Musk -- but Tuesday was the first time he said it under oath."
+      "title_zh": "亚马逊的云业务正在飙升，其资本支出也在飙升",
+      "summary_zh": "该公司首席执行官表示，这家电子商务巨头从AWS赚的钱比预期的要多，但它也在花费大量资金，并将在短期内继续这样做。",
+      "title_en": "Amazon’s cloud business is surging — and so is its capital spending",
+      "summary_en": "The e-commerce giant is making more money than expected from AWS but it's also spending a lot, and will continue to do so in the near term, its chief executive said."
     },
     {
-      "title": "Amazon is already offering new OpenAI products on AWS",
-      "summary": "A day after OpenAI got Microsoft to agree to end exclusive rights, AWS announced a slate of OpenAI model offerings, including a new agent service.",
-      "url": "https://techcrunch.com/2026/04/28/amazon-is-already-offering-new-openai-products-on-aws/",
+      "title": "Sources: Anthropic could raise a new $50B round at a valuation of $900B",
+      "summary": "The maker of Claude has received multiple pre-emptive offers at valuations in the $850 billion to $900 billion range, according to sources familiar with the matter.",
+      "url": "https://techcrunch.com/2026/04/29/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "亚马逊已经在AWS上提供新的OpenAI产品",
-      "summary_zh": "在OpenAI让微软同意终止独家权利的第二天， AWS宣布了一系列OpenAI模型产品，包括一项新的代理服务。",
-      "title_en": "Amazon is already offering new OpenAI products on AWS",
-      "summary_en": "A day after OpenAI got Microsoft to agree to end exclusive rights, AWS announced a slate of OpenAI model offerings, including a new agent service."
+      "title_zh": "资料来源： Anthropic可能以$ 900B的估值筹集新一轮$ 500B",
+      "summary_zh": "据知情人士透露， Claude的制造商已收到多份估值在8500亿至9000亿美元之间的先发制人要约。",
+      "title_en": "Sources: Anthropic could raise a new $50B round at a valuation of $900B",
+      "summary_en": "The maker of Claude has received multiple pre-emptive offers at valuations in the $850 billion to $900 billion range, according to sources familiar with the matter."
     },
     {
-      "title": "Amazon launches an AI-powered audio Q&A experience on product pages",
-      "summary": "Amazon's new \"Join the chat\" feature lets you ask questions about products and receive AI-powered audio responses. ",
-      "url": "https://techcrunch.com/2026/04/28/amazon-launches-an-ai-powered-audio-qa-experience-on-product-pages/",
+      "title": "On the stand, Elon Musk can’t escape his own tweets",
+      "summary": "Elon Musk took the stand for the second day for his attempt to legally dismantle OpenAI. ",
+      "url": "https://techcrunch.com/2026/04/29/on-the-stand-elon-musk-cant-escape-his-own-tweets/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "亚马逊在产品页面上推出基于人工智能的音频问答体验",
-      "summary_zh": "亚马逊新推出的“加入聊天”功能可让您询问有关产品的问题，并接收基于人工智能的音频回复。",
-      "title_en": "Amazon launches an AI-powered audio Q&A experience on product pages",
-      "summary_en": "Amazon's new \"Join the chat\" feature lets you ask questions about products and receive AI-powered audio responses."
+      "title_zh": "在展台上，伊隆·马斯克（ Elon Musk ）无法逃脱自己的推文",
+      "summary_zh": "埃隆·马斯克（ Elon Musk ）因试图合法拆除OpenAI而连续第二天出庭作证。",
+      "title_en": "On the stand, Elon Musk can’t escape his own tweets",
+      "summary_en": "Elon Musk took the stand for the second day for his attempt to legally dismantle OpenAI."
     },
     {
-      "title": "Google expands Pentagon’s access to its AI after Anthropic’s refusal",
-      "summary": "After Anthropic refused to allow the DoD to use its AI for domestic mass surveillance and autonomous weapons, Google has signed a new contract with the department.",
-      "url": "https://techcrunch.com/2026/04/28/google-expands-pentagons-access-to-its-ai-after-anthropics-refusal/",
+      "title": "Meta is still burning money on AR/VR",
+      "summary": "Meta is losing billions on Reality Labs each quarter, and its AI expenditures are only going to increase its spending.",
+      "url": "https://techcrunch.com/2026/04/29/meta-is-still-burning-money-on-ar-vr/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "在人类拒绝后，谷歌扩大了五角大楼对其人工智能的访问权限",
-      "summary_zh": "在Anthropic拒绝允许国防部将其人工智能用于国内大规模监视和自主武器之后，谷歌与该部门签署了一份新合同。",
-      "title_en": "Google expands Pentagon’s access to its AI after Anthropic’s refusal",
-      "summary_en": "After Anthropic refused to allow the DoD to use its AI for domestic mass surveillance and autonomous weapons, Google has signed a new contract with the department."
+      "title_zh": "Meta仍在AR/VR上烧钱",
+      "summary_zh": "Meta每个季度都在Reality Labs上亏损数十亿美元，其人工智能支出只会增加其支出。",
+      "title_en": "Meta is still burning money on AR/VR",
+      "summary_en": "Meta is losing billions on Reality Labs each quarter, and its AI expenditures are only going to increase its spending."
     }
   ],
   "community": [
     {
-      "title": "How ChatGPT serves ads",
-      "summary": "【HN】热度: 250 分 | 155 评论",
-      "url": "https://www.buchodi.com/how-chatgpt-serves-ads-heres-the-full-attribution-loop/",
+      "title": "Copy Fail – CVE-2026-31431",
+      "summary": "【HN】热度: 579 分 | 259 评论",
+      "url": "https://copy.fail/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "ChatGPT如何投放广告",
-      "summary_zh": "【HN】热度: 250 分 | 155 评论",
-      "title_en": "How ChatGPT serves ads",
-      "summary_en": "【HN】热度: 250 分 | 155 评论"
+      "title_zh": "复制失败– CVE-2026-31431",
+      "summary_zh": "【HN】热度: 579 分 | 259 评论",
+      "title_en": "Copy Fail – CVE-2026-31431",
+      "summary_en": "【HN】热度: 579 分 | 259 评论"
     },
     {
-      "title": "OpenAI models coming to Amazon Bedrock: Interview with OpenAI and AWS CEOs",
-      "summary": "【HN】热度: 225 分 | 78 评论",
-      "url": "https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents/",
+      "title": "I benchmarked Claude Code's caveman plugin against \"be brief.\"",
+      "summary": "【HN】热度: 52 分 | 33 评论",
+      "url": "https://www.maxtaylor.me/articles/i-benchmarked-caveman-against-two-words",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Amazon Bedrock即将推出的OpenAI模型：对OpenAI和AWS首席执行官的采访",
-      "summary_zh": "【HN】热度: 225 分 | 78 评论",
-      "title_en": "OpenAI models coming to Amazon Bedrock: Interview with OpenAI and AWS CEOs",
-      "summary_en": "【HN】热度: 225 分 | 78 评论"
+      "title_zh": "我将克劳德·科德（ Claude Code ）的穴居人插件与“简短”进行了对比。",
+      "summary_zh": "【HN】热度: 52 分 | 33 评论",
+      "title_en": "I benchmarked Claude Code's caveman plugin against \"be brief.\"",
+      "summary_en": "【HN】热度: 52 分 | 33 评论"
     },
     {
-      "title": "Regression: malware reminder on every read still causes subagent refusals",
-      "summary": "【HN】热度: 188 分 | 82 评论",
-      "url": "https://github.com/anthropics/claude-code/issues/49363",
+      "title": "Ramp's Sheets AI Exfiltrates Financials",
+      "summary": "【HN】热度: 106 分 | 34 评论",
+      "url": "https://www.promptarmor.com/resources/ramps-sheets-ai-exfiltrates-financials",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "回归：每次读取恶意软件提醒仍会导致子代理拒绝",
-      "summary_zh": "【HN】热度: 188 分 | 82 评论",
-      "title_en": "Regression: malware reminder on every read still causes subagent refusals",
-      "summary_en": "【HN】热度: 188 分 | 82 评论"
+      "title_zh": "Ramp's Sheets AI渗透财务信息",
+      "summary_zh": "【HN】热度: 106 分 | 34 评论",
+      "title_en": "Ramp's Sheets AI Exfiltrates Financials",
+      "summary_en": "【HN】热度: 106 分 | 34 评论"
     },
     {
-      "title": "Who owns the code Claude Code wrote?",
-      "summary": "【HN】热度: 334 分 | 337 评论",
-      "url": "https://legallayer.substack.com/p/who-owns-the-claude-code-wrote",
+      "title": "Claude.ai and API Unavailable",
+      "summary": "【HN】热度: 80 分 | 60 评论",
+      "url": "https://status.claude.com/incidents/2gf1jpyty350",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Claude Code编写的代码归谁所有？",
-      "summary_zh": "【HN】热度: 334 分 | 337 评论",
-      "title_en": "Who owns the code Claude Code wrote?",
-      "summary_en": "【HN】热度: 334 分 | 337 评论"
+      "title_zh": "Claude.ai和API不可用",
+      "summary_zh": "【HN】热度: 80 分 | 60 评论",
+      "title_en": "Claude.ai and API Unavailable",
+      "summary_en": "【HN】热度: 80 分 | 60 评论"
     },
     {
-      "title": "We decreased our LLM costs with Opus",
-      "summary": "【HN】热度: 78 分 | 25 评论",
-      "url": "https://www.mendral.com/blog/frontier-model-lower-costs",
+      "title": "Claude.ai Down Again?",
+      "summary": "【HN】热度: 9 分 | 13 评论",
+      "url": "https://news.ycombinator.com/item?id=47956890",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "我们通过Opus降低了LLM成本",
-      "summary_zh": "【HN】热度: 78 分 | 25 评论",
-      "title_en": "We decreased our LLM costs with Opus",
-      "summary_en": "【HN】热度: 78 分 | 25 评论"
+      "title_zh": "Claude.ai又倒下了？",
+      "summary_zh": "【HN】热度: 9 分 | 13 评论",
+      "title_en": "Claude.ai Down Again?",
+      "summary_en": "【HN】热度: 9 分 | 13 评论"
     },
     {
-      "title": "Localsend: An open-source cross-platform alternative to AirDrop",
-      "summary": "【HN】热度: 783 分 | 240 评论",
-      "url": "https://github.com/localsend/localsend",
+      "title": "What can we gain by losing infinity?",
+      "summary": "【HN】热度: 16 分 | 21 评论",
+      "url": "https://www.quantamagazine.org/what-can-we-gain-by-losing-infinity-20260429/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "LocalSend ： AirDrop的开源跨平台替代方案",
-      "summary_zh": "【HN】热度: 783 分 | 240 评论",
-      "title_en": "Localsend: An open-source cross-platform alternative to AirDrop",
-      "summary_en": "【HN】热度: 783 分 | 240 评论"
+      "title_zh": "失去无穷大，我们能得到什么？",
+      "summary_zh": "【HN】热度: 16 分 | 21 评论",
+      "title_en": "What can we gain by losing infinity?",
+      "summary_en": "【HN】热度: 16 分 | 21 评论"
     }
   ]
 }
