@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 2026-04-29 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="今日刊 — 2026-04-29">
-<meta property="og:description" content="今日 18 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lava7397.com">
-<meta name="twitter:card" content="summary">
-<title>今日刊 — 2026-04-29</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><meta name="description" content="今日刊 2026-04-29 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:title" content="今日刊 — 2026-04-29"><meta property="og:description" content="今日 18 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态"><meta property="og:type" content="article"><meta property="og:url" content="https://lava7397.com"><meta name="twitter:card" content="summary"><title>今日刊 — 2026-04-29</title>
 <style>
 /* 系统字体栈，避免 Google Fonts 外联阻塞首屏（移动网与 Wi‑Fi 均少一次跨域往返） */
 
@@ -493,358 +479,44 @@ body {
 .skip-link:focus-visible { outline: 2px solid #2d3a4a; outline-offset: 2px; }
 
 </style>
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top detail-issue-top--fixed-dock">
-<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
-<div class="detail-topbar">
-  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
-<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
-<div class="atlas-lang" role="group" aria-label="界面语言">
-      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
-      <span class="atlas-lang-sep">/</span>
-      <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-</header>
-<div class="hero">
-  <h1 data-i18n="hero_title">今日刊</h1>
-  <p class="date">
-    2026-04-29 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="18">18</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
-</div>
-
-</div>
-<!-- Content -->
-<main class="container" id="main-content">
-  
-    <section class="section" id="section-research">
-      <h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="http://arxiv.org/abs/2604.25917v1" target="_blank" rel="noopener noreferrer" class="card-title">Recursive Multi-Agent Systems</a>
-      <p class="card-summary" data-i18n-text="zh">【arXiv】递归或循环语言模型最近通过在潜在状态上迭代细化相同的模型计算以深化推理，成为新的缩放轴。我们将这种缩放原理从单个模型扩展到多智能体系统，</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【arXiv】Recursive or looped language models have recently emerged as a new scaling axis by iteratively refining the same model computation over latent states to deepen reasoning. We extend such scaling principle from a single model to multi-agent systems, an</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="http://arxiv.org/abs/2604.25917v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">research</span> <span class="tag">paper</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=0&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+</head><body><a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a><div class="detail-issue-top detail-issue-top--fixed-dock"><header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航"><div class="detail-topbar"><div class="detail-topbar-inner detail-topbar-inner--with-quicknav"><a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span><span data-i18n="nav_back_text">返回</span></a><nav class="quick-nav quick-nav--inline" aria-label="内容导航"><a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a></nav><div class="atlas-lang" role="group" aria-label="界面语言"><button type="button" id="lang-zh" data-set-lang="zh">中</button><span class="atlas-lang-sep">/</span><button type="button" id="lang-en" data-set-lang="en">EN</button></div></div></div></header><div class="hero"><h1 data-i18n="hero_title">今日刊</h1><p class="date">
+    2026-04-29 <span class="hero-sep" aria-hidden="true">·</span><span class="hero-tagline" data-i18n="hero_tagline">每日精选</span><span class="hero-sep" aria-hidden="true">·</span><span class="hero-count" id="hero-item-count" data-total-items="18">18</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span></p></div></div><!-- Content --><main class="container" id="main-content"><section class="section" id="section-research"><h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="http://arxiv.org/abs/2604.25917v1" target="_blank" rel="noopener noreferrer" class="card-title">Recursive Multi-Agent Systems</a><p class="card-summary" data-i18n-text="zh">【arXiv】递归或循环语言模型最近通过在潜在状态上迭代细化相同的模型计算以深化推理，成为新的缩放轴。我们将这种缩放原理从单个模型扩展到多智能体系统，</p><p class="card-summary" data-i18n-text="en" hidden>【arXiv】Recursive or looped language models have recently emerged as a new scaling axis by iteratively refining the same model computation over latent states to deepen reasoning. We extend such scaling principle from a single model to multi-agent systems, an</p><div class="card-actions"><div class="card-actions-left"><a href="http://arxiv.org/abs/2604.25917v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">research</span><span class="tag">paper</span></div></div><a href="/share.html?k=2026-04-29&amp;s=0&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="http://arxiv.org/abs/2604.25914v1" target="_blank" rel="noopener noreferrer" class="card-title">DV-World: Benchmarking Data Visualization Agents in Real-World Scenarios</a>
-      <p class="card-summary" data-i18n-text="zh">【arXiv】真实世界的数据可视化（ DV ）需要本地环境接地、跨平台演进和主动意图对齐。然而，现有的基准测试通常会受到代码沙箱限制、仅限单语言创建的任务以及</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【arXiv】Real-world data visualization (DV) requires native environmental grounding, cross-platform evolution, and proactive intent alignment. Yet, existing benchmarks often suffer from code-sandbox confinement, single-language creation-only tasks, and assump</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="http://arxiv.org/abs/2604.25914v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">research</span> <span class="tag">paper</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=0&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="http://arxiv.org/abs/2604.25914v1" target="_blank" rel="noopener noreferrer" class="card-title">DV-World: Benchmarking Data Visualization Agents in Real-World Scenarios</a><p class="card-summary" data-i18n-text="zh">【arXiv】真实世界的数据可视化（ DV ）需要本地环境接地、跨平台演进和主动意图对齐。然而，现有的基准测试通常会受到代码沙箱限制、仅限单语言创建的任务以及</p><p class="card-summary" data-i18n-text="en" hidden>【arXiv】Real-world data visualization (DV) requires native environmental grounding, cross-platform evolution, and proactive intent alignment. Yet, existing benchmarks often suffer from code-sandbox confinement, single-language creation-only tasks, and assump</p><div class="card-actions"><div class="card-actions-left"><a href="http://arxiv.org/abs/2604.25914v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">research</span><span class="tag">paper</span></div></div><a href="/share.html?k=2026-04-29&amp;s=0&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="http://arxiv.org/abs/2604.25899v1" target="_blank" rel="noopener noreferrer" class="card-title">Pythia: Toward Predictability-Driven Agent-Native LLM Serving</a>
-      <p class="card-summary" data-i18n-text="zh">【arXiv】随着LLM应用程序变得越来越复杂，开发人员越来越多地采用多代理架构将工作流分解为专门的协作组件，引入了限制代理行为并公开有用语义的结构</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【arXiv】As LLM applications grow more complex, developers are increasingly adopting multi-agent architectures to decompose workflows into specialized, collaborative components, introducing structure that constrains agent behavior and exposes useful semantic</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="http://arxiv.org/abs/2604.25899v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">research</span> <span class="tag">paper</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=0&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="http://arxiv.org/abs/2604.25899v1" target="_blank" rel="noopener noreferrer" class="card-title">Pythia: Toward Predictability-Driven Agent-Native LLM Serving</a><p class="card-summary" data-i18n-text="zh">【arXiv】随着LLM应用程序变得越来越复杂，开发人员越来越多地采用多代理架构将工作流分解为专门的协作组件，引入了限制代理行为并公开有用语义的结构</p><p class="card-summary" data-i18n-text="en" hidden>【arXiv】As LLM applications grow more complex, developers are increasingly adopting multi-agent architectures to decompose workflows into specialized, collaborative components, introducing structure that constrains agent behavior and exposes useful semantic</p><div class="card-actions"><div class="card-actions-left"><a href="http://arxiv.org/abs/2604.25899v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">research</span><span class="tag">paper</span></div></div><a href="/share.html?k=2026-04-29&amp;s=0&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="http://arxiv.org/abs/2604.25857v1" target="_blank" rel="noopener noreferrer" class="card-title">Slice Agent: Identifying and Isolating Slices in Shared Open Radio Unit</a>
-      <p class="card-summary" data-i18n-text="zh">【arXiv】网络切片即服务(NSaaS)是超越第五代(5G)和第六代(6G)网络的关键推动者，支持扩展现实(XR)、沉浸式服务和触觉互联网等下一代应用。这些网络</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【arXiv】Network Slice as a Service (NSaaS) is a key enabler of Beyond Fifth Generation (5G) and Sixth Generation (6G) networks, supporting next-generation applications such as extended reality (XR), immersive services, and the tactile Internet. These network</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="http://arxiv.org/abs/2604.25857v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">research</span> <span class="tag">paper</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=0&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="http://arxiv.org/abs/2604.25857v1" target="_blank" rel="noopener noreferrer" class="card-title">Slice Agent: Identifying and Isolating Slices in Shared Open Radio Unit</a><p class="card-summary" data-i18n-text="zh">【arXiv】网络切片即服务(NSaaS)是超越第五代(5G)和第六代(6G)网络的关键推动者，支持扩展现实(XR)、沉浸式服务和触觉互联网等下一代应用。这些网络</p><p class="card-summary" data-i18n-text="en" hidden>【arXiv】Network Slice as a Service (NSaaS) is a key enabler of Beyond Fifth Generation (5G) and Sixth Generation (6G) networks, supporting next-generation applications such as extended reality (XR), immersive services, and the tactile Internet. These network</p><div class="card-actions"><div class="card-actions-left"><a href="http://arxiv.org/abs/2604.25857v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">research</span><span class="tag">paper</span></div></div><a href="/share.html?k=2026-04-29&amp;s=0&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-
-    <section class="section" id="section-github">
-      <h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://github.com/Garyzhu-hub/pencil-multi-platform-product-design-agent" target="_blank" rel="noopener noreferrer" class="card-title">Garyzhu-hub/pencil-multi-platform-product-design-agent</a>
-      <p class="card-summary" data-i18n-text="zh">【GitHub】适用于Pencil MCP、VS Code、Cursor、Claude Code和Codex工作流程的开源多平台产品设计代理技能。（⭐ 2 ）</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【GitHub】An open-source multi-platform product design agent skill for Pencil MCP, VS Code, Cursor, Claude Code, and Codex workflows. （⭐ 2）</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/Garyzhu-hub/pencil-multi-platform-product-design-agent" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">github</span> <span class="tag">opensource</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=1&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div></section><section class="section" id="section-github"><h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://github.com/Garyzhu-hub/pencil-multi-platform-product-design-agent" target="_blank" rel="noopener noreferrer" class="card-title">Garyzhu-hub/pencil-multi-platform-product-design-agent</a><p class="card-summary" data-i18n-text="zh">【GitHub】适用于Pencil MCP、VS Code、Cursor、Claude Code和Codex工作流程的开源多平台产品设计代理技能。（⭐ 2 ）</p><p class="card-summary" data-i18n-text="en" hidden>【GitHub】An open-source multi-platform product design agent skill for Pencil MCP, VS Code, Cursor, Claude Code, and Codex workflows. （⭐ 2）</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/Garyzhu-hub/pencil-multi-platform-product-design-agent" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">github</span><span class="tag">opensource</span></div></div><a href="/share.html?k=2026-04-29&amp;s=1&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/SwedeshnaMishra/Mcp-Leave-Management-Server" target="_blank" rel="noopener noreferrer" class="card-title">SwedeshnaMishra/Mcp-Leave-Management-Server</a>
-      <p class="card-summary" data-i18n-text="zh">【GitHub】AI Leave Management Server使用MCP、Python、SQLite和Claude Desktop进行自然语言休假操作。（⭐ 0 ）</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【GitHub】AI Leave Management Server using MCP, Python, SQLite, and Claude Desktop for natural language leave operations. （⭐ 0）</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/SwedeshnaMishra/Mcp-Leave-Management-Server" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">github</span> <span class="tag">opensource</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=1&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/SwedeshnaMishra/Mcp-Leave-Management-Server" target="_blank" rel="noopener noreferrer" class="card-title">SwedeshnaMishra/Mcp-Leave-Management-Server</a><p class="card-summary" data-i18n-text="zh">【GitHub】AI Leave Management Server使用MCP、Python、SQLite和Claude Desktop进行自然语言休假操作。（⭐ 0 ）</p><p class="card-summary" data-i18n-text="en" hidden>【GitHub】AI Leave Management Server using MCP, Python, SQLite, and Claude Desktop for natural language leave operations. （⭐ 0）</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/SwedeshnaMishra/Mcp-Leave-Management-Server" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">github</span><span class="tag">opensource</span></div></div><a href="/share.html?k=2026-04-29&amp;s=1&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/Veinsteint/claude-code" target="_blank" rel="noopener noreferrer" class="card-title">Veinsteint/claude-code</a>
-      <p class="card-summary" data-i18n-text="zh">【GitHub】Claude Code开源（⭐ 0 ）</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【GitHub】Claude Code open source （⭐ 0）</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/Veinsteint/claude-code" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">github</span> <span class="tag">opensource</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=1&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/Veinsteint/claude-code" target="_blank" rel="noopener noreferrer" class="card-title">Veinsteint/claude-code</a><p class="card-summary" data-i18n-text="zh">【GitHub】Claude Code开源（⭐ 0 ）</p><p class="card-summary" data-i18n-text="en" hidden>【GitHub】Claude Code open source （⭐ 0）</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/Veinsteint/claude-code" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">github</span><span class="tag">opensource</span></div></div><a href="/share.html?k=2026-04-29&amp;s=1&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/nexu-io/open-design" target="_blank" rel="noopener noreferrer" class="card-title">nexu-io/open-design</a>
-      <p class="card-summary" data-i18n-text="zh">【GitHub】Anthropic Claude Design的🎨本地首选开源替代品。⚡19 Skills · ✨ 71个品牌级设计系统·🖼️沙盒预览· 📦 HTML/PDF/PPTX导出。在Claude Code/Codex/Curs上🤖运行（⭐ 2151 ）</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【GitHub】🎨 Local-first, open-source alternative to Anthropic&#x27;s Claude Design. ⚡ 19 Skills · ✨ 71 brand-grade Design Systems · 🖼️ sandboxed preview · 📦 HTML/PDF/PPTX export. 🤖 Runs on Claude Code / Codex / Curs （⭐ 2151）</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/nexu-io/open-design" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">github</span> <span class="tag">opensource</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=1&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/nexu-io/open-design" target="_blank" rel="noopener noreferrer" class="card-title">nexu-io/open-design</a><p class="card-summary" data-i18n-text="zh">【GitHub】Anthropic Claude Design的🎨本地首选开源替代品。⚡19 Skills · ✨ 71个品牌级设计系统·🖼️沙盒预览· 📦 HTML/PDF/PPTX导出。在Claude Code/Codex/Curs上🤖运行（⭐ 2151 ）</p><p class="card-summary" data-i18n-text="en" hidden>【GitHub】🎨 Local-first, open-source alternative to Anthropic&#x27;s Claude Design. ⚡ 19 Skills · ✨ 71 brand-grade Design Systems · 🖼️ sandboxed preview · 📦 HTML/PDF/PPTX export. 🤖 Runs on Claude Code / Codex / Curs （⭐ 2151）</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/nexu-io/open-design" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">github</span><span class="tag">opensource</span></div></div><a href="/share.html?k=2026-04-29&amp;s=1&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 <span data-i18n-text="zh">模型与行业动态</span><span data-i18n-text="en" hidden>Models & Industry</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://techcrunch.com/2026/04/28/at-his-openai-trial-musk-relitigates-an-old-friendship/" target="_blank" rel="noopener noreferrer" class="card-title">At his OpenAI trial, Musk relitigates an old friendship</a>
-      <p class="card-summary" data-i18n-text="zh">这是马斯克之前在采访中和作家沃尔特·艾萨克森（ Walter Isaacson ）关于马斯克的畅销传记中讲过的故事，但周二是他第一次宣誓就职。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>It&#x27;s a story Musk has told before -- in interviews and to author Walter Isaacson for his bestselling biography of Musk -- but Tuesday was the first time he said it under oath.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/04/28/at-his-openai-trial-musk-relitigates-an-old-friendship/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=2&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div></section><section class="section" id="section-models"><h2 class="section-title">🚀 <span data-i18n-text="zh">模型与行业动态</span><span data-i18n-text="en" hidden>Models & Industry</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://techcrunch.com/2026/04/28/at-his-openai-trial-musk-relitigates-an-old-friendship/" target="_blank" rel="noopener noreferrer" class="card-title">At his OpenAI trial, Musk relitigates an old friendship</a><p class="card-summary" data-i18n-text="zh">这是马斯克之前在采访中和作家沃尔特·艾萨克森（ Walter Isaacson ）关于马斯克的畅销传记中讲过的故事，但周二是他第一次宣誓就职。</p><p class="card-summary" data-i18n-text="en" hidden>It&#x27;s a story Musk has told before -- in interviews and to author Walter Isaacson for his bestselling biography of Musk -- but Tuesday was the first time he said it under oath.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/04/28/at-his-openai-trial-musk-relitigates-an-old-friendship/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-04-29&amp;s=2&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/28/amazon-is-already-offering-new-openai-products-on-aws/" target="_blank" rel="noopener noreferrer" class="card-title">Amazon is already offering new OpenAI products on AWS</a>
-      <p class="card-summary" data-i18n-text="zh">在OpenAI让微软同意终止独家权利的第二天， AWS宣布了一系列OpenAI模型产品，包括一项新的代理服务。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>A day after OpenAI got Microsoft to agree to end exclusive rights, AWS announced a slate of OpenAI model offerings, including a new agent service.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/04/28/amazon-is-already-offering-new-openai-products-on-aws/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=2&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://techcrunch.com/2026/04/28/amazon-is-already-offering-new-openai-products-on-aws/" target="_blank" rel="noopener noreferrer" class="card-title">Amazon is already offering new OpenAI products on AWS</a><p class="card-summary" data-i18n-text="zh">在OpenAI让微软同意终止独家权利的第二天， AWS宣布了一系列OpenAI模型产品，包括一项新的代理服务。</p><p class="card-summary" data-i18n-text="en" hidden>A day after OpenAI got Microsoft to agree to end exclusive rights, AWS announced a slate of OpenAI model offerings, including a new agent service.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/04/28/amazon-is-already-offering-new-openai-products-on-aws/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-04-29&amp;s=2&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/28/amazon-launches-an-ai-powered-audio-qa-experience-on-product-pages/" target="_blank" rel="noopener noreferrer" class="card-title">Amazon launches an AI-powered audio Q&amp;A experience on product pages</a>
-      <p class="card-summary" data-i18n-text="zh">亚马逊新推出的“加入聊天”功能可让您询问有关产品的问题，并接收基于人工智能的音频回复。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Amazon&#x27;s new &quot;Join the chat&quot; feature lets you ask questions about products and receive AI-powered audio responses.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/04/28/amazon-launches-an-ai-powered-audio-qa-experience-on-product-pages/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=2&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://techcrunch.com/2026/04/28/amazon-launches-an-ai-powered-audio-qa-experience-on-product-pages/" target="_blank" rel="noopener noreferrer" class="card-title">Amazon launches an AI-powered audio Q&amp;A experience on product pages</a><p class="card-summary" data-i18n-text="zh">亚马逊新推出的“加入聊天”功能可让您询问有关产品的问题，并接收基于人工智能的音频回复。</p><p class="card-summary" data-i18n-text="en" hidden>Amazon&#x27;s new &quot;Join the chat&quot; feature lets you ask questions about products and receive AI-powered audio responses.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/04/28/amazon-launches-an-ai-powered-audio-qa-experience-on-product-pages/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-04-29&amp;s=2&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/28/google-expands-pentagons-access-to-its-ai-after-anthropics-refusal/" target="_blank" rel="noopener noreferrer" class="card-title">Google expands Pentagon’s access to its AI after Anthropic’s refusal</a>
-      <p class="card-summary" data-i18n-text="zh">在Anthropic拒绝允许国防部将其人工智能用于国内大规模监视和自主武器之后，谷歌与该部门签署了一份新合同。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>After Anthropic refused to allow the DoD to use its AI for domestic mass surveillance and autonomous weapons, Google has signed a new contract with the department.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/04/28/google-expands-pentagons-access-to-its-ai-after-anthropics-refusal/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=2&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://techcrunch.com/2026/04/28/google-expands-pentagons-access-to-its-ai-after-anthropics-refusal/" target="_blank" rel="noopener noreferrer" class="card-title">Google expands Pentagon’s access to its AI after Anthropic’s refusal</a><p class="card-summary" data-i18n-text="zh">在Anthropic拒绝允许国防部将其人工智能用于国内大规模监视和自主武器之后，谷歌与该部门签署了一份新合同。</p><p class="card-summary" data-i18n-text="en" hidden>After Anthropic refused to allow the DoD to use its AI for domestic mass surveillance and autonomous weapons, Google has signed a new contract with the department.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/04/28/google-expands-pentagons-access-to-its-ai-after-anthropics-refusal/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-04-29&amp;s=2&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-
-    <section class="section" id="section-community">
-      <h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://www.buchodi.com/how-chatgpt-serves-ads-heres-the-full-attribution-loop/" target="_blank" rel="noopener noreferrer" class="card-title">How ChatGPT serves ads</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 250 分 | 155 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 250 分 | 155 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://www.buchodi.com/how-chatgpt-serves-ads-heres-the-full-attribution-loop/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=3&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div></section><section class="section" id="section-community"><h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://www.buchodi.com/how-chatgpt-serves-ads-heres-the-full-attribution-loop/" target="_blank" rel="noopener noreferrer" class="card-title">How ChatGPT serves ads</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 250 分 | 155 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 250 分 | 155 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://www.buchodi.com/how-chatgpt-serves-ads-heres-the-full-attribution-loop/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-29&amp;s=3&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents/" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI models coming to Amazon Bedrock: Interview with OpenAI and AWS CEOs</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 225 分 | 78 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 225 分 | 78 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=3&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents/" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI models coming to Amazon Bedrock: Interview with OpenAI and AWS CEOs</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 225 分 | 78 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 225 分 | 78 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-29&amp;s=3&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/anthropics/claude-code/issues/49363" target="_blank" rel="noopener noreferrer" class="card-title">Regression: malware reminder on every read still causes subagent refusals</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 188 分 | 82 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 188 分 | 82 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/anthropics/claude-code/issues/49363" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=3&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/anthropics/claude-code/issues/49363" target="_blank" rel="noopener noreferrer" class="card-title">Regression: malware reminder on every read still causes subagent refusals</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 188 分 | 82 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 188 分 | 82 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/anthropics/claude-code/issues/49363" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-29&amp;s=3&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://legallayer.substack.com/p/who-owns-the-claude-code-wrote" target="_blank" rel="noopener noreferrer" class="card-title">Who owns the code Claude Code wrote?</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 334 分 | 337 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 334 分 | 337 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://legallayer.substack.com/p/who-owns-the-claude-code-wrote" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=3&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://legallayer.substack.com/p/who-owns-the-claude-code-wrote" target="_blank" rel="noopener noreferrer" class="card-title">Who owns the code Claude Code wrote?</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 334 分 | 337 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 334 分 | 337 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://legallayer.substack.com/p/who-owns-the-claude-code-wrote" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-29&amp;s=3&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://www.mendral.com/blog/frontier-model-lower-costs" target="_blank" rel="noopener noreferrer" class="card-title">We decreased our LLM costs with Opus</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 78 分 | 25 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 78 分 | 25 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://www.mendral.com/blog/frontier-model-lower-costs" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=3&amp;i=4" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://www.mendral.com/blog/frontier-model-lower-costs" target="_blank" rel="noopener noreferrer" class="card-title">We decreased our LLM costs with Opus</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 78 分 | 25 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 78 分 | 25 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://www.mendral.com/blog/frontier-model-lower-costs" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-29&amp;s=3&amp;i=4" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/localsend/localsend" target="_blank" rel="noopener noreferrer" class="card-title">Localsend: An open-source cross-platform alternative to AirDrop</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 783 分 | 240 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 783 分 | 240 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/localsend/localsend" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-29&amp;s=3&amp;i=5" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/localsend/localsend" target="_blank" rel="noopener noreferrer" class="card-title">Localsend: An open-source cross-platform alternative to AirDrop</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 783 分 | 240 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 783 分 | 240 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/localsend/localsend" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-29&amp;s=3&amp;i=5" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-</main>
+        </a></div></div></section></main>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
@@ -907,5 +579,4 @@ body {
 })();
 </script>
 
-</body>
-</html>
+</body></html>
