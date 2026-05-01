@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 2026-04-30 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="今日刊 — 2026-04-30">
-<meta property="og:description" content="今日 17 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lava7397.com">
-<meta name="twitter:card" content="summary">
-<title>今日刊 — 2026-04-30</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><meta name="description" content="今日刊 2026-04-30 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:title" content="今日刊 — 2026-04-30"><meta property="og:description" content="今日 17 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态"><meta property="og:type" content="article"><meta property="og:url" content="https://lava7397.com"><meta name="twitter:card" content="summary"><title>今日刊 — 2026-04-30</title>
 <style>
 /* 系统字体栈，避免 Google Fonts 外联阻塞首屏（移动网与 Wi‑Fi 均少一次跨域往返） */
 
@@ -493,341 +479,42 @@ body {
 .skip-link:focus-visible { outline: 2px solid #2d3a4a; outline-offset: 2px; }
 
 </style>
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top detail-issue-top--fixed-dock">
-<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
-<div class="detail-topbar">
-  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
-<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
-<div class="atlas-lang" role="group" aria-label="界面语言">
-      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
-      <span class="atlas-lang-sep">/</span>
-      <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-</header>
-<div class="hero">
-  <h1 data-i18n="hero_title">今日刊</h1>
-  <p class="date">
-    2026-04-30 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="17">17</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
-</div>
-
-</div>
-<!-- Content -->
-<main class="container" id="main-content">
-  
-    <section class="section" id="section-research">
-      <h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="http://arxiv.org/abs/2604.26855v1" target="_blank" rel="noopener noreferrer" class="card-title">Cognitive Atrophy and Systemic Collapse in AI-Dependent Software Engineering</a>
-      <p class="card-summary" data-i18n-text="zh">【arXiv】将大型语言模型（ LLM ）集成到软件开发生命周期（ SDLC ）中掩盖了一个关键的社会技术失败：认知系统崩溃。本文介绍了“认识论债务” ，即</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【arXiv】The integration of Large Language Models (LLMs) into the software development lifecycle (SDLC) masks a critical socio-technical failure: Cognitive-Systemic Collapse. This paper introduces &quot;Epistemological Debt,&quot; the hidden carrying cost incurred when</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="http://arxiv.org/abs/2604.26855v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">research</span> <span class="tag">paper</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=0&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+</head><body><a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a><div class="detail-issue-top detail-issue-top--fixed-dock"><header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航"><div class="detail-topbar"><div class="detail-topbar-inner detail-topbar-inner--with-quicknav"><a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span><span data-i18n="nav_back_text">返回</span></a><nav class="quick-nav quick-nav--inline" aria-label="内容导航"><a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a></nav><div class="atlas-lang" role="group" aria-label="界面语言"><button type="button" id="lang-zh" data-set-lang="zh">中</button><span class="atlas-lang-sep">/</span><button type="button" id="lang-en" data-set-lang="en">EN</button></div></div></div></header><div class="hero"><h1 data-i18n="hero_title">今日刊</h1><p class="date">
+    2026-04-30 <span class="hero-sep" aria-hidden="true">·</span><span class="hero-tagline" data-i18n="hero_tagline">每日精选</span><span class="hero-sep" aria-hidden="true">·</span><span class="hero-count" id="hero-item-count" data-total-items="17">17</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span></p></div></div><!-- Content --><main class="container" id="main-content"><section class="section" id="section-research"><h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="http://arxiv.org/abs/2604.26855v1" target="_blank" rel="noopener noreferrer" class="card-title">Cognitive Atrophy and Systemic Collapse in AI-Dependent Software Engineering</a><p class="card-summary" data-i18n-text="zh">【arXiv】将大型语言模型（ LLM ）集成到软件开发生命周期（ SDLC ）中掩盖了一个关键的社会技术失败：认知系统崩溃。本文介绍了“认识论债务” ，即</p><p class="card-summary" data-i18n-text="en" hidden>【arXiv】The integration of Large Language Models (LLMs) into the software development lifecycle (SDLC) masks a critical socio-technical failure: Cognitive-Systemic Collapse. This paper introduces &quot;Epistemological Debt,&quot; the hidden carrying cost incurred when</p><div class="card-actions"><div class="card-actions-left"><a href="http://arxiv.org/abs/2604.26855v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">research</span><span class="tag">paper</span></div></div><a href="/share.html?k=2026-04-30&amp;s=0&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="http://arxiv.org/abs/2604.26837v1" target="_blank" rel="noopener noreferrer" class="card-title">Unifying Sparse Attention with Hierarchical Memory for Scalable Long-Context LLM Serving</a>
-      <p class="card-summary" data-i18n-text="zh">【arXiv】长期的LLM服务因参加不断增长的KV缓存的成本而受到瓶颈。动态稀疏注意承诺通过每个解码步骤仅访问KV状态的一个小的、依赖于查询的子集并扩展KV存储来缓解</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【arXiv】Long-context LLM serving is bottlenecked by the cost of attending over ever-growing KV caches. Dynamic sparse attention promises relief by accessing only a small, query-dependent subset of the KV state per decoding step and extending the KV storage t</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="http://arxiv.org/abs/2604.26837v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">research</span> <span class="tag">paper</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=0&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="http://arxiv.org/abs/2604.26837v1" target="_blank" rel="noopener noreferrer" class="card-title">Unifying Sparse Attention with Hierarchical Memory for Scalable Long-Context LLM Serving</a><p class="card-summary" data-i18n-text="zh">【arXiv】长期的LLM服务因参加不断增长的KV缓存的成本而受到瓶颈。动态稀疏注意承诺通过每个解码步骤仅访问KV状态的一个小的、依赖于查询的子集并扩展KV存储来缓解</p><p class="card-summary" data-i18n-text="en" hidden>【arXiv】Long-context LLM serving is bottlenecked by the cost of attending over ever-growing KV caches. Dynamic sparse attention promises relief by accessing only a small, query-dependent subset of the KV state per decoding step and extending the KV storage t</p><div class="card-actions"><div class="card-actions-left"><a href="http://arxiv.org/abs/2604.26837v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">research</span><span class="tag">paper</span></div></div><a href="/share.html?k=2026-04-30&amp;s=0&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="http://arxiv.org/abs/2604.26805v1" target="_blank" rel="noopener noreferrer" class="card-title">Bian Que: An Agentic Framework with Flexible Skill Arrangement for Online System Operations</a>
-      <p class="card-summary" data-i18n-text="zh">【arXiv】运营和维护（ O&amp;amp;M ）大规模在线引擎系统（搜索、推荐、广告）需要大量人力来进行发布监控、警报响应和根本原因分析。虽然基于LLM的代理人天生适合</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【arXiv】Operating and maintaining (O&amp;amp;M) large-scale online engine systems (search, recommendation, advertising) demands substantial human effort for release monitoring, alert response, and root cause analysis. While LLM-based agents are a natural fit for</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="http://arxiv.org/abs/2604.26805v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">research</span> <span class="tag">paper</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=0&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="http://arxiv.org/abs/2604.26805v1" target="_blank" rel="noopener noreferrer" class="card-title">Bian Que: An Agentic Framework with Flexible Skill Arrangement for Online System Operations</a><p class="card-summary" data-i18n-text="zh">【arXiv】运营和维护（ O&amp;amp;M ）大规模在线引擎系统（搜索、推荐、广告）需要大量人力来进行发布监控、警报响应和根本原因分析。虽然基于LLM的代理人天生适合</p><p class="card-summary" data-i18n-text="en" hidden>【arXiv】Operating and maintaining (O&amp;amp;M) large-scale online engine systems (search, recommendation, advertising) demands substantial human effort for release monitoring, alert response, and root cause analysis. While LLM-based agents are a natural fit for</p><div class="card-actions"><div class="card-actions-left"><a href="http://arxiv.org/abs/2604.26805v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">research</span><span class="tag">paper</span></div></div><a href="/share.html?k=2026-04-30&amp;s=0&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="http://arxiv.org/abs/2604.26752v1" target="_blank" rel="noopener noreferrer" class="card-title">GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents</a>
-      <p class="card-summary" data-i18n-text="zh">【arXiv】我们介绍GLM-5V-Turbo ，这是朝着多式联运药物的原生基础模型迈出的一步。随着基础模型越来越多地部署在实际环境中，代理能力不仅取决于语言推理，还取决于感知</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【arXiv】We present GLM-5V-Turbo, a step toward native foundation models for multimodal agents. As foundation models are increasingly deployed in real environments, agentic capability depends not only on language reasoning, but also on the ability to perceive</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="http://arxiv.org/abs/2604.26752v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">research</span> <span class="tag">paper</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=0&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="http://arxiv.org/abs/2604.26752v1" target="_blank" rel="noopener noreferrer" class="card-title">GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents</a><p class="card-summary" data-i18n-text="zh">【arXiv】我们介绍GLM-5V-Turbo ，这是朝着多式联运药物的原生基础模型迈出的一步。随着基础模型越来越多地部署在实际环境中，代理能力不仅取决于语言推理，还取决于感知</p><p class="card-summary" data-i18n-text="en" hidden>【arXiv】We present GLM-5V-Turbo, a step toward native foundation models for multimodal agents. As foundation models are increasingly deployed in real environments, agentic capability depends not only on language reasoning, but also on the ability to perceive</p><div class="card-actions"><div class="card-actions-left"><a href="http://arxiv.org/abs/2604.26752v1" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">research</span><span class="tag">paper</span></div></div><a href="/share.html?k=2026-04-30&amp;s=0&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-
-    <section class="section" id="section-github">
-      <h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://github.com/marsmike/agentic-toolkit" target="_blank" rel="noopener noreferrer" class="card-title">marsmike/agentic-toolkit</a>
-      <p class="card-summary" data-i18n-text="zh">【GitHub】开源Claude Code插件—一次发布一个。（⭐ 0 ）</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【GitHub】Open-source Claude Code plugins — released one at a time. （⭐ 0）</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/marsmike/agentic-toolkit" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">github</span> <span class="tag">opensource</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=1&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div></section><section class="section" id="section-github"><h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://github.com/marsmike/agentic-toolkit" target="_blank" rel="noopener noreferrer" class="card-title">marsmike/agentic-toolkit</a><p class="card-summary" data-i18n-text="zh">【GitHub】开源Claude Code插件—一次发布一个。（⭐ 0 ）</p><p class="card-summary" data-i18n-text="en" hidden>【GitHub】Open-source Claude Code plugins — released one at a time. （⭐ 0）</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/marsmike/agentic-toolkit" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">github</span><span class="tag">opensource</span></div></div><a href="/share.html?k=2026-04-30&amp;s=1&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/mmmmmmmm5455/code-audit" target="_blank" rel="noopener noreferrer" class="card-title">mmmmmmmm5455/code-audit</a>
-      <p class="card-summary" data-i18n-text="zh">【GitHub】Claude Code自动化开源项目质量和安全审计技巧（⭐ 0 ）</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【GitHub】Automated open-source project quality &amp; security audit skill for Claude Code （⭐ 0）</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/mmmmmmmm5455/code-audit" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">github</span> <span class="tag">opensource</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=1&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/mmmmmmmm5455/code-audit" target="_blank" rel="noopener noreferrer" class="card-title">mmmmmmmm5455/code-audit</a><p class="card-summary" data-i18n-text="zh">【GitHub】Claude Code自动化开源项目质量和安全审计技巧（⭐ 0 ）</p><p class="card-summary" data-i18n-text="en" hidden>【GitHub】Automated open-source project quality &amp; security audit skill for Claude Code （⭐ 0）</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/mmmmmmmm5455/code-audit" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">github</span><span class="tag">opensource</span></div></div><a href="/share.html?k=2026-04-30&amp;s=1&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/pratikacharya1234/forge" target="_blank" rel="noopener noreferrer" class="card-title">pratikacharya1234/forge</a>
-      <p class="card-summary" data-i18n-text="zh">【GitHub】多模型终端AI编码代理伪造任何模型的代码。Gemini + Claude + GPT. 1M context.免费。开源。（⭐ 0 ）</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【GitHub】Multi-model terminal AI coding agent forge code with any model. Gemini + Claude + GPT. 1M context. Free. Open source. （⭐ 0）</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/pratikacharya1234/forge" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">github</span> <span class="tag">opensource</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=1&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/pratikacharya1234/forge" target="_blank" rel="noopener noreferrer" class="card-title">pratikacharya1234/forge</a><p class="card-summary" data-i18n-text="zh">【GitHub】多模型终端AI编码代理伪造任何模型的代码。Gemini + Claude + GPT. 1M context.免费。开源。（⭐ 0 ）</p><p class="card-summary" data-i18n-text="en" hidden>【GitHub】Multi-model terminal AI coding agent forge code with any model. Gemini + Claude + GPT. 1M context. Free. Open source. （⭐ 0）</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/pratikacharya1234/forge" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">github</span><span class="tag">opensource</span></div></div><a href="/share.html?k=2026-04-30&amp;s=1&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 <span data-i18n-text="zh">模型与行业动态</span><span data-i18n-text="en" hidden>Models & Industry</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://techcrunch.com/2026/04/29/amazons-cloud-business-is-surging-and-so-is-its-capital-spending/" target="_blank" rel="noopener noreferrer" class="card-title">Amazon’s cloud business is surging — and so is its capital spending</a>
-      <p class="card-summary" data-i18n-text="zh">该公司首席执行官表示，这家电子商务巨头从AWS赚的钱比预期的要多，但它也在花费大量资金，并将在短期内继续这样做。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>The e-commerce giant is making more money than expected from AWS but it&#x27;s also spending a lot, and will continue to do so in the near term, its chief executive said.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/04/29/amazons-cloud-business-is-surging-and-so-is-its-capital-spending/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=2&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div></section><section class="section" id="section-models"><h2 class="section-title">🚀 <span data-i18n-text="zh">模型与行业动态</span><span data-i18n-text="en" hidden>Models & Industry</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://techcrunch.com/2026/04/29/amazons-cloud-business-is-surging-and-so-is-its-capital-spending/" target="_blank" rel="noopener noreferrer" class="card-title">Amazon’s cloud business is surging — and so is its capital spending</a><p class="card-summary" data-i18n-text="zh">该公司首席执行官表示，这家电子商务巨头从AWS赚的钱比预期的要多，但它也在花费大量资金，并将在短期内继续这样做。</p><p class="card-summary" data-i18n-text="en" hidden>The e-commerce giant is making more money than expected from AWS but it&#x27;s also spending a lot, and will continue to do so in the near term, its chief executive said.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/04/29/amazons-cloud-business-is-surging-and-so-is-its-capital-spending/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-04-30&amp;s=2&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/29/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b/" target="_blank" rel="noopener noreferrer" class="card-title">Sources: Anthropic could raise a new $50B round at a valuation of $900B</a>
-      <p class="card-summary" data-i18n-text="zh">据知情人士透露， Claude的制造商已收到多份估值在8500亿至9000亿美元之间的先发制人要约。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>The maker of Claude has received multiple pre-emptive offers at valuations in the $850 billion to $900 billion range, according to sources familiar with the matter.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/04/29/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=2&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://techcrunch.com/2026/04/29/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b/" target="_blank" rel="noopener noreferrer" class="card-title">Sources: Anthropic could raise a new $50B round at a valuation of $900B</a><p class="card-summary" data-i18n-text="zh">据知情人士透露， Claude的制造商已收到多份估值在8500亿至9000亿美元之间的先发制人要约。</p><p class="card-summary" data-i18n-text="en" hidden>The maker of Claude has received multiple pre-emptive offers at valuations in the $850 billion to $900 billion range, according to sources familiar with the matter.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/04/29/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-04-30&amp;s=2&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/29/on-the-stand-elon-musk-cant-escape-his-own-tweets/" target="_blank" rel="noopener noreferrer" class="card-title">On the stand, Elon Musk can’t escape his own tweets</a>
-      <p class="card-summary" data-i18n-text="zh">埃隆·马斯克（ Elon Musk ）因试图合法拆除OpenAI而连续第二天出庭作证。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Elon Musk took the stand for the second day for his attempt to legally dismantle OpenAI.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/04/29/on-the-stand-elon-musk-cant-escape-his-own-tweets/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=2&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://techcrunch.com/2026/04/29/on-the-stand-elon-musk-cant-escape-his-own-tweets/" target="_blank" rel="noopener noreferrer" class="card-title">On the stand, Elon Musk can’t escape his own tweets</a><p class="card-summary" data-i18n-text="zh">埃隆·马斯克（ Elon Musk ）因试图合法拆除OpenAI而连续第二天出庭作证。</p><p class="card-summary" data-i18n-text="en" hidden>Elon Musk took the stand for the second day for his attempt to legally dismantle OpenAI.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/04/29/on-the-stand-elon-musk-cant-escape-his-own-tweets/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-04-30&amp;s=2&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/04/29/meta-is-still-burning-money-on-ar-vr/" target="_blank" rel="noopener noreferrer" class="card-title">Meta is still burning money on AR/VR</a>
-      <p class="card-summary" data-i18n-text="zh">Meta每个季度都在Reality Labs上亏损数十亿美元，其人工智能支出只会增加其支出。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Meta is losing billions on Reality Labs each quarter, and its AI expenditures are only going to increase its spending.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/04/29/meta-is-still-burning-money-on-ar-vr/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=2&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://techcrunch.com/2026/04/29/meta-is-still-burning-money-on-ar-vr/" target="_blank" rel="noopener noreferrer" class="card-title">Meta is still burning money on AR/VR</a><p class="card-summary" data-i18n-text="zh">Meta每个季度都在Reality Labs上亏损数十亿美元，其人工智能支出只会增加其支出。</p><p class="card-summary" data-i18n-text="en" hidden>Meta is losing billions on Reality Labs each quarter, and its AI expenditures are only going to increase its spending.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/04/29/meta-is-still-burning-money-on-ar-vr/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-04-30&amp;s=2&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-
-    <section class="section" id="section-community">
-      <h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://copy.fail/" target="_blank" rel="noopener noreferrer" class="card-title">Copy Fail – CVE-2026-31431</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 579 分 | 259 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 579 分 | 259 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://copy.fail/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=3&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div></section><section class="section" id="section-community"><h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://copy.fail/" target="_blank" rel="noopener noreferrer" class="card-title">Copy Fail – CVE-2026-31431</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 579 分 | 259 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 579 分 | 259 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://copy.fail/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-30&amp;s=3&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://www.maxtaylor.me/articles/i-benchmarked-caveman-against-two-words" target="_blank" rel="noopener noreferrer" class="card-title">I benchmarked Claude Code&#x27;s caveman plugin against &quot;be brief.&quot;</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 52 分 | 33 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 52 分 | 33 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://www.maxtaylor.me/articles/i-benchmarked-caveman-against-two-words" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=3&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://www.maxtaylor.me/articles/i-benchmarked-caveman-against-two-words" target="_blank" rel="noopener noreferrer" class="card-title">I benchmarked Claude Code&#x27;s caveman plugin against &quot;be brief.&quot;</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 52 分 | 33 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 52 分 | 33 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://www.maxtaylor.me/articles/i-benchmarked-caveman-against-two-words" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-30&amp;s=3&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://www.promptarmor.com/resources/ramps-sheets-ai-exfiltrates-financials" target="_blank" rel="noopener noreferrer" class="card-title">Ramp&#x27;s Sheets AI Exfiltrates Financials</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 106 分 | 34 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 106 分 | 34 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://www.promptarmor.com/resources/ramps-sheets-ai-exfiltrates-financials" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=3&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://www.promptarmor.com/resources/ramps-sheets-ai-exfiltrates-financials" target="_blank" rel="noopener noreferrer" class="card-title">Ramp&#x27;s Sheets AI Exfiltrates Financials</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 106 分 | 34 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 106 分 | 34 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://www.promptarmor.com/resources/ramps-sheets-ai-exfiltrates-financials" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-30&amp;s=3&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://status.claude.com/incidents/2gf1jpyty350" target="_blank" rel="noopener noreferrer" class="card-title">Claude.ai and API Unavailable</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 80 分 | 60 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 80 分 | 60 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://status.claude.com/incidents/2gf1jpyty350" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=3&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://status.claude.com/incidents/2gf1jpyty350" target="_blank" rel="noopener noreferrer" class="card-title">Claude.ai and API Unavailable</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 80 分 | 60 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 80 分 | 60 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://status.claude.com/incidents/2gf1jpyty350" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-30&amp;s=3&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://news.ycombinator.com/item?id=47956890" target="_blank" rel="noopener noreferrer" class="card-title">Claude.ai Down Again?</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 9 分 | 13 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 9 分 | 13 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://news.ycombinator.com/item?id=47956890" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=3&amp;i=4" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://news.ycombinator.com/item?id=47956890" target="_blank" rel="noopener noreferrer" class="card-title">Claude.ai Down Again?</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 9 分 | 13 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 9 分 | 13 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://news.ycombinator.com/item?id=47956890" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-30&amp;s=3&amp;i=4" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://www.quantamagazine.org/what-can-we-gain-by-losing-infinity-20260429/" target="_blank" rel="noopener noreferrer" class="card-title">What can we gain by losing infinity?</a>
-      <p class="card-summary" data-i18n-text="zh">【HN】热度: 16 分 | 21 评论</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 16 分 | 21 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://www.quantamagazine.org/what-can-we-gain-by-losing-infinity-20260429/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-04-30&amp;s=3&amp;i=5" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://www.quantamagazine.org/what-can-we-gain-by-losing-infinity-20260429/" target="_blank" rel="noopener noreferrer" class="card-title">What can we gain by losing infinity?</a><p class="card-summary" data-i18n-text="zh">【HN】热度: 16 分 | 21 评论</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 16 分 | 21 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://www.quantamagazine.org/what-can-we-gain-by-losing-infinity-20260429/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-04-30&amp;s=3&amp;i=5" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-</main>
+        </a></div></div></section></main>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
@@ -890,5 +577,4 @@ body {
 })();
 </script>
 
-</body>
-</html>
+</body></html>
