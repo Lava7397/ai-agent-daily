@@ -1,237 +1,141 @@
 {
-  "date": "2026-04-30",
-  "sources": "Hacker News, arXiv, GitHub",
+  "date": "2026-05-01",
+  "sources": "Hacker News",
   "description": "AI Agent 领域最新情报",
-  "research": [
-    {
-      "title": "Cognitive Atrophy and Systemic Collapse in AI-Dependent Software Engineering",
-      "summary": "【arXiv】The integration of Large Language Models (LLMs) into the software development lifecycle (SDLC) masks a critical socio-technical failure: Cognitive-Systemic Collapse. This paper introduces \"Epistemological Debt,\" the hidden carrying cost incurred when",
-      "url": "http://arxiv.org/abs/2604.26855v1",
-      "tags": [
-        "research",
-        "paper"
-      ],
-      "title_zh": "人工智能相关软件工程中的认知萎缩和系统性崩溃",
-      "summary_zh": "【arXiv】将大型语言模型（ LLM ）集成到软件开发生命周期（ SDLC ）中掩盖了一个关键的社会技术失败：认知系统崩溃。本文介绍了“认识论债务” ，即",
-      "title_en": "Cognitive Atrophy and Systemic Collapse in AI-Dependent Software Engineering",
-      "summary_en": "【arXiv】The integration of Large Language Models (LLMs) into the software development lifecycle (SDLC) masks a critical socio-technical failure: Cognitive-Systemic Collapse. This paper introduces \"Epistemological Debt,\" the hidden carrying cost incurred when"
-    },
-    {
-      "title": "Unifying Sparse Attention with Hierarchical Memory for Scalable Long-Context LLM Serving",
-      "summary": "【arXiv】Long-context LLM serving is bottlenecked by the cost of attending over ever-growing KV caches. Dynamic sparse attention promises relief by accessing only a small, query-dependent subset of the KV state per decoding step and extending the KV storage t",
-      "url": "http://arxiv.org/abs/2604.26837v1",
-      "tags": [
-        "research",
-        "paper"
-      ],
-      "title_zh": "将稀疏注意力与分层内存统一起来，实现可扩展的长上下文LLM服务",
-      "summary_zh": "【arXiv】长期的LLM服务因参加不断增长的KV缓存的成本而受到瓶颈。动态稀疏注意承诺通过每个解码步骤仅访问KV状态的一个小的、依赖于查询的子集并扩展KV存储来缓解",
-      "title_en": "Unifying Sparse Attention with Hierarchical Memory for Scalable Long-Context LLM Serving",
-      "summary_en": "【arXiv】Long-context LLM serving is bottlenecked by the cost of attending over ever-growing KV caches. Dynamic sparse attention promises relief by accessing only a small, query-dependent subset of the KV state per decoding step and extending the KV storage t"
-    },
-    {
-      "title": "Bian Que: An Agentic Framework with Flexible Skill Arrangement for Online System Operations",
-      "summary": "【arXiv】Operating and maintaining (O&amp;M) large-scale online engine systems (search, recommendation, advertising) demands substantial human effort for release monitoring, alert response, and root cause analysis. While LLM-based agents are a natural fit for",
-      "url": "http://arxiv.org/abs/2604.26805v1",
-      "tags": [
-        "research",
-        "paper"
-      ],
-      "title_zh": "Bian Que ：具有灵活的在线系统操作技能安排的代理框架",
-      "summary_zh": "【arXiv】运营和维护（ O&amp;M ）大规模在线引擎系统（搜索、推荐、广告）需要大量人力来进行发布监控、警报响应和根本原因分析。虽然基于LLM的代理人天生适合",
-      "title_en": "Bian Que: An Agentic Framework with Flexible Skill Arrangement for Online System Operations",
-      "summary_en": "【arXiv】Operating and maintaining (O&amp;M) large-scale online engine systems (search, recommendation, advertising) demands substantial human effort for release monitoring, alert response, and root cause analysis. While LLM-based agents are a natural fit for"
-    },
-    {
-      "title": "GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents",
-      "summary": "【arXiv】We present GLM-5V-Turbo, a step toward native foundation models for multimodal agents. As foundation models are increasingly deployed in real environments, agentic capability depends not only on language reasoning, but also on the ability to perceive",
-      "url": "http://arxiv.org/abs/2604.26752v1",
-      "tags": [
-        "research",
-        "paper"
-      ],
-      "title_zh": "GLM-5V-Turbo ：面向多式联运代理的本地基础模型",
-      "summary_zh": "【arXiv】我们介绍GLM-5V-Turbo ，这是朝着多式联运药物的原生基础模型迈出的一步。随着基础模型越来越多地部署在实际环境中，代理能力不仅取决于语言推理，还取决于感知",
-      "title_en": "GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents",
-      "summary_en": "【arXiv】We present GLM-5V-Turbo, a step toward native foundation models for multimodal agents. As foundation models are increasingly deployed in real environments, agentic capability depends not only on language reasoning, but also on the ability to perceive"
-    }
-  ],
-  "github": [
-    {
-      "title": "marsmike/agentic-toolkit",
-      "summary": "【GitHub】Open-source Claude Code plugins — released one at a time. （⭐ 0）",
-      "url": "https://github.com/marsmike/agentic-toolkit",
-      "stars": 0,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "marsmike/agentic-toolkit",
-      "summary_zh": "【GitHub】开源Claude Code插件—一次发布一个。（⭐ 0 ）",
-      "title_en": "marsmike/agentic-toolkit",
-      "summary_en": "【GitHub】Open-source Claude Code plugins — released one at a time. （⭐ 0）"
-    },
-    {
-      "title": "mmmmmmmm5455/code-audit",
-      "summary": "【GitHub】Automated open-source project quality & security audit skill for Claude Code （⭐ 0）",
-      "url": "https://github.com/mmmmmmmm5455/code-audit",
-      "stars": 0,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "mmmmmmmm5455/code-audit",
-      "summary_zh": "【GitHub】Claude Code自动化开源项目质量和安全审计技巧（⭐ 0 ）",
-      "title_en": "mmmmmmmm5455/code-audit",
-      "summary_en": "【GitHub】Automated open-source project quality & security audit skill for Claude Code （⭐ 0）"
-    },
-    {
-      "title": "pratikacharya1234/forge",
-      "summary": "【GitHub】Multi-model terminal AI coding agent forge code with any model. Gemini + Claude + GPT. 1M context. Free. Open source. （⭐ 0）",
-      "url": "https://github.com/pratikacharya1234/forge",
-      "stars": 0,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "pratikacharya1234/forge",
-      "summary_zh": "【GitHub】多模型终端AI编码代理伪造任何模型的代码。Gemini + Claude + GPT. 1M context.免费。开源。（⭐ 0 ）",
-      "title_en": "pratikacharya1234/forge",
-      "summary_en": "【GitHub】Multi-model terminal AI coding agent forge code with any model. Gemini + Claude + GPT. 1M context. Free. Open source. （⭐ 0）"
-    }
-  ],
+  "research": [],
+  "github": [],
   "models": [
     {
-      "title": "Amazon’s cloud business is surging — and so is its capital spending",
-      "summary": "The e-commerce giant is making more money than expected from AWS but it's also spending a lot, and will continue to do so in the near term, its chief executive said. ",
-      "url": "https://techcrunch.com/2026/04/29/amazons-cloud-business-is-surging-and-so-is-its-capital-spending/",
+      "title": "Sources: Anthropic potential $900B+ valuation round could happen within 2 weeks",
+      "summary": "Anthropic is asking investors to submit allocations for the AI company’s latest fundraise within the next 48 hours, according to sources familiar with the matter. ",
+      "url": "https://techcrunch.com/2026/04/30/anthropic-potential-900b-valuation-round-could-happen-within-two-weeks/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "亚马逊的云业务正在飙升，其资本支出也在飙升",
-      "summary_zh": "该公司首席执行官表示，这家电子商务巨头从AWS赚的钱比预期的要多，但它也在花费大量资金，并将在短期内继续这样做。",
-      "title_en": "Amazon’s cloud business is surging — and so is its capital spending",
-      "summary_en": "The e-commerce giant is making more money than expected from AWS but it's also spending a lot, and will continue to do so in the near term, its chief executive said."
+      "title_zh": "资料来源：人择潜力$ 9000亿+估值回合可能在2周内进行",
+      "summary_zh": "据知情人士透露， Anthropic要求投资者在接下来的48小时内为该人工智能公司的最新筹款活动提交拨款。",
+      "title_en": "Sources: Anthropic potential $900B+ valuation round could happen within 2 weeks",
+      "summary_en": "Anthropic is asking investors to submit allocations for the AI company’s latest fundraise within the next 48 hours, according to sources familiar with the matter."
     },
     {
-      "title": "Sources: Anthropic could raise a new $50B round at a valuation of $900B",
-      "summary": "The maker of Claude has received multiple pre-emptive offers at valuations in the $850 billion to $900 billion range, according to sources familiar with the matter.",
-      "url": "https://techcrunch.com/2026/04/29/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b/",
+      "title": "Apple was surprised by AI-driven demand for Macs",
+      "summary": "Apple said it will be supply-constrained on Mac mini, Studio, and Neo in the next quarter, too. ",
+      "url": "https://techcrunch.com/2026/04/30/apple-was-surprised-by-ai-driven-demand-for-macs/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "资料来源： Anthropic可能以$ 900B的估值筹集新一轮$ 500B",
-      "summary_zh": "据知情人士透露， Claude的制造商已收到多份估值在8500亿至9000亿美元之间的先发制人要约。",
-      "title_en": "Sources: Anthropic could raise a new $50B round at a valuation of $900B",
-      "summary_en": "The maker of Claude has received multiple pre-emptive offers at valuations in the $850 billion to $900 billion range, according to sources familiar with the matter."
+      "title_zh": "苹果对人工智能驱动的Mac需求感到惊讶",
+      "summary_zh": "苹果表示，下个季度Mac mini、Studio和NEO的供应也将受到限制。",
+      "title_en": "Apple was surprised by AI-driven demand for Macs",
+      "summary_en": "Apple said it will be supply-constrained on Mac mini, Studio, and Neo in the next quarter, too."
     },
     {
-      "title": "On the stand, Elon Musk can’t escape his own tweets",
-      "summary": "Elon Musk took the stand for the second day for his attempt to legally dismantle OpenAI. ",
-      "url": "https://techcrunch.com/2026/04/29/on-the-stand-elon-musk-cant-escape-his-own-tweets/",
+      "title": "Legal AI startup Legora hits $5.6B valuation and its battle with Harvey just got hotter",
+      "summary": "The two wildly fast-growing rivals have raised massive sums, pushed into each other's home turf, and now have dueling ad campaigns.",
+      "url": "https://techcrunch.com/2026/04/30/legal-ai-startup-legora-hits-5-6-valuation-and-its-battle-with-harvey-just-got-hotter/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "在展台上，伊隆·马斯克（ Elon Musk ）无法逃脱自己的推文",
-      "summary_zh": "埃隆·马斯克（ Elon Musk ）因试图合法拆除OpenAI而连续第二天出庭作证。",
-      "title_en": "On the stand, Elon Musk can’t escape his own tweets",
-      "summary_en": "Elon Musk took the stand for the second day for his attempt to legally dismantle OpenAI."
+      "title_zh": "法律AI初创公司Legora的估值达到56亿美元，与Harvey的战斗变得更加激烈",
+      "summary_zh": "这两个快速增长的竞争对手已经筹集了大量资金，相互挤进对方的主场，现在进行了决斗广告活动。",
+      "title_en": "Legal AI startup Legora hits $5.6B valuation and its battle with Harvey just got hotter",
+      "summary_en": "The two wildly fast-growing rivals have raised massive sums, pushed into each other's home turf, and now have dueling ad campaigns."
     },
     {
-      "title": "Meta is still burning money on AR/VR",
-      "summary": "Meta is losing billions on Reality Labs each quarter, and its AI expenditures are only going to increase its spending.",
-      "url": "https://techcrunch.com/2026/04/29/meta-is-still-burning-money-on-ar-vr/",
+      "title": "After dissing Anthropic for limiting Mythos, OpenAI restricts access to Cyber, too",
+      "summary": "OpenAI will begin rolling out its cybersecurity testing tool, GPT-5.5 Cyber only \"to critical cyber defenders\" at first.",
+      "url": "https://techcrunch.com/2026/04/30/after-dissing-anthropic-for-limiting-mythos-openai-restricts-access-to-cyber-too/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "Meta仍在AR/VR上烧钱",
-      "summary_zh": "Meta每个季度都在Reality Labs上亏损数十亿美元，其人工智能支出只会增加其支出。",
-      "title_en": "Meta is still burning money on AR/VR",
-      "summary_en": "Meta is losing billions on Reality Labs each quarter, and its AI expenditures are only going to increase its spending."
+      "title_zh": "在驳斥Anthropic限制Mythos之后， OpenAI也限制了对Cyber的访问",
+      "summary_zh": "OpenAI将首先向“关键网络防御者”推出其网络安全测试工具GPT-5.5 Cyber。",
+      "title_en": "After dissing Anthropic for limiting Mythos, OpenAI restricts access to Cyber, too",
+      "summary_en": "OpenAI will begin rolling out its cybersecurity testing tool, GPT-5.5 Cyber only \"to critical cyber defenders\" at first."
     }
   ],
   "community": [
     {
-      "title": "Copy Fail – CVE-2026-31431",
-      "summary": "【HN】热度: 579 分 | 259 评论",
-      "url": "https://copy.fail/",
+      "title": "Shai-Hulud Themed Malware Found in the PyTorch Lightning AI Training Library",
+      "summary": "【HN】热度: 320 分 | 106 评论",
+      "url": "https://semgrep.dev/blog/2026/malicious-dependency-in-pytorch-lightning-used-for-ai-training/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "复制失败– CVE-2026-31431",
-      "summary_zh": "【HN】热度: 579 分 | 259 评论",
-      "title_en": "Copy Fail – CVE-2026-31431",
-      "summary_en": "【HN】热度: 579 分 | 259 评论"
+      "title_zh": "在PyTorch Lightning AI训练库中发现Shai-Hulud主题恶意软件",
+      "summary_zh": "【HN】热度: 320 分 | 106 评论",
+      "title_en": "Shai-Hulud Themed Malware Found in the PyTorch Lightning AI Training Library",
+      "summary_en": "【HN】热度: 320 分 | 106 评论"
     },
     {
-      "title": "I benchmarked Claude Code's caveman plugin against \"be brief.\"",
-      "summary": "【HN】热度: 52 分 | 33 评论",
-      "url": "https://www.maxtaylor.me/articles/i-benchmarked-caveman-against-two-words",
+      "title": "CopyFail was not disclosed to distro developers?",
+      "summary": "【HN】热度: 362 分 | 289 评论",
+      "url": "https://www.openwall.com/lists/oss-security/2026/04/30/10",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "我将克劳德·科德（ Claude Code ）的穴居人插件与“简短”进行了对比。",
-      "summary_zh": "【HN】热度: 52 分 | 33 评论",
-      "title_en": "I benchmarked Claude Code's caveman plugin against \"be brief.\"",
-      "summary_en": "【HN】热度: 52 分 | 33 评论"
+      "title_zh": "CopyFail未向发行版开发人员披露？",
+      "summary_zh": "【HN】热度: 362 分 | 289 评论",
+      "title_en": "CopyFail was not disclosed to distro developers?",
+      "summary_en": "【HN】热度: 362 分 | 289 评论"
     },
     {
-      "title": "Ramp's Sheets AI Exfiltrates Financials",
-      "summary": "【HN】热度: 106 分 | 34 评论",
-      "url": "https://www.promptarmor.com/resources/ramps-sheets-ai-exfiltrates-financials",
+      "title": "Claude Code refuses requests or charges extra if your commits mention \"OpenClaw\"",
+      "summary": "【HN】热度: 943 分 | 530 评论",
+      "url": "https://twitter.com/theo/status/2049645973350363168",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Ramp's Sheets AI渗透财务信息",
-      "summary_zh": "【HN】热度: 106 分 | 34 评论",
-      "title_en": "Ramp's Sheets AI Exfiltrates Financials",
-      "summary_en": "【HN】热度: 106 分 | 34 评论"
+      "title_zh": "如果您的承诺提到“OpenClaw” ， Claude Code会拒绝请求或收取额外费用",
+      "summary_zh": "【HN】热度: 943 分 | 530 评论",
+      "title_en": "Claude Code refuses requests or charges extra if your commits mention \"OpenClaw\"",
+      "summary_en": "【HN】热度: 943 分 | 530 评论"
     },
     {
-      "title": "Claude.ai and API Unavailable",
-      "summary": "【HN】热度: 80 分 | 60 评论",
-      "url": "https://status.claude.com/incidents/2gf1jpyty350",
+      "title": "Spain's parliament will act against massive IP blockages by LaLiga",
+      "summary": "【HN】热度: 406 分 | 171 评论",
+      "url": "https://www.democrata.es/en/politics/congress-and-senate/congress-will-act-against-massive-ip-blockages-by-laliga/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Claude.ai和API不可用",
-      "summary_zh": "【HN】热度: 80 分 | 60 评论",
-      "title_en": "Claude.ai and API Unavailable",
-      "summary_en": "【HN】热度: 80 分 | 60 评论"
+      "title_zh": "西班牙议会将对西甲的大规模知识产权封锁采取行动",
+      "summary_zh": "【HN】热度: 406 分 | 171 评论",
+      "title_en": "Spain's parliament will act against massive IP blockages by LaLiga",
+      "summary_en": "【HN】热度: 406 分 | 171 评论"
     },
     {
-      "title": "Claude.ai Down Again?",
-      "summary": "【HN】热度: 9 分 | 13 评论",
-      "url": "https://news.ycombinator.com/item?id=47956890",
+      "title": "Show HN: Pu.sh – a full coding-agent harness in 400 lines of shell",
+      "summary": "【HN】热度: 66 分 | 19 评论",
+      "url": "https://pu.dev/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Claude.ai又倒下了？",
-      "summary_zh": "【HN】热度: 9 分 | 13 评论",
-      "title_en": "Claude.ai Down Again?",
-      "summary_en": "【HN】热度: 9 分 | 13 评论"
+      "title_zh": "显示HN ： Pu.sh - 400行外壳的完整编码代理线束",
+      "summary_zh": "【HN】热度: 66 分 | 19 评论",
+      "title_en": "Show HN: Pu.sh – a full coding-agent harness in 400 lines of shell",
+      "summary_en": "【HN】热度: 66 分 | 19 评论"
     },
     {
-      "title": "What can we gain by losing infinity?",
-      "summary": "【HN】热度: 16 分 | 21 评论",
-      "url": "https://www.quantamagazine.org/what-can-we-gain-by-losing-infinity-20260429/",
+      "title": "Granite 4.1: IBM's 8B Model Matching 32B MoE",
+      "summary": "【HN】热度: 279 分 | 173 评论",
+      "url": "https://firethering.com/granite-4-1-ibm-open-source-model-family/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "失去无穷大，我们能得到什么？",
-      "summary_zh": "【HN】热度: 16 分 | 21 评论",
-      "title_en": "What can we gain by losing infinity?",
-      "summary_en": "【HN】热度: 16 分 | 21 评论"
+      "title_zh": "Granite 4.1 ： IBM的8B型号匹配32B MoE",
+      "summary_zh": "【HN】热度: 279 分 | 173 评论",
+      "title_en": "Granite 4.1: IBM's 8B Model Matching 32B MoE",
+      "summary_en": "【HN】热度: 279 分 | 173 评论"
     }
   ]
 }
