@@ -1,6 +1,8 @@
 {
   "cleanUrls": false,
-  "trailingSlash": false,
+  "trailingSlash": true,
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
   "functions": {
     "api/journal_url_preview.py": {
       "maxDuration": 20
