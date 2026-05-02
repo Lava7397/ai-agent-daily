@@ -4,7 +4,8 @@
   "trailingSlash": false,
   "installCommand": "npm install",
   "buildCommand": "npm run build",
-  "ignoreCommand": "git rev-parse -q --verify HEAD~1 >/dev/null 2>&1 || exit 1; git diff --quiet HEAD~1 HEAD .",
+  "outputDirectory": ".",
+  "ignoreCommand": "sh -c 'git rev-parse -q --verify HEAD~1 >/dev/null 2>&1 || exit 1; if git diff --quiet HEAD~1 HEAD .; then exit 0; else exit 1; fi'",
   "framework": null,
   "functions": {
     "api/journal_url_preview.py": {
