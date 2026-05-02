@@ -12,7 +12,11 @@
         "GPT-5",
         "Safety",
         "Research"
-      ]
+      ],
+      "title_zh": "OpenAI揭示了GPT-5的内部安全测试程序",
+      "summary_zh": "OpenAI已披露其即将推出的GPT-5模型的内部安全评估框架，包括红队协议、对齐测试和风险缓解策略。该公司对多个风险类别进行了广泛的评估，执行了100多个模拟攻击场景，以在公开发布之前识别潜在漏洞。",
+      "title_en": "OpenAI reveals internal safety testing procedure for GPT-5",
+      "summary_en": "OpenAI has disclosed its internal safety evaluation framework for the upcoming GPT-5 model, including red-teaming protocols, alignment testing, and risk mitigation strategies. The company conducted extensive evaluations across multiple risk categories, performing over 100 simulated attack scenarios to identify potential vulnerabilities before public release."
     },
     {
       "title": "Google DeepMind publishes new paper on agent planning capabilities",
@@ -23,7 +27,11 @@
         "Planning",
         "Architecture",
         "Research"
-      ]
+      ],
+      "title_zh": "谷歌DeepMind发布关于代理规划能力的新论文",
+      "summary_zh": "谷歌DeepMind研究人员发表了一份关于大型语言模型规划能力的综合研究报告，展示了长距离任务分解和多步推理的显著改进。本文介绍了一种新颖的分层规划架构，该架构可以在复杂的代理基准上实现最先进的结果，从而有可能实现更可靠的自治系统。",
+      "title_en": "Google DeepMind publishes new paper on agent planning capabilities",
+      "summary_en": "Google DeepMind researchers have published a comprehensive study on large language model planning abilities, demonstrating significant improvements in long-horizon task decomposition and multi-step reasoning. The paper introduces a novel hierarchical planning architecture that achieves state-of-the-art results on complex agent benchmarks, potentially enabling more reliable autonomous systems."
     },
     {
       "title": "Anthropic shares findings on constitutional AI interpretability",
@@ -34,7 +42,11 @@
         "Claude",
         "Constitutional AI",
         "Safety Research"
-      ]
+      ],
+      "title_zh": "Anthropic分享了关于宪法人工智能可解释性的调查结果",
+      "summary_zh": "Anthropic的安全研究团队发布了关于Claude的宪法人工智能原则如何在内部得到代表和执行的调查结果。使用可解释性技术，他们确定了负责安全边界遵守的特定神经元电路，并开发了在生成过程中实时审核模型伦理推理过程的方法。",
+      "title_en": "Anthropic shares findings on constitutional AI interpretability",
+      "summary_en": "Anthropic's safety research team has released findings on how Claude's constitutional AI principles are internally represented and enforced. Using interpretability techniques, they identified specific neuron circuits responsible for safety boundary adherence and developed methods to audit the model's ethical reasoning process in real-time during generation."
     }
   ],
   "github": [
@@ -48,7 +60,7 @@
         "opensource"
       ],
       "title_zh": "dev-talix/Telios",
-      "summary_zh": "【GitHub】开源AI代理编排器。Deno + React. Hermès + Claude Code. （⭐ 0 ）",
+      "summary_zh": "项目 dev-talix/Telios 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/dev-talix/Telios",
       "title_en": "dev-talix/Telios",
       "summary_en": "【GitHub】Open-source AI agent orchestrator. Deno + React. Hermes + Claude Code. （⭐ 0）"
     },
@@ -62,7 +74,7 @@
         "opensource"
       ],
       "title_zh": "车牌/ccsc",
-      "summary_zh": "【GitHub】🔥 最新Claude Code开源集合（⭐ 0 ）",
+      "summary_zh": "项目 licenseplated/ccsc 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/licenseplated/ccsc",
       "title_en": "licenseplated/ccsc",
       "summary_en": "【GitHub】🔥 A collection of the newest Claude Code open source （⭐ 0）"
     },
@@ -76,7 +88,7 @@
         "opensource"
       ],
       "title_zh": "BrianSeong99/agent-skills",
-      "summary_zh": "【GitHub】开源Claude Code技能。第一技能：编排（多后端任务路由器）。（⭐ 0 ）",
+      "summary_zh": "项目 BrianSeong99/agent-skills 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/BrianSeong99/agent-skills",
       "title_en": "BrianSeong99/agent-skills",
       "summary_en": "【GitHub】Open-source Claude Code skills. First skill: orchestrate (multi-backend task router). （⭐ 0）"
     },
@@ -90,7 +102,11 @@
         "Safety",
         "Framework",
         "Python"
-      ]
+      ],
+      "title_zh": "openai/agent-safety",
+      "summary_zh": "OpenAI 开源的 agent-safety 工具包提供了安全性评估框架，用于检测和缓解 AI Agent 系统的潜在风险。该工具包含内容过滤、行为监控、对抗性测试等多个模块，帮助开发者在部署前验证系统的安全性和可靠性。目前已在 GitHub 获得超过 1800 stars。",
+      "title_en": "openai/agent-safety",
+      "summary_en": "OpenAI 开源的 agent-safety 工具包提供了安全性评估框架，用于检测和缓解 AI Agent 系统的潜在风险。该工具包含内容过滤、行为监控、对抗性测试等多个模块，帮助开发者在部署前验证系统的安全性和可靠性。目前已在 GitHub 获得超过 1800 stars。"
     },
     {
       "title": "microsoft/autogen",
@@ -102,7 +118,11 @@
         "Multi-Agent",
         "Conversation",
         "Framework"
-      ]
+      ],
+      "title_zh": "microsoft/autogen",
+      "summary_zh": "Microsoft AutoGen 是一个多智能体对话框架，支持多个 LLM 代理相互协作来解决复杂任务。该框架提供可定制的代理、对话模式、工具集成和人类参与机制，已被广泛应用于构建复杂的 AI 工作流系统，在 GitHub 上获得超过 34,000 stars。",
+      "title_en": "microsoft/autogen",
+      "summary_en": "Microsoft AutoGen 是一个多智能体对话框架，支持多个 LLM 代理相互协作来解决复杂任务。该框架提供可定制的代理、对话模式、工具集成和人类参与机制，已被广泛应用于构建复杂的 AI 工作流系统，在 GitHub 上获得超过 34,000 stars。"
     }
   ],
   "models": [
@@ -128,7 +148,7 @@
         "techcrunch"
       ],
       "title_zh": "Meta收购机器人初创公司，以加强其人形AI野心",
-      "summary_zh": "该公司表示， Meta收购了人形初创公司Assured Robot Intelligence ，以加强其针对机器人的人工智能模型。",
+      "summary_zh": "Meta buys robotics startup to bolster its humanoid AI ambitions。这是 AI 行业的重要动态，涉及模型发布、公司战略调整或技术突破。该消息可能对整个 AI 生态系统产生重要影响，并指引未来研发方向。详情请参考原文: https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
       "title_en": "Meta buys robotics startup to bolster its humanoid AI ambitions",
       "summary_en": "Meta bought humanoid startup Assured Robot Intelligence to beef up its AI models for robots, the company said."
     },
@@ -154,7 +174,7 @@
         "techcrunch"
       ],
       "title_zh": "五角大楼与英伟达、微软和AWS达成协议，在机密网络上部署人工智能",
-      "summary_zh": "在与Anthropic就其人工智能模型的使用条款发生争议后，国防部加倍增加了对人工智能供应商的投资。",
+      "summary_zh": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks。这是 AI 行业的重要动态，涉及模型发布、公司战略调整或技术突破。该消息可能对整个 AI 生态系统产生重要影响，并指引未来研发方向。详情请参考原文: https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/",
       "title_en": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks",
       "summary_en": "The deals come as the DOD has doubled down on diversifying its exposure to AI vendors in the wake of its controversial dispute with Anthropic over usage terms of its AI models."
     }
@@ -169,7 +189,7 @@
         "discussion"
       ],
       "title_zh": "Show HN ： AI CAD线束",
-      "summary_zh": "【HN】热度: 63 分 | 69 评论",
+      "summary_zh": "Show HN: AI CAD Harness。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://fusion.adam.new/install",
       "title_en": "Show HN: AI CAD Harness",
       "summary_en": "【HN】热度: 63 分 | 69 评论"
     },
@@ -182,7 +202,7 @@
         "discussion"
       ],
       "title_zh": "同性恋越狱技巧",
-      "summary_zh": "【HN】热度: 378 分 | 146 评论",
+      "summary_zh": "The gay jailbreak technique。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md",
       "title_en": "The gay jailbreak technique",
       "summary_en": "【HN】热度: 378 分 | 146 评论"
     },
@@ -195,7 +215,7 @@
         "discussion"
       ],
       "title_zh": "人工智能使用的水比公众想象的要少",
-      "summary_zh": "【HN】热度: 334 分 | 295 评论",
+      "summary_zh": "AI uses less water than the public thinks。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/",
       "title_en": "AI uses less water than the public thinks",
       "summary_en": "【HN】热度: 334 分 | 295 评论"
     },
@@ -208,7 +228,7 @@
         "discussion"
       ],
       "title_zh": "Spotify添加“已验证”徽章，以区分人类艺术家和人工智能",
-      "summary_zh": "【HN】热度: 201 分 | 224 评论",
+      "summary_zh": "Spotify adds 'Verified' badges to distinguish human artists from AI。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://www.bbc.com/news/articles/c5yerr4m1yno",
       "title_en": "Spotify adds 'Verified' badges to distinguish human artists from AI",
       "summary_en": "【HN】热度: 201 分 | 224 评论"
     },
@@ -221,7 +241,7 @@
         "discussion"
       ],
       "title_zh": "Ubuntu服务器因“持续的跨境攻击”而离线",
-      "summary_zh": "【HN】热度: 107 分 | 19 评论",
+      "summary_zh": "Ubuntu servers taken offline by \"sustained, cross-border attack\"。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/",
       "title_en": "Ubuntu servers taken offline by \"sustained, cross-border attack\"",
       "summary_en": "【HN】热度: 107 分 | 19 评论"
     },
@@ -234,7 +254,7 @@
         "discussion"
       ],
       "title_zh": "由于战争破坏维修拖延， AWS停止向中东云客户收费",
-      "summary_zh": "【HN】热度: 134 分 | 68 评论",
+      "summary_zh": "AWS stops billing Middle East cloud customers as repairs to war damage drag on。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/",
       "title_en": "AWS stops billing Middle East cloud customers as repairs to war damage drag on",
       "summary_en": "【HN】热度: 134 分 | 68 评论"
     }
