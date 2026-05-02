@@ -104,17 +104,13 @@
   ],
   "redirects": [
     {
-      "source": "/four-persimmons",
-      "destination": "/four-persimmons/",
-      "permanent": false
-    },
-    {
       "source": "/index.html",
       "destination": "/today.html",
       "permanent": true
     }
   ],
   "rewrites": [
+    { "source": "/four-persimmons", "destination": "/four-persimmons/index.html" },
     { "source": "/", "destination": "/home.html" }
   ]
 }
