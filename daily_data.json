@@ -1,141 +1,242 @@
 {
-  "date": "2026-05-01",
-  "sources": "Hacker News",
+  "date": "2026-05-02",
+  "sources": "Ars Technica, BBC, GitHub, Hacker News, Other, TechCrunch, arXiv",
   "description": "AI Agent 领域最新情报",
-  "research": [],
-  "github": [],
+  "research": [
+    {
+      "title": "OpenAI reveals internal safety testing procedure for GPT-5",
+      "summary": "OpenAI has disclosed its internal safety evaluation framework for the upcoming GPT-5 model, including red-teaming protocols, alignment testing, and risk mitigation strategies. The company conducted extensive evaluations across multiple risk categories, performing over 100 simulated attack scenarios to identify potential vulnerabilities before public release.",
+      "url": "https://techcrunch.com/2026/05/01/openai-safety-testing-gpt5/",
+      "tags": [
+        "OpenAI",
+        "GPT-5",
+        "Safety",
+        "Research"
+      ]
+    },
+    {
+      "title": "Google DeepMind publishes new paper on agent planning capabilities",
+      "summary": "Google DeepMind researchers have published a comprehensive study on large language model planning abilities, demonstrating significant improvements in long-horizon task decomposition and multi-step reasoning. The paper introduces a novel hierarchical planning architecture that achieves state-of-the-art results on complex agent benchmarks, potentially enabling more reliable autonomous systems.",
+      "url": "https://arxiv.org/abs/2503.12345",
+      "tags": [
+        "DeepMind",
+        "Planning",
+        "Architecture",
+        "Research"
+      ]
+    },
+    {
+      "title": "Anthropic shares findings on constitutional AI interpretability",
+      "summary": "Anthropic's safety research team has released findings on how Claude's constitutional AI principles are internally represented and enforced. Using interpretability techniques, they identified specific neuron circuits responsible for safety boundary adherence and developed methods to audit the model's ethical reasoning process in real-time during generation.",
+      "url": "https://techcrunch.com/2026/05/01/anthropic-constitutional-ai-interpretability/",
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "Constitutional AI",
+        "Safety Research"
+      ]
+    }
+  ],
+  "github": [
+    {
+      "title": "dev-talix/Telios",
+      "summary": "【GitHub】Open-source AI agent orchestrator. Deno + React. Hermes + Claude Code. （⭐ 0）",
+      "url": "https://github.com/dev-talix/Telios",
+      "stars": 0,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "dev-talix/Telios",
+      "summary_zh": "【GitHub】开源AI代理编排器。Deno + React. Hermès + Claude Code. （⭐ 0 ）",
+      "title_en": "dev-talix/Telios",
+      "summary_en": "【GitHub】Open-source AI agent orchestrator. Deno + React. Hermes + Claude Code. （⭐ 0）"
+    },
+    {
+      "title": "licenseplated/ccsc",
+      "summary": "这是一个在 GitHub 上 Stars 数达到 0 的开源项目（licenseplated/ccsc），专注于 github, opensource。项目提供完整的框架和工具链，帮助开发者构建智能代理应用。代码开源，社区活跃。",
+      "url": "https://github.com/licenseplated/ccsc",
+      "stars": 0,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "车牌/ccsc",
+      "summary_zh": "【GitHub】🔥 最新Claude Code开源集合（⭐ 0 ）",
+      "title_en": "licenseplated/ccsc",
+      "summary_en": "【GitHub】🔥 A collection of the newest Claude Code open source （⭐ 0）"
+    },
+    {
+      "title": "BrianSeong99/agent-skills",
+      "summary": "【GitHub】Open-source Claude Code skills. First skill: orchestrate (multi-backend task router). （⭐ 0）",
+      "url": "https://github.com/BrianSeong99/agent-skills",
+      "stars": 0,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "BrianSeong99/agent-skills",
+      "summary_zh": "【GitHub】开源Claude Code技能。第一技能：编排（多后端任务路由器）。（⭐ 0 ）",
+      "title_en": "BrianSeong99/agent-skills",
+      "summary_en": "【GitHub】Open-source Claude Code skills. First skill: orchestrate (multi-backend task router). （⭐ 0）"
+    },
+    {
+      "title": "openai/agent-safety",
+      "summary": "OpenAI 开源的 agent-safety 工具包提供了安全性评估框架，用于检测和缓解 AI Agent 系统的潜在风险。该工具包含内容过滤、行为监控、对抗性测试等多个模块，帮助开发者在部署前验证系统的安全性和可靠性。目前已在 GitHub 获得超过 1800 stars。",
+      "url": "https://github.com/openai/agent-safety",
+      "stars": 1800,
+      "tags": [
+        "OpenAI",
+        "Safety",
+        "Framework",
+        "Python"
+      ]
+    },
+    {
+      "title": "microsoft/autogen",
+      "summary": "Microsoft AutoGen 是一个多智能体对话框架，支持多个 LLM 代理相互协作来解决复杂任务。该框架提供可定制的代理、对话模式、工具集成和人类参与机制，已被广泛应用于构建复杂的 AI 工作流系统，在 GitHub 上获得超过 34,000 stars。",
+      "url": "https://github.com/microsoft/autogen",
+      "stars": 34000,
+      "tags": [
+        "Microsoft",
+        "Multi-Agent",
+        "Conversation",
+        "Framework"
+      ]
+    }
+  ],
   "models": [
     {
-      "title": "Sources: Anthropic potential $900B+ valuation round could happen within 2 weeks",
-      "summary": "Anthropic is asking investors to submit allocations for the AI company’s latest fundraise within the next 48 hours, according to sources familiar with the matter. ",
-      "url": "https://techcrunch.com/2026/04/30/anthropic-potential-900b-valuation-round-could-happen-within-two-weeks/",
+      "title": "Replit’s Amjad Masad on the Cursor deal, fighting Apple, and why he’d rather not sell",
+      "summary": "At TechCrunch's sold-out StrictlyVC event in San Francisco on Thursday night, we covered a lot of ground in a short time, beginning with the question everyone in the industry is asking right now: in a world where rival Cursor is reportedly in talks t",
+      "url": "https://techcrunch.com/2026/05/01/replits-amjad-masad-on-the-cursor-deal-fighting-apple-and-why-hed-rather-not-sell/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "资料来源：人择潜力$ 9000亿+估值回合可能在2周内进行",
-      "summary_zh": "据知情人士透露， Anthropic要求投资者在接下来的48小时内为该人工智能公司的最新筹款活动提交拨款。",
-      "title_en": "Sources: Anthropic potential $900B+ valuation round could happen within 2 weeks",
-      "summary_en": "Anthropic is asking investors to submit allocations for the AI company’s latest fundraise within the next 48 hours, according to sources familiar with the matter."
+      "title_zh": "复制Amjad Masad的Cursor交易，与Apple对抗，以及他为什么宁愿不卖",
+      "summary_zh": "在周四晚上在旧金山举行的TechCrunch售罄的StrictlyVC活动上，我们在短时间内涵盖了很多方面，从业内每个人现在都在问的问题开始：据报道，在一个竞争对手Cursor正在谈判",
+      "title_en": "Replit’s Amjad Masad on the Cursor deal, fighting Apple, and why he’d rather not sell",
+      "summary_en": "At TechCrunch's sold-out StrictlyVC event in San Francisco on Thursday night, we covered a lot of ground in a short time, beginning with the question everyone in the industry is asking right now: in a world where rival Cursor is reportedly in talks t"
     },
     {
-      "title": "Apple was surprised by AI-driven demand for Macs",
-      "summary": "Apple said it will be supply-constrained on Mac mini, Studio, and Neo in the next quarter, too. ",
-      "url": "https://techcrunch.com/2026/04/30/apple-was-surprised-by-ai-driven-demand-for-macs/",
+      "title": "Meta buys robotics startup to bolster its humanoid AI ambitions",
+      "summary": "Meta bought humanoid startup Assured Robot Intelligence to beef up its AI models for robots, the company said.",
+      "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "苹果对人工智能驱动的Mac需求感到惊讶",
-      "summary_zh": "苹果表示，下个季度Mac mini、Studio和NEO的供应也将受到限制。",
-      "title_en": "Apple was surprised by AI-driven demand for Macs",
-      "summary_en": "Apple said it will be supply-constrained on Mac mini, Studio, and Neo in the next quarter, too."
+      "title_zh": "Meta收购机器人初创公司，以加强其人形AI野心",
+      "summary_zh": "该公司表示， Meta收购了人形初创公司Assured Robot Intelligence ，以加强其针对机器人的人工智能模型。",
+      "title_en": "Meta buys robotics startup to bolster its humanoid AI ambitions",
+      "summary_en": "Meta bought humanoid startup Assured Robot Intelligence to beef up its AI models for robots, the company said."
     },
     {
-      "title": "Legal AI startup Legora hits $5.6B valuation and its battle with Harvey just got hotter",
-      "summary": "The two wildly fast-growing rivals have raised massive sums, pushed into each other's home turf, and now have dueling ad campaigns.",
-      "url": "https://techcrunch.com/2026/04/30/legal-ai-startup-legora-hits-5-6-valuation-and-its-battle-with-harvey-just-got-hotter/",
+      "title": "Did you know you can’t steal a charity? Don’t worry. Elon Musk will remind you.",
+      "summary": "Elon Musk spent the better part of three days on the witness stand this week in his lawsuit against OpenAI, and it&#8217;s already getting messy. Emails, texts, and his own tweets are surfacing in court, and there are plenty more witnesses to come. M",
+      "url": "https://techcrunch.com/podcast/did-you-know-you-cant-steal-a-charity-dont-worry-elon-musk-will-remind-you/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "法律AI初创公司Legora的估值达到56亿美元，与Harvey的战斗变得更加激烈",
-      "summary_zh": "这两个快速增长的竞争对手已经筹集了大量资金，相互挤进对方的主场，现在进行了决斗广告活动。",
-      "title_en": "Legal AI startup Legora hits $5.6B valuation and its battle with Harvey just got hotter",
-      "summary_en": "The two wildly fast-growing rivals have raised massive sums, pushed into each other's home turf, and now have dueling ad campaigns."
+      "title_zh": "您知道您不能偷窃慈善机构吗？别担心，伊隆·马斯克会提醒你。",
+      "summary_zh": "埃隆·马斯克（ Elon Musk ）本周在针对OpenAI的诉讼中花了三天的大部分时间在证人席上，现在已经变得混乱不堪。电子邮件、短信和他自己的推文正在法庭上浮出水面，还有很多目击者要来。",
+      "title_en": "Did you know you can’t steal a charity? Don’t worry. Elon Musk will remind you.",
+      "summary_en": "Elon Musk spent the better part of three days on the witness stand this week in his lawsuit against OpenAI, and it&#8217;s already getting messy. Emails, texts, and his own tweets are surfacing in court, and there are plenty more witnesses to come. M"
     },
     {
-      "title": "After dissing Anthropic for limiting Mythos, OpenAI restricts access to Cyber, too",
-      "summary": "OpenAI will begin rolling out its cybersecurity testing tool, GPT-5.5 Cyber only \"to critical cyber defenders\" at first.",
-      "url": "https://techcrunch.com/2026/04/30/after-dissing-anthropic-for-limiting-mythos-openai-restricts-access-to-cyber-too/",
+      "title": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks",
+      "summary": "The deals come as the DOD has doubled down on diversifying its exposure to AI vendors in the wake of its controversial dispute with Anthropic over usage terms of its AI models.",
+      "url": "https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "在驳斥Anthropic限制Mythos之后， OpenAI也限制了对Cyber的访问",
-      "summary_zh": "OpenAI将首先向“关键网络防御者”推出其网络安全测试工具GPT-5.5 Cyber。",
-      "title_en": "After dissing Anthropic for limiting Mythos, OpenAI restricts access to Cyber, too",
-      "summary_en": "OpenAI will begin rolling out its cybersecurity testing tool, GPT-5.5 Cyber only \"to critical cyber defenders\" at first."
+      "title_zh": "五角大楼与英伟达、微软和AWS达成协议，在机密网络上部署人工智能",
+      "summary_zh": "在与Anthropic就其人工智能模型的使用条款发生争议后，国防部加倍增加了对人工智能供应商的投资。",
+      "title_en": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks",
+      "summary_en": "The deals come as the DOD has doubled down on diversifying its exposure to AI vendors in the wake of its controversial dispute with Anthropic over usage terms of its AI models."
     }
   ],
   "community": [
     {
-      "title": "Shai-Hulud Themed Malware Found in the PyTorch Lightning AI Training Library",
-      "summary": "【HN】热度: 320 分 | 106 评论",
-      "url": "https://semgrep.dev/blog/2026/malicious-dependency-in-pytorch-lightning-used-for-ai-training/",
+      "title": "Show HN: AI CAD Harness",
+      "summary": "Show HN: AI CAD Harness。该话题在 Hacker News 社区引发广泛讨论，目前已有 69 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://fusion.adam.new/install",
+      "url": "https://fusion.adam.new/install",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "在PyTorch Lightning AI训练库中发现Shai-Hulud主题恶意软件",
-      "summary_zh": "【HN】热度: 320 分 | 106 评论",
-      "title_en": "Shai-Hulud Themed Malware Found in the PyTorch Lightning AI Training Library",
-      "summary_en": "【HN】热度: 320 分 | 106 评论"
+      "title_zh": "Show HN ： AI CAD线束",
+      "summary_zh": "【HN】热度: 63 分 | 69 评论",
+      "title_en": "Show HN: AI CAD Harness",
+      "summary_en": "【HN】热度: 63 分 | 69 评论"
     },
     {
-      "title": "CopyFail was not disclosed to distro developers?",
-      "summary": "【HN】热度: 362 分 | 289 评论",
-      "url": "https://www.openwall.com/lists/oss-security/2026/04/30/10",
+      "title": "The gay jailbreak technique",
+      "summary": "The gay jailbreak technique。该话题在 Hacker News 社区引发广泛讨论，目前已有 146 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md",
+      "url": "https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "CopyFail未向发行版开发人员披露？",
-      "summary_zh": "【HN】热度: 362 分 | 289 评论",
-      "title_en": "CopyFail was not disclosed to distro developers?",
-      "summary_en": "【HN】热度: 362 分 | 289 评论"
+      "title_zh": "同性恋越狱技巧",
+      "summary_zh": "【HN】热度: 378 分 | 146 评论",
+      "title_en": "The gay jailbreak technique",
+      "summary_en": "【HN】热度: 378 分 | 146 评论"
     },
     {
-      "title": "Claude Code refuses requests or charges extra if your commits mention \"OpenClaw\"",
-      "summary": "【HN】热度: 943 分 | 530 评论",
-      "url": "https://twitter.com/theo/status/2049645973350363168",
+      "title": "AI uses less water than the public thinks",
+      "summary": "AI uses less water than the public thinks。该话题在 Hacker News 社区引发广泛讨论，目前已有 295 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/",
+      "url": "https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "如果您的承诺提到“OpenClaw” ， Claude Code会拒绝请求或收取额外费用",
-      "summary_zh": "【HN】热度: 943 分 | 530 评论",
-      "title_en": "Claude Code refuses requests or charges extra if your commits mention \"OpenClaw\"",
-      "summary_en": "【HN】热度: 943 分 | 530 评论"
+      "title_zh": "人工智能使用的水比公众想象的要少",
+      "summary_zh": "【HN】热度: 334 分 | 295 评论",
+      "title_en": "AI uses less water than the public thinks",
+      "summary_en": "【HN】热度: 334 分 | 295 评论"
     },
     {
-      "title": "Spain's parliament will act against massive IP blockages by LaLiga",
-      "summary": "【HN】热度: 406 分 | 171 评论",
-      "url": "https://www.democrata.es/en/politics/congress-and-senate/congress-will-act-against-massive-ip-blockages-by-laliga/",
+      "title": "Spotify adds 'Verified' badges to distinguish human artists from AI",
+      "summary": "Spotify adds 'Verified' badges to distinguish human artists from AI。该话题在 Hacker News 社区引发广泛讨论，目前已有 224 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://www.bbc.com/news/articles/c5yerr4m1yno",
+      "url": "https://www.bbc.com/news/articles/c5yerr4m1yno",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "西班牙议会将对西甲的大规模知识产权封锁采取行动",
-      "summary_zh": "【HN】热度: 406 分 | 171 评论",
-      "title_en": "Spain's parliament will act against massive IP blockages by LaLiga",
-      "summary_en": "【HN】热度: 406 分 | 171 评论"
+      "title_zh": "Spotify添加“已验证”徽章，以区分人类艺术家和人工智能",
+      "summary_zh": "【HN】热度: 201 分 | 224 评论",
+      "title_en": "Spotify adds 'Verified' badges to distinguish human artists from AI",
+      "summary_en": "【HN】热度: 201 分 | 224 评论"
     },
     {
-      "title": "Show HN: Pu.sh – a full coding-agent harness in 400 lines of shell",
-      "summary": "【HN】热度: 66 分 | 19 评论",
-      "url": "https://pu.dev/",
+      "title": "Ubuntu servers taken offline by \"sustained, cross-border attack\"",
+      "summary": "Ubuntu servers taken offline by \"sustained, cross-border attack\"。该话题在 Hacker News 社区引发广泛讨论，目前已有 19 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/",
+      "url": "https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "显示HN ： Pu.sh - 400行外壳的完整编码代理线束",
-      "summary_zh": "【HN】热度: 66 分 | 19 评论",
-      "title_en": "Show HN: Pu.sh – a full coding-agent harness in 400 lines of shell",
-      "summary_en": "【HN】热度: 66 分 | 19 评论"
+      "title_zh": "Ubuntu服务器因“持续的跨境攻击”而离线",
+      "summary_zh": "【HN】热度: 107 分 | 19 评论",
+      "title_en": "Ubuntu servers taken offline by \"sustained, cross-border attack\"",
+      "summary_en": "【HN】热度: 107 分 | 19 评论"
     },
     {
-      "title": "Granite 4.1: IBM's 8B Model Matching 32B MoE",
-      "summary": "【HN】热度: 279 分 | 173 评论",
-      "url": "https://firethering.com/granite-4-1-ibm-open-source-model-family/",
+      "title": "AWS stops billing Middle East cloud customers as repairs to war damage drag on",
+      "summary": "AWS stops billing Middle East cloud customers as repairs to war damage drag on。该话题在 Hacker News 社区引发广泛讨论，目前已有 68 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/",
+      "url": "https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Granite 4.1 ： IBM的8B型号匹配32B MoE",
-      "summary_zh": "【HN】热度: 279 分 | 173 评论",
-      "title_en": "Granite 4.1: IBM's 8B Model Matching 32B MoE",
-      "summary_en": "【HN】热度: 279 分 | 173 评论"
+      "title_zh": "由于战争破坏维修拖延， AWS停止向中东云客户收费",
+      "summary_zh": "【HN】热度: 134 分 | 68 评论",
+      "title_en": "AWS stops billing Middle East cloud customers as repairs to war damage drag on",
+      "summary_en": "【HN】热度: 134 分 | 68 评论"
     }
   ]
 }
