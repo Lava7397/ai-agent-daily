@@ -2,7 +2,10 @@ import type { NextConfig } from "next";
 
 const isProduction = process.env.NODE_ENV === "production";
 
-/** Dev: serve under /shizi (matches production path). Prod export: relative ./bakery-assets under ./shizi/ */
+/**
+ * Dev: basePath /shizi. Prod export: assetPrefix must be absolute /shizi/ so CSS/JS load when the page
+ * is served at …/shizi without a trailing slash (relative ./bakery-assets breaks and resolves under /).
+ */
 const nextConfig: NextConfig = {
   output: "export",
   basePath: isProduction ? "" : "/shizi",
@@ -12,7 +15,7 @@ const nextConfig: NextConfig = {
 };
 
 if (isProduction) {
-  (nextConfig as NextConfig).assetPrefix = "./";
+  (nextConfig as NextConfig).assetPrefix = "/shizi/";
 }
 
 export default nextConfig;

@@ -47,6 +47,8 @@ function rewriteAssetPaths(file) {
   n = n.replaceAll("_next\\/static", "bakery-assets\\/static");
   n = n.replaceAll("/_next/static", "/bakery-assets/static");
   n = n.replaceAll("./_next/", "./bakery-assets/");
+  n = n.replaceAll("./bakery-assets/", "/shizi/bakery-assets/");
+  n = n.replaceAll("./bakery-assets\\/", "/shizi/bakery-assets\\/");
   if (n !== s) writeFileSync(file, n);
 }
 
