@@ -19,3 +19,9 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Node — four-persimmons Next app & root install cache
+/node_modules/
+sites/four-persimmons/node_modules/
+sites/four-persimmons/.next/
+sites/four-persimmons/out/
