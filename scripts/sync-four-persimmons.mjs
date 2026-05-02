@@ -43,10 +43,13 @@ renameSync(fromAssets, toAssets);
 function rewriteAssetPaths(file) {
   let s = readFileSync(file, "utf8");
   let n = s;
-  n = n.replaceAll("_next/static", "bakery-assets/static");
-  n = n.replaceAll("_next\\/static", "bakery-assets\\/static");
-  n = n.replaceAll("/_next/static", "/bakery-assets/static");
-  n = n.replaceAll("./_next/", "./bakery-assets/");
+  n = n.replaceAll("./_next/static", "/shizi/bakery-assets/static");
+  n = n.replaceAll("/_next/static", "/shizi/bakery-assets/static");
+  n = n.replaceAll("\\/_next\\/static", "\\/shizi\\/bakery-assets\\/static");
+  n = n.replaceAll("_next/static", "/shizi/bakery-assets/static");
+  n = n.replaceAll("_next\\/static", "/shizi/bakery-assets\\/static");
+  n = n.replaceAll("./_next/", "/shizi/bakery-assets/");
+  n = n.replaceAll('"./bakery-assets/"', '"/shizi/bakery-assets/"');
   if (n !== s) writeFileSync(file, n);
 }
 
