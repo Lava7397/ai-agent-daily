@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "npm run build:four-persimmons",
-    "build:four-persimmons": "npm install --prefix sites/four-persimmons && npm run build --prefix sites/four-persimmons && node scripts/sync-four-persimmons.mjs"
+    "build:four-persimmons": "npm install --prefix sites/four-persimmons && npm run build --prefix sites/four-persimmons && node scripts/sync-four-persimmons.mjs && python3 scripts/check_shizi_assets.py",
+    "test:shizi-assets": "python3 scripts/check_shizi_assets.py"
   }
 }
