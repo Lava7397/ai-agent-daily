@@ -1,8 +1,9 @@
 {
   "cleanUrls": false,
-  "trailingSlash": true,
+  "trailingSlash": false,
   "installCommand": "npm install",
   "buildCommand": "npm run build",
+  "framework": null,
   "functions": {
     "api/journal_url_preview.py": {
       "maxDuration": 20
@@ -70,7 +71,7 @@
       ]
     },
     {
-      "source": "/four-persimmons/_next/static/(.*)",
+      "source": "/four-persimmons/bakery-assets/static/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
@@ -102,6 +103,11 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/four-persimmons",
+      "destination": "/four-persimmons/",
+      "permanent": false
+    },
     {
       "source": "/index.html",
       "destination": "/today.html",
