@@ -1,15 +1,17 @@
 /**
- * Copies Next static export into repo root ./four-persimmons/.
- * Renames _next → bakery-assets: some hosts treat paths under "_" oddly; URLs stay predictable.
+ * Copies Next static export into repo root ./shizi/
+ * Renames _next → bakery-assets (avoid _next path quirks).
+ * Public URL: /shizi/ (formerly /four-persimmons/).
  */
-import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from "fs";
+import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
 const siteOut = join(root, "sites", "four-persimmons", "out");
-const dest = join(root, "four-persimmons");
+/** Primary deploy folder for the bakery mini-site */
+const dest = join(root, "shizi");
 
 rmSync(dest, { recursive: true, force: true });
 mkdirSync(dest, { recursive: true });
@@ -41,7 +43,6 @@ renameSync(fromAssets, toAssets);
 function rewriteAssetPaths(file) {
   let s = readFileSync(file, "utf8");
   let n = s;
-  // Only alter Next asset path segments (avoid touching unrelated "__NEXT*" strings).
   n = n.replaceAll("_next/static", "bakery-assets/static");
   n = n.replaceAll("_next\\/static", "bakery-assets\\/static");
   n = n.replaceAll("/_next/static", "/bakery-assets/static");
@@ -60,4 +61,4 @@ function walk(dir) {
 
 walk(dest);
 
-console.log("Synced static export →", dest);
+console.log("Synced bakery static export →", dest);

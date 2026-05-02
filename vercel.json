@@ -71,7 +71,7 @@
       ]
     },
     {
-      "source": "/four-persimmons/bakery-assets/static/(.*)",
+      "source": "/shizi/bakery-assets/static/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
@@ -104,13 +104,23 @@
   ],
   "redirects": [
     {
+      "source": "/four-persimmons/(.*)",
+      "destination": "/shizi/$1",
+      "permanent": true
+    },
+    {
+      "source": "/four-persimmons",
+      "destination": "/shizi",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/today.html",
       "permanent": true
     }
   ],
   "rewrites": [
-    { "source": "/four-persimmons", "destination": "/four-persimmons/index.html" },
+    { "source": "/shizi", "destination": "/shizi/index.html" },
     { "source": "/", "destination": "/home.html" }
   ]
 }
