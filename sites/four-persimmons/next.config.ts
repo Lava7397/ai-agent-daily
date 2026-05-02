@@ -1,15 +1,17 @@
 import type { NextConfig } from "next";
 
-/** Production-only relative asset URLs so `/four-persimmons/` works on static hosts without root-absolute `/four-persimmons/_next/` resolution issues. Dev keeps default absolute `/`. */
+const isProduction = process.env.NODE_ENV === "production";
+
+/** Dev: serve under /four-persimmons for parity with deployed URL. Prod export: flat output + relative ./assets for static host subfolders. */
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "",
+  basePath: isProduction ? "" : "/four-persimmons",
   trailingSlash: true,
   images: { unoptimized: true },
   eslint: { ignoreDuringBuilds: true },
 };
 
-if (process.env.NODE_ENV === "production") {
+if (isProduction) {
   (nextConfig as NextConfig).assetPrefix = "./";
 }
 
