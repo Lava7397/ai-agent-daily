@@ -1,6 +1,9 @@
 {
   "name": "ai-agent-daily",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "build": "npm run build:four-persimmons",
     "build:four-persimmons": "npm install --prefix sites/four-persimmons && npm run build --prefix sites/four-persimmons && node scripts/sync-four-persimmons.mjs"
