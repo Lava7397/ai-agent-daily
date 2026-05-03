@@ -1,262 +1,172 @@
 {
-  "date": "2026-05-02",
-  "sources": "Ars Technica, BBC, GitHub, Hacker News, Other, TechCrunch, arXiv",
+  "date": "2026-05-03",
+  "sources": "Hacker News, GitHub",
   "description": "AI Agent 领域最新情报",
-  "research": [
-    {
-      "title": "OpenAI reveals internal safety testing procedure for GPT-5",
-      "summary": "OpenAI has disclosed its internal safety evaluation framework for the upcoming GPT-5 model, including red-teaming protocols, alignment testing, and risk mitigation strategies. The company conducted extensive evaluations across multiple risk categories, performing over 100 simulated attack scenarios to identify potential vulnerabilities before public release.",
-      "url": "https://techcrunch.com/2026/05/01/openai-safety-testing-gpt5/",
-      "tags": [
-        "OpenAI",
-        "GPT-5",
-        "Safety",
-        "Research"
-      ],
-      "title_zh": "OpenAI揭示了GPT-5的内部安全测试程序",
-      "summary_zh": "OpenAI已披露其即将推出的GPT-5模型的内部安全评估框架，包括红队协议、对齐测试和风险缓解策略。该公司对多个风险类别进行了广泛的评估，执行了100多个模拟攻击场景，以在公开发布之前识别潜在漏洞。",
-      "title_en": "OpenAI reveals internal safety testing procedure for GPT-5",
-      "summary_en": "OpenAI has disclosed its internal safety evaluation framework for the upcoming GPT-5 model, including red-teaming protocols, alignment testing, and risk mitigation strategies. The company conducted extensive evaluations across multiple risk categories, performing over 100 simulated attack scenarios to identify potential vulnerabilities before public release."
-    },
-    {
-      "title": "Google DeepMind publishes new paper on agent planning capabilities",
-      "summary": "Google DeepMind researchers have published a comprehensive study on large language model planning abilities, demonstrating significant improvements in long-horizon task decomposition and multi-step reasoning. The paper introduces a novel hierarchical planning architecture that achieves state-of-the-art results on complex agent benchmarks, potentially enabling more reliable autonomous systems.",
-      "url": "https://arxiv.org/abs/2503.12345",
-      "tags": [
-        "DeepMind",
-        "Planning",
-        "Architecture",
-        "Research"
-      ],
-      "title_zh": "谷歌DeepMind发布关于代理规划能力的新论文",
-      "summary_zh": "谷歌DeepMind研究人员发表了一份关于大型语言模型规划能力的综合研究报告，展示了长距离任务分解和多步推理的显著改进。本文介绍了一种新颖的分层规划架构，该架构可以在复杂的代理基准上实现最先进的结果，从而有可能实现更可靠的自治系统。",
-      "title_en": "Google DeepMind publishes new paper on agent planning capabilities",
-      "summary_en": "Google DeepMind researchers have published a comprehensive study on large language model planning abilities, demonstrating significant improvements in long-horizon task decomposition and multi-step reasoning. The paper introduces a novel hierarchical planning architecture that achieves state-of-the-art results on complex agent benchmarks, potentially enabling more reliable autonomous systems."
-    },
-    {
-      "title": "Anthropic shares findings on constitutional AI interpretability",
-      "summary": "Anthropic's safety research team has released findings on how Claude's constitutional AI principles are internally represented and enforced. Using interpretability techniques, they identified specific neuron circuits responsible for safety boundary adherence and developed methods to audit the model's ethical reasoning process in real-time during generation.",
-      "url": "https://techcrunch.com/2026/05/01/anthropic-constitutional-ai-interpretability/",
-      "tags": [
-        "Anthropic",
-        "Claude",
-        "Constitutional AI",
-        "Safety Research"
-      ],
-      "title_zh": "Anthropic分享了关于宪法人工智能可解释性的调查结果",
-      "summary_zh": "Anthropic的安全研究团队发布了关于Claude的宪法人工智能原则如何在内部得到代表和执行的调查结果。使用可解释性技术，他们确定了负责安全边界遵守的特定神经元电路，并开发了在生成过程中实时审核模型伦理推理过程的方法。",
-      "title_en": "Anthropic shares findings on constitutional AI interpretability",
-      "summary_en": "Anthropic's safety research team has released findings on how Claude's constitutional AI principles are internally represented and enforced. Using interpretability techniques, they identified specific neuron circuits responsible for safety boundary adherence and developed methods to audit the model's ethical reasoning process in real-time during generation."
-    }
-  ],
+  "research": [],
   "github": [
     {
-      "title": "dev-talix/Telios",
-      "summary": "【GitHub】Open-source AI agent orchestrator. Deno + React. Hermes + Claude Code. （⭐ 0）",
-      "url": "https://github.com/dev-talix/Telios",
+      "title": "Moco99/OpenRelay",
+      "summary": "【GitHub】OpenRelay — Open source CLI tool to orchestrate multiple AI coding agents (Claude Code, OpenCode, Gemini CLI, Codex) with role-based hierarchy, token-aware memory, and configurable human checkpoints.  （⭐ 1）",
+      "url": "https://github.com/Moco99/OpenRelay",
+      "stars": 1,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "Moco99/OpenRelay",
+      "summary_zh": "【GitHub】OpenRelay —开源CLI工具，通过基于角色的层次结构、令牌感知内存和可配置的人类检查点来编排多个AI编码代理（ Claude Code、OpenCode、Gemini CLI、Codex ）。（⭐ 1 ）",
+      "title_en": "Moco99/OpenRelay",
+      "summary_en": "【GitHub】OpenRelay — Open source CLI tool to orchestrate multiple AI coding agents (Claude Code, OpenCode, Gemini CLI, Codex) with role-based hierarchy, token-aware memory, and configurable human checkpoints.  （⭐ 1）"
+    },
+    {
+      "title": "slopweaver/slopweaver",
+      "summary": "【GitHub】Give Claude Code the GitHub + Slack context behind any PR. Open-source local-first MCP server. BYOK. （⭐ 0）",
+      "url": "https://github.com/slopweaver/slopweaver",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "dev-talix/Telios",
-      "summary_zh": "项目 dev-talix/Telios 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/dev-talix/Telios",
-      "title_en": "dev-talix/Telios",
-      "summary_en": "【GitHub】Open-source AI agent orchestrator. Deno + React. Hermes + Claude Code. （⭐ 0）"
+      "title_zh": "slopweaver/slopweaver",
+      "summary_zh": "【GitHub】为Claude Code提供任何公关背后的GitHub + Slack上下文。开源本地优先MCP服务器。BYOK. （⭐ 0 ）",
+      "title_en": "slopweaver/slopweaver",
+      "summary_en": "【GitHub】Give Claude Code the GitHub + Slack context behind any PR. Open-source local-first MCP server. BYOK. （⭐ 0）"
     },
     {
-      "title": "licenseplated/ccsc",
-      "summary": "这是一个在 GitHub 上 Stars 数达到 0 的开源项目（licenseplated/ccsc），专注于 github, opensource。项目提供完整的框架和工具链，帮助开发者构建智能代理应用。代码开源，社区活跃。",
-      "url": "https://github.com/licenseplated/ccsc",
+      "title": "abgarciafdz/disk-cleanup",
+      "summary": "【GitHub】Reemplazo open-source de CleanMyMac X — 9 módulos de limpieza y mantenimiento de Mac, conversacional desde Claude Code （⭐ 0）",
+      "url": "https://github.com/abgarciafdz/disk-cleanup",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "车牌/ccsc",
-      "summary_zh": "项目 licenseplated/ccsc 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/licenseplated/ccsc",
-      "title_en": "licenseplated/ccsc",
-      "summary_en": "【GitHub】🔥 A collection of the newest Claude Code open source （⭐ 0）"
+      "title_zh": "abgarciafdz/disk-cleanup",
+      "summary_zh": "【GitHub】Reemplazo开源de CleanMyMac X — 9 módulos de limpieza y mantenimiento de Mac, conversacional desde Claude Code （⭐ 0 ）",
+      "title_en": "abgarciafdz/disk-cleanup",
+      "summary_en": "【GitHub】Reemplazo open-source de CleanMyMac X — 9 módulos de limpieza y mantenimiento de Mac, conversacional desde Claude Code （⭐ 0）"
     },
     {
-      "title": "BrianSeong99/agent-skills",
-      "summary": "【GitHub】Open-source Claude Code skills. First skill: orchestrate (multi-backend task router). （⭐ 0）",
-      "url": "https://github.com/BrianSeong99/agent-skills",
-      "stars": 0,
+      "title": "Moco99/OpenRelay",
+      "summary": "【GitHub】OpenRelay — Open source CLI tool to orchestrate multiple AI coding agents (Claude Code, OpenCode, Gemini CLI, Codex) with role-based hierarchy, token-aware memory, and configurable human checkpoints.  （⭐ 1）",
+      "url": "https://github.com/Moco99/OpenRelay",
+      "stars": 1,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "BrianSeong99/agent-skills",
-      "summary_zh": "项目 BrianSeong99/agent-skills 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/BrianSeong99/agent-skills",
-      "title_en": "BrianSeong99/agent-skills",
-      "summary_en": "【GitHub】Open-source Claude Code skills. First skill: orchestrate (multi-backend task router). （⭐ 0）"
-    },
-    {
-      "title": "openai/agent-safety",
-      "summary": "OpenAI 开源的 agent-safety 工具包提供了安全性评估框架，用于检测和缓解 AI Agent 系统的潜在风险。该工具包含内容过滤、行为监控、对抗性测试等多个模块，帮助开发者在部署前验证系统的安全性和可靠性。目前已在 GitHub 获得超过 1800 stars。",
-      "url": "https://github.com/openai/agent-safety",
-      "stars": 1800,
-      "tags": [
-        "OpenAI",
-        "Safety",
-        "Framework",
-        "Python"
-      ],
-      "title_zh": "openai/agent-safety",
-      "summary_zh": "OpenAI 开源的 agent-safety 工具包提供了安全性评估框架，用于检测和缓解 AI Agent 系统的潜在风险。该工具包含内容过滤、行为监控、对抗性测试等多个模块，帮助开发者在部署前验证系统的安全性和可靠性。目前已在 GitHub 获得超过 1800 stars。",
-      "title_en": "openai/agent-safety",
-      "summary_en": "OpenAI 开源的 agent-safety 工具包提供了安全性评估框架，用于检测和缓解 AI Agent 系统的潜在风险。该工具包含内容过滤、行为监控、对抗性测试等多个模块，帮助开发者在部署前验证系统的安全性和可靠性。目前已在 GitHub 获得超过 1800 stars。"
-    },
-    {
-      "title": "microsoft/autogen",
-      "summary": "Microsoft AutoGen 是一个多智能体对话框架，支持多个 LLM 代理相互协作来解决复杂任务。该框架提供可定制的代理、对话模式、工具集成和人类参与机制，已被广泛应用于构建复杂的 AI 工作流系统，在 GitHub 上获得超过 34,000 stars。",
-      "url": "https://github.com/microsoft/autogen",
-      "stars": 34000,
-      "tags": [
-        "Microsoft",
-        "Multi-Agent",
-        "Conversation",
-        "Framework"
-      ],
-      "title_zh": "microsoft/autogen",
-      "summary_zh": "Microsoft AutoGen 是一个多智能体对话框架，支持多个 LLM 代理相互协作来解决复杂任务。该框架提供可定制的代理、对话模式、工具集成和人类参与机制，已被广泛应用于构建复杂的 AI 工作流系统，在 GitHub 上获得超过 34,000 stars。",
-      "title_en": "microsoft/autogen",
-      "summary_en": "Microsoft AutoGen 是一个多智能体对话框架，支持多个 LLM 代理相互协作来解决复杂任务。该框架提供可定制的代理、对话模式、工具集成和人类参与机制，已被广泛应用于构建复杂的 AI 工作流系统，在 GitHub 上获得超过 34,000 stars。"
+      "title_zh": "Moco99/OpenRelay",
+      "summary_zh": "【GitHub】OpenRelay —开源CLI工具，通过基于角色的层次结构、令牌感知内存和可配置的人类检查点来编排多个AI编码代理（ Claude Code、OpenCode、Gemini CLI、Codex ）。（⭐ 1 ）",
+      "title_en": "Moco99/OpenRelay",
+      "summary_en": "【GitHub】OpenRelay — Open source CLI tool to orchestrate multiple AI coding agents (Claude Code, OpenCode, Gemini CLI, Codex) with role-based hierarchy, token-aware memory, and configurable human checkpoints.  （⭐ 1）"
     }
   ],
   "models": [
     {
-      "title": "Replit’s Amjad Masad on the Cursor deal, fighting Apple, and why he’d rather not sell",
-      "summary": "At TechCrunch's sold-out StrictlyVC event in San Francisco on Thursday night, we covered a lot of ground in a short time, beginning with the question everyone in the industry is asking right now: in a world where rival Cursor is reportedly in talks t",
-      "url": "https://techcrunch.com/2026/05/01/replits-amjad-masad-on-the-cursor-deal-fighting-apple-and-why-hed-rather-not-sell/",
+      "title": "AI-generated actors and scripts are now ineligible for Oscars",
+      "summary": "Bad news for Tilly Norwood.",
+      "url": "https://techcrunch.com/2026/05/02/ai-generated-actors-and-scripts-are-now-ineligible-for-oscars/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "复制Amjad Masad的Cursor交易，与Apple对抗，以及他为什么宁愿不卖",
-      "summary_zh": "在周四晚上在旧金山举行的TechCrunch售罄的StrictlyVC活动上，我们在短时间内涵盖了很多方面，从业内每个人现在都在问的问题开始：据报道，在一个竞争对手Cursor正在谈判",
-      "title_en": "Replit’s Amjad Masad on the Cursor deal, fighting Apple, and why he’d rather not sell",
-      "summary_en": "At TechCrunch's sold-out StrictlyVC event in San Francisco on Thursday night, we covered a lot of ground in a short time, beginning with the question everyone in the industry is asking right now: in a world where rival Cursor is reportedly in talks t"
+      "title_zh": "人工智能生成的演员和剧本现在没有资格获得奥斯卡奖",
+      "summary_zh": "对Tilly Norwood来说是个坏消息。",
+      "title_en": "AI-generated actors and scripts are now ineligible for Oscars",
+      "summary_en": "Bad news for Tilly Norwood."
     },
     {
-      "title": "Meta buys robotics startup to bolster its humanoid AI ambitions",
-      "summary": "Meta bought humanoid startup Assured Robot Intelligence to beef up its AI models for robots, the company said.",
-      "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+      "title": "The best AI dictation apps, tested and ranked",
+      "summary": "AI-powered dictation apps are useful for replying to emails, taking notes, and even coding through your voice",
+      "url": "https://techcrunch.com/2026/05/02/the-best-ai-powered-dictation-apps-of-2025/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "Meta收购机器人初创公司，以加强其人形AI野心",
-      "summary_zh": "Meta buys robotics startup to bolster its humanoid AI ambitions。这是 AI 行业的重要动态，涉及模型发布、公司战略调整或技术突破。该消息可能对整个 AI 生态系统产生重要影响，并指引未来研发方向。详情请参考原文: https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
-      "title_en": "Meta buys robotics startup to bolster its humanoid AI ambitions",
-      "summary_en": "Meta bought humanoid startup Assured Robot Intelligence to beef up its AI models for robots, the company said."
-    },
-    {
-      "title": "Did you know you can’t steal a charity? Don’t worry. Elon Musk will remind you.",
-      "summary": "Elon Musk spent the better part of three days on the witness stand this week in his lawsuit against OpenAI, and it&#8217;s already getting messy. Emails, texts, and his own tweets are surfacing in court, and there are plenty more witnesses to come. M",
-      "url": "https://techcrunch.com/podcast/did-you-know-you-cant-steal-a-charity-dont-worry-elon-musk-will-remind-you/",
-      "tags": [
-        "industry",
-        "techcrunch"
-      ],
-      "title_zh": "您知道您不能偷窃慈善机构吗？别担心，伊隆·马斯克会提醒你。",
-      "summary_zh": "埃隆·马斯克（ Elon Musk ）本周在针对OpenAI的诉讼中花了三天的大部分时间在证人席上，现在已经变得混乱不堪。电子邮件、短信和他自己的推文正在法庭上浮出水面，还有很多目击者要来。",
-      "title_en": "Did you know you can’t steal a charity? Don’t worry. Elon Musk will remind you.",
-      "summary_en": "Elon Musk spent the better part of three days on the witness stand this week in his lawsuit against OpenAI, and it&#8217;s already getting messy. Emails, texts, and his own tweets are surfacing in court, and there are plenty more witnesses to come. M"
-    },
-    {
-      "title": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks",
-      "summary": "The deals come as the DOD has doubled down on diversifying its exposure to AI vendors in the wake of its controversial dispute with Anthropic over usage terms of its AI models.",
-      "url": "https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/",
-      "tags": [
-        "industry",
-        "techcrunch"
-      ],
-      "title_zh": "五角大楼与英伟达、微软和AWS达成协议，在机密网络上部署人工智能",
-      "summary_zh": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks。这是 AI 行业的重要动态，涉及模型发布、公司战略调整或技术突破。该消息可能对整个 AI 生态系统产生重要影响，并指引未来研发方向。详情请参考原文: https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/",
-      "title_en": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks",
-      "summary_en": "The deals come as the DOD has doubled down on diversifying its exposure to AI vendors in the wake of its controversial dispute with Anthropic over usage terms of its AI models."
+      "title_zh": "经过测试和排名的最佳人工智能听写应用程序",
+      "summary_zh": "人工智能驱动的听写应用程序用于回复电子邮件、做笔记，甚至通过语音进行编码",
+      "title_en": "The best AI dictation apps, tested and ranked",
+      "summary_en": "AI-powered dictation apps are useful for replying to emails, taking notes, and even coding through your voice"
     }
   ],
   "community": [
     {
-      "title": "Show HN: AI CAD Harness",
-      "summary": "Show HN: AI CAD Harness。该话题在 Hacker News 社区引发广泛讨论，目前已有 69 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://fusion.adam.new/install",
-      "url": "https://fusion.adam.new/install",
+      "title": "Show HN: State of the Art of Coding Models, According to Hacker News Commenters",
+      "summary": "【HN】热度: 35 分 | 22 评论",
+      "url": "https://hnup.date/hn-sota",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Show HN ： AI CAD线束",
-      "summary_zh": "Show HN: AI CAD Harness。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://fusion.adam.new/install",
-      "title_en": "Show HN: AI CAD Harness",
-      "summary_en": "【HN】热度: 63 分 | 69 评论"
+      "title_zh": "Show HN ：根据黑客新闻评论员的说法，最先进的编码模型",
+      "summary_zh": "【HN】热度: 35 分 | 22 评论",
+      "title_en": "Show HN: State of the Art of Coding Models, According to Hacker News Commenters",
+      "summary_en": "【HN】热度: 35 分 | 22 评论"
     },
     {
-      "title": "The gay jailbreak technique",
-      "summary": "The gay jailbreak technique。该话题在 Hacker News 社区引发广泛讨论，目前已有 146 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md",
-      "url": "https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md",
+      "title": "Voice-AI-for-Beginners – A curated learning path for developers",
+      "summary": "【HN】热度: 12 分 | 0 评论",
+      "url": "https://github.com/mahimairaja/voiceai",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "同性恋越狱技巧",
-      "summary_zh": "The gay jailbreak technique。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md",
-      "title_en": "The gay jailbreak technique",
-      "summary_en": "【HN】热度: 378 分 | 146 评论"
+      "title_zh": "Voice-AI-for-Beginners –为开发人员精心策划的学习路径",
+      "summary_zh": "【HN】热度: 12 分 | 0 评论",
+      "title_en": "Voice-AI-for-Beginners – A curated learning path for developers",
+      "summary_en": "【HN】热度: 12 分 | 0 评论"
     },
     {
-      "title": "AI uses less water than the public thinks",
-      "summary": "AI uses less water than the public thinks。该话题在 Hacker News 社区引发广泛讨论，目前已有 295 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/",
-      "url": "https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/",
+      "title": "The agent harness belongs outside the sandbox",
+      "summary": "【HN】热度: 57 分 | 47 评论",
+      "url": "https://www.mendral.com/blog/agent-harness-belongs-outside-sandbox",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "人工智能使用的水比公众想象的要少",
-      "summary_zh": "AI uses less water than the public thinks。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/",
-      "title_en": "AI uses less water than the public thinks",
-      "summary_en": "【HN】热度: 334 分 | 295 评论"
+      "title_zh": "座席线束属于沙盒之外",
+      "summary_zh": "【HN】热度: 57 分 | 47 评论",
+      "title_en": "The agent harness belongs outside the sandbox",
+      "summary_en": "【HN】热度: 57 分 | 47 评论"
     },
     {
-      "title": "Spotify adds 'Verified' badges to distinguish human artists from AI",
-      "summary": "Spotify adds 'Verified' badges to distinguish human artists from AI。该话题在 Hacker News 社区引发广泛讨论，目前已有 224 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://www.bbc.com/news/articles/c5yerr4m1yno",
-      "url": "https://www.bbc.com/news/articles/c5yerr4m1yno",
+      "title": "Refusal in Language Models Is Mediated by a Single Direction",
+      "summary": "【HN】热度: 88 分 | 33 评论",
+      "url": "https://arxiv.org/abs/2406.11717",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Spotify添加“已验证”徽章，以区分人类艺术家和人工智能",
-      "summary_zh": "Spotify adds 'Verified' badges to distinguish human artists from AI。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://www.bbc.com/news/articles/c5yerr4m1yno",
-      "title_en": "Spotify adds 'Verified' badges to distinguish human artists from AI",
-      "summary_en": "【HN】热度: 201 分 | 224 评论"
+      "title_zh": "语言模型中的拒绝由单一方向介导",
+      "summary_zh": "【HN】热度: 88 分 | 33 评论",
+      "title_en": "Refusal in Language Models Is Mediated by a Single Direction",
+      "summary_en": "【HN】热度: 88 分 | 33 评论"
     },
     {
-      "title": "Ubuntu servers taken offline by \"sustained, cross-border attack\"",
-      "summary": "Ubuntu servers taken offline by \"sustained, cross-border attack\"。该话题在 Hacker News 社区引发广泛讨论，目前已有 19 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/",
-      "url": "https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/",
+      "title": "Flue is a TypeScript framework for building the next generation of agents",
+      "summary": "【HN】热度: 82 分 | 45 评论",
+      "url": "https://flueframework.com/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Ubuntu服务器因“持续的跨境攻击”而离线",
-      "summary_zh": "Ubuntu servers taken offline by \"sustained, cross-border attack\"。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/",
-      "title_en": "Ubuntu servers taken offline by \"sustained, cross-border attack\"",
-      "summary_en": "【HN】热度: 107 分 | 19 评论"
+      "title_zh": "Flue是用于构建下一代代理的TypeScript框架",
+      "summary_zh": "【HN】热度: 82 分 | 45 评论",
+      "title_en": "Flue is a TypeScript framework for building the next generation of agents",
+      "summary_en": "【HN】热度: 82 分 | 45 评论"
     },
     {
-      "title": "AWS stops billing Middle East cloud customers as repairs to war damage drag on",
-      "summary": "AWS stops billing Middle East cloud customers as repairs to war damage drag on。该话题在 Hacker News 社区引发广泛讨论，目前已有 68 条评论参与。社区主要关注点包括技术实现细节、实际应用场景以及对 AI 行业发展的影响。讨论热度反映了开发者对该技术趋势的高度兴趣。原文链接: https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/",
-      "url": "https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/",
+      "title": "Open Design: Use Your Coding Agent as a Design Engine",
+      "summary": "【HN】热度: 168 分 | 84 评论",
+      "url": "https://github.com/nexu-io/open-design",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "由于战争破坏维修拖延， AWS停止向中东云客户收费",
-      "summary_zh": "AWS stops billing Middle East cloud customers as repairs to war damage drag on。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/",
-      "title_en": "AWS stops billing Middle East cloud customers as repairs to war damage drag on",
-      "summary_en": "【HN】热度: 134 分 | 68 评论"
+      "title_zh": "开放式设计：将您的编码代理用作设计引擎",
+      "summary_zh": "【HN】热度: 168 分 | 84 评论",
+      "title_en": "Open Design: Use Your Coding Agent as a Design Engine",
+      "summary_en": "【HN】热度: 168 分 | 84 评论"
     }
   ]
 }
