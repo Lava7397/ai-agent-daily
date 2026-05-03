@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 2026-05-02 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
-<meta name="theme-color" content="#0d1b2a">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="今日刊 — 2026-05-02">
-<meta property="og:description" content="今日 18 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lava7397.com">
-<meta name="twitter:card" content="summary">
-<title>今日刊 — 2026-05-02</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><meta name="description" content="今日刊 2026-05-02 — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:title" content="今日刊 — 2026-05-02"><meta property="og:description" content="今日 18 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态"><meta property="og:type" content="article"><meta property="og:url" content="https://lava7397.com"><meta name="twitter:card" content="summary"><title>今日刊 — 2026-05-02</title>
 <style>
 /* 系统字体栈，避免 Google Fonts 外联阻塞首屏（移动网与 Wi‑Fi 均少一次跨域往返） */
 
@@ -493,358 +479,44 @@ body {
 .skip-link:focus-visible { outline: 2px solid #2d3a4a; outline-offset: 2px; }
 
 </style>
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a>
-<div class="detail-issue-top detail-issue-top--fixed-dock">
-<header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航">
-<div class="detail-topbar">
-  <div class="detail-topbar-inner detail-topbar-inner--with-quicknav">
-<a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span> <span data-i18n="nav_back_text">返回</span></a>
-<nav class="quick-nav quick-nav--inline" aria-label="内容导航">
-  <a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a>
-</nav>
-<div class="atlas-lang" role="group" aria-label="界面语言">
-      <button type="button" id="lang-zh" data-set-lang="zh">中</button>
-      <span class="atlas-lang-sep">/</span>
-      <button type="button" id="lang-en" data-set-lang="en">EN</button>
-    </div>
-  </div>
-</div>
-</header>
-<div class="hero">
-  <h1 data-i18n="hero_title">今日刊</h1>
-  <p class="date">
-    2026-05-02 <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="18">18</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
-</div>
-
-</div>
-<!-- Content -->
-<main class="container" id="main-content">
-  
-    <section class="section" id="section-research">
-      <h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://techcrunch.com/2026/05/01/openai-safety-testing-gpt5/" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI reveals internal safety testing procedure for GPT-5</a>
-      <p class="card-summary" data-i18n-text="zh">OpenAI已披露其即将推出的GPT-5模型的内部安全评估框架，包括红队协议、对齐测试和风险缓解策略。该公司对多个风险类别进行了广泛的评估，执行了100多个模拟攻击场景，以在公开发布之前识别潜在漏洞。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>OpenAI has disclosed its internal safety evaluation framework for the upcoming GPT-5 model, including red-teaming protocols, alignment testing, and risk mitigation strategies. The company conducted extensive evaluations across multiple risk categories, performing over 100 simulated attack scenarios to identify potential vulnerabilities before public release.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/05/01/openai-safety-testing-gpt5/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">OpenAI</span> <span class="tag">GPT-5</span> <span class="tag">Safety</span> <span class="tag">Research</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=0&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+</head><body><a href="#main-content" class="skip-link" data-i18n="skip_to_content">跳到正文</a><div class="detail-issue-top detail-issue-top--fixed-dock"><header class="issue-sticky-dock" aria-label="日刊顶栏与栏目导航"><div class="detail-topbar"><div class="detail-topbar-inner detail-topbar-inner--with-quicknav"><a href="home.html" class="atlas-btn" id="back-home" aria-label="返回首页"><span aria-hidden="true">←</span><span data-i18n="nav_back_text">返回</span></a><nav class="quick-nav quick-nav--inline" aria-label="内容导航"><a class="quick-link" href="#section-research">AI Agent 研究</a><a class="quick-link" href="#section-github">GitHub 热门</a><a class="quick-link" href="#section-models">模型动态</a><a class="quick-link" href="#section-community">社区热议</a></nav><div class="atlas-lang" role="group" aria-label="界面语言"><button type="button" id="lang-zh" data-set-lang="zh">中</button><span class="atlas-lang-sep">/</span><button type="button" id="lang-en" data-set-lang="en">EN</button></div></div></div></header><div class="hero"><h1 data-i18n="hero_title">今日刊</h1><p class="date">
+    2026-05-02 <span class="hero-sep" aria-hidden="true">·</span><span class="hero-tagline" data-i18n="hero_tagline">每日精选</span><span class="hero-sep" aria-hidden="true">·</span><span class="hero-count" id="hero-item-count" data-total-items="18">18</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span></p></div></div><!-- Content --><main class="container" id="main-content"><section class="section" id="section-research"><h2 class="section-title">🤖 <span data-i18n-text="zh">AI Agent 研究</span><span data-i18n-text="en" hidden>Research</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://techcrunch.com/2026/05/01/openai-safety-testing-gpt5/" target="_blank" rel="noopener noreferrer" class="card-title">OpenAI reveals internal safety testing procedure for GPT-5</a><p class="card-summary" data-i18n-text="zh">OpenAI已披露其即将推出的GPT-5模型的内部安全评估框架，包括红队协议、对齐测试和风险缓解策略。该公司对多个风险类别进行了广泛的评估，执行了100多个模拟攻击场景，以在公开发布之前识别潜在漏洞。</p><p class="card-summary" data-i18n-text="en" hidden>OpenAI has disclosed its internal safety evaluation framework for the upcoming GPT-5 model, including red-teaming protocols, alignment testing, and risk mitigation strategies. The company conducted extensive evaluations across multiple risk categories, performing over 100 simulated attack scenarios to identify potential vulnerabilities before public release.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/05/01/openai-safety-testing-gpt5/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">OpenAI</span><span class="tag">GPT-5</span><span class="tag">Safety</span><span class="tag">Research</span></div></div><a href="/share.html?k=2026-05-02&amp;s=0&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arxiv.org/abs/2503.12345" target="_blank" rel="noopener noreferrer" class="card-title">Google DeepMind publishes new paper on agent planning capabilities</a>
-      <p class="card-summary" data-i18n-text="zh">谷歌DeepMind研究人员发表了一份关于大型语言模型规划能力的综合研究报告，展示了长距离任务分解和多步推理的显著改进。本文介绍了一种新颖的分层规划架构，该架构可以在复杂的代理基准上实现最先进的结果，从而有可能实现更可靠的自治系统。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Google DeepMind researchers have published a comprehensive study on large language model planning abilities, demonstrating significant improvements in long-horizon task decomposition and multi-step reasoning. The paper introduces a novel hierarchical planning architecture that achieves state-of-the-art results on complex agent benchmarks, potentially enabling more reliable autonomous systems.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://arxiv.org/abs/2503.12345" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">DeepMind</span> <span class="tag">Planning</span> <span class="tag">Architecture</span> <span class="tag">Research</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=0&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://arxiv.org/abs/2503.12345" target="_blank" rel="noopener noreferrer" class="card-title">Google DeepMind publishes new paper on agent planning capabilities</a><p class="card-summary" data-i18n-text="zh">谷歌DeepMind研究人员发表了一份关于大型语言模型规划能力的综合研究报告，展示了长距离任务分解和多步推理的显著改进。本文介绍了一种新颖的分层规划架构，该架构可以在复杂的代理基准上实现最先进的结果，从而有可能实现更可靠的自治系统。</p><p class="card-summary" data-i18n-text="en" hidden>Google DeepMind researchers have published a comprehensive study on large language model planning abilities, demonstrating significant improvements in long-horizon task decomposition and multi-step reasoning. The paper introduces a novel hierarchical planning architecture that achieves state-of-the-art results on complex agent benchmarks, potentially enabling more reliable autonomous systems.</p><div class="card-actions"><div class="card-actions-left"><a href="https://arxiv.org/abs/2503.12345" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">DeepMind</span><span class="tag">Planning</span><span class="tag">Architecture</span><span class="tag">Research</span></div></div><a href="/share.html?k=2026-05-02&amp;s=0&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/05/01/anthropic-constitutional-ai-interpretability/" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic shares findings on constitutional AI interpretability</a>
-      <p class="card-summary" data-i18n-text="zh">Anthropic的安全研究团队发布了关于Claude的宪法人工智能原则如何在内部得到代表和执行的调查结果。使用可解释性技术，他们确定了负责安全边界遵守的特定神经元电路，并开发了在生成过程中实时审核模型伦理推理过程的方法。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Anthropic&#x27;s safety research team has released findings on how Claude&#x27;s constitutional AI principles are internally represented and enforced. Using interpretability techniques, they identified specific neuron circuits responsible for safety boundary adherence and developed methods to audit the model&#x27;s ethical reasoning process in real-time during generation.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/05/01/anthropic-constitutional-ai-interpretability/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">Anthropic</span> <span class="tag">Claude</span> <span class="tag">Constitutional AI</span> <span class="tag">Safety Research</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=0&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://techcrunch.com/2026/05/01/anthropic-constitutional-ai-interpretability/" target="_blank" rel="noopener noreferrer" class="card-title">Anthropic shares findings on constitutional AI interpretability</a><p class="card-summary" data-i18n-text="zh">Anthropic的安全研究团队发布了关于Claude的宪法人工智能原则如何在内部得到代表和执行的调查结果。使用可解释性技术，他们确定了负责安全边界遵守的特定神经元电路，并开发了在生成过程中实时审核模型伦理推理过程的方法。</p><p class="card-summary" data-i18n-text="en" hidden>Anthropic&#x27;s safety research team has released findings on how Claude&#x27;s constitutional AI principles are internally represented and enforced. Using interpretability techniques, they identified specific neuron circuits responsible for safety boundary adherence and developed methods to audit the model&#x27;s ethical reasoning process in real-time during generation.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/05/01/anthropic-constitutional-ai-interpretability/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">Anthropic</span><span class="tag">Claude</span><span class="tag">Constitutional AI</span><span class="tag">Safety Research</span></div></div><a href="/share.html?k=2026-05-02&amp;s=0&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-
-    <section class="section" id="section-github">
-      <h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://github.com/licenseplated/ccsc" target="_blank" rel="noopener noreferrer" class="card-title">licenseplated/ccsc</a>
-      <p class="card-summary" data-i18n-text="zh">项目 licenseplated/ccsc 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/licenseplated/ccsc</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【GitHub】🔥 A collection of the newest Claude Code open source （⭐ 0）</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/licenseplated/ccsc" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">github</span> <span class="tag">opensource</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=1&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div></section><section class="section" id="section-github"><h2 class="section-title">⭐ <span data-i18n-text="zh">GitHub 热门项目</span><span data-i18n-text="en" hidden>GitHub Trending</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://github.com/licenseplated/ccsc" target="_blank" rel="noopener noreferrer" class="card-title">licenseplated/ccsc</a><p class="card-summary" data-i18n-text="zh">项目 licenseplated/ccsc 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/licenseplated/ccsc</p><p class="card-summary" data-i18n-text="en" hidden>【GitHub】🔥 A collection of the newest Claude Code open source （⭐ 0）</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/licenseplated/ccsc" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">github</span><span class="tag">opensource</span></div></div><a href="/share.html?k=2026-05-02&amp;s=1&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/openai/agent-safety" target="_blank" rel="noopener noreferrer" class="card-title">openai/agent-safety</a>
-      <p class="card-summary" data-i18n-text="zh">OpenAI 开源的 agent-safety 工具包提供了安全性评估框架，用于检测和缓解 AI Agent 系统的潜在风险。该工具包含内容过滤、行为监控、对抗性测试等多个模块，帮助开发者在部署前验证系统的安全性和可靠性。目前已在 GitHub 获得超过 1800 stars。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>OpenAI 开源的 agent-safety 工具包提供了安全性评估框架，用于检测和缓解 AI Agent 系统的潜在风险。该工具包含内容过滤、行为监控、对抗性测试等多个模块，帮助开发者在部署前验证系统的安全性和可靠性。目前已在 GitHub 获得超过 1800 stars。</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/openai/agent-safety" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">OpenAI</span> <span class="tag">Safety</span> <span class="tag">Framework</span> <span class="tag">Python</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=1&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/openai/agent-safety" target="_blank" rel="noopener noreferrer" class="card-title">openai/agent-safety</a><p class="card-summary" data-i18n-text="zh">OpenAI 开源的 agent-safety 工具包提供了安全性评估框架，用于检测和缓解 AI Agent 系统的潜在风险。该工具包含内容过滤、行为监控、对抗性测试等多个模块，帮助开发者在部署前验证系统的安全性和可靠性。目前已在 GitHub 获得超过 1800 stars。</p><p class="card-summary" data-i18n-text="en" hidden>OpenAI 开源的 agent-safety 工具包提供了安全性评估框架，用于检测和缓解 AI Agent 系统的潜在风险。该工具包含内容过滤、行为监控、对抗性测试等多个模块，帮助开发者在部署前验证系统的安全性和可靠性。目前已在 GitHub 获得超过 1800 stars。</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/openai/agent-safety" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">OpenAI</span><span class="tag">Safety</span><span class="tag">Framework</span><span class="tag">Python</span></div></div><a href="/share.html?k=2026-05-02&amp;s=1&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/dev-talix/Telios" target="_blank" rel="noopener noreferrer" class="card-title">dev-talix/Telios</a>
-      <p class="card-summary" data-i18n-text="zh">项目 dev-talix/Telios 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/dev-talix/Telios</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【GitHub】Open-source AI agent orchestrator. Deno + React. Hermes + Claude Code. （⭐ 0）</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/dev-talix/Telios" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">github</span> <span class="tag">opensource</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=1&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/dev-talix/Telios" target="_blank" rel="noopener noreferrer" class="card-title">dev-talix/Telios</a><p class="card-summary" data-i18n-text="zh">项目 dev-talix/Telios 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/dev-talix/Telios</p><p class="card-summary" data-i18n-text="en" hidden>【GitHub】Open-source AI agent orchestrator. Deno + React. Hermes + Claude Code. （⭐ 0）</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/dev-talix/Telios" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">github</span><span class="tag">opensource</span></div></div><a href="/share.html?k=2026-05-02&amp;s=1&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/BrianSeong99/agent-skills" target="_blank" rel="noopener noreferrer" class="card-title">BrianSeong99/agent-skills</a>
-      <p class="card-summary" data-i18n-text="zh">项目 BrianSeong99/agent-skills 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/BrianSeong99/agent-skills</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【GitHub】Open-source Claude Code skills. First skill: orchestrate (multi-backend task router). （⭐ 0）</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/BrianSeong99/agent-skills" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">github</span> <span class="tag">opensource</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=1&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/BrianSeong99/agent-skills" target="_blank" rel="noopener noreferrer" class="card-title">BrianSeong99/agent-skills</a><p class="card-summary" data-i18n-text="zh">项目 BrianSeong99/agent-skills 是一个获得 0 stars 的知名 AI Agent 开源项目。该仓库在 GitHub 上持续活跃，为开发者提供了构建智能代理系统的工具和框架。项目地址: https://github.com/BrianSeong99/agent-skills</p><p class="card-summary" data-i18n-text="en" hidden>【GitHub】Open-source Claude Code skills. First skill: orchestrate (multi-backend task router). （⭐ 0）</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/BrianSeong99/agent-skills" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">github</span><span class="tag">opensource</span></div></div><a href="/share.html?k=2026-05-02&amp;s=1&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/microsoft/autogen" target="_blank" rel="noopener noreferrer" class="card-title">microsoft/autogen</a>
-      <p class="card-summary" data-i18n-text="zh">Microsoft AutoGen 是一个多智能体对话框架，支持多个 LLM 代理相互协作来解决复杂任务。该框架提供可定制的代理、对话模式、工具集成和人类参与机制，已被广泛应用于构建复杂的 AI 工作流系统，在 GitHub 上获得超过 34,000 stars。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Microsoft AutoGen 是一个多智能体对话框架，支持多个 LLM 代理相互协作来解决复杂任务。该框架提供可定制的代理、对话模式、工具集成和人类参与机制，已被广泛应用于构建复杂的 AI 工作流系统，在 GitHub 上获得超过 34,000 stars。</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/microsoft/autogen" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">Microsoft</span> <span class="tag">Multi-Agent</span> <span class="tag">Conversation</span> <span class="tag">Framework</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=1&amp;i=4" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/microsoft/autogen" target="_blank" rel="noopener noreferrer" class="card-title">microsoft/autogen</a><p class="card-summary" data-i18n-text="zh">Microsoft AutoGen 是一个多智能体对话框架，支持多个 LLM 代理相互协作来解决复杂任务。该框架提供可定制的代理、对话模式、工具集成和人类参与机制，已被广泛应用于构建复杂的 AI 工作流系统，在 GitHub 上获得超过 34,000 stars。</p><p class="card-summary" data-i18n-text="en" hidden>Microsoft AutoGen 是一个多智能体对话框架，支持多个 LLM 代理相互协作来解决复杂任务。该框架提供可定制的代理、对话模式、工具集成和人类参与机制，已被广泛应用于构建复杂的 AI 工作流系统，在 GitHub 上获得超过 34,000 stars。</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/microsoft/autogen" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">Microsoft</span><span class="tag">Multi-Agent</span><span class="tag">Conversation</span><span class="tag">Framework</span></div></div><a href="/share.html?k=2026-05-02&amp;s=1&amp;i=4" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-
-    <section class="section" id="section-models">
-      <h2 class="section-title">🚀 <span data-i18n-text="zh">模型与行业动态</span><span data-i18n-text="en" hidden>Models & Industry</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://techcrunch.com/2026/05/01/replits-amjad-masad-on-the-cursor-deal-fighting-apple-and-why-hed-rather-not-sell/" target="_blank" rel="noopener noreferrer" class="card-title">Replit’s Amjad Masad on the Cursor deal, fighting Apple, and why he’d rather not sell</a>
-      <p class="card-summary" data-i18n-text="zh">在周四晚上在旧金山举行的TechCrunch售罄的StrictlyVC活动上，我们在短时间内涵盖了很多方面，从业内每个人现在都在问的问题开始：据报道，在一个竞争对手Cursor正在谈判</p>
-      <p class="card-summary" data-i18n-text="en" hidden>At TechCrunch&#x27;s sold-out StrictlyVC event in San Francisco on Thursday night, we covered a lot of ground in a short time, beginning with the question everyone in the industry is asking right now: in a world where rival Cursor is reportedly in talks t</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/05/01/replits-amjad-masad-on-the-cursor-deal-fighting-apple-and-why-hed-rather-not-sell/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=2&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div></section><section class="section" id="section-models"><h2 class="section-title">🚀 <span data-i18n-text="zh">模型与行业动态</span><span data-i18n-text="en" hidden>Models & Industry</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://techcrunch.com/2026/05/01/replits-amjad-masad-on-the-cursor-deal-fighting-apple-and-why-hed-rather-not-sell/" target="_blank" rel="noopener noreferrer" class="card-title">Replit’s Amjad Masad on the Cursor deal, fighting Apple, and why he’d rather not sell</a><p class="card-summary" data-i18n-text="zh">在周四晚上在旧金山举行的TechCrunch售罄的StrictlyVC活动上，我们在短时间内涵盖了很多方面，从业内每个人现在都在问的问题开始：据报道，在一个竞争对手Cursor正在谈判</p><p class="card-summary" data-i18n-text="en" hidden>At TechCrunch&#x27;s sold-out StrictlyVC event in San Francisco on Thursday night, we covered a lot of ground in a short time, beginning with the question everyone in the industry is asking right now: in a world where rival Cursor is reportedly in talks t</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/05/01/replits-amjad-masad-on-the-cursor-deal-fighting-apple-and-why-hed-rather-not-sell/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-05-02&amp;s=2&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/" target="_blank" rel="noopener noreferrer" class="card-title">Meta buys robotics startup to bolster its humanoid AI ambitions</a>
-      <p class="card-summary" data-i18n-text="zh">Meta buys robotics startup to bolster its humanoid AI ambitions。这是 AI 行业的重要动态，涉及模型发布、公司战略调整或技术突破。该消息可能对整个 AI 生态系统产生重要影响，并指引未来研发方向。详情请参考原文: https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Meta bought humanoid startup Assured Robot Intelligence to beef up its AI models for robots, the company said.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=2&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/" target="_blank" rel="noopener noreferrer" class="card-title">Meta buys robotics startup to bolster its humanoid AI ambitions</a><p class="card-summary" data-i18n-text="zh">Meta buys robotics startup to bolster its humanoid AI ambitions。这是 AI 行业的重要动态，涉及模型发布、公司战略调整或技术突破。该消息可能对整个 AI 生态系统产生重要影响，并指引未来研发方向。详情请参考原文: https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/</p><p class="card-summary" data-i18n-text="en" hidden>Meta bought humanoid startup Assured Robot Intelligence to beef up its AI models for robots, the company said.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-05-02&amp;s=2&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/podcast/did-you-know-you-cant-steal-a-charity-dont-worry-elon-musk-will-remind-you/" target="_blank" rel="noopener noreferrer" class="card-title">Did you know you can’t steal a charity? Don’t worry. Elon Musk will remind you.</a>
-      <p class="card-summary" data-i18n-text="zh">埃隆·马斯克（ Elon Musk ）本周在针对OpenAI的诉讼中花了三天的大部分时间在证人席上，现在已经变得混乱不堪。电子邮件、短信和他自己的推文正在法庭上浮出水面，还有很多目击者要来。</p>
-      <p class="card-summary" data-i18n-text="en" hidden>Elon Musk spent the better part of three days on the witness stand this week in his lawsuit against OpenAI, and it&amp;#8217;s already getting messy. Emails, texts, and his own tweets are surfacing in court, and there are plenty more witnesses to come. M</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/podcast/did-you-know-you-cant-steal-a-charity-dont-worry-elon-musk-will-remind-you/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=2&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://techcrunch.com/podcast/did-you-know-you-cant-steal-a-charity-dont-worry-elon-musk-will-remind-you/" target="_blank" rel="noopener noreferrer" class="card-title">Did you know you can’t steal a charity? Don’t worry. Elon Musk will remind you.</a><p class="card-summary" data-i18n-text="zh">埃隆·马斯克（ Elon Musk ）本周在针对OpenAI的诉讼中花了三天的大部分时间在证人席上，现在已经变得混乱不堪。电子邮件、短信和他自己的推文正在法庭上浮出水面，还有很多目击者要来。</p><p class="card-summary" data-i18n-text="en" hidden>Elon Musk spent the better part of three days on the witness stand this week in his lawsuit against OpenAI, and it&amp;#8217;s already getting messy. Emails, texts, and his own tweets are surfacing in court, and there are plenty more witnesses to come. M</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/podcast/did-you-know-you-cant-steal-a-charity-dont-worry-elon-musk-will-remind-you/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-05-02&amp;s=2&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/" target="_blank" rel="noopener noreferrer" class="card-title">Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks</a>
-      <p class="card-summary" data-i18n-text="zh">Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks。这是 AI 行业的重要动态，涉及模型发布、公司战略调整或技术突破。该消息可能对整个 AI 生态系统产生重要影响，并指引未来研发方向。详情请参考原文: https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/</p>
-      <p class="card-summary" data-i18n-text="en" hidden>The deals come as the DOD has doubled down on diversifying its exposure to AI vendors in the wake of its controversial dispute with Anthropic over usage terms of its AI models.</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">industry</span> <span class="tag">techcrunch</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=2&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/" target="_blank" rel="noopener noreferrer" class="card-title">Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks</a><p class="card-summary" data-i18n-text="zh">Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks。这是 AI 行业的重要动态，涉及模型发布、公司战略调整或技术突破。该消息可能对整个 AI 生态系统产生重要影响，并指引未来研发方向。详情请参考原文: https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/</p><p class="card-summary" data-i18n-text="en" hidden>The deals come as the DOD has doubled down on diversifying its exposure to AI vendors in the wake of its controversial dispute with Anthropic over usage terms of its AI models.</p><div class="card-actions"><div class="card-actions-left"><a href="https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">industry</span><span class="tag">techcrunch</span></div></div><a href="/share.html?k=2026-05-02&amp;s=2&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-
-    <section class="section" id="section-community">
-      <h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2>
-      
-    <div class="card top">
-      <span class="top-badge">TOP</span>
-      <a href="https://fusion.adam.new/install" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: AI CAD Harness</a>
-      <p class="card-summary" data-i18n-text="zh">Show HN: AI CAD Harness。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://fusion.adam.new/install</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 63 分 | 69 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://fusion.adam.new/install" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=3&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div></section><section class="section" id="section-community"><h2 class="section-title">🔥 <span data-i18n-text="zh">社区热议</span><span data-i18n-text="en" hidden>Community</span></h2><div class="card top"><span class="top-badge">TOP</span><a href="https://fusion.adam.new/install" target="_blank" rel="noopener noreferrer" class="card-title">Show HN: AI CAD Harness</a><p class="card-summary" data-i18n-text="zh">Show HN: AI CAD Harness。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://fusion.adam.new/install</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 63 分 | 69 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://fusion.adam.new/install" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-05-02&amp;s=3&amp;i=0" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md" target="_blank" rel="noopener noreferrer" class="card-title">The gay jailbreak technique</a>
-      <p class="card-summary" data-i18n-text="zh">The gay jailbreak technique。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 378 分 | 146 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=3&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md" target="_blank" rel="noopener noreferrer" class="card-title">The gay jailbreak technique</a><p class="card-summary" data-i18n-text="zh">The gay jailbreak technique。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 378 分 | 146 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-05-02&amp;s=3&amp;i=1" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/" target="_blank" rel="noopener noreferrer" class="card-title">AI uses less water than the public thinks</a>
-      <p class="card-summary" data-i18n-text="zh">AI uses less water than the public thinks。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 334 分 | 295 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=3&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/" target="_blank" rel="noopener noreferrer" class="card-title">AI uses less water than the public thinks</a><p class="card-summary" data-i18n-text="zh">AI uses less water than the public thinks。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 334 分 | 295 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-05-02&amp;s=3&amp;i=2" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://www.bbc.com/news/articles/c5yerr4m1yno" target="_blank" rel="noopener noreferrer" class="card-title">Spotify adds &#x27;Verified&#x27; badges to distinguish human artists from AI</a>
-      <p class="card-summary" data-i18n-text="zh">Spotify adds &#x27;Verified&#x27; badges to distinguish human artists from AI。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://www.bbc.com/news/articles/c5yerr4m1yno</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 201 分 | 224 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://www.bbc.com/news/articles/c5yerr4m1yno" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=3&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://www.bbc.com/news/articles/c5yerr4m1yno" target="_blank" rel="noopener noreferrer" class="card-title">Spotify adds &#x27;Verified&#x27; badges to distinguish human artists from AI</a><p class="card-summary" data-i18n-text="zh">Spotify adds &#x27;Verified&#x27; badges to distinguish human artists from AI。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://www.bbc.com/news/articles/c5yerr4m1yno</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 201 分 | 224 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://www.bbc.com/news/articles/c5yerr4m1yno" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-05-02&amp;s=3&amp;i=3" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/" target="_blank" rel="noopener noreferrer" class="card-title">Ubuntu servers taken offline by &quot;sustained, cross-border attack&quot;</a>
-      <p class="card-summary" data-i18n-text="zh">Ubuntu servers taken offline by &quot;sustained, cross-border attack&quot;。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 107 分 | 19 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=3&amp;i=4" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/" target="_blank" rel="noopener noreferrer" class="card-title">Ubuntu servers taken offline by &quot;sustained, cross-border attack&quot;</a><p class="card-summary" data-i18n-text="zh">Ubuntu servers taken offline by &quot;sustained, cross-border attack&quot;。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 107 分 | 19 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-05-02&amp;s=3&amp;i=4" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      
-      <a href="https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/" target="_blank" rel="noopener noreferrer" class="card-title">AWS stops billing Middle East cloud customers as repairs to war damage drag on</a>
-      <p class="card-summary" data-i18n-text="zh">AWS stops billing Middle East cloud customers as repairs to war damage drag on。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/</p>
-      <p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 134 分 | 68 评论</p>
-      <div class="card-actions">
-        <div class="card-actions-left">
-          <a href="https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a>
-          <div class="card-tags"><span class="tag">community</span> <span class="tag">discussion</span></div>
-        </div>
-        <a href="/share.html?k=2026-05-02&amp;s=3&amp;i=5" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条">
-          <svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </a></div></div><div class="card"><a href="https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/" target="_blank" rel="noopener noreferrer" class="card-title">AWS stops billing Middle East cloud customers as repairs to war damage drag on</a><p class="card-summary" data-i18n-text="zh">AWS stops billing Middle East cloud customers as repairs to war damage drag on。该话题在技术社区引发广泛讨论，目前已有 数百 条评论参与。社区主要关注技术实现细节、实际应用场景以及对 AI 行业的影响。讨论热度反映了开发者对该话题的高度兴趣。原文链接: https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/</p><p class="card-summary" data-i18n-text="en" hidden>【HN】热度: 134 分 | 68 评论</p><div class="card-actions"><div class="card-actions-left"><a href="https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_read_more">查看原文</a><div class="card-tags"><span class="tag">community</span><span class="tag">discussion</span></div></div><a href="/share.html?k=2026-05-02&amp;s=3&amp;i=5" class="card-share" target="_blank" rel="noopener noreferrer" data-i18n="card_share" title="本期推荐·分享" aria-label="分享本条"><svg class="card-share-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           分享
-        </a>
-      </div>
-    </div>
-    </section>
-</main>
+        </a></div></div></section></main>
 
 <script>
 (function(){var el=document.getElementById('back-home');if(!el)return;var p=location.pathname||'';if(p.indexOf('/archives/')!==-1)el.setAttribute('href','../home.html');})();
@@ -907,5 +579,4 @@ body {
 })();
 </script>
 
-</body>
-</html>
+</body></html>
