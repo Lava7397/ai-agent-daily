@@ -18,9 +18,23 @@ const cfgPath = join(site, "bakery-asset-urls.json");
 
 const ALLOWED_CT = /^image\/(jpeg|jpg|png|webp|gif|avif)|application\/octet-stream/i;
 
+function assertSafeAssetFilename(filename) {
+  if (
+    typeof filename !== "string" ||
+    filename.length === 0 ||
+    filename.includes("/") ||
+    filename.includes("\\") ||
+    filename === "." ||
+    filename === ".."
+  ) {
+    throw new Error(`Invalid asset filename: ${filename}`);
+  }
+}
+
 async function fetchOne(filename, url) {
   const u = String(url || "").trim();
   if (!u) return { filename, skipped: true };
+  assertSafeAssetFilename(filename);
 
   console.log(`GET ${filename} ← ${u.slice(0, 96)}${u.length > 96 ? "…" : ""}`);
 
