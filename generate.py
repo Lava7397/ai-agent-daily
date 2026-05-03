@@ -13,7 +13,7 @@ import os
 import random
 import re
 import sys
-from html import escape, unescape
+from html import escape
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -165,28 +165,20 @@ SECTION_META = {
 # 与 build_html / daily_data 结构一致；网站总条数超过此值时做各板块数量裁剪
 #（github 模块先按刊期种子打乱再截断，不跟随上游 star 排序）
 SECTION_KEYS = ("research", "github", "models", "community")
-# 默认放宽：典型日报四栏累加常 >20。可用环境变量 AI_DAILY_MAX_SITE_ITEMS 或 --max-items 覆盖。
+# 单日全站卡片上限；超出则按 fair_section_quotas 各板块均分截断。可用环境变量或 --max-site-items 调整。
 DEFAULT_MAX_SITE_ITEMS = 80
 
 
-def resolve_max_site_items(cli_override=None):
-    """站点卡片总条数上限。CLI 优先，否则读环境变量，否则默认 DEFAULT_MAX_SITE_ITEMS。"""
-    if cli_override is not None:
-        return max(1, int(cli_override))
+def resolve_max_site_items(cli_max=None):
+    if cli_max is not None:
+        return max(1, min(int(cli_max), 500))
     raw = os.environ.get("AI_DAILY_MAX_SITE_ITEMS", "").strip()
     if raw:
         try:
-            return max(1, int(raw))
+            return max(1, min(int(raw), 500))
         except ValueError:
             pass
     return DEFAULT_MAX_SITE_ITEMS
-
-
-def normalize_upstream_text(s) -> str:
-    """上游 JSON 常带 &#8217; 等实体；先 unescape 再交由 escape() 写入 HTML，避免 Replit&amp;#8217; 叠字。"""
-    if s is None:
-        return ""
-    return unescape(str(s)).strip()
 
 
 def load_data():
@@ -233,7 +225,9 @@ def fair_section_quotas(counts, cap):
     return res
 
 
-def cap_data_for_site(data, max_items):
+def cap_data_for_site(data, max_items=None):
+    if max_items is None:
+        max_items = DEFAULT_MAX_SITE_ITEMS
     """生成网站用数据：总条数超过 max_items 时按各模块配额截断。
 
     research / models / community 保持原序前缀截断；github 先打乱再截，避免按 star
@@ -273,10 +267,8 @@ def write_issue_data_json(data, date_str) -> None:
         rows = data.get(k) or []
         sections[k] = [
             {
-                "t": normalize_upstream_text(it.get("title")) or "Untitled",
-                "s": normalize_upstream_text(
-                    it.get("summary_zh") or it.get("summary") or ""
-                ),
+                "t": (it.get("title") or "Untitled").strip() or "Untitled",
+                "s": (it.get("summary_zh") or it.get("summary") or "").strip(),
                 "u": (it.get("url") or "#").strip() or "#",
             }
             for it in rows
@@ -298,14 +290,9 @@ def build_item_html(
     section_key: str,
     item_index: int,
 ):
-    raw_title = normalize_upstream_text(item.get("title")) or "Untitled"
-    safe_title = escape(raw_title)
-    summary_zh_raw = normalize_upstream_text(
-        item.get("summary_zh") or item.get("summary") or ""
-    )
-    summary_en_raw = normalize_upstream_text(
-        item.get("summary_en") or item.get("summary") or ""
-    ) or summary_zh_raw
+    safe_title = escape(item.get("title", "Untitled"))
+    summary_zh_raw = item.get("summary_zh") or item.get("summary") or ""
+    summary_en_raw = item.get("summary_en") or item.get("summary") or summary_zh_raw
     safe_summary_zh = escape(summary_zh_raw)
     safe_summary_en = escape(summary_en_raw)
     safe_link = escape(item.get("url", "#"), quote=True)
@@ -364,15 +351,28 @@ def build_section_html(key, items, date_str: str):
 def build_html(data, include_nav_back=True):
     date_str = get_issue_date(data)
     safe_date = escape(date_str)
+    total = sum(len(data.get(k, [])) for k in SECTION_KEYS)
+    blurb = (data.get("description") or "").strip()
+    if not blurb:
+        blurb = "AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态"
+    safe_blurb = escape(blurb, quote=True)
+    sources_raw = (data.get("sources") or "").strip()
+    safe_sources_attr = escape(sources_raw, quote=True) if sources_raw else ""
+    meta_desc = f"今日刊 {safe_date} — {safe_blurb}"
+    if safe_sources_attr:
+        meta_desc = f"{meta_desc} · 来源：{safe_sources_attr}"
+    og_desc = f"今日 {total} 条精选 · {safe_blurb}"
+    if safe_sources_attr:
+        og_desc = f"{og_desc} · {safe_sources_attr}"
+    hero_sources_html = (
+        f'\n  <p class="hero-sources">{escape(sources_raw)}</p>' if sources_raw else ""
+    )
     sections = []
     for key in SECTION_KEYS:
         items = data.get(key, [])
         if items:
             sections.append(build_section_html(key, items, date_str))
     sections_html = "\n".join(sections)
-
-    # Count total items
-    total = sum(len(data.get(k, [])) for k in SECTION_KEYS)
     nav_items = [
         ("research", "AI Agent 研究"),
         ("github", "GitHub 热门"),
@@ -412,7 +412,7 @@ def build_html(data, include_nav_back=True):
   <h1 data-i18n="hero_title">今日刊</h1>
   <p class="date">
     {safe_date} <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-tagline" data-i18n="hero_tagline">每日精选</span> <span class="hero-sep" aria-hidden="true">·</span> <span class="hero-count" id="hero-item-count" data-total-items="{total}">{total}</span><span class="hero-count-unit" data-i18n="hero_count_unit">条</span>
-  </p>
+  </p>{hero_sources_html}
 </div>
 """
     if include_nav_back:
@@ -448,12 +448,12 @@ def build_html(data, include_nav_back=True):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="description" content="今日刊 {safe_date} — AI Agent 领域最新研究、GitHub 热门项目、模型大厂动态">
+<meta name="description" content="{meta_desc}">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:title" content="今日刊 — {safe_date}">
-<meta property="og:description" content="今日 {total} 条 AI 资讯精选：Agent 研究、GitHub 热门、模型大厂动态">
+<meta property="og:description" content="{og_desc}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{SITE_URL}">
 <meta name="twitter:card" content="summary">
@@ -665,6 +665,16 @@ body {{
 .hero .date .hero-tagline {{ color: #7a6f62; font-weight: 500; letter-spacing: 0.4px; }}
 .hero .date .hero-count {{ font-weight: 600; color: #5a6e8a; margin-left: 0.1em; }}
 .hero .date .hero-count-unit {{ color: #6f6559; font-weight: 500; margin-left: 0; }}
+.hero .hero-sources {{
+  margin-top: 8px;
+  font-size: 12px;
+  color: #7a6f62;
+  font-weight: 400;
+  line-height: 1.45;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.3px;
+}}
 
 /* ---- Quick Nav：顶栏内与返回同行时可横向滑动 ---- */
 .quick-nav {{
@@ -1657,13 +1667,13 @@ def parse_args(argv=None):
         help="do not minify historical archives/*.html (only YYYY-MM-DD < today BJT)",
     )
     parser.add_argument(
-        "--max-items",
+        "--max-site-items",
         type=int,
         default=None,
         metavar="N",
         help=(
-            "max total cards on site (fair split by section if raw count exceeds N). "
-            "Overrides AI_DAILY_MAX_SITE_ITEMS; default %s" % DEFAULT_MAX_SITE_ITEMS
+            "max cards site-wide across sections "
+            "(default: env AI_DAILY_MAX_SITE_ITEMS or %d)" % DEFAULT_MAX_SITE_ITEMS
         ),
     )
     return parser.parse_args(argv)
@@ -1678,8 +1688,8 @@ def main(argv=None):
 
     data = load_data()
     raw_item_total = sum(len(data.get(k, [])) for k in SECTION_KEYS)
-    max_site_items = resolve_max_site_items(args.max_items)
-    data = cap_data_for_site(data, max_site_items)
+    max_site_items = resolve_max_site_items(args.max_site_items)
+    data = cap_data_for_site(data, max_items=max_site_items)
     date_str = get_issue_date(data)
     today_str = current_beijing_date_str()
 
