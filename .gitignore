@@ -25,3 +25,5 @@ Thumbs.db
 sites/four-persimmons/node_modules/
 sites/four-persimmons/.next/
 sites/four-persimmons/out/
+# Local image download config (may contain signed / internal URLs)
+sites/four-persimmons/bakery-asset-urls.json

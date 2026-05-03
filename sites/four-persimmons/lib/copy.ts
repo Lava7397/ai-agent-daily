@@ -46,6 +46,8 @@ export const copy = {
     closed: "店休 · 占位",
     galleryTitle: "氛围一角",
     galleryCaption: "品牌摄影待补充 — 占位色块示意橱窗与吐司纹理",
+    assetsNote:
+      "已获得授权的图片：在项目里复制 bakery-asset-urls.example.json 为 bakery-asset-urls.json，把各图的「可直接下载的图片 URL」（商家后台 CDN、OSS 直链等）填入对应文件名键，在项目根目录执行 npm run fetch:bakery-assets；再 npm run build 即可带上图。无法用机器人代登美团/大众点评抓取商户页。",
     contactTitle: "找到我们",
     addressLine: "幸福路 ×× 号（示意地址） · 中国城市",
     wechatPlaceholder: "微信：ShiziBread（占位）",
@@ -101,7 +103,9 @@ export const copy = {
     closed: "Closed · placeholder",
     galleryTitle: "A glimpse",
     galleryCaption:
-      "Imagery pending — colour blocks evoke window light and crumb texture.",
+      "Imagery pending — warm colour blocks as stand-ins for window light and crumb.",
+    assetsNote:
+      "Authorized photos: copy bakery-asset-urls.example.json to bakery-asset-urls.json, paste direct-download image URLs per key, run npm run fetch:bakery-assets then npm run build. We cannot log into Meituan/Dianping APIs to scrape storefront pages.",
     contactTitle: "Visit",
     addressLine: "Happiness Rd. ×× (sample) · Your city",
     wechatPlaceholder: "WeChat: ShiziBread (placeholder)",

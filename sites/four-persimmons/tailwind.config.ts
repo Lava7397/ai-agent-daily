@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -49,8 +49,17 @@ const config: Config = {
           800: "#3d2218",
           900: "#2a1710",
         },
-        ink: "#0a0a0a",
-        fog: "#f5f5f5",
+        /** Warm neutral “ink” for type + dark bands (replaces cold #0a0a0a) */
+        ink: "#1c120e",
+        /** Cream page wash */
+        fog: "#fff5eb",
+        cream: {
+          50: "#fffdfb",
+          100: "#fff5eb",
+          200: "#ffe8d4",
+          300: "#ffd6b3",
+        },
+        cocoa: "#2d1810",
       },
     },
   },

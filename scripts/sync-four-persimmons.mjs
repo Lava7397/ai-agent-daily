@@ -4,7 +4,7 @@
  * Public URL: /shizi/ (formerly /four-persimmons/).
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from "fs";
-import { dirname, join } from "path";
+import { dirname, extname, join } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -39,6 +39,16 @@ if (!existsSync(fromAssets)) {
 }
 renameSync(fromAssets, toAssets);
 
+/** Folders copied from Next `out/` (e.g. `public/bakery/` → `out/bakery/`) */
+const OUT_EXTRAS = ["bakery"];
+for (const name of OUT_EXTRAS) {
+  const p = join(siteOut, name);
+  if (existsSync(p)) {
+    cpSync(p, join(dest, name), { recursive: true });
+    console.log("Synced", name, "→", join(dest, name));
+  }
+}
+
 /** @param {string} file */
 function rewriteAssetPaths(file) {
   let s = readFileSync(file, "utf8");
@@ -52,12 +62,17 @@ function rewriteAssetPaths(file) {
   if (n !== s) writeFileSync(file, n);
 }
 
+const TEXT_EXT = new Set([".html", ".js", ".css", ".json", ".txt", ".map"]);
+
 /** @param {string} dir */
 function walk(dir) {
   for (const ent of readdirSync(dir, { withFileTypes: true })) {
     const p = join(dir, ent.name);
     if (ent.isDirectory()) walk(p);
-    else rewriteAssetPaths(p);
+    else {
+      const ext = extname(ent.name).toLowerCase();
+      if (TEXT_EXT.has(ext)) rewriteAssetPaths(p);
+    }
   }
 }
 
