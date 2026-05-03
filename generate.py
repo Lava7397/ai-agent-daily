@@ -155,6 +155,18 @@ def apply_home_archive_override(archive_infos, data):
     return out
 
 
+def json_for_script(obj):
+    """JSON safe to embed directly in a <script> block."""
+    return (
+        json.dumps(obj, ensure_ascii=False)
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+        .replace("&", "\\u0026")
+        .replace("\u2028", "\\u2028")
+        .replace("\u2029", "\\u2029")
+    )
+
+
 SECTION_META = {
     "research": {"icon": "🤖", "title_zh": "AI Agent 研究",     "title_en": "Research"},
     "github":   {"icon": "⭐", "title_zh": "GitHub 热门项目",   "title_en": "GitHub Trending"},
@@ -1082,7 +1094,7 @@ def build_issues_html(archive_infos, page=1, per_page=10):
 
     generated_at = datetime.now(BEIJING_TZ).strftime("%Y-%m-%d %H:%M")
     # JSON 序列化，供 JS 端分页使用
-    all_archives_json = json.dumps(archive_infos, ensure_ascii=False)
+    all_archives_json = json_for_script(archive_infos)
 
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -1538,6 +1550,16 @@ const ALL_ARCHIVES = {all_archives_json};
 const PER_PAGE = {per_page};
 const totalPages = Math.max(1, Math.ceil(ALL_ARCHIVES.length / PER_PAGE));
 
+function escHtml(value) {{
+  return String(value == null ? '' : value).replace(/[&<>"']/g, ch => ({{
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }}[ch]));
+}}
+
 function renderPage(p) {{
   p = Math.max(1, Math.min(p, totalPages));
   const start = (p - 1) * PER_PAGE;
@@ -1552,14 +1574,14 @@ function renderPage(p) {{
     const rightInner = n > 0
       ? `<span class="date-arrow-stack" aria-label="${{n}} 条内容" title="${{n}} 条内容"><span class="date-count-num">${{n}}</span><span class="date-arrow" aria-hidden="true">→</span></span>`
       : `<span class="date-arrow-stack date-arrow-stack--empty" aria-hidden="true"><span class="date-arrow">→</span></span>`;
-    const summaryHtml = summary ? `<p class="date-summary">${{summary}}</p>` : '';
+    const summaryHtml = summary ? `<p class="date-summary">${{escHtml(summary)}}</p>` : '';
     return `<a class="date-card" href="archives/${{d}}.html">
       <div class="date-meta-wrap">
         <span class="date-main">${{d}}</span>
         <span class="date-day">${{dn}}</span>
       </div>
       <div class="date-text-wrap">
-        <p class="date-headline">${{headline || '暂无摘要'}}</p>
+        <p class="date-headline">${{escHtml(headline || '暂无摘要')}}</p>
         ${{summaryHtml}}
       </div>
       <div class="date-right">
