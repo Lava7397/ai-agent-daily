@@ -5,6 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
+        display: [
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Helvetica Neue"',
+          "Helvetica",
+          "Arial",
+          '"PingFang SC"',
+          '"Hiragino Sans GB"',
+          '"Microsoft YaHei"',
+          "sans-serif",
+        ],
         serif: [
           "ui-serif",
           "Georgia",
@@ -36,6 +49,8 @@ const config: Config = {
           800: "#3d2218",
           900: "#2a1710",
         },
+        ink: "#0a0a0a",
+        fog: "#f5f5f5",
       },
     },
   },
