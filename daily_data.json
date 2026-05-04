@@ -1,265 +1,172 @@
 {
-  "date": "2026-05-03",
-  "sources": "AI News, GitHub, Hacker News, TechCrunch, arXiv",
+  "date": "2026-05-04",
+  "sources": "Hacker News, GitHub",
   "description": "AI Agent 领域最新情报",
-  "research": [
-    {
-      "title": "Replit&#8217;s Amjad Masad on the Cursor deal, fighting Apple, and why he&#8217;d rather not sell",
-      "summary": "Meta bought humanoid startup Assured Robot Intelligence to beef up its AI models for robots, the company said.",
-      "url": "https://techcrunch.com/2026/05/01/replits-amjad-masad-on-the-cursor-deal-fighting-apple-and-why-hed-rather-not-sell/",
-      "tags": [
-        "techcrunch",
-        "industry"
-      ],
-      "title_zh": "复制Amjad Masad的Cursor交易，与Apple对抗，以及他为什么宁愿不卖",
-      "summary_zh": "该公司表示， Meta收购了人形初创公司Assured Robot Intelligence ，以加强其针对机器人的人工智能模型。",
-      "title_en": "Replit&#8217;s Amjad Masad on the Cursor deal, fighting Apple, and why he&#8217;d rather not sell",
-      "summary_en": "Meta bought humanoid startup Assured Robot Intelligence to beef up its AI models for robots, the company said."
-    },
-    {
-      "title": "Meta buys robotics startup to bolster its humanoid AI ambitions",
-      "summary": "Elon Musk spent the better part of three days on the witness stand this week in his lawsuit against OpenAI, and it&#8217;s already getting messy. Emails, texts, and his own tweets are surfacing in court, and there are plenty more witnesses to come. Musk&#8217;s argument against OpenAI? By converting the company to a for-profit model, Sam Altman betrayed the “nonprofit for the [&#8230;]",
-      "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
-      "tags": [
-        "techcrunch",
-        "industry"
-      ],
-      "title_zh": "Meta收购机器人初创公司以加强其人形AI野心",
-      "summary_zh": "埃隆·马斯克（ Elon Musk ）本周在针对OpenAI的诉讼中花了三天的大部分时间在证人席上，现在已经变得混乱不堪。电子邮件、短信和他自己的推文正在法庭上浮出水面，还有更多的证人即将到来。马斯克反对OpenAI的论点？通过将公司转变为营利模式， Sam Altman背叛了“非营利组织[…]",
-      "title_en": "Meta buys robotics startup to bolster its humanoid AI ambitions",
-      "summary_en": "Elon Musk spent the better part of three days on the witness stand this week in his lawsuit against OpenAI, and it&#8217;s already getting messy. Emails, texts, and his own tweets are surfacing in court, and there are plenty more witnesses to come. Musk&#8217;s argument against OpenAI? By converting the company to a for-profit model, Sam Altman betrayed the “nonprofit for the [&#8230;]"
-    },
-    {
-      "title": "Did you know you can&#8217;t steal a charity? Don&#8217;t worry. Elon Musk will remind you.",
-      "summary": "The deals come as the DOD has doubled down on diversifying its exposure to AI vendors in the wake of its controversial dispute with Anthropic over usage terms of its AI models.",
-      "url": "https://techcrunch.com/podcast/did-you-know-you-cant-steal-a-charity-dont-worry-elon-musk-will-remind-you/",
-      "tags": [
-        "techcrunch",
-        "industry"
-      ],
-      "title_zh": "您知道您不能偷窃慈善机构吗？别担心，伊隆·马斯克会提醒你。",
-      "summary_zh": "在与Anthropic就其人工智能模型的使用条款发生争议后，国防部加倍增加了对人工智能供应商的投资。",
-      "title_en": "Did you know you can&#8217;t steal a charity? Don&#8217;t worry. Elon Musk will remind you.",
-      "summary_en": "The deals come as the DOD has doubled down on diversifying its exposure to AI vendors in the wake of its controversial dispute with Anthropic over usage terms of its AI models."
-    },
-    {
-      "title": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks",
-      "summary": "Elon Musk spent the better part of three days&#160;on the witness stand&#160;this week&#160;in his lawsuit against OpenAI, and&#160;it&#8217;s&#160;already getting messy. Emails, texts, and&#160;his own tweets&#160;are surfacing in court, and there are plenty more witnesses to come. Musk&#8217;s argument against OpenAI? By converting the company to a for-profit model, Sam Altman betrayed the “nonprofit for the [&#8230;]",
-      "url": "https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/",
-      "tags": [
-        "techcrunch",
-        "industry"
-      ],
-      "title_zh": "五角大楼与英伟达、微软和AWS达成协议，在机密网络上部署人工智能",
-      "summary_zh": "埃隆·马斯克（ Elon Musk ）本周在针对OpenAI的诉讼中花了三天的大部分时间在证人席上，现在已经变得混乱不堪。电子邮件、短信和他自己的推文正在法庭上浮出水面，还有更多的证人即将到来。马斯克反对OpenAI的论点？通过将公司转变为营利模式， Sam Altman背叛了“非营利组织[…]",
-      "title_en": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks",
-      "summary_en": "Elon Musk spent the better part of three days&#160;on the witness stand&#160;this week&#160;in his lawsuit against OpenAI, and&#160;it&#8217;s&#160;already getting messy. Emails, texts, and&#160;his own tweets&#160;are surfacing in court, and there are plenty more witnesses to come. Musk&#8217;s argument against OpenAI? By converting the company to a for-profit model, Sam Altman betrayed the “nonprofit for the [&#8230;]"
-    }
-  ],
+  "research": [],
   "github": [
     {
-      "title": "Moco99/OpenRelay",
-      "summary": "【GitHub】OpenRelay — Open source CLI tool to orchestrate multiple AI coding agents (Claude Code, OpenCode, Gemini CLI, Codex) with role-based hierarchy, token-aware memory, and configurable human checkpoints.  （⭐ 1）",
-      "url": "https://github.com/Moco99/OpenRelay",
-      "stars": 1,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "Moco99/OpenRelay",
-      "summary_zh": "【GitHub】OpenRelay —开源CLI工具，通过基于角色的层次结构、令牌感知内存和可配置的人类检查点来编排多个AI编码代理（ Claude Code、OpenCode、Gemini CLI、Codex ）。（⭐ 1 ）",
-      "title_en": "Moco99/OpenRelay",
-      "summary_en": "【GitHub】OpenRelay — Open source CLI tool to orchestrate multiple AI coding agents (Claude Code, OpenCode, Gemini CLI, Codex) with role-based hierarchy, token-aware memory, and configurable human checkpoints.  （⭐ 1）"
-    },
-    {
-      "title": "slopweaver/slopweaver",
-      "summary": "【GitHub】Give Claude Code the GitHub + Slack context behind any PR. Open-source local-first MCP server. BYOK. （⭐ 0）",
-      "url": "https://github.com/slopweaver/slopweaver",
+      "title": "garycoding/deco-assaying",
+      "summary": "【GitHub】MCP server for code parsing via tree-sitter (Python/C/C++ initially, broader language coverage planned) （⭐ 0）",
+      "url": "https://github.com/garycoding/deco-assaying",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "slopweaver/slopweaver",
-      "summary_zh": "【GitHub】为Claude Code提供任何公关背后的GitHub + Slack上下文。开源本地优先MCP服务器。BYOK. （⭐ 0 ）",
-      "title_en": "slopweaver/slopweaver",
-      "summary_en": "【GitHub】Give Claude Code the GitHub + Slack context behind any PR. Open-source local-first MCP server. BYOK. （⭐ 0）"
+      "title_zh": "garycoding/deco-assaying",
+      "summary_zh": "【GitHub】用于通过tree-sitter进行代码解析的MCP服务器（最初是Python/C/C + + ，计划扩大语言覆盖范围） （⭐ 0 ）",
+      "title_en": "garycoding/deco-assaying",
+      "summary_en": "【GitHub】MCP server for code parsing via tree-sitter (Python/C/C++ initially, broader language coverage planned) （⭐ 0）"
     },
     {
-      "title": "abgarciafdz/disk-cleanup",
-      "summary": "【GitHub】Reemplazo open-source de CleanMyMac X — 9 módulos de limpieza y mantenimiento de Mac, conversacional desde Claude Code （⭐ 0）",
-      "url": "https://github.com/abgarciafdz/disk-cleanup",
+      "title": "corvyn-ai/corvyn",
+      "summary": "【GitHub】Open source AI routing proxy that automatically routes requests to free models and shows costs in your local currency — ₹ ₦ R$ ₱ and 60+ more. Works with OpenCode and Claude Code. （⭐ 2）",
+      "url": "https://github.com/corvyn-ai/corvyn",
+      "stars": 2,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "corvyn-ai/corvyn",
+      "summary_zh": "【GitHub】开源人工智能路由代理，可自动将请求路由到免费模型，并以您的本地货币显示成本— ₹ ”R $”和60多个。适用于OpenCode和Claude Code。（⭐ 2 ）",
+      "title_en": "corvyn-ai/corvyn",
+      "summary_en": "【GitHub】Open source AI routing proxy that automatically routes requests to free models and shows costs in your local currency — ₹ ₦ R$ ₱ and 60+ more. Works with OpenCode and Claude Code. （⭐ 2）"
+    },
+    {
+      "title": "serafim-builds/PersonaOS",
+      "summary": "【GitHub】An open-source AI that quietly remembers who you are — in plain markdown you fully own. Works with Claude Code, Codex CLI, opencode, and any other agent that reads AGENTS.md. （⭐ 2）",
+      "url": "https://github.com/serafim-builds/PersonaOS",
+      "stars": 2,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "serafim-builds/PersonaOS",
+      "summary_zh": "【GitHub】一个开源的人工智能，可以悄悄地记住您是谁--在简单的扣分中，您完全拥有。适用于Claude Code、Codex CLI、opencode和任何其他读取AGENTS.md的代理。（⭐ 2 ）",
+      "title_en": "serafim-builds/PersonaOS",
+      "summary_en": "【GitHub】An open-source AI that quietly remembers who you are — in plain markdown you fully own. Works with Claude Code, Codex CLI, opencode, and any other agent that reads AGENTS.md. （⭐ 2）"
+    },
+    {
+      "title": "eonofpixel/dreampia-dev",
+      "summary": "【GitHub】Open source AI coding desktop wrapper. Claude Code + OpenAI Codex 통합 GUI. 한국어 우선, Windows-first, Apache 2.0. （⭐ 0）",
+      "url": "https://github.com/eonofpixel/dreampia-dev",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "abgarciafdz/disk-cleanup",
-      "summary_zh": "【GitHub】Reemplazo开源de CleanMyMac X — 9 módulos de limpieza y mantenimiento de Mac, conversacional desde Claude Code （⭐ 0 ）",
-      "title_en": "abgarciafdz/disk-cleanup",
-      "summary_en": "【GitHub】Reemplazo open-source de CleanMyMac X — 9 módulos de limpieza y mantenimiento de Mac, conversacional desde Claude Code （⭐ 0）"
-    },
-    {
-      "title": "Moco99/OpenRelay",
-      "summary": "【GitHub】OpenRelay — Open source CLI tool to orchestrate multiple AI coding agents (Claude Code, OpenCode, Gemini CLI, Codex) with role-based hierarchy, token-aware memory, and configurable human checkpoints.  （⭐ 1）",
-      "url": "https://github.com/Moco99/OpenRelay",
-      "stars": 1,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "Moco99/OpenRelay",
-      "summary_zh": "【GitHub】OpenRelay —开源CLI工具，通过基于角色的层次结构、令牌感知内存和可配置的人类检查点来编排多个AI编码代理（ Claude Code、OpenCode、Gemini CLI、Codex ）。（⭐ 1 ）",
-      "title_en": "Moco99/OpenRelay",
-      "summary_en": "【GitHub】OpenRelay — Open source CLI tool to orchestrate multiple AI coding agents (Claude Code, OpenCode, Gemini CLI, Codex) with role-based hierarchy, token-aware memory, and configurable human checkpoints.  （⭐ 1）"
-    },
-    {
-      "title": "Acidni-LLC/jobmaster-mcp",
-      "summary": "【GitHub】Open-source Model Context Protocol server for Job Master - connect Claude, ChatGPT, Gemini, Cursor, VS Code, Zed to your career stack. （⭐ 0）",
-      "url": "https://github.com/Acidni-LLC/jobmaster-mcp",
-      "stars": 0,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "Acidni-LLC/jobmaster-mcp",
-      "summary_zh": "【GitHub】作业主机的开源模型上下文协议服务器-将Claude、ChatGPT、Gemini、Cursor、VS Code、Zed连接到您的职业堆栈。（⭐ 0 ）",
-      "title_en": "Acidni-LLC/jobmaster-mcp",
-      "summary_en": "【GitHub】Open-source Model Context Protocol server for Job Master - connect Claude, ChatGPT, Gemini, Cursor, VS Code, Zed to your career stack. （⭐ 0）"
+      "title_zh": "eonofpixel/dreampia-dev",
+      "summary_zh": "【GitHub】开源AI编码桌面包装器。Claude Code + OpenAI Codex 통합 GUI。한국어 우선, Windows-first, Apache 2.0. （⭐ 0 ）",
+      "title_en": "eonofpixel/dreampia-dev",
+      "summary_en": "【GitHub】Open source AI coding desktop wrapper. Claude Code + OpenAI Codex 통합 GUI. 한국어 우선, Windows-first, Apache 2.0. （⭐ 0）"
     }
   ],
   "models": [
     {
-      "title": "AI-generated actors and scripts are now ineligible for Oscars",
-      "summary": "Bad news for Tilly Norwood. This TechCrunch report provides detailed coverage of the AI industry development.",
-      "url": "https://techcrunch.com/2026/05/02/ai-generated-actors-and-scripts-are-now-ineligible-for-oscars/",
+      "title": "‘This is fine’ creator says AI startup stole his art",
+      "summary": "The ad comes from Artisan, the AI startup behind billboards urging businesses to \"stop hiring humans.\"",
+      "url": "https://techcrunch.com/2026/05/03/this-is-fine-creator-says-ai-startup-stole-his-art/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "人工智能生成的演员和剧本现在没有资格获得奥斯卡奖",
-      "summary_zh": "对Tilly Norwood来说是个坏消息。这份TechCrunch报告详细介绍了人工智能行业的发展。",
-      "title_en": "AI-generated actors and scripts are now ineligible for Oscars",
-      "summary_en": "Bad news for Tilly Norwood. This TechCrunch report provides detailed coverage of the AI industry development."
+      "title_zh": "“这很好”的创作者说，人工智能初创公司偷了他的艺术品",
+      "summary_zh": "这则广告来自广告牌背后的人工智能初创公司Artisan ，该公司敦促企业“停止雇用人类”。",
+      "title_en": "‘This is fine’ creator says AI startup stole his art",
+      "summary_en": "The ad comes from Artisan, the AI startup behind billboards urging businesses to \"stop hiring humans.\""
     },
     {
-      "title": "The best AI dictation apps, tested and ranked",
-      "summary": "AI-powered dictation apps are useful for replying to emails, taking notes, and even coding through your voice",
-      "url": "https://techcrunch.com/2026/05/02/the-best-ai-powered-dictation-apps-of-2025/",
+      "title": "In Harvard study, AI offered more accurate emergency room diagnoses than two human doctors",
+      "summary": "A new study examines how large language models perform in a variety of medical contexts, including real emergency room cases — where at least one model seemed to be more accurate than human doctors.",
+      "url": "https://techcrunch.com/2026/05/03/in-harvard-study-ai-offered-more-accurate-diagnoses-than-emergency-room-doctors/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "经过测试和排名的最佳人工智能听写应用程序",
-      "summary_zh": "人工智能驱动的听写应用程序用于回复电子邮件、做笔记，甚至通过语音进行编码",
-      "title_en": "The best AI dictation apps, tested and ranked",
-      "summary_en": "AI-powered dictation apps are useful for replying to emails, taking notes, and even coding through your voice"
-    },
-    {
-      "title": "AI News",
-      "summary": "According to SAP, enterprise AI governance secures profit margins by replacing statistical guesses with deterministic control. Ask a consumer-grade model to count the words in a document, and it will often miss the mark by ten percent. Manos Raptopoulos, Global President of Customer Success Europe, APAC, Middle East &#38; Africa at SAP, observes that the [&#8230;] The post SAP: How enterprise AI governance secures profit margins appeared first on AI News .",
-      "url": "https://www.artificialintelligence-news.com/",
-      "tags": [
-        "industry",
-        "ai-news"
-      ],
-      "title_zh": "AI新闻",
-      "summary_zh": "根据SAP的说法，企业AI治理通过用确定性控制取代统计猜测来确保利润率。要求消费级模型对文档中的单词进行计数，它通常会错过百分之十的标记。SAP欧洲、亚太地区、中东和非洲客户成功全球总裁Manos Raptopoulos观察到， […]后SAP ：企业AI治理如何确保利润率首先出现在人工智能新闻上。",
-      "title_en": "AI News",
-      "summary_en": "According to SAP, enterprise AI governance secures profit margins by replacing statistical guesses with deterministic control. Ask a consumer-grade model to count the words in a document, and it will often miss the mark by ten percent. Manos Raptopoulos, Global President of Customer Success Europe, APAC, Middle East &#38; Africa at SAP, observes that the [&#8230;] The post SAP: How enterprise AI governance secures profit margins appeared first on AI News ."
-    },
-    {
-      "title": "AI News &amp; Artificial Intelligence | TechCrunch",
-      "summary": "Bad news for Tilly Norwood. This AI news article from May 03 discusses important industry developments and their implications for the ecosystem.",
-      "url": "https://techcrunch.com/category/artificial-intelligence/",
-      "tags": [
-        "techcrunch",
-        "industry"
-      ],
-      "title_zh": "人工智能新闻与人工智能| TechCrunch",
-      "summary_zh": "对Tilly Norwood来说是个坏消息。这篇5月3日的人工智能新闻文章讨论了重要的行业发展及其对生态系统的影响。",
-      "title_en": "AI News &amp; Artificial Intelligence | TechCrunch",
-      "summary_en": "Bad news for Tilly Norwood. This AI news article from May 03 discusses important industry developments and their implications for the ecosystem."
+      "title_zh": "在哈佛大学的研究中，人工智能提供的急诊室诊断比两名人类医生更准确",
+      "summary_zh": "一项新的研究考察了大型语言模型在各种医疗环境中的表现，包括真实的急诊室病例—其中至少有一个模型似乎比人类医生更准确。",
+      "title_en": "In Harvard study, AI offered more accurate emergency room diagnoses than two human doctors",
+      "summary_en": "A new study examines how large language models perform in a variety of medical contexts, including real emergency room cases — where at least one model seemed to be more accurate than human doctors."
     }
   ],
   "community": [
     {
-      "title": "Show HN: State of the Art of Coding Models, According to Hacker News Commenters",
-      "summary": "【HN】热度: 38 分 | 24 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "url": "https://hnup.date/hn-sota",
+      "title": "Let's Buy Spirit Air",
+      "summary": "【HN】热度: 95 分 | 62 评论",
+      "url": "https://letsbuyspiritair.com/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Show HN ：根据黑客新闻评论员的说法，最先进的编码模型",
-      "summary_zh": "【HN】热度: 38 分 | 24 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "title_en": "Show HN: State of the Art of Coding Models, According to Hacker News Commenters",
-      "summary_en": "【HN】热度: 38 分 | 24 评论 This Hacker News discussion highlights community interest and technical insights."
+      "title_zh": "让我们购买Spirit Air",
+      "summary_zh": "【HN】热度: 95 分 | 62 评论",
+      "title_en": "Let's Buy Spirit Air",
+      "summary_en": "【HN】热度: 95 分 | 62 评论"
     },
     {
-      "title": "Voice-AI-for-Beginners – A curated learning path for developers",
-      "summary": "【HN】热度: 15 分 | 0 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "url": "https://github.com/mahimairaja/voiceai",
+      "title": "DeepClaude – Claude Code agent loop with DeepSeek V4 Pro, 17x cheaper",
+      "summary": "【HN】热度: 160 分 | 71 评论",
+      "url": "https://github.com/aattaran/deepclaude",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Voice-AI-for-Beginners –为开发人员精心策划的学习路径",
-      "summary_zh": "【HN】热度: 15 分 | 0 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "title_en": "Voice-AI-for-Beginners – A curated learning path for developers",
-      "summary_en": "【HN】热度: 15 分 | 0 评论 This Hacker News discussion highlights community interest and technical insights."
+      "title_zh": "DeepClaude –使用DeepSeek V4 Pro的Claude Code代理循环，便宜17倍",
+      "summary_zh": "【HN】热度: 160 分 | 71 评论",
+      "title_en": "DeepClaude – Claude Code agent loop with DeepSeek V4 Pro, 17x cheaper",
+      "summary_en": "【HN】热度: 160 分 | 71 评论"
     },
     {
-      "title": "The agent harness belongs outside the sandbox",
-      "summary": "【HN】热度: 61 分 | 50 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "url": "https://www.mendral.com/blog/agent-harness-belongs-outside-sandbox",
+      "title": "Agentic Coding Is a Trap",
+      "summary": "【HN】热度: 124 分 | 90 评论",
+      "url": "https://larsfaye.com/articles/agentic-coding-is-a-trap",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "座席线束属于沙盒之外",
-      "summary_zh": "【HN】热度: 61 分 | 50 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "title_en": "The agent harness belongs outside the sandbox",
-      "summary_en": "【HN】热度: 61 分 | 50 评论 This Hacker News discussion highlights community interest and technical insights."
+      "title_zh": "代理编码是一个陷阱",
+      "summary_zh": "【HN】热度: 124 分 | 90 评论",
+      "title_en": "Agentic Coding Is a Trap",
+      "summary_en": "【HN】热度: 124 分 | 90 评论"
     },
     {
-      "title": "Open Design: Use Your Coding Agent as a Design Engine",
-      "summary": "【HN】热度: 169 分 | 84 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "url": "https://github.com/nexu-io/open-design",
+      "title": "LLMs Are Not a Higher Level of Abstraction",
+      "summary": "【HN】热度: 44 分 | 39 评论",
+      "url": "https://www.lelanthran.com/chap15/content.html",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "开放式设计：将您的编码代理用作设计引擎",
-      "summary_zh": "【HN】热度: 169 分 | 84 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "title_en": "Open Design: Use Your Coding Agent as a Design Engine",
-      "summary_en": "【HN】热度: 169 分 | 84 评论 This Hacker News discussion highlights community interest and technical insights."
+      "title_zh": "LLM不是更高层次的抽象",
+      "summary_zh": "【HN】热度: 44 分 | 39 评论",
+      "title_en": "LLMs Are Not a Higher Level of Abstraction",
+      "summary_en": "【HN】热度: 44 分 | 39 评论"
     },
     {
-      "title": "Refusal in Language Models Is Mediated by a Single Direction",
-      "summary": "【HN】热度: 89 分 | 34 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "url": "https://arxiv.org/abs/2406.11717",
+      "title": "Unauthorized macOS port claiming Don Ho as an author?",
+      "summary": "【HN】热度: 5 分 | 0 评论",
+      "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/17982",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "语言模型中的拒绝由单一方向介导",
-      "summary_zh": "【HN】热度: 89 分 | 34 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "title_en": "Refusal in Language Models Is Mediated by a Single Direction",
-      "summary_en": "【HN】热度: 89 分 | 34 评论 This Hacker News discussion highlights community interest and technical insights."
+      "title_zh": "未经授权的macOS端口声称Don Ho是作者？",
+      "summary_zh": "【HN】热度: 5 分 | 0 评论",
+      "title_en": "Unauthorized macOS port claiming Don Ho as an author?",
+      "summary_en": "【HN】热度: 5 分 | 0 评论"
     },
     {
-      "title": "Flue is a TypeScript framework for building the next generation of agents",
-      "summary": "【HN】热度: 82 分 | 46 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "url": "https://flueframework.com/",
+      "title": "How Kepler built verifiable AI for financial services with Claude",
+      "summary": "【HN】热度: 34 分 | 21 评论",
+      "url": "https://claude.com/blog/how-kepler-built-verifiable-ai-for-financial-services-with-claude",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Flue是用于构建下一代代理的TypeScript框架",
-      "summary_zh": "【HN】热度: 82 分 | 46 评论 This Hacker News discussion highlights community interest and technical insights.",
-      "title_en": "Flue is a TypeScript framework for building the next generation of agents",
-      "summary_en": "【HN】热度: 82 分 | 46 评论 This Hacker News discussion highlights community interest and technical insights."
+      "title_zh": "开普勒如何与Claude一起为金融服务构建可验证的人工智能",
+      "summary_zh": "【HN】热度: 34 分 | 21 评论",
+      "title_en": "How Kepler built verifiable AI for financial services with Claude",
+      "summary_en": "【HN】热度: 34 分 | 21 评论"
     }
   ]
 }
