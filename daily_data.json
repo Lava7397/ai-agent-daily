@@ -1,172 +1,198 @@
 {
-  "date": "2026-05-04",
+  "date": "2026-05-05",
   "sources": "Hacker News, GitHub",
   "description": "AI Agent 领域最新情报",
   "research": [],
   "github": [
     {
-      "title": "garycoding/deco-assaying",
-      "summary": "【GitHub】MCP server for code parsing via tree-sitter (Python/C/C++ initially, broader language coverage planned) （⭐ 0）",
-      "url": "https://github.com/garycoding/deco-assaying",
+      "title": "ukaran11/mcp-tool-server",
+      "summary": "【GitHub】Stack: Model Context Protocol (MCP) · Python · FastAPI · GitHub API · Confluence API  Built a production MCP server exposing GitHub and Confluence as AI-native tools — letting LLM agents search repos, （⭐ 0）",
+      "url": "https://github.com/ukaran11/mcp-tool-server",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "garycoding/deco-assaying",
-      "summary_zh": "【GitHub】用于通过tree-sitter进行代码解析的MCP服务器（最初是Python/C/C + + ，计划扩大语言覆盖范围） （⭐ 0 ）",
-      "title_en": "garycoding/deco-assaying",
-      "summary_en": "【GitHub】MCP server for code parsing via tree-sitter (Python/C/C++ initially, broader language coverage planned) （⭐ 0）"
+      "title_zh": "ukaran11/mcp-tool-server",
+      "summary_zh": "【GitHub】Stack ：模型上下文协议（ MCP ） · Python · FastAPI · GitHub API · Confluence API构建生产MCP服务器，将GitHub和Confluence公开为AI原生工具—让LLM代理搜索存储库， （⭐ 0 ）",
+      "title_en": "ukaran11/mcp-tool-server",
+      "summary_en": "【GitHub】Stack: Model Context Protocol (MCP) · Python · FastAPI · GitHub API · Confluence API  Built a production MCP server exposing GitHub and Confluence as AI-native tools — letting LLM agents search repos, （⭐ 0）"
     },
     {
-      "title": "corvyn-ai/corvyn",
-      "summary": "【GitHub】Open source AI routing proxy that automatically routes requests to free models and shows costs in your local currency — ₹ ₦ R$ ₱ and 60+ more. Works with OpenCode and Claude Code. （⭐ 2）",
-      "url": "https://github.com/corvyn-ai/corvyn",
+      "title": "yoloshii/gigaxity-deep-research",
+      "summary": "【GitHub】Open-source deep research MCP. Tongyi 30B via OpenRouter, cited web synthesis for Claude Code, Hermes, Cursor. （⭐ 2）",
+      "url": "https://github.com/yoloshii/gigaxity-deep-research",
       "stars": 2,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "corvyn-ai/corvyn",
-      "summary_zh": "【GitHub】开源人工智能路由代理，可自动将请求路由到免费模型，并以您的本地货币显示成本— ₹ ”R $”和60多个。适用于OpenCode和Claude Code。（⭐ 2 ）",
-      "title_en": "corvyn-ai/corvyn",
-      "summary_en": "【GitHub】Open source AI routing proxy that automatically routes requests to free models and shows costs in your local currency — ₹ ₦ R$ ₱ and 60+ more. Works with OpenCode and Claude Code. （⭐ 2）"
+      "title_zh": "yoloshii/gigaxity-deep-research",
+      "summary_zh": "【GitHub】开源深度研究MCP。Tongyi 30B via OpenRouter ，引用Claude Code、Hermes、Cursor的网络合成。（⭐ 2 ）",
+      "title_en": "yoloshii/gigaxity-deep-research",
+      "summary_en": "【GitHub】Open-source deep research MCP. Tongyi 30B via OpenRouter, cited web synthesis for Claude Code, Hermes, Cursor. （⭐ 2）"
     },
     {
-      "title": "serafim-builds/PersonaOS",
-      "summary": "【GitHub】An open-source AI that quietly remembers who you are — in plain markdown you fully own. Works with Claude Code, Codex CLI, opencode, and any other agent that reads AGENTS.md. （⭐ 2）",
-      "url": "https://github.com/serafim-builds/PersonaOS",
-      "stars": 2,
+      "title": "Hegxib/claude-code",
+      "summary": "【GitHub】Open-source Claude Code CLI skeleton discovered by Chaofan Shou. This TypeScript codebase provides a professional framework for agentic workflows, LLM tool-calling, and terminal UI. Please note this r （⭐ 1）",
+      "url": "https://github.com/Hegxib/claude-code",
+      "stars": 1,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "serafim-builds/PersonaOS",
-      "summary_zh": "【GitHub】一个开源的人工智能，可以悄悄地记住您是谁--在简单的扣分中，您完全拥有。适用于Claude Code、Codex CLI、opencode和任何其他读取AGENTS.md的代理。（⭐ 2 ）",
-      "title_en": "serafim-builds/PersonaOS",
-      "summary_en": "【GitHub】An open-source AI that quietly remembers who you are — in plain markdown you fully own. Works with Claude Code, Codex CLI, opencode, and any other agent that reads AGENTS.md. （⭐ 2）"
+      "title_zh": "Hegxib/claude-code",
+      "summary_zh": "【GitHub】Chaofan Shou发现的开源Claude Code CLI骨架。此TypeScript代码库为代理工作流、LLM工具调用和终端UI提供了专业框架。请注意此r （⭐ 1 ）",
+      "title_en": "Hegxib/claude-code",
+      "summary_en": "【GitHub】Open-source Claude Code CLI skeleton discovered by Chaofan Shou. This TypeScript codebase provides a professional framework for agentic workflows, LLM tool-calling, and terminal UI. Please note this r （⭐ 1）"
     },
     {
-      "title": "eonofpixel/dreampia-dev",
-      "summary": "【GitHub】Open source AI coding desktop wrapper. Claude Code + OpenAI Codex 통합 GUI. 한국어 우선, Windows-first, Apache 2.0. （⭐ 0）",
-      "url": "https://github.com/eonofpixel/dreampia-dev",
+      "title": "FournineCS/claude-skills",
+      "summary": "【GitHub】Open-source collection of Claude Code skills （⭐ 0）",
+      "url": "https://github.com/FournineCS/claude-skills",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "eonofpixel/dreampia-dev",
-      "summary_zh": "【GitHub】开源AI编码桌面包装器。Claude Code + OpenAI Codex 통합 GUI。한국어 우선, Windows-first, Apache 2.0. （⭐ 0 ）",
-      "title_en": "eonofpixel/dreampia-dev",
-      "summary_en": "【GitHub】Open source AI coding desktop wrapper. Claude Code + OpenAI Codex 통합 GUI. 한국어 우선, Windows-first, Apache 2.0. （⭐ 0）"
+      "title_zh": "FournineCS/claude-skills",
+      "summary_zh": "【GitHub】Claude Code技能开源集（⭐ 0 ）",
+      "title_en": "FournineCS/claude-skills",
+      "summary_en": "【GitHub】Open-source collection of Claude Code skills （⭐ 0）"
     }
   ],
   "models": [
     {
-      "title": "‘This is fine’ creator says AI startup stole his art",
-      "summary": "The ad comes from Artisan, the AI startup behind billboards urging businesses to \"stop hiring humans.\"",
-      "url": "https://techcrunch.com/2026/05/03/this-is-fine-creator-says-ai-startup-stole-his-art/",
+      "title": "OpenAI’s cozy partner Cerebras is on track for a blockbuster IPO",
+      "summary": "AI chip maker Cerebras is heading for a blockbuster IPO that could value it at $26.6 billion or more. Its relationship with OpenAI is deep and rich.",
+      "url": "https://techcrunch.com/2026/05/04/openais-cozy-partner-cerebras-is-on-track-for-a-blockbuster-ipo/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "“这很好”的创作者说，人工智能初创公司偷了他的艺术品",
-      "summary_zh": "这则广告来自广告牌背后的人工智能初创公司Artisan ，该公司敦促企业“停止雇用人类”。",
-      "title_en": "‘This is fine’ creator says AI startup stole his art",
-      "summary_en": "The ad comes from Artisan, the AI startup behind billboards urging businesses to \"stop hiring humans.\""
+      "title_zh": "OpenAI舒适的合作伙伴Cerebras正在进行一场轰动一时的首次公开募股",
+      "summary_zh": "人工智能芯片制造商Cerebras正在进行一场轰动一时的IPO ，其估值可能达到266亿美元或更高。它与OpenAI的关系深厚而丰富。",
+      "title_en": "OpenAI’s cozy partner Cerebras is on track for a blockbuster IPO",
+      "summary_en": "AI chip maker Cerebras is heading for a blockbuster IPO that could value it at $26.6 billion or more. Its relationship with OpenAI is deep and rich."
     },
     {
-      "title": "In Harvard study, AI offered more accurate emergency room diagnoses than two human doctors",
-      "summary": "A new study examines how large language models perform in a variety of medical contexts, including real emergency room cases — where at least one model seemed to be more accurate than human doctors.",
-      "url": "https://techcrunch.com/2026/05/03/in-harvard-study-ai-offered-more-accurate-diagnoses-than-emergency-room-doctors/",
+      "title": "Image AI models now drive app growth, beating chatbot upgrades",
+      "summary": "Appfigures finds visual model launches generate 6.5x more downloads — but most don’t convert that spike into revenue.",
+      "url": "https://techcrunch.com/2026/05/04/image-ai-models-now-drive-app-growth-beating-chatbot-upgrades/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "在哈佛大学的研究中，人工智能提供的急诊室诊断比两名人类医生更准确",
-      "summary_zh": "一项新的研究考察了大型语言模型在各种医疗环境中的表现，包括真实的急诊室病例—其中至少有一个模型似乎比人类医生更准确。",
-      "title_en": "In Harvard study, AI offered more accurate emergency room diagnoses than two human doctors",
-      "summary_en": "A new study examines how large language models perform in a variety of medical contexts, including real emergency room cases — where at least one model seemed to be more accurate than human doctors."
+      "title_zh": "Image AI模型现在推动应用程序增长，击败聊天机器人升级",
+      "summary_zh": "Appfigures发现，视觉模型的发布产生了6.5倍的下载量，但大多数都不会将其转化为收入。",
+      "title_en": "Image AI models now drive app growth, beating chatbot upgrades",
+      "summary_en": "Appfigures finds visual model launches generate 6.5x more downloads — but most don’t convert that spike into revenue."
+    },
+    {
+      "title": "Elon Musk’s only AI expert witness at the OpenAI trial fears an AGI arms race",
+      "summary": "Stuart Russell is a long-time AI researcher who thinks governments need to restrain frontier labs. ",
+      "url": "https://techcrunch.com/2026/05/04/elon-musks-only-expert-witness-at-the-openai-trial-fears-an-agi-arms-race/",
+      "tags": [
+        "industry",
+        "techcrunch"
+      ],
+      "title_zh": "埃隆·马斯克（ Elon Musk ）在OpenAI审判中唯一的人工智能专家证人担心AGI军备竞赛",
+      "summary_zh": "Stuart Russell是一位长期的人工智能研究人员，他认为政府需要限制前沿实验室。",
+      "title_en": "Elon Musk’s only AI expert witness at the OpenAI trial fears an AGI arms race",
+      "summary_en": "Stuart Russell is a long-time AI researcher who thinks governments need to restrain frontier labs."
+    },
+    {
+      "title": "Sierra raises $950M as the race to own enterprise AI gets serious",
+      "summary": "The raise gives Sierra more than $1 billion to work with — capital the company says it will use to become the \"global standard\" for AI-powered customer experiences.",
+      "url": "https://techcrunch.com/2026/05/04/sierra-raises-950m-as-the-race-to-own-enterprise-ai-gets-serious/",
+      "tags": [
+        "industry",
+        "techcrunch"
+      ],
+      "title_zh": "Sierra筹集了9.5亿美元$ ，因为拥有企业AI的竞争变得越来越激烈",
+      "summary_zh": "此次融资为Sierra提供了超过10亿美元的合作资金--该公司表示，它将利用这笔资金成为人工智能客户体验的“全球标准”。",
+      "title_en": "Sierra raises $950M as the race to own enterprise AI gets serious",
+      "summary_en": "The raise gives Sierra more than $1 billion to work with — capital the company says it will use to become the \"global standard\" for AI-powered customer experiences."
     }
   ],
   "community": [
     {
-      "title": "Let's Buy Spirit Air",
-      "summary": "【HN】热度: 95 分 | 62 评论",
-      "url": "https://letsbuyspiritair.com/",
+      "title": "Agent Skills",
+      "summary": "【HN】热度: 93 分 | 27 评论",
+      "url": "https://addyosmani.com/blog/agent-skills/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "让我们购买Spirit Air",
-      "summary_zh": "【HN】热度: 95 分 | 62 评论",
-      "title_en": "Let's Buy Spirit Air",
-      "summary_en": "【HN】热度: 95 分 | 62 评论"
+      "title_zh": "代理技能",
+      "summary_zh": "【HN】热度: 93 分 | 27 评论",
+      "title_en": "Agent Skills",
+      "summary_en": "【HN】热度: 93 分 | 27 评论"
     },
     {
-      "title": "DeepClaude – Claude Code agent loop with DeepSeek V4 Pro, 17x cheaper",
-      "summary": "【HN】热度: 160 分 | 71 评论",
-      "url": "https://github.com/aattaran/deepclaude",
+      "title": "How OpenAI delivers low-latency voice AI at scale",
+      "summary": "【HN】热度: 271 分 | 99 评论",
+      "url": "https://openai.com/index/delivering-low-latency-voice-ai-at-scale/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "DeepClaude –使用DeepSeek V4 Pro的Claude Code代理循环，便宜17倍",
-      "summary_zh": "【HN】热度: 160 分 | 71 评论",
-      "title_en": "DeepClaude – Claude Code agent loop with DeepSeek V4 Pro, 17x cheaper",
-      "summary_en": "【HN】热度: 160 分 | 71 评论"
+      "title_zh": "OpenAI如何大规模提供低延迟语音AI",
+      "summary_zh": "【HN】热度: 271 分 | 99 评论",
+      "title_en": "How OpenAI delivers low-latency voice AI at scale",
+      "summary_en": "【HN】热度: 271 分 | 99 评论"
     },
     {
-      "title": "Agentic Coding Is a Trap",
-      "summary": "【HN】热度: 124 分 | 90 评论",
-      "url": "https://larsfaye.com/articles/agentic-coding-is-a-trap",
+      "title": "Sierra Raises $950M at $15B Valuation",
+      "summary": "【HN】热度: 87 分 | 119 评论",
+      "url": "https://sierra.ai/blog/better-customer-experiences-built-on-sierra",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "代理编码是一个陷阱",
-      "summary_zh": "【HN】热度: 124 分 | 90 评论",
-      "title_en": "Agentic Coding Is a Trap",
-      "summary_en": "【HN】热度: 124 分 | 90 评论"
+      "title_zh": "Sierra以150亿美元的估值筹集了9.5亿美元",
+      "summary_zh": "【HN】热度: 87 分 | 119 评论",
+      "title_en": "Sierra Raises $950M at $15B Valuation",
+      "summary_en": "【HN】热度: 87 分 | 119 评论"
     },
     {
-      "title": "LLMs Are Not a Higher Level of Abstraction",
-      "summary": "【HN】热度: 44 分 | 39 评论",
-      "url": "https://www.lelanthran.com/chap15/content.html",
+      "title": "Let's talk about LLMs",
+      "summary": "【HN】热度: 137 分 | 109 评论",
+      "url": "https://www.b-list.org/weblog/2026/apr/09/llms/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "LLM不是更高层次的抽象",
-      "summary_zh": "【HN】热度: 44 分 | 39 评论",
-      "title_en": "LLMs Are Not a Higher Level of Abstraction",
-      "summary_en": "【HN】热度: 44 分 | 39 评论"
+      "title_zh": "我们一起来聊聊……",
+      "summary_zh": "【HN】热度: 137 分 | 109 评论",
+      "title_en": "Let's talk about LLMs",
+      "summary_en": "【HN】热度: 137 分 | 109 评论"
     },
     {
-      "title": "Unauthorized macOS port claiming Don Ho as an author?",
-      "summary": "【HN】热度: 5 分 | 0 评论",
-      "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/issues/17982",
+      "title": "Y Combinator's Stake in OpenAI (0.6%)",
+      "summary": "【HN】热度: 14 分 | 0 评论",
+      "url": "https://daringfireball.net/2026/05/y_combinators_stake_in_openai",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "未经授权的macOS端口声称Don Ho是作者？",
-      "summary_zh": "【HN】热度: 5 分 | 0 评论",
-      "title_en": "Unauthorized macOS port claiming Don Ho as an author?",
-      "summary_en": "【HN】热度: 5 分 | 0 评论"
+      "title_zh": "Y Combinator在OpenAI中的股份（ 0.6% ）",
+      "summary_zh": "【HN】热度: 14 分 | 0 评论",
+      "title_en": "Y Combinator's Stake in OpenAI (0.6%)",
+      "summary_en": "【HN】热度: 14 分 | 0 评论"
     },
     {
-      "title": "How Kepler built verifiable AI for financial services with Claude",
-      "summary": "【HN】热度: 34 分 | 21 评论",
-      "url": "https://claude.com/blog/how-kepler-built-verifiable-ai-for-financial-services-with-claude",
+      "title": "OpenAI, Google, and Microsoft Back Bill to Fund 'AI Literacy' in Schools",
+      "summary": "【HN】热度: 109 分 | 96 评论",
+      "url": "https://www.404media.co/literacy-in-future-technologies-artificial-intelligence-act-adam-schiff-mike-rounds/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "开普勒如何与Claude一起为金融服务构建可验证的人工智能",
-      "summary_zh": "【HN】热度: 34 分 | 21 评论",
-      "title_en": "How Kepler built verifiable AI for financial services with Claude",
-      "summary_en": "【HN】热度: 34 分 | 21 评论"
+      "title_zh": "OpenAI、谷歌和微软支持为学校“人工智能扫盲”提供资金的法案",
+      "summary_zh": "【HN】热度: 109 分 | 96 评论",
+      "title_en": "OpenAI, Google, and Microsoft Back Bill to Fund 'AI Literacy' in Schools",
+      "summary_en": "【HN】热度: 109 分 | 96 评论"
     }
   ]
 }
