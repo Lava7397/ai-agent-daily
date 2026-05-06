@@ -1,198 +1,265 @@
 {
-  "date": "2026-05-05",
-  "sources": "Hacker News, GitHub",
+  "date": "2026-05-06",
+  "sources": "Hacker News, arXiv, GitHub",
   "description": "AI Agent 领域最新情报",
-  "research": [],
+  "research": [
+    {
+      "title": "OpenSeeker-v2: Pushing the Limits of Search Agents with Informative and High-Difficulty Trajectories",
+      "summary": "【arXiv】Deep search capabilities have become an indispensable competency for frontier Large Language Model (LLM) agents, yet their development remains dominated by industrial giants. The typical industry recipe involves a highly resource-intensive pipeline s",
+      "url": "http://arxiv.org/abs/2605.04036v1",
+      "tags": [
+        "research",
+        "paper"
+      ],
+      "title_zh": "OpenSeeker-v2 ：突破具有信息性和高难度轨迹的搜索代理的极限",
+      "summary_zh": "【arXiv】深度搜索能力已成为前沿大型语言模型（ LLM ）代理商不可或缺的能力，但其发展仍然由工业巨头主导。典型的行业配方涉及高度资源密集型的管道",
+      "title_en": "OpenSeeker-v2: Pushing the Limits of Search Agents with Informative and High-Difficulty Trajectories",
+      "summary_en": "【arXiv】Deep search capabilities have become an indispensable competency for frontier Large Language Model (LLM) agents, yet their development remains dominated by industrial giants. The typical industry recipe involves a highly resource-intensive pipeline s"
+    },
+    {
+      "title": "Stayin' Aligned Over Time: Towards Longitudinal Human-LLM Alignment via Contextual Reflection and Privacy-Preserving Behavioral Data",
+      "summary": "【arXiv】Current human-AI alignment and evaluation methods for large language models (LLMs) often rely on preference signals collected immediately after an interaction. This practice implicitly treats preference as static, even though many LLM-mediated decisi",
+      "url": "http://arxiv.org/abs/2605.04029v1",
+      "tags": [
+        "research",
+        "paper"
+      ],
+      "title_zh": "随着时间的推移保持一致：通过情境反思和隐私保护行为数据实现纵向人类-LLM一致",
+      "summary_zh": "【arXiv】当前针对大型语言模型（ LLM ）的人工智能对齐和评估方法通常依赖于交互后立即收集的偏好信号。这种做法隐含地将偏好视为静态的，即使许多LLM介导的决定",
+      "title_en": "Stayin' Aligned Over Time: Towards Longitudinal Human-LLM Alignment via Contextual Reflection and Privacy-Preserving Behavioral Data",
+      "summary_en": "【arXiv】Current human-AI alignment and evaluation methods for large language models (LLMs) often rely on preference signals collected immediately after an interaction. This practice implicitly treats preference as static, even though many LLM-mediated decisi"
+    },
+    {
+      "title": "Redefining AI Red Teaming in the Agentic Era: From Weeks to Hours",
+      "summary": "【arXiv】AI systems are entering critical domains like healthcare, finance, and defense, yet remain vulnerable to adversarial attacks. While AI red teaming is a primary defense, current approaches force operators into manual, library-specific workflows. Opera",
+      "url": "http://arxiv.org/abs/2605.04019v1",
+      "tags": [
+        "research",
+        "paper"
+      ],
+      "title_zh": "重新定义代理时代的人工智能红色团队：从几周到几小时",
+      "summary_zh": "【arXiv】人工智能系统正在进入医疗保健、金融和国防等关键领域，但仍然容易受到对抗性攻击。虽然人工智能红色分组是主要的防御手段，但目前的方法迫使操作员进入手动、特定于库的工作流程。Opera",
+      "title_en": "Redefining AI Red Teaming in the Agentic Era: From Weeks to Hours",
+      "summary_en": "【arXiv】AI systems are entering critical domains like healthcare, finance, and defense, yet remain vulnerable to adversarial attacks. While AI red teaming is a primary defense, current approaches force operators into manual, library-specific workflows. Opera"
+    },
+    {
+      "title": "Rethinking Reasoning-Intensive Retrieval: Evaluating and Advancing Retrievers in Agentic Search Systems",
+      "summary": "【arXiv】Reasoning-intensive retrieval aims to surface evidence that supports downstream reasoning rather than merely matching topical similarity. This capability is increasingly important for agentic search systems, where retrievers must provide complementar",
+      "url": "http://arxiv.org/abs/2605.04018v1",
+      "tags": [
+        "research",
+        "paper"
+      ],
+      "title_zh": "重新思考推理-密集检索：评估和推进代理搜索系统中的检索器",
+      "summary_zh": "【arXiv】推理密集型检索旨在揭示支持下游推理的证据，而不仅仅是匹配主题相似性。这种功能对于代理搜索系统越来越重要，其中检索器必须提供补充",
+      "title_en": "Rethinking Reasoning-Intensive Retrieval: Evaluating and Advancing Retrievers in Agentic Search Systems",
+      "summary_en": "【arXiv】Reasoning-intensive retrieval aims to surface evidence that supports downstream reasoning rather than merely matching topical similarity. This capability is increasingly important for agentic search systems, where retrievers must provide complementar"
+    }
+  ],
   "github": [
     {
-      "title": "ukaran11/mcp-tool-server",
-      "summary": "【GitHub】Stack: Model Context Protocol (MCP) · Python · FastAPI · GitHub API · Confluence API  Built a production MCP server exposing GitHub and Confluence as AI-native tools — letting LLM agents search repos, （⭐ 0）",
-      "url": "https://github.com/ukaran11/mcp-tool-server",
+      "title": "Sawaira-0316/flight-booking-mcp-server",
+      "summary": "【GitHub】Local MCP server built with Python + FastMCP that connects Claude AI to a flight booking tool. Search and book flights using natural language. （⭐ 0）",
+      "url": "https://github.com/Sawaira-0316/flight-booking-mcp-server",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "ukaran11/mcp-tool-server",
-      "summary_zh": "【GitHub】Stack ：模型上下文协议（ MCP ） · Python · FastAPI · GitHub API · Confluence API构建生产MCP服务器，将GitHub和Confluence公开为AI原生工具—让LLM代理搜索存储库， （⭐ 0 ）",
-      "title_en": "ukaran11/mcp-tool-server",
-      "summary_en": "【GitHub】Stack: Model Context Protocol (MCP) · Python · FastAPI · GitHub API · Confluence API  Built a production MCP server exposing GitHub and Confluence as AI-native tools — letting LLM agents search repos, （⭐ 0）"
+      "title_zh": "Sawaira-0316/机票预订-mcp-服务器",
+      "summary_zh": "【GitHub】使用Python + FastMCP构建的本地MCP服务器，将Claude AI连接到航班预订工具。使用自然语言搜索和预订航班。（⭐ 0 ）",
+      "title_en": "Sawaira-0316/flight-booking-mcp-server",
+      "summary_en": "【GitHub】Local MCP server built with Python + FastMCP that connects Claude AI to a flight booking tool. Search and book flights using natural language. （⭐ 0）"
     },
     {
-      "title": "yoloshii/gigaxity-deep-research",
-      "summary": "【GitHub】Open-source deep research MCP. Tongyi 30B via OpenRouter, cited web synthesis for Claude Code, Hermes, Cursor. （⭐ 2）",
-      "url": "https://github.com/yoloshii/gigaxity-deep-research",
-      "stars": 2,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "yoloshii/gigaxity-deep-research",
-      "summary_zh": "【GitHub】开源深度研究MCP。Tongyi 30B via OpenRouter ，引用Claude Code、Hermes、Cursor的网络合成。（⭐ 2 ）",
-      "title_en": "yoloshii/gigaxity-deep-research",
-      "summary_en": "【GitHub】Open-source deep research MCP. Tongyi 30B via OpenRouter, cited web synthesis for Claude Code, Hermes, Cursor. （⭐ 2）"
-    },
-    {
-      "title": "Hegxib/claude-code",
-      "summary": "【GitHub】Open-source Claude Code CLI skeleton discovered by Chaofan Shou. This TypeScript codebase provides a professional framework for agentic workflows, LLM tool-calling, and terminal UI. Please note this r （⭐ 1）",
-      "url": "https://github.com/Hegxib/claude-code",
-      "stars": 1,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "Hegxib/claude-code",
-      "summary_zh": "【GitHub】Chaofan Shou发现的开源Claude Code CLI骨架。此TypeScript代码库为代理工作流、LLM工具调用和终端UI提供了专业框架。请注意此r （⭐ 1 ）",
-      "title_en": "Hegxib/claude-code",
-      "summary_en": "【GitHub】Open-source Claude Code CLI skeleton discovered by Chaofan Shou. This TypeScript codebase provides a professional framework for agentic workflows, LLM tool-calling, and terminal UI. Please note this r （⭐ 1）"
-    },
-    {
-      "title": "FournineCS/claude-skills",
-      "summary": "【GitHub】Open-source collection of Claude Code skills （⭐ 0）",
-      "url": "https://github.com/FournineCS/claude-skills",
+      "title": "Sawaira-0316/language-translator",
+      "summary": "【GitHub】A local **Model Context Protocol (MCP)** server built with Python and FastMCP. Connects **Claude AI** to a real-time translation engine — translate any text into 100+ languages using natural language  （⭐ 0）",
+      "url": "https://github.com/Sawaira-0316/language-translator",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "FournineCS/claude-skills",
-      "summary_zh": "【GitHub】Claude Code技能开源集（⭐ 0 ）",
-      "title_en": "FournineCS/claude-skills",
-      "summary_en": "【GitHub】Open-source collection of Claude Code skills （⭐ 0）"
+      "title_zh": "Sawaira-0316/语言翻译",
+      "summary_zh": "【GitHub】使用Python和FastMCP构建的本地* *模型上下文协议(MCP) * *服务器。将* * Claude AI * *连接到实时翻译引擎—使用自然语言将任何文本翻译成100多种语言（⭐ 0 ）",
+      "title_en": "Sawaira-0316/language-translator",
+      "summary_en": "【GitHub】A local **Model Context Protocol (MCP)** server built with Python and FastMCP. Connects **Claude AI** to a real-time translation engine — translate any text into 100+ languages using natural language  （⭐ 0）"
+    },
+    {
+      "title": "bolnet/advisoros",
+      "summary": "【GitHub】Open-source Claude Code skill pack for independent RIAs. Wealthbox + custodians + planning + compliance — all locally, on Claude. MIT licensed. （⭐ 0）",
+      "url": "https://github.com/bolnet/advisoros",
+      "stars": 0,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "",
+      "summary_zh": "【GitHub】独立RIA的开源Claude Code技能包。Wealthbox +托管人+规划+合规—全部在本地，在Claude上。麻省理工学院获得许可。（⭐ 0 ）",
+      "title_en": "bolnet/advisoros",
+      "summary_en": "【GitHub】Open-source Claude Code skill pack for independent RIAs. Wealthbox + custodians + planning + compliance — all locally, on Claude. MIT licensed. （⭐ 0）"
+    },
+    {
+      "title": "CreatmanCEO/cc-janitor",
+      "summary": "【GitHub】Tidy up your Claude Code environment — sessions, permissions, context, hooks, schedule. Open-source TUI/CLI. （⭐ 0）",
+      "url": "https://github.com/CreatmanCEO/cc-janitor",
+      "stars": 0,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "",
+      "summary_zh": "【GitHub】整理您的Claude Code环境—会话、权限、上下文、挂钩、日程安排。开源TUI/CLI. （⭐ 0 ）",
+      "title_en": "CreatmanCEO/cc-janitor",
+      "summary_en": "【GitHub】Tidy up your Claude Code environment — sessions, permissions, context, hooks, schedule. Open-source TUI/CLI. （⭐ 0）"
+    },
+    {
+      "title": "ws0506a/qingcode",
+      "summary": "【GitHub】AI coding assistant powered by open-source LLM (DeepSeek, GLM, Qwen) - like Claude Code but using domestic models （⭐ 0）",
+      "url": "https://github.com/ws0506a/qingcode",
+      "stars": 0,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "",
+      "summary_zh": "【GitHub】由开源LLM （ DeepSeek ， GLM ， Qwen ）提供支持的AI编码助手-类似于Claude Code ，但使用国内模型（⭐ 0 ）",
+      "title_en": "ws0506a/qingcode",
+      "summary_en": "【GitHub】AI coding assistant powered by open-source LLM (DeepSeek, GLM, Qwen) - like Claude Code but using domestic models （⭐ 0）"
     }
   ],
   "models": [
     {
-      "title": "OpenAI’s cozy partner Cerebras is on track for a blockbuster IPO",
-      "summary": "AI chip maker Cerebras is heading for a blockbuster IPO that could value it at $26.6 billion or more. Its relationship with OpenAI is deep and rich.",
-      "url": "https://techcrunch.com/2026/05/04/openais-cozy-partner-cerebras-is-on-track-for-a-blockbuster-ipo/",
+      "title": "SAP bets $1.16B on 18-month-old German AI lab and says yes to NemoClaw",
+      "summary": "SAP plans to buy German AI startup Prior Labs and invest heavily in it. It is also prohibiting customers' agents use to a select few like Nvidia's NemoClaw.",
+      "url": "https://techcrunch.com/2026/05/05/sap-bets-1-16b-on-18-month-old-german-ai-lab-and-says-yes-to-nemoclaw/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "OpenAI舒适的合作伙伴Cerebras正在进行一场轰动一时的首次公开募股",
-      "summary_zh": "人工智能芯片制造商Cerebras正在进行一场轰动一时的IPO ，其估值可能达到266亿美元或更高。它与OpenAI的关系深厚而丰富。",
-      "title_en": "OpenAI’s cozy partner Cerebras is on track for a blockbuster IPO",
-      "summary_en": "AI chip maker Cerebras is heading for a blockbuster IPO that could value it at $26.6 billion or more. Its relationship with OpenAI is deep and rich."
+      "title_zh": "SAP在18个月大的德国人工智能实验室下注11.6亿美元，并对NemoClaw说“是”",
+      "summary_zh": "SAP计划收购德国人工智能初创公司Prior Labs ，并投入巨资。它还禁止客户的代理使用像Nvidia的NemoClaw这样的少数产品。",
+      "title_en": "SAP bets $1.16B on 18-month-old German AI lab and says yes to NemoClaw",
+      "summary_en": "SAP plans to buy German AI startup Prior Labs and invest heavily in it. It is also prohibiting customers' agents use to a select few like Nvidia's NemoClaw."
     },
     {
-      "title": "Image AI models now drive app growth, beating chatbot upgrades",
-      "summary": "Appfigures finds visual model launches generate 6.5x more downloads — but most don’t convert that spike into revenue.",
-      "url": "https://techcrunch.com/2026/05/04/image-ai-models-now-drive-app-growth-beating-chatbot-upgrades/",
+      "title": "Altara secures $7M to bridge the data gap that’s slowing down physical sciences",
+      "summary": "Altara’s AI aims to diagnose failures and help speed up R&#038;D by unifying  data siloed across spreadsheets and legacy systems. ",
+      "url": "https://techcrunch.com/2026/05/05/altara-secures-7m-to-bridge-the-data-gap-thats-slowing-down-physical-sciences/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "Image AI模型现在推动应用程序增长，击败聊天机器人升级",
-      "summary_zh": "Appfigures发现，视觉模型的发布产生了6.5倍的下载量，但大多数都不会将其转化为收入。",
-      "title_en": "Image AI models now drive app growth, beating chatbot upgrades",
-      "summary_en": "Appfigures finds visual model launches generate 6.5x more downloads — but most don’t convert that spike into revenue."
+      "title_zh": "Altara获得了700万$的资金，以弥补拖慢物理科学发展的数据鸿沟",
+      "summary_zh": "Altara的人工智能旨在通过跨电子表格和遗留系统统一孤立的数据来诊断故障并帮助加快研发速度。",
+      "title_en": "Altara secures $7M to bridge the data gap that’s slowing down physical sciences",
+      "summary_en": "Altara’s AI aims to diagnose failures and help speed up R&#038;D by unifying  data siloed across spreadsheets and legacy systems. "
     },
     {
-      "title": "Elon Musk’s only AI expert witness at the OpenAI trial fears an AGI arms race",
-      "summary": "Stuart Russell is a long-time AI researcher who thinks governments need to restrain frontier labs. ",
-      "url": "https://techcrunch.com/2026/05/04/elon-musks-only-expert-witness-at-the-openai-trial-fears-an-agi-arms-race/",
+      "title": "Apple plans to make iOS 27 a Choose Your Own Adventure of AI models",
+      "summary": "With Apple's latest operating system updates, users will reportedly have their pick of which third-party AI models they want to use for a host of tasks. ",
+      "url": "https://techcrunch.com/2026/05/05/apple-plans-to-make-ios-27-a-choose-your-own-adventure-of-ai-models/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "埃隆·马斯克（ Elon Musk ）在OpenAI审判中唯一的人工智能专家证人担心AGI军备竞赛",
-      "summary_zh": "Stuart Russell是一位长期的人工智能研究人员，他认为政府需要限制前沿实验室。",
-      "title_en": "Elon Musk’s only AI expert witness at the OpenAI trial fears an AGI arms race",
-      "summary_en": "Stuart Russell is a long-time AI researcher who thinks governments need to restrain frontier labs."
+      "title_zh": "苹果计划让iOS 27成为人工智能模型的“选择你自己的冒险”",
+      "summary_zh": "据报道，通过Apple最新的操作系统更新，用户可以选择要用于许多任务的第三方AI模型。",
+      "title_en": "Apple plans to make iOS 27 a Choose Your Own Adventure of AI models",
+      "summary_en": "With Apple's latest operating system updates, users will reportedly have their pick of which third-party AI models they want to use for a host of tasks. "
     },
     {
-      "title": "Sierra raises $950M as the race to own enterprise AI gets serious",
-      "summary": "The raise gives Sierra more than $1 billion to work with — capital the company says it will use to become the \"global standard\" for AI-powered customer experiences.",
-      "url": "https://techcrunch.com/2026/05/04/sierra-raises-950m-as-the-race-to-own-enterprise-ai-gets-serious/",
+      "title": "ASML CEO Christophe Fouquet on his company’s monopoly: no one is coming for us",
+      "summary": "Christophe Fouquet, who became ASML's CEO in 2024 after more than a decade at the company, sat down with this editor on the rooftop deck of his Beverly Hills hotel Tuesday morning ahead of his appearance at the Milken Institute Global Conference. Dre",
+      "url": "https://techcrunch.com/2026/05/05/asml-ceo-christophe-fouquet-no-one-is-coming-for-us/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "Sierra筹集了9.5亿美元$ ，因为拥有企业AI的竞争变得越来越激烈",
-      "summary_zh": "此次融资为Sierra提供了超过10亿美元的合作资金--该公司表示，它将利用这笔资金成为人工智能客户体验的“全球标准”。",
-      "title_en": "Sierra raises $950M as the race to own enterprise AI gets serious",
-      "summary_en": "The raise gives Sierra more than $1 billion to work with — capital the company says it will use to become the \"global standard\" for AI-powered customer experiences."
+      "title_zh": "ASML首席执行官Christophe Fouquet谈其公司的垄断地位：没有人会来找我们",
+      "summary_zh": "Christophe Fouquet在公司工作十多年后于2024年成为ASML的首席执行官，周二早上在他的比佛利山庄酒店的屋顶平台上与这位编辑坐下来，然后他将出席Milken Institute全球会议。DRE",
+      "title_en": "ASML CEO Christophe Fouquet on his company’s monopoly: no one is coming for us",
+      "summary_en": "Christophe Fouquet, who became ASML's CEO in 2024 after more than a decade at the company, sat down with this editor on the rooftop deck of his Beverly Hills hotel Tuesday morning ahead of his appearance at the Milken Institute Global Conference. Dre"
     }
   ],
   "community": [
     {
-      "title": "Agent Skills",
-      "summary": "【HN】热度: 93 分 | 27 评论",
-      "url": "https://addyosmani.com/blog/agent-skills/",
+      "title": "Three Inverse Laws of AI",
+      "summary": "【HN】热度: 370 分 | 251 评论",
+      "url": "https://susam.net/inverse-laws-of-robotics.html",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "代理技能",
-      "summary_zh": "【HN】热度: 93 分 | 27 评论",
-      "title_en": "Agent Skills",
-      "summary_en": "【HN】热度: 93 分 | 27 评论"
+      "title_zh": "人工智能的三大反向定律",
+      "summary_zh": "【HN】热度: 370 分 | 251 评论",
+      "title_en": "Three Inverse Laws of AI",
+      "summary_en": "【HN】热度: 370 分 | 251 评论"
     },
     {
-      "title": "How OpenAI delivers low-latency voice AI at scale",
-      "summary": "【HN】热度: 271 分 | 99 评论",
-      "url": "https://openai.com/index/delivering-low-latency-voice-ai-at-scale/",
+      "title": "Telus Uses AI to Alter Call-Agent Accents",
+      "summary": "【HN】热度: 7 分 | 1 评论",
+      "url": "https://letsdatascience.com/news/telus-uses-ai-to-alter-call-agent-accents-a3868f63",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "OpenAI如何大规模提供低延迟语音AI",
-      "summary_zh": "【HN】热度: 271 分 | 99 评论",
-      "title_en": "How OpenAI delivers low-latency voice AI at scale",
-      "summary_en": "【HN】热度: 271 分 | 99 评论"
+      "title_zh": "Telus使用人工智能来改变呼叫代理的口音",
+      "summary_zh": "【HN】热度: 7 分 | 1 评论",
+      "title_en": "Telus Uses AI to Alter Call-Agent Accents",
+      "summary_en": "【HN】热度: 7 分 | 1 评论"
     },
     {
-      "title": "Sierra Raises $950M at $15B Valuation",
-      "summary": "【HN】热度: 87 分 | 119 评论",
-      "url": "https://sierra.ai/blog/better-customer-experiences-built-on-sierra",
+      "title": "Show HN: Explore color palettes inspired by 3000 master painter artworks",
+      "summary": "【HN】热度: 118 分 | 41 评论",
+      "url": "https://paletteinspiration.com/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Sierra以150亿美元的估值筹集了9.5亿美元",
-      "summary_zh": "【HN】热度: 87 分 | 119 评论",
-      "title_en": "Sierra Raises $950M at $15B Valuation",
-      "summary_en": "【HN】热度: 87 分 | 119 评论"
+      "title_zh": "展示HN ：探索以3000幅大师画家作品为灵感的调色板",
+      "summary_zh": "【HN】热度: 118 分 | 41 评论",
+      "title_en": "Show HN: Explore color palettes inspired by 3000 master painter artworks",
+      "summary_en": "【HN】热度: 118 分 | 41 评论"
     },
     {
-      "title": "Let's talk about LLMs",
-      "summary": "【HN】热度: 137 分 | 109 评论",
-      "url": "https://www.b-list.org/weblog/2026/apr/09/llms/",
+      "title": "GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents",
+      "summary": "【HN】热度: 119 分 | 23 评论",
+      "url": "https://arxiv.org/abs/2604.26752",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "我们一起来聊聊……",
-      "summary_zh": "【HN】热度: 137 分 | 109 评论",
-      "title_en": "Let's talk about LLMs",
-      "summary_en": "【HN】热度: 137 分 | 109 评论"
+      "title_zh": "GLM-5V-Turbo ：面向多式联运代理的本地基础模型",
+      "summary_zh": "【HN】热度: 119 分 | 23 评论",
+      "title_en": "GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents",
+      "summary_en": "【HN】热度: 119 分 | 23 评论"
     },
     {
-      "title": "Y Combinator's Stake in OpenAI (0.6%)",
-      "summary": "【HN】热度: 14 分 | 0 评论",
-      "url": "https://daringfireball.net/2026/05/y_combinators_stake_in_openai",
+      "title": "Agents for financial services and insurance",
+      "summary": "【HN】热度: 206 分 | 156 评论",
+      "url": "https://www.anthropic.com/news/finance-agents",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Y Combinator在OpenAI中的股份（ 0.6% ）",
-      "summary_zh": "【HN】热度: 14 分 | 0 评论",
-      "title_en": "Y Combinator's Stake in OpenAI (0.6%)",
-      "summary_en": "【HN】热度: 14 分 | 0 评论"
+      "title_zh": "金融服务和保险代理",
+      "summary_zh": "【HN】热度: 206 分 | 156 评论",
+      "title_en": "Agents for financial services and insurance",
+      "summary_en": "【HN】热度: 206 分 | 156 评论"
     },
     {
-      "title": "OpenAI, Google, and Microsoft Back Bill to Fund 'AI Literacy' in Schools",
-      "summary": "【HN】热度: 109 分 | 96 评论",
-      "url": "https://www.404media.co/literacy-in-future-technologies-artificial-intelligence-act-adam-schiff-mike-rounds/",
+      "title": "Google Chrome silently installs a 4 GB AI model on your device without consent",
+      "summary": "【HN】热度: 1265 分 | 859 评论",
+      "url": "https://www.thatprivacyguy.com/blog/chrome-silent-nano-install/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "OpenAI、谷歌和微软支持为学校“人工智能扫盲”提供资金的法案",
-      "summary_zh": "【HN】热度: 109 分 | 96 评论",
-      "title_en": "OpenAI, Google, and Microsoft Back Bill to Fund 'AI Literacy' in Schools",
-      "summary_en": "【HN】热度: 109 分 | 96 评论"
+      "title_zh": "Chrome浏览器会在未经同意的情况下在您的设备上静默安装4 GB的人工智能模型",
+      "summary_zh": "【HN】热度: 1265 分 | 859 评论",
+      "title_en": "Google Chrome silently installs a 4 GB AI model on your device without consent",
+      "summary_en": "【HN】热度: 1265 分 | 859 评论"
     }
   ]
 }
