@@ -25,3 +25,6 @@ numpy>=1.26
 # --- optional: screenshot.py（H5 页面截图） ---
 # 第一次安装后还需执行：playwright install chromium
 playwright>=1.40
+
+# --- dev / CI（冒烟测试）---
+# pip install -r requirements-dev.txt

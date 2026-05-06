@@ -1,0 +1,2 @@
+# Dev / CI only — not required to build or deploy the static site.
+pytest>=8.0.0

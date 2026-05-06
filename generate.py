@@ -19,9 +19,23 @@ from pathlib import Path
 
 BEIJING_TZ = timezone(timedelta(hours=8))
 
-BASE_DIR = Path(__file__).parent
+_REPO_ROOT = Path(__file__).resolve().parent
+
+
+def _resolve_base_dir() -> Path:
+    """仓库根或 AI_DAILY_BASE_DIR 指向的「站点根」（用于 pytest 隔离目录跑 generate）。"""
+    raw = (os.environ.get("AI_DAILY_BASE_DIR") or "").strip()
+    if raw:
+        p = Path(raw).expanduser().resolve()
+        if p.is_dir():
+            return p
+    return _REPO_ROOT
+
+
+BASE_DIR = _resolve_base_dir()
 DATA_FILE = BASE_DIR / "daily_data.json"
 OUTPUT_DIR = BASE_DIR / "archives"
+STATUS_FILENAME = "status.json"
 
 # 当天刊文件名。不能用 index.html: 静态托管会把 URL `/` 映射到根目录的
 # index.html,优先于 vercel.json 里把 `/` 重写到 home.html,导致首页变成「当天刊」。
@@ -1616,6 +1630,32 @@ def run_source_evolution():
         print(f"⚠️  Evolution skipped: {e}")
 
 
+def write_site_status(
+    data,
+    *,
+    date_str: str,
+    raw_item_total: int,
+    site_total: int,
+    max_site_items: int,
+) -> None:
+    """供首页等读取；路径 /status.json。失败不应阻塞整站生成。"""
+    obj = {
+        "v": 1,
+        "generated_at": datetime.now(BEIJING_TZ).replace(microsecond=0).isoformat(),
+        "issue_date": date_str,
+        "site_total_items": site_total,
+        "raw_item_total": raw_item_total,
+        "max_site_items_cap": max_site_items,
+        "sources": (data.get("sources") or "").strip(),
+    }
+    p = BASE_DIR / STATUS_FILENAME
+    p.write_text(
+        json.dumps(obj, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    print(f"Wrote: {p}")
+
+
 def patch_polished_home_archives_data(existing_html, archive_infos):
     """仅更新精修首页中的 ALL_ARCHIVES（供 atlas 卡片统计）；归档列表在 issues.html。
 
@@ -1805,12 +1845,23 @@ def main(argv=None):
                     "⚠️  home.html has no ALL_ARCHIVES markers; skipping home data patch"
                 )
             # 打印头条预览
-            for date_str, headline, total, _summary in archive_infos[:3]:
-                print(f"  {date_str}: {headline[:50]}...")
+            for d_row, headline, total, _summary in archive_infos[:3]:
+                print(f"  {d_row}: {headline[:50]}...")
         else:
             print("⚠️  No archives found, skipping home.html")
     except Exception as e:
         print(f"⚠️  Home page generation failed: {e}")
+
+    try:
+        write_site_status(
+            data,
+            date_str=date_str,
+            raw_item_total=raw_item_total,
+            site_total=site_total,
+            max_site_items=max_site_items,
+        )
+    except Exception as e:
+        print(f"⚠️  status.json: {e}")
 
     if not args.no_compress_archives:
         try:

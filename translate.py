@@ -3,7 +3,11 @@
 AI Daily 翻译脚本（MyMemory API 版）
 读取 daily_data.json → 为每条新闻添加 title_zh + summary_zh（中文翻译）
 保留原始 title/summary 作为英文版本（规范化为 title_en / summary_en）。
+
+翻译结果缓存在 .cache/translate-cache.json（按规范化文本 + 语言对做 sha256 key），
+重复跑 translate.py 时命中缓存则不再请求 MyMemory。
 """
+import hashlib
 import json
 import os
 import re
@@ -11,7 +15,6 @@ import shutil
 import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Optional
 
 try:
     import requests
@@ -29,10 +32,65 @@ CACHE_DIR = BASE_DIR / ".cache"
 
 SECTION_KEYS = ("research", "github", "models", "community")
 
+# 会话内缓存（main 入口会预加载并在结束时落盘）
+_TX_CACHE: dict[str, str] | None = None
+
 # MyMemory 翻译 API（免费，无需 key，每日限额 1000 词）
 TRANSLATE_API = "https://api.mymemory.translated.net/get"
 RATE_DELAY = 1.0  # 每次调用间隔，避免触发限流
 MAX_RETRIES = 3  # 失败重试次数
+
+
+def _translate_cache_path() -> Path:
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    return CACHE_DIR / "translate-cache.json"
+
+
+def _load_translate_cache() -> dict[str, str]:
+    path = _translate_cache_path()
+    if not path.exists():
+        return {}
+    try:
+        obj = json.loads(path.read_text(encoding="utf-8"))
+        if isinstance(obj, dict):
+            return {str(k): str(v) for k, v in obj.items()}
+    except Exception:
+        pass
+    return {}
+
+
+def _flush_translate_cache(store: dict[str, str]) -> None:
+    path = _translate_cache_path()
+    path.write_text(
+        json.dumps(store, ensure_ascii=False, sort_keys=True, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
+def _active_translate_cache() -> dict[str, str]:
+    global _TX_CACHE
+    if _TX_CACHE is None:
+        _TX_CACHE = _load_translate_cache()
+    return _TX_CACHE
+
+
+def _norm_for_api(text: str) -> str:
+    clean = re.sub(r"【\w+】", "", text)
+    clean = re.sub(r"<[^>]+>", "", clean)
+    return re.sub(r"\s+", " ", clean).strip()
+
+
+def _cache_key(clean: str, source_lang: str, target_lang: str) -> str:
+    blob = f"{source_lang}\x00{target_lang}\x00{clean}".encode("utf-8")
+    return hashlib.sha256(blob).hexdigest()
+
+
+def _restore_bracket_prefix(original: str, translated: str) -> str:
+    if original.startswith("【"):
+        m = re.match(r"【(\w+)】", original)
+        if m:
+            return f"【{m.group(1)}】{translated}"
+    return translated
 
 
 def mymemory_translate(text: str, source_lang: str = "en", target_lang: str = "zh") -> str:
@@ -40,31 +98,29 @@ def mymemory_translate(text: str, source_lang: str = "en", target_lang: str = "z
     if not text or len(text.strip()) < 2:  # 降低阈值：<2 字符不翻译（如单个符号）
         return text
 
-    # 清理：去除 markdown 标签、HTML 标签、多余空格
-    clean = re.sub(r'【\w+】', '', text)
-    clean = re.sub(r'<[^>]+>', '', clean)
-    clean = re.sub(r'\s+', ' ', clean).strip()
+    clean = _norm_for_api(text)
 
     if len(clean) < 2:
         return text
+
+    cache = _active_translate_cache()
+    ck = _cache_key(clean, source_lang, target_lang)
+    if ck in cache:
+        return _restore_bracket_prefix(text, cache[ck])
 
     for attempt in range(MAX_RETRIES):
         try:
             resp = requests.get(
                 TRANSLATE_API,
                 params={"q": clean[:500], "langpair": f"{source_lang}|{target_lang}"},
-                timeout=10
+                timeout=10,
             )
             if resp.status_code == 200:
                 data = resp.json()
                 if data.get("responseStatus") == 200:
                     translated = data["responseData"]["translatedText"]
-                    # 翻译可能丢失【来源】标记，尝试恢复
-                    if text.startswith("【"):
-                        m = re.match(r'【(\w+)】', text)
-                        if m:
-                            return f"【{m.group(1)}】{translated}"
-                    return translated
+                    cache[ck] = translated
+                    return _restore_bracket_prefix(text, translated)
                 else:
                     # API 返回错误状态，重试
                     if attempt < MAX_RETRIES - 1:
@@ -130,46 +186,56 @@ def translate_item(item: dict) -> tuple[str, str]:
 
 
 def main():
+    global _TX_CACHE
     if not DATA_FILE.exists():
         print(f"❌ 未找到数据文件: {DATA_FILE}")
         return 1
 
-    data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+    _TX_CACHE = _load_translate_cache()
+    try:
+        data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
 
-    print(f"📝 开始翻译 {sum(len(data.get(k, [])) for k in SECTION_KEYS)} 条新闻...")
+        print(f"📝 开始翻译 {sum(len(data.get(k, [])) for k in SECTION_KEYS)} 条新闻...")
 
-    total_translated = 0
-    for key in SECTION_KEYS:
-        items = data.get(key, [])
-        if not items:
-            continue
-        print(f"\n🔄 翻译板块 [{key}] ({len(items)} 条)")
-        for i, item in enumerate(items, 1):
-            title_zh, summary_zh = translate_item(item)
-            total_translated += 1
-            print(f"  [{i:2d}] {title_zh[:40]}...")
-            time.sleep(RATE_DELAY)  # API 友好间隔
+        total_translated = 0
+        for key in SECTION_KEYS:
+            items = data.get(key, [])
+            if not items:
+                continue
+            print(f"\n🔄 翻译板块 [{key}] ({len(items)} 条)")
+            for i, item in enumerate(items, 1):
+                title_zh, summary_zh = translate_item(item)
+                total_translated += 1
+                print(f"  [{i:2d}] {title_zh[:40]}...")
+                time.sleep(RATE_DELAY)  # API 友好间隔
 
-    CACHE_DIR.mkdir(exist_ok=True)
-    backup = CACHE_DIR / "daily_data.json.bak"
-    if not backup.exists():
-        shutil.copy(DATA_FILE, backup)
-        print(f"✅ 已备份原文件: .cache/{backup.name}")
-    else:
-        print(f"✅ 备份已存在: .cache/{backup.name}")
+        CACHE_DIR.mkdir(exist_ok=True)
+        backup = CACHE_DIR / "daily_data.json.bak"
+        if not backup.exists():
+            shutil.copy(DATA_FILE, backup)
+            print(f"✅ 已备份原文件: .cache/{backup.name}")
+        else:
+            print(f"✅ 备份已存在: .cache/{backup.name}")
 
-    # 写回
-    DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"✅ 已写入: {DATA_FILE}  (共 {total_translated} 条)")
+        # 写回
+        DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"✅ 已写入: {DATA_FILE}  (共 {total_translated} 条)")
 
-    # 统计
-    print("\n=== 翻译统计 ===")
-    for key in SECTION_KEYS:
-        items = data.get(key, [])
-        zh_count = sum(1 for it in items if it.get("title_zh") and it.get("title_zh") != it.get("title"))
-        print(f"  {key}: {zh_count}/{len(items)} 条已翻译")
+        # 统计
+        print("\n=== 翻译统计 ===")
+        for key in SECTION_KEYS:
+            items = data.get(key, [])
+            zh_count = sum(
+                1
+                for it in items
+                if it.get("title_zh") and it.get("title_zh") != it.get("title")
+            )
+            print(f"  {key}: {zh_count}/{len(items)} 条已翻译")
 
-    return 0
+        return 0
+    finally:
+        if _TX_CACHE is not None:
+            _flush_translate_cache(_TX_CACHE)
 
 
 if __name__ == "__main__":

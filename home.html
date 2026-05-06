@@ -1271,6 +1271,30 @@ function copyStringToClipboard(str) {
   void refreshJournalRecommendTeaser();
 })();
 
+(function initStaleStatusBanner() {
+  var STALE_MS = 28 * 60 * 60 * 1000;
+  var bar = document.createElement('div');
+  bar.id = 'atlas-stale-banner';
+  bar.hidden = true;
+  bar.setAttribute('role', 'status');
+  bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#6b2d2f;color:#fff;padding:10px 14px;font-size:13px;text-align:center;font-family:system-ui,-apple-system,sans-serif;';
+  document.body.appendChild(bar);
+  fetch('/status.json', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) {
+      if (!j || !j.generated_at) return;
+      var t = Date.parse(j.generated_at);
+      if (isNaN(t)) return;
+      if (Date.now() - t <= STALE_MS) return;
+      bar.hidden = false;
+      var lang = typeof getLang === 'function' ? getLang() : 'zh';
+      bar.textContent = lang === 'en'
+        ? 'Site build may be stale (last generate > ~28h). Check cron or deploy.'
+        : '本站生成时间已超过约 28 小时，请检查定时任务或部署是否正常。';
+    })
+    .catch(function () { /* offline or no status */ });
+})();
+
 syncAtlasMetrics();
 </script>
 </body>

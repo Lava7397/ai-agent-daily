@@ -1,0 +1,38 @@
+{
+  "date": "2099-01-15",
+  "sources": "pytest fixture",
+  "description": "Smoke test issue",
+  "research": [
+    {
+      "title": "Fixture Paper",
+      "summary": "【arXiv】Abstract for testing generate.py in isolation.",
+      "url": "https://example.com/paper",
+      "tags": ["research", "paper"]
+    }
+  ],
+  "github": [
+    {
+      "title": "fixture/repo",
+      "summary": "【GitHub】Fixture project for CI. （⭐ 0）",
+      "url": "https://github.com/fixture/repo",
+      "stars": 0,
+      "tags": ["github", "opensource"]
+    }
+  ],
+  "models": [
+    {
+      "title": "Fixture Model News",
+      "summary": "【Industry】One line.",
+      "url": "https://example.com/news",
+      "tags": ["industry"]
+    }
+  ],
+  "community": [
+    {
+      "title": "Fixture Community",
+      "summary": "【HN】Discussion snippet.",
+      "url": "https://news.ycombinator.com/item?id=1",
+      "tags": ["community"]
+    }
+  ]
+}
