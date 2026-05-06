@@ -10,7 +10,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-from generate import apply_github_display_order
+from aidaily.data import apply_github_display_order
 
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "daily_data.json"

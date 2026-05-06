@@ -9,292 +9,40 @@ AI Agent 日报 H5 页面生成器
 import argparse
 import importlib.util
 import json
-import os
-import random
-import re
 import sys
+from datetime import datetime
 from html import escape
-from datetime import datetime, timezone, timedelta
-from pathlib import Path
 
-BEIJING_TZ = timezone(timedelta(hours=8))
-
-_REPO_ROOT = Path(__file__).resolve().parent
-
-
-def _resolve_base_dir() -> Path:
-    """仓库根或 AI_DAILY_BASE_DIR 指向的「站点根」（用于 pytest 隔离目录跑 generate）。"""
-    raw = (os.environ.get("AI_DAILY_BASE_DIR") or "").strip()
-    if raw:
-        p = Path(raw).expanduser().resolve()
-        if p.is_dir():
-            return p
-    return _REPO_ROOT
-
-
-BASE_DIR = _resolve_base_dir()
-DATA_FILE = BASE_DIR / "daily_data.json"
-OUTPUT_DIR = BASE_DIR / "archives"
-STATUS_FILENAME = "status.json"
-
-# 当天刊文件名。不能用 index.html: 静态托管会把 URL `/` 映射到根目录的
-# index.html,优先于 vercel.json 里把 `/` 重写到 home.html,导致首页变成「当天刊」。
-TODAY_FILENAME = "today.html"
-# AI Agent 期刊历史列表（从首页拆出，由 generate.py 全量生成）
-ISSUES_FILENAME = "issues.html"
-
-# Canonical public URL for the site. Override with SITE_URL env var if needed.
-# Keep in sync with CNAME file and Vercel custom domain settings.
-SITE_URL = os.environ.get("SITE_URL", "https://lava7397.com")
-
-
-def current_beijing_date_str():
-    return datetime.now(BEIJING_TZ).strftime("%Y-%m-%d")
-
-
-def get_issue_date(data):
-    return str(data.get("date") or current_beijing_date_str())
-
-
-def sync_today_html_from_newest_archive():
-    """将 today.html 写成「archives/ 下日期 YYYY-MM-DD 最大」的那一期。
-
-    与 home 页把「今日刊」指向「列表第一条（最新期）」的语义一致；也修复
-    daily_data 里 date 未跟上时，/today.html 内容落后于 archives 的问题。
-    """
-    paths = sorted(OUTPUT_DIR.glob("????-??-??.html"), key=lambda p: p.stem)
-    if not paths:
-        return
-    latest = paths[-1]
-    today_path = BASE_DIR / TODAY_FILENAME
-    today_path.write_text(latest.read_text(encoding="utf-8"), encoding="utf-8")
-    print(f"Synced {TODAY_FILENAME} ← {latest.name} (newest archive)")
-
-
-def replace_between(text, start_marker, end_marker, replacement):
-    start = text.find(start_marker)
-    if start == -1:
-        raise ValueError(f"start marker not found: {start_marker}")
-    end = text.find(end_marker, start + len(start_marker))
-    if end == -1:
-        raise ValueError(f"end marker not found: {end_marker}")
-    return text[: start + len(start_marker)] + replacement + text[end:]
-
-
-def extract_between(text, start_marker, end_marker):
-    start = text.find(start_marker)
-    if start == -1:
-        raise ValueError(f"start marker not found: {start_marker}")
-    start += len(start_marker)
-    end = text.find(end_marker, start)
-    if end == -1:
-        raise ValueError(f"end marker not found: {end_marker}")
-    return text[start:end]
-
-
-def _html_main_content_scope(html: str) -> str:
-    """只解析正文 <main id="main-content"> 内 HTML，避免误匹配样式表里的 .card-title 等。"""
-    m = re.search(
-        r'<main\b[^>]*\bid\s*=\s*["\']main-content["\'][^>]*>',
-        html,
-        re.I,
-    )
-    if not m:
-        return html
-    start = m.end()
-    end = html.lower().find("</main>", start)
-    if end == -1:
-        return html[start:]
-    return html[start:end]
-
-
-def extract_archive_meta(archive_path):
-    """从归档 HTML 中提取头条标题、总条目数、头条中文摘要
-
-    新模板下头条卡片有两个 .card-summary（zh / en），第一个就是中文；
-    旧模板下只有一个 .card-summary，本身即中文。统一取「第一个出现的」。
-    """
-    try:
-        raw = archive_path.read_text(encoding="utf-8")
-        html = _html_main_content_scope(raw)
-        m = re.search(r'<a[^>]+class="card-title"[^>]*>([^<]+)</a>', html)
-        headline = m.group(1).strip() if m else ""
-        mtot = re.search(
-            r'id="hero-item-count"[^>]*data-total-items="(\d+)"',
-            raw,
-        ) or re.search(r'data-total-items="(\d+)"', raw)
-        if mtot:
-            total = mtot.group(1)
-        else:
-            n = re.findall(r'class="stat-num"[^>]*>([\d]+)</div>', raw)
-            total = n[0] if n else ""
-        summary = ""
-        if m:
-            after = html[m.end():]
-            sm = re.search(r'<p[^>]*class="card-summary"[^>]*>([^<]+)</p>', after)
-            if sm:
-                summary = sm.group(1).strip()
-        return headline, total, summary
-    except Exception:
-        return "", "", ""
-
-
-def apply_home_archive_override(archive_infos, data):
-    """仅改 issues.html / 首页统计用的列表中某一期的标题/摘要，不修改对应 archives/*.html。
-
-    daily_data 可选: home_archive_override =
-      { "date": "YYYY-MM-DD", "headline": "...", "summary": "...", "total_items": "20" }
-    未写的字段从该日归档页解析值沿用。
-    """
-    ov = data.get("home_archive_override")
-    if not isinstance(ov, dict):
-        return archive_infos
-    d0 = ov.get("date")
-    if not d0:
-        return archive_infos
-    h_new = ov.get("headline")
-    s_new = ov.get("summary")
-    t_new = ov.get("total_items")
-    if h_new is None and s_new is None and t_new is None:
-        return archive_infos
-    out = []
-    for row in archive_infos:
-        if row[0] != d0:
-            out.append(row)
-            continue
-        h = h_new if h_new is not None else row[1]
-        t = t_new if t_new is not None else row[2]
-        s = s_new if s_new is not None else row[3]
-        out.append((row[0], h, t, s))
-    return out
-
-
-SECTION_META = {
-    "research": {"icon": "🤖", "title_zh": "AI Agent 研究",     "title_en": "Research"},
-    "github":   {"icon": "⭐", "title_zh": "GitHub 热门项目",   "title_en": "GitHub Trending"},
-    "models":   {"icon": "🚀", "title_zh": "模型与行业动态",   "title_en": "Models & Industry"},
-    "community":{"icon": "🔥", "title_zh": "社区热议",         "title_en": "Community"},
-}
-
-# 与 build_html / daily_data 结构一致；网站总条数超过此值时做各板块数量裁剪
-#（github 模块先按刊期种子打乱再截断，不跟随上游 star 排序）
-SECTION_KEYS = ("research", "github", "models", "community")
-# 单日全站卡片上限；超出则按 fair_section_quotas 各板块均分截断。可用环境变量或 --max-site-items 调整。
-DEFAULT_MAX_SITE_ITEMS = 80
-
-
-def resolve_max_site_items(cli_max=None):
-    if cli_max is not None:
-        return max(1, min(int(cli_max), 500))
-    raw = os.environ.get("AI_DAILY_MAX_SITE_ITEMS", "").strip()
-    if raw:
-        try:
-            return max(1, min(int(raw), 500))
-        except ValueError:
-            pass
-    return DEFAULT_MAX_SITE_ITEMS
-
-
-def load_data():
-    with open(DATA_FILE) as f:
-        return json.load(f)
-
-
-def _github_display_rng(data):
-    """与刊期、模块绑定，同日多次生成结果一致，避免无意义 diff。"""
-    return random.Random(f"github|{get_issue_date(data)}|v1")
-
-
-def apply_github_display_order(data):
-    """将 github 列表按固定种子乱序，用于展示/配图，不依赖热门度排序。
-
-    返回浅拷贝，不修改入参。无 github 字段或为空则原样返回。
-    """
-    g = data.get("github")
-    if not g:
-        return data
-    out = dict(data)
-    g2 = list(g)
-    _github_display_rng(data).shuffle(g2)
-    out["github"] = g2
-    return out
-
-
-def fair_section_quotas(counts, cap):
-    """在总数上限 cap 下，按各模块可用条数约束做尽量均分。
-
-    每轮将 1 条配额给「当前已分配最少」的模块；并列时按 SECTION_KEYS 顺序优先。
-    不改动 JSON 内条目顺序，仅决定每模块取前若干条。
-    """
-    total = sum(counts.get(k, 0) for k in SECTION_KEYS)
-    if total <= cap:
-        return {k: counts.get(k, 0) for k in SECTION_KEYS}
-    res = {k: 0 for k in SECTION_KEYS}
-    for _ in range(min(cap, total)):
-        eligible = [k for k in SECTION_KEYS if res[k] < counts.get(k, 0)]
-        if not eligible:
-            break
-        k_pick = min(eligible, key=lambda k: (res[k], SECTION_KEYS.index(k)))
-        res[k_pick] += 1
-    return res
-
-
-def cap_data_for_site(data, max_items=None):
-    if max_items is None:
-        max_items = DEFAULT_MAX_SITE_ITEMS
-    """生成网站用数据：总条数超过 max_items 时按各模块配额截断。
-
-    research / models / community 保持原序前缀截断；github 先打乱再截，避免按 star
-    取「前 N 条」。"""
-    counts = {k: len(data.get(k) or []) for k in SECTION_KEYS}
-    total = sum(counts.values())
-    if total <= max_items:
-        return apply_github_display_order(data)
-    quotas = fair_section_quotas(counts, max_items)
-    out = dict(data)
-    for k in SECTION_KEYS:
-        row = data.get(k) or []
-        if k == "github":
-            row = list(row)
-            _github_display_rng(data).shuffle(row)
-            out[k] = row[: quotas[k]]
-        else:
-            out[k] = row[: quotas[k]]
-    return out
-
-
-SECTION_KEY_TO_INDEX = {k: i for i, k in enumerate(SECTION_KEYS)}
-
-
-def make_item_share_href(date_str: str, section_key: str, item_index: int) -> str:
-    """短链 ?k=期号&s=板块下标&i=条下标，正文由 /issue-data/YYYY-MM-DD.json 拉取，微信里转发不再刷巨长 query。"""
-    s = SECTION_KEY_TO_INDEX[section_key]
-    return f"/share.html?k={date_str}&s={s}&i={item_index}"
-
-
-def write_issue_data_json(data, date_str) -> None:
-    """与当日 cap 后条目一致，供 share.html 短链使用。"""
-    out_dir = BASE_DIR / "issue-data"
-    out_dir.mkdir(exist_ok=True)
-    sections = {}
-    for k in SECTION_KEYS:
-        rows = data.get(k) or []
-        sections[k] = [
-            {
-                "t": (it.get("title") or "Untitled").strip() or "Untitled",
-                "s": (it.get("summary_zh") or it.get("summary") or "").strip(),
-                "u": (it.get("url") or "#").strip() or "#",
-            }
-            for it in rows
-        ]
-    obj = {"date": date_str, "v": 1, "sections": sections}
-    p = out_dir / f"{date_str}.json"
-    p.write_text(
-        json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + "\n",
-        encoding="utf-8",
-    )
-    print(f"Wrote: {p}")
-
+from aidaily.archives import (
+    apply_home_archive_override,
+    extract_archive_meta,
+    patch_polished_home_archives_data,
+    sync_today_html_from_newest_archive,
+)
+from aidaily.config import (
+    BASE_DIR,
+    BEIJING_TZ,
+    DATA_FILE,
+    ISSUES_FILENAME,
+    OUTPUT_DIR,
+    SITE_URL,
+    TODAY_FILENAME,
+)
+from aidaily.constants import (
+    DEFAULT_MAX_SITE_ITEMS,
+    SECTION_KEYS,
+    SECTION_META,
+)
+from aidaily.data import (
+    cap_data_for_site,
+    current_beijing_date_str,
+    get_issue_date,
+    load_data,
+    make_item_share_href,
+    resolve_max_site_items,
+    write_issue_data_json,
+)
+from aidaily.status import write_site_status
 
 def build_item_html(
     item,
@@ -1613,7 +1361,6 @@ renderPage(initPage);
 </body>
 </html>"""
 
-
 def run_source_evolution():
     print("\n🧬 Running source evolution...")
     try:
@@ -1628,49 +1375,6 @@ def run_source_evolution():
             print(f"⚠️  Evolution script returned {evo_result.returncode}")
     except Exception as e:
         print(f"⚠️  Evolution skipped: {e}")
-
-
-def write_site_status(
-    data,
-    *,
-    date_str: str,
-    raw_item_total: int,
-    site_total: int,
-    max_site_items: int,
-) -> None:
-    """供首页等读取；路径 /status.json。失败不应阻塞整站生成。"""
-    obj = {
-        "v": 1,
-        "generated_at": datetime.now(BEIJING_TZ).replace(microsecond=0).isoformat(),
-        "issue_date": date_str,
-        "site_total_items": site_total,
-        "raw_item_total": raw_item_total,
-        "max_site_items_cap": max_site_items,
-        "sources": (data.get("sources") or "").strip(),
-    }
-    p = BASE_DIR / STATUS_FILENAME
-    p.write_text(
-        json.dumps(obj, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    print(f"Wrote: {p}")
-
-
-def patch_polished_home_archives_data(existing_html, archive_infos):
-    """仅更新精修首页中的 ALL_ARCHIVES（供 atlas 卡片统计）；归档列表在 issues.html。
-
-    首页 JS 只读取每期日期与条目数，嵌入完整元数据会显著拖慢首屏下载与解析；故只写入 [[date, total], ...]。"""
-    home_rows = [[row[0], str(row[2])] for row in archive_infos]
-    archive_data_block = json.dumps(home_rows, ensure_ascii=False, separators=(",", ":"))
-    updated = replace_between(
-        existing_html,
-        "const ALL_ARCHIVES = ",
-        "\n\nconst LANG_STORAGE =",
-        archive_data_block,
-    )
-    print(f"Updated: home.html (ALL_ARCHIVES, {len(archive_infos)} issues)")
-    return updated
-
 
 def run_compress_historic_archives() -> int:
     """将「北京时间当天」之前的历史 archives/*.html 做 HTML 空白压缩（见 scripts/compress_archives.py）。"""

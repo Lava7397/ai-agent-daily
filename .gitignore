@@ -30,3 +30,6 @@ sites/four-persimmons/.next/
 sites/four-persimmons/out/
 # Local image download config (may contain signed / internal URLs)
 sites/four-persimmons/bakery-asset-urls.json
+
+# Next static export → /shizi/（仅部署构建产物，仓库不跟踪）
+/shizi/
