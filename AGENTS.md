@@ -22,6 +22,8 @@ ai-daily-h5/
 ├── archives/                # 历史归档 YYYY-MM-DD.html
 ├── issue-data/              # 各期紧凑 JSON；可 rerender_issue_from_data 重渲
 ├── images/                  # 每日封面图
+├── journal-data.json        # Lava 期刊正文（手工写入；见 JOURNAL.md）
+├── JOURNAL.md               # 期刊数据约定、风险与流程
 ├── shizi/                   # Next 导出（npm run build，不提交 git）
 ├── scripts/
 │   ├── rerender_issue_from_data.py
@@ -83,4 +85,5 @@ Hermes Cron (每天 11:30 BJT)
 - **shizi/**：部署时由 `npm run build` 生成；仓库 `.gitignore` 排除。本地要看 `/shizi` 前先 `npm run build`。
 - **daily_data 主源**：Hermes；`collect_manual.py` 勿当作与 Hermes 并行的长期第二条管道。
 - **issue-data 缺失的旧期**：从 git 取回当日 `daily_data.json` 再 `generate.py`，或手工补 issue-data；不提供稳定「HTML → issue-data」反解。
+- **期刊 `journal-data.json`**：由 `journal.html` 读取；写入仅通过浏览器本地写盘 + 人工 git 提交（见 `JOURNAL.md`）。**不要**添加服务端写该文件的 API，以免匿名投稿与 SSRF 面扩大。单文件会随部署全量下发，体积见 `JOURNAL.md` 中的容量说明。
 

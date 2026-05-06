@@ -9,6 +9,7 @@ on:
     paths:
       - "daily_data.json"
       - "generate.py"
+      - "aidaily/**"
   workflow_dispatch:
 
 concurrency:
