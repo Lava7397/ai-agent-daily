@@ -13,8 +13,10 @@ venv/
 .env.local
 .env.*.local
 
-# Local backups (e.g. translate.py renames daily_data.json → .bak)
+# Local caches & backups (e.g. translate.py rewrites daily_data.json → .cache/*.bak)
+.cache/
 *.json.bak
+daily_data_backup_*.json
 
 # OS
 .DS_Store

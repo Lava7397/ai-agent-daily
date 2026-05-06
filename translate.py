@@ -25,6 +25,7 @@ BEIJING_TZ = timezone(timedelta(hours=8))
 
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "daily_data.json"
+CACHE_DIR = BASE_DIR / ".cache"
 
 SECTION_KEYS = ("research", "github", "models", "community")
 
@@ -149,13 +150,13 @@ def main():
             print(f"  [{i:2d}] {title_zh[:40]}...")
             time.sleep(RATE_DELAY)  # API 友好间隔
 
-    # 备份原文件
-    backup = DATA_FILE.with_suffix(".json.bak")
+    CACHE_DIR.mkdir(exist_ok=True)
+    backup = CACHE_DIR / "daily_data.json.bak"
     if not backup.exists():
         shutil.copy(DATA_FILE, backup)
-        print(f"✅ 已备份原文件: {backup.name}")
+        print(f"✅ 已备份原文件: .cache/{backup.name}")
     else:
-        print(f"✅ 备份已存在: {backup.name}")
+        print(f"✅ 备份已存在: .cache/{backup.name}")
 
     # 写回
     DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")

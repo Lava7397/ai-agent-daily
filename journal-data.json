@@ -1,5 +1,11 @@
 {
   "schema_version": 1,
+  "_meta": {
+    "purpose": "Lava 期刊正文 / 摘录的静态数据。由 journal-submit.html 在本机覆盖，再人工 git commit & push。",
+    "writers": "manual only — no server API writes this file",
+    "soft_cap_entries": 200,
+    "doc": "JOURNAL.md"
+  },
   "updated_at": "2026-04-28T06:10:51.697Z",
   "entries": [
     {

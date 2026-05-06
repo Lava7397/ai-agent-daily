@@ -1,0 +1,27 @@
+# AI Daily — runtime dependencies
+#
+# 设计原则：核心生成与部署链路（generate.py / deploy.py / api/*.py）只用 Python 3.11 标准库，
+# 不需要任何第三方包。下方为「可选」依赖，仅在使用对应工具脚本时才需要安装。
+#
+# 安装：
+#   pip install -r requirements.txt          # 全部可选依赖一并装上
+#   # 或按需单装，例如：
+#   #   pip install requests                  # 跑 translate.py
+#   #   pip install Pillow numpy              # 跑 generate_image.py / scripts/export_mascot_from_raw.py
+#   #   pip install playwright && playwright install chromium  # 跑 screenshot.py
+
+# --- core ---
+# (none — pure stdlib)
+
+# --- optional: translate.py（MyMemory 翻译 API HTTP 客户端） ---
+requests>=2.31
+
+# --- optional: generate_image.py / scripts/{export_mascot_from_raw,make_share_og_image,compress_images}.py ---
+Pillow>=10.0
+
+# --- optional: scripts/export_mascot_from_raw.py（漫画化减色，ndarray 处理） ---
+numpy>=1.26
+
+# --- optional: screenshot.py（H5 页面截图） ---
+# 第一次安装后还需执行：playwright install chromium
+playwright>=1.40
