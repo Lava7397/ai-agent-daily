@@ -15,7 +15,7 @@ from aidaily.archives import sync_today_html_from_newest_archive
 from aidaily.config import BASE_DIR, OUTPUT_DIR
 from aidaily.data import cap_data_for_site, current_beijing_date_str
 from aidaily.issue_bridge import issue_data_json_to_daily
-from generate import build_html
+from aidaily.render import build_html
 
 
 def main(argv: list[str] | None = None) -> int:

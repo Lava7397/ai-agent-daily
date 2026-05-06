@@ -10,7 +10,7 @@
 ```
 ai-daily-h5/
 ├── generate.py              # 主入口：daily_data → H5（HTML 模板在本文件；逻辑在 aidaily/）
-├── aidaily/                 # 路径、板块常量、load/cap、归档解析、status、issue-data 桥接
+├── aidaily/                 # 路径、常量、load/cap、归档、status、issue-data 桥接、render（build_html）
 ├── generate_image.py        # 生成每日封面图
 ├── deploy.py                # Vercel 部署脚本
 ├── screenshot.py            # 页面截图工具

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-已废弃：日刊 HTML 的唯一模板来源是仓库根目录的 generate.build_html()。
+已废弃：日刊 HTML 的唯一模板来源是 aidaily.render.build_html()（由 generate 调用）。
 
 历史原因本脚本曾用「粘 CSS 片段」对齐旧归档；维护双路径容易漂移，已弃用。
 
