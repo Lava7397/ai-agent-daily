@@ -9,6 +9,7 @@ import html as html_mod
 import ipaddress
 import json
 import re
+import socket
 from http.server import BaseHTTPRequestHandler
 from typing import Dict, Optional, Tuple
 from urllib.error import HTTPError, URLError
@@ -29,6 +30,35 @@ def _squash(s: str) -> str:
     return " ".join(s.replace("\xa0", " ").split())
 
 
+def _blocked_ip(ipa: ipaddress.IPv4Address | ipaddress.IPv6Address) -> bool:
+    return (
+        ipa.is_private
+        or ipa.is_loopback
+        or ipa.is_link_local
+        or ipa.is_multicast
+        or ipa.is_reserved
+        or ipa.is_unspecified
+    )
+
+
+def _resolved_ips(host: str, port: int) -> Tuple[bool, str]:
+    try:
+        infos = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
+    except OSError:
+        return False, "host unresolved"
+
+    addresses = {info[4][0].split("%")[0] for info in infos if info and info[4]}
+    if not addresses:
+        return False, "host unresolved"
+    for addr in addresses:
+        try:
+            if _blocked_ip(ipaddress.ip_address(addr)):
+                return False, "ip blocked"
+        except ValueError:
+            return False, "host unresolved"
+    return True, ""
+
+
 def _allowed_url(raw: str) -> Tuple[bool, str]:
     s = (raw or "").strip()
     if not s or len(s) > 8000:
@@ -37,16 +67,23 @@ def _allowed_url(raw: str) -> Tuple[bool, str]:
     if p.scheme not in ("http", "https"):
         return False, "only http/https"
     host = (p.hostname or "").lower()
-    if not host or host in _BAD_HOST:
+    host_for_checks = host.split("%")[0].rstrip(".")
+    if not host_for_checks or host_for_checks in _BAD_HOST:
+        return False, "host blocked"
+    if host_for_checks.endswith(".local"):
         return False, "host blocked"
     try:
-        ipa = ipaddress.ip_address(host.split("%")[0])
-        if ipa.is_private or ipa.is_loopback or ipa.is_link_local or ipa.is_multicast or ipa.is_reserved:
+        ipa = ipaddress.ip_address(host_for_checks)
+        if _blocked_ip(ipa):
             return False, "ip blocked"
     except ValueError:
-        pass
-    if host.endswith(".local"):
-        return False, "host blocked"
+        try:
+            port = p.port or (443 if p.scheme == "https" else 80)
+        except ValueError:
+            return False, "bad url"
+        ok, reason = _resolved_ips(host_for_checks, port)
+        if not ok:
+            return False, reason
     rebuilt = urlunparse(
         (p.scheme, p.netloc.lower(), p.path or "", "", p.query or "", "")
     )
