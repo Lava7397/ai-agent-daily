@@ -11,7 +11,8 @@
 - 部署前先看 AGENTS.md 了解 Vercel 配置
 
 ## 文件说明
-- generate.py: 主入口，读取 daily_data.json 并生成 H5（页面模板在 aidaily/render.py）
+- generate.py: 主入口，读取 daily_data.json 并生成 H5
+- `aidaily/render.py` + `assets/render/*.css` / `*.js`: 日刊与 issues 版面（生成时嵌入 HTML，单文件输出，无需改 Vercel 路由）
 - generate_image.py: 生成每日封面图
 - deploy.py: 部署到 Vercel
 - screenshot.py: 页面截图
