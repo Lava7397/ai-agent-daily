@@ -5,10 +5,16 @@ AI Agent 日报 H5 页面生成器
 
 生成结束后会自动压缩「北京时间当天」之前的历史 archives/*.html（空白 minify，
 见 scripts/compress_archives.py）；可用 --no-compress-archives 关闭。
+
+日志：设置环境变量 AI_DAILY_LOG_LEVEL=INFO|WARNING|DEBUG 时，失败路径会写入 stderr（含堆栈）。
 """
 import argparse
 import importlib.util
 import sys
+
+from aidaily.logutil import configure_cli_logging
+
+LOG = configure_cli_logging("aidaily.generate")
 
 from aidaily.archives import (
     apply_home_archive_override,

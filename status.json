@@ -1,9 +1,9 @@
 {
   "v": 1,
-  "generated_at": "2026-05-07T12:41:23+08:00",
-  "issue_date": "2026-05-07",
-  "site_total_items": 17,
-  "raw_item_total": 17,
+  "generated_at": "2026-05-08T09:54:02+08:00",
+  "issue_date": "2026-05-08",
+  "site_total_items": 13,
+  "raw_item_total": 13,
   "max_site_items_cap": 80,
-  "sources": "Hacker News, arXiv, GitHub"
+  "sources": "Hacker News, GitHub"
 }
