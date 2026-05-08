@@ -53,3 +53,4 @@
     el.addEventListener('click', function(){ setLang(el.dataset.setLang); });
   });
   applyI18n();
+})();
