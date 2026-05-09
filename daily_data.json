@@ -1,184 +1,198 @@
 {
-  "date": "2026-05-08",
+  "date": "2026-05-09",
   "sources": "Hacker News, GitHub",
   "description": "AI Agent 领域最新情报",
   "research": [],
   "github": [
     {
-      "title": "Hesper-Labs/architect",
-      "summary": "【GitHub】Open-source spec authoring studio for AI coding agents. Bring your own Claude key, draft a Markdown spec + architecture diagram in the browser, hand off to Claude Code. （⭐ 6）",
-      "url": "https://github.com/Hesper-Labs/architect",
-      "stars": 6,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "Hesper-Labs/建筑师",
-      "summary_zh": "【GitHub】人工智能编码代理的开源规范创作工作室。带上自己的Claude密钥，在浏览器中起草Markdown规范+架构图，交给Claude Code。（⭐ 6 ）",
-      "title_en": "Hesper-Labs/architect",
-      "summary_en": "【GitHub】Open-source spec authoring studio for AI coding agents. Bring your own Claude key, draft a Markdown spec + architecture diagram in the browser, hand off to Claude Code. （⭐ 6）"
-    },
-    {
-      "title": "freestylefly/wesight",
-      "summary": "【GitHub】Open-source desktop AI agent workspace with one-click Claude Code, Codex, OpenClaw, Hermes Agent setup and custom LLM model routing. （⭐ 2）",
-      "url": "https://github.com/freestylefly/wesight",
-      "stars": 2,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "freestylefly/wesight",
-      "summary_zh": "【GitHub】开源桌面AI Agent工作区，一键Claude Code、Codex、OpenClaw、Hermes Agent设置和自定义LLM模型路由。（⭐ 2 ）",
-      "title_en": "freestylefly/wesight",
-      "summary_en": "【GitHub】Open-source desktop AI agent workspace with one-click Claude Code, Codex, OpenClaw, Hermes Agent setup and custom LLM model routing. （⭐ 2）"
-    },
-    {
-      "title": "ZeldoGiQ/hyperframes-vibecoding-dach",
-      "summary": "【GitHub】🎬 Hyperframes Addon für deutschsprachige Anfänger – Videos automatisieren mit Claude Code. Open Source by Vibe Coding DACH. （⭐ 1）",
-      "url": "https://github.com/ZeldoGiQ/hyperframes-vibecoding-dach",
+      "title": "cdesktop-ai/cdesktop",
+      "summary": "【GitHub】Open-source Claude Code Desktop alternative. Browser-based, supports any provider. （⭐ 1）",
+      "url": "https://github.com/cdesktop-ai/cdesktop",
       "stars": 1,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "ZeldoGiQ/hyperframes-vibecoding-dach",
-      "summary_zh": "【GitHub】🎬 Hyperframes Addon für deutschsprachige Anfänger –视频automatisieren mit Claude Code。Vibe Coding DACH开源。（⭐ 1 ）",
-      "title_en": "ZeldoGiQ/hyperframes-vibecoding-dach",
-      "summary_en": "【GitHub】🎬 Hyperframes Addon für deutschsprachige Anfänger – Videos automatisieren mit Claude Code. Open Source by Vibe Coding DACH. （⭐ 1）"
+      "title_zh": "cdesktop-ai/cdesktop",
+      "summary_zh": "【GitHub】开源Claude Code Desktop替代品。基于浏览器，支持任意提供商。（⭐ 1 ）",
+      "title_en": "cdesktop-ai/cdesktop",
+      "summary_en": "【GitHub】Open-source Claude Code Desktop alternative. Browser-based, supports any provider. （⭐ 1）"
+    },
+    {
+      "title": "slimmsyd/short-form-vibe-edit",
+      "summary": "【GitHub】Claude Code skill: phone talking-head video → captioned vertical short with motion-graphic b-roll. Programmatic, no AI image generation, all open-source. （⭐ 1）",
+      "url": "https://github.com/slimmsyd/short-form-vibe-edit",
+      "stars": 1,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "slimmsyd/short-form-vibe-edit",
+      "summary_zh": "【GitHub】Claude Code技能：电话通话头视频→字幕垂直短片，带动画B-roll。程序化，不生成AI图像，全部开源。（⭐ 1 ）",
+      "title_en": "slimmsyd/short-form-vibe-edit",
+      "summary_en": "【GitHub】Claude Code skill: phone talking-head video → captioned vertical short with motion-graphic b-roll. Programmatic, no AI image generation, all open-source. （⭐ 1）"
+    },
+    {
+      "title": "vllnt/skills",
+      "summary": "【GitHub】Open-source agent skills published by vllnt. Compatible with Claude Code, OpenCode, Codex, Pi, Cursor, Windsurf, and any runtime that loads skills from Markdown directories. （⭐ 1）",
+      "url": "https://github.com/vllnt/skills",
+      "stars": 1,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "vllnt/skills",
+      "summary_zh": "【GitHub】Vllnt发布的开源代理技能。兼容Claude Code、OpenCode、Codex、Pi、Cursor、Windsurf以及任何从Markdown目录加载技能的运行时。（⭐ 1 ）",
+      "title_en": "vllnt/skills",
+      "summary_en": "【GitHub】Open-source agent skills published by vllnt. Compatible with Claude Code, OpenCode, Codex, Pi, Cursor, Windsurf, and any runtime that loads skills from Markdown directories. （⭐ 1）"
+    },
+    {
+      "title": "cdesktop-ai/cdesktop",
+      "summary": "【GitHub】Open-source Claude Code Desktop alternative. Browser-based, supports any provider. （⭐ 1）",
+      "url": "https://github.com/cdesktop-ai/cdesktop",
+      "stars": 1,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "cdesktop-ai/cdesktop",
+      "summary_zh": "【GitHub】开源Claude Code Desktop替代品。基于浏览器，支持任意提供商。（⭐ 1 ）",
+      "title_en": "cdesktop-ai/cdesktop",
+      "summary_en": "【GitHub】Open-source Claude Code Desktop alternative. Browser-based, supports any provider. （⭐ 1）"
     }
   ],
   "models": [
     {
-      "title": "OpenAI launches new voice intelligence features in its API",
-      "summary": "The new features could be handy for customer service systems, but OpenAI says they have applications that work across a variety of other fields, including education and creator platforms. ",
-      "url": "https://techcrunch.com/2026/05/07/openai-launches-new-voice-intelligence-features-in-its-api/",
+      "title": "Laid-off Oracle workers tried to negotiate better severance. Oracle said no.",
+      "summary": "Some found out they didn't qualify for WARN Act protections like two-months notice because the company had classified them as remote workers.",
+      "url": "https://techcrunch.com/2026/05/08/laid-off-oracle-workers-tried-to-negotiate-better-severance-oracle-said-no/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "OpenAI在其API中推出新的语音智能功能",
-      "summary_zh": "这些新功能对于客户服务系统来说可能很方便，但OpenAI表示，他们的应用程序可以跨越其他各个领域，包括教育和创作者平台。",
-      "title_en": "OpenAI launches new voice intelligence features in its API",
-      "summary_en": "The new features could be handy for customer service systems, but OpenAI says they have applications that work across a variety of other fields, including education and creator platforms."
+      "title_zh": "被解雇的甲骨文员工试图通过谈判获得更好的遣散费。甲骨文拒绝了。",
+      "summary_zh": "有些人发现，由于公司将他们归类为远程工作者，他们不符合WARN法案的保护条件，例如提前两个月通知。",
+      "title_en": "Laid-off Oracle workers tried to negotiate better severance. Oracle said no.",
+      "summary_en": "Some found out they didn't qualify for WARN Act protections like two-months notice because the company had classified them as remote workers."
     },
     {
-      "title": "Voi founders’ new AI startup Pit has become the latest rising star out of Stockholm",
-      "summary": "AI startup Pit is led by the co-founders of European scooter giant Voi and backed by a16z, which is leading the startup’s $16 million seed round. ",
-      "url": "https://techcrunch.com/2026/05/07/voi-founders-new-ai-startup-pit-has-become-the-latest-rising-star-out-of-stockholm/",
+      "title": "Intel’s comeback story is even wilder than it seems",
+      "summary": "Intel's stock has risen a stunning 490% over the past year, a bet by Wall Street that may be running well ahead of the company's actual turnaround.",
+      "url": "https://techcrunch.com/2026/05/08/intels-comeback-story-is-even-wilder-than-it-seems/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "Voi创始人的新人工智能初创公司Pit已成为斯德哥尔摩最新的后起之秀",
-      "summary_zh": "人工智能初创公司Pit由欧洲滑板车巨头Voi的联合创始人领导，并得到a16z的支持，该公司正在领导这家初创公司的1600万美元种子轮融资。",
-      "title_en": "Voi founders’ new AI startup Pit has become the latest rising star out of Stockholm",
-      "summary_en": "AI startup Pit is led by the co-founders of European scooter giant Voi and backed by a16z, which is leading the startup’s $16 million seed round."
+      "title_zh": "英特尔的复出故事比看起来更疯狂",
+      "summary_zh": "英特尔股价在过去一年中上涨了惊人的490% ，这是华尔街的一个押注，可能远远领先于该公司的实际扭亏为盈。",
+      "title_en": "Intel’s comeback story is even wilder than it seems",
+      "summary_en": "Intel's stock has risen a stunning 490% over the past year, a bet by Wall Street that may be running well ahead of the company's actual turnaround."
     },
     {
-      "title": "OpenAI introduces new ‘Trusted Contact’ safeguard for cases of possible self-harm",
-      "summary": "The company is expanding its efforts to protect ChatGPT users in cases where conversations may turn to self-harm. ",
-      "url": "https://techcrunch.com/2026/05/07/openai-introduces-new-trusted-contact-safeguard-for-cases-of-possible-self-harm/",
+      "title": "Cloudflare says AI made 1,100 jobs obsolete, even as revenue hit a record high",
+      "summary": "Cloudflare announced its first large-scale layoff. CEO Matthew Prince says because of AI efficiency gains, the company doesn't need as many support roles.",
+      "url": "https://techcrunch.com/2026/05/08/cloudflare-says-ai-made-1100-jobs-obsolete-even-as-revenue-hit-a-record-high/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "OpenAI为可能的自我伤害案件引入了新的「信任联系人」保障措施",
-      "summary_zh": "该公司正在加大努力，在谈话可能变成自我伤害的情况下保护ChatGPT用户。",
-      "title_en": "OpenAI introduces new ‘Trusted Contact’ safeguard for cases of possible self-harm",
-      "summary_en": "The company is expanding its efforts to protect ChatGPT users in cases where conversations may turn to self-harm."
+      "title_zh": "Cloudflare表示，人工智能使1100个工作岗位过时，尽管收入创下历史新高",
+      "summary_zh": "Cloudflare宣布首次大规模裁员。首席执行官马修·普林斯（ Matthew Prince ）表示，由于人工智能效率的提高，该公司不需要那么多支持角色。",
+      "title_en": "Cloudflare says AI made 1,100 jobs obsolete, even as revenue hit a record high",
+      "summary_en": "Cloudflare announced its first large-scale layoff. CEO Matthew Prince says because of AI efficiency gains, the company doesn't need as many support roles."
     },
     {
-      "title": "Perplexity’s Personal Computer is now available to everyone on Mac",
-      "summary": "Perplexity's Personal Computer brings AI agents to your Mac, and is now open to everyone. ",
-      "url": "https://techcrunch.com/2026/05/07/perplexitys-personal-computer-is-now-available-everyone-on-mac/",
+      "title": "The “people’s airline” and the enterprise AI gold rush",
+      "summary": "Everyone wants a piece of the&#160;enterprise&#160;AI pie, and this week, we saw a string of companies making their moves. From&#160;Anthropic and OpenAI announcing new joint ventures&#160;targeting enterprise AI deployment to&#160;SAP dropping $1B&#",
+      "url": "https://techcrunch.com/podcast/the-peoples-airline-and-the-enterprise-ai-gold-rush/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "Perplexity的个人电脑现在可供Mac上的所有人使用",
-      "summary_zh": "Perplexity的个人电脑将AI代理引入您的Mac ，现在向所有人开放。",
-      "title_en": "Perplexity’s Personal Computer is now available to everyone on Mac",
-      "summary_en": "Perplexity's Personal Computer brings AI agents to your Mac, and is now open to everyone."
+      "title_zh": "“人民航空公司”与企业AI淘金热",
+      "summary_zh": "每个人都想要一块企业AI馅饼，本周，我们看到了一系列公司正在采取行动。从Anthropic和OpenAI宣布针对企业人工智能部署的新合资企业到SAP下降$ 1B & #",
+      "title_en": "The “people’s airline” and the enterprise AI gold rush",
+      "summary_en": "Everyone wants a piece of the&#160;enterprise&#160;AI pie, and this week, we saw a string of companies making their moves. From&#160;Anthropic and OpenAI announcing new joint ventures&#160;targeting enterprise AI deployment to&#160;SAP dropping $1B&#"
     }
   ],
   "community": [
     {
-      "title": "Agents need control flow, not more prompts",
-      "summary": "【HN】热度: 326 分 | 181 评论",
-      "url": "https://bsuh.bearblog.dev/agents-need-control-flow/",
+      "title": "AI is breaking two vulnerability cultures",
+      "summary": "【HN】热度: 248 分 | 107 评论",
+      "url": "https://www.jefftk.com/p/ai-is-breaking-two-vulnerability-cultures",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "客服代表需要控制流程，而不是更多提示",
-      "summary_zh": "【HN】热度: 326 分 | 181 评论",
-      "title_en": "Agents need control flow, not more prompts",
-      "summary_en": "【HN】热度: 326 分 | 181 评论"
+      "title_zh": "人工智能正在打破两种脆弱性文化",
+      "summary_zh": "【HN】热度: 248 分 | 107 评论",
+      "title_en": "AI is breaking two vulnerability cultures",
+      "summary_en": "【HN】热度: 248 分 | 107 评论"
     },
     {
-      "title": "Researchers discover advanced language processing in the unconscious human brain",
-      "summary": "【HN】热度: 40 分 | 11 评论",
-      "url": "https://www.bcm.edu/news/researchers-discover-advanced-language-processing-in-the-unconscious-human-brain",
+      "title": "Can LLMs model real-world systems in TLA+?",
+      "summary": "【HN】热度: 33 分 | 4 评论",
+      "url": "https://www.sigops.org/2026/can-llms-model-real-world-systems-in-tla/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "研究人员在无意识的人类大脑中发现先进的语言处理",
-      "summary_zh": "【HN】热度: 40 分 | 11 评论",
-      "title_en": "Researchers discover advanced language processing in the unconscious human brain",
-      "summary_en": "【HN】热度: 40 分 | 11 评论"
+      "title_zh": "LLM可以在TLA +中模拟真实世界的系统吗？",
+      "summary_zh": "【HN】热度: 33 分 | 4 评论",
+      "title_en": "Can LLMs model real-world systems in TLA+?",
+      "summary_en": "【HN】热度: 33 分 | 4 评论"
     },
     {
-      "title": "Natural Language Autoencoders: Turning Claude's Thoughts into Text",
-      "summary": "【HN】热度: 195 分 | 64 评论",
-      "url": "https://www.anthropic.com/research/natural-language-autoencoders",
+      "title": "Teaching Claude Why",
+      "summary": "【HN】热度: 96 分 | 27 评论",
+      "url": "https://www.anthropic.com/research/teaching-claude-why",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "自然语言自动编码器：将克劳德的思想转化为文本",
-      "summary_zh": "【HN】热度: 195 分 | 64 评论",
-      "title_en": "Natural Language Autoencoders: Turning Claude's Thoughts into Text",
-      "summary_en": "【HN】热度: 195 分 | 64 评论"
+      "title_zh": "教授Claude Why",
+      "summary_zh": "【HN】热度: 96 分 | 27 评论",
+      "title_en": "Teaching Claude Why",
+      "summary_en": "【HN】热度: 96 分 | 27 评论"
     },
     {
-      "title": "AlphaEvolve: Gemini-powered coding agent scaling impact across fields",
-      "summary": "【HN】热度: 243 分 | 98 评论",
-      "url": "https://deepmind.google/blog/alphaevolve-impact/",
+      "title": "Tesla Model Y Passes NHTSA's New 'Advanced Driver Assistance System' Tests",
+      "summary": "【HN】热度: 44 分 | 30 评论",
+      "url": "https://www.nhtsa.gov/press-releases/tesla-model-y-first-vehicle-pass-nhtsa-new-advanced-driver-assistance-system-tests",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "AlphaEvolve ： Gemini-powered编码代理跨领域扩展影响",
-      "summary_zh": "【HN】热度: 243 分 | 98 评论",
-      "title_en": "AlphaEvolve: Gemini-powered coding agent scaling impact across fields",
-      "summary_en": "【HN】热度: 243 分 | 98 评论"
+      "title_zh": "特斯拉Model Y通过NHTSA全新“高级驾驶辅助系统”测试",
+      "summary_zh": "【HN】热度: 44 分 | 30 评论",
+      "title_en": "Tesla Model Y Passes NHTSA's New 'Advanced Driver Assistance System' Tests",
+      "summary_en": "【HN】热度: 44 分 | 30 评论"
     },
     {
-      "title": "Hackers deface school login pages after claiming another Instructure hack",
-      "summary": "【HN】热度: 17 分 | 1 评论",
-      "url": "https://techcrunch.com/2026/05/07/hackers-deface-school-login-pages-after-claiming-another-instructure-hack/",
+      "title": "People Hate AI Art",
+      "summary": "【HN】热度: 5 分 | 0 评论",
+      "url": "https://mccue.dev/pages/5-8-26-ai-art",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "黑客在声称另一次Instructure黑客攻击后篡改学校登录页面",
-      "summary_zh": "【HN】热度: 17 分 | 1 评论",
-      "title_en": "Hackers deface school login pages after claiming another Instructure hack",
-      "summary_en": "【HN】热度: 17 分 | 1 评论"
+      "title_zh": "人们讨厌人工智能艺术",
+      "summary_zh": "【HN】热度: 5 分 | 0 评论",
+      "title_en": "People Hate AI Art",
+      "summary_en": "【HN】热度: 5 分 | 0 评论"
     },
     {
-      "title": "AI slop is killing online communities",
-      "summary": "【HN】热度: 448 分 | 431 评论",
-      "url": "https://rmoff.net/2026/05/06/ai-slop-is-killing-online-communities/",
+      "title": "Podman rootless containers and the Copy Fail exploit",
+      "summary": "【HN】热度: 119 分 | 23 评论",
+      "url": "https://garrido.io/notes/podman-rootless-containers-copy-fail/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "AI SLOP正在扼杀在线社区",
-      "summary_zh": "【HN】热度: 448 分 | 431 评论",
-      "title_en": "AI slop is killing online communities",
-      "summary_en": "【HN】热度: 448 分 | 431 评论"
+      "title_zh": "Podman无根容器和Copy Fail漏洞利用",
+      "summary_zh": "【HN】热度: 119 分 | 23 评论",
+      "title_en": "Podman rootless containers and the Copy Fail exploit",
+      "summary_en": "【HN】热度: 119 分 | 23 评论"
     }
   ]
 }
