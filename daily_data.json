@@ -1,146 +1,198 @@
 {
-  "date": "2026-05-10",
+  "date": "2026-05-11",
   "sources": "Hacker News, GitHub",
   "description": "AI Agent 领域最新情报",
   "research": [],
   "github": [
     {
-      "title": "superunderpants/automodel-for-cc",
-      "summary": "【GitHub】Open-source auto-approval guard for Claude Code. One binary, one config file, zero prompts. （⭐ 0）",
-      "url": "https://github.com/superunderpants/automodel-for-cc",
-      "stars": 0,
+      "title": "farazfookeer/cv-creator",
+      "summary": "【GitHub】Open-source Claude Code skill: generate, review, and ATS-optimize CVs across regions (US, UK/EU, Germany, Academic, UAE) and industries (tech, nursing, finance, sales, trades, creative, executive). Ma （⭐ 1）",
+      "url": "https://github.com/farazfookeer/cv-creator",
+      "stars": 1,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "superunderpants/automodel-for-cc",
-      "summary_zh": "【GitHub】Claude Code的开源自动批准保护。一个二进制文件，一个配置文件，零提示。（⭐ 0 ）",
-      "title_en": "superunderpants/automodel-for-cc",
-      "summary_en": "【GitHub】Open-source auto-approval guard for Claude Code. One binary, one config file, zero prompts. （⭐ 0）"
+      "title_zh": "farazfookeer/cv-creator",
+      "summary_zh": "【GitHub】开源Claude Code技能：跨地区（美国、英国/欧盟、德国、学术界、阿联酋）和行业（科技、护理、金融、销售、交易、创意、高管）生成、审查和ATS优化简历。Ma （⭐ 1 ）",
+      "title_en": "farazfookeer/cv-creator",
+      "summary_en": "【GitHub】Open-source Claude Code skill: generate, review, and ATS-optimize CVs across regions (US, UK/EU, Germany, Academic, UAE) and industries (tech, nursing, finance, sales, trades, creative, executive). Ma （⭐ 1）"
     },
     {
-      "title": "alloverart/skills",
-      "summary": "【GitHub】Open-source AI skills for Claude Code and agentic tools, by allover.art — print-on-demand t-shirts. （⭐ 0）",
-      "url": "https://github.com/alloverart/skills",
-      "stars": 0,
+      "title": "deepelementlab/open-krowork",
+      "summary": "【GitHub】Turn natural language into local desktop apps. Open-source KroWork for Claude Code — describe what you want, get a working Flask app with a desktop shortcut. 33 MCP tools, auto-code generation, web sc （⭐ 1）",
+      "url": "https://github.com/deepelementlab/open-krowork",
+      "stars": 1,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "alloverart/skills",
-      "summary_zh": "【GitHub】Claude Code和agentic工具的开源AI技能，通过allover.art —按需打印T恤。（⭐ 0 ）",
-      "title_en": "alloverart/skills",
-      "summary_en": "【GitHub】Open-source AI skills for Claude Code and agentic tools, by allover.art — print-on-demand t-shirts. （⭐ 0）"
+      "title_zh": "deepelementlab/open-krowork",
+      "summary_zh": "【GitHub】将自然语言转化为本地桌面应用。开源KroWork for Claude Code —描述您想要的内容，获得带有桌面快捷方式的工作Flask应用程序。33 MCP工具，自动代码生成， web sc （⭐ 1 ）",
+      "title_en": "deepelementlab/open-krowork",
+      "summary_en": "【GitHub】Turn natural language into local desktop apps. Open-source KroWork for Claude Code — describe what you want, get a working Flask app with a desktop shortcut. 33 MCP tools, auto-code generation, web sc （⭐ 1）"
     },
     {
-      "title": "Fusion831/GemClaude",
-      "summary": "【GitHub】Repository to serve as Creating a Claude Code equivalent, but with a local model such as Gemma 4 which is stronger then current open source on device models （⭐ 0）",
-      "url": "https://github.com/Fusion831/GemClaude",
+      "title": "lucasyhzhu-debug/claude-skills",
+      "summary": "【GitHub】Index of Lucas Zhu's open-source Claude Code skills （⭐ 0）",
+      "url": "https://github.com/lucasyhzhu-debug/claude-skills",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "Fusion831/GemClaude",
-      "summary_zh": "【GitHub】存储库用作创建等效的Claude代码，但具有本地模型，如Gemma 4 ，其强于设备模型上的当前开源（⭐ 0 ）",
-      "title_en": "Fusion831/GemClaude",
-      "summary_en": "【GitHub】Repository to serve as Creating a Claude Code equivalent, but with a local model such as Gemma 4 which is stronger then current open source on device models （⭐ 0）"
+      "title_zh": "lucasyhzhu-debug/claude-skills",
+      "summary_zh": "【GitHub】Lucas Zhu开源Claude Code技能索引（⭐ 0 ）",
+      "title_en": "lucasyhzhu-debug/claude-skills",
+      "summary_en": "【GitHub】Index of Lucas Zhu's open-source Claude Code skills （⭐ 0）"
     },
     {
-      "title": "superunderpants/automodel-for-cc",
-      "summary": "【GitHub】Open-source auto-approval guard for Claude Code. One binary, one config file, zero prompts. （⭐ 0）",
-      "url": "https://github.com/superunderpants/automodel-for-cc",
-      "stars": 0,
+      "title": "farazfookeer/cv-creator",
+      "summary": "【GitHub】Open-source Claude Code skill: generate, review, and ATS-optimize CVs across regions (US, UK/EU, Germany, Academic, UAE) and industries (tech, nursing, finance, sales, trades, creative, executive). Ma （⭐ 1）",
+      "url": "https://github.com/farazfookeer/cv-creator",
+      "stars": 1,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "superunderpants/automodel-for-cc",
-      "summary_zh": "【GitHub】Claude Code的开源自动批准保护。一个二进制文件，一个配置文件，零提示。（⭐ 0 ）",
-      "title_en": "superunderpants/automodel-for-cc",
-      "summary_en": "【GitHub】Open-source auto-approval guard for Claude Code. One binary, one config file, zero prompts. （⭐ 0）"
+      "title_zh": "farazfookeer/cv-creator",
+      "summary_zh": "【GitHub】开源Claude Code技能：跨地区（美国、英国/欧盟、德国、学术界、阿联酋）和行业（科技、护理、金融、销售、交易、创意、高管）生成、审查和ATS优化简历。Ma （⭐ 1 ）",
+      "title_en": "farazfookeer/cv-creator",
+      "summary_en": "【GitHub】Open-source Claude Code skill: generate, review, and ATS-optimize CVs across regions (US, UK/EU, Germany, Academic, UAE) and industries (tech, nursing, finance, sales, trades, creative, executive). Ma （⭐ 1）"
     }
   ],
   "models": [
     {
-      "title": "So you’ve heard these AI terms and nodded along; let’s fix that",
-      "summary": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
-      "url": "https://techcrunch.com/2026/05/09/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+      "title": "Get ready for the whisper-filled office of the future",
+      "summary": "How will work setups change if we spend more and more time talking to our computers?",
+      "url": "https://techcrunch.com/2026/05/10/get-ready-for-the-whisper-filled-office-of-the-future/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "所以你已经听过这些人工智能术语并点了点头；让我们来解决这个问题",
-      "summary_zh": "人工智能的崛起带来了大量的新术语和俚语。以下是您可能遇到的一些最重要的单词和短语的定义词汇表。",
-      "title_en": "So you’ve heard these AI terms and nodded along; let’s fix that",
-      "summary_en": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter."
+      "title_zh": "为未来充满低语的办公室做好准备",
+      "summary_zh": "如果我们花越来越多的时间与电脑交谈，工作设置将如何变化？",
+      "title_en": "Get ready for the whisper-filled office of the future",
+      "summary_en": "How will work setups change if we spend more and more time talking to our computers?"
     },
     {
-      "title": "Nvidia has already committed $40B to equity AI deals this year",
-      "summary": "Nvidia continues to be a big investor in the AI ecosystem.",
-      "url": "https://techcrunch.com/2026/05/09/nvidia-has-already-committed-40b-to-equity-ai-deals-this-year/",
+      "title": "Anthropic says ‘evil’ portrayals of AI were responsible for Claude’s blackmail attempts",
+      "summary": "Fictional portrayals of artificial intelligence can have a real effect on AI models, according to Anthropic.",
+      "url": "https://techcrunch.com/2026/05/10/anthropic-says-evil-portrayals-of-ai-were-responsible-for-claudes-blackmail-attempts/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "英伟达今年已承诺向股权AI交易投入400 $",
-      "summary_zh": "英伟达仍然是人工智能生态系统的大投资者。",
-      "title_en": "Nvidia has already committed $40B to equity AI deals this year",
-      "summary_en": "Nvidia continues to be a big investor in the AI ecosystem."
+      "title_zh": "Anthropic说，对人工智能的“邪恶”描绘是克劳德试图勒索的原因",
+      "summary_zh": "根据Anthropic的说法，对人工智能的虚构描绘可以对人工智能模型产生真正的影响。",
+      "title_en": "Anthropic says ‘evil’ portrayals of AI were responsible for Claude’s blackmail attempts",
+      "summary_en": "Fictional portrayals of artificial intelligence can have a real effect on AI models, according to Anthropic."
+    },
+    {
+      "title": "We’re feeling cynical about xAI’s big deal with Anthropic",
+      "summary": "On the latest episode of the Equity podcast, we discussed what xAI's deal with Anthropic might mean for parent company SpaceX.",
+      "url": "https://techcrunch.com/2026/05/10/were-feeling-cynical-about-xais-big-deal-with-anthropic/",
+      "tags": [
+        "industry",
+        "techcrunch"
+      ],
+      "title_zh": "我们对xAI与Anthropic的重大交易感到愤世嫉俗",
+      "summary_zh": "在Equity播客的最新一集中，我们讨论了xAI与Anthropic的交易对母公司SpaceX可能意味着什么。",
+      "title_en": "We’re feeling cynical about xAI’s big deal with Anthropic",
+      "summary_en": "On the latest episode of the Equity podcast, we discussed what xAI's deal with Anthropic might mean for parent company SpaceX."
+    },
+    {
+      "title": "Voice AI in India is hard. Wispr Flow is betting on it anyway.",
+      "summary": "Wispr Flow says growth accelerated in India after its Hinglish rollout, even as voice AI products continue to face challenges.",
+      "url": "https://techcrunch.com/2026/05/09/voice-ai-in-india-is-hard-wispr-flow-is-betting-on-it-anyway/",
+      "tags": [
+        "industry",
+        "techcrunch"
+      ],
+      "title_zh": "语音人工智能在印度很难。无论如何， Wispr Flow都在押注它。",
+      "summary_zh": "Wispr Flow表示，在Hinglish推出后，印度的增长速度加快，尽管语音人工智能产品仍面临挑战。",
+      "title_en": "Voice AI in India is hard. Wispr Flow is betting on it anyway.",
+      "summary_en": "Wispr Flow says growth accelerated in India after its Hinglish rollout, even as voice AI products continue to face challenges."
     }
   ],
   "community": [
     {
-      "title": "LLMs corrupt your documents when you delegate",
-      "summary": "【HN】热度: 365 分 | 140 评论",
-      "url": "https://arxiv.org/abs/2604.15597",
+      "title": "Running local models on an M4 with 24GB memory",
+      "summary": "【HN】热度: 79 分 | 43 评论",
+      "url": "https://jola.dev/posts/running-local-models-on-m4",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "LLM在您委派时损坏您的文档",
-      "summary_zh": "【HN】热度: 365 分 | 140 评论",
-      "title_en": "LLMs corrupt your documents when you delegate",
-      "summary_en": "【HN】热度: 365 分 | 140 评论"
+      "title_zh": "在配备24GB内存的M4上运行本地型号",
+      "summary_zh": "【HN】热度: 79 分 | 43 评论",
+      "title_en": "Running local models on an M4 with 24GB memory",
+      "summary_en": "【HN】热度: 79 分 | 43 评论"
     },
     {
-      "title": "Using Claude Code: The unreasonable effectiveness of HTML",
-      "summary": "【HN】热度: 422 分 | 238 评论",
-      "url": "https://twitter.com/trq212/status/2052809885763747935",
+      "title": "Local AI needs to be the norm",
+      "summary": "【HN】热度: 583 分 | 274 评论",
+      "url": "https://unix.foo/posts/local-ai-needs-to-be-norm/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "使用Claude Code ： HTML不合理的效果",
-      "summary_zh": "【HN】热度: 422 分 | 238 评论",
-      "title_en": "Using Claude Code: The unreasonable effectiveness of HTML",
-      "summary_en": "【HN】热度: 422 分 | 238 评论"
+      "title_zh": "本地人工智能需要成为常态",
+      "summary_zh": "【HN】热度: 583 分 | 274 评论",
+      "title_en": "Local AI needs to be the norm",
+      "summary_en": "【HN】热度: 583 分 | 274 评论"
     },
     {
-      "title": "LLMs corrupt your documents when you delegate",
-      "summary": "【HN】热度: 365 分 | 140 评论",
-      "url": "https://arxiv.org/abs/2604.15597",
+      "title": "PS3 Emulator Devs Politely Ask That People Stop Flooding It with AI PRs",
+      "summary": "【HN】热度: 68 分 | 43 评论",
+      "url": "https://kotaku.com/playstation-3-emulator-devs-politely-ask-that-people-stop-flooding-it-with-ai-code-pull-requests-2000694656",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "LLM在您委派时损坏您的文档",
-      "summary_zh": "【HN】热度: 365 分 | 140 评论",
-      "title_en": "LLMs corrupt your documents when you delegate",
-      "summary_en": "【HN】热度: 365 分 | 140 评论"
+      "title_zh": "PS3模拟器开发人员礼貌地要求人们停止使用AI PR",
+      "summary_zh": "【HN】热度: 68 分 | 43 评论",
+      "title_en": "PS3 Emulator Devs Politely Ask That People Stop Flooding It with AI PRs",
+      "summary_en": "【HN】热度: 68 分 | 43 评论"
     },
     {
-      "title": "Using Claude Code: The unreasonable effectiveness of HTML",
-      "summary": "【HN】热度: 422 分 | 238 评论",
-      "url": "https://twitter.com/trq212/status/2052809885763747935",
+      "title": "You Need AI That Reduces Maintenance Costs",
+      "summary": "【HN】热度: 19 分 | 3 评论",
+      "url": "https://www.jamesshore.com/v2/blog/2026/you-need-ai-that-reduces-your-maintenance-costs",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "使用Claude Code ： HTML不合理的效果",
-      "summary_zh": "【HN】热度: 422 分 | 238 评论",
-      "title_en": "Using Claude Code: The unreasonable effectiveness of HTML",
-      "summary_en": "【HN】热度: 422 分 | 238 评论"
+      "title_zh": "您需要降低维护成本的人工智能",
+      "summary_zh": "【HN】热度: 19 分 | 3 评论",
+      "title_en": "You Need AI That Reduces Maintenance Costs",
+      "summary_en": "【HN】热度: 19 分 | 3 评论"
+    },
+    {
+      "title": "How Fast Does Claude, Acting as a User Space IP Stack, Respond to Pings?",
+      "summary": "【HN】热度: 7 分 | 0 评论",
+      "url": "https://dunkels.com/adam/claude-user-space-ip-stack-ping/",
+      "tags": [
+        "community",
+        "discussion"
+      ],
+      "title_zh": "作为用户空间IP堆栈的Claude响应Ping的速度有多快？",
+      "summary_zh": "【HN】热度: 7 分 | 0 评论",
+      "title_en": "How Fast Does Claude, Acting as a User Space IP Stack, Respond to Pings?",
+      "summary_en": "【HN】热度: 7 分 | 0 评论"
+    },
+    {
+      "title": "Make America AI ready: Strengths, weaknesses, and recommendations",
+      "summary": "【HN】热度: 16 分 | 11 评论",
+      "url": "https://blog.citp.princeton.edu/2026/05/05/make-america-ai-ready-strengths-weaknesses-and-recommendations/",
+      "tags": [
+        "community",
+        "discussion"
+      ],
+      "title_zh": "让美国为AI做好准备：优势、劣势和建议",
+      "summary_zh": "【HN】热度: 16 分 | 11 评论",
+      "title_en": "Make America AI ready: Strengths, weaknesses, and recommendations",
+      "summary_en": "【HN】热度: 16 分 | 11 评论"
     }
   ]
 }
