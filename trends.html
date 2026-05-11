@@ -6,36 +6,62 @@
 <title>价值趋势雷达 · 2026-05-11</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <style>
+:root {
+  --bg: #080c14;
+  --surface: rgba(255,255,255,0.03);
+  --surface-hover: rgba(255,255,255,0.06);
+  --text: #e8e6e3;
+  --text-dim: #8b8d92;
+  --text-muted: #5c5e62;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.14);
+  --c-coral: #ff5a3c;
+  --c-teal: #00d4aa;
+  --c-violet: #7c3aed;
+  --c-amber: #f59e0b;
+  --c-pink: #ec4899;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0d1b2a;color:#e0e0e0;min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.6}
-.tr-nav{position:sticky;top:0;z-index:100;background:rgba(13,27,42,0.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08);padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
-.tr-nav a{color:#c49a4a;text-decoration:none;font-size:13px;letter-spacing:0.5px;font-weight:500}
-.tr-nav a:hover{color:#e0b860}
-.tr-main{max-width:900px;margin:0 auto;padding:20px 20px 40px}
-.tr-header{text-align:center;margin-bottom:40px}
-.tr-header h1{font-family:ui-serif,Georgia,serif;font-size:32px;font-weight:600;color:#f0e6d3;margin-bottom:8px}
-.tr-header p{color:#8a8a8a;font-size:14px;letter-spacing:0.5px}
-.tr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:40px}
-.tr-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:20px;transition:background 0.2s,border-color 0.2s}
-.tr-card:hover{background:rgba(255,255,255,0.07);border-color:rgba(201,154,74,0.3)}
-.tr-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:8px}
-.tr-card-header h2{font-family:ui-serif,Georgia,serif;font-size:18px;font-weight:600;color:#f0e6d3}
-.tr-en{font-size:12px;font-weight:400;color:#6a6a6a}
-.tr-signal{font-size:12px;padding:3px 10px;border-radius:12px;white-space:nowrap;letter-spacing:0.3px}
-.tr-signal--up{background:rgba(76,175,80,0.15);color:#81c784;border:1px solid rgba(76,175,80,0.25)}
-.tr-signal--down{background:rgba(244,67,54,0.12);color:#e57373;border:1px solid rgba(244,67,54,0.2)}
-.tr-signal--stable{background:rgba(158,158,158,0.1);color:#bdbdbd;border:1px solid rgba(158,158,158,0.15)}
-.tr-card-stats{display:flex;gap:20px}
-.tr-stat{display:flex;flex-direction:column}
-.tr-stat-num{font-family:ui-monospace,monospace;font-size:28px;font-weight:700;color:#c49a4a}
-.tr-stat-label{font-size:11px;color:#6a6a6a;text-transform:uppercase;letter-spacing:0.8px;margin-top:2px}
-.tr-timeline{margin-top:32px;border-top:1px solid rgba(255,255,255,0.08);padding-top:24px}
-.tr-timeline h2{font-family:ui-serif,Georgia,serif;font-size:20px;font-weight:600;color:#f0e6d3;margin-bottom:16px}
-.tr-timeline-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px}
-.tr-timeline-period{background:rgba(201,154,74,0.15);color:#c49a4a;padding:2px 10px;border-radius:4px;font-size:11px;letter-spacing:0.8px;white-space:nowrap;min-width:80px;text-align:center}
-.tr-footer{text-align:center;padding:32px 20px;border-top:1px solid rgba(255,255,255,0.06);color:#6a6a6a;font-size:11px;letter-spacing:0.5px}
-.tr-footer a{color:#c49a4a}
-@media(max-width:600px){.tr-main{padding:14px 12px 28px}.tr-header h1{font-size:24px}.tr-grid{grid-template-columns:1fr}}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.6}
+.tr-shell{max-width:1200px;margin:0 auto;padding:0 24px}
+.tr-nav{position:sticky;top:0;z-index:100;background:rgba(8,12,20,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.tr-nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:52px}
+.tr-nav a{color:var(--text-dim);text-decoration:none;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:500;transition:color 0.2s}
+.tr-nav a:hover{color:var(--text)}
+.tr-nav-brand{font-family:ui-monospace,"Cascadia Code","SF Mono",monospace;font-size:11px;color:var(--text-muted);letter-spacing:1px}
+.tr-hero{padding:48px 0 32px}
+.tr-hero h1{font-size:clamp(36px,6vw,64px);font-weight:800;letter-spacing:-0.03em;line-height:1.05;color:var(--text);margin-bottom:8px}
+.tr-hero .tr-sub{font-size:14px;color:var(--text-dim);letter-spacing:0.5px}
+.tr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);border-radius:8px;overflow:hidden;margin-bottom:48px}
+.tr-card{background:var(--surface);padding:24px;transition:background 0.2s}
+.tr-card:hover{background:var(--surface-hover)}
+.tr-card-dot{width:8px;height:8px;border-radius:50%;margin-bottom:16px}
+.tr-card-dot--ai{background:var(--c-coral)}
+.tr-card-dot--energy{background:var(--c-teal)}
+.tr-card-dot--longevity{background:var(--c-violet)}
+.tr-card-dot--robotics{background:var(--c-amber)}
+.tr-card-dot--bci{background:var(--c-pink)}
+.tr-card h2{font-size:18px;font-weight:700;color:var(--text);margin-bottom:4px;letter-spacing:-0.01em}
+.tr-card .tr-en{font-size:11px;color:var(--text-muted);font-weight:400}
+.tr-signal{display:inline-block;font-size:10px;padding:3px 10px;border-radius:12px;letter-spacing:0.8px;text-transform:uppercase;margin-top:12px}
+.tr-signal--up{background:rgba(0,212,170,0.12);color:var(--c-teal);border:1px solid rgba(0,212,170,0.2)}
+.tr-signal--down{background:rgba(255,90,60,0.12);color:var(--c-coral);border:1px solid rgba(255,90,60,0.2)}
+.tr-signal--stable{background:rgba(255,255,255,0.05);color:var(--text-dim);border:1px solid var(--border)}
+.tr-card-stats{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.tr-stat-num{font-size:28px;font-weight:700;color:var(--text);letter-spacing:-0.02em}
+.tr-stat-label{font-size:9px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-dim);margin-top:2px}
+.tr-timeline{margin-top:48px;padding-top:32px;border-top:1px solid var(--border)}
+.tr-timeline h2{font-size:20px;font-weight:700;color:var(--text);margin-bottom:20px}
+.tr-timeline-row{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-dim)}
+.tr-timeline-period{font-family:ui-monospace,monospace;background:rgba(255,90,60,0.08);color:var(--c-coral);padding:3px 12px;border-radius:4px;font-size:10px;letter-spacing:1px;white-space:nowrap;min-width:80px;text-align:center}
+.tr-lang{display:flex;align-items:center;gap:6px;margin-left:24px}
+.tr-lang button{background:transparent;border:1px solid var(--border);cursor:pointer;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-dim);padding:4px 10px;border-radius:4px;transition:all 0.2s;font-family:ui-monospace,monospace}
+.tr-lang button:hover{color:var(--text);border-color:var(--border-strong)}
+.tr-lang button.active{color:var(--text);border-color:var(--c-coral);background:rgba(255,90,60,0.1)}
+.tr-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:11px;letter-spacing:0.5px;margin-top:48px}
+.tr-footer a{color:var(--text-dim)}
+@media(max-width:768px){.tr-hero h1{font-size:32px}.tr-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.tr-shell{padding:0 16px}.tr-hero{padding:32px 0 24px}}
 </style>
 </head>
 <body>
@@ -55,7 +81,7 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 <div class="tr-signal tr-signal--up"><span>📈</span> 加速 <span class="tr-en">/ Accelerating</span></div>
 </div>
 <div class="tr-card-stats">
-<div class="tr-stat"><span class="tr-stat-num">8</span><span class="tr-stat-label">30天论文</span></div>
+<div class="tr-stat"><span class="tr-stat-num">7</span><span class="tr-stat-label">30天论文</span></div>
 </div>
 </article>
 <article class="tr-card">
@@ -64,7 +90,7 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 <div class="tr-signal tr-signal--up"><span>📈</span> 加速 <span class="tr-en">/ Accelerating</span></div>
 </div>
 <div class="tr-card-stats">
-<div class="tr-stat"><span class="tr-stat-num">5</span><span class="tr-stat-label">30天论文</span></div>
+<div class="tr-stat"><span class="tr-stat-num">4</span><span class="tr-stat-label">30天论文</span></div>
 </div>
 </article>
 <article class="tr-card">
@@ -73,7 +99,7 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 <div class="tr-signal tr-signal--up"><span>📈</span> 加速 <span class="tr-en">/ Accelerating</span></div>
 </div>
 <div class="tr-card-stats">
-<div class="tr-stat"><span class="tr-stat-num">5</span><span class="tr-stat-label">30天论文</span></div>
+<div class="tr-stat"><span class="tr-stat-num">3</span><span class="tr-stat-label">30天论文</span></div>
 </div>
 </article>
 <article class="tr-card">
@@ -82,7 +108,7 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 <div class="tr-signal tr-signal--up"><span>📈</span> 加速 <span class="tr-en">/ Accelerating</span></div>
 </div>
 <div class="tr-card-stats">
-<div class="tr-stat"><span class="tr-stat-num">7</span><span class="tr-stat-label">30天论文</span></div>
+<div class="tr-stat"><span class="tr-stat-num">6</span><span class="tr-stat-label">30天论文</span></div>
 </div>
 </article>
 <article class="tr-card">
@@ -91,7 +117,7 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 <div class="tr-signal tr-signal--up"><span>📈</span> 加速 <span class="tr-en">/ Accelerating</span></div>
 </div>
 <div class="tr-card-stats">
-<div class="tr-stat"><span class="tr-stat-num">5</span><span class="tr-stat-label">30天论文</span></div>
+<div class="tr-stat"><span class="tr-stat-num">4</span><span class="tr-stat-label">30天论文</span></div>
 </div>
 </article>
 
