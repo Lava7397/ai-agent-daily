@@ -45,8 +45,8 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 </nav>
 <main class="tr-main">
 <header class="tr-header">
-<h1>价值趋势雷达</h1>
-<p>2026年5月 · 月度方向信号</p>
+<h1 data-i18n="page_title">价值趋势雷达</h1>
+<p data-i18n="subtitle">2026年5月 · 月度方向信号</p>
 </header>
 <div class="tr-grid">
 <article class="tr-card">
@@ -64,7 +64,7 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 <div class="tr-signal tr-signal--up"><span>📈</span> 加速 <span class="tr-en">/ Accelerating</span></div>
 </div>
 <div class="tr-card-stats">
-<div class="tr-stat"><span class="tr-stat-num">2</span><span class="tr-stat-label">30天论文</span></div>
+<div class="tr-stat"><span class="tr-stat-num">5</span><span class="tr-stat-label">30天论文</span></div>
 </div>
 </article>
 <article class="tr-card">
@@ -73,7 +73,7 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 <div class="tr-signal tr-signal--up"><span>📈</span> 加速 <span class="tr-en">/ Accelerating</span></div>
 </div>
 <div class="tr-card-stats">
-<div class="tr-stat"><span class="tr-stat-num">4</span><span class="tr-stat-label">30天论文</span></div>
+<div class="tr-stat"><span class="tr-stat-num">5</span><span class="tr-stat-label">30天论文</span></div>
 </div>
 </article>
 <article class="tr-card">
@@ -82,7 +82,7 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 <div class="tr-signal tr-signal--up"><span>📈</span> 加速 <span class="tr-en">/ Accelerating</span></div>
 </div>
 <div class="tr-card-stats">
-<div class="tr-stat"><span class="tr-stat-num">10</span><span class="tr-stat-label">30天论文</span></div>
+<div class="tr-stat"><span class="tr-stat-num">7</span><span class="tr-stat-label">30天论文</span></div>
 </div>
 </article>
 <article class="tr-card">
@@ -97,7 +97,7 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 
 </div>
 <div class="tr-timeline">
-<h2>投资时间线锚点</h2>
+<h2 data-i18n="timeline_title">投资时间线锚点</h2>
 <div class="tr-timeline-row"><span class="tr-timeline-period">2025-2028</span> AI Agent 规模化 · CRISPR 临床获批 · 储能经济拐点</div>
 <div class="tr-timeline-row"><span class="tr-timeline-period">2028-2032</span> 碳捕获规模化 · 人形机器人工厂部署 · AI 制药降本50%</div>
 <div class="tr-timeline-row"><span class="tr-timeline-period">2032-2036</span> 合成生物制造 · 6G · 非侵入式 BCI 消费化</div>
@@ -107,5 +107,10 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 <p>数据来源：arXiv API · RSS Feeds · 月度自动分析</p>
 <p><a href="home.html">lava7397.com</a> · 下一次雷达更新：2026-06-01</p>
 </footer>
+
+<script>
+const TR_LANG_KEY="tr_lang";const TR_I18N={zh:{nav_home:"← lava7397.com",nav_daily:"今日简报",page_title:"价值趋势雷达",subtitle:"__RADAR_DATE__ · 月度方向信号",timeline_title:"投资时间线锚点",footer_next:'<a href="home.html">lava7397.com</a> · 下一次雷达更新：__NEXT_UPDATE__',signal_up:"加速",signal_down:"降温",signal_stable:"平稳"},en:{nav_home:"← lava7397.com",nav_daily:"Daily Brief",page_title:"Value Trends Radar",subtitle:"__RADAR_DATE_EN__ · Monthly Direction Signals",timeline_title:"Investment Timeline Anchors",footer_next:'<a href="home.html">lava7397.com</a> · Next radar: __NEXT_UPDATE__',signal_up:"Accelerating",signal_down:"Cooling",signal_stable:"Stable"}};
+(function(){var l=localStorage.getItem(TR_LANG_KEY)||"zh";function tr(t){return TR_I18N[l][t]||t}function apply(){document.querySelectorAll("[data-i18n]").forEach(function(e){var v=tr(e.dataset.i18n);if(v!==undefined)e.textContent=v});document.querySelectorAll("[data-i18n-html]").forEach(function(e){var v=tr(e.dataset.i18nHtml);if(v!==undefined)e.innerHTML=v});document.querySelectorAll(".tr-signal .tr-en").forEach(function(e){var p=e.closest(".tr-signal");var t=p?((p.classList.contains("tr-signal--up")?"signal_up":p.classList.contains("tr-signal--down")?"signal_down":"signal_stable")):"";if(t)e.textContent="/ "+tr(t)});document.getElementById("tr-lang-zh").classList.toggle("active",l==="zh");document.getElementById("tr-lang-en").classList.toggle("active",l==="en")}function setLang(nl){l=nl;localStorage.setItem(TR_LANG_KEY,nl);apply()}document.getElementById("tr-lang-zh").onclick=function(){setLang("zh")};document.getElementById("tr-lang-en").onclick=function(){setLang("en")};apply()})();
+</script>
 </body>
 </html>

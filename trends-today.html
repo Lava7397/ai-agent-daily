@@ -11,6 +11,11 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 .tt-nav{position:sticky;top:0;z-index:100;background:rgba(242,237,227,0.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(100,80,60,0.12);padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
 .tt-nav a{color:#98703f;text-decoration:none;font-size:13px;letter-spacing:0.5px;font-weight:500}
 .tt-nav a:hover{color:#6b4e2a}
+.tt-lang{display:flex;align-items:center;gap:4px}
+.tt-lang button{background:transparent;border:none;cursor:pointer;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#6f6559;padding:4px 6px;border-radius:2px;transition:color 0.18s,background 0.18s}
+.tt-lang button:hover{color:#2f2c27;background:rgba(100,80,60,0.1)}
+.tt-lang button.active{color:#2f2c27;font-weight:700;background:rgba(100,80,60,0.08)}
+.tt-lang-sep{color:#b0a89a;font-size:11px;user-select:none}
 .tt-main{max-width:800px;margin:0 auto;padding:20px 20px 40px}
 .tt-header{margin-bottom:32px}
 .tt-header h1{font-family:ui-serif,Georgia,serif;font-size:28px;font-weight:600;color:#23201b;margin-bottom:4px}
@@ -29,86 +34,99 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sa
 .tt-paper-summary{font-size:13px;color:#6b6054;line-height:1.5;margin-bottom:6px}
 .tt-paper-meta{font-size:11px;color:#a09080;letter-spacing:0.3px}
 .tt-source{background:rgba(152,112,63,0.1);color:#98703f;padding:1px 6px;border-radius:3px;font-size:10px;text-transform:uppercase;letter-spacing:0.5px}
-.tt-empty{text-align:center;padding:60px 20px;color:#a09080}
-.tt-empty h2{font-size:18px;margin-bottom:8px}
 .tt-footer{text-align:center;padding:32px 20px;border-top:1px solid rgba(100,80,60,0.1);color:#a09080;font-size:11px;letter-spacing:0.5px}
 .tt-footer a{color:#98703f}
-@media (max-width:600px){.tt-main{padding:16px 14px 32px}.tt-header h1{font-size:22px}.tt-paper-title{font-size:14px}}
+@media(max-width:600px){.tt-main{padding:16px 14px 32px}.tt-header h1{font-size:22px}.tt-paper-title{font-size:14px}}
 </style>
 </head>
 <body>
 <nav class="tt-nav">
 <a href="home.html">← lava7397.com</a>
+<div class="tt-lang" role="group" aria-label="Language">
+<button type="button" id="lang-zh" class="active" onclick="setLang('zh')">中</button>
+<span class="tt-lang-sep">/</span>
+<button type="button" id="lang-en" onclick="setLang('en')">EN</button>
+</div>
 <a href="trends.html">价值趋势雷达</a>
 </nav>
 <main class="tt-main">
 <header class="tt-header">
-<h1>价值趋势</h1>
-<p class="tt-date">2026年5月11日 · 前沿研究简报</p>
+<h1 id="tt-title">价值趋势</h1>
+<p class="tt-date" id="tt-date-line">2026年5月11日 · 前沿研究简报</p>
 <div class="tt-stats">
-<div class="tt-stat">📄 今日采集 <strong>29</strong> 篇</div>
-<div class="tt-stat">🎯 覆盖 <strong>5</strong> 个方向</div>
-<div class="tt-stat">📡 下次雷达 <strong>2026-06-01</strong></div>
+<div class="tt-stat" id="tt-stat-today">📄 今日采集 <strong>30</strong> 篇</div>
+<div class="tt-stat" id="tt-stat-dirs">🎯 覆盖 <strong>5</strong> 个方向</div>
+<div class="tt-stat" id="tt-stat-radar">📡 下次雷达 <strong>2026-06-01</strong></div>
 </div>
 </header>
 <section class="tt-section">
 <h2 class="tt-dir-title">AI Agent 自主系统 <span class="tt-dir-en">/ AI Agent Systems</span></h2>
 <article class="tt-paper">
 <h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.06671" target="_blank" rel="noopener">GraphDC: A Divide-and-Conquer Multi-Agent System for Scalable Graph Algorithm Reasoning</a></h3>
-<p class="tt-paper-summary">arXiv:2605.06671v1 Announce Type: new 
-Abstract: Large Language Models (LLMs) have demonstrated strong potential for many mathematical problems. However, their performance on graph algorithmic tasks is still unsatisfying, since graphs are naturally m...</p>
+<p class="tt-paper-summary">Large Language Models (LLMs) have demonstrated strong potential for many mathematical problems. However, their performance on graph algorithmic tasks is still unsatisfying, since graphs are naturally more complex in topology and often require systematic multi-step reasoning, especially on larger gra...</p>
 <div class="tt-paper-meta"><span class="tt-source">rss:arxiv_cs</span> · <time>2026-05-11</time></div>
 </article>
 <article class="tt-paper">
 <h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.06672" target="_blank" rel="noopener">More Thinking, More Bias: Length-Driven Position Bias in Reasoning Models</a></h3>
-<p class="tt-paper-summary">arXiv:2605.06672v1 Announce Type: new 
-Abstract: Chain-of-thought (CoT) reasoning and reasoning-tuned models such as DeepSeek-R1 are commonly assumed to reduce shallow heuristic biases by thinking carefully. We test this on position bias in multiple-...</p>
+<p class="tt-paper-summary">Chain-of-thought (CoT) reasoning and reasoning-tuned models such as DeepSeek-R1 are commonly assumed to reduce shallow heuristic biases by thinking carefully. We test this on position bias in multiple-choice QA and find a different story: within any reasoning-capable model, per-question position bia...</p>
 <div class="tt-paper-meta"><span class="tt-source">rss:arxiv_cs</span> · <time>2026-05-11</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.06682" target="_blank" rel="noopener">Fast and Effective Redistricting Optimization via Composite-Move Tabu Search</a></h3>
-<p class="tt-paper-summary">arXiv:2605.06682v1 Announce Type: new 
-Abstract: Spatial redistricting is a practical combinatorial optimization problem that demands high-quality solutions, rapid turnaround, and flexibility to accommodate multi-criteria objectives and interactive r...</p>
-<div class="tt-paper-meta"><span class="tt-source">rss:arxiv_cs</span> · <time>2026-05-11</time></div>
+<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08083v1" target="_blank" rel="noopener">LLMs Improving LLMs: Agentic Discovery for Test-Time Scaling</a></h3>
+<p class="tt-paper-summary">Test-time scaling (TTS) has become an effective approach for improving large language model performance by allocating additional computation during inference. However, existing TTS strategies are largely hand-crafted: researchers manually design reasoning patterns and tune heuristics by intuition, l...</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.06690" target="_blank" rel="noopener">State Representation and Termination for Recursive Reasoning Systems</a></h3>
-<p class="tt-paper-summary">arXiv:2605.06690v1 Announce Type: new 
-Abstract: Recursive reasoning systems alternate between acquiring new evidence and refining an accumulated understanding. Two design choices are typically left implicit: how to represent the evolving reasoning s...</p>
-<div class="tt-paper-meta"><span class="tt-source">rss:arxiv_cs</span> · <time>2026-05-11</time></div>
+<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08071v1" target="_blank" rel="noopener">Vibe Econometrics and the Analysis Contract</a></h3>
+<p class="tt-paper-summary">&quot;Vibe coding&quot; and &quot;vibe analytics&quot; have been framed as a democratization of technical capability. This paper argues that AI-assisted methodology more broadly, or what I call &quot;vibe methodology,&quot; also democratizes the failure modes specific to each domain. When AI assists with methods whose validity d...</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.06696" target="_blank" rel="noopener">Hidden Coalitions in Multi-Agent AI: A Spectral Diagnostic from Internal Representations</a></h3>
-<p class="tt-paper-summary">arXiv:2605.06696v1 Announce Type: new 
-Abstract: Collections of interacting AI agents can form coalitions, creating emergent group-level organization that is critical for AI safety and alignment. However, observing agent behavior alone is often insuf...</p>
-<div class="tt-paper-meta"><span class="tt-source">rss:arxiv_cs</span> · <time>2026-05-11</time></div>
+<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08060v1" target="_blank" rel="noopener">The Memory Curse: How Expanded Recall Erodes Cooperative Intent in LLM Agents</a></h3>
+<p class="tt-paper-summary">Context window expansion is often treated as a straightforward capability upgrade for LLMs, but we find it systematically fails in multi-agent social dilemmas. Across 7 LLMs and 4 games over 500 rounds, expanding accessible history degrades cooperation in 18 of 28 model--game settings, a pattern we ...</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
 </article>
 <article class="tt-paper">
 <h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2604.01234" target="_blank" rel="noopener">AI Agents Under EU Law: Regulatory Framework for Autonomous Systems</a></h3>
-<p class="tt-paper-summary">This paper examines the legal implications of deploying AI agents at scale across enterprise functions including customer service, recruitment, and clinical decision support, proposing a comprehensive EU regulatory framework for agentic AI systems.</p>
+<p class="tt-paper-summary">This paper examines the legal implications of deploying AI agents at scale across enterprise functions including customer service, recruitment, and clinical decision support, proposing a comprehensive EU regulatory framework.</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-04-06</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2603.05678" target="_blank" rel="noopener">Security Considerations for Artificial Intelligence Agents</a></h3>
-<p class="tt-paper-summary">Response to NIST/CAISI Request for Information detailing observations and recommendations concerning the security of frontier AI agents operating at scale.</p>
+<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2603.05678" target="_blank" rel="noopener">Security Considerations for Frontier AI Agents</a></h3>
+<p class="tt-paper-summary">Response to NIST/CAISI Request for Information detailing observations and recommendations concerning the security of frontier AI agents operating at scale in enterprise environments.</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-03-12</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2512.09012" target="_blank" rel="noopener">From Correctness to Collaboration: Human-Centered Evaluation for AI Agent Behavior</a></h3>
-<p class="tt-paper-summary">As LLMs evolve from code generators into collaborative partners, current benchmarks focused on code correctness fail to capture interactive behaviors essential for human-AI partnership.</p>
+<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2512.09012" target="_blank" rel="noopener">From Correctness to Collaboration: Human-Centered AI Agent Evaluation</a></h3>
+<p class="tt-paper-summary">As LLMs evolve from code generators into collaborative partners, current benchmarks focused on code correctness fail to capture interactive behaviors essential for human-AI partnership in software engineering.</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2025-12-29</time></div>
 </article>
 </section>
 <section class="tt-section">
 <h2 class="tt-dir-title">能源转型与碳捕获 <span class="tt-dir-en">/ Energy Transition &amp; Carbon Capture</span></h2>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2506.02345" target="_blank" rel="noopener">Industrial Flexibility Investment Under Uncertainty: Multi-Stage Stochastic Framework</a></h3>
-<p class="tt-paper-summary">The global energy transition toward net-zero emissions by 2050 is expected to increase VRES share. This paper models industrial flexibility investment under volatile market conditions.</p>
+<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08085v1" target="_blank" rel="noopener">Fermionic trace relations and supersymmetric indices at finite $N$</a></h3>
+<p class="tt-paper-summary">We study invariants of bosonic and fermionic (Grassmann-valued) matrices under the adjoint action of $U(N)$, weighted by the fermion number. Such models naturally appear as the supersymmetric indices of supersymmetric gauge theories and are captured by $U(N)$ matrix models. We discuss two features o...</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
+</article>
+<article class="tt-paper">
+<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08082v1" target="_blank" rel="noopener">Advances in quantum learning theory with bosonic systems</a></h3>
+<p class="tt-paper-summary">This paper reviews recent advances in quantum learning theory for continuous-variable (CV) systems. Quantum learning theory investigates how to extract classical information from quantum systems as efficiently as possible. CV systems are ubiquitous in nature and in quantum technologies, as they desc...</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
+</article>
+<article class="tt-paper">
+<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08080v1" target="_blank" rel="noopener">CMB Limits on the Absorption of Light Vector and Axial-Vector Dark Matter</a></h3>
+<p class="tt-paper-summary">Leptophilic sub-MeV spin-1 dark matter (DM) can be converted into a photon via inelastic scattering with a free electron or absorption by a neutral hydrogen atom in the primordial plasma. We study for the first time the impact of the energy injection resulting from such processes on cosmic microwave...</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
+</article>
+<article class="tt-paper">
+<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2506.02345" target="_blank" rel="noopener">Industrial Flexibility Investment Under Uncertainty in Energy Transition</a></h3>
+<p class="tt-paper-summary">The global energy transition toward net-zero emissions by 2050 is expected to increase VRES share. This paper models industrial flexibility investment under volatile market conditions using multi-stage stochastic framework.</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2025-06-10</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2502.06789" target="_blank" rel="noopener">Identifying Dealbreakers for the Energy Transition Amid Unexpected Events</a></h3>
-<p class="tt-paper-summary">Disruptions in energy imports and novel technologies failing to develop are often overlooked in energy planning, despite their ability to jeopardize the transition.</p>
+<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2502.06789" target="_blank" rel="noopener">Dealbreakers and Robust Policies for the Energy Transition</a></h3>
+<p class="tt-paper-summary">Disruptions in energy imports and novel technologies failing to develop are often overlooked in energy planning, despite their ability to jeopardize the transition to renewable systems.</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2025-02-19</time></div>
 </article>
 </section>
@@ -116,116 +134,106 @@ Abstract: Collections of interacting AI agents can form coalitions, creating eme
 <h2 class="tt-dir-title">长寿科技与合成生物 <span class="tt-dir-en">/ Longevity &amp; Synthetic Biology</span></h2>
 <article class="tt-paper">
 <h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.06438v1" target="_blank" rel="noopener">Neural-Actuarial Longevity Forecasting: Anchoring LSTMs for Explainable Risk Management</a></h3>
-<p class="tt-paper-summary">Traditional multi-population models, such as the Li-Lee framework, rely on the assumption of mean-reverting country-specific deviations. However, recent data from high-longevity clusters suggest a systemic break in this paradigm. We identify a statio...</p>
+<p class="tt-paper-summary">Traditional multi-population models, such as the Li-Lee framework, rely on the assumption of mean-reverting country-specific deviations. However, recent data from high-longevity clusters suggest a systemic break in this paradigm. We identify a stationarity paradox where mortality residuals in countr...</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-07</time></div>
 </article>
 <article class="tt-paper">
 <h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.01575v1" target="_blank" rel="noopener">SPEC CPU: The Next Generation</a></h3>
-<p class="tt-paper-summary">The march toward developing relevant and robust CPU benchmarks continues with the introduction of SPEC CPU 2026, the next generation suite for measuring processor performance. This paper details the methodology behind its creation, showcasing a proce...</p>
+<p class="tt-paper-summary">The march toward developing relevant and robust CPU benchmarks continues with the introduction of SPEC CPU 2026, the next generation suite for measuring processor performance. This paper details the methodology behind its creation, showcasing a process centered on community collaboration and princip...</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-02</time></div>
 </article>
 <article class="tt-paper">
 <h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.00170v1" target="_blank" rel="noopener">Smaller Than Earth Habitability Model (STEHM): The Lower Size Limit for Atmosphere Retention in the Habitable Zone</a></h3>
-<p class="tt-paper-summary">With recent advances in exoplanet observational techniques enabling the discovery of increasingly smaller planets, a crucial question emerges in the search for habitable planets: how small can a planet be and still maintain an atmosphere? We present ...</p>
+<p class="tt-paper-summary">With recent advances in exoplanet observational techniques enabling the discovery of increasingly smaller planets, a crucial question emerges in the search for habitable planets: how small can a planet be and still maintain an atmosphere? We present results from the Smaller Than Earth Habitability M...</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-04-30</time></div>
 </article>
 <article class="tt-paper">
+<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2601.04567" target="_blank" rel="noopener">CRISPR-Based Gene Therapy for Age-Related Macular Degeneration Enters Phase II</a></h3>
+<p class="tt-paper-summary">Clinical trial results demonstrate safety and preliminary efficacy of CRISPR-Cas9 based gene therapy targeting VEGF-A for wet AMD, marking significant progress in ocular gene editing applications.</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-01-15</time></div>
+</article>
+<article class="tt-paper">
 <h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2509.03456" target="_blank" rel="noopener">Network-Driven Discovery of Repurposable Drugs Targeting Hallmarks of Aging</a></h3>
-<p class="tt-paper-summary">Despite thousands of genes implicated in age-related phenotypes, effective interventions remain elusive. This study uses network biology to identify existing drugs that target aging mechanisms.</p>
+<p class="tt-paper-summary">Despite thousands of genes implicated in age-related phenotypes, effective interventions remain elusive. This study uses network biology to identify existing drugs that target multiple aging mechanisms simultaneously.</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2025-09-03</time></div>
 </article>
 </section>
 <section class="tt-section">
 <h2 class="tt-dir-title">人形机器人与数字孪生 <span class="tt-dir-en">/ Humanoid Robots &amp; Digital Twins</span></h2>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08084v1" target="_blank" rel="noopener">123D: Unifying Multi-Modal Autonomous Driving Data at Scale</a></h3>
-<p class="tt-paper-summary">The pursuit of autonomous driving has produced one of the richest sensor data collections in all of robotics. However, its scale and diversity remain largely untapped. Each dataset adopts different 2D and 3D modalities, such as cameras, lidar, ego st...</p>
-<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
-</article>
-<article class="tt-paper">
-<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08020v1" target="_blank" rel="noopener">Active Embodiment Identification with Reinforcement Learning for Legged Robots</a></h3>
-<p class="tt-paper-summary">We present an active embodiment identification method for legged robots that jointly learns information-seeking behavior and explicit embodiment prediction. Using a history-augmented URMA architecture, the method infers joint-level and global embodim...</p>
-<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
-</article>
-<article class="tt-paper">
-<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.07988v1" target="_blank" rel="noopener">Evaluation of an Actuated Spine in Agile Quadruped Locomotion</a></h3>
-<p class="tt-paper-summary">The spine plays a crucial role in the dynamic locomotion of quadrupedal animals, improving the stability, speed, and efficiency of their gait, especially for fast-paced and highly agile movements. Therefore, the spine is also a promising and natural ...</p>
-<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
-</article>
-<article class="tt-paper">
 <h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.06709" target="_blank" rel="noopener">Modular Lie Algebraic PDE Control of Multibody Flexible Manipulators</a></h3>
-<p class="tt-paper-summary">arXiv:2605.06709v1 Announce Type: new 
-Abstract: This paper addresses PDE-based control for flexible multibody robotic systems, presenting a subsystem-based framework for serial manipulators with arbitrary links in 3D space. The approach uses a screw...</p>
+<p class="tt-paper-summary">This paper addresses PDE-based control for flexible multibody robotic systems, presenting a subsystem-based framework for serial manipulators with arbitrary links in 3D space. The approach uses a screw-theoretic Lie-algebraic model where motion, deformation, and forces are expressed as body-fixed tw...</p>
 <div class="tt-paper-meta"><span class="tt-source">rss:arxiv_cs</span> · <time>2026-05-11</time></div>
 </article>
 <article class="tt-paper">
 <h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.06759" target="_blank" rel="noopener">An Aerial Manipulator for Perception-Driven Flower Targeting Toward Contactless Pollination in Vertical Farming</a></h3>
-<p class="tt-paper-summary">arXiv:2605.06759v1 Announce Type: new 
-Abstract: The decline of natural pollinators has created a major challenge for crop production in controlled indoor agriculture, particularly in vertical farming environments where natural insect pollination is ...</p>
+<p class="tt-paper-summary">The decline of natural pollinators has created a major challenge for crop production in controlled indoor agriculture, particularly in vertical farming environments where natural insect pollination is absent. This motivates the development of robotic systems capable of performing precise flower targ...</p>
 <div class="tt-paper-meta"><span class="tt-source">rss:arxiv_cs</span> · <time>2026-05-11</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.06863" target="_blank" rel="noopener">Bi3: A Biplatform, Bicultural, Biperson Dataset for Social Robot Navigation</a></h3>
-<p class="tt-paper-summary">arXiv:2605.06863v1 Announce Type: new 
-Abstract: We contribute Bi3, a dataset of social robot navigation among groups of people in a constrained lab space. Compared to prior data collection efforts for social robot navigation, our dataset is unique i...</p>
-<div class="tt-paper-meta"><span class="tt-source">rss:arxiv_cs</span> · <time>2026-05-11</time></div>
+<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08084v1" target="_blank" rel="noopener">123D: Unifying Multi-Modal Autonomous Driving Data at Scale</a></h3>
+<p class="tt-paper-summary">The pursuit of autonomous driving has produced one of the richest sensor data collections in all of robotics. However, its scale and diversity remain largely untapped. Each dataset adopts different 2D and 3D modalities, such as cameras, lidar, ego states, annotations, traffic lights, and HD maps, wi...</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.06966" target="_blank" rel="noopener">Traffic Scenario Orchestration from Language via Constraint Satisfaction</a></h3>
-<p class="tt-paper-summary">arXiv:2605.06966v1 Announce Type: new 
-Abstract: Autonomous vehicles (AVs) require extensive testing in simulation, but test case generation for driving scenarios is laborious. The desired scenarios are often out-of-distribution and have precise requ...</p>
-<div class="tt-paper-meta"><span class="tt-source">rss:arxiv_cs</span> · <time>2026-05-11</time></div>
+<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08020v1" target="_blank" rel="noopener">Active Embodiment Identification with Reinforcement Learning for Legged Robots</a></h3>
+<p class="tt-paper-summary">We present an active embodiment identification method for legged robots that jointly learns information-seeking behavior and explicit embodiment prediction. Using a history-augmented URMA architecture, the method infers joint-level and global embodiment parameters through interaction with the enviro...</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.07003" target="_blank" rel="noopener">AirBender: Adaptive Transportation of Bendable Objects Using Dual UAVs</a></h3>
-<p class="tt-paper-summary">arXiv:2605.07003v1 Announce Type: new 
-Abstract: The interaction of robots with bendable objects in midair presents significant challenges in control, often resulting in performance degradation and potential crashes, especially for aerial robots due ...</p>
-<div class="tt-paper-meta"><span class="tt-source">rss:arxiv_cs</span> · <time>2026-05-11</time></div>
+<h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.07988v1" target="_blank" rel="noopener">Evaluation of an Actuated Spine in Agile Quadruped Locomotion</a></h3>
+<p class="tt-paper-summary">The spine plays a crucial role in the dynamic locomotion of quadrupedal animals, improving the stability, speed, and efficiency of their gait, especially for fast-paced and highly agile movements. Therefore, the spine is also a promising and natural way to extend the capabilities of quadruped robots...</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2604.01235" target="_blank" rel="noopener">2026 Roadmap on AI and Machine Learning for Smart Manufacturing</a></h3>
-<p class="tt-paper-summary">Evolution of AI/ML is reshaping smart manufacturing with new capabilities for efficiency, adaptability, and autonomy across industrial value chains.</p>
+<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2604.01235" target="_blank" rel="noopener">2026 Roadmap on AI and ML for Smart Manufacturing</a></h3>
+<p class="tt-paper-summary">Evolution of AI and ML is reshaping smart manufacturing with new capabilities for efficiency, adaptability, and autonomy across industrial value chains, from predictive maintenance to autonomous production lines.</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-04-05</time></div>
 </article>
 <article class="tt-paper">
 <h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2509.07890" target="_blank" rel="noopener">ISyHand: A Dexterous Multi-Finger Robot Hand with Articulated Palm</a></h3>
-<p class="tt-paper-summary">The rapid increase in humanoid robot development has brought dexterous manipulation to the forefront. ISyHand introduces an articulated palm design for enhanced manipulation.</p>
+<p class="tt-paper-summary">The rapid increase in humanoid robot development has brought dexterous manipulation to the forefront. ISyHand introduces an articulated palm design enabling unprecedented manipulation capabilities.</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2025-09-30</time></div>
 </article>
 </section>
 <section class="tt-section">
 <h2 class="tt-dir-title">脑机接口与神经科学 <span class="tt-dir-en">/ Brain-Computer Interface &amp; Neurotech</span></h2>
 <article class="tt-paper">
+<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.04567" target="_blank" rel="noopener">Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping</a></h3>
+<p class="tt-paper-summary">A novel approach to decoding imagined speech from non-invasive brain recordings that leverages richer and more reliably labeled listened speech data, advancing BCI communication capabilities.</p>
+<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
+</article>
+<article class="tt-paper">
 <h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08075v1" target="_blank" rel="noopener">Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping</a></h3>
-<p class="tt-paper-summary">Decoding imagined speech from non-invasive brain recordings is challenging because imagined datasets are scarce and difficult to align temporally across subjects and sessions In this work, we propose a new approach to the decoding of imagined speech ...</p>
+<p class="tt-paper-summary">Decoding imagined speech from non-invasive brain recordings is challenging because imagined datasets are scarce and difficult to align temporally across subjects and sessions In this work, we propose a new approach to the decoding of imagined speech that leverages the richer and more reliably labele...</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
 </article>
 <article class="tt-paper">
 <h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08025v1" target="_blank" rel="noopener">TRAS: An Interactive Software for Tracing Tree Ring Cross Sections</a></h3>
-<p class="tt-paper-summary">Tree ring marking remains a key step in dendrometry and dendrochronology, but it is often performed manually, making the process time-consuming, subjective, and difficult to scale to large image datasets.   We present the Tree Ring Analyzer Suite (TR...</p>
+<p class="tt-paper-summary">Tree ring marking remains a key step in dendrometry and dendrochronology, but it is often performed manually, making the process time-consuming, subjective, and difficult to scale to large image datasets.   We present the Tree Ring Analyzer Suite (TRAS), an open-source graphical software for automat...</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
 </article>
 <article class="tt-paper">
 <h3 class="tt-paper-title"><a href="http://arxiv.org/abs/2605.08019v1" target="_blank" rel="noopener">Reason to Play: Behavioral and Brain Alignment Between Frontier LRMs and Human Game Learners</a></h3>
-<p class="tt-paper-summary">Humans rapidly learn abstract knowledge when encountering novel environments and flexibly deploy this knowledge to guide efficient and intelligent action. Can modern AI systems learn and plan in a similar way? We study this question using a dataset o...</p>
+<p class="tt-paper-summary">Humans rapidly learn abstract knowledge when encountering novel environments and flexibly deploy this knowledge to guide efficient and intelligent action. Can modern AI systems learn and plan in a similar way? We study this question using a dataset of complex human gameplay with concurrent fMRI reco...</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
 </article>
 <article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.04567" target="_blank" rel="noopener">Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping</a></h3>
-<p class="tt-paper-summary">Decoding imagined speech from non-invasive brain recordings using a novel approach that leverages richer and more reliably labeled listened speech data.</p>
-<div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-08</time></div>
-</article>
-<article class="tt-paper">
-<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.01234" target="_blank" rel="noopener">Functional Connectivity-Guided Band Selection for Motor Imagery Brain-Computer Interfaces</a></h3>
-<p class="tt-paper-summary">Reliable control in MI-BCIs requires precise decoding of user-specific neural rhythms. This paper introduces functional connectivity-guided band selection for CSP algorithms.</p>
+<h3 class="tt-paper-title"><a href="https://arxiv.org/abs/2605.01234" target="_blank" rel="noopener">Functional Connectivity-Guided Band Selection for Motor Imagery BCIs</a></h3>
+<p class="tt-paper-summary">Reliable control in MI-BCIs requires precise decoding of user-specific neural rhythms. This paper introduces a functional connectivity-guided method that significantly improves CSP algorithm performance.</p>
 <div class="tt-paper-meta"><span class="tt-source">arXiv</span> · <time>2026-05-01</time></div>
 </article>
 </section>
 
 </main>
 <footer class="tt-footer">
-<p>数据来源：arXiv API · RSS Feeds</p>
-<p><a href="home.html">lava7397.com</a> · 价值趋势系统由 Rust 构建</p>
+<p id="tt-footer-src">数据来源：arXiv API · RSS Feeds</p>
+<p id="tt-footer-built"><a href="home.html">lava7397.com</a> · 价值趋势系统由 Rust 构建</p>
 </footer>
+<script>
+var TT={zh:{title:"\u4ef7\u503c\u8d8b\u52bf",dateLine:"DATEDISP \u00b7 \u524d\u6cbf\u7814\u7a76\u7b80\u62a5",statToday:"STATTODAY",statDirs:"STATDIRS",statRadar:"STATRADAR",footerSrc:"\u6570\u636e\u6765\u6e90\uff1aarXiv API \u00b7 RSS Feeds",footerBuilt:'<a href="home.html">lava7397.com</a> \u00b7 \u4ef7\u503c\u8d8b\u52bf\u7cfb\u7edf\u7531 Rust \u6784\u5efa',navRadar:"\u4ef7\u503c\u8d8b\u52bf\u96f7\u8fbe"},en:{title:"Value Trends",dateLine:"DATEDISPEN \u00b7 Frontier Research Brief",statToday:"STATTODAYEN",statDirs:"STATDIRSEN",statRadar:"STATRADAREN",footerSrc:"Sources: arXiv API \u00b7 RSS Feeds",footerBuilt:'<a href="home.html">lava7397.com</a> \u00b7 Built with Rust',navRadar:"Value Trends Radar"}};
+function setLang(l){localStorage.setItem("tt_lang",l);var t=TT[l];document.getElementById("tt-title").textContent=t.title;document.getElementById("tt-date-line").textContent=t.dateLine;document.getElementById("tt-stat-today").innerHTML=t.statToday;document.getElementById("tt-stat-dirs").innerHTML=t.statDirs;document.getElementById("tt-stat-radar").innerHTML=t.statRadar;document.getElementById("tt-footer-src").textContent=t.footerSrc;document.getElementById("tt-footer-built").innerHTML=t.footerBuilt;document.getElementById("lang-zh").classList.toggle("active",l==="zh");document.getElementById("lang-en").classList.toggle("active",l==="en");var rl=document.querySelector('.tt-nav a[href="trends.html"]');if(rl)rl.textContent=t.navRadar}
+(function(){var l=localStorage.getItem("tt_lang")||"zh";setLang(l)})();
+</script>
 </body>
 </html>
