@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+import re
 from pathlib import Path
 
 
@@ -17,6 +19,31 @@ def test_promoted_trends_brief_contains_papers() -> None:
 
     assert 'href="trends-today.html"' in home
     assert 'class="tt-paper"' in _read_site_file("trends-today.html")
+
+
+def test_trend_metadata_is_consistent_across_static_files() -> None:
+    home = _read_site_file("home.html")
+    today = _read_site_file("trends-today.html")
+    data = json.loads(_read_site_file("trends-data.json"))
+
+    block_match = re.search(
+        r"<!-- TECH-TRENDS-CARD-START -->(.*?)<!-- TECH-TRENDS-CARD-END -->",
+        home,
+        re.S,
+    )
+    assert block_match is not None
+    home_values = re.findall(r'<div class="num(?: [^"]*)?">(.*?)</div>', block_match.group(1))
+
+    assert home_values[:3] == [
+        str(data["total_papers"]),
+        str(data["direction_count"]),
+        data["date"],
+    ]
+    assert today.count('class="tt-paper"') == data["total_papers"]
+
+    radar_match = re.search(r'id="tt-stat-radar">([^<]+)</div>', today)
+    assert radar_match is not None
+    assert home_values[3] == radar_match.group(1)
 
 
 def test_trend_pages_do_not_ship_template_tokens() -> None:
