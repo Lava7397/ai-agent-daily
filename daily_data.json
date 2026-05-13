@@ -1,251 +1,198 @@
 {
-  "date": "2026-05-12",
-  "sources": "Hacker News, arXiv, GitHub",
+  "date": "2026-05-13",
+  "sources": "Hacker News, GitHub",
   "description": "AI Agent 领域最新情报",
-  "research": [
-    {
-      "title": "AgentRx: A Benchmark Study of LLM Agents for Multimodal Clinical Prediction Tasks",
-      "summary": "【arXiv】Building effective clinical decision support systems requires the synthesis of complex heterogeneous multimodal data. Such modalities include temporal electronic health records data, medical images, radiology reports, and clinical notes. Large langua",
-      "url": "http://arxiv.org/abs/2605.10286v1",
-      "tags": [
-        "research",
-        "paper"
-      ],
-      "title_zh": "AgentRx ：多模式临床预测任务的LLM药剂基准研究",
-      "summary_zh": "【arXiv】建立有效的临床决策支持系统需要综合复杂的异构多模态数据。这些模式包括时间电子健康记录数据、医学图像、放射学报告和临床记录。",
-      "title_en": "AgentRx: A Benchmark Study of LLM Agents for Multimodal Clinical Prediction Tasks",
-      "summary_en": "【arXiv】Building effective clinical decision support systems requires the synthesis of complex heterogeneous multimodal data. Such modalities include temporal electronic health records data, medical images, radiology reports, and clinical notes. Large langua"
-    },
-    {
-      "title": "MemReread: Enhancing Agentic Long-Context Reasoning via Memory-Guided Rereading",
-      "summary": "【arXiv】To tackle long-context reasoning tasks without the quadratic complexity of standard attention mechanisms, approaches based on agent memory have emerged, which typically maintain a dynamically updated memory when linearly processing document chunks. T",
-      "url": "http://arxiv.org/abs/2605.10268v1",
-      "tags": [
-        "research",
-        "paper"
-      ],
-      "title_zh": "MemReread ：通过记忆导向重读增强Agentic长上下文推理",
-      "summary_zh": "【arXiv】为了在没有标准注意力机制的二次复杂性的情况下处理长上下文推理任务，已经出现了基于代理内存的方法，这些方法通常在线性处理文档块时保持动态更新的内存。",
-      "title_en": "MemReread: Enhancing Agentic Long-Context Reasoning via Memory-Guided Rereading",
-      "summary_en": "【arXiv】To tackle long-context reasoning tasks without the quadratic complexity of standard attention mechanisms, approaches based on agent memory have emerged, which typically maintain a dynamically updated memory when linearly processing document chunks. T"
-    },
-    {
-      "title": "IndustryBench: Probing the Industrial Knowledge Boundaries of LLMs",
-      "summary": "【arXiv】In industrial procurement, an LLM answer is useful only if it survives a standards check: recommended material must match operating condition, every parameter must respect a regulated threshold, and no procedure may contradict a safety clause. Partia",
-      "url": "http://arxiv.org/abs/2605.10267v1",
-      "tags": [
-        "research",
-        "paper"
-      ],
-      "title_zh": "IndustryBench ：探索LLM的行业知识边界",
-      "summary_zh": "【arXiv】在工业采购中， LLM答案只有在通过标准检查后才有用：推荐的材料必须与操作条件相匹配，每个参数都必须遵守规定的阈值，并且任何程序都不得与安全条款相矛盾。Partia",
-      "title_en": "IndustryBench: Probing the Industrial Knowledge Boundaries of LLMs",
-      "summary_en": "【arXiv】In industrial procurement, an LLM answer is useful only if it survives a standards check: recommended material must match operating condition, every parameter must respect a regulated threshold, and no procedure may contradict a safety clause. Partia"
-    },
-    {
-      "title": "Towards Autonomous Railway Operations: A Semi-Hierarchical Deep Reinforcement Learning Approach to the Vehicle Rescheduling Problem",
-      "summary": "【arXiv】Managing disruptions in railway traffic management is a major challenge. Rising traffic density and infrastructure limits increase complexity, making the Vehicle Routing and Scheduling Problem (VRSP) difficult to solve reliably and in real time. Whil",
-      "url": "http://arxiv.org/abs/2605.10257v1",
-      "tags": [
-        "research",
-        "paper"
-      ],
-      "title_zh": "走向自主铁路运营：车辆调度问题的半层次深度强化学习方法",
-      "summary_zh": "【arXiv】管理铁路交通管理的中断是一项重大挑战。不断上升的交通密度和基础设施限制增加了复杂性，使得车辆路由和调度问题（ VRSP ）难以可靠和实时地解决。",
-      "title_en": "Towards Autonomous Railway Operations: A Semi-Hierarchical Deep Reinforcement Learning Approach to the Vehicle Rescheduling Problem",
-      "summary_en": "【arXiv】Managing disruptions in railway traffic management is a major challenge. Rising traffic density and infrastructure limits increase complexity, making the Vehicle Routing and Scheduling Problem (VRSP) difficult to solve reliably and in real time. Whil"
-    }
-  ],
+  "research": [],
   "github": [
     {
-      "title": "ysterbal/code-graph",
-      "summary": "【GitHub】Multi-language code parser (Python, Rust, JS/TS, Go, Java, C/C++) that extracts dependency graphs and stores them locally in SQLite. Provides three access methods: CLI for direct queries, REST API for （⭐ 0）",
-      "url": "https://github.com/ysterbal/code-graph",
-      "stars": 0,
+      "title": "BlackHatDevX/claudefree-installer",
+      "summary": "【GitHub】Open-source installer that automatically sets up Claude Code inside VS Code including VS Code, OpenCode, extensions and configuration for unlimited usage (free). （⭐ 4）",
+      "url": "https://github.com/BlackHatDevX/claudefree-installer",
+      "stars": 4,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "ysterbal/code-graph",
-      "summary_zh": "【GitHub】多语言代码解析器（ Python、Rust、JS/TS、Go、Java、C/C + + ） ，用于提取依赖关系图并将其本地存储在SQLite中。提供三种访问方式：直接查询的CLI ， （⭐ 0 ）的REST API",
-      "title_en": "ysterbal/code-graph",
-      "summary_en": "【GitHub】Multi-language code parser (Python, Rust, JS/TS, Go, Java, C/C++) that extracts dependency graphs and stores them locally in SQLite. Provides three access methods: CLI for direct queries, REST API for （⭐ 0）"
+      "title_zh": "BlackHatDevX/claudefree-installer",
+      "summary_zh": "【GitHub】在VS Code中自动设置Claude Code的开源安装程序，包括VS Code、OpenCode、扩展和无限使用的配置（免费）。（⭐ 4 ）",
+      "title_en": "BlackHatDevX/claudefree-installer",
+      "summary_en": "【GitHub】Open-source installer that automatically sets up Claude Code inside VS Code including VS Code, OpenCode, extensions and configuration for unlimited usage (free). （⭐ 4）"
     },
     {
-      "title": "SipMyBeers/ultra-beers",
-      "summary": "【GitHub】Open-source local plan refinement. Like /ultraplan but on your own machine, dispatched to local Claude Code agents. （⭐ 1）",
-      "url": "https://github.com/SipMyBeers/ultra-beers",
+      "title": "Sent1nelX/claude-activity-tracker",
+      "summary": "【GitHub】Claude Code plugin that tracks developer AI activity — sessions, tools, files, requests. Open source MVP. （⭐ 1）",
+      "url": "https://github.com/Sent1nelX/claude-activity-tracker",
       "stars": 1,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "SipMyBeers/超级啤酒",
-      "summary_zh": "【GitHub】开源本地计划优化。喜欢/超计划，但在您自己的机器上，派遣到当地的Claude Code代理。（⭐ 1 ）",
-      "title_en": "SipMyBeers/ultra-beers",
-      "summary_en": "【GitHub】Open-source local plan refinement. Like /ultraplan but on your own machine, dispatched to local Claude Code agents. （⭐ 1）"
+      "title_zh": "Sent1nelX/claude-activity-tracker",
+      "summary_zh": "【GitHub】跟踪开发人员AI活动的Claude Code插件—会话、工具、文件、请求。开源MVP. （⭐ 1 ）",
+      "title_en": "Sent1nelX/claude-activity-tracker",
+      "summary_en": "【GitHub】Claude Code plugin that tracks developer AI activity — sessions, tools, files, requests. Open source MVP. （⭐ 1）"
     },
     {
-      "title": "avectats7/clever-comebacks",
-      "summary": "【GitHub】Paste a mean message, pick a tier (soft/medium/heavy/trainwreck), get one clever sentence back. A free, open-source Claude Code skill. （⭐ 1）",
-      "url": "https://github.com/avectats7/clever-comebacks",
-      "stars": 1,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "avectats7/clever-comebacks",
-      "summary_zh": "【GitHub】粘贴一条卑鄙的信息，选择一个等级（软/中/重/火车残骸） ，找回一个聪明的句子。免费开源的Claude Code技能。（⭐ 1 ）",
-      "title_en": "avectats7/clever-comebacks",
-      "summary_en": "【GitHub】Paste a mean message, pick a tier (soft/medium/heavy/trainwreck), get one clever sentence back. A free, open-source Claude Code skill. （⭐ 1）"
-    },
-    {
-      "title": "HarshitSingh-PM/claude-config-manager",
-      "summary": "【GitHub】Local, open-source UI for editing every Claude Code config file from one place — settings, CLAUDE.md, MCP servers, subagents, commands, credentials. Run with: npx claude-config-manager （⭐ 0）",
-      "url": "https://github.com/HarshitSingh-PM/claude-config-manager",
+      "title": "ROTl24/ai-dev-workflow-system",
+      "summary": "【GitHub】Open-source AI coding workflow for Codex, Claude Code, Cursor, Gemini CLI, and GitHub Copilot. （⭐ 0）",
+      "url": "https://github.com/ROTl24/ai-dev-workflow-system",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "HarshitSingh-PM/claude-config-manager",
-      "summary_zh": "【GitHub】本地开源UI ，用于从一个地方编辑每个Claude Code配置文件—设置、CLAUDE.md、MCP服务器、子代理、命令、凭据。运行方式： npx claude-config-manager （⭐ 0 ）",
-      "title_en": "HarshitSingh-PM/claude-config-manager",
-      "summary_en": "【GitHub】Local, open-source UI for editing every Claude Code config file from one place — settings, CLAUDE.md, MCP servers, subagents, commands, credentials. Run with: npx claude-config-manager （⭐ 0）"
+      "title_zh": "ROTl24/ai-dev-workflow-system",
+      "summary_zh": "【GitHub】Codex、Claude Code、Cursor、Gemini CLI和GitHub Copilot的开源AI编码工作流程。（⭐ 0 ）",
+      "title_en": "ROTl24/ai-dev-workflow-system",
+      "summary_en": "【GitHub】Open-source AI coding workflow for Codex, Claude Code, Cursor, Gemini CLI, and GitHub Copilot. （⭐ 0）"
+    },
+    {
+      "title": "BlackHatDevX/claudefree-installer",
+      "summary": "【GitHub】Open-source installer that automatically sets up Claude Code inside VS Code including VS Code, OpenCode, extensions and configuration for unlimited usage (free). （⭐ 4）",
+      "url": "https://github.com/BlackHatDevX/claudefree-installer",
+      "stars": 4,
+      "tags": [
+        "github",
+        "opensource"
+      ],
+      "title_zh": "BlackHatDevX/claudefree-installer",
+      "summary_zh": "【GitHub】在VS Code中自动设置Claude Code的开源安装程序，包括VS Code、OpenCode、扩展和无限使用的配置（免费）。（⭐ 4 ）",
+      "title_en": "BlackHatDevX/claudefree-installer",
+      "summary_en": "【GitHub】Open-source installer that automatically sets up Claude Code inside VS Code including VS Code, OpenCode, extensions and configuration for unlimited usage (free). （⭐ 4）"
     }
   ],
   "models": [
     {
-      "title": "Riding an AI rally, Robinhood preps second retail venture IPO",
-      "summary": "Robinhood files confidentially for its second venture fund, this time targeting growth and early-stage startups.",
-      "url": "https://techcrunch.com/2026/05/11/riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo/",
+      "title": "Medicare’s new payment model is built for AI, and most of the tech world has no idea",
+      "summary": "There is no governmental mechanism to pay for an AI agent that monitors a patient between visits, calls to check in, coordinates a housing referral, or makes sure someone picks up their medication. ACCESS creates that mechanism for the first time.",
+      "url": "https://techcrunch.com/2026/05/12/medicares-new-payment-model-is-built-for-ai-and-most-of-the-tech-world-has-no-idea/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "驾驶人工智能拉力赛， Robinhood准备第二次零售企业IPO",
-      "summary_zh": "Robinhood为其第二个风险基金保密备案，这次是针对成长和早期创业公司。",
-      "title_en": "Riding an AI rally, Robinhood preps second retail venture IPO",
-      "summary_en": "Robinhood files confidentially for its second venture fund, this time targeting growth and early-stage startups."
+      "title_zh": "Medicare的新支付模式是为人工智能而构建的，大多数科技世界都不知道",
+      "summary_zh": "没有政府机制来支付人工智能代理的费用，该代理可以在两次就诊、打电话办理入住手续、协调住宿推荐或确保有人取药之间监控患者。ACCESS首次创建了这种机制。",
+      "title_en": "Medicare’s new payment model is built for AI, and most of the tech world has no idea",
+      "summary_en": "There is no governmental mechanism to pay for an AI agent that monitors a patient between visits, calls to check in, coordinates a housing referral, or makes sure someone picks up their medication. ACCESS creates that mechanism for the first time."
     },
     {
-      "title": "GM just laid off hundreds of IT workers to hire those with stronger AI skills",
-      "summary": "Some of the positions focus on AI-native development, data engineering and analytics, cloud-based engineering, and agent and model development as well as prompt engineering and new AI workflows.",
-      "url": "https://techcrunch.com/2026/05/11/gm-just-laid-off-hundreds-of-it-workers-to-hire-those-with-stronger-ai-skills/",
+      "title": "Musk mulled handing OpenAI to his children, Altman testifies",
+      "summary": "Altman said that Musk's focus on controlling the initial for-profit gave him pause because OpenAI was dedicated to keeping advanced AI out of the hands of a single person, and Altman, with his experience running the prominent startup accelerator Y Co",
+      "url": "https://techcrunch.com/2026/05/12/musk-mulled-handing-openai-to-his-children-altman-testifies/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "通用汽车刚刚解雇了数百名IT员工，聘请那些拥有更强人工智能技能的人",
-      "summary_zh": "一些职位侧重于人工智能原生开发、数据工程和分析、基于云的工程、代理和模型开发以及提示工程和新的人工智能工作流程。",
-      "title_en": "GM just laid off hundreds of IT workers to hire those with stronger AI skills",
-      "summary_en": "Some of the positions focus on AI-native development, data engineering and analytics, cloud-based engineering, and agent and model development as well as prompt engineering and new AI workflows."
+      "title_zh": "奥尔特曼作证说，马斯克考虑将OpenAI交给他的孩子们",
+      "summary_zh": "奥尔特曼说，马斯克专注于控制最初的营利性组织，这让他停顿了一下，因为OpenAI致力于将先进的人工智能从一个人手中夺走，而奥尔特曼则凭借其运营着名的创业加速器Y Co的经验",
+      "title_en": "Musk mulled handing OpenAI to his children, Altman testifies",
+      "summary_en": "Altman said that Musk's focus on controlling the initial for-profit gave him pause because OpenAI was dedicated to keeping advanced AI out of the hands of a single person, and Altman, with his experience running the prominent startup accelerator Y Co"
     },
     {
-      "title": "Digg tries again, this time as an AI news aggregator",
-      "summary": "In an email to beta testers, the company said the site's goal is to \"track the most influential voices in a space\" and to surface the news that's actually worth \"paying attention to.\" ",
-      "url": "https://techcrunch.com/2026/05/11/digg-tries-again-this-time-as-an-ai-news-aggregator/",
+      "title": "Anthropic warns investors against secondary platforms offering access to its shares",
+      "summary": "\"Any sale or transfer of Anthropic stock, or any interest in Anthropic stock, offered by these firms is void and will not be recognized on our books and records,\" the company's support page reads.",
+      "url": "https://techcrunch.com/2026/05/12/anthropic-warns-investors-against-secondary-platforms-offering-access-to-its-shares/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "Digg再次尝试，这次是作为AI新闻聚合器",
-      "summary_zh": "在给测试人员的电子邮件中，该公司表示，该网站的目标是“跟踪空间中最具影响力的声音” ，并展示实际上值得“关注”的新闻。",
-      "title_en": "Digg tries again, this time as an AI news aggregator",
-      "summary_en": "In an email to beta testers, the company said the site's goal is to \"track the most influential voices in a space\" and to surface the news that's actually worth \"paying attention to.\""
+      "title_zh": "Anthropic警告投资者不要使用提供其股票访问权限的二级平台",
+      "summary_zh": "“这些公司出售或转让的人类股票或对人类股票的任何权益都是无效的，不会在我们的账簿和记录中得到确认，”该公司的支持页面上写道。",
+      "title_en": "Anthropic warns investors against secondary platforms offering access to its shares",
+      "summary_en": "\"Any sale or transfer of Anthropic stock, or any interest in Anthropic stock, offered by these firms is void and will not be recognized on our books and records,\" the company's support page reads."
     },
     {
-      "title": "There aren’t enough rockets for space data centers — Cowboy Space raised $275M to build them",
-      "summary": "The apparently insatiable demand for AI compute has data center entrepreneurs looking to the stars. There's a key problem: There aren't enough rockets to put data centers in orbit around Earth, and they're too expensive.",
-      "url": "https://techcrunch.com/2026/05/11/there-arent-enough-rockets-for-space-data-centers-cowboy-space-raised-275-million-to-build-them/",
+      "title": "Report: Google and SpaceX in talks to put data centers into orbit",
+      "summary": "Google and SpaceX are in talks to build data centers in orbit, pitching space as the future home for AI compute, even as costs today remain far higher than on the ground.",
+      "url": "https://techcrunch.com/2026/05/12/report-google-and-spacex-in-talks-to-put-data-centers-into-orbit/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "太空数据中心没有足够的火箭— Cowboy Space筹集了2.75亿美元建造它们",
-      "summary_zh": "显然，对人工智能计算的贪得无厌的需求让数据中心企业家把目光投向了明星。有一个关键问题：没有足够的火箭将数据中心放在地球周围的轨道上，而且它们太昂贵了。",
-      "title_en": "There aren’t enough rockets for space data centers — Cowboy Space raised $275M to build them",
-      "summary_en": "The apparently insatiable demand for AI compute has data center entrepreneurs looking to the stars. There's a key problem: There aren't enough rockets to put data centers in orbit around Earth, and they're too expensive."
+      "title_zh": "报告：谷歌和SpaceX正在谈判将数据中心送入轨道",
+      "summary_zh": "谷歌和SpaceX正在谈判在轨道上建立数据中心，将空间作为人工智能计算的未来家园，即使今天的成本仍然远远高于地面。",
+      "title_en": "Report: Google and SpaceX in talks to put data centers into orbit",
+      "summary_en": "Google and SpaceX are in talks to build data centers in orbit, pitching space as the future home for AI compute, even as costs today remain far higher than on the ground."
     }
   ],
   "community": [
     {
-      "title": "If AI writes your code, why use Python?",
-      "summary": "【HN】热度: 178 分 | 197 评论",
-      "url": "https://medium.com/@NMitchem/if-ai-writes-your-code-why-use-python-bf8c4ba1a055",
+      "title": "Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model",
+      "summary": "【HN】热度: 284 分 | 103 评论",
+      "url": "https://github.com/cactus-compute/needle",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "如果人工智能编写您的代码，为什么要使用Python ？",
-      "summary_zh": "【HN】热度: 178 分 | 197 评论",
-      "title_en": "If AI writes your code, why use Python?",
-      "summary_en": "【HN】热度: 178 分 | 197 评论"
+      "title_zh": "显示HN ：针：我们将双子座工具蒸馏成26米模型",
+      "summary_zh": "【HN】热度: 284 分 | 103 评论",
+      "title_en": "Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model",
+      "summary_en": "【HN】热度: 284 分 | 103 评论"
     },
     {
-      "title": "I let AI build a tool to help me figure out what was waking me up at night",
-      "summary": "【HN】热度: 76 分 | 86 评论",
-      "url": "https://martin.sh/i-let-ai-build-a-tool-to-help-me-figure-out-what-was-waking-me-up-at-night/",
+      "title": "Why senior developers fail to communicate their expertise",
+      "summary": "【HN】热度: 378 分 | 183 评论",
+      "url": "https://www.nair.sh/guides-and-opinions/communicating-your-expertise/why-senior-developers-fail-to-communicate-their-expertise",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "我让人工智能构建了一个工具来帮助我找出晚上叫醒我的是什么",
-      "summary_zh": "【HN】热度: 76 分 | 86 评论",
-      "title_en": "I let AI build a tool to help me figure out what was waking me up at night",
-      "summary_en": "【HN】热度: 76 分 | 86 评论"
+      "title_zh": "为什么资深开发人员无法传达他们的专业知识",
+      "summary_zh": "【HN】热度: 378 分 | 183 评论",
+      "title_en": "Why senior developers fail to communicate their expertise",
+      "summary_en": "【HN】热度: 378 分 | 183 评论"
     },
     {
-      "title": "Postmortem: TanStack npm supply-chain compromise",
-      "summary": "【HN】热度: 553 分 | 200 评论",
-      "url": "https://tanstack.com/blog/npm-supply-chain-compromise-postmortem",
+      "title": "Launch HN: Voker (YC S24) – Analytics for AI Agents",
+      "summary": "【HN】热度: 40 分 | 19 评论",
+      "url": "https://voker.ai",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "事后分析： TanStack npm供应链妥协",
-      "summary_zh": "【HN】热度: 553 分 | 200 评论",
-      "title_en": "Postmortem: TanStack npm supply-chain compromise",
-      "summary_en": "【HN】热度: 553 分 | 200 评论"
+      "title_zh": "启动HN ： Voker (YC S24) –人工智能代理分析",
+      "summary_zh": "【HN】热度: 40 分 | 19 评论",
+      "title_en": "Launch HN: Voker (YC S24) – Analytics for AI Agents",
+      "summary_en": "【HN】热度: 40 分 | 19 评论"
     },
     {
-      "title": "UCLA discovers first stroke rehabilitation drug to repair brain damage (2025)",
-      "summary": "【HN】热度: 241 分 | 47 评论",
-      "url": "https://stemcell.ucla.edu/news/ucla-discovers-first-stroke-rehabilitation-drug-repair-brain-damage",
+      "title": "Reimagining the mouse pointer for the AI era",
+      "summary": "【HN】热度: 143 分 | 117 评论",
+      "url": "https://deepmind.google/blog/ai-pointer/",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "加州大学洛杉矶分校发现首个修复脑损伤的中风康复药物（ 2025年）",
-      "summary_zh": "【HN】热度: 241 分 | 47 评论",
-      "title_en": "UCLA discovers first stroke rehabilitation drug to repair brain damage (2025)",
-      "summary_en": "【HN】热度: 241 分 | 47 评论"
+      "title_zh": "重新构想人工智能时代的鼠标指针",
+      "summary_zh": "【HN】热度: 143 分 | 117 评论",
+      "title_en": "Reimagining the mouse pointer for the AI era",
+      "summary_en": "【HN】热度: 143 分 | 117 评论"
     },
     {
-      "title": "Gmail registration now requires scanning a QR code and sending a text message",
-      "summary": "【HN】热度: 567 分 | 420 评论",
-      "url": "https://discuss.privacyguides.net/t/google-account-registration-now-requires-sending-an-sms-via-phone-instead-of-receiving-an-sms/36082",
+      "title": "Show HN: Agentic interface for mainframes and COBOL",
+      "summary": "【HN】热度: 56 分 | 34 评论",
+      "url": "https://www.hypercubic.ai/hopper",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "Gmail注册现在需要扫描二维码并发送短信",
-      "summary_zh": "【HN】热度: 567 分 | 420 评论",
-      "title_en": "Gmail registration now requires scanning a QR code and sending a text message",
-      "summary_en": "【HN】热度: 567 分 | 420 评论"
+      "title_zh": "显示HN ：大型机和COBOL的代理接口",
+      "summary_zh": "【HN】热度: 56 分 | 34 评论",
+      "title_en": "Show HN: Agentic interface for mainframes and COBOL",
+      "summary_en": "【HN】热度: 56 分 | 34 评论"
     },
     {
-      "title": "Claude Platform on AWS",
-      "summary": "【HN】热度: 7 分 | 1 评论",
-      "url": "https://claude.com/blog/claude-platform-on-aws",
+      "title": "Show HN: Statewright – Visual state machines that make AI agents reliable",
+      "summary": "【HN】热度: 75 分 | 24 评论",
+      "url": "https://github.com/statewright/statewright",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "AWS上的Claude平台",
-      "summary_zh": "【HN】热度: 7 分 | 1 评论",
-      "title_en": "Claude Platform on AWS",
-      "summary_en": "【HN】热度: 7 分 | 1 评论"
+      "title_zh": "显示HN ： Statewright –使AI代理可靠的可视化状态机",
+      "summary_zh": "【HN】热度: 75 分 | 24 评论",
+      "title_en": "Show HN: Statewright – Visual state machines that make AI agents reliable",
+      "summary_en": "【HN】热度: 75 分 | 24 评论"
     }
   ]
 }
