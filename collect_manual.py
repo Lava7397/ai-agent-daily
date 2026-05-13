@@ -375,7 +375,7 @@ def fetch_hackernews():
                 return None
             return None
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
             futures = [executor.submit(fetch_item, i) for i in ids]
             for f in concurrent.futures.as_completed(futures):
                 res = f.result()
@@ -424,6 +424,129 @@ def fetch_bensbites():
         print(f"[WARN] Ben's Bites 无法访问（付费墙或RSS不可用），跳过: {e}")
         return []
 
+def fetch_reddit_localllama():
+    """从 Reddit r/LocalLLaMA 采集热门帖子 - JSON API（24h 窗口）"""
+    url = "https://www.reddit.com/r/LocalLLaMA/hot.json?limit=25"
+    headers = {'User-Agent': 'AI-Daily-Bot/1.0 (by /u/ai_daily_bot)'}
+    try:
+        req = Request(url, headers=headers)
+        with urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+        results = []
+        cutoff = time.time() - 24*3600
+        keywords = ['agent', 'llm', 'mcp', 'tool', 'claude', 'gpt', 'model', 
+                     'langchain', 'autonomous', 'workflow', 'function call']
+        for post in data.get('data', {}).get('children', []):
+            post_data = post.get('data', {})
+            created = post_data.get('created_utc', 0)
+            if created < cutoff:
+                continue  # 24h 窗口
+            title = (post_data.get('title') or '').strip()
+            selftext = (post_data.get('selftext') or '')[:200]
+            combined = (title + ' ' + selftext).lower()
+            if not any(kw in combined for kw in keywords):
+                continue
+            score = post_data.get('score', 0)
+            num_comments = post_data.get('num_comments', 0)
+            permalink = post_data.get('permalink', '')
+            results.append({
+                "title": title,
+                "summary": f"【r/LocalLLaMA】热度: {score}↑ | {num_comments} 评论 | {selftext[:100]}",
+                "url": f"https://www.reddit.com{permalink}" if permalink else "https://www.reddit.com/r/LocalLLaMA",
+                "tags": ["community", "reddit", "localllama"]
+            })
+            if len(results) >= 3:
+                break
+        return results
+    except Exception as e:
+        print(f"[WARN] Reddit r/LocalLLaMA 采集失败: {e}")
+        return []
+
+def fetch_lobsters():
+    """从 Lobsters 采集热门帖子 - JSON API（24h 窗口）"""
+    url = "https://lobste.rs/hottest.json"
+    headers = {'User-Agent': 'AI-Daily-Bot/1.0'}
+    try:
+        req = Request(url, headers=headers)
+        with urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+        results = []
+        cutoff = time.time() - 24*3600
+        keywords = ['ai', 'llm', 'agent', 'model', 'claude', 'gpt', 'machine learning',
+                     'mcp', 'tool', 'autonomous', 'workflow', 'language model', 'neural']
+        for post in data[:30]:
+            created_t = post.get('created_at', '')
+            if created_t:
+                try:
+                    from datetime import datetime as dt
+                    created_dt = dt.fromisoformat(created_t.replace('Z', '+00:00'))
+                    if created_dt.timestamp() < cutoff:
+                        continue
+                except:
+                    pass
+            title = (post.get('title') or '').strip()
+            desc = (post.get('description') or '')[:150]
+            combined = (title + ' ' + desc).lower()
+            if not any(kw in combined for kw in keywords):
+                continue
+            score = post.get('score', 0)
+            comment_count = post.get('comment_count', 0)
+            short_id = post.get('short_id', '')
+            tags_list = post.get('tags', [])
+            results.append({
+                "title": title,
+                "summary": f"【Lobsters】热度: {score}↑ | {comment_count} 评论 | 标签: {', '.join(tags_list[:3])}",
+                "url": f"https://lobste.rs/s/{short_id}" if short_id else "https://lobste.rs",
+                "tags": ["community", "lobsters", "tech"]
+            })
+            if len(results) >= 3:
+                break
+        return results
+    except Exception as e:
+        print(f"[WARN] Lobsters 采集失败: {e}")
+        return []
+
+def fetch_paperswithcode():
+    """从 Papers With Code API 采集最新论文（24h 窗口，并入 research）"""
+    url = "https://paperswithcode.com/api/v1/papers/?format=json&ordering=-paper_published&items_per_page=20"
+    headers = {'User-Agent': 'AI-Daily-Bot/1.0'}
+    try:
+        req = Request(url, headers=headers)
+        with urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+        results = []
+        cutoff = datetime.now(BEIJING_TZ) - timedelta(hours=24)
+        keywords = ['agent', 'llm', 'language model', 'mcp', 'tool use',
+                     'autonomous', 'multi-agent', 'function calling', 'workflow']
+        for paper in data.get('results', [])[:20]:
+            title = (paper.get('title') or '').strip()
+            abstract = (paper.get('abstract') or '')[:250]
+            combined = (title + ' ' + abstract).lower()
+            if not any(kw in combined for kw in keywords):
+                continue
+            # 时间过滤
+            published = paper.get('paper_published', '')
+            if published:
+                try:
+                    pub_dt = datetime.fromisoformat(published.replace('Z', '+00:00')).astimezone(BEIJING_TZ)
+                    if pub_dt < cutoff:
+                        continue
+                except:
+                    pass
+            paper_url = paper.get('url_abs', paper.get('url_pdf', '')) or f"https://paperswithcode.com/paper/{paper.get('id','')}"
+            results.append({
+                "title": title,
+                "summary": f"【PapersWithCode】{abstract}",
+                "url": paper_url,
+                "tags": ["research", "paper", "code"]
+            })
+            if len(results) >= 3:
+                break
+        return results
+    except Exception as e:
+        print(f"[WARN] Papers With Code API 采集失败: {e}")
+        return []
+
 # ========== 执行采集 ==========
 print("=== AI Daily 数据采集开始 ===\n")
 
@@ -440,9 +563,11 @@ sources = [
     ("github", fetch_github),
     ("models", fetch_techcrunch_ai),   # TechCrunch AI → models
     ("community", fetch_hackernews),
+    ("community", fetch_reddit_localllama),   # r/LocalLLaMA → community
+    ("community", fetch_lobsters),            # Lobsters → community
 ]
 
-with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
+with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
     futures = {}
     for section, fn in sources:
         futures[executor.submit(fn)] = section
@@ -464,11 +589,13 @@ arxiv_items = fetch_arxiv()
 print(f"  ✓ arXiv: {len(arxiv_items)} 条")
 hf_items = fetch_huggingface_papers()
 print(f"  ✓ HuggingFace: {len(hf_items)} 条")
+pw_items = fetch_paperswithcode()
+print(f"  ✓ PapersWithCode: {len(pw_items)} 条")
 # ss_items = fetch_semantic_scholar()  # Semantic Scholar rate limited (429)
 # print(f"  ✓ Semantic Scholar: {len(ss_items)} 条")
 
 # 合并去重
-combined = arxiv_items + hf_items  # + ss_items (disabled due to rate limit)
+combined = arxiv_items + hf_items + pw_items  # + ss_items (disabled due to rate limit)
 seen = set()
 unique = []
 for item in combined:
@@ -490,8 +617,8 @@ for section in ["research", "github", "models", "community"]:
 print(f"  Total: {total} 条")
 
 # 数量检查
-if total < 18:
-    print(f"\n⚠️  总条数不足（{total} < 18），需要补充数据")
+if total < 20:
+    print(f"\n⚠️  总条数不足（{total} < 20），需要补充数据")
     # 补充 GitHub
     if len(all_items["github"]) < 4:
         print("  补充 GitHub 项目...")
@@ -508,8 +635,8 @@ else:
 # 截断每个板块到目标数量
 all_items["research"] = all_items["research"][:4]
 all_items["github"] = all_items["github"][:5]
-all_items["models"] = all_items["models"][:4]
-all_items["community"] = all_items["community"][:6]
+all_items["models"] = all_items["models"][:5]
+all_items["community"] = all_items["community"][:9]  # HN 3 + Reddit 3 + Lobsters 3
 
 # 构建 sources 字段 - 根据实际采集到的源
 actual_sources = set()
@@ -524,17 +651,23 @@ if any(item.get("summary", "").startswith("【Ben's Bites】") for item in all_i
     actual_sources.add("Ben's Bites")
 if any(item.get("summary", "").startswith("【HN】") for item in all_items["community"]):
     actual_sources.add("Hacker News")
+if any(item.get("summary", "").startswith("【r/LocalLLaMA】") for item in all_items["community"]):
+    actual_sources.add("r/LocalLLaMA")
+if any(item.get("summary", "").startswith("【Lobsters】") for item in all_items["community"]):
+    actual_sources.add("Lobsters")
 
-# research 板块来源（arXiv）
+# research 板块来源
 if all_items["research"]:
     actual_sources.add("arXiv")
+    if any(item.get("summary", "").startswith("【PapersWithCode】") for item in all_items["research"]):
+        actual_sources.add("PapersWithCode")
 
 # github 板块来源
 if all_items["github"]:
     actual_sources.add("GitHub")
 
 # 按固定顺序排列
-source_order = ["The Verge", "VentureBeat", "Ars Technica", "Ben's Bites", "Hacker News", "arXiv", "GitHub"]
+source_order = ["The Verge", "VentureBeat", "Ars Technica", "Ben's Bites", "Hacker News", "r/LocalLLaMA", "Lobsters", "arXiv", "PapersWithCode", "GitHub"]
 sources_list = [s for s in source_order if s in actual_sources]
 sources_str = ", ".join(sources_list)
 
@@ -596,7 +729,7 @@ if total_items < 18:
         root = ET.fromstring(rss_data)
         added = 0
         for item in root.findall('.//item'):
-            if added >= (18 - total_items):
+            if added >= (20 - total_items):
                 break
             title_elem = item.find('title')
             link_elem = item.find('link')

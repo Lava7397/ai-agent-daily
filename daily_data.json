@@ -1,8 +1,45 @@
 {
   "date": "2026-05-13",
-  "sources": "Hacker News, GitHub",
+  "sources": "Hacker News, r/LocalLLaMA, Lobsters, arXiv, GitHub",
   "description": "AI Agent 领域最新情报",
-  "research": [],
+  "research": [
+    {
+      "title": "From Web to Pixels: Bringing Agentic Search into Visual Perception",
+      "summary": "【arXiv】Visual perception connects high-level semantic understanding to pixel-level perception, but most existing settings assume that the decisive evidence for identifying a target is already in the image or frozen model knowledge. We study a more practical",
+      "url": "http://arxiv.org/abs/2605.12497v1",
+      "tags": [
+        "research",
+        "paper"
+      ]
+    },
+    {
+      "title": "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues",
+      "summary": "【arXiv】Long-term memory is crucial for agents in specialized web environments, where success depends on recalling interface affordances, state dynamics, workflows, and recurring failure modes. However, existing memory benchmarks for agents mostly focus on u",
+      "url": "http://arxiv.org/abs/2605.12493v1",
+      "tags": [
+        "research",
+        "paper"
+      ]
+    },
+    {
+      "title": "Task-Adaptive Embedding Refinement via Test-time LLM Guidance",
+      "summary": "【arXiv】We explore the effectiveness of an LLM-guided query refinement paradigm for extending the usability of embedding models to challenging zero-shot search and classification tasks. Our approach refines the embedding representation of a user query using ",
+      "url": "http://arxiv.org/abs/2605.12487v1",
+      "tags": [
+        "research",
+        "paper"
+      ]
+    },
+    {
+      "title": "Learning, Fast and Slow: Towards LLMs That Adapt Continually",
+      "summary": "【arXiv】Large language models (LLMs) are trained for downstream tasks by updating their parameters (e.g., via RL). However, updating parameters forces them to absorb task-specific information, which can result in catastrophic forgetting and loss of plasticit",
+      "url": "http://arxiv.org/abs/2605.12484v1",
+      "tags": [
+        "research",
+        "paper"
+      ]
+    }
+  ],
   "github": [
     {
       "title": "BlackHatDevX/claudefree-installer",
@@ -12,11 +49,7 @@
       "tags": [
         "github",
         "opensource"
-      ],
-      "title_zh": "BlackHatDevX/claudefree-installer",
-      "summary_zh": "【GitHub】在VS Code中自动设置Claude Code的开源安装程序，包括VS Code、OpenCode、扩展和无限使用的配置（免费）。（⭐ 4 ）",
-      "title_en": "BlackHatDevX/claudefree-installer",
-      "summary_en": "【GitHub】Open-source installer that automatically sets up Claude Code inside VS Code including VS Code, OpenCode, extensions and configuration for unlimited usage (free). （⭐ 4）"
+      ]
     },
     {
       "title": "Sent1nelX/claude-activity-tracker",
@@ -26,11 +59,7 @@
       "tags": [
         "github",
         "opensource"
-      ],
-      "title_zh": "Sent1nelX/claude-activity-tracker",
-      "summary_zh": "【GitHub】跟踪开发人员AI活动的Claude Code插件—会话、工具、文件、请求。开源MVP. （⭐ 1 ）",
-      "title_en": "Sent1nelX/claude-activity-tracker",
-      "summary_en": "【GitHub】Claude Code plugin that tracks developer AI activity — sessions, tools, files, requests. Open source MVP. （⭐ 1）"
+      ]
     },
     {
       "title": "ROTl24/ai-dev-workflow-system",
@@ -40,25 +69,7 @@
       "tags": [
         "github",
         "opensource"
-      ],
-      "title_zh": "ROTl24/ai-dev-workflow-system",
-      "summary_zh": "【GitHub】Codex、Claude Code、Cursor、Gemini CLI和GitHub Copilot的开源AI编码工作流程。（⭐ 0 ）",
-      "title_en": "ROTl24/ai-dev-workflow-system",
-      "summary_en": "【GitHub】Open-source AI coding workflow for Codex, Claude Code, Cursor, Gemini CLI, and GitHub Copilot. （⭐ 0）"
-    },
-    {
-      "title": "BlackHatDevX/claudefree-installer",
-      "summary": "【GitHub】Open-source installer that automatically sets up Claude Code inside VS Code including VS Code, OpenCode, extensions and configuration for unlimited usage (free). （⭐ 4）",
-      "url": "https://github.com/BlackHatDevX/claudefree-installer",
-      "stars": 4,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "BlackHatDevX/claudefree-installer",
-      "summary_zh": "【GitHub】在VS Code中自动设置Claude Code的开源安装程序，包括VS Code、OpenCode、扩展和无限使用的配置（免费）。（⭐ 4 ）",
-      "title_en": "BlackHatDevX/claudefree-installer",
-      "summary_en": "【GitHub】Open-source installer that automatically sets up Claude Code inside VS Code including VS Code, OpenCode, extensions and configuration for unlimited usage (free). （⭐ 4）"
+      ]
     }
   ],
   "models": [
@@ -69,11 +80,7 @@
       "tags": [
         "industry",
         "techcrunch"
-      ],
-      "title_zh": "Medicare的新支付模式是为人工智能而构建的，大多数科技世界都不知道",
-      "summary_zh": "没有政府机制来支付人工智能代理的费用，该代理可以在两次就诊、打电话办理入住手续、协调住宿推荐或确保有人取药之间监控患者。ACCESS首次创建了这种机制。",
-      "title_en": "Medicare’s new payment model is built for AI, and most of the tech world has no idea",
-      "summary_en": "There is no governmental mechanism to pay for an AI agent that monitors a patient between visits, calls to check in, coordinates a housing referral, or makes sure someone picks up their medication. ACCESS creates that mechanism for the first time."
+      ]
     },
     {
       "title": "Musk mulled handing OpenAI to his children, Altman testifies",
@@ -82,11 +89,7 @@
       "tags": [
         "industry",
         "techcrunch"
-      ],
-      "title_zh": "奥尔特曼作证说，马斯克考虑将OpenAI交给他的孩子们",
-      "summary_zh": "奥尔特曼说，马斯克专注于控制最初的营利性组织，这让他停顿了一下，因为OpenAI致力于将先进的人工智能从一个人手中夺走，而奥尔特曼则凭借其运营着名的创业加速器Y Co的经验",
-      "title_en": "Musk mulled handing OpenAI to his children, Altman testifies",
-      "summary_en": "Altman said that Musk's focus on controlling the initial for-profit gave him pause because OpenAI was dedicated to keeping advanced AI out of the hands of a single person, and Altman, with his experience running the prominent startup accelerator Y Co"
+      ]
     },
     {
       "title": "Anthropic warns investors against secondary platforms offering access to its shares",
@@ -95,11 +98,7 @@
       "tags": [
         "industry",
         "techcrunch"
-      ],
-      "title_zh": "Anthropic警告投资者不要使用提供其股票访问权限的二级平台",
-      "summary_zh": "“这些公司出售或转让的人类股票或对人类股票的任何权益都是无效的，不会在我们的账簿和记录中得到确认，”该公司的支持页面上写道。",
-      "title_en": "Anthropic warns investors against secondary platforms offering access to its shares",
-      "summary_en": "\"Any sale or transfer of Anthropic stock, or any interest in Anthropic stock, offered by these firms is void and will not be recognized on our books and records,\" the company's support page reads."
+      ]
     },
     {
       "title": "Report: Google and SpaceX in talks to put data centers into orbit",
@@ -108,91 +107,105 @@
       "tags": [
         "industry",
         "techcrunch"
-      ],
-      "title_zh": "报告：谷歌和SpaceX正在谈判将数据中心送入轨道",
-      "summary_zh": "谷歌和SpaceX正在谈判在轨道上建立数据中心，将空间作为人工智能计算的未来家园，即使今天的成本仍然远远高于地面。",
-      "title_en": "Report: Google and SpaceX in talks to put data centers into orbit",
-      "summary_en": "Google and SpaceX are in talks to build data centers in orbit, pitching space as the future home for AI compute, even as costs today remain far higher than on the ground."
+      ]
+    },
+    {
+      "title": "Everything Google announced at its Android Show, from Googlebooks to vibe-coded widgets",
+      "summary": "Google unveiled its new AI-first Googlebooks laptops, more agentic Gemini features, vibe-coded Android widgets, Gemini in Chrome, refreshed Android Auto, and more ahead of I/O.",
+      "url": "https://techcrunch.com/2026/05/12/everything-google-announced-at-its-android-show-from-googlebooks-to-vibe-coded-widgets/",
+      "tags": [
+        "industry",
+        "techcrunch"
+      ]
     }
   ],
   "community": [
     {
+      "title": "Popular Go library fsnotify raises supply chain alarms after maintainer access changes",
+      "summary": "【Lobsters】热度: 24↑ | 20 评论 | 标签: go, security",
+      "url": "https://lobste.rs/s/7rpqbo",
+      "tags": [
+        "community",
+        "lobsters",
+        "tech"
+      ]
+    },
+    {
+      "title": "Any app on recent Android versions can leak certain traffic",
+      "summary": "【Lobsters】热度: 15↑ | 1 评论 | 标签: android, security",
+      "url": "https://lobste.rs/s/ulnrmv",
+      "tags": [
+        "community",
+        "lobsters",
+        "tech"
+      ]
+    },
+    {
+      "title": "Fuzzing fork of go toolchain",
+      "summary": "【Lobsters】热度: 14↑ | 1 评论 | 标签: go",
+      "url": "https://lobste.rs/s/z4nd1a",
+      "tags": [
+        "community",
+        "lobsters",
+        "tech"
+      ]
+    },
+    {
+      "title": "I got a real transformer language model running locally on a stock Game Boy Color!",
+      "summary": "【r/LocalLLaMA】热度: 400↑ | 32 评论 | No phone, PC, Wi-Fi, link cable, or cloud inference. \n\n• The cartridge boots a ROM, and the GBC runs",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tbi2n3/i_got_a_real_transformer_language_model_running/",
+      "tags": [
+        "community",
+        "reddit",
+        "localllama"
+      ]
+    },
+    {
+      "title": "Needle: We Distilled Gemini Tool Calling Into a 26M Model",
+      "summary": "【r/LocalLLaMA】热度: 216↑ | 30 评论 | We open-sourced Needle, a 26M parameter function-calling (tool use) model. It runs at 6000 tok/s pre",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tb9b0r/needle_we_distilled_gemini_tool_calling_into_a/",
+      "tags": [
+        "community",
+        "reddit",
+        "localllama"
+      ]
+    },
+    {
+      "title": "Stop wasting electricity",
+      "summary": "【r/LocalLLaMA】热度: 599↑ | 163 评论 | Run on my rtx4090\n\nllama.cpp params:\n\n    llama-server -m ~/Projects/llm/models/Qwen3.6-27B-UD-Q4_K_",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tayu5t/stop_wasting_electricity/",
+      "tags": [
+        "community",
+        "reddit",
+        "localllama"
+      ]
+    },
+    {
       "title": "Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model",
-      "summary": "【HN】热度: 284 分 | 103 评论",
+      "summary": "【HN】热度: 304 分 | 111 评论",
       "url": "https://github.com/cactus-compute/needle",
       "tags": [
         "community",
         "discussion"
-      ],
-      "title_zh": "显示HN ：针：我们将双子座工具蒸馏成26米模型",
-      "summary_zh": "【HN】热度: 284 分 | 103 评论",
-      "title_en": "Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model",
-      "summary_en": "【HN】热度: 284 分 | 103 评论"
+      ]
     },
     {
       "title": "Why senior developers fail to communicate their expertise",
-      "summary": "【HN】热度: 378 分 | 183 评论",
+      "summary": "【HN】热度: 406 分 | 188 评论",
       "url": "https://www.nair.sh/guides-and-opinions/communicating-your-expertise/why-senior-developers-fail-to-communicate-their-expertise",
       "tags": [
         "community",
         "discussion"
-      ],
-      "title_zh": "为什么资深开发人员无法传达他们的专业知识",
-      "summary_zh": "【HN】热度: 378 分 | 183 评论",
-      "title_en": "Why senior developers fail to communicate their expertise",
-      "summary_en": "【HN】热度: 378 分 | 183 评论"
-    },
-    {
-      "title": "Launch HN: Voker (YC S24) – Analytics for AI Agents",
-      "summary": "【HN】热度: 40 分 | 19 评论",
-      "url": "https://voker.ai",
-      "tags": [
-        "community",
-        "discussion"
-      ],
-      "title_zh": "启动HN ： Voker (YC S24) –人工智能代理分析",
-      "summary_zh": "【HN】热度: 40 分 | 19 评论",
-      "title_en": "Launch HN: Voker (YC S24) – Analytics for AI Agents",
-      "summary_en": "【HN】热度: 40 分 | 19 评论"
+      ]
     },
     {
       "title": "Reimagining the mouse pointer for the AI era",
-      "summary": "【HN】热度: 143 分 | 117 评论",
+      "summary": "【HN】热度: 155 分 | 127 评论",
       "url": "https://deepmind.google/blog/ai-pointer/",
       "tags": [
         "community",
         "discussion"
-      ],
-      "title_zh": "重新构想人工智能时代的鼠标指针",
-      "summary_zh": "【HN】热度: 143 分 | 117 评论",
-      "title_en": "Reimagining the mouse pointer for the AI era",
-      "summary_en": "【HN】热度: 143 分 | 117 评论"
-    },
-    {
-      "title": "Show HN: Agentic interface for mainframes and COBOL",
-      "summary": "【HN】热度: 56 分 | 34 评论",
-      "url": "https://www.hypercubic.ai/hopper",
-      "tags": [
-        "community",
-        "discussion"
-      ],
-      "title_zh": "显示HN ：大型机和COBOL的代理接口",
-      "summary_zh": "【HN】热度: 56 分 | 34 评论",
-      "title_en": "Show HN: Agentic interface for mainframes and COBOL",
-      "summary_en": "【HN】热度: 56 分 | 34 评论"
-    },
-    {
-      "title": "Show HN: Statewright – Visual state machines that make AI agents reliable",
-      "summary": "【HN】热度: 75 分 | 24 评论",
-      "url": "https://github.com/statewright/statewright",
-      "tags": [
-        "community",
-        "discussion"
-      ],
-      "title_zh": "显示HN ： Statewright –使AI代理可靠的可视化状态机",
-      "summary_zh": "【HN】热度: 75 分 | 24 评论",
-      "title_en": "Show HN: Statewright – Visual state machines that make AI agents reliable",
-      "summary_en": "【HN】热度: 75 分 | 24 评论"
+      ]
     }
   ]
 }

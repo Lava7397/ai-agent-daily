@@ -119,6 +119,57 @@
       "status": "unreliable",
       "notes": "有付费墙，经常无法采集",
       "today_contributions": 0
+    },
+    {
+      "id": "reddit-localllama",
+      "name": "Reddit r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/",
+      "type": "community",
+      "category": "discussion",
+      "quality_score": 85.0,
+      "last_evaluated": "2026-05-13",
+      "metrics": {
+        "relevance": 0.9,
+        "timeliness": 0.85,
+        "depth": 0.6,
+        "uniqueness": 0.8
+      },
+      "status": "active",
+      "today_contributions": 0
+    },
+    {
+      "id": "lobsters",
+      "name": "Lobsters",
+      "url": "https://lobste.rs/",
+      "type": "community",
+      "category": "tech",
+      "quality_score": 80.0,
+      "last_evaluated": "2026-05-13",
+      "metrics": {
+        "relevance": 0.7,
+        "timeliness": 0.8,
+        "depth": 0.7,
+        "uniqueness": 0.85
+      },
+      "status": "active",
+      "today_contributions": 0
+    },
+    {
+      "id": "paperswithcode",
+      "name": "Papers With Code",
+      "url": "https://paperswithcode.com/",
+      "type": "research",
+      "category": "academic",
+      "quality_score": 88.0,
+      "last_evaluated": "2026-05-13",
+      "metrics": {
+        "relevance": 0.85,
+        "timeliness": 0.8,
+        "depth": 0.9,
+        "uniqueness": 0.75
+      },
+      "status": "active",
+      "today_contributions": 0
     }
   ],
   "discovery_history": [
