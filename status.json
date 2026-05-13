@@ -1,9 +1,9 @@
 {
   "v": 1,
-  "generated_at": "2026-05-13T10:39:00+08:00",
+  "generated_at": "2026-05-13T11:18:58+08:00",
   "issue_date": "2026-05-13",
-  "site_total_items": 14,
-  "raw_item_total": 14,
+  "site_total_items": 21,
+  "raw_item_total": 21,
   "max_site_items_cap": 80,
-  "sources": "Hacker News, GitHub"
+  "sources": "Hacker News, r/LocalLLaMA, Lobsters, arXiv, GitHub"
 }
