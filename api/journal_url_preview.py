@@ -9,6 +9,7 @@ import html as html_mod
 import ipaddress
 import json
 import re
+import socket
 from http.server import BaseHTTPRequestHandler
 from typing import Dict, Optional, Tuple
 from urllib.error import HTTPError, URLError
@@ -25,6 +26,15 @@ USER_AGENT = (
 _BAD_HOST = frozenset({"localhost", "127.0.0.1", "::1"})
 
 
+def _address_blocked(addr: str) -> bool:
+    return not ipaddress.ip_address(addr.split("%")[0]).is_global
+
+
+def _host_resolves_to_blocked_ip(host: str, port: int) -> bool:
+    infos = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
+    return any(_address_blocked(info[4][0]) for info in infos)
+
+
 def _squash(s: str) -> str:
     return " ".join(s.replace("\xa0", " ").split())
 
@@ -39,13 +49,21 @@ def _allowed_url(raw: str) -> Tuple[bool, str]:
     host = (p.hostname or "").lower()
     if not host or host in _BAD_HOST:
         return False, "host blocked"
+    if host.endswith(".local"):
+        return False, "host blocked"
     try:
-        ipa = ipaddress.ip_address(host.split("%")[0])
-        if ipa.is_private or ipa.is_loopback or ipa.is_link_local or ipa.is_multicast or ipa.is_reserved:
+        if _address_blocked(host):
             return False, "ip blocked"
     except ValueError:
         pass
-    if host.endswith(".local"):
+    try:
+        port = p.port or (443 if p.scheme == "https" else 80)
+    except ValueError:
+        return False, "bad url"
+    try:
+        if _host_resolves_to_blocked_ip(host, port):
+            return False, "ip blocked"
+    except OSError:
         return False, "host blocked"
     rebuilt = urlunparse(
         (p.scheme, p.netloc.lower(), p.path or "", "", p.query or "", "")
