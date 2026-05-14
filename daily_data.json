@@ -1,211 +1,242 @@
 {
-  "date": "2026-05-13",
-  "sources": "Hacker News, r/LocalLLaMA, Lobsters, arXiv, GitHub",
+  "date": "2026-05-14",
+  "sources": "Hacker News, r/LocalLLaMA, Lobsters, GitHub",
   "description": "AI Agent 领域最新情报",
-  "research": [
-    {
-      "title": "From Web to Pixels: Bringing Agentic Search into Visual Perception",
-      "summary": "【arXiv】Visual perception connects high-level semantic understanding to pixel-level perception, but most existing settings assume that the decisive evidence for identifying a target is already in the image or frozen model knowledge. We study a more practical",
-      "url": "http://arxiv.org/abs/2605.12497v1",
-      "tags": [
-        "research",
-        "paper"
-      ]
-    },
-    {
-      "title": "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues",
-      "summary": "【arXiv】Long-term memory is crucial for agents in specialized web environments, where success depends on recalling interface affordances, state dynamics, workflows, and recurring failure modes. However, existing memory benchmarks for agents mostly focus on u",
-      "url": "http://arxiv.org/abs/2605.12493v1",
-      "tags": [
-        "research",
-        "paper"
-      ]
-    },
-    {
-      "title": "Task-Adaptive Embedding Refinement via Test-time LLM Guidance",
-      "summary": "【arXiv】We explore the effectiveness of an LLM-guided query refinement paradigm for extending the usability of embedding models to challenging zero-shot search and classification tasks. Our approach refines the embedding representation of a user query using ",
-      "url": "http://arxiv.org/abs/2605.12487v1",
-      "tags": [
-        "research",
-        "paper"
-      ]
-    },
-    {
-      "title": "Learning, Fast and Slow: Towards LLMs That Adapt Continually",
-      "summary": "【arXiv】Large language models (LLMs) are trained for downstream tasks by updating their parameters (e.g., via RL). However, updating parameters forces them to absorb task-specific information, which can result in catastrophic forgetting and loss of plasticit",
-      "url": "http://arxiv.org/abs/2605.12484v1",
-      "tags": [
-        "research",
-        "paper"
-      ]
-    }
-  ],
+  "research": [],
   "github": [
     {
-      "title": "BlackHatDevX/claudefree-installer",
-      "summary": "【GitHub】Open-source installer that automatically sets up Claude Code inside VS Code including VS Code, OpenCode, extensions and configuration for unlimited usage (free). （⭐ 4）",
-      "url": "https://github.com/BlackHatDevX/claudefree-installer",
-      "stars": 4,
+      "title": "prof-little-bear/cc-equity-research",
+      "summary": "【GitHub】Turn Claude Code into an equity-research agent: 24 analysis skills (Anthropic's open-source bundle + community), a single data MCP, and a personalization layer for investors at any level. （⭐ 18）",
+      "url": "https://github.com/prof-little-bear/cc-equity-research",
+      "stars": 18,
       "tags": [
         "github",
         "opensource"
-      ]
+      ],
+      "title_zh": "prof-little-bear/cc-equity-research",
+      "summary_zh": "【GitHub】将Claude Code转变为股票研究代理： 24种分析技能（ Anthropic的开源捆绑+社区） ，单个数据MCP ，以及针对任何级别投资者的个性化层。（⭐ 18 ）",
+      "title_en": "prof-little-bear/cc-equity-research",
+      "summary_en": "【GitHub】Turn Claude Code into an equity-research agent: 24 analysis skills (Anthropic's open-source bundle + community), a single data MCP, and a personalization layer for investors at any level. （⭐ 18）"
     },
     {
-      "title": "Sent1nelX/claude-activity-tracker",
-      "summary": "【GitHub】Claude Code plugin that tracks developer AI activity — sessions, tools, files, requests. Open source MVP. （⭐ 1）",
-      "url": "https://github.com/Sent1nelX/claude-activity-tracker",
-      "stars": 1,
+      "title": "CyberSealNull/CcCompanion",
+      "summary": "【GitHub】Bring Claude Code to your iPhone. Open-source iOS client + tiny Python push server. Local-first, runs on your own Mac and your own phone. （⭐ 10）",
+      "url": "https://github.com/CyberSealNull/CcCompanion",
+      "stars": 10,
       "tags": [
         "github",
         "opensource"
-      ]
+      ],
+      "title_zh": "CyberSealNull/CcCompanion",
+      "summary_zh": "【GitHub】将Claude Code带到您的iPhone。开源iOS客户端+微型Python推送服务器。本地优先，在您自己的Mac和手机上运行。（⭐ 10 ）",
+      "title_en": "CyberSealNull/CcCompanion",
+      "summary_en": "【GitHub】Bring Claude Code to your iPhone. Open-source iOS client + tiny Python push server. Local-first, runs on your own Mac and your own phone. （⭐ 10）"
     },
     {
-      "title": "ROTl24/ai-dev-workflow-system",
-      "summary": "【GitHub】Open-source AI coding workflow for Codex, Claude Code, Cursor, Gemini CLI, and GitHub Copilot. （⭐ 0）",
-      "url": "https://github.com/ROTl24/ai-dev-workflow-system",
-      "stars": 0,
+      "title": "bettyguo/agent_eval",
+      "summary": "【GitHub】An open-source benchmark for Claude Code skill bundles (.claude/skills/) and CLAUDE.md configs. Pass@k + cost + reliability, content-addressed leaderboard, runs on Anthropic / OpenAI / Google. （⭐ 2）",
+      "url": "https://github.com/bettyguo/agent_eval",
+      "stars": 2,
       "tags": [
         "github",
         "opensource"
-      ]
+      ],
+      "title_zh": "bettyguo/agent_eval",
+      "summary_zh": "【GitHub】Claude Code技能包(.claude/skills/)和CLAUDE.md配置的开源基准。Pass @ k + cost + reliability ，内容寻址排行榜，在Anthropic/OpenAI/Google上运行。（⭐ 2 ）",
+      "title_en": "bettyguo/agent_eval",
+      "summary_en": "【GitHub】An open-source benchmark for Claude Code skill bundles (.claude/skills/) and CLAUDE.md configs. Pass@k + cost + reliability, content-addressed leaderboard, runs on Anthropic / OpenAI / Google. （⭐ 2）"
     }
   ],
   "models": [
     {
-      "title": "Medicare’s new payment model is built for AI, and most of the tech world has no idea",
-      "summary": "There is no governmental mechanism to pay for an AI agent that monitors a patient between visits, calls to check in, coordinates a housing referral, or makes sure someone picks up their medication. ACCESS creates that mechanism for the first time.",
-      "url": "https://techcrunch.com/2026/05/12/medicares-new-payment-model-is-built-for-ai-and-most-of-the-tech-world-has-no-idea/",
+      "title": "Notion just turned its workspace into a hub for AI agents",
+      "summary": "Notion’s new developer platform lets teams connect AI agents, external data sources, and custom code directly into their workspace as the company pushes deeper into agentic productivity software.",
+      "url": "https://techcrunch.com/2026/05/13/notion-just-turned-its-workspace-into-a-hub-for-ai-agents/",
       "tags": [
         "industry",
         "techcrunch"
-      ]
+      ],
+      "title_zh": "Notion刚刚将其工作区变成了人工智能代理的中心",
+      "summary_zh": "Notion的新开发人员平台允许团队将AI代理、外部数据源和自定义代码直接连接到他们的工作区，因为该公司正在深入开发代理生产力软件。",
+      "title_en": "Notion just turned its workspace into a hub for AI agents",
+      "summary_en": "Notion’s new developer platform lets teams connect AI agents, external data sources, and custom code directly into their workspace as the company pushes deeper into agentic productivity software."
     },
     {
-      "title": "Musk mulled handing OpenAI to his children, Altman testifies",
-      "summary": "Altman said that Musk's focus on controlling the initial for-profit gave him pause because OpenAI was dedicated to keeping advanced AI out of the hands of a single person, and Altman, with his experience running the prominent startup accelerator Y Co",
-      "url": "https://techcrunch.com/2026/05/12/musk-mulled-handing-openai-to-his-children-altman-testifies/",
+      "title": "Musk’s xAI is running nearly 50 gas turbines unchecked at its Mississippi data center",
+      "summary": "Gas turbines at xAI's Colossus 2 data center have drawn a lawsuit over the company's use of \"mobile\" gas turbines as power plants.",
+      "url": "https://techcrunch.com/2026/05/13/musks-xai-is-running-nearly-50-gas-turbines-unchecked-at-its-mississippi-data-center/",
       "tags": [
         "industry",
         "techcrunch"
-      ]
+      ],
+      "title_zh": "马斯克的xAI在其密西西比州数据中心运行着近50台燃气轮机",
+      "summary_zh": "XAI Colossus 2数据中心的燃气轮机因该公司使用“移动”燃气轮机作为发电厂而提起诉讼。",
+      "title_en": "Musk’s xAI is running nearly 50 gas turbines unchecked at its Mississippi data center",
+      "summary_en": "Gas turbines at xAI's Colossus 2 data center have drawn a lawsuit over the company's use of \"mobile\" gas turbines as power plants."
     },
     {
-      "title": "Anthropic warns investors against secondary platforms offering access to its shares",
-      "summary": "\"Any sale or transfer of Anthropic stock, or any interest in Anthropic stock, offered by these firms is void and will not be recognized on our books and records,\" the company's support page reads.",
-      "url": "https://techcrunch.com/2026/05/12/anthropic-warns-investors-against-secondary-platforms-offering-access-to-its-shares/",
+      "title": "Anthropic’s Cat Wu says that, in the future, AI will anticipate your needs before you know what they are",
+      "summary": "The head of product for Claude Code and Cowork says that the next big step for AI is proactivity.  ",
+      "url": "https://techcrunch.com/2026/05/13/anthropics-cat-wu-says-that-in-the-future-ai-will-anticipate-your-needs-before-you-know-what-they-are/",
       "tags": [
         "industry",
         "techcrunch"
-      ]
+      ],
+      "title_zh": "Anthropic的Cat Wu说，将来，人工智能会在您知道它们是什么之前预测您的需求",
+      "summary_zh": "Claude Code和Cowork的产品负责人表示，人工智能的下一个重要步骤是主动性。",
+      "title_en": "Anthropic’s Cat Wu says that, in the future, AI will anticipate your needs before you know what they are",
+      "summary_en": "The head of product for Claude Code and Cowork says that the next big step for AI is proactivity."
     },
     {
-      "title": "Report: Google and SpaceX in talks to put data centers into orbit",
-      "summary": "Google and SpaceX are in talks to build data centers in orbit, pitching space as the future home for AI compute, even as costs today remain far higher than on the ground.",
-      "url": "https://techcrunch.com/2026/05/12/report-google-and-spacex-in-talks-to-put-data-centers-into-orbit/",
+      "title": "Who trusts Sam Altman?",
+      "summary": "\"I believe I am an honest and trustworthy businessperson,\" Altman testified in federal court.",
+      "url": "https://techcrunch.com/2026/05/13/who-trusts-sam-altman/",
       "tags": [
         "industry",
         "techcrunch"
-      ]
+      ],
+      "title_zh": "谁信任Sam Altman ？",
+      "summary_zh": "“我相信我是一个诚实可靠的商人，”奥特曼在联邦法院作证。",
+      "title_en": "Who trusts Sam Altman?",
+      "summary_en": "\"I believe I am an honest and trustworthy businessperson,\" Altman testified in federal court."
     },
     {
-      "title": "Everything Google announced at its Android Show, from Googlebooks to vibe-coded widgets",
-      "summary": "Google unveiled its new AI-first Googlebooks laptops, more agentic Gemini features, vibe-coded Android widgets, Gemini in Chrome, refreshed Android Auto, and more ahead of I/O.",
-      "url": "https://techcrunch.com/2026/05/12/everything-google-announced-at-its-android-show-from-googlebooks-to-vibe-coded-widgets/",
+      "title": "Origin Lab raises $8M to help video game companies sell data to world-model builders",
+      "summary": "Origin Lab will serve as a marketplace where AI labs can buy high-quality licensed data, and video-game companies can sell it.",
+      "url": "https://techcrunch.com/2026/05/13/origin-lab-raises-8m-to-help-video-game-companies-sell-data-to-world-model-builders/",
       "tags": [
         "industry",
         "techcrunch"
-      ]
+      ],
+      "title_zh": "Origin Lab筹集了800万美元，帮助视频游戏公司向世界模特制造商出售数据",
+      "summary_zh": "Origin Lab将作为一个市场，人工智能实验室可以购买高质量的许可数据，视频游戏公司可以出售这些数据。",
+      "title_en": "Origin Lab raises $8M to help video game companies sell data to world-model builders",
+      "summary_en": "Origin Lab will serve as a marketplace where AI labs can buy high-quality licensed data, and video-game companies can sell it."
     }
   ],
   "community": [
     {
-      "title": "Popular Go library fsnotify raises supply chain alarms after maintainer access changes",
-      "summary": "【Lobsters】热度: 24↑ | 20 评论 | 标签: go, security",
-      "url": "https://lobste.rs/s/7rpqbo",
+      "title": "Setting up a free *.city.state.us locality domain",
+      "summary": "【Lobsters】热度: 48↑ | 24 评论 | 标签: web",
+      "url": "https://lobste.rs/s/g4lj0n",
       "tags": [
         "community",
         "lobsters",
         "tech"
-      ]
+      ],
+      "title_zh": "设置免费的* .city.state.us本地域名",
+      "summary_zh": "【Lobsters】热度: 48↑ | 24 评论 | 标签: web",
+      "title_en": "Setting up a free *.city.state.us locality domain",
+      "summary_en": "【Lobsters】热度: 48↑ | 24 评论 | 标签: web"
     },
     {
-      "title": "Any app on recent Android versions can leak certain traffic",
-      "summary": "【Lobsters】热度: 15↑ | 1 评论 | 标签: android, security",
-      "url": "https://lobste.rs/s/ulnrmv",
+      "title": "An update on East River Source Control availability",
+      "summary": "【Lobsters】热度: 23↑ | 1 评论 | 标签: vcs",
+      "url": "https://lobste.rs/s/4ybgjp",
       "tags": [
         "community",
         "lobsters",
         "tech"
-      ]
+      ],
+      "title_zh": "关于East River Source Control可用性的更新",
+      "summary_zh": "【Lobsters】热度: 23↑ | 1 评论 | 标签: vcs",
+      "title_en": "An update on East River Source Control availability",
+      "summary_en": "【Lobsters】热度: 23↑ | 1 评论 | 标签: vcs"
     },
     {
-      "title": "Fuzzing fork of go toolchain",
-      "summary": "【Lobsters】热度: 14↑ | 1 评论 | 标签: go",
-      "url": "https://lobste.rs/s/z4nd1a",
+      "title": "A detailed introduction to Kakoune for the aspiring power user",
+      "summary": "【Lobsters】热度: 21↑ | 10 评论 | 标签: editors",
+      "url": "https://lobste.rs/s/gyiahc",
       "tags": [
         "community",
         "lobsters",
         "tech"
-      ]
+      ],
+      "title_zh": "针对有抱负的高级用户的Kakoune详细介绍",
+      "summary_zh": "【Lobsters】热度: 21↑ | 10 评论 | 标签: editors",
+      "title_en": "A detailed introduction to Kakoune for the aspiring power user",
+      "summary_en": "【Lobsters】热度: 21↑ | 10 评论 | 标签: editors"
     },
     {
-      "title": "I got a real transformer language model running locally on a stock Game Boy Color!",
-      "summary": "【r/LocalLLaMA】热度: 400↑ | 32 评论 | No phone, PC, Wi-Fi, link cable, or cloud inference. \n\n• The cartridge boots a ROM, and the GBC runs",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tbi2n3/i_got_a_real_transformer_language_model_running/",
+      "title": "DramaBox - Most Expressive Voice model ever based on LTX 2.3",
+      "summary": "【r/LocalLLaMA】热度: 154↑ | 53 评论 | The Most Expressive Voice Model.\n\nGithub: [https://github.com/resemble-ai/DramaBox](https://github.c",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tc5wx1/dramabox_most_expressive_voice_model_ever_based/",
       "tags": [
         "community",
         "reddit",
         "localllama"
-      ]
+      ],
+      "title_zh": "DramaBox -基于LTX 2.3的最具表现力的语音模型",
+      "summary_zh": "【r/LocalLLaMA】热度: 154↑ | 53 评论 | The Most Expressive Voice Model.\n\nGithub: [https://github.com/resemble-ai/DramaBox](https://github.c",
+      "title_en": "DramaBox - Most Expressive Voice model ever based on LTX 2.3",
+      "summary_en": "【r/LocalLLaMA】热度: 154↑ | 53 评论 | The Most Expressive Voice Model.\n\nGithub: [https://github.com/resemble-ai/DramaBox](https://github.c"
     },
     {
-      "title": "Needle: We Distilled Gemini Tool Calling Into a 26M Model",
-      "summary": "【r/LocalLLaMA】热度: 216↑ | 30 评论 | We open-sourced Needle, a 26M parameter function-calling (tool use) model. It runs at 6000 tok/s pre",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tb9b0r/needle_we_distilled_gemini_tool_calling_into_a/",
+      "title": "we really all are going to make it, aren't we? 2x3090 setup.",
+      "summary": "【r/LocalLLaMA】热度: 42↑ | 32 评论 | i'm blown away.  i saw someone made a post the other day about \"club-3090\" and after having sonnet p",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tcf2dt/we_really_all_are_going_to_make_it_arent_we/",
       "tags": [
         "community",
         "reddit",
         "localllama"
-      ]
+      ],
+      "title_zh": "我们真的都会成功，不是吗？ 2x3090设置。",
+      "summary_zh": "【r/LocalLLaMA】热度: 42↑ | 32 评论 | i'm blown away.  i saw someone made a post the other day about \"club-3090\" and after having sonnet p",
+      "title_en": "we really all are going to make it, aren't we? 2x3090 setup.",
+      "summary_en": "【r/LocalLLaMA】热度: 42↑ | 32 评论 | i'm blown away.  i saw someone made a post the other day about \"club-3090\" and after having sonnet p"
     },
     {
-      "title": "Stop wasting electricity",
-      "summary": "【r/LocalLLaMA】热度: 599↑ | 163 评论 | Run on my rtx4090\n\nllama.cpp params:\n\n    llama-server -m ~/Projects/llm/models/Qwen3.6-27B-UD-Q4_K_",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tayu5t/stop_wasting_electricity/",
+      "title": "24+ tok/s from ~30B MoE models on an old GTX 1080 (8 GB VRAM, 128k context)",
+      "summary": "【r/LocalLLaMA】热度: 51↑ | 14 评论 | I got **Qwen 3.6 35B-A3B** and **Gemma 4 26B-A4B** running on a $200 secondhand machine (i7-6700 / G",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tcc7h5/24_toks_from_30b_moe_models_on_an_old_gtx_1080_8/",
       "tags": [
         "community",
         "reddit",
         "localllama"
-      ]
+      ],
+      "title_zh": "旧GTX 1080上约30B MoE型号的24 + tok/s （ 8 GB VRAM ， 128k上下文）",
+      "summary_zh": "【r/LocalLLaMA】热度: 51↑ | 14 评论 | I got **Qwen 3.6 35B-A3B** and **Gemma 4 26B-A4B** running on a $200 secondhand machine (i7-6700 / G",
+      "title_en": "24+ tok/s from ~30B MoE models on an old GTX 1080 (8 GB VRAM, 128k context)",
+      "summary_en": "【r/LocalLLaMA】热度: 51↑ | 14 评论 | I got **Qwen 3.6 35B-A3B** and **Gemma 4 26B-A4B** running on a $200 secondhand machine (i7-6700 / G"
     },
     {
-      "title": "Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model",
-      "summary": "【HN】热度: 304 分 | 111 评论",
-      "url": "https://github.com/cactus-compute/needle",
+      "title": "Setting up a free *.city.state.us locality domain (2025)",
+      "summary": "【HN】热度: 501 分 | 159 评论",
+      "url": "https://fredchan.org/blog/locality-domains-guide/",
       "tags": [
         "community",
         "discussion"
-      ]
+      ],
+      "title_zh": "设置免费的* .city.state.us本地域名(2025)",
+      "summary_zh": "【HN】热度: 501 分 | 159 评论",
+      "title_en": "Setting up a free *.city.state.us locality domain (2025)",
+      "summary_en": "【HN】热度: 501 分 | 159 评论"
     },
     {
-      "title": "Why senior developers fail to communicate their expertise",
-      "summary": "【HN】热度: 406 分 | 188 评论",
-      "url": "https://www.nair.sh/guides-and-opinions/communicating-your-expertise/why-senior-developers-fail-to-communicate-their-expertise",
+      "title": "The Other Half of AI Safety",
+      "summary": "【HN】热度: 45 分 | 53 评论",
+      "url": "https://personalaisafety.com/p/the-other-half-of-ai-safety",
       "tags": [
         "community",
         "discussion"
-      ]
+      ],
+      "title_zh": "人工智能安全的另一半",
+      "summary_zh": "【HN】热度: 45 分 | 53 评论",
+      "title_en": "The Other Half of AI Safety",
+      "summary_en": "【HN】热度: 45 分 | 53 评论"
     },
     {
-      "title": "Reimagining the mouse pointer for the AI era",
-      "summary": "【HN】热度: 155 分 | 127 评论",
-      "url": "https://deepmind.google/blog/ai-pointer/",
+      "title": "The US is winning the AI race where it matters most: commercialization",
+      "summary": "【HN】热度: 165 分 | 470 评论",
+      "url": "https://avkcode.github.io/blog/us-winning-ai-race.html",
       "tags": [
         "community",
         "discussion"
-      ]
+      ],
+      "title_zh": "美国正在赢得最重要的人工智能竞赛：商业化",
+      "summary_zh": "【HN】热度: 165 分 | 470 评论",
+      "title_en": "The US is winning the AI race where it matters most: commercialization",
+      "summary_en": "【HN】热度: 165 分 | 470 评论"
     }
   ]
 }
