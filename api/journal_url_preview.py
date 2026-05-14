@@ -6,14 +6,23 @@ GET /api/journal_url_preview?url=<encoded>
 from __future__ import annotations
 
 import html as html_mod
+import http.client
 import ipaddress
 import json
 import re
+import socket
 from http.server import BaseHTTPRequestHandler
 from typing import Dict, Optional, Tuple
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, urlparse, urlunparse
-from urllib.request import HTTPRedirectHandler, Request, build_opener
+from urllib.request import (
+    HTTPHandler,
+    HTTPRedirectHandler,
+    HTTPSHandler,
+    ProxyHandler,
+    Request,
+    build_opener,
+)
 
 MAX_FETCH_BYTES = 900_000
 MAX_REDIRECTS = 7
@@ -23,6 +32,79 @@ USER_AGENT = (
 )
 
 _BAD_HOST = frozenset({"localhost", "127.0.0.1", "::1"})
+
+
+def _address_blocked(addr: str) -> bool:
+    ipa = ipaddress.ip_address(addr.split("%")[0])
+    return not ipa.is_global or ipa.is_multicast
+
+
+def _host_resolves_to_blocked_ip(host: str, port: int) -> bool:
+    infos = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
+    return any(_address_blocked(info[4][0]) for info in infos)
+
+
+def _create_guarded_connection(
+    address: tuple[str, int],
+    timeout=socket._GLOBAL_DEFAULT_TIMEOUT,  # noqa: SLF001
+    source_address: tuple[str, int] | None = None,
+):
+    host, port = address
+    last_error: OSError | None = None
+    for family, socktype, proto, _canonname, sockaddr in socket.getaddrinfo(
+        host, port, type=socket.SOCK_STREAM
+    ):
+        if _address_blocked(sockaddr[0]):
+            raise OSError("ip blocked")
+        sock = None
+        try:
+            sock = socket.socket(family, socktype, proto)
+            if timeout is not socket._GLOBAL_DEFAULT_TIMEOUT:  # noqa: SLF001
+                sock.settimeout(timeout)
+            if source_address:
+                sock.bind(source_address)
+            sock.connect(sockaddr)
+            return sock
+        except OSError as exc:
+            last_error = exc
+            if sock is not None:
+                sock.close()
+    if last_error is not None:
+        raise last_error
+    raise OSError("getaddrinfo returns an empty list")
+
+
+class _GuardHTTPConnection(http.client.HTTPConnection):
+    def connect(self) -> None:
+        self.sock = _create_guarded_connection(
+            (self.host, self.port), self.timeout, self.source_address
+        )
+        if self._tunnel_host:
+            self._tunnel()
+
+
+class _GuardHTTPSConnection(http.client.HTTPSConnection):
+    def connect(self) -> None:
+        self.sock = _create_guarded_connection(
+            (self.host, self.port), self.timeout, self.source_address
+        )
+        server_hostname = self.host
+        if self._tunnel_host:
+            server_hostname = self._tunnel_host
+            self._tunnel()
+        self.sock = self._context.wrap_socket(
+            self.sock, server_hostname=server_hostname
+        )
+
+
+class _GuardHTTPHandler(HTTPHandler):
+    def http_open(self, req):  # noqa: ANN001
+        return self.do_open(_GuardHTTPConnection, req)
+
+
+class _GuardHTTPSHandler(HTTPSHandler):
+    def https_open(self, req):  # noqa: ANN001
+        return self.do_open(_GuardHTTPSConnection, req)
 
 
 def _squash(s: str) -> str:
@@ -39,13 +121,21 @@ def _allowed_url(raw: str) -> Tuple[bool, str]:
     host = (p.hostname or "").lower()
     if not host or host in _BAD_HOST:
         return False, "host blocked"
+    if host.endswith(".local"):
+        return False, "host blocked"
     try:
-        ipa = ipaddress.ip_address(host.split("%")[0])
-        if ipa.is_private or ipa.is_loopback or ipa.is_link_local or ipa.is_multicast or ipa.is_reserved:
+        if _address_blocked(host):
             return False, "ip blocked"
     except ValueError:
         pass
-    if host.endswith(".local"):
+    try:
+        port = p.port or (443 if p.scheme == "https" else 80)
+    except ValueError:
+        return False, "bad url"
+    try:
+        if _host_resolves_to_blocked_ip(host, port):
+            return False, "ip blocked"
+    except OSError:
         return False, "host blocked"
     rebuilt = urlunparse(
         (p.scheme, p.netloc.lower(), p.path or "", "", p.query or "", "")
@@ -76,7 +166,12 @@ class _GuardRedirect(HTTPRedirectHandler):
 
 
 def _fetch(url: str) -> bytes:
-    opener = build_opener(_GuardRedirect())
+    opener = build_opener(
+        ProxyHandler({}),
+        _GuardRedirect(),
+        _GuardHTTPHandler(),
+        _GuardHTTPSHandler(),
+    )
     req = Request(
         url,
         headers={
