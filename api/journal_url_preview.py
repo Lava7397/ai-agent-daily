@@ -9,11 +9,20 @@ import html as html_mod
 import ipaddress
 import json
 import re
+import socket
+from http.client import HTTPConnection, HTTPSConnection
 from http.server import BaseHTTPRequestHandler
 from typing import Dict, Optional, Tuple
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, urlparse, urlunparse
-from urllib.request import HTTPRedirectHandler, Request, build_opener
+from urllib.request import (
+    HTTPHandler,
+    HTTPRedirectHandler,
+    HTTPSHandler,
+    ProxyHandler,
+    Request,
+    build_opener,
+)
 
 MAX_FETCH_BYTES = 900_000
 MAX_REDIRECTS = 7
@@ -23,6 +32,22 @@ USER_AGENT = (
 )
 
 _BAD_HOST = frozenset({"localhost", "127.0.0.1", "::1"})
+
+
+def _ip_allowed(addr: str) -> bool:
+    try:
+        ipa = ipaddress.ip_address(addr.split("%")[0])
+    except ValueError:
+        return False
+    return not (
+        ipa.is_private
+        or ipa.is_loopback
+        or ipa.is_link_local
+        or ipa.is_multicast
+        or ipa.is_reserved
+        or ipa.is_unspecified
+        or not ipa.is_global
+    )
 
 
 def _squash(s: str) -> str:
@@ -41,7 +66,7 @@ def _allowed_url(raw: str) -> Tuple[bool, str]:
         return False, "host blocked"
     try:
         ipa = ipaddress.ip_address(host.split("%")[0])
-        if ipa.is_private or ipa.is_loopback or ipa.is_link_local or ipa.is_multicast or ipa.is_reserved:
+        if not _ip_allowed(str(ipa)):
             return False, "ip blocked"
     except ValueError:
         pass
@@ -51,6 +76,68 @@ def _allowed_url(raw: str) -> Tuple[bool, str]:
         (p.scheme, p.netloc.lower(), p.path or "", "", p.query or "", "")
     )
     return True, rebuilt
+
+
+def _guarded_create_connection(
+    address,
+    timeout=socket._GLOBAL_DEFAULT_TIMEOUT,  # noqa: SLF001
+    source_address=None,
+):
+    host, port = address
+    infos = socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM)
+    if not infos:
+        raise OSError("DNS lookup returned no addresses")
+
+    blocked = sorted({info[4][0] for info in infos if not _ip_allowed(info[4][0])})
+    if blocked:
+        raise OSError("resolved ip blocked")
+
+    last_error = None
+    for family, socktype, proto, _canonname, sockaddr in infos:
+        sock = None
+        try:
+            sock = socket.socket(family, socktype, proto)
+            if timeout is not socket._GLOBAL_DEFAULT_TIMEOUT:  # noqa: SLF001
+                sock.settimeout(timeout)
+            if source_address:
+                sock.bind(source_address)
+            sock.connect(sockaddr)
+            peer = sock.getpeername()[0]
+            if not _ip_allowed(peer):
+                sock.close()
+                raise OSError("connected ip blocked")
+            return sock
+        except OSError as exc:
+            last_error = exc
+            if sock is not None:
+                sock.close()
+    if last_error is not None:
+        raise last_error
+    raise OSError("DNS lookup returned no usable addresses")
+
+
+class _GuardedHTTPConnectionMixin:
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._create_connection = _guarded_create_connection
+
+
+class _GuardedHTTPConnection(_GuardedHTTPConnectionMixin, HTTPConnection):
+    pass
+
+
+class _GuardedHTTPSConnection(_GuardedHTTPConnectionMixin, HTTPSConnection):
+    pass
+
+
+class _GuardedHTTPHandler(HTTPHandler):
+    def http_open(self, req):  # noqa: ANN001
+        return self.do_open(_GuardedHTTPConnection, req)
+
+
+class _GuardedHTTPSHandler(HTTPSHandler):
+    def https_open(self, req):  # noqa: ANN001
+        return self.do_open(_GuardedHTTPSConnection, req)
 
 
 class _GuardRedirect(HTTPRedirectHandler):
@@ -76,7 +163,12 @@ class _GuardRedirect(HTTPRedirectHandler):
 
 
 def _fetch(url: str) -> bytes:
-    opener = build_opener(_GuardRedirect())
+    opener = build_opener(
+        ProxyHandler({}),
+        _GuardedHTTPHandler(),
+        _GuardedHTTPSHandler(),
+        _GuardRedirect(),
+    )
     req = Request(
         url,
         headers={
