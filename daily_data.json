@@ -1,255 +1,192 @@
 {
-  "date": "2026-05-15",
-  "sources": "Hacker News, r/LocalLLaMA, Lobsters, GitHub",
+  "date": "2026-05-16",
+  "sources": "The Verge, VentureBeat, Ars Technica, GitHub, Hacker News, HuggingFace, Models",
   "description": "AI Agent 领域最新情报",
-  "research": [],
+  "research": [
+    {
+      "title": "OpenAI keeps shuffling its executives in bid to win AI agent battle",
+      "summary_en": "OpenAI keeps shuffling its executives in bid to win AI agent battle | The Verge Skip to main content The homepage The Verge The Verge logo. The Verge The Verge logo. Tech Reviews Science Entertainment",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/931544/openai-keeps-shuffling-its-executives-in-bid-to-win-ai-agent-battle",
+      "tags": [
+        "The Verge"
+      ],
+      "summary_zh": "OpenAI不断对其高管进行洗牌，以赢得AI智能体之战| The Verge跳到主要内容主页The Verge The Verge徽标。Verge The Verge徽标。科技评论科学娱乐"
+    },
+    {
+      "title": "Intercom, now called Fin, launches an AI agent whose only job is managing another AI agent",
+      "summary_en": "The company formerly known as Intercom just did something that no major customer service platform has attempted at scale: it built an AI agent whose sole job is to manage another AI agent. Fin Ope",
+      "url": "https://venturebeat.com/technology/intercom-now-called-fin-launches-an-ai-agent-whose-only-job-is-managing-another-ai-agent",
+      "tags": [
+        "VentureBeat"
+      ],
+      "summary_zh": "这家前身为Intercom的公司刚刚做了一件大型客户服务平台从未尝试过的事情：它建立了一个人工智能代理，其唯一的工作就是管理另一个人工智能代理。Fin Ope"
+    },
+    {
+      "title": "How RecursiveMAS speeds up multi-agent inference by 2.4x and reduces token usage by 75%",
+      "summary_en": "One of the key challenges of current multi-agent AI systems is that they communicate by generating and sharing text sequences, which introduces latency, drives up token costs, and makes it difficult t",
+      "url": "https://venturebeat.com/orchestration/how-recursivemas-speeds-up-multi-agent-inference-by-2-4x-and-reduces-token-usage-by-75",
+      "tags": [
+        "VentureBeat"
+      ],
+      "summary_zh": "当前多智能体人工智能系统的主要挑战之一是通过生成和共享文本序列进行通信，这会引入延迟，增加代币成本，并使其难以"
+    },
+    {
+      "title": "Claude’s next enterprise battle is not models: it’s the agent control plane",
+      "summary_en": "New VB Pulse data shows Microsoft and OpenAI leading enterprise agent orchestration, but Anthropic’s first measurable foothold points to a larger fight over who controls the infrastructure where AI ag",
+      "url": "https://venturebeat.com/orchestration/claudes-next-enterprise-battle-is-not-models-its-the-agent-control-plane",
+      "tags": [
+        "VentureBeat"
+      ],
+      "summary_zh": "新的VB Pulse数据显示，微软和OpenAI领先的企业代理编排，但Anthropic的第一个可衡量的立足点表明，围绕谁控制人工智能"
+    },
+    {
+      "title": "Developers can now debug and evaluate AI agents locally with Raindrop's open source tool Workshop",
+      "summary_en": "Observability startup Raindrop AI ’s new open source, MIT Licensed \" Workshop \" tool, launched today, gives developers something that they've likely wanted, perhaps subconsciously, since the agentic",
+      "url": "https://venturebeat.com/technology/developers-can-now-debug-and-evaluate-ai-agents-locally-with-raindrops-open-source-tool-workshop",
+      "tags": [
+        "VentureBeat"
+      ],
+      "summary_zh": "可观测性初创公司Raindrop AI的新开源，麻省理工学院许可的“研讨会”工具，今天推出，为开发人员提供了他们可能想要的东西，也许是潜意识，因为代理"
+    },
+    {
+      "title": "Agent authorization is broken — and authentication passing makes it worse",
+      "summary_en": "Anthony Grieco, Cisco’s SVP and chief security and trust officer, did not hesitate when VentureBeat asked whether rogue agent incidents are reaching Cisco’s customer base. \"A hundred percent. We see",
+      "url": "https://venturebeat.com/security/enterprises-verify-agents-identity-cannot-control-authorization-cisco-rsac-2026",
+      "tags": [
+        "VentureBeat"
+      ],
+      "summary_zh": "当VentureBeat询问流氓代理事件是否正在到达思科的客户群时，思科高级副总裁兼首席安全和信任官Anthony Grieco毫不犹豫。“百分之百，我们看到"
+    }
+  ],
   "github": [
     {
-      "title": "ncyjwm/Autonomous-Crack-Detection-Robot-with-LLM-Reasoning",
-      "summary": "【GitHub】Enhanced an autonomous crack detection robot by integrating a Gemini-based LLM reasoning module. Developed a natural language interface for real-time robotic control and decision-making, allowing the  （⭐ 0）",
-      "url": "https://github.com/ncyjwm/Autonomous-Crack-Detection-Robot-with-LLM-Reasoning",
-      "stars": 0,
+      "title": "op7418/guizang-ppt-skill",
+      "summary_en": "AI-agent Skill for generating polished HTML slide decks: editorial magazine and Swiss layouts, image prompts, social covers, and a WebGL/low-power presentation runtime.",
+      "url": "https://github.com/op7418/guizang-ppt-skill",
       "tags": [
-        "github",
-        "opensource"
+        "GitHub"
       ],
-      "title_zh": "ncyjwm/Autonomous-Crack-Detection-Robot-with-LLM-Reasoning",
-      "summary_zh": "【GitHub】通过集成基于Gemini的LLM推理模块，增强了自主裂纹检测机器人。开发了用于实时机器人控制和决策的自然语言界面，允许（⭐ 0 ）",
-      "title_en": "ncyjwm/Autonomous-Crack-Detection-Robot-with-LLM-Reasoning",
-      "summary_en": "【GitHub】Enhanced an autonomous crack detection robot by integrating a Gemini-based LLM reasoning module. Developed a natural language interface for real-time robotic control and decision-making, allowing the  （⭐ 0）"
+      "summary_zh": "用于生成精美HTML幻灯片的AI代理技能：编辑杂志和瑞士布局、图像提示、社交封面和WebGL/低功耗演示运行时。"
     },
     {
-      "title": "CyberSealNull/CcCompanion",
-      "summary": "【GitHub】Bring Claude Code to your iPhone. Open-source iOS client + tiny Python push server. Local-first, runs on your own Mac and your own phone. （⭐ 23）",
-      "url": "https://github.com/CyberSealNull/CcCompanion",
-      "stars": 23,
+      "title": "esengine/DeepSeek-Reasonix",
+      "summary_en": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
+      "url": "https://github.com/esengine/DeepSeek-Reasonix",
       "tags": [
-        "github",
-        "opensource"
+        "GitHub"
       ],
-      "title_zh": "CyberSealNull/CcCompanion",
-      "summary_zh": "【GitHub】将Claude Code带到您的iPhone。开源iOS客户端+微型Python推送服务器。本地优先，在您自己的Mac和手机上运行。（⭐ 23 ）",
-      "title_en": "CyberSealNull/CcCompanion",
-      "summary_en": "【GitHub】Bring Claude Code to your iPhone. Open-source iOS client + tiny Python push server. Local-first, runs on your own Mac and your own phone. （⭐ 23）"
+      "summary_zh": "为您的终端提供DeepSeek原生AI编码代理。围绕前缀缓存稳定性而设计—保持运行。"
     },
     {
-      "title": "songshuai66/claude-code-opensource",
-      "summary": "【GitHub】Claude Code open-source skills and tools （⭐ 0）",
-      "url": "https://github.com/songshuai66/claude-code-opensource",
-      "stars": 0,
+      "title": "earthtojake/text-to-cad",
+      "summary_en": "A collection of agent skills for CAD, robotics and hardware design",
+      "url": "https://github.com/earthtojake/text-to-cad",
       "tags": [
-        "github",
-        "opensource"
+        "GitHub"
       ],
-      "title_zh": "songshuai66/claude-code-opensource",
-      "summary_zh": "【GitHub】Claude Code开源技能和工具（⭐ 0 ）",
-      "title_en": "songshuai66/claude-code-opensource",
-      "summary_en": "【GitHub】Claude Code open-source skills and tools （⭐ 0）"
+      "summary_zh": "CAD、机器人和硬件设计的代理技能集合"
     },
     {
-      "title": "arslankazmi/ak-ai",
-      "summary": "【GitHub】AK open-source Claude Code skills and AI tools （⭐ 0）",
-      "url": "https://github.com/arslankazmi/ak-ai",
-      "stars": 0,
+      "title": "strukto-ai/mirage",
+      "summary_en": "A Unified Virtual Filesystem For AI Agents",
+      "url": "https://github.com/strukto-ai/mirage",
       "tags": [
-        "github",
-        "opensource"
+        "GitHub"
       ],
-      "title_zh": "arslankazmi/ak-ai",
-      "summary_zh": "【GitHub】AK开源Claude Code技能和人工智能工具（⭐ 0 ）",
-      "title_en": "arslankazmi/ak-ai",
-      "summary_en": "【GitHub】AK open-source Claude Code skills and AI tools （⭐ 0）"
+      "summary_zh": "人工智能代理的统一虚拟文件系统"
+    },
+    {
+      "title": "nexu-io/html-anything",
+      "summary_en": "✨ The agentic HTML editor — your local AI agent writes the HTML, you ship it. 🚀 75 Skills × 9 Surfaces (magazine · deck · poster · XHS / tweet · prototype · data report · Hyperframes) 🛡️ Sandboxed pre",
+      "url": "https://github.com/nexu-io/html-anything",
+      "tags": [
+        "GitHub"
+      ],
+      "summary_zh": "✨ 代理HTML编辑器—您的本地AI代理编写HTML ，您发货。🚀75技能× 9表面（杂志·甲板·海报· XHS/推文·原型·数据报告·超帧）🛡️沙盒预"
     }
   ],
-  "models": [
-    {
-      "title": "What the jury will actually decide in the case of Elon Musk vs. Sam Altman",
-      "summary": "Here's what the biggest tech court case of the year is all about. ",
-      "url": "https://techcrunch.com/2026/05/14/what-the-jury-will-actually-decide-in-the-case-of-elon-musk-vs-sam-altman/",
-      "tags": [
-        "industry",
-        "techcrunch"
-      ],
-      "title_zh": "在Elon Musk诉Sam Altman的案件中，陪审团实际上会做出什么决定",
-      "summary_zh": "以下是今年最大的技术法庭案件。",
-      "title_en": "What the jury will actually decide in the case of Elon Musk vs. Sam Altman",
-      "summary_en": "Here's what the biggest tech court case of the year is all about."
-    },
-    {
-      "title": "Elon Musk’s SpaceXAI has been bleeding staff since its merger",
-      "summary": "More than 50 employees have reportedly left Elon Musk’s newly merged SpaceXAI since February, raising questions about burnout, leadership changes, talent poaching, and whether liquidity events weakened retention incentives.",
-      "url": "https://techcrunch.com/2026/05/14/elon-musks-spacexai-has-been-bleeding-staff-since-its-merger/",
-      "tags": [
-        "industry",
-        "techcrunch"
-      ],
-      "title_zh": "埃隆·马斯克（ Elon Musk ）的SpaceXAI自合并以来一直在流血",
-      "summary_zh": "据报道，自2月份以来，已有50多名员工离开了埃隆·马斯克(Elon Musk)新合并的SpaceXAI ，这引发了有关倦怠、领导层变动、人才挖掘以及流动性事件是否削弱了留任激励的质疑。",
-      "title_en": "Elon Musk’s SpaceXAI has been bleeding staff since its merger",
-      "summary_en": "More than 50 employees have reportedly left Elon Musk’s newly merged SpaceXAI since February, raising questions about burnout, leadership changes, talent poaching, and whether liquidity events weakened retention incentives."
-    },
-    {
-      "title": "OpenAI says Codex is coming to your phone",
-      "summary": "The update gives users enhanced flexibility over how they can manage their workflows. ",
-      "url": "https://techcrunch.com/2026/05/14/openai-says-codex-is-coming-to-your-phone/",
-      "tags": [
-        "industry",
-        "techcrunch"
-      ],
-      "title_zh": "OpenAI称Codex即将登陆您的手机",
-      "summary_zh": "此更新为用户提供了更大的灵活性，让他们可以更好地管理工作流程。",
-      "title_en": "OpenAI says Codex is coming to your phone",
-      "summary_en": "The update gives users enhanced flexibility over how they can manage their workflows."
-    },
-    {
-      "title": "What happens when AI starts building itself?",
-      "summary": "Richard Socher's new $650 million startup wants to build an AI that can research and improve itself indefinitely — and he insists it will actually ship products.",
-      "url": "https://techcrunch.com/2026/05/14/what-happens-when-ai-starts-building-itself/",
-      "tags": [
-        "industry",
-        "techcrunch"
-      ],
-      "title_zh": "当人工智能开始自我构建时会发生什么？",
-      "summary_zh": "Richard Socher的新创业公司价值6.5亿美元，希望建立一个可以无限期研究和改进自己的人工智能—他坚持认为它实际上会出货产品。",
-      "title_en": "What happens when AI starts building itself?",
-      "summary_en": "Richard Socher's new $650 million startup wants to build an AI that can research and improve itself indefinitely — and he insists it will actually ship products."
-    },
-    {
-      "title": "OpenAI is reportedly preparing legal action against Apple; it wouldn’t be the first partner to feel burned",
-      "summary": "OpenAI is so frustrated with Apple over a ChatGPT integration that failed to deliver the subscribers and prominence it expected that the company is now actively exploring legal action against the iPhone maker.",
-      "url": "https://techcrunch.com/2026/05/14/openai-is-reportedly-preparing-legal-action-against-apple-it-wouldnt-be-the-first-partner-to-feel-burned/",
-      "tags": [
-        "industry",
-        "techcrunch"
-      ],
-      "title_zh": "据报道， OpenAI正在准备对苹果提起法律诉讼；它不会是第一个感到被烧伤的合作伙伴",
-      "summary_zh": "OpenAI对苹果的ChatGPT整合感到非常沮丧，因为该整合未能为用户提供服务，而且它预计该公司现在正在积极探索针对这家iPhone制造商的法律诉讼。",
-      "title_en": "OpenAI is reportedly preparing legal action against Apple; it wouldn’t be the first partner to feel burned",
-      "summary_en": "OpenAI is so frustrated with Apple over a ChatGPT integration that failed to deliver the subscribers and prominence it expected that the company is now actively exploring legal action against the iPhone maker."
-    }
-  ],
+  "models": [],
   "community": [
     {
-      "title": "In what way if any are you a tech minimalist while maintaining your job/love for tech?",
-      "summary": "【Lobsters】热度: 8↑ | 5 评论 | 标签: ask, programming",
-      "url": "https://lobste.rs/s/kxmdvj",
+      "title": "An AI agent published a hit piece on me",
+      "summary_en": "An AI Agent Published a Hit Piece on Me – The Shamblog Skip to content The Shamblog Home All Projects All Posts Contact Toggle website search Menu Close Home All Projects All Posts Contact Toggle webs",
+      "url": "https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/",
       "tags": [
-        "community",
-        "lobsters",
-        "tech"
+        "Hacker News",
+        "by scottshambaugh",
+        "2346 points",
+        "951 comments"
       ],
-      "title_zh": "在保持工作/对技术的热爱的同时，您在哪些方面是技术极简主义者（如果有的话） ？",
-      "summary_zh": "【Lobsters】热度: 8↑ | 5 评论 | 标签: ask, programming",
-      "title_en": "In what way if any are you a tech minimalist while maintaining your job/love for tech?",
-      "summary_en": "【Lobsters】热度: 8↑ | 5 评论 | 标签: ask, programming"
+      "summary_zh": "一位人工智能代理发布了关于我的热门文章– Shamblog跳到内容Shamblog主页所有项目所有帖子联系人切换网站搜索菜单关闭主页所有项目所有帖子联系人切换网站"
     },
     {
-      "title": "\"This is written by an LLM\" comments should be flagged as off-topic",
-      "summary": "【Lobsters】热度: 40↑ | 40 评论 | 标签: meta",
-      "url": "https://lobste.rs/s/wee21u",
+      "title": "OpenCode – Open source AI coding agent",
+      "summary_en": "OpenCode | The open source AI coding agent GitHub [ 160K ] Docs Zen Go Enterprise Download Open menu New Desktop app available in beta on macOS, Windows, and Linux . Download now Download the desktop ",
+      "url": "https://opencode.ai/",
       "tags": [
-        "community",
-        "lobsters",
-        "tech"
+        "Hacker News",
+        "by rbanffy",
+        "1274 points",
+        "619 comments"
       ],
-      "title_zh": "“这是由LLM撰写的”评论应标记为偏离主题",
-      "summary_zh": "【Lobsters】热度: 40↑ | 40 评论 | 标签: meta",
-      "title_en": "\"This is written by an LLM\" comments should be flagged as off-topic",
-      "summary_en": "【Lobsters】热度: 40↑ | 40 评论 | 标签: meta"
+      "summary_zh": "OpenCode |开源AI编码代理GitHub [160K] Docs Zen Go Enterprise下载打开菜单在macOS、Windows和Linux上提供新的桌面应用程序测试版。立即下载下载桌面"
     },
     {
-      "title": "VS Code's new \"Agents window\" lets you use local AI models. Still requires an Internet connection and a Github Copilot plan (because we can't have nice things)",
-      "summary": "【r/LocalLLaMA】热度: 169↑ | 56 评论 | At first I was excited to see this, but I guess I'll wait till someone figures out what people actua",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1td3uzi/vs_codes_new_agents_window_lets_you_use_local_ai/",
+      "title": "AI agent opens a PR write a blogpost to shames the maintainer who closes it",
+      "summary_en": "AI agent opens a PR write a blogpost to shames the maintainer who closes it",
+      "url": "https://github.com/matplotlib/matplotlib/pull/31132",
       "tags": [
-        "community",
-        "reddit",
-        "localllama"
+        "Hacker News",
+        "by wrxd",
+        "953 points",
+        "750 comments"
       ],
-      "title_zh": "VS Code的新“Agent窗口”允许您使用本地AI模型。仍然需要互联网连接和Github Copilot计划（因为我们不能有好东西）",
-      "summary_zh": "【r/LocalLLaMA】热度: 169↑ | 56 评论 | At first I was excited to see this, but I guess I'll wait till someone figures out what people actua",
-      "title_en": "VS Code's new \"Agents window\" lets you use local AI models. Still requires an Internet connection and a Github Copilot plan (because we can't have nice things)",
-      "summary_en": "【r/LocalLLaMA】热度: 169↑ | 56 评论 | At first I was excited to see this, but I guess I'll wait till someone figures out what people actua"
+      "summary_zh": "人工智能代理打开公关撰写博客帖子，以羞辱关闭它的维护者"
     },
     {
-      "title": "Anyone actually using a local LLM as their daily knowledge base? Not for coding, for life stuff. What's your setup?",
-      "summary": "【r/LocalLLaMA】热度: 331↑ | 222 评论 | So I've been going down a rabbit hole lately and I can't find many people actually talking about thi",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tcrtt6/anyone_actually_using_a_local_llm_as_their_daily/",
+      "title": "Opus 4.5 is not the normal AI agent experience that I have had thus far",
+      "summary_en": "Opus 4.5 is not the normal AI agent experience that I have had thus far",
+      "url": "https://burkeholland.github.io/posts/opus-4-5-change-everything/",
       "tags": [
-        "community",
-        "reddit",
-        "localllama"
+        "Hacker News",
+        "by tbassetto",
+        "879 points",
+        "1353 comments"
       ],
-      "title_zh": "有人真正使用当地法学硕士作为他们的日常知识库吗？不是为了编码，而是为了生活。您的设置是什么？",
-      "summary_zh": "【r/LocalLLaMA】热度: 331↑ | 222 评论 | So I've been going down a rabbit hole lately and I can't find many people actually talking about thi",
-      "title_en": "Anyone actually using a local LLM as their daily knowledge base? Not for coding, for life stuff. What's your setup?",
-      "summary_en": "【r/LocalLLaMA】热度: 331↑ | 222 评论 | So I've been going down a rabbit hole lately and I can't find many people actually talking about thi"
+      "summary_zh": "Opus 4.5不是我到目前为止所拥有的正常AI代理体验"
     },
     {
-      "title": "I trained Qwen3.5 to jailbreak itself with RL, then used the failures to improve its defenses",
-      "summary": "【r/LocalLLaMA】热度: 17↑ | 12 评论 | RL attackers are becoming a common pattern for automated red teaming: train a model against a live t",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tdegh0/i_trained_qwen35_to_jailbreak_itself_with_rl_then/",
+      "title": "An AI agent deleted our production database. The agent's confession is below",
+      "summary_en": "An AI agent deleted our production database. The agent's confession is below",
+      "url": "https://twitter.com/lifeof_jer/status/2048103471019434248",
       "tags": [
-        "community",
-        "reddit",
-        "localllama"
+        "Hacker News",
+        "by jeremyccrane",
+        "860 points",
+        "1032 comments"
       ],
-      "title_zh": "我训练Qwen3.5使用RL越狱，然后使用失败来改进其防御",
-      "summary_zh": "【r/LocalLLaMA】热度: 17↑ | 12 评论 | RL attackers are becoming a common pattern for automated red teaming: train a model against a live t",
-      "title_en": "I trained Qwen3.5 to jailbreak itself with RL, then used the failures to improve its defenses",
-      "summary_en": "【r/LocalLLaMA】热度: 17↑ | 12 评论 | RL attackers are becoming a common pattern for automated red teaming: train a model against a live t"
+      "summary_zh": "AI代理删除了我们的生产数据库。客服代表的自白如下"
     },
     {
-      "title": "Have a Coherent AI Policy",
-      "summary": "【HN】热度: 43 分 | 31 评论",
-      "url": "https://brianmeeker.me/2026/05/14/have-a-coherent-ai-policy/",
+      "title": "The unreasonable effectiveness of an LLM agent loop with tool use",
+      "summary_en": "sketch blog: The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use sketch.dev blog The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use 2025-05-15 by Philip Zeyliger My co-wor",
+      "url": "https://sketch.dev/blog/agent-loop",
       "tags": [
-        "community",
-        "discussion"
+        "Hacker News",
+        "by crawshaw",
+        "447 points",
+        "320 comments"
       ],
-      "title_zh": "制定连贯的人工智能政策",
-      "summary_zh": "【HN】热度: 43 分 | 31 评论",
-      "title_en": "Have a Coherent AI Policy",
-      "summary_en": "【HN】热度: 43 分 | 31 评论"
-    },
-    {
-      "title": "Codex is now in the ChatGPT mobile app",
-      "summary": "【HN】热度: 183 分 | 86 评论",
-      "url": "https://openai.com/index/work-with-codex-from-anywhere/",
-      "tags": [
-        "community",
-        "discussion"
-      ],
-      "title_zh": "Codex现已在ChatGPT移动应用程序中",
-      "summary_zh": "【HN】热度: 183 分 | 86 评论",
-      "title_en": "Codex is now in the ChatGPT mobile app",
-      "summary_en": "【HN】热度: 183 分 | 86 评论"
-    },
-    {
-      "title": "RTX 5090 and M4 MacBook Air: Can It Game?",
-      "summary": "【HN】热度: 492 分 | 136 评论",
-      "url": "https://scottjg.com/posts/2026-05-05-egpu-mac-gaming/",
-      "tags": [
-        "community",
-        "discussion"
-      ],
-      "title_zh": "RTX 5090和M4 MacBook Air ：可以玩游戏吗？",
-      "summary_zh": "【HN】热度: 492 分 | 136 评论",
-      "title_en": "RTX 5090 and M4 MacBook Air: Can It Game?",
-      "summary_en": "【HN】热度: 492 分 | 136 评论"
-    },
-    {
-      "title": "Ontario auditors find doctors' AI note takers routinely blow basic facts",
-      "summary": "【HN】热度: 109 分 | 39 评论",
-      "url": "https://www.theregister.com/ai-ml/2026/05/14/ontario-auditors-find-doctors-ai-note-takers-routinely-blow-basic-facts/5240771",
-      "tags": [
-        "community",
-        "discussion"
-      ],
-      "title_zh": "安大略省审计员发现医生的人工智能记录员经常吹嘘基本事实",
-      "summary_zh": "【HN】热度: 109 分 | 39 评论",
-      "title_en": "Ontario auditors find doctors' AI note takers routinely blow basic facts",
-      "summary_en": "【HN】热度: 109 分 | 39 评论"
+      "summary_zh": "sketch blog: The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use sketch.dev blog The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use 2025-05-15 by Philip Zeyliger My co-wor"
     }
-  ]
+  ],
+  "stats": {
+    "total": 17,
+    "by_module": {
+      "research": 6,
+      "github": 5,
+      "models": 0,
+      "community": 6
+    }
+  }
 }

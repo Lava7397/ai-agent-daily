@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).parent
 def deploy() -> bool:
     print("Deploying to Vercel...")
     result = subprocess.run(
-        ["vercel", "--prod", "--yes"],
+        ["npx", "vercel", "--prod", "--yes"],
         cwd=str(BASE_DIR),
         capture_output=True,
         text=True,
