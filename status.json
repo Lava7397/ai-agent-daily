@@ -1,9 +1,9 @@
 {
   "v": 1,
-  "generated_at": "2026-05-15T11:07:15+08:00",
-  "issue_date": "2026-05-15",
-  "site_total_items": 18,
-  "raw_item_total": 18,
+  "generated_at": "2026-05-17T09:49:54+08:00",
+  "issue_date": "2026-05-17",
+  "site_total_items": 17,
+  "raw_item_total": 17,
   "max_site_items_cap": 80,
-  "sources": "Hacker News, r/LocalLLaMA, Lobsters, GitHub"
+  "sources": "The Verge, VentureBeat, Ars Technica, GitHub, Hacker News, HuggingFace, Models"
 }

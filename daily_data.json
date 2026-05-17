@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-16",
+  "date": "2026-05-17",
   "sources": "The Verge, VentureBeat, Ars Technica, GitHub, Hacker News, HuggingFace, Models",
   "description": "AI Agent 领域最新情报",
   "research": [
@@ -61,48 +61,48 @@
   "github": [
     {
       "title": "op7418/guizang-ppt-skill",
-      "summary_en": "AI-agent Skill for generating polished HTML slide decks: editorial magazine and Swiss layouts, image prompts, social covers, and a WebGL/low-power presentation runtime.",
+      "summary_en": "GitHub - op7418/guizang-ppt-skill: AI-agent Skill for generating polished HTML slide decks: editorial magazine and Swiss layouts, image prompts, social covers, and a WebGL/low-power presentation runti",
       "url": "https://github.com/op7418/guizang-ppt-skill",
       "tags": [
         "GitHub"
       ],
-      "summary_zh": "用于生成精美HTML幻灯片的AI代理技能：编辑杂志和瑞士布局、图像提示、社交封面和WebGL/低功耗演示运行时。"
+      "summary_zh": "GitHub - op7418/guizang-ppt-skill ：生成精美HTML幻灯片的AI代理技能：编辑杂志和瑞士版式、图像提示、社交封面和WebGL/低功耗演示文稿"
     },
     {
       "title": "esengine/DeepSeek-Reasonix",
-      "summary_en": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
+      "summary_en": "GitHub - esengine/DeepSeek-Reasonix: DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running. · GitHub Skip to content Navigation Menu Toggle nav",
       "url": "https://github.com/esengine/DeepSeek-Reasonix",
       "tags": [
         "GitHub"
       ],
-      "summary_zh": "为您的终端提供DeepSeek原生AI编码代理。围绕前缀缓存稳定性而设计—保持运行。"
+      "summary_zh": "GitHub - esengine/DeepSeek-Reasonix ：适用于您的终端的DeepSeek原生AI编码代理。围绕前缀缓存稳定性而设计—保持运行。· GitHub跳转到内容导航菜单切换导航"
     },
     {
       "title": "earthtojake/text-to-cad",
-      "summary_en": "A collection of agent skills for CAD, robotics and hardware design",
+      "summary_en": "GitHub - earthtojake/text-to-cad: A collection of agent skills for CAD, robotics and hardware design · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI ",
       "url": "https://github.com/earthtojake/text-to-cad",
       "tags": [
         "GitHub"
       ],
-      "summary_zh": "CAD、机器人和硬件设计的代理技能集合"
-    },
-    {
-      "title": "strukto-ai/mirage",
-      "summary_en": "A Unified Virtual Filesystem For AI Agents",
-      "url": "https://github.com/strukto-ai/mirage",
-      "tags": [
-        "GitHub"
-      ],
-      "summary_zh": "人工智能代理的统一虚拟文件系统"
+      "summary_zh": "GitHub - earthtojake/text-to-cad ： CAD、机器人和硬件设计的代理技能集合· GitHub跳到内容导航菜单切换导航登录外观设置平台AI"
     },
     {
       "title": "nexu-io/html-anything",
-      "summary_en": "✨ The agentic HTML editor — your local AI agent writes the HTML, you ship it. 🚀 75 Skills × 9 Surfaces (magazine · deck · poster · XHS / tweet · prototype · data report · Hyperframes) 🛡️ Sandboxed pre",
+      "summary_en": "GitHub - nexu-io/html-anything: ✨ The agentic HTML editor — your local AI agent writes the HTML, you ship it. 🚀 75 Skills × 9 Surfaces (magazine · deck · poster · XHS / tweet · prototype · data report",
       "url": "https://github.com/nexu-io/html-anything",
       "tags": [
         "GitHub"
       ],
-      "summary_zh": "✨ 代理HTML编辑器—您的本地AI代理编写HTML ，您发货。🚀75技能× 9表面（杂志·甲板·海报· XHS/推文·原型·数据报告·超帧）🛡️沙盒预"
+      "summary_zh": "GitHub - nexu-io/html-anything ：✨代理HTML编辑器—您的本地AI代理编写HTML ，您发货。🚀75 Skills × 9 Surfaces （ magazine · deck · poster · XHS/tweet · prototype · data report"
+    },
+    {
+      "title": "strukto-ai/mirage",
+      "summary_en": "GitHub - strukto-ai/mirage: A Unified Virtual Filesystem For AI Agents · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot W",
+      "url": "https://github.com/strukto-ai/mirage",
+      "tags": [
+        "GitHub"
+      ],
+      "summary_zh": "GitHub - strukto-ai/mirage ：面向AI Agent的统一虚拟文件系统· GitHub跳至内容导航菜单切换导航登录外观设置平台AI代码创建GitHub Copilot W"
     }
   ],
   "models": [],
@@ -133,7 +133,7 @@
     },
     {
       "title": "AI agent opens a PR write a blogpost to shames the maintainer who closes it",
-      "summary_en": "AI agent opens a PR write a blogpost to shames the maintainer who closes it",
+      "summary_en": "[PERF] Replace np.column_stack with np.vstack().T by crabby-rathbun · Pull Request #31132 · matplotlib/matplotlib · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings",
       "url": "https://github.com/matplotlib/matplotlib/pull/31132",
       "tags": [
         "Hacker News",
@@ -141,11 +141,11 @@
         "953 points",
         "750 comments"
       ],
-      "summary_zh": "人工智能代理打开公关撰写博客帖子，以羞辱关闭它的维护者"
+      "summary_zh": "[PERF]将np.column_stack替换为np.vstack () .T by crabby-rathbun ·拉取请求# 31132 · matplotlib/matplotlib · GitHub跳到内容导航菜单切换导航登录外观设置"
     },
     {
       "title": "Opus 4.5 is not the normal AI agent experience that I have had thus far",
-      "summary_en": "Opus 4.5 is not the normal AI agent experience that I have had thus far",
+      "summary_en": "Opus 4.5 is going to change everything · Burke Holland Burke Knows Words . home about projects ← All posts ARTICLE Opus 4.5 is going to change everything January 5, 2026 Edit: A lot of folks have been",
       "url": "https://burkeholland.github.io/posts/opus-4-5-change-everything/",
       "tags": [
         "Hacker News",
@@ -153,7 +153,7 @@
         "879 points",
         "1353 comments"
       ],
-      "summary_zh": "Opus 4.5不是我到目前为止所拥有的正常AI代理体验"
+      "summary_zh": "Opus 4.5将改变一切· Burke Holland Burke Knows Words. home about projects←所有帖子文章Opus 4.5将改变一切2026年1月5日编辑："
     },
     {
       "title": "An AI agent deleted our production database. The agent's confession is below",
