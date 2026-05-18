@@ -1150,8 +1150,13 @@ function syncAtlasMetrics() {
   syncTodayLinks();
 }
 
-document.getElementById('lang-zh').addEventListener('click', () => setLang('zh'));
-document.getElementById('lang-en').addEventListener('click', () => setLang('en'));
+/* 必须在 lang 按钮绑定之前执行：若上一行 getElementById 链抛错，用户仍会看到 — */
+syncAtlasMetrics();
+
+const elLangZh = document.getElementById('lang-zh');
+const elLangEn = document.getElementById('lang-en');
+if (elLangZh) elLangZh.addEventListener('click', () => setLang('zh'));
+if (elLangEn) elLangEn.addEventListener('click', () => setLang('en'));
 
 const SITE_URL_CLIPBOARD = 'https://lava7397.com';
 const FAV_SITE_STORAGE_KEY = 'lavaagent_site_favorited';
@@ -1339,6 +1344,7 @@ function copyStringToClipboard(str) {
   applyDocumentLang(getLang());
   updateLangButtons();
   applyStaticI18n();
+  syncAtlasMetrics();
   void refreshJournalRecommendTeaser();
 })();
 
