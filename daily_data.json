@@ -1,192 +1,257 @@
 {
-  "date": "2026-05-17",
-  "sources": "The Verge, VentureBeat, Ars Technica, GitHub, Hacker News, HuggingFace, Models",
+  "date": "2026-05-18",
+  "sources": "Hacker News, r/LocalLLaMA, Lobsters, GitHub",
   "description": "AI Agent 领域最新情报",
-  "research": [
-    {
-      "title": "OpenAI keeps shuffling its executives in bid to win AI agent battle",
-      "summary_en": "OpenAI keeps shuffling its executives in bid to win AI agent battle | The Verge Skip to main content The homepage The Verge The Verge logo. The Verge The Verge logo. Tech Reviews Science Entertainment",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/931544/openai-keeps-shuffling-its-executives-in-bid-to-win-ai-agent-battle",
-      "tags": [
-        "The Verge"
-      ],
-      "summary_zh": "OpenAI不断对其高管进行洗牌，以赢得AI智能体之战| The Verge跳到主要内容主页The Verge The Verge徽标。Verge The Verge徽标。科技评论科学娱乐"
-    },
-    {
-      "title": "Intercom, now called Fin, launches an AI agent whose only job is managing another AI agent",
-      "summary_en": "The company formerly known as Intercom just did something that no major customer service platform has attempted at scale: it built an AI agent whose sole job is to manage another AI agent. Fin Ope",
-      "url": "https://venturebeat.com/technology/intercom-now-called-fin-launches-an-ai-agent-whose-only-job-is-managing-another-ai-agent",
-      "tags": [
-        "VentureBeat"
-      ],
-      "summary_zh": "这家前身为Intercom的公司刚刚做了一件大型客户服务平台从未尝试过的事情：它建立了一个人工智能代理，其唯一的工作就是管理另一个人工智能代理。Fin Ope"
-    },
-    {
-      "title": "How RecursiveMAS speeds up multi-agent inference by 2.4x and reduces token usage by 75%",
-      "summary_en": "One of the key challenges of current multi-agent AI systems is that they communicate by generating and sharing text sequences, which introduces latency, drives up token costs, and makes it difficult t",
-      "url": "https://venturebeat.com/orchestration/how-recursivemas-speeds-up-multi-agent-inference-by-2-4x-and-reduces-token-usage-by-75",
-      "tags": [
-        "VentureBeat"
-      ],
-      "summary_zh": "当前多智能体人工智能系统的主要挑战之一是通过生成和共享文本序列进行通信，这会引入延迟，增加代币成本，并使其难以"
-    },
-    {
-      "title": "Claude’s next enterprise battle is not models: it’s the agent control plane",
-      "summary_en": "New VB Pulse data shows Microsoft and OpenAI leading enterprise agent orchestration, but Anthropic’s first measurable foothold points to a larger fight over who controls the infrastructure where AI ag",
-      "url": "https://venturebeat.com/orchestration/claudes-next-enterprise-battle-is-not-models-its-the-agent-control-plane",
-      "tags": [
-        "VentureBeat"
-      ],
-      "summary_zh": "新的VB Pulse数据显示，微软和OpenAI领先的企业代理编排，但Anthropic的第一个可衡量的立足点表明，围绕谁控制人工智能"
-    },
-    {
-      "title": "Developers can now debug and evaluate AI agents locally with Raindrop's open source tool Workshop",
-      "summary_en": "Observability startup Raindrop AI ’s new open source, MIT Licensed \" Workshop \" tool, launched today, gives developers something that they've likely wanted, perhaps subconsciously, since the agentic",
-      "url": "https://venturebeat.com/technology/developers-can-now-debug-and-evaluate-ai-agents-locally-with-raindrops-open-source-tool-workshop",
-      "tags": [
-        "VentureBeat"
-      ],
-      "summary_zh": "可观测性初创公司Raindrop AI的新开源，麻省理工学院许可的“研讨会”工具，今天推出，为开发人员提供了他们可能想要的东西，也许是潜意识，因为代理"
-    },
-    {
-      "title": "Agent authorization is broken — and authentication passing makes it worse",
-      "summary_en": "Anthony Grieco, Cisco’s SVP and chief security and trust officer, did not hesitate when VentureBeat asked whether rogue agent incidents are reaching Cisco’s customer base. \"A hundred percent. We see",
-      "url": "https://venturebeat.com/security/enterprises-verify-agents-identity-cannot-control-authorization-cisco-rsac-2026",
-      "tags": [
-        "VentureBeat"
-      ],
-      "summary_zh": "当VentureBeat询问流氓代理事件是否正在到达思科的客户群时，思科高级副总裁兼首席安全和信任官Anthony Grieco毫不犹豫。“百分之百，我们看到"
-    }
-  ],
+  "research": [],
   "github": [
     {
-      "title": "op7418/guizang-ppt-skill",
-      "summary_en": "GitHub - op7418/guizang-ppt-skill: AI-agent Skill for generating polished HTML slide decks: editorial magazine and Swiss layouts, image prompts, social covers, and a WebGL/low-power presentation runti",
-      "url": "https://github.com/op7418/guizang-ppt-skill",
+      "title": "keremlin/multi-lang-mcp",
+      "summary": "【GitHub】Multi-language MCP server - Python gateway exposing PowerShell, Node.js, and Java tools to Claude （⭐ 0）",
+      "url": "https://github.com/keremlin/multi-lang-mcp",
+      "stars": 0,
       "tags": [
-        "GitHub"
+        "github",
+        "opensource"
       ],
-      "summary_zh": "GitHub - op7418/guizang-ppt-skill ：生成精美HTML幻灯片的AI代理技能：编辑杂志和瑞士版式、图像提示、社交封面和WebGL/低功耗演示文稿"
+      "title_zh": "keremlin/multi-lang-mcp",
+      "summary_zh": "【GitHub】多语言MCP服务器- Python网关向Claude公开PowerShell、Node.js和Java工具（⭐ 0 ）",
+      "title_en": "keremlin/multi-lang-mcp",
+      "summary_en": "【GitHub】Multi-language MCP server - Python gateway exposing PowerShell, Node.js, and Java tools to Claude （⭐ 0）"
     },
     {
-      "title": "esengine/DeepSeek-Reasonix",
-      "summary_en": "GitHub - esengine/DeepSeek-Reasonix: DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running. · GitHub Skip to content Navigation Menu Toggle nav",
-      "url": "https://github.com/esengine/DeepSeek-Reasonix",
+      "title": "lain-the-coder/mcp-github-api-tester",
+      "summary": "【GitHub】A Python-based Model Context Protocol (MCP) server that exposes a locally-running .NET GitHub API Client as AI-callable tools. Connects to Claude Desktop so you can drive endpoint testing — including  （⭐ 0）",
+      "url": "https://github.com/lain-the-coder/mcp-github-api-tester",
+      "stars": 0,
       "tags": [
-        "GitHub"
+        "github",
+        "opensource"
       ],
-      "summary_zh": "GitHub - esengine/DeepSeek-Reasonix ：适用于您的终端的DeepSeek原生AI编码代理。围绕前缀缓存稳定性而设计—保持运行。· GitHub跳转到内容导航菜单切换导航"
+      "title_zh": "lain-the-coder/mcp-github-api-tester",
+      "summary_zh": "【GitHub】基于Python的模型上下文协议(MCP)服务器，将本地运行的.NET GitHub API客户端公开为人工智能可调用工具。连接到Claude Desktop ，以便您可以推动端点测试—包括（⭐ 0 ）",
+      "title_en": "lain-the-coder/mcp-github-api-tester",
+      "summary_en": "【GitHub】A Python-based Model Context Protocol (MCP) server that exposes a locally-running .NET GitHub API Client as AI-callable tools. Connects to Claude Desktop so you can drive endpoint testing — including  （⭐ 0）"
     },
     {
-      "title": "earthtojake/text-to-cad",
-      "summary_en": "GitHub - earthtojake/text-to-cad: A collection of agent skills for CAD, robotics and hardware design · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI ",
-      "url": "https://github.com/earthtojake/text-to-cad",
+      "title": "QWKiks/openweb",
+      "summary": "【GitHub】Open-source browser automation for AI agents. Control Chrome from Claude Code, Cursor, Windsurf, OpenCode, or any MCP-compatible tool. （⭐ 2）",
+      "url": "https://github.com/QWKiks/openweb",
+      "stars": 2,
       "tags": [
-        "GitHub"
+        "github",
+        "opensource"
       ],
-      "summary_zh": "GitHub - earthtojake/text-to-cad ： CAD、机器人和硬件设计的代理技能集合· GitHub跳到内容导航菜单切换导航登录外观设置平台AI"
+      "title_zh": "QWKiks/openweb",
+      "summary_zh": "【GitHub】人工智能代理的开源浏览器自动化。通过Claude Code、Cursor、Windsurf、OpenCode或任何与MCP兼容的工具控制Chrome。（⭐ 2 ）",
+      "title_en": "QWKiks/openweb",
+      "summary_en": "【GitHub】Open-source browser automation for AI agents. Control Chrome from Claude Code, Cursor, Windsurf, OpenCode, or any MCP-compatible tool. （⭐ 2）"
     },
     {
-      "title": "nexu-io/html-anything",
-      "summary_en": "GitHub - nexu-io/html-anything: ✨ The agentic HTML editor — your local AI agent writes the HTML, you ship it. 🚀 75 Skills × 9 Surfaces (magazine · deck · poster · XHS / tweet · prototype · data report",
-      "url": "https://github.com/nexu-io/html-anything",
+      "title": "MackDing/awesome-claude-statusline",
+      "summary": "【GitHub】🏆 Awesome Claude Code Statusline — 80+ open-source status bar projects for Claude Code CLI. Token usage, rate limits, cost tracking, git status, themes & more. （⭐ 1）",
+      "url": "https://github.com/MackDing/awesome-claude-statusline",
+      "stars": 1,
       "tags": [
-        "GitHub"
+        "github",
+        "opensource"
       ],
-      "summary_zh": "GitHub - nexu-io/html-anything ：✨代理HTML编辑器—您的本地AI代理编写HTML ，您发货。🚀75 Skills × 9 Surfaces （ magazine · deck · poster · XHS/tweet · prototype · data report"
+      "title_zh": "MackDing/awesome-claude-statusline",
+      "summary_zh": "【GitHub】🏆 Awesome Claude Code Statusline -适用于Claude Code CLI的80多个开源状态栏项目。代币使用、速率限制、成本跟踪、git状态、主题等。（⭐ 1 ）",
+      "title_en": "MackDing/awesome-claude-statusline",
+      "summary_en": "【GitHub】🏆 Awesome Claude Code Statusline — 80+ open-source status bar projects for Claude Code CLI. Token usage, rate limits, cost tracking, git status, themes & more. （⭐ 1）"
     },
     {
-      "title": "strukto-ai/mirage",
-      "summary_en": "GitHub - strukto-ai/mirage: A Unified Virtual Filesystem For AI Agents · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot W",
-      "url": "https://github.com/strukto-ai/mirage",
+      "title": "Wolfgangrush/indian-rent-control-drafting",
+      "summary": "【GitHub】Open-source Claude Code plugin for drafting Indian rent-control / landlord-tenant litigation pleadings across all major State Rent Control regimes — 6-agent pipeline · 11 case-types · 8 state exemplar （⭐ 1）",
+      "url": "https://github.com/Wolfgangrush/indian-rent-control-drafting",
+      "stars": 1,
       "tags": [
-        "GitHub"
+        "github",
+        "opensource"
       ],
-      "summary_zh": "GitHub - strukto-ai/mirage ：面向AI Agent的统一虚拟文件系统· GitHub跳至内容导航菜单切换导航登录外观设置平台AI代码创建GitHub Copilot W"
+      "title_zh": "Wolfgangrush/indian-rent-control-drafting",
+      "summary_zh": "【GitHub】开源Claude Code插件，用于在所有主要的州租金控制制度中起草印度租金控制/房东-租户诉讼诉状— 6-代理管道· 11个案例类型· 8个州示例（⭐ 1 ）",
+      "title_en": "Wolfgangrush/indian-rent-control-drafting",
+      "summary_en": "【GitHub】Open-source Claude Code plugin for drafting Indian rent-control / landlord-tenant litigation pleadings across all major State Rent Control regimes — 6-agent pipeline · 11 case-types · 8 state exemplar （⭐ 1）"
     }
   ],
-  "models": [],
+  "models": [
+    {
+      "title": "Apple’s Siri revamp could include auto-deleting chats",
+      "summary": "Privacy will be a major theme when Apple unveils a new version of Siri.",
+      "url": "https://techcrunch.com/2026/05/17/apples-siri-revamp-could-include-auto-deleting-chats/",
+      "tags": [
+        "industry",
+        "techcrunch"
+      ],
+      "title_zh": "苹果的Siri改造可能包括自动删除聊天",
+      "summary_zh": "当苹果推出新版Siri时，隐私将是一个重要主题。",
+      "title_en": "Apple’s Siri revamp could include auto-deleting chats",
+      "summary_en": "Privacy will be a major theme when Apple unveils a new version of Siri."
+    },
+    {
+      "title": "Why trust is a big question at the Elon Musk-OpenAI trial",
+      "summary": "A big theme in the trial’s final days was whether OpenAI CEO Sam Altman is trustworthy.",
+      "url": "https://techcrunch.com/2026/05/17/why-trust-is-a-big-question-at-the-elon-musk-openai-trial/",
+      "tags": [
+        "industry",
+        "techcrunch"
+      ],
+      "title_zh": "为什么在Elon Musk-OpenAI试验中信任是一个大问题",
+      "summary_zh": "试验最后几天的一个重要主题是OpenAI首席执行官Sam Altman是否值得信赖。",
+      "title_en": "Why trust is a big question at the Elon Musk-OpenAI trial",
+      "summary_en": "A big theme in the trial’s final days was whether OpenAI CEO Sam Altman is trustworthy."
+    },
+    {
+      "title": "If you’re giving a commencement speech in 2026, maybe don’t mention AI",
+      "summary": "It's tough to get graduating students excited about a future shaped by artificial intelligence.",
+      "url": "https://techcrunch.com/2026/05/17/if-youre-giving-a-commencement-speech-in-2026-maybe-dont-mention-ai/",
+      "tags": [
+        "industry",
+        "techcrunch"
+      ],
+      "title_zh": "如果你在2026年发表毕业典礼演讲，也许不要提及人工智能",
+      "summary_zh": "让即将毕业的学生对人工智能塑造的未来感到兴奋是很困难的。",
+      "title_en": "If you’re giving a commencement speech in 2026, maybe don’t mention AI",
+      "summary_en": "It's tough to get graduating students excited about a future shaped by artificial intelligence."
+    },
+    {
+      "title": "TechCrunch Mobility: The AI skills arms race is coming for automotive",
+      "summary": "Welcome back to TechCrunch Mobility — your central hub for news and insights on the future of transportation.",
+      "url": "https://techcrunch.com/2026/05/17/techcrunch-mobility-the-ai-skills-arms-race-is-coming-for-automotive/",
+      "tags": [
+        "industry",
+        "techcrunch"
+      ],
+      "title_zh": "TechCrunch Mobility ：汽车领域的人工智能技能军备竞赛即将到来",
+      "summary_zh": "欢迎回到TechCrunch Mobility ，这是您获取有关未来交通的新闻和见解的中心枢纽。",
+      "title_en": "TechCrunch Mobility: The AI skills arms race is coming for automotive",
+      "summary_en": "Welcome back to TechCrunch Mobility — your central hub for news and insights on the future of transportation."
+    }
+  ],
   "community": [
     {
-      "title": "An AI agent published a hit piece on me",
-      "summary_en": "An AI Agent Published a Hit Piece on Me – The Shamblog Skip to content The Shamblog Home All Projects All Posts Contact Toggle website search Menu Close Home All Projects All Posts Contact Toggle webs",
-      "url": "https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/",
+      "title": "Claude Code managed to get Adobe Lightroom working on Linux",
+      "summary": "【Lobsters】热度: 20↑ | 3 评论 | 标签: linux, vibecoding",
+      "url": "https://lobste.rs/s/l34yuj",
       "tags": [
-        "Hacker News",
-        "by scottshambaugh",
-        "2346 points",
-        "951 comments"
+        "community",
+        "lobsters",
+        "tech"
       ],
-      "summary_zh": "一位人工智能代理发布了关于我的热门文章– Shamblog跳到内容Shamblog主页所有项目所有帖子联系人切换网站搜索菜单关闭主页所有项目所有帖子联系人切换网站"
+      "title_zh": "Claude Code设法让Adobe Lightroom在Linux上工作",
+      "summary_zh": "【Lobsters】热度: 20↑ | 3 评论 | 标签: linux, vibecoding",
+      "title_en": "Claude Code managed to get Adobe Lightroom working on Linux",
+      "summary_en": "【Lobsters】热度: 20↑ | 3 评论 | 标签: linux, vibecoding"
     },
     {
-      "title": "OpenCode – Open source AI coding agent",
-      "summary_en": "OpenCode | The open source AI coding agent GitHub [ 160K ] Docs Zen Go Enterprise Download Open menu New Desktop app available in beta on macOS, Windows, and Linux . Download now Download the desktop ",
-      "url": "https://opencode.ai/",
+      "title": "Reverse engineering Android malware with Claude Code",
+      "summary": "【Lobsters】热度: 2↑ | 0 评论 | 标签: android, reversing, vibecoding",
+      "url": "https://lobste.rs/s/b5hrqb",
       "tags": [
-        "Hacker News",
-        "by rbanffy",
-        "1274 points",
-        "619 comments"
+        "community",
+        "lobsters",
+        "tech"
       ],
-      "summary_zh": "OpenCode |开源AI编码代理GitHub [160K] Docs Zen Go Enterprise下载打开菜单在macOS、Windows和Linux上提供新的桌面应用程序测试版。立即下载下载桌面"
+      "title_zh": "使用Claude Code对Android恶意软件进行反向工程",
+      "summary_zh": "【Lobsters】热度: 2↑ | 0 评论 | 标签: android, reversing, vibecoding",
+      "title_en": "Reverse engineering Android malware with Claude Code",
+      "summary_en": "【Lobsters】热度: 2↑ | 0 评论 | 标签: android, reversing, vibecoding"
     },
     {
-      "title": "AI agent opens a PR write a blogpost to shames the maintainer who closes it",
-      "summary_en": "[PERF] Replace np.column_stack with np.vstack().T by crabby-rathbun · Pull Request #31132 · matplotlib/matplotlib · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings",
-      "url": "https://github.com/matplotlib/matplotlib/pull/31132",
+      "title": "DeepSeek-V4-Flash means LLM steering is interesting again",
+      "summary": "【Lobsters】热度: 12↑ | 4 评论 | 标签: vibecoding",
+      "url": "https://lobste.rs/s/wycfiy",
       "tags": [
-        "Hacker News",
-        "by wrxd",
-        "953 points",
-        "750 comments"
+        "community",
+        "lobsters",
+        "tech"
       ],
-      "summary_zh": "[PERF]将np.column_stack替换为np.vstack () .T by crabby-rathbun ·拉取请求# 31132 · matplotlib/matplotlib · GitHub跳到内容导航菜单切换导航登录外观设置"
+      "title_zh": "DeepSeek-V4-Flash意味着LLM转向再次很有趣",
+      "summary_zh": "【Lobsters】热度: 12↑ | 4 评论 | 标签: vibecoding",
+      "title_en": "DeepSeek-V4-Flash means LLM steering is interesting again",
+      "summary_en": "【Lobsters】热度: 12↑ | 4 评论 | 标签: vibecoding"
     },
     {
-      "title": "Opus 4.5 is not the normal AI agent experience that I have had thus far",
-      "summary_en": "Opus 4.5 is going to change everything · Burke Holland Burke Knows Words . home about projects ← All posts ARTICLE Opus 4.5 is going to change everything January 5, 2026 Edit: A lot of folks have been",
-      "url": "https://burkeholland.github.io/posts/opus-4-5-change-everything/",
+      "title": "Gemma-4-Gembrain-31B-it-uncensored-heretic Is Out Now, a Merge of Multiple Gemma 4 31B it Finetunes Designed to Boost Logical and Lateral Thinking for Improved Adherence, Increased Swipe Variety and Enhanced Creative Prose, With KLD of 0.0186 and 13/100 Refusals!",
+      "summary": "【r/LocalLLaMA】热度: 17↑ | 6 评论 | Provided in both Safetensors and GGUFs.\n\nSafetensors: llmfan46/Gemma-4-Gembrain-31B-it-uncensored-he",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tg7s7j/gemma4gembrain31bituncensoredheretic_is_out_now_a/",
       "tags": [
-        "Hacker News",
-        "by tbassetto",
-        "879 points",
-        "1353 comments"
+        "community",
+        "reddit",
+        "localllama"
       ],
-      "summary_zh": "Opus 4.5将改变一切· Burke Holland Burke Knows Words. home about projects←所有帖子文章Opus 4.5将改变一切2026年1月5日编辑："
+      "title_zh": "Gemma-4-Gembrain-31B-it-uncensored-heretic现已推出，融合了多个Gemma 4 31B IT Finetunes ，旨在提高逻辑和横向思维，以提高依从性，增加滑动品种和增强创意散文， KLD为0.0186和13/100拒绝！",
+      "summary_zh": "【r/LocalLLaMA】热度: 17↑ | 6 评论 | Provided in both Safetensors and GGUFs.\n\nSafetensors: llmfan46/Gemma-4-Gembrain-31B-it-uncensored-he",
+      "title_en": "Gemma-4-Gembrain-31B-it-uncensored-heretic Is Out Now, a Merge of Multiple Gemma 4 31B it Finetunes Designed to Boost Logical and Lateral Thinking for Improved Adherence, Increased Swipe Variety and Enhanced Creative Prose, With KLD of 0.0186 and 13/100 Refusals!",
+      "summary_en": "【r/LocalLLaMA】热度: 17↑ | 6 评论 | Provided in both Safetensors and GGUFs.\n\nSafetensors: llmfan46/Gemma-4-Gembrain-31B-it-uncensored-he"
     },
     {
-      "title": "An AI agent deleted our production database. The agent's confession is below",
-      "summary_en": "An AI agent deleted our production database. The agent's confession is below",
-      "url": "https://twitter.com/lifeof_jer/status/2048103471019434248",
+      "title": "85 GPU-hours comparing 5 abliteration methods on Qwen3.6-27B: benchmarks, safety, weight forensics - Abliterlitics",
+      "summary": "【r/LocalLLaMA】热度: 218↑ | 55 评论 | I've been building [Abliterlitics](https://github.com/dreamfast/abliterlitics), an open-source ablit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tfmocw/85_gpuhours_comparing_5_abliteration_methods_on/",
       "tags": [
-        "Hacker News",
-        "by jeremyccrane",
-        "860 points",
-        "1032 comments"
+        "community",
+        "reddit",
+        "localllama"
       ],
-      "summary_zh": "AI代理删除了我们的生产数据库。客服代表的自白如下"
+      "title_zh": "85个GPU小时比较Qwen3.6-27B上的5种烧蚀方法：基准、安全性、重量取证- Abliterlitics",
+      "summary_zh": "【r/LocalLLaMA】热度: 218↑ | 55 评论 | I've been building [Abliterlitics](https://github.com/dreamfast/abliterlitics), an open-source ablit",
+      "title_en": "85 GPU-hours comparing 5 abliteration methods on Qwen3.6-27B: benchmarks, safety, weight forensics - Abliterlitics",
+      "summary_en": "【r/LocalLLaMA】热度: 218↑ | 55 评论 | I've been building [Abliterlitics](https://github.com/dreamfast/abliterlitics), an open-source ablit"
     },
     {
-      "title": "The unreasonable effectiveness of an LLM agent loop with tool use",
-      "summary_en": "sketch blog: The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use sketch.dev blog The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use 2025-05-15 by Philip Zeyliger My co-wor",
-      "url": "https://sketch.dev/blog/agent-loop",
+      "title": "The power of structured workflows and small local models",
+      "summary": "【r/LocalLLaMA】热度: 73↑ | 23 评论 | A month ago, I experimented with a very basic home-rolled agent loop with a handful of tools and fou",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tftaaa/the_power_of_structured_workflows_and_small_local/",
       "tags": [
-        "Hacker News",
-        "by crawshaw",
-        "447 points",
-        "320 comments"
+        "community",
+        "reddit",
+        "localllama"
       ],
-      "summary_zh": "sketch blog: The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use sketch.dev blog The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use 2025-05-15 by Philip Zeyliger My co-wor"
+      "title_zh": "结构化工作流程和小型本地模型的强大功能",
+      "summary_zh": "【r/LocalLLaMA】热度: 73↑ | 23 评论 | A month ago, I experimented with a very basic home-rolled agent loop with a handful of tools and fou",
+      "title_en": "The power of structured workflows and small local models",
+      "summary_en": "【r/LocalLLaMA】热度: 73↑ | 23 评论 | A month ago, I experimented with a very basic home-rolled agent loop with a handful of tools and fou"
+    },
+    {
+      "title": "Show HN: Semble – Code search for agents that uses 98% fewer tokens than grep",
+      "summary": "【HN】热度: 198 分 | 50 评论",
+      "url": "https://github.com/MinishLab/semble",
+      "tags": [
+        "community",
+        "discussion"
+      ],
+      "title_zh": "显示HN ： Semble –使用比grep少98%的代币的代理代码搜索",
+      "summary_zh": "【HN】热度: 198 分 | 50 评论",
+      "title_en": "Show HN: Semble – Code search for agents that uses 98% fewer tokens than grep",
+      "summary_en": "【HN】热度: 198 分 | 50 评论"
+    },
+    {
+      "title": "Two EA-18 fighter jets collide at Mountain Home airshow, pilots ejected safely",
+      "summary": "【HN】热度: 126 分 | 104 评论",
+      "url": "https://idahonews.com/news/local/two-f-18-fighter-jets-have-crashed-during-an-airshow-at-mountain-home-air-force-base",
+      "tags": [
+        "community",
+        "discussion"
+      ],
+      "title_zh": "两架EA-18战斗机在Mountain Home航展上相撞，飞行员安全弹射",
+      "summary_zh": "【HN】热度: 126 分 | 104 评论",
+      "title_en": "Two EA-18 fighter jets collide at Mountain Home airshow, pilots ejected safely",
+      "summary_en": "【HN】热度: 126 分 | 104 评论"
+    },
+    {
+      "title": "Most Americans don't trust AI – or the people in charge of it",
+      "summary": "【HN】热度: 25 分 | 5 评论",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/644853/pew-gallup-data-americans-dont-trust-ai",
+      "tags": [
+        "community",
+        "discussion"
+      ],
+      "title_zh": "大多数美国人不信任人工智能–或负责它的人",
+      "summary_zh": "【HN】热度: 25 分 | 5 评论",
+      "title_en": "Most Americans don't trust AI – or the people in charge of it",
+      "summary_en": "【HN】热度: 25 分 | 5 评论"
     }
-  ],
-  "stats": {
-    "total": 17,
-    "by_module": {
-      "research": 6,
-      "github": 5,
-      "models": 0,
-      "community": 6
-    }
-  }
+  ]
 }
