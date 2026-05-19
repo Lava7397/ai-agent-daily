@@ -1,50 +1,36 @@
 {
-  "date": "2026-05-18",
+  "date": "2026-05-19",
   "sources": "Hacker News, r/LocalLLaMA, Lobsters, GitHub",
   "description": "AI Agent 领域最新情报",
   "research": [],
   "github": [
     {
-      "title": "keremlin/multi-lang-mcp",
-      "summary": "【GitHub】Multi-language MCP server - Python gateway exposing PowerShell, Node.js, and Java tools to Claude （⭐ 0）",
-      "url": "https://github.com/keremlin/multi-lang-mcp",
+      "title": "toine-code/exact-erp-toolkit",
+      "summary": "【GitHub】Open Python client + 4 MCP servers for Exact Globe and Exact Financials. SQL reads, Exact-XML writes, natural-language access via MCP. Mock mode out of the box. （⭐ 0）",
+      "url": "https://github.com/toine-code/exact-erp-toolkit",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "keremlin/multi-lang-mcp",
-      "summary_zh": "【GitHub】多语言MCP服务器- Python网关向Claude公开PowerShell、Node.js和Java工具（⭐ 0 ）",
-      "title_en": "keremlin/multi-lang-mcp",
-      "summary_en": "【GitHub】Multi-language MCP server - Python gateway exposing PowerShell, Node.js, and Java tools to Claude （⭐ 0）"
+      "title_zh": "toine-code/exact-erp-toolkit",
+      "summary_zh": "【GitHub】为Exact Globe和Exact Financials打开Python客户端+ 4个MCP服务器。SQL读取、Exact-XML写入、通过MCP的自然语言访问。开箱即用的模拟模式。（⭐ 0 ）",
+      "title_en": "toine-code/exact-erp-toolkit",
+      "summary_en": "【GitHub】Open Python client + 4 MCP servers for Exact Globe and Exact Financials. SQL reads, Exact-XML writes, natural-language access via MCP. Mock mode out of the box. （⭐ 0）"
     },
     {
-      "title": "lain-the-coder/mcp-github-api-tester",
-      "summary": "【GitHub】A Python-based Model Context Protocol (MCP) server that exposes a locally-running .NET GitHub API Client as AI-callable tools. Connects to Claude Desktop so you can drive endpoint testing — including  （⭐ 0）",
-      "url": "https://github.com/lain-the-coder/mcp-github-api-tester",
+      "title": "redonjashari/GPU-benchmark",
+      "summary": "【GitHub】A Python MCP (Model Context Protocol) server that lets an AI assistant query a PostgreSQL database of GPU benchmark results using natural language. Connect it to Claude Desktop to ask questions like * （⭐ 0）",
+      "url": "https://github.com/redonjashari/GPU-benchmark",
       "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "lain-the-coder/mcp-github-api-tester",
-      "summary_zh": "【GitHub】基于Python的模型上下文协议(MCP)服务器，将本地运行的.NET GitHub API客户端公开为人工智能可调用工具。连接到Claude Desktop ，以便您可以推动端点测试—包括（⭐ 0 ）",
-      "title_en": "lain-the-coder/mcp-github-api-tester",
-      "summary_en": "【GitHub】A Python-based Model Context Protocol (MCP) server that exposes a locally-running .NET GitHub API Client as AI-callable tools. Connects to Claude Desktop so you can drive endpoint testing — including  （⭐ 0）"
-    },
-    {
-      "title": "QWKiks/openweb",
-      "summary": "【GitHub】Open-source browser automation for AI agents. Control Chrome from Claude Code, Cursor, Windsurf, OpenCode, or any MCP-compatible tool. （⭐ 2）",
-      "url": "https://github.com/QWKiks/openweb",
-      "stars": 2,
-      "tags": [
-        "github",
-        "opensource"
-      ],
-      "title_zh": "QWKiks/openweb",
-      "summary_zh": "【GitHub】人工智能代理的开源浏览器自动化。通过Claude Code、Cursor、Windsurf、OpenCode或任何与MCP兼容的工具控制Chrome。（⭐ 2 ）",
-      "title_en": "QWKiks/openweb",
-      "summary_en": "【GitHub】Open-source browser automation for AI agents. Control Chrome from Claude Code, Cursor, Windsurf, OpenCode, or any MCP-compatible tool. （⭐ 2）"
+      "title_zh": "redonjashari/GPU基准",
+      "summary_zh": "【GitHub】Python MCP （模型上下文协议）服务器，允许AI助手使用自然语言查询GPU基准测试结果的PostgreSQL数据库。将其连接到Claude Desktop ，以提出诸如* （⭐ 0 ）之类的问题",
+      "title_en": "redonjashari/GPU-benchmark",
+      "summary_en": "【GitHub】A Python MCP (Model Context Protocol) server that lets an AI assistant query a PostgreSQL database of GPU benchmark results using natural language. Connect it to Claude Desktop to ask questions like * （⭐ 0）"
     },
     {
       "title": "MackDing/awesome-claude-statusline",
@@ -61,197 +47,210 @@
       "summary_en": "【GitHub】🏆 Awesome Claude Code Statusline — 80+ open-source status bar projects for Claude Code CLI. Token usage, rate limits, cost tracking, git status, themes & more. （⭐ 1）"
     },
     {
-      "title": "Wolfgangrush/indian-rent-control-drafting",
-      "summary": "【GitHub】Open-source Claude Code plugin for drafting Indian rent-control / landlord-tenant litigation pleadings across all major State Rent Control regimes — 6-agent pipeline · 11 case-types · 8 state exemplar （⭐ 1）",
-      "url": "https://github.com/Wolfgangrush/indian-rent-control-drafting",
-      "stars": 1,
+      "title": "nerd4rent/nerd4rent-claude-plugin",
+      "summary": "【GitHub】Open-source Claude Code skills for Nerd4Rent's daily developer workflow. （⭐ 0）",
+      "url": "https://github.com/nerd4rent/nerd4rent-claude-plugin",
+      "stars": 0,
       "tags": [
         "github",
         "opensource"
       ],
-      "title_zh": "Wolfgangrush/indian-rent-control-drafting",
-      "summary_zh": "【GitHub】开源Claude Code插件，用于在所有主要的州租金控制制度中起草印度租金控制/房东-租户诉讼诉状— 6-代理管道· 11个案例类型· 8个州示例（⭐ 1 ）",
-      "title_en": "Wolfgangrush/indian-rent-control-drafting",
-      "summary_en": "【GitHub】Open-source Claude Code plugin for drafting Indian rent-control / landlord-tenant litigation pleadings across all major State Rent Control regimes — 6-agent pipeline · 11 case-types · 8 state exemplar （⭐ 1）"
+      "title_zh": "nerd4rent/nerd4rent-claude-plugin",
+      "summary_zh": "【GitHub】适用于Nerd4Rent日常开发人员工作流程的开源Claude代码技能。（⭐ 0 ）",
+      "title_en": "nerd4rent/nerd4rent-claude-plugin",
+      "summary_en": "【GitHub】Open-source Claude Code skills for Nerd4Rent's daily developer workflow. （⭐ 0）"
     }
   ],
   "models": [
     {
-      "title": "Apple’s Siri revamp could include auto-deleting chats",
-      "summary": "Privacy will be a major theme when Apple unveils a new version of Siri.",
-      "url": "https://techcrunch.com/2026/05/17/apples-siri-revamp-could-include-auto-deleting-chats/",
+      "title": "SandboxAQ brings its drug discovery models to Claude — no PhD in computing required",
+      "summary": "Other venture-backed companies like Chai Discovery and Isomorphic Labs have raced to build better models. SandboxAQ is betting that access is the bigger obstacle and that Claude solves it. ",
+      "url": "https://techcrunch.com/2026/05/18/sandboxaq-brings-its-drug-discovery-models-to-claude-no-phd-in-computing-required/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "苹果的Siri改造可能包括自动删除聊天",
-      "summary_zh": "当苹果推出新版Siri时，隐私将是一个重要主题。",
-      "title_en": "Apple’s Siri revamp could include auto-deleting chats",
-      "summary_en": "Privacy will be a major theme when Apple unveils a new version of Siri."
+      "title_zh": "SandboxAQ将其药物发现模型带给Claude —无需计算机博士学位",
+      "summary_zh": "其他风险投资支持的公司，如Chai Discovery和Isomorphic Labs ，都在竞相构建更好的模型。SandboxAQ认为访问是更大的障碍， Claude可以解决这个问题。",
+      "title_en": "SandboxAQ brings its drug discovery models to Claude — no PhD in computing required",
+      "summary_en": "Other venture-backed companies like Chai Discovery and Isomorphic Labs have raced to build better models. SandboxAQ is betting that access is the bigger obstacle and that Claude solves it."
     },
     {
-      "title": "Why trust is a big question at the Elon Musk-OpenAI trial",
-      "summary": "A big theme in the trial’s final days was whether OpenAI CEO Sam Altman is trustworthy.",
-      "url": "https://techcrunch.com/2026/05/17/why-trust-is-a-big-question-at-the-elon-musk-openai-trial/",
+      "title": "Anthropic has acquired the dev tools startup used by OpenAI, Google, and Cloudflare",
+      "summary": "Stainless, a New York-based startup, founded in 2022, rose to prominence in the emerging AI industry for automating the creation and maintenance of software development kits, or SDKs — the libraries developers use to interact with APIs.",
+      "url": "https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "为什么在Elon Musk-OpenAI试验中信任是一个大问题",
-      "summary_zh": "试验最后几天的一个重要主题是OpenAI首席执行官Sam Altman是否值得信赖。",
-      "title_en": "Why trust is a big question at the Elon Musk-OpenAI trial",
-      "summary_en": "A big theme in the trial’s final days was whether OpenAI CEO Sam Altman is trustworthy."
+      "title_zh": "Anthropic已收购OpenAI、Google和Cloudflare使用的开发工具初创公司",
+      "summary_zh": "Stainless是一家总部位于纽约的初创公司，成立于2022年，在新兴的人工智能行业中崭露头角，用于自动化软件开发工具包（ SDK ）的创建和维护， SDK是开发人员用于与API交互的库。",
+      "title_en": "Anthropic has acquired the dev tools startup used by OpenAI, Google, and Cloudflare",
+      "summary_en": "Stainless, a New York-based startup, founded in 2022, rose to prominence in the emerging AI industry for automating the creation and maintenance of software development kits, or SDKs — the libraries developers use to interact with APIs."
     },
     {
-      "title": "If you’re giving a commencement speech in 2026, maybe don’t mention AI",
-      "summary": "It's tough to get graduating students excited about a future shaped by artificial intelligence.",
-      "url": "https://techcrunch.com/2026/05/17/if-youre-giving-a-commencement-speech-in-2026-maybe-dont-mention-ai/",
+      "title": "Elon Musk has lost his lawsuit against Sam Altman and OpenAI",
+      "summary": "Elon Musk's claim that he was mistreated by his OpenAI co-founders failed after nine California jurors decided in a unanimous verdict that his lawsuits had been filed too late.",
+      "url": "https://techcrunch.com/2026/05/18/elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "如果你在2026年发表毕业典礼演讲，也许不要提及人工智能",
-      "summary_zh": "让即将毕业的学生对人工智能塑造的未来感到兴奋是很困难的。",
-      "title_en": "If you’re giving a commencement speech in 2026, maybe don’t mention AI",
-      "summary_en": "It's tough to get graduating students excited about a future shaped by artificial intelligence."
+      "title_zh": "Elon Musk输掉了对Sam Altman和OpenAI的诉讼",
+      "summary_zh": "埃隆·马斯克（ Elon Musk ）声称他受到OpenAI联合创始人的虐待，但在九名加利福尼亚州陪审员一致裁定他的诉讼提得太晚后，这一说法失败了。",
+      "title_en": "Elon Musk has lost his lawsuit against Sam Altman and OpenAI",
+      "summary_en": "Elon Musk's claim that he was mistreated by his OpenAI co-founders failed after nine California jurors decided in a unanimous verdict that his lawsuits had been filed too late."
     },
     {
-      "title": "TechCrunch Mobility: The AI skills arms race is coming for automotive",
-      "summary": "Welcome back to TechCrunch Mobility — your central hub for news and insights on the future of transportation.",
-      "url": "https://techcrunch.com/2026/05/17/techcrunch-mobility-the-ai-skills-arms-race-is-coming-for-automotive/",
+      "title": "Amazon’s new Alexa+ powered feature can generate podcast episodes",
+      "summary": "Amazon’s Alexa+ can now generate custom AI podcasts on demand, as the company expands its assistant into a personalized AI content platform.",
+      "url": "https://techcrunch.com/2026/05/18/amazons-new-alexa-powered-feature-can-generate-podcast-episodes/",
       "tags": [
         "industry",
         "techcrunch"
       ],
-      "title_zh": "TechCrunch Mobility ：汽车领域的人工智能技能军备竞赛即将到来",
-      "summary_zh": "欢迎回到TechCrunch Mobility ，这是您获取有关未来交通的新闻和见解的中心枢纽。",
-      "title_en": "TechCrunch Mobility: The AI skills arms race is coming for automotive",
-      "summary_en": "Welcome back to TechCrunch Mobility — your central hub for news and insights on the future of transportation."
+      "title_zh": "亚马逊新的Alexa +支持功能可以生成播客节目",
+      "summary_zh": "亚马逊的Alexa +现在可以根据需要生成定制的AI播客，因为该公司将其助手扩展为个性化的AI内容平台。",
+      "title_en": "Amazon’s new Alexa+ powered feature can generate podcast episodes",
+      "summary_en": "Amazon’s Alexa+ can now generate custom AI podcasts on demand, as the company expands its assistant into a personalized AI content platform."
+    },
+    {
+      "title": "South Korea’s LetinAR is building optics behind AI glasses",
+      "summary": "A lens the size of a thumbnail — and the South Korean startup that makes it — could become the optical backbone of the AI glasses era.",
+      "url": "https://techcrunch.com/2026/05/18/south-koreas-letinar-is-building-the-optics-behind-ai-glasses/",
+      "tags": [
+        "industry",
+        "techcrunch"
+      ],
+      "title_zh": "韩国的LetinAR正在构建人工智能眼镜背后的光学器件",
+      "summary_zh": "一个缩略图大小的镜片--以及这家韩国初创公司--可能会成为人工智能眼镜时代的光学支柱。",
+      "title_en": "South Korea’s LetinAR is building optics behind AI glasses",
+      "summary_en": "A lens the size of a thumbnail — and the South Korean startup that makes it — could become the optical backbone of the AI glasses era."
     }
   ],
   "community": [
     {
-      "title": "Claude Code managed to get Adobe Lightroom working on Linux",
-      "summary": "【Lobsters】热度: 20↑ | 3 评论 | 标签: linux, vibecoding",
-      "url": "https://lobste.rs/s/l34yuj",
+      "title": "Haiku OS runs on M1 Macs now",
+      "summary": "【Lobsters】热度: 42↑ | 3 评论 | 标签: mac, unix",
+      "url": "https://lobste.rs/s/0wbazw",
       "tags": [
         "community",
         "lobsters",
         "tech"
       ],
-      "title_zh": "Claude Code设法让Adobe Lightroom在Linux上工作",
-      "summary_zh": "【Lobsters】热度: 20↑ | 3 评论 | 标签: linux, vibecoding",
-      "title_en": "Claude Code managed to get Adobe Lightroom working on Linux",
-      "summary_en": "【Lobsters】热度: 20↑ | 3 评论 | 标签: linux, vibecoding"
+      "title_zh": "Haiku OS现在可在M1 Mac上运行",
+      "summary_zh": "【Lobsters】热度: 42↑ | 3 评论 | 标签: mac, unix",
+      "title_en": "Haiku OS runs on M1 Macs now",
+      "summary_en": "【Lobsters】热度: 42↑ | 3 评论 | 标签: mac, unix"
     },
     {
-      "title": "Reverse engineering Android malware with Claude Code",
-      "summary": "【Lobsters】热度: 2↑ | 0 评论 | 标签: android, reversing, vibecoding",
-      "url": "https://lobste.rs/s/b5hrqb",
+      "title": "A 16-byte x86 demo: Matrix rain with sound",
+      "summary": "【Lobsters】热度: 34↑ | 3 评论 | 标签: graphics, performance, retrocomputing",
+      "url": "https://lobste.rs/s/akooh9",
       "tags": [
         "community",
         "lobsters",
         "tech"
       ],
-      "title_zh": "使用Claude Code对Android恶意软件进行反向工程",
-      "summary_zh": "【Lobsters】热度: 2↑ | 0 评论 | 标签: android, reversing, vibecoding",
-      "title_en": "Reverse engineering Android malware with Claude Code",
-      "summary_en": "【Lobsters】热度: 2↑ | 0 评论 | 标签: android, reversing, vibecoding"
+      "title_zh": "16字节x86演示：带声矩阵雨",
+      "summary_zh": "【Lobsters】热度: 34↑ | 3 评论 | 标签: graphics, performance, retrocomputing",
+      "title_en": "A 16-byte x86 demo: Matrix rain with sound",
+      "summary_en": "【Lobsters】热度: 34↑ | 3 评论 | 标签: graphics, performance, retrocomputing"
     },
     {
-      "title": "DeepSeek-V4-Flash means LLM steering is interesting again",
-      "summary": "【Lobsters】热度: 12↑ | 4 评论 | 标签: vibecoding",
-      "url": "https://lobste.rs/s/wycfiy",
+      "title": "cargo-crap: Finding Untested Complexity in AI-Generated Rust Code",
+      "summary": "【Lobsters】热度: 8↑ | 1 评论 | 标签: rust, vibecoding",
+      "url": "https://lobste.rs/s/saldxa",
       "tags": [
         "community",
         "lobsters",
         "tech"
       ],
-      "title_zh": "DeepSeek-V4-Flash意味着LLM转向再次很有趣",
-      "summary_zh": "【Lobsters】热度: 12↑ | 4 评论 | 标签: vibecoding",
-      "title_en": "DeepSeek-V4-Flash means LLM steering is interesting again",
-      "summary_en": "【Lobsters】热度: 12↑ | 4 评论 | 标签: vibecoding"
+      "title_zh": "cargo-crap ：在AI生成的Rust代码中查找未经测试的复杂性",
+      "summary_zh": "【Lobsters】热度: 8↑ | 1 评论 | 标签: rust, vibecoding",
+      "title_en": "cargo-crap: Finding Untested Complexity in AI-Generated Rust Code",
+      "summary_en": "【Lobsters】热度: 8↑ | 1 评论 | 标签: rust, vibecoding"
     },
     {
-      "title": "Gemma-4-Gembrain-31B-it-uncensored-heretic Is Out Now, a Merge of Multiple Gemma 4 31B it Finetunes Designed to Boost Logical and Lateral Thinking for Improved Adherence, Increased Swipe Variety and Enhanced Creative Prose, With KLD of 0.0186 and 13/100 Refusals!",
-      "summary": "【r/LocalLLaMA】热度: 17↑ | 6 评论 | Provided in both Safetensors and GGUFs.\n\nSafetensors: llmfan46/Gemma-4-Gembrain-31B-it-uncensored-he",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tg7s7j/gemma4gembrain31bituncensoredheretic_is_out_now_a/",
+      "title": "Qwen cant wait to release 3.7 models",
+      "summary": "【r/LocalLLaMA】热度: 841↑ | 186 评论 | ",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tgrpqc/qwen_cant_wait_to_release_37_models/",
       "tags": [
         "community",
         "reddit",
         "localllama"
       ],
-      "title_zh": "Gemma-4-Gembrain-31B-it-uncensored-heretic现已推出，融合了多个Gemma 4 31B IT Finetunes ，旨在提高逻辑和横向思维，以提高依从性，增加滑动品种和增强创意散文， KLD为0.0186和13/100拒绝！",
-      "summary_zh": "【r/LocalLLaMA】热度: 17↑ | 6 评论 | Provided in both Safetensors and GGUFs.\n\nSafetensors: llmfan46/Gemma-4-Gembrain-31B-it-uncensored-he",
-      "title_en": "Gemma-4-Gembrain-31B-it-uncensored-heretic Is Out Now, a Merge of Multiple Gemma 4 31B it Finetunes Designed to Boost Logical and Lateral Thinking for Improved Adherence, Increased Swipe Variety and Enhanced Creative Prose, With KLD of 0.0186 and 13/100 Refusals!",
-      "summary_en": "【r/LocalLLaMA】热度: 17↑ | 6 评论 | Provided in both Safetensors and GGUFs.\n\nSafetensors: llmfan46/Gemma-4-Gembrain-31B-it-uncensored-he"
+      "title_zh": "Qwen迫不及待想发布3.7版本",
+      "summary_zh": "【r/LocalLLaMA】热度: 841↑ | 186 评论 |",
+      "title_en": "Qwen cant wait to release 3.7 models",
+      "summary_en": "【r/LocalLLaMA】热度: 841↑ | 186 评论 |"
     },
     {
-      "title": "85 GPU-hours comparing 5 abliteration methods on Qwen3.6-27B: benchmarks, safety, weight forensics - Abliterlitics",
-      "summary": "【r/LocalLLaMA】热度: 218↑ | 55 评论 | I've been building [Abliterlitics](https://github.com/dreamfast/abliterlitics), an open-source ablit",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tfmocw/85_gpuhours_comparing_5_abliteration_methods_on/",
+      "title": "I tested 42 LLMs on their willingness to build the apocalypse. The \"safest\" closed-source models are lying to you.",
+      "summary": "【r/LocalLLaMA】热度: 222↑ | 108 评论 | DystopiaBench runs 36 escalating scenarios across 6 dystopia types:\n\n* Petrov: Autonomous weapons, n",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tgm0k9/i_tested_42_llms_on_their_willingness_to_build/",
       "tags": [
         "community",
         "reddit",
         "localllama"
       ],
-      "title_zh": "85个GPU小时比较Qwen3.6-27B上的5种烧蚀方法：基准、安全性、重量取证- Abliterlitics",
-      "summary_zh": "【r/LocalLLaMA】热度: 218↑ | 55 评论 | I've been building [Abliterlitics](https://github.com/dreamfast/abliterlitics), an open-source ablit",
-      "title_en": "85 GPU-hours comparing 5 abliteration methods on Qwen3.6-27B: benchmarks, safety, weight forensics - Abliterlitics",
-      "summary_en": "【r/LocalLLaMA】热度: 218↑ | 55 评论 | I've been building [Abliterlitics](https://github.com/dreamfast/abliterlitics), an open-source ablit"
+      "title_zh": "我测试了42名LLM是否愿意构建启示录。“最安全”的闭源模型在骗你。",
+      "summary_zh": "【r/LocalLLaMA】热度: 222↑ | 108 评论 | DystopiaBench runs 36 escalating scenarios across 6 dystopia types:\n\n* Petrov: Autonomous weapons, n",
+      "title_en": "I tested 42 LLMs on their willingness to build the apocalypse. The \"safest\" closed-source models are lying to you.",
+      "summary_en": "【r/LocalLLaMA】热度: 222↑ | 108 评论 | DystopiaBench runs 36 escalating scenarios across 6 dystopia types:\n\n* Petrov: Autonomous weapons, n"
     },
     {
-      "title": "The power of structured workflows and small local models",
-      "summary": "【r/LocalLLaMA】热度: 73↑ | 23 评论 | A month ago, I experimented with a very basic home-rolled agent loop with a handful of tools and fou",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tftaaa/the_power_of_structured_workflows_and_small_local/",
+      "title": "21 GPU's benchmarked running a small TTS model (vram peak: 5GB)",
+      "summary": "【r/LocalLLaMA】热度: 43↑ | 15 评论 | I rented different GPUs on vast.ai for a few minutes each to benchmark a small TTS model, OmniVoice,",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1th2f5w/21_gpus_benchmarked_running_a_small_tts_model/",
       "tags": [
         "community",
         "reddit",
         "localllama"
       ],
-      "title_zh": "结构化工作流程和小型本地模型的强大功能",
-      "summary_zh": "【r/LocalLLaMA】热度: 73↑ | 23 评论 | A month ago, I experimented with a very basic home-rolled agent loop with a handful of tools and fou",
-      "title_en": "The power of structured workflows and small local models",
-      "summary_en": "【r/LocalLLaMA】热度: 73↑ | 23 评论 | A month ago, I experimented with a very basic home-rolled agent loop with a handful of tools and fou"
+      "title_zh": "21 GPU的基准运行小型TTS模型（ vram峰值： 5GB ）",
+      "summary_zh": "【r/LocalLLaMA】热度: 43↑ | 15 评论 | I rented different GPUs on vast.ai for a few minutes each to benchmark a small TTS model, OmniVoice,",
+      "title_en": "21 GPU's benchmarked running a small TTS model (vram peak: 5GB)",
+      "summary_en": "【r/LocalLLaMA】热度: 43↑ | 15 评论 | I rented different GPUs on vast.ai for a few minutes each to benchmark a small TTS model, OmniVoice,"
     },
     {
-      "title": "Show HN: Semble – Code search for agents that uses 98% fewer tokens than grep",
-      "summary": "【HN】热度: 198 分 | 50 评论",
-      "url": "https://github.com/MinishLab/semble",
+      "title": "We let AIs run radio stations",
+      "summary": "【HN】热度: 168 分 | 161 评论",
+      "url": "https://andonlabs.com/blog/andon-fm",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "显示HN ： Semble –使用比grep少98%的代币的代理代码搜索",
-      "summary_zh": "【HN】热度: 198 分 | 50 评论",
-      "title_en": "Show HN: Semble – Code search for agents that uses 98% fewer tokens than grep",
-      "summary_en": "【HN】热度: 198 分 | 50 评论"
+      "title_zh": "我们让人工智能运营广播电台",
+      "summary_zh": "【HN】热度: 168 分 | 161 评论",
+      "title_en": "We let AIs run radio stations",
+      "summary_en": "【HN】热度: 168 分 | 161 评论"
     },
     {
-      "title": "Two EA-18 fighter jets collide at Mountain Home airshow, pilots ejected safely",
-      "summary": "【HN】热度: 126 分 | 104 评论",
-      "url": "https://idahonews.com/news/local/two-f-18-fighter-jets-have-crashed-during-an-airshow-at-mountain-home-air-force-base",
+      "title": "We stopped AI bot spam in our GitHub repo using Git's –author flag",
+      "summary": "【HN】热度: 412 分 | 189 评论",
+      "url": "https://archestra.ai/blog/only-responsible-ai",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "两架EA-18战斗机在Mountain Home航展上相撞，飞行员安全弹射",
-      "summary_zh": "【HN】热度: 126 分 | 104 评论",
-      "title_en": "Two EA-18 fighter jets collide at Mountain Home airshow, pilots ejected safely",
-      "summary_en": "【HN】热度: 126 分 | 104 评论"
+      "title_zh": "我们使用Git的–author标记阻止了GitHub存储库中的AI机器人垃圾邮件",
+      "summary_zh": "【HN】热度: 412 分 | 189 评论",
+      "title_en": "We stopped AI bot spam in our GitHub repo using Git's –author flag",
+      "summary_en": "【HN】热度: 412 分 | 189 评论"
     },
     {
-      "title": "Most Americans don't trust AI – or the people in charge of it",
-      "summary": "【HN】热度: 25 分 | 5 评论",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/644853/pew-gallup-data-americans-dont-trust-ai",
+      "title": "Anthropic acquires Stainless",
+      "summary": "【HN】热度: 360 分 | 254 评论",
+      "url": "https://www.anthropic.com/news/anthropic-acquires-stainless",
       "tags": [
         "community",
         "discussion"
       ],
-      "title_zh": "大多数美国人不信任人工智能–或负责它的人",
-      "summary_zh": "【HN】热度: 25 分 | 5 评论",
-      "title_en": "Most Americans don't trust AI – or the people in charge of it",
-      "summary_en": "【HN】热度: 25 分 | 5 评论"
+      "title_zh": "Anthropic收购Stainless",
+      "summary_zh": "【HN】热度: 360 分 | 254 评论",
+      "title_en": "Anthropic acquires Stainless",
+      "summary_en": "【HN】热度: 360 分 | 254 评论"
     }
   ]
 }
